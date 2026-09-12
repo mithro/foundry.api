@@ -99,20 +99,22 @@ What they force into the model: linear step lists with macros; coupling windows 
 | **Account** | Anyone who can own assets, hold credits and bid: users (by API key) and the foundry itself. |
 | **Machine** | A physical tool. Has capabilities, programs, limits, consumables, a foundry bid, state. |
 | **Capability** | Typed thing a machine can do (`deposit.pvd.evaporation`). Steps request capabilities. |
-| **Program** | A named, locked configuration on a machine (`furnace-A/bake_10h`). Steps may run "free" params within a capability's limits, or a program with fixed params. |
+| **Program** | A named, locked configuration on a machine (`furnace-A/bake_10h`) with an authoritative time model (setup, process, cleanup), a bundled rate per machine-hour and declared wafer-state effects. Steps may run "free" params within a capability's limits, or a program with fixed params. |
 | **Consumable** | Something drawn per run: gas, chemical, resist, target, substrate wafer, mask blank, chamber hours. Charged in one of three modes (§11). |
 | **Asset (physical)** | Wafer, lot, mask, carrier. Has owner, location, storage class, charges. |
 | **Asset (run output)** | File produced by a run: image, table, log, telemetry, report. Public. |
 | **Design** | Uploaded GDSII/OASIS + layer inventory. Public. |
 | **Step** | Atomic recipe element: process, metrology, analysis, logistics or manual. |
-| **Recipe / Template** | Ordered steps + layer map + wafer spec + asset requirements. Immutable once published. |
-| **Order → Lot → Order-step** | An order produces a lot (wafers); each recipe step becomes an order-step, the unit that is bid on and scheduled. |
-| **Bid** | `max_price_per_wafer` an account will pay for an order-step to run next. |
-| **Foundry bid** | A per-machine standing bid by the foundry: positive = reserve, negative = subsidy. |
-| **Auction / Slot / Run** | Per-machine ordering of eligible order-steps → the next execution → the execution with telemetry and outputs. |
+| **Machine time** | The commodity every auction sells, in hours: `setup(previous program → program) + process(program, lot) + cleanup(program)`. Computed from the program, never estimated. |
+| **Recipe / Template** | Steps (a DAG via `depends_on`, usually near-linear) + layer map + wafer spec + asset requirements. Immutable once published. |
+| **Order → Lot → Order-step** | An order produces one lot (wafers); each recipe step becomes an order-step. One execution of an order-step on a machine is a *run*, the unit that is bid on and scheduled. |
+| **Bid** | `max_credits` an account will pay in total for one run of an order-step. Auctions compare bids as an implied rate, `max_credits / machine_time(run)`, so a bidder whose program matches the machine's current program (no setup) gets more rate for the same money. |
+| **Foundry bid** | The foundry's standing bid for a machine's own idle time, expressed as an adjustment to the program's bundled rate: `F = rate_credits_per_hour + adjustment`. Positive adjustment = reserve, negative = subsidy (F may go below zero), zero = break-even. Optionally overridden per program. |
+| **Auction / Slot / Run** | Per-machine ranking of candidate runs → the next run, locked `clear_ahead_s` before the machine frees → the execution with telemetry and outputs. **A run belongs to exactly one account**; runs are never shared between accounts. |
+| **Slot future** | A contract bought in advance: the right to have one named run start on a machine inside a time window at a fixed strike price, pre-empting the auction. Sold by the foundry; price-cap variants by external providers (§10.6). |
 | **Halt** | A condition evaluated on run outputs; if true, the order goes to `held`. |
 | **Ledger** | Append-only account entries: bids cleared, consumables, storage, shipping, insurance, claims, subsidies. |
-| **Contamination class** | Ordered label on wafers and machines: `clean < poly < metal_std < gold`. |
+| **Contamination class** | Ordered label on wafers and machines. Demo ordering: `clean < organic < metal_std < gold` (`organic` = resist/polyimide present). The ordering is a foundry-level ruleset constant, not a fixed enum. |
 
 ---
 
@@ -156,7 +158,7 @@ name: "Furnace tube A (wet/dry oxidation)"
 kind: thermal.furnace
 wafer_sizes_mm: [150]
 contamination_class: clean
-batch: {size: 25, carrier: quartz_boat_25, min_fill: 5, max_wait_s: 14400}
+batch: {fill: min, size: 25, min_fill: 5, carrier: quartz_boat_25}   # fill: single | any | min | exact (§10.2)
 capabilities:
   - id: thermal.oxidation
     mode: programs_only              # free | programs_only | both
@@ -166,26 +168,43 @@ programs:                            # locked configurations; a step references 
   - id: dry_ox_900_20nm
     capability: thermal.oxidation
     params: {temp_c: 900, ambient: dry_O2, time_min: 45, ramp_c_per_min: 10}   # constants
-    duration_s: 10800                # includes push/pull/ramp — authoritative, not estimated
-    rate_credits_per_run: 400        # bundled machine time + bundled consumables (O2, N2, quartz wear)
+    time:                            # machine-time model — authoritative, not estimated (§10.2)
+      setup_s: 1800                  # default when the previous program has no setup_matrix entry
+      process_s: 9000                # per run (batch tools); per wafer when batch.fill == single
+      cleanup_s: 0
+    rate_credits_per_hour: 130       # bundled: machine time + bundled consumables (O2, N2, quartz wear); the foundry's cost basis
     metered_consumables: []          # none pass-through for this program
+    effects:                         # wafer-state transitions applied by the wafer-state engine (§8)
+      stack_push: {material: SiO2, thickness_nm: 20}
   - id: bake_10h
     capability: thermal.anneal.furnace
     params: {temp_c: 1000, ambient: N2, time_min: 600}
-    duration_s: 43200
-    rate_credits_per_run: 1800
+    time: {setup_s: 3600, process_s: 39600, cleanup_s: 0}
+    rate_credits_per_hour: 150
+    effects: {anneal: true}
 limits:                              # machine-protection hard limits (still enforced even for programs)
   max_temp_c: 1150
   forbidden_wafer_materials: [Au, Cu, Al, photoresist, polyimide]
-foundry_bid:                         # the foundry's standing bid in this machine's auction
+  gas_combinations:                  # per machine, not global: this tube has a pyrogenic torch and may burn H2 in O2
+    allowed: [[H2, O2]]
+    forbidden: [[SiH4, O2]]
+foundry_bid:                         # the foundry's standing bid for this machine's idle time (§10.3)
   mode: subsidy                      # reserve | subsidy | none
-  credits_per_wafer: -6.0            # negative: it costs ~150 cr/h to keep the tube hot idle; better to run at a loss
-  note: "Tube must stay at temperature; cooling/reheating costs ~12 h of qualification"
-setup_matrix: {dry_ox_900_20nm→bake_10h: 1800, bake_10h→dry_ox_900_20nm: 3600}
-state: {status: running, run_id: run_…, program: dry_ox_900_20nm, since: …}
+  adjustment_credits_per_hour: -150  # F = program rate + adjustment → dry_ox clears down to −20 cr/h
+  applies_when: no_competing_bid     # always | no_competing_bid — a subsidy only when the tube would otherwise idle
+  budget_credits_per_day: 2000       # cap on subsidy paid out per day; exhausted → mode behaves as none
+  per_program: {bake_10h: {adjustment_credits_per_hour: 0}}   # optional override
+  note: "Tube must stay at temperature; cooling + requalification costs ~12 h — worth more than a run's consumables"
+setup_matrix:                        # setup_s by previous program; same program → 0 (no entry needed)
+  dry_ox_900_20nm→bake_10h: 1800
+  bake_10h→dry_ox_900_20nm: 3600
+clear_ahead_s: 1800                  # the next run is locked this long before the machine frees (§10.4)
+state: {status: running, run_id: run_…, program: dry_ox_900_20nm, since: …, free_at: …}
 ```
 
-Machines whose capability `mode: free` expose a params JSON Schema with limits; `both` lets a step either pick a program or supply params within limits. **Programs are the normal case**: a fixed catalogue of qualified configurations is what lets the foundry serve thousands of customers with no per-customer engineering (§1). Free params are the exception, for tools like RIE where users legitimately tune within a safe envelope.
+Machines whose capability `mode: free` expose a params JSON Schema with limits and a time model as a function of params (implemented in code per capability, like consumable draw functions, §11.1); `both` lets a step either pick a program or supply params within limits. **Programs are the normal case**: a fixed catalogue of qualified configurations is what lets the foundry serve thousands of customers with no per-customer engineering (§1). Free params are the exception, for tools like RIE where users legitimately tune within a safe envelope.
+
+**Batch `fill` modes.** `single`: one wafer at a time, `process_s` is per wafer. `any`: 1…`size` wafers per run. `min`: `min_fill`…`size`. `exact`: exactly `size` (a CMP tool whose heads must all be loaded); a lot smaller than `size` is topped up with foundry dummy wafers charged as the metered consumable `dummy_wafer_<diameter>`, or rejected at validation if the machine declares no `dummy_fill`. Whatever the mode, a run holds one account's lot (or several of its lots on the same program); the account pays for the whole run.
 
 ### 5.2 Step (in a recipe) — process, with pinning and coupling
 
@@ -198,7 +217,7 @@ Machines whose capability `mode: free` expose a params JSON Schema with limits; 
   depends_on: SMAT
   max_queue_time_from_prev_s: 172800  # coupling window; on breach → order held (§10.6)
   outputs: []                         # expected run assets (declared by the program/type; may add more)
-  default_bid_credits_per_wafer: 8
+  default_bid_credits: 300            # max_credits for one run of this step, total incl. setup (§10.2); orders may override
 ```
 
 ### 5.3 Step — metrology, analysis, halt
@@ -568,11 +587,11 @@ Furnace A idle, `F = −6`, program `dry_ox_900_20nm`, min_fill 5, 14 wafers eli
 
 | Mode | Where the cost lives | Example | Charged how |
 |---|---|---|---|
-| **bundled** | inside a program's `rate_credits_per_run` (or a free-mode capability's `rate_credits_per_hour`) | furnace O2/N2, quartz wear, RIE SF6 at nominal flow, electricity, chamber hours | Part of the foundry's floor; no separate line item. The foundry sets the rate from historical draw. |
+| **bundled** | inside a program's (or free-mode capability's) `rate_credits_per_hour` | furnace O2/N2, quartz wear, RIE SF6 at nominal flow, electricity, chamber hours | Part of the foundry's floor; no separate line item. The foundry sets the rate from historical draw. |
 | **metered** | pass-through at actual draw × unit cost | evaporated Au/Pt (grams, wafer-dependent), mask blanks, substrate wafers, custom targets | Separate ledger line at run end (`consumable.metered`); *estimated* at validation for the projection. |
 | **consignment** | customer-owned stock held at the foundry | customer's own 4-inch SOI wafers, their proprietary resist, their sputter target | No unit charge; stock decremented from `CONSIGNMENT_STOCK(account, consumable)`; storage charged by class; step validation fails at order time if stock is insufficient (`MP-100`). |
 
-Each consumable in a machine's rate table declares `mode` and, for metered ones, a *draw function* (`draw = f(program|params, wafer_count)`) implemented per capability in code and unit-tested — no expression language needed. A program's bundled rate is what makes `foundry_bid.mode: none` well-defined: `F = bundled_cost_per_wafer`.
+Each consumable in a machine's rate table declares `mode` and, for metered ones, a *draw function* (`draw = f(program|params, wafer_count)`) implemented per capability in code and unit-tested — no expression language needed. A program's bundled rate is what makes `foundry_bid.mode: none` well-defined: `F = rate_credits_per_hour`, the foundry's break-even rate for that program.
 
 *Open exploration (§18 Q3):* whether consignment stock should also be biddable/sellable between accounts, and whether bundled rates should be re-derived automatically from metered history.
 
@@ -594,7 +613,7 @@ Storage accrues per asset per hour (billed daily to the ledger as `storage.wafer
 
 ### 11.3 Utilisation and market data
 
-Hourly buckets of `running/setup/idle/offline_by_bid/maintenance/down`, wafers, runs, credits cleared (may be negative), per machine and per capability; plus per-program clearing price percentiles ("market rate"). Derived from events, rebuildable.
+Hourly buckets of `running/setup/idle/offline_by_bid/maintenance/down`, wafers, runs, credits cleared (may be negative), per machine and per capability; plus per-program clearing *rate* percentiles in credits per machine-hour ("market rate") and the foundry's current future offer price. Derived from events, rebuildable.
 
 ---
 
