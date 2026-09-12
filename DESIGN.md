@@ -865,111 +865,113 @@ An adapter that stops heart-beating is treated as `down`. The adapter never sees
 
 ## 17. Read-only GUI
 
-Static single-page app, `GET` + SSE only; no login, no API key, nothing that writes. Every page links to the JSON that produced it. Live updates via the event stream. Money is always shown with its basis ("9.0 bid · paid 3.0 · foundry bid −6.0").
+Static single-page app, `GET` + SSE only; no login, no API key, nothing that writes. Every page links to the JSON that produced it. Live updates via the event stream. Money is always shown with its basis ("bid 300 · paid 200 = 57.1/h × 3.5 h · floor −20/h · runner-up 77.1"). Dates are ISO 8601 everywhere.
 
-Site map: `/` overview · `/machines/:id` · `/auctions` · `/orders` · `/orders/:id` · `/holds` · `/recipes` · `/recipes/:id@v` · `/designs/:id` · `/runs/:id` · `/assets/:id` · `/storage` · `/accounts/:id` · `/vendors` · `/insurance` · `/rules` · `/reports/:id` · `/events`.
+Site map: `/` overview · `/machines/:id` · `/auctions` · `/futures` · `/orders` · `/orders/:id` · `/holds` · `/recipes` · `/recipes/:id@v` · `/designs/:id` · `/runs/:id` · `/assets/:id` · `/storage` · `/shipments` · `/consumables` · `/utilisation` · `/accounts/:id` · `/vendors` · `/providers` · `/rules` · `/reports/:id` · `/events`.
 
-**Foundry overview `/`** — the foundry bid and unfunded/held counts are first-class:
-
-```
-┌───────────────────────────────────────────────────────────────────────────────────────────────┐
-│ foundry.api · Demo Foundry               clock 2026-09-12 14:02 UTC (sim ×60)   ● live  {json} │
-│ [Overview] [Auctions] [Orders] [Holds] [Recipes] [Designs] [Storage] [Accounts] [Rules] [Events]│
-├───────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Machines 15: running 8 · setup 1 · idle 2 · offline-by-bid 2 · maint 1 · down 1               │
-│ Orders: in_progress 19 · held 4 · awaiting_assets 6 · unfunded steps 7   Wafers in fab 88     │
-│ Cleared 24h: +1,842 cr (subsidies paid −96 cr)   Storage billed 24h: 41 cr   Claims 24h: 1    │
-├──────────────────────────────┬──────────────────────────────────┬──────────────┬───────────────┤
-│ MACHINE            STATE     │ NOW                              │ FOUNDRY BID  │ TOP BID       │
-├──────────────────────────────┼──────────────────────────────────┼──────────────┼───────────────┤
-│ ● Evaporator #1    running   │ ord_C s04 6w ▓▓▓▓▓░░░ 62% →15:30 │ none (18.5)  │ ord_B 30.0    │
-│ ● Furnace tube A   running   │ dry_ox 14w batch ▓▓▓░░░░ →17:00  │ −6.0 subsidy │ ord_M 9.0     │
-│ ◌ RIE #1        offline-by-bid│ –  (reserve 40 > top bid 14.2)  │ +40 reserve  │ ord_A 14.2    │
-│ ◌ DRIE          offline-by-bid│ –  (maint. 18:00; reserve 999)  │ +999 reserve │ ord_T 40.0    │
-│ ● Contact aligner  running   │ ord_A s03 4w ▓░░░░░░░ 10% →14:35 │ none (9.5)   │ ord_N 11.0    │
-│ ○ Spin coater #2   idle      │ –  (top bid 6.5 < floor 7.2)     │ none (7.2)   │ ord_Q 6.5 ⚠   │
-│ ● Operator         running   │ ord_H IN_INSPECT 25w →14:20      │ none (45/h)  │ ord_V 12.0    │
-│ …                            │                                  │              │               │
-├──────────────────────────────┴──────────────────────────────────┴──────────────┴───────────────┤
-│ HELD (4)  ord_H coupling_breach 2d · ord_J analysis BOX_check 6h · ord_L unfunded 1d · ord_W …│
-│ RECENT  14:02 auction.cleared Furnace A batch 14w @ 3.0 (outside 3.0, F −6.0)                  │
-│         14:01 hold.opened ord_J BOX_check thk_mean 22.1 nm > 21.5                              │
-│         13:59 ledger  acct_9f3e  storage.wafer −2.40  (4 wafers · n2_cabinet · 1 day)           │
-└───────────────────────────────────────────────────────────────────────────────────────────────┘
-```
-
-**Machine detail `/machines/mach_furnace-A`** — programs and batch formation visible:
+**Foundry overview `/`** — the foundry floor, unfunded/held counts and open futures are first-class:
 
 ```
-┌───────────────────────────────────────────────────────────────────────────────────────────────┐
-│ ← Machines   Furnace tube A   thermal.furnace   class clean   batch 25 (min 5)   ● running     │
-├───────────────────────────────────────────────────────────────────────────────────────────────┤
-│ PROGRAMS (programs_only)                                                                        │
-│  dry_ox_900_20nm   900 °C dry O2 45 min   3.0 h/run   bundled 400 cr/run (16.0/w @25)   market p50 5.5/w │
-│  bake_10h          1000 °C N2 600 min    12.0 h/run   bundled 1800 cr/run (72/w @25)   market p50 61/w  │
-│ FOUNDRY BID  subsidy −6.0 cr/w  "tube must stay hot; cool-down + requal ≈ 12 h"  set 09-10 by foundry │
-│ LIMITS  ≤1150 °C · forbidden on wafer: Au Cu Al resist polyimide · 150 mm only                 │
-├──────────────────────────────────────┬────────────────────────────────────────────────────────┤
-│ NOW  run_01J8…  dry_ox_900_20nm      │ NEXT SLOT — batch forming for dry_ox_900_20nm           │
-│ batch 14w: ord_G 6, ord_H 5, ord_J 3 │ #  order  step  w   bid    funded  same prog            │
-│ started 14:02 → 17:00                │ 1  ord_M  BOX   8   9.0    ✓       ✓  ┐                 │
-│ price 3.0/w (outside bid 3.0)        │ 2  ord_P  BOX   6   4.0    ✓       ✓  │ batch 19w        │
-│ tube 900.2 °C  O2 4.0 slm            │ 3  ord_R  BOX   5   1.0    ✓       ✓  ┘ price ≈ max(−6, 0.5)=0.5 │
-│ telemetry ▸  assets ▸                │ 4  ord_S  RTA…  2   0.5    ✓       ✗ (bake_10h)          │
-│                                      │ –  ord_U  BOX   4   12.0   ✗ unfunded (prepaid 30 cr)    │
-│                                      │ waits until 16:00 for min_fill? no — 19 ≥ 5, runs at idle │
-├──────────────────────────────────────┴────────────────────────────────────────────────────────┤
-│ UTILISATION 7d  running 82% · setup 4% · idle 3% · offline-by-bid 0% · maint 11%               │
-│ Cleared 7d +2,110 cr · subsidies paid −312 cr · wafers 611 · runs 26 · faults 1 (claim paid)   │
-└───────────────────────────────────────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ foundry.api · Demo Foundry               clock 2026-09-12 14:02 UTC (sim ×60)       ● live  {json} │
+│ [Overview] [Auctions] [Orders] [Holds] [Recipes] [Designs] [Storage] [Futures] [Accounts] [Events] │
+├────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Machines 15: running 8 · setup 1 · idle 2 · offline-by-bid 2 · maint 1 · down 1                    │
+│ Orders: in_progress 25 · held 4 · unfunded steps 7 · futures open 3              Wafers in fab 88  │
+│ Cleared 24h: +18,420 cr (subsidies paid −960 cr)   Storage billed 24h: 41 cr   Claims 24h: 1       │
+├───────────────────────────────┬───────────────────────────────────────┬───────────────┬────────────┤
+│ MACHINE            STATE      │ NOW                                   │ FLOOR cr/h    │ TOP cr/h   │
+├───────────────────────────────┼───────────────────────────────────────┼───────────────┼────────────┤
+│ ● Evaporator #1    running    │ ord_C s04 6w ▓▓▓▓▓░░░ 62% →15:30      │ 185 none      │ ord_B 300  │
+│ ● Furnace tube A   running    │ ord_M BOX 8w ▓▓▓░░░░░ 20% →17:32      │ −20 subsidy   │ ord_P 80   │
+│ ◌ RIE #1        offline-by-bid│ –  (reserve 400 > top 142)            │ +400 reserve  │ ord_A 142  │
+│ ◌ DRIE          offline-by-bid│ –  (maint 18:00; reserve 9999)        │ +9999 reserve │ ord_T 400  │
+│ ● Contact aligner  running    │ ord_A s03 4w ▓░░░░░░░ 10% →14:35      │ 95 none       │ ord_N 110  │
+│ ○ Spin coater #2   idle       │ –  (top 65 < floor 72; mode none)     │ 72 none       │ ord_Q 65 ⚠ │
+│ ● LPCVD B          running    │ ord_K ISONIT 25w →19:10; next: future │ 160 none      │ fut_… 380  │
+│ ● Operator         running    │ ord_H IN_INSPECT 25w →14:20           │ 45 none       │ ord_V 120  │
+│ …                             │                                       │               │            │
+├───────────────────────────────┴───────────────────────────────────────┴───────────────┴────────────┤
+│ HELD (4)  ord_H coupling_breach 2d · ord_J analysis BOX_check 6h · ord_L unfunded 1d · ord_W …     │
+│ RECENT  14:02 auction.cleared Furnace A ord_M dry_ox 3.5 h @ 57.1/h = 200 cr (floor −20, ru 77.1)  │
+│         14:01 hold.opened ord_J BOX_check thk_mean 22.1 nm > 21.5                                  │
+│         13:59 ledger  acct_9f3e  storage.wafer −2.40  (4 wafers · n2_cabinet · 1 day)              │
+└────────────────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Machine detail `/machines/mach_furnace-A`** — time models, floors and the next clearing visible:
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ ← Machines   Furnace tube A   thermal.furnace   class clean   batch min 5–25 (one lot per run)     │
+├────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ PROGRAMS (programs_only)      setup / process / cleanup          rate     floor    market p50      │
+│  dry_ox_900_20nm  900 °C dry O2   0.5 h (1.0 after bake) / 2.5 h / 0   130/h   −20/h    58/h       │
+│  bake_10h         1000 °C N2      1.0 h (0.5 after dry_ox) / 11 h / 0  150/h   150/h   161/h       │
+│ FOUNDRY BID  subsidy −150/h on dry_ox (only with no competing bid; budget 2,000/day, 1,130 left)   │
+│              "tube must stay hot; cool-down + requal ≈ 12 h"        set 2026-09-10 by foundry      │
+│ LIMITS  ≤1150 °C · forbidden on wafer: Au Cu Al resist polyimide · 150 mm only · gases: H2+O2 ok   │
+├──────────────────────────────────────────┬─────────────────────────────────────────────────────────┤
+│ NOW  run_01J8…  dry_ox_900_20nm          │ NEXT RUN — clears at 17:02 (free 17:32 − 30 min)        │
+│ ord_M BOX 8w · acct_9f3e                 │ #  order  step    w  max cr  hours  rate  floor  surplus│
+│ started 14:02 → 17:32 (1.0 + 2.5 h)      │ 1  ord_P  BOX     6   200    2.5   80.0   −20   100.0   │
+│ paid 200 cr = 57.1/h × 3.5 h             │ 2  ord_R  BOX     5   120    2.5   48.0   −20    68.0   │
+│ (bid 300 · floor −20 · runner-up 77.1)   │ 3  ord_S  ANNEAL  2   600   11.5   52.2   150   −97.8 ✗ │
+│ tube 900.2 °C  O2 4.0 slm                │ –  ord_U  BOX     4   900    2.5  360.0   −20  unfunded │
+│ telemetry ▸  assets ▸                    │ price if cleared now: (−20 + 68.0) × 2.5 h = 120 cr     │
+│                                          │ FUTURES  none open · quote BOX 8w: strike 380, prem 45  │
+├──────────────────────────────────────────┴─────────────────────────────────────────────────────────┤
+│ UTILISATION 7d  running 82% · setup 4% · idle 3% · offline-by-bid 0% · maint 11%                   │
+│ Cleared 7d +21,100 cr · subsidies paid −3,120 cr · wafers 611 · runs 26 · faults 1 (claim paid)    │
+└────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 **Order detail `/orders/ord_J` (held)**:
 
 ```
-┌───────────────────────────────────────────────────────────────────────────────────────────────┐
-│ ← Orders  ord_01J8J  "sky130-fe test lot"  owner acct_9f3e (prepaid, bal 412 cr)   ⏸ HELD      │
-│ recipe sky130-fe@2 · design des_… · lot lot_… 6 wafers (foundry_supplied) · masks: direct-write │
-│ insurance: prov_foundry, machine_fault, steps all, premium 18 cr                                │
-├───────────────────────────────────────────────────────────────────────────────────────────────┤
-│ HOLD hold_01J8…  opened 14:01  reason analysis_fail  step BOX_check                            │
-│   thk_mean = 22.1 nm  (limit 18.5–21.5)   report ▸   wafer map ▸                                │
-│   storage accruing: 6w × n2_cabinet 0.60/day = 3.60 cr/day   auto-abort in 13d 22h              │
-│   owner options via API: continue · rework_to_step (BOX, SMAT) · abort          {json}          │
-├────┬───────────────────┬──────────┬──────────────┬─────────────────────────────┬───────────────┤
-│ #  │ step              │ status   │ bid / paid   │ machine · time              │ assets        │
-├────┼───────────────────┼──────────┼──────────────┼─────────────────────────────┼───────────────┤
-│ 1  │ SMAT (manual)     │ done     │ 5 / 5        │ Operator · 09-11 20:10 (10m)│ note          │
-│ 2  │ BOX (dry_ox)      │ done     │ 9 / 3.0      │ Furnace A · 09-11 22:00 3h  │ telemetry, log│
-│ 3  │ BOX_thk           │ done     │ 4 / 2.5      │ Ellipsometer · 09-12 13:40  │ thickness_map ▸ wafer map ▸│
-│ 4  │ BOX_check         │ FAILED   │ –            │ analysis · 14:01            │ report ▸      │
-│ 5  │ ISONIT (lpcvd)    │ blocked  │ 12           │ LPCVD B · est –             │               │
-│ …  │                   │          │              │                             │               │
-│ 41 │ SHIP (ship_out)   │ blocked  │ 0            │ Shipping · –                │               │
-├────┴───────────────────┴──────────┴──────────────┴─────────────────────────────┴───────────────┤
-│ LEDGER (this order)  bids −78.5 · consumables (metered) −0 · storage −4.80 · mask_fab 0 · ins −18 │
-└───────────────────────────────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ ← Orders  ord_01J8J  "sky130-fe test lot"  owner acct_9f3e (prepaid, bal 412 cr)         ⏸ HELD     │
+│ recipe sky130-fe@2 · design des_… · lot lot_… 6 wafers (foundry_supplied) · masks: direct-write     │
+│ insurance: prov_foundry, machine_fault, steps all, premium 18 cr · futures: none                    │
+├─────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ HOLD hold_01J8…  opened 2026-09-12 14:01  reason analysis_fail  step BOX_check                      │
+│   thk_mean = 22.1 nm  (limit 18.5–21.5)   report ▸   wafer map ▸                                    │
+│   storage accruing: 6w × n2_cabinet 0.60/day = 3.60 cr/day   auto-abort 2026-09-26 14:01            │
+│   owner options via API: continue · rework_to_step (BOX, SMAT) · abort                    {json}    │
+├────┬───────────────────┬──────────┬───────────────┬───────────────────────────────────┬─────────────┤
+│ #  │ step              │ status   │ max / paid cr │ machine · start · hours           │ assets      │
+├────┼───────────────────┼──────────┼───────────────┼───────────────────────────────────┼─────────────┤
+│ 1  │ SMAT (manual)     │ done     │ 10 / 8        │ Operator · 2026-09-11 20:10 · 0.2 │ note        │
+│ 2  │ BOX (dry_ox)      │ done     │ 300 / 168     │ Furnace A · 2026-09-11 22:00 · 3.5│ telemetry ▸ │
+│ 3  │ BOX_thk           │ done     │ 40 / 25       │ Ellipsom. · 2026-09-12 13:40 · 0.5│ map ▸ csv ▸ │
+│ 4  │ BOX_check         │ failed   │ –             │ analysis · 2026-09-12 14:01       │ report ▸    │
+│ 5  │ ISONIT (lpcvd)    │ blocked  │ 400           │ LPCVD B · est – · 4.0 (order held)│             │
+│ …  │                   │          │               │                                   │             │
+│ 41 │ SHIP (ship_out)   │ blocked  │ 0             │ Shipping · –                      │             │
+├────┴───────────────────┴──────────┴───────────────┴───────────────────────────────────┴─────────────┤
+│ LEDGER (this order)  runs −201 · consumables (metered) −0 · storage −4.80 · mask_fab 0 · ins −18    │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 **Storage `/storage`**:
 
 ```
-┌───────────────────────────────────────────────────────────────────────────────────────────────┐
-│ Storage   occupancy & rates   billed 24h: 41.2 cr                                             │
-├──────────────────┬──────────────┬───────────┬──────────────────────────────────────────────────┤
-│ location         │ class        │ occupancy │ contents (owner · lot · since · charge to date)  │
-├──────────────────┼──────────────┼───────────┼──────────────────────────────────────────────────┤
-│ stor_n2cab-3     │ n2_cabinet   │ 9/12      │ acct_9f3e lot_J 6w 1d 3.60 · acct_4a lot_B 2w …  │
-│ stor_shelf-1     │ ambient_shelf│ 31/40     │ acct_c1 lot_L (unfunded, held 1d) 25w 4d 10.0 ⚠  │
-│ stor_maskvault   │ mask_vault   │ 118/200   │ acct_9f3e METAL1 rev C 38d 9.50 · …              │
-│ external         │ –            │ 12 wafers │ acct_7b lot_X @ aldhouse, due back 09-18 ▸       │
-│ in_transit       │ –            │ 3 masks   │ maskco → foundry, ETA 09-14 ▸                    │
-└──────────────────┴──────────────┴───────────┴──────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Storage   occupancy & rates   billed 24h: 41.2 cr                                                 │
+├──────────────────┬──────────────┬───────────┬─────────────────────────────────────────────────────┤
+│ location         │ class        │ occupancy │ contents (owner · lot · since · charge to date)     │
+├──────────────────┼──────────────┼───────────┼─────────────────────────────────────────────────────┤
+│ stor_n2cab-3     │ n2_cabinet   │ 9/12      │ acct_9f3e lot_J 6w 2026-09-11 3.60 · acct_4a lot_B …│
+│ stor_shelf-1     │ ambient_shelf│ 31/40     │ acct_c1 lot_L (unfunded, held 1d) 25w 4d 10.0 ⚠     │
+│ stor_maskvault   │ mask_vault   │ 118/200   │ acct_9f3e METAL1 rev C 2026-08-05 9.50 · …          │
+│ external         │ –            │ 12 wafers │ acct_7b lot_X @ aldhouse, due back 2026-09-18 ▸     │
+│ in_transit       │ –            │ 3 masks   │ maskco → foundry, ETA 2026-09-14 ▸                  │
+└──────────────────┴──────────────┴───────────┴─────────────────────────────────────────────────────┘
 ```
 
 **Account `/accounts/acct_9f3e`** — mode, balance, credit limit, reserved-for-queued, projected storage, assets, orders, full ledger with running balance and links to runs/holds/policies.
 
-**Run `/runs/run_01J8…`** — program/params effective, batch members, telemetry chart, consumable draw (bundled vs metered), outcome + cause, claim status, asset list with previews (wafer maps rendered server-side from CSV).
+**Run `/runs/run_01J8…`** — program/params effective, previous program and setup used, hours × rate = price with floor and runner-up, telemetry chart, consumable draw (bundled vs metered), outcome + cause with its evidence links, claim status, asset list with previews (wafer maps rendered server-side from CSV).
 
 **Recipe viewer** — step list with type, capability, pinned machines per step, program badges, metrology outputs and checks inline, logistics steps drawn as a timeline with vendor lead times, and the per-step wafer-state strip.
 
