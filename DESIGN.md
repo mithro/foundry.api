@@ -238,7 +238,7 @@ Machines whose capability `mode: free` expose a params JSON Schema with limits a
   checks:                             # declarative, no expression language needed for the common case
     - {id: thk_mean,  stat: mean, field: thickness_nm, min: 18.5, max: 21.5, unit: nm}
     - {id: thk_range, stat: max_minus_min, field: thickness_nm, max: 2.0, group_by: wafer_id}
-  on_fail: hold                       # see §10.7
+  on_fail: hold                       # hold (default, §10.7) | continue (record findings, proceed) | abort
   outputs: [{name: report, format: json, schema: analysis.check_report/v1}]
 - id: BOX_custom
   type: analysis.callback             # delegate anything richer to a callback
@@ -246,6 +246,10 @@ Machines whose capability `mode: free` expose a params JSON Schema with limits a
   inputs: [BOX_thk.raw]
   callback: {url: https://example.org/foundry-hooks/box-analysis, timeout_s: 300, signing_key_id: k_…}
   on_fail: hold
+- id: ISONIT
+  type: deposit.cvd.lpcvd
+  depends_on: [BOX_check, BOX_custom]  # depends_on takes one id or a list; steps form a DAG, not a chain
+  program: sin_lpcvd_150nm
 ```
 
 ### 5.4 Step — logistics
@@ -294,26 +298,49 @@ Masks are the same shape with `kind: mask`, `layer: METAL1`, `design: des_…`, 
 
 ### 5.6 State machines
 
-**Order**
-```
-draft ─submit─▶ validating ─ok─▶ awaiting_assets ─assets ready─▶ in_progress ─all steps done─▶ complete
-                    │                (masks fabbed, wafers received & inspected)  │   ▲
-                    └─reject─▶ rejected                                           ▼   │ resume/rework
-                                                              held ◀──(halt / coupling breach / failed run / out of credit)
-                                                               │ timeout or owner abort
-                                                               ▼
-                                                            aborted ──▶ (assets remain in storage, charged, until shipped or disposed)
-```
+Written as transition tables (state × event → state) because every transition is an event in the log; the diagrams they replace could not show what happens to sibling steps, reworked steps or cancelled orders.
 
-**Order-step**
-```
-blocked ─prev done─▶ eligible ─auction win─▶ queued ─start─▶ running ─▶ done
-                        ▲                                     │
-                        └──── (owner: rework_to_step) ◀── held ◀┘ (fail / halt)
-```
-`eligible` has a visible sub-state: `eligible.unfunded` (bid below reserve or account cannot cover it — it is listed in the auction but never wins).
+**Order** — `draft · validating · rejected · in_progress · held · complete · aborted`. There is no separate "awaiting assets" phase: wafer supply, mask fabrication and incoming inspection are ordinary logistics order-steps (§7.1), scheduled and charged like everything else.
 
-**Machine**: `idle ⇄ setup ⇄ running`; any → `maintenance` | `down` → `idle`. Plus `offline_by_bid` when the foundry's reserve exceeds every bid (that is what "keep the machine offline by bidding" looks like).
+| From | Event | To | Notes |
+|---|---|---|---|
+| `draft` | `order.submitted` | `validating` | recipe + design + assets + funding checked (§8, §9, §12) |
+| `validating` | `validation.failed` | `rejected` | report public and permanent |
+| `validating` | `validation.passed` | `in_progress` | order-steps created; roots become `eligible` |
+| `in_progress` | `hold.opened` (any §10.7 reason) | `held` | eligible steps withdrawn from auctions |
+| `held` | `hold.resolved {continue \| rework_to_step}` | `in_progress` | see order-step table |
+| `held` | `hold.resolved {abort}` · `hold.timed_out` | `aborted` | assets stay in storage, charged, until shipped or disposed |
+| `in_progress` | `order.cancelled` (owner) | `aborted` | a `running` run finishes and is charged; a `queued` run forfeits (§16) |
+| `in_progress` | `order_step.done` (last step) | `complete` | |
+
+**Order-step** — `blocked · eligible (sub-state unfunded) · queued · running · done · failed · skipped · cancelled`. Each order-step carries an `attempt` counter; rework creates a new attempt and keeps the old run and its assets in history.
+
+| From | Event | To | Notes |
+|---|---|---|---|
+| `blocked` | all `depends_on` steps `done`/`skipped` and required assets present | `eligible` | |
+| `eligible` | funding check fails / passes (§12.1) | `eligible.unfunded` ⇄ `eligible` | listed in the auction, never wins |
+| `eligible` | order `held` / `continue` | `blocked · order_held` ⇄ `eligible` | |
+| `eligible` | `auction.cleared` (or future exercised) | `queued` | locked; price reserved on the account |
+| `queued` | `order_step.cancelled` (owner) | `eligible` | `forfeit` of the cleared price written; re-bid allowed |
+| `queued` | `run.started` | `running` | |
+| `running` | `run.finished {outcome: ok}` | `done` | analysis steps: `pass` |
+| `running` | `run.finished {outcome: fail}` | `failed` | opens a hold with the run's `cause` and evidence |
+| `eligible` · `queued` | coupling window breached (§10.6) | `failed` | hold reason `coupling_breach` |
+| `failed` | `hold.resolved {continue}` | `skipped` | successors treat `skipped` as satisfied |
+| `failed` | `hold.resolved {rework_to_step: X}` | `blocked` | X and every step downstream of X (including this one) get a new attempt; X becomes `eligible` when its inputs are present; earlier `done` steps are untouched |
+| any non-terminal | order `aborted` | `cancelled` | |
+
+**Machine** — `idle · setup · running · maintenance · down`, driven by adapter events (§15.2). `offline_by_bid` is a *derived* display state: `idle` with `foundry_bid.mode == reserve` and no candidate above the floor (§10.4). It is never stored.
+
+| From | Event | To |
+|---|---|---|
+| `idle` | `run.dispatched` | `setup` (or `running` when setup is 0) |
+| `setup` | `run.started` | `running` |
+| `running` | `run.finished` | `idle` |
+| any | `machine.state_changed {maintenance \| down}` (adapter or foundry) | `maintenance` / `down` — a `running` run finishes with `outcome: fail, cause: machine_fault` |
+| `maintenance` · `down` | `machine.state_changed {idle}` | `idle` |
+
+**Hold** — `open → resolved {action} | timed_out`. **Physical asset location** — `storage ⇄ on_tool`, `storage → in_transit → external → in_transit → awaiting_inspection → storage`, `storage → shipped`, `storage → disposed`; every change is an event (§5.5).
 
 ---
 
@@ -383,8 +410,8 @@ name: tfe-3mask
 version: 3
 forked_from: tpl_tfe-3mask@2
 wafer: {material: fused_silica, diameter_mm: 150, thickness_um: 500, polish: DSP, initial_contamination_class: clean}
-assets_in:                                   # what the order must provide before step 1 can become eligible
-  wafers: {source: [foundry_supplied, user_shipped], min: 1, max: 25}
+assets_in:                                   # expanded at publish into leading logistics steps (supply_wafers / mask_fab / receive_inspect), so provisioning is scheduled and charged like any other step
+  wafers: {source: [foundry_supplied, user_shipped], min: 1, max: 25}     # max ≤ smallest batch.size on the path (MP-045)
   masks:  {source: [mask_fab, user_shipped, existing_asset], layers: [METAL1, OUTLINE1, TOPMETAL]}
 layer_map:                                   # machine-protection metadata only: gds → name, polarity, which tool consumes it
   - {name: METAL1,   gds: [10, 0], polarity: light, required: true}
@@ -414,8 +441,8 @@ The layer map carries no min width/space: those are yield rules and are the user
 | `planarize.*` | `cmp` | |
 | `clean.*` | `rca`, `piranha`, `solvent`, `hf_dip` | |
 | `metrology.*` | `thickness`, `profilometry`, `sem`, `optical`, `probe` (e-test), `sheet_resistance`, `incoming` | always declare `outputs` |
-| `analysis.*` | `check` (declarative stats vs. limits), `callback` (delegated), `expr` (optional CEL, §13) | no machine; `on_fail: hold` |
-| `logistics.*` | `mask_fab`, `receive_inspect`, `external_process`, `ship_out`, `store` (explicit long-term storage with class) | |
+| `analysis.*` | `check` (declarative stats vs. limits), `callback` (delegated), `expr` (optional CEL, §13) | no machine; `on_fail: hold \| continue \| abort` |
+| `logistics.*` | `supply_wafers` (foundry-supplied substrates, metered), `mask_fab`, `receive_inspect`, `external_process`, `ship_out`, `store` (explicit long-term storage with class) | provisioning steps are generated from `assets_in` |
 | `backend.*` | `dice`, `release.laser`, `wafer_bond` | |
 | `manual.*` | `inspect`, `note`, `operator_task` | scheduled on the `operator` pseudo-machine at its rate |
 
