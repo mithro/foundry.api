@@ -790,15 +790,18 @@ For many customers the run assets — particularly probe/e-test tables and wafer
 
 ---
 
-## 15. Public API
+## 15. API
 
-Conventions: `/v1`, JSON, OpenAPI 3.1, ULIDs, cursor pagination, `Idempotency-Key`, unauthenticated reads, API-key writes, RFC 9457 problem+json errors. Reads: foundry, machines, auctions, runs, utilisation, consumables, capabilities, step types, templates/recipes, designs, orders, order-steps, events (+SSE), rulesets, validation reports. Writes: recipe drafts/validate/publish/fork, design upload/check, orders/cancel, bids (per-step and bulk + policy), webhooks. Demo-only: `/sim/advance`, `/sim/reset`. Additional endpoints:
+### 15.1 Public API
+
+Conventions: `/v1`, JSON, OpenAPI 3.1, ULIDs, cursor pagination, `Idempotency-Key`, unauthenticated reads, API-key writes, RFC 9457 problem+json errors. Reads: foundry, machines, auctions, runs, utilisation, consumables, capabilities, step types, templates/recipes, designs, orders, order-steps, events (+SSE), rulesets, validation reports. Writes: recipe drafts/validate/publish/fork, design upload/check, orders/cancel, bids (`max_credits` per step, bulk, and policy), futures, webhooks. Demo-only: `/sim/advance`, `/sim/reset`. Additional endpoints:
 
 | Method & path | Auth | Purpose |
 |---|---|---|
 | `GET /machines/{id}/programs` | – | Locked configurations, durations, bundled rates, metered consumables |
-| `GET /machines/{id}/auction` | – | Queue incl. the foundry bid row, unfunded rows, batch formation state |
-| `PUT /machines/{id}/foundry-bid` | foundry | Set reserve/subsidy (public event) |
+| `GET /machines/{id}/auction` | – | Candidate runs with hours, implied rate, floor and surplus; the foundry bid row; unfunded rows; exercisable futures; `clears_at` |
+| `PUT /machines/{id}/foundry-bid` | foundry | Set adjustment, mode, bounds, per-program overrides (public event) |
+| `GET /machines/{id}/futures/quote?order=&step=&window=` · `POST /futures` · `GET /futures/{id}` · `GET /machines/{id}/futures` | – / key / – / – | Quote, buy and inspect slot futures and price caps (§10.6); the machine's sold futures are public |
 | `GET /assets` · `GET /assets/{id}` · `GET /accounts/{id}/assets` | – | Physical assets, locations, storage charges to date |
 | `POST /shipments` · `GET /shipments/{id}` | key | Standalone inbound/outbound shipping; inbound creates `awaiting_inspection` assets |
 | `POST /orders` | key | Includes `assets: {wafers: {source, count | asset_ids}, masks: {source, asset_ids | mask_fab}}` and `insurance` |
@@ -806,12 +809,39 @@ Conventions: `/v1`, JSON, OpenAPI 3.1, ULIDs, cursor pagination, `Idempotency-Ke
 | `GET /runs/{id}/assets` · `GET /assets/{id}/content` | – | Run outputs |
 | `GET /accounts/{id}` · `GET /accounts/{id}/ledger` | – | Balance, mode, limit, entries |
 | `POST /accounts/{id}/deposit` | demo/admin | Prepaid top-up (demo) |
-| `GET /insurance/providers` · `POST /orders/{id}/insurance` · `GET /orders/{id}/insurance` | key | Quotes, policies, claims |
+| `GET /providers` · `POST /orders/{id}/insurance` · `GET /orders/{id}/insurance` | key | Providers (insurance, futures, price caps), quotes, policies, claims |
 | `GET /consignment/{account}` | – | Consignment stock |
 | `GET /storage` · `GET /storage/rates` | – | Occupancy, rates |
 | `GET /vendors` | – | Mask-fab and external-process vendors, lead times, prices |
 | `POST /callbacks/test` | key | Dry-run a callback endpoint with a sample payload |
 
+### 15.2 Foundry and adapter interface
+
+Everything the foundry side does is also an API call, so that it is an event. Two roles: the **foundry account** (registry, bids, state overrides, operator input) and **machine adapters** (one per machine; the simulator implements the same interface for all of them). Both authenticate with scoped keys.
+
+| Method & path | Role | Purpose |
+|---|---|---|
+| `PUT /machines/{id}` · `PUT /machines/{id}/programs/{pid}` | foundry | Registry revisions: capabilities, limits, programs with time models, rates, effects. Every revision is versioned; rules re-evaluate at dispatch against the revision in force (§8) |
+| `PUT /machines/{id}/state` | foundry / adapter | `maintenance` / `down` / `idle` transitions (§5.6); a running run fails with `cause: machine_fault` and evidence |
+| `PUT /storage/locations/{id}` · `PUT /storage/rates` · `PUT /vendors/{id}` · `PUT /foundry/settings` | foundry | Storage, vendors, hold/abandon timeouts, `futures_capacity`, `minimum_increment`, terms URL |
+| `POST /operator/tasks/{id}/result` | foundry (operator key) | Results for `manual.*` and `logistics.receive_inspect` steps: inspection JSON, notes, wafer-state overrides with reason |
+| `POST /shipments/{id}/events` | foundry | Carrier scans: dispatched, received → creates `awaiting_inspection` assets |
+| `POST /wafers/{id}/state` | foundry | Manual wafer-state override (public, reasoned event; §8) |
+
+**Adapter contract** (what the dispatcher calls and what it expects back; SECS/GEM, OPC-UA or the simulator sit behind it):
+
+```
+dispatch(run)                      → ack | reject {reason}          # run: machine, program | params, wafers, carrier, setup_from
+abort(run_id)                      → ack
+telemetry stream                   → run.telemetry {ts, channel, value, unit}          # appended to the run's NDJSON asset
+run.started {run_id, ts}
+run.finished {run_id, outcome: ok | fail, cause: machine_fault | recipe | wafer | unknown,
+              cause_evidence: [{asset, channel | lines, from, to}], actual: {setup_s, process_s, cleanup_s},
+              consumable_draw: [{consumable, qty, unit}], outputs: [assets]}
+state_changed {status: idle | maintenance | down, reason}
+```
+
+An adapter that stops heart-beating is treated as `down`. The adapter never sees bids or prices; it sees runs.
 
 ---
 
