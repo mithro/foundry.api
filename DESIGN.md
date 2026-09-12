@@ -31,7 +31,7 @@ Anyone can design a chip now; almost nobody can get one made quickly. The typica
 foundry.api exists to run a foundry the opposite way:
 
 - **Many customers, less bespoke work.** Fabrication as a service: fixed machine programs and forkable templates instead of per-customer process development. The foundry sells qualified capabilities, not engineering hours.
-- **Machine time as an open market.** Like a compute spot market, every tool's next slot is auctioned publicly to the highest bidder; the foundry participates with its own bids rather than negotiating contracts.
+- **Machine time as an open market.** Like a compute spot market, every tool's next run is auctioned publicly to whoever pays the most per machine-hour; the foundry participates with its own bids rather than negotiating contracts.
 - **Speed as the product.** Faster iteration *is* better design. The system is built to make cycle time visible and biddable, so a customer can buy speed when they need it.
 - **Transparency as the customer-acquisition strategy.** Publishing every queue, price, and machine state removes the information asymmetry that makes fabs unapproachable.
 
@@ -113,7 +113,7 @@ What they force into the model: step DAGs that are almost always linear, with ma
 | **Auction / Slot / Run** | Per-machine ranking of candidate runs → the next run, locked `clear_ahead_s` before the machine frees → the execution with telemetry and outputs. **A run belongs to exactly one account**; runs are never shared between accounts. |
 | **Slot future** | A contract bought in advance: the right to have one named run start on a machine inside a time window at a fixed strike price, pre-empting the auction. Sold by the foundry; price-cap variants by external providers (§10.6). |
 | **Halt** | A condition evaluated on run outputs; if true, the order goes to `held`. |
-| **Ledger** | Append-only account entries: bids cleared, consumables, storage, shipping, insurance, claims, subsidies. |
+| **Ledger** | Append-only account entries: runs cleared, consumables, storage, shipping, insurance, futures, claims, subsidies, forfeits. |
 | **Contamination class** | Ordered label on wafers and machines. Demo ordering: `clean < organic < metal_std < gold` (`organic` = resist/polyimide present). The ordering is a foundry-level ruleset constant, not a fixed enum. |
 
 ---
@@ -590,7 +590,7 @@ rank C by surplus desc, ties by eligible_since asc       # nothing else
 W = top of C
 if C empty or surplus(W) < 0:
     no clearing; M shows offline_by_bid if foundry_bid.mode == reserve else idle
-R = highest surplus among C \ W excluding runs owned by W's account (0 if none)
+R = max(0, highest surplus among C \ W excluding runs owned by W's account)   # a negative runner-up never pulls the rate below F
 rate(W)  = F(W) + R                                       # the lowest rate that would still have won
 price(W) = rate(W) × h(W)                                 # second price with the foundry as a participant; ≤ max_credits(W)
 lock W as queued; reserve price(W) against the owner's account
@@ -697,7 +697,7 @@ Furnace A has just finished `bake_10h`. Rates: `dry_ox_900_20nm` 130 cr/h, `bake
 
 Each consumable in a machine's rate table declares `mode` and, for metered ones, a *draw function* (`draw = f(program|params, wafer_count)`) implemented per capability in code and unit-tested — no expression language needed. A program's bundled rate is what makes `foundry_bid.mode: none` well-defined: `F = rate_credits_per_hour`, the foundry's break-even rate for that program.
 
-*Open exploration (§18 Q3):* whether consignment stock should also be biddable/sellable between accounts, and whether bundled rates should be re-derived automatically from metered history.
+*Open exploration (§18 Q2):* whether consignment stock should also be biddable/sellable between accounts, and whether bundled rates should be re-derived automatically from metered history.
 
 ### 11.2 Storage
 
@@ -808,7 +808,7 @@ Conventions: `/v1`, JSON, OpenAPI 3.1, ULIDs, cursor pagination, `Idempotency-Ke
 
 | Method & path | Auth | Purpose |
 |---|---|---|
-| `GET /machines/{id}/programs` | – | Locked configurations, durations, bundled rates, metered consumables |
+| `GET /machines/{id}/programs` | – | Locked configurations, time models, setup matrix, bundled rates, effects, metered consumables |
 | `GET /machines/{id}/auction` | – | Candidate runs with hours, implied rate, floor and surplus; the foundry bid row; unfunded rows; exercisable futures; `clears_at` |
 | `PUT /machines/{id}/foundry-bid` | foundry | Set adjustment, mode, bounds, per-program overrides (public event) |
 | `GET /machines/{id}/futures/quote?order=&step=&window=` · `POST /futures` · `GET /futures/{id}` · `GET /machines/{id}/futures` | – / key / – / – | Quote, buy and inspect slot futures and price caps (§10.6); the machine's sold futures are public |
