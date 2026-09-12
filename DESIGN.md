@@ -209,6 +209,7 @@ setup_matrix:                        # setup_s by previous program; same program
   dry_ox_900_20nm→bake_10h: 1800
   bake_10h→dry_ox_900_20nm: 3600
 clear_ahead_s: 1800                  # the next run is locked this long before the machine frees (§10.4)
+idle_rate_credits_per_hour: 150      # floor for idle bids — anyone may buy the tube's time and leave it empty (§10.3)
 state: {status: running, run_id: run_…, program: dry_ox_900_20nm, since: …, free_at: …}
 ```
 
@@ -542,6 +543,10 @@ There is **no DRC for yield**. The repo may ship the foundry's *advisory* KLayou
 
 Every machine sells its **time**. Its next run goes to the account whose bid is worth the most per machine-hour above the foundry's own floor, the way a compute spot market sells instance-hours. Bids are money; nothing else reorders the queue. An order-step whose owner won't pay enough simply waits, visibly, forever — while its wafers accrue storage charges.
 
+This holds all the way down a flow. **A lot has no claim on any future slot.** A lot at step 199 of 200 competes for step 200 exactly like a lot at step 1: its owner, who presumably wants the wafers now, should be willing to pay more than anyone else for the next slot — and if a rival is willing to pay more, or to pay the foundry to keep the machine idle (§10.3), the rival gets it. That is the market working, not a failure of it. Anyone who wants a step *guaranteed* buys the guarantee in advance — a slot future or a price cap (§10.6) — at a premium that prices exactly that risk.
+
+*Status:* this section is a first mechanism design, not a validated one. §10.12 lists what must be tested before it is trusted.
+
 ### 10.2 The unit of sale: a run
 
 A **run** is one order-step's lot executing one program on one machine (on a batch tool, several lots of the *same account* on the same program may share a run, up to `batch.size`). **A run belongs to exactly one account.** Nobody shares a run with a stranger; there is no cross-account batching and no shared pricing. One person is responsible for the lot and the hours.
@@ -570,7 +575,8 @@ Lot sizing follows the machine: an order's lot must fit in one run on every cand
   - `none` (zero): the foundry breaks even at its bundled rate.
 
   A foundry bid is public and appears in the queue like any other row.
-- **Slot-future holders** (§10.6): a run covered by a future whose window is open pre-empts the auction.
+- **Idle bids.** Any account may bid for a machine's next slot with the implicit program `idle` for a chosen number of hours. It is ranked, priced and charged like any run; the machine does nothing. The floor is the machine's `idle_rate_credits_per_hour` (foundry-set; default the machine's highest program rate). This is how a rival blocks someone's step: visibly, attributably, and at the full price of the time.
+- **Slot-future and price-cap holders** (§10.6): a run covered by a foundry future whose window is open pre-empts the auction; a price-capped run is bid on without limit by its provider.
 
 ### 10.4 Clearing rule (per machine)
 
@@ -580,7 +586,8 @@ Clearing is **just-in-time**: the next run is decided at `free_at − clear_ahea
 prev = M.current_program (or last program run)
 if a slot future on M is exercisable now (holder's step eligible, window open):
     W = the future's run; price = future.strike; lock W; emit auction.cleared {…, via: future}; stop
-C = candidate runs: eligible order-steps s with M ∈ machines(s), funded(s), not locked on another machine
+C = candidate runs: eligible order-steps s with M ∈ machines(s), funded(s), not locked on another machine,
+    plus funded idle bids on M (program = idle, h = requested hours)
 for s in C:
     h(s) = hours(run(s) | prev)
     r(s) = max_credits(s) / h(s)
@@ -624,7 +631,10 @@ Ranking by surplus (rate above floor) rather than by rate alone matters only whe
 
 Some step pairs must follow each other closely (resist coat → expose; HF dip → deposition). A step declares `max_queue_time_from_prev_s`; projections (§10.9) show `must_start_by` for it. **The auction itself has no deadline mechanism**: people set the price they are willing to pay, and the recipe's window is information. If the window is breached, the order-step **fails** and the order goes to `held` with reason `coupling_breach` (§10.7); the owner picks continue-anyway / rework-to-step / abort and pays for rework steps at auction like any other steps. There is no free rework. If the breach was caused by the machine (`down` during the window), the hold records cause `machine_fault` with evidence, so it is insurable (§12.3).
 
-The way to *guarantee* a coupled successor is to buy its slot in advance. A **slot future** is a contract:
+The way to *guarantee* any step — a coupled successor, or step 200 of 200 — is to buy the guarantee in advance. Two instruments exist:
+
+- A **price cap** is the general one: for a named step, the provider bids without limit on the holder's behalf inside a window and pays whatever the cleared price exceeds the strike — "make me the next available slot, whatever others are bidding" — for a premium priced on that risk. Sold by the foundry or any external provider (§12.3); it works entirely inside the auction, so nothing is pre-empted and the book stays honest.
+- A **slot future** additionally pre-empts the auction. Only the foundry can sell one, because only the foundry can promise its own machine:
 
 ```yaml
 id: fut_01J8…
@@ -640,7 +650,7 @@ terms_url: https://…
 - **Exercise.** When the holder's order-step becomes `eligible` inside the window, the machine's next clearing is that run at `strike_credits`; it pre-empts the auction. The queue shows the future as a row (`future · window · strike`) so other bidders can see that the next slot is spoken for.
 - **Expiry.** If the step is not eligible at any clearing inside the window (predecessor late, unfunded), the future lapses; the premium is kept by the provider.
 - **Provider failure.** If the machine cannot deliver inside the window (down, maintenance, or the foundry oversold), the provider refunds premium and pays the coverage in its terms (typically the rework of the predecessor). Filed automatically like an insurance claim.
-- **Pricing.** The foundry (built-in provider) quotes from the market-rate percentiles for the program, the current queue and its own schedule (e.g. `p90 rate × hours + margin`), and limits futures per machine (`futures_capacity`, e.g. at most 30 % of the next 24 h) so the spot market is not hollowed out. External providers cannot pre-empt a machine they don't own; through the same provider interface (§12.3) they sell **price caps**: the provider bids without limit on the holder's behalf inside the window and pays the difference between the cleared price and the strike.
+- **Pricing.** The foundry (built-in provider) quotes from the market-rate percentiles for the program, the current queue and its own schedule (e.g. `p90 rate × hours + margin`), and limits futures per machine (`futures_capacity`, e.g. at most 30 % of the next 24 h) so the spot market is not hollowed out. External providers cannot pre-empt a machine they don't own; they sell price caps.
 
 Futures resolve the earlier open question about time-window reservations: reservations exist, but only as something the foundry *sells* at its own price, so they are just another bidder in the same public book.
 
@@ -682,6 +692,21 @@ Furnace A has just finished `bake_10h`. Rates: `dry_ox_900_20nm` 130 cr/h, `bake
 ### 10.11 Determinism
 
 `scheduler.decide(state, event, clock) -> [Decision]` is pure; the demo event log replays to byte-identical `auction.cleared` events. Everything non-deterministic — adapter outcomes, callback verdicts and latencies, future quotes from external providers, operator inputs — enters the system only as recorded events, so replay never calls out.
+
+### 10.12 Status: what must be tested before §10 is trusted
+
+The mechanism above is a first design. The principle (§10.1) is settled; the *mechanism* is not, and will be revised from evidence. Known hypotheses to test, each a named scenario in the M1 harness (§19):
+
+| # | Hypothesis | Scenario |
+|---|---|---|
+| H1 | Per-step pricing with no path claim prices small accounts out late in a flow often enough to conflict with the 7,000-customer target (§2.2) — or it doesn't, because price caps are cheap enough | TFE and SKY130 flows at 10/50/200 concurrent lots with mixed budgets; measure cycle-time and completion by account size, with and without price caps |
+| H2 | Repeated clearing with persistent bidders is not truthful: waiting and sniping at the `clear_ahead_s` lock beat honest bidding | Truthful vs. sniper vs. waiter bots on one contested tool; compare surplus captured |
+| H3 | Greedy surplus-per-hour clearing per machine underperforms setup-aware sequencing (batching same-program runs) and bottleneck-aware pricing on fab throughput | Same demand, three clearing policies; measure wafers/day, mean and p90 cycle time, foundry revenue |
+| H4 | The `applies_when: no_competing_bid` subsidy cliff invites collusion (one bidder stays away so the other collects the subsidy, then they alternate) | Two colluding bots on a subsidised furnace |
+| H5 | Futures collide with long runs and idle bids in ways that cascade into holds | Random futures at 30 % capacity over a mixed queue; count provider-failure claims |
+| H6 | Idle bids are used to block rivals more cheaply than outbidding them | Blocker bot vs. a lot near the end of its flow; measure cost to block vs. cost to complete |
+
+After the harness: a separate analysis document applying queueing theory (batch-service queues with sequence-dependent setups; Little's law for WIP vs. cycle time) and market design (sequential auctions with re-entry, bottleneck pricing, whether independent per-machine markets are efficient for a flow line). Its conclusions feed a v0.4 of this section.
 
 ---
 
@@ -864,6 +889,7 @@ An adapter that stops heart-beating is treated as `down`. The adapter never sees
 | Bid-and-cancel griefing | Cancelling a `queued` step writes `forfeit` of the cleared price; lowering a queued bid below its cleared price is rejected |
 | Exploiting negative prices (subsidy farming: repeat cheap runs to collect the subsidy) | Metered consumables are always charged; a subsidy applies only when the tool would otherwise idle (`applies_when`), is capped by `budget_credits_per_day`, and is the foundry's explicit choice |
 | Futures hoarding | `futures_capacity` per machine; premium is forfeited on expiry; futures are non-transferable |
+| Blocking a rival with idle bids | Allowed by design (§10.1): the blocker pays the foundry the full idle rate, publicly and attributably; the blocked party's remedy is a higher bid or a price cap bought earlier |
 | Unfunded lots occupying storage | Storage always charges; timeout → abort → disposal path is automatic and public |
 | Callback abuse (slow/evil endpoints) | Timeouts, size caps, signed requests, outbound allow-list per foundry, failure → `held`, never retried indefinitely |
 | Malicious GDS | Size/hierarchy/polygon caps; checker in a sandboxed subprocess with CPU/mem/time limits |
@@ -1035,6 +1061,7 @@ Spin coaters ×2, convection oven, contact aligner, maskless writer, evaporators
 - MP-020/MP-030 replaced by enforcement of per-machine `max_temp_c` / `gas_combinations` (they rejected the reference processes); CEL `has()` convention; MK-003 parametrised; MP-045 lot-size rule; contamination class `poly` → `organic`.
 - State machines rewritten as transition tables; `awaiting_assets` removed in favour of provisioning steps generated from `assets_in`; `depends_on` is a DAG; `on_fail` enumerated; `offline_by_bid` derived.
 - §15.2 foundry/adapter interface added; futures endpoints; GUI mockups use ISO dates and per-hour money basis; emails never published; milestones reordered to build and stress the pure scheduler first.
+- Principle made explicit: no lot has a claim on a future slot; any account may buy idle time to block; price caps are the general guarantee. §10 marked provisional with a test plan (§10.12).
 
 **v0.2** — programs and foundry bids, physical assets and storage charging, logistics steps, insurance, consumable modes, held-order flow.
 
