@@ -1,28 +1,28 @@
 # foundry.api — Design Document (Draft v0.2)
 
-_Open, auction-scheduled silicon/MEMS foundry orchestration prototype_
+*Open, auction-scheduled silicon/MEMS foundry orchestration prototype*
 
-|  |  |
-| --- | --- |
+| | |
+|---|---|
 | Status | Draft v0.2 |
 | Date | 2026-09-12 |
 | License | Apache 2.0 (code, schemas, docs) |
 
 > **Foundry in the cloud: make a chip, quick.** Anyone can design a chip now; everyone should be able to make one. Today's fabs are run by three big, high-touch customers. foundry.api is the software for running a fab the other way — for a large number of small, low-touch customers: fabrication as a service with no custom engineering, every machine's time auctioned openly to the highest bidder, and everything — queues, prices, tool states, results — public.
 
-* * *
+---
 
 ## 0. Summary
 
 foundry.api is an API-first service for running an open, auction-scheduled foundry. It lets anyone:
 
-*   **Define a recipe** — an ordered list of process, metrology, analysis and logistics steps executed on the foundry's machines, built from forkable templates, and checked against rules whose only purpose is to protect the foundry's machines.
-*   **Order a recipe** against a design (GDS), a set of physical assets (wafers and masks — foundry-supplied or shipped in) and a bid schedule.
-*   **Have every step scheduled by auction** — each machine continuously sells its next slot to the highest bidder. The foundry itself is a bidder, setting a floor or paying to keep expensive-to-stop tools running.
+- **Define a recipe** — an ordered list of process, metrology, analysis and logistics steps executed on the foundry's machines, built from forkable templates, and checked against rules whose only purpose is to protect the foundry's machines.
+- **Order a recipe** against a design (GDS), a set of physical assets (wafers and masks — foundry-supplied or shipped in) and a bid schedule.
+- **Have every step scheduled by auction** — each machine continuously sells its next slot to the highest bidder. The foundry itself is a bidder, setting a floor or paying to keep expensive-to-stop tools running.
 
 Everything is public: machines and their programs, live auctions, what is on every tool, storage, ledgers and run assets. A read-only web GUI renders this state; all writes go through the API.
 
-* * *
+---
 
 ## 1. Motivation
 
@@ -30,34 +30,34 @@ Anyone can design a chip now; almost nobody can get one made quickly. The typica
 
 foundry.api exists to run a foundry the opposite way:
 
-*   **Many customers, less bespoke work.** Fabrication as a service: fixed machine programs and forkable templates instead of per-customer process development. The foundry sells qualified capabilities, not engineering hours.
-*   **Machine time as an open market.** Like a compute spot market, every tool's next slot is auctioned publicly to the highest bidder; the foundry participates with its own bids rather than negotiating contracts.
-*   **Speed as the product.** Faster iteration _is_ better design. The system is built to make cycle time visible and biddable, so a customer can buy speed when they need it.
-*   **Transparency as the customer-acquisition strategy.** Publishing every queue, price, and machine state removes the information asymmetry that makes fabs unapproachable.
+- **Many customers, less bespoke work.** Fabrication as a service: fixed machine programs and forkable templates instead of per-customer process development. The foundry sells qualified capabilities, not engineering hours.
+- **Machine time as an open market.** Like a compute spot market, every tool's next slot is auctioned publicly to the highest bidder; the foundry participates with its own bids rather than negotiating contracts.
+- **Speed as the product.** Faster iteration *is* better design. The system is built to make cycle time visible and biddable, so a customer can buy speed when they need it.
+- **Transparency as the customer-acquisition strategy.** Publishing every queue, price, and machine state removes the information asymmetry that makes fabs unapproachable.
 
 The longer-term direction is silicon as a cloud service: designs go in, measured data (e-test, probe, characterisation) comes out, and physical delivery becomes optional.
 
-* * *
+---
 
 ## 2. Goals, non-goals, principles
 
 ### 2.1 Goals
 
-1.   **Recipe authoring via API** from typed steps and forkable templates. Steps target a capability and may be locked to one machine or a set.
-2.   **Machine-protection validation only.** Recipes and designs are checked against rules that keep tools safe (limits, chemistries, contamination, form factor, pattern density, program compatibility). Nothing checks whether the _device_ will work — that is the user's responsibility.
-3.   **Orders with designs and physical assets.** Designs are public GDS/OASIS. Wafers and masks are tracked assets with owners, locations and storage charges.
-4.   **Money-only auction scheduling.** Highest bid runs next; the foundry bids too (reserve or subsidy); prices can be negative. If a lot is blocked because its owner won't pay, that is the intended outcome.
-5.   **Runs produce assets** (images, tables, logs, actual durations, consumable draws). Recipes can include metrology, analysis and halt conditions; a fired halt places the order in `held` until the owner decides.
-6.   **Machine registry, programs, consumables, utilisation, ledger** — all public.
-7.   **No new languages or formats.** Documents are YAML/JSON with JSON Schema. Assets use PNG/CSV/Parquet/JSON/NDJSON. Expressions, where unavoidable, use an existing sandboxed language or are delegated to callbacks.
-8.   **Read-only GUI.**
+1. **Recipe authoring via API** from typed steps and forkable templates. Steps target a capability and may be locked to one machine or a set.
+2. **Machine-protection validation only.** Recipes and designs are checked against rules that keep tools safe (limits, chemistries, contamination, form factor, pattern density, program compatibility). Nothing checks whether the *device* will work — that is the user's responsibility.
+3. **Orders with designs and physical assets.** Designs are public GDS/OASIS. Wafers and masks are tracked assets with owners, locations and storage charges.
+4. **Money-only auction scheduling.** Highest bid runs next; the foundry bids too (reserve or subsidy); prices can be negative. If a lot is blocked because its owner won't pay, that is the intended outcome.
+5. **Runs produce assets** (images, tables, logs, actual durations, consumable draws). Recipes can include metrology, analysis and halt conditions; a fired halt places the order in `held` until the owner decides.
+6. **Machine registry, programs, consumables, utilisation, ledger** — all public.
+7. **No new languages or formats.** Documents are YAML/JSON with JSON Schema. Assets use PNG/CSV/Parquet/JSON/NDJSON. Expressions, where unavoidable, use an existing sandboxed language or are delegated to callbacks.
+8. **Read-only GUI.**
 
 ### 2.2 Design targets
 
 Numbers the architecture, auction and GUI metrics should be judged against (from the motivating vision; not prototype requirements):
 
 | Target | Value | Where it shows up |
-| --- | --- | --- |
+|---|---|---|
 | Customers | ~7,000 accounts at ~100 wafers/yr each | account and asset model scale; no per-customer configuration anywhere |
 | Throughput | ~700,000 wafers/yr (gigafab-comparable) | event log and projection volumes; batch tools |
 | Cycle time | ≤ 5 weeks order-to-data for a standard template | `projected_complete` on every order; cycle-time percentiles per template on the overview page |
@@ -66,20 +66,20 @@ Numbers the architecture, auction and GUI metrics should be judged against (from
 
 ### 2.3 Non-goals (prototype)
 
-*   Real tool control (SECS/GEM, OPC-UA). The prototype ships a simulator behind the adapter interface.
-*   Confidentiality. Nothing is private except API secrets and webhook URLs.
-*   Real payments. Credits are abstract; prepaid and postpaid _enforcement_ are demonstrated so a real foundry can plug in billing.
-*   Physics/TCAD, yield prediction, DRC-for-yield.
+- Real tool control (SECS/GEM, OPC-UA). The prototype ships a simulator behind the adapter interface.
+- Confidentiality. Nothing is private except API secrets and webhook URLs.
+- Real payments. Credits are abstract; prepaid and postpaid *enforcement* are demonstrated so a real foundry can plug in billing.
+- Physics/TCAD, yield prediction, DRC-for-yield.
 
 ### 2.4 Principles
 
-*   API is the product; GUI is a viewer.
-*   Versioned, immutable, content-addressed documents.
-*   Explainable rejections: rule id, subject, measured value, limit, hint.
-*   Deterministic, replayable scheduling from an append-only event log.
-*   Boring technology: Postgres, one service, HTTP+JSON, SSE.
+- API is the product; GUI is a viewer.
+- Versioned, immutable, content-addressed documents.
+- Explainable rejections: rule id, subject, measured value, limit, hint.
+- Deterministic, replayable scheduling from an append-only event log.
+- Boring technology: Postgres, one service, HTTP+JSON, SSE.
 
-* * *
+---
 
 ## 3. Reference processes
 
@@ -89,13 +89,13 @@ Numbers the architecture, auction and GUI metrics should be judged against (from
 
 What they force into the model: linear step lists with macros; coupling windows between steps (resist coat → expose; HF dip → deposition); batch tools (furnaces, wet benches, implanters); contamination classes (no gold in front-end tools); fixed furnace programs (a tube that only runs its qualified 10-hour cycle); per-layer mask metadata; metrology after critical steps (film thickness after oxidation, sheet resistance after implant/anneal) with halt thresholds.
 
-* * *
+---
 
 ## 4. Glossary
 
 | Term | Meaning |
-| --- | --- |
-| **Foundry** | One facility. One per deployment. Also an _account_ that can bid. |
+|---|---|
+| **Foundry** | One facility. One per deployment. Also an *account* that can bid. |
 | **Account** | Anyone who can own assets, hold credits and bid: users (by API key) and the foundry itself. |
 | **Machine** | A physical tool. Has capabilities, programs, limits, consumables, a foundry bid, state. |
 | **Capability** | Typed thing a machine can do (`deposit.pvd.evaporation`). Steps request capabilities. |
@@ -114,11 +114,9 @@ What they force into the model: linear step lists with macros; coupling windows 
 | **Ledger** | Append-only account entries: bids cleared, consumables, storage, shipping, insurance, claims, subsidies. |
 | **Contamination class** | Ordered label on wafers and machines: `clean < poly < metal_std < gold`. |
 
-* * *
+---
 
 ## 5. Domain model
-
-mermaid
 
 ```mermaid
 erDiagram
@@ -151,8 +149,6 @@ erDiagram
 ```
 
 ### 5.1 Machine (with programs and foundry bid)
-
-yaml
 
 ```yaml
 id: mach_furnace-A
@@ -193,8 +189,6 @@ Machines whose capability `mode: free` expose a params JSON Schema with limits; 
 
 ### 5.2 Step (in a recipe) — process, with pinning and coupling
 
-yaml
-
 ```yaml
 - id: BOX
   type: thermal.oxidation
@@ -208,8 +202,6 @@ yaml
 ```
 
 ### 5.3 Step — metrology, analysis, halt
-
-yaml
 
 ```yaml
 - id: BOX_thk
@@ -239,8 +231,6 @@ yaml
 
 ### 5.4 Step — logistics
 
-yaml
-
 ```yaml
 - id: MASKS
   type: logistics.mask_fab            # foundry orders photomasks from the design
@@ -267,8 +257,6 @@ yaml
 
 ### 5.5 Physical assets
 
-yaml
-
 ```yaml
 id: wfr_01J8…
 kind: wafer                          # wafer | mask | carrier
@@ -288,7 +276,6 @@ Masks are the same shape with `kind: mask`, `layer: METAL1`, `design: des_…`, 
 ### 5.6 State machines
 
 **Order**
-
 ```
 draft ─submit─▶ validating ─ok─▶ awaiting_assets ─assets ready─▶ in_progress ─all steps done─▶ complete
                     │                (masks fabbed, wafers received & inspected)  │   ▲
@@ -300,22 +287,18 @@ draft ─submit─▶ validating ─ok─▶ awaiting_assets ─assets ready─�
 ```
 
 **Order-step**
-
 ```
 blocked ─prev done─▶ eligible ─auction win─▶ queued ─start─▶ running ─▶ done
                         ▲                                     │
                         └──── (owner: rework_to_step) ◀── held ◀┘ (fail / halt)
 ```
-
 `eligible` has a visible sub-state: `eligible.unfunded` (bid below reserve or account cannot cover it — it is listed in the auction but never wins).
 
 **Machine**: `idle ⇄ setup ⇄ running`; any → `maintenance` | `down` → `idle`. Plus `offline_by_bid` when the foundry's reserve exceeds every bid (that is what "keep the machine offline by bidding" looks like).
 
-* * *
+---
 
 ## 6. Architecture
-
-mermaid
 
 ```mermaid
 flowchart LR
@@ -365,17 +348,15 @@ flowchart LR
 
 **Language:** Python (FastAPI, Pydantic v2, SQLAlchemy/asyncpg, Postgres, `gdstk`/KLayout for GDS inventory and geometry checks, `pytest`). Scheduler is a pure module with no I/O so it could be ported to Go. Go-first alternative: keep the design checker and analysis worker as a Python sidecar. GUI: static TypeScript, `GET` + SSE only.
 
-**Repository:**`foundry.api/` with `schemas/` (JSON Schema for every document), `templates/`, `rulesets/`, `foundries/demo/`, the Python package `foundryapi/` (`api`, `recipes`, `validation`, `orders`, `assets`, `scheduler`, `ledger`, `insurance`, `analysis`, `registry`, `sim`, `events`), `web/`, `tests/`, `docs/`.
+**Repository:** `foundry.api/` with `schemas/` (JSON Schema for every document), `templates/`, `rulesets/`, `foundries/demo/`, the Python package `foundryapi/` (`api`, `recipes`, `validation`, `orders`, `assets`, `scheduler`, `ledger`, `insurance`, `analysis`, `registry`, `sim`, `events`), `web/`, `tests/`, `docs/`.
 
-* * *
+---
 
 ## 7. Recipes
 
 ### 7.1 Document
 
 YAML/JSON validated against `schemas/recipe.schema.json`. Published recipes are immutable, versioned, content-hashed.
-
-yaml
 
 ```yaml
 schema: foundry.api/recipe/v1
@@ -403,35 +384,33 @@ Note the layer map no longer carries min width/space: those are yield rules and 
 ### 7.2 Step types (v0.2 catalogue)
 
 | Family | Types | Notes |
-| --- | --- | --- |
-| `coat.*` | `coat.spin`, `coat.spray` |  |
+|---|---|---|
+| `coat.*` | `coat.spin`, `coat.spray` | |
 | `litho.*` | `litho.expose_develop`, `litho.expose`, `litho.develop`, `litho.direct_write` | direct-write consumes a design layer, no mask asset |
-| `deposit.*` | `pvd.evaporation`, `pvd.sputter`, `cvd.lpcvd`, `cvd.pecvd`, `ald`, `epi` |  |
+| `deposit.*` | `pvd.evaporation`, `pvd.sputter`, `cvd.lpcvd`, `cvd.pecvd`, `ald`, `epi` | |
 | `thermal.*` | `oxidation`, `anneal.furnace`, `anneal.rta`, `cure`, `bake` | usually `programs_only` |
-| `etch.*` | `rie`, `drie`, `wet`, `ion_mill`, `xef2` |  |
-| `strip.*` | `wet`, `ash` |  |
-| `implant.*` | `ion` |  |
-| `planarize.*` | `cmp` |  |
-| `clean.*` | `rca`, `piranha`, `solvent`, `hf_dip` |  |
+| `etch.*` | `rie`, `drie`, `wet`, `ion_mill`, `xef2` | |
+| `strip.*` | `wet`, `ash` | |
+| `implant.*` | `ion` | |
+| `planarize.*` | `cmp` | |
+| `clean.*` | `rca`, `piranha`, `solvent`, `hf_dip` | |
 | `metrology.*` | `thickness`, `profilometry`, `sem`, `optical`, `probe` (e-test), `sheet_resistance`, `incoming` | always declare `outputs` |
 | `analysis.*` | `check` (declarative stats vs. limits), `callback` (delegated), `expr` (optional CEL, §13) | no machine; `on_fail: hold` |
-| `logistics.*` | `mask_fab`, `receive_inspect`, `external_process`, `ship_out`, `store` (explicit long-term storage with class) |  |
-| `backend.*` | `dice`, `release.laser`, `wafer_bond` |  |
+| `logistics.*` | `mask_fab`, `receive_inspect`, `external_process`, `ship_out`, `store` (explicit long-term storage with class) | |
+| `backend.*` | `dice`, `release.laser`, `wafer_bond` | |
 | `manual.*` | `inspect`, `note`, `operator_task` | scheduled on the `operator` pseudo-machine at its rate |
 
 ### 7.3 Macros, versioning, forking
 
 YAML macros expanded at publish time; drafts mutable, publish freezes and assigns a version; forks carry lineage; any recipe referenced by an order is permanent.
 
-* * *
+---
 
 ## 8. Recipe validation (machine protection)
 
 Rules are versioned documents in `rulesets/machine-protection.yaml`, evaluated against the expanded recipe, the machine registry (including programs) and a simulated wafer state threaded through the steps. **Rules protect machines, consumables and shared infrastructure — never the user's device.**
 
 Rule bodies are written in the evaluator chosen in §13; the schema is evaluator-agnostic:
-
-yaml
 
 ```yaml
 schema: foundry.api/ruleset/v1
@@ -472,7 +451,7 @@ rules:
 
 Validation reports carry `rule, severity, subject, measured, limit, message, hint` per finding; errors block publish; reports are public and permanent. Rules are re-evaluated at dispatch time against the machine revision in force; a failure blocks the step and holds the order.
 
-* * *
+---
 
 ## 9. Designs and design checks (machine protection only)
 
@@ -483,18 +462,18 @@ Validation reports carry `rule, severity, subject, measured, limit, message, hin
 **Machine protection (`MK-*`)** — computed with `gdstk` booleans on the layers the recipe says feed each tool:
 
 | Rule | Protects |
-| --- | --- |
+|---|---|
 | `MK-001` per-layer pattern density in machine-declared `[min,max]` per window | etch loading, CMP dishing, evaporator source burn-through |
 | `MK-002` no geometry in the tool's edge-exclusion ring | handlers, chucks, clamps |
-| `MK-003``RELEASE ∩ XZONE = ∅`; `RELEASE` area ≤ laser `max_release_area_mm2` | laser release optics/stage |
+| `MK-003` `RELEASE ∩ XZONE = ∅`; `RELEASE` area ≤ laser `max_release_area_mm2` | laser release optics/stage |
 | `MK-004` min trench width vs. DRIE aspect-ratio ceiling | endpoint detection, chamber |
 | `MK-005` vertex/polygon count ≤ direct-write ceiling | writer time bound |
 | `MK-006` mask-fab: min feature ≥ vendor min for the chosen blank | prevents unfillable mask orders |
 | `MK-007` no geometry on layers the recipe never consumes (warning) | catches layer-number mistakes that would waste a mask |
 
-There is **no DRC for yield**. The repo may ship the foundry's _advisory_ KLayout deck as a downloadable file for users to run themselves, but the server never gates on it. This is a deliberate liability boundary and is stated on every design page.
+There is **no DRC for yield**. The repo may ship the foundry's *advisory* KLayout deck as a downloadable file for users to run themselves, but the server never gates on it. This is a deliberate liability boundary and is stated on every design page.
 
-* * *
+---
 
 ## 10. Auction and scheduling
 
@@ -504,11 +483,11 @@ Every machine sells its next slot to the highest bidder, the way a compute spot 
 
 ### 10.2 Bidders
 
-*   **Order-steps** that are `eligible`: predecessor done, assets present, account able to fund the bid (§12).
-*   **The foundry**, via each machine's `foundry_bid`: 
-    *   `reserve` (positive): "don't run anyone below X". If no bid ≥ X, the machine idles (`offline_by_bid`). This is how a foundry takes a machine out of service gracefully, or refuses to run cheap jobs before scheduled maintenance.
-    *   `subsidy` (negative): "I would rather pay up to |X| per wafer than have this tool stop". Used for furnaces, epi reactors, anything with expensive shutdown/qualification cycles.
-    *   `none`: reserve is the program's bundled cost (foundry breaks even).
+- **Order-steps** that are `eligible`: predecessor done, assets present, account able to fund the bid (§12).
+- **The foundry**, via each machine's `foundry_bid`:
+  - `reserve` (positive): "don't run anyone below X". If no bid ≥ X, the machine idles (`offline_by_bid`). This is how a foundry takes a machine out of service gracefully, or refuses to run cheap jobs before scheduled maintenance.
+  - `subsidy` (negative): "I would rather pay up to |X| per wafer than have this tool stop". Used for furnaces, epi reactors, anything with expensive shutdown/qualification cycles.
+  - `none`: reserve is the program's bundled cost (foundry breaks even).
 
 A foundry bid is public and appears in the queue like any other row.
 
@@ -533,15 +512,15 @@ emit auction.cleared {machine, winners, price, foundry_bid, losers_snapshot}
 ### 10.4 Pricing-rule analysis
 
 | Rule | Incentive for bidders | API churn | Foundry control | Batch tools | Verdict |
-| --- | --- | --- | --- | --- | --- |
+|---|---|---|---|---|---|
 | **First-price** | Shade bids just above the next competitor; requires watching the queue | High (constant re-bidding) | Reserve only | Every member pays own bid — simple | Simple to explain; poor for headless clients |
-| **Second-price (Vickrey), foundry as participant** | Bid true value once | Low | Reserve _and_ subsidy fall out naturally: the foundry's bid is just another bid that sets the floor | Needs a batch rule (§10.5) | **Recommended default** |
-| **Uniform-price batch auction** (all winners in a batch pay the highest losing bid) | Truthful for single units | Low | Same | Natural | Adopted _for batches_ within second-price |
+| **Second-price (Vickrey), foundry as participant** | Bid true value once | Low | Reserve *and* subsidy fall out naturally: the foundry's bid is just another bid that sets the floor | Needs a batch rule (§10.5) | **Recommended default** |
+| **Uniform-price batch auction** (all winners in a batch pay the highest losing bid) | Truthful for single units | Low | Same | Natural | Adopted *for batches* within second-price |
 | **Time-window reservations** (reserve a 2 h block) | Predictability | Low | Weak — blocks the tool | Awkward | Deferred; can be emulated with a high bid + `not_before` (Q1 in §18) |
 
-Why second-price works with a negative foundry bid: the foundry's subsidy is its _true valuation_ of keeping the tool running (avoided shutdown cost per wafer). Second-price with the foundry bidding its true value means the tool runs exactly when society (foundry + users) values running it more than idling — including when the user's valuation is small and the foundry tops it up.
+Why second-price works with a negative foundry bid: the foundry's subsidy is its *true valuation* of keeping the tool running (avoided shutdown cost per wafer). Second-price with the foundry bidding its true value means the tool runs exactly when society (foundry + users) values running it more than idling — including when the user's valuation is small and the foundry tops it up.
 
-**Manipulation notes.** A user can't lower the price by bidding through several keys (second price only counts _distinct competing_ bids, and shills only raise prices). A foundry could overstate a subsidy — but it pays it. Cancelling a `queued` step forfeits the cleared price (§16).
+**Manipulation notes.** A user can't lower the price by bidding through several keys (second price only counts *distinct competing* bids, and shills only raise prices). A foundry could overstate a subsidy — but it pays it. Cancelling a `queued` step forfeits the cleared price (§16).
 
 ### 10.5 Batch tools
 
@@ -555,9 +534,9 @@ With no deadline boost, a coupling window (`max_queue_time_from_prev_s`) is just
 
 Any of these put an order in `held`: an `analysis.*` step's `on_fail`, a coupling breach, a run outcome `fail`, an incoming inspection failure, a dispatch-time revalidation failure, or an account that cannot fund the next step (`unfunded` for longer than `foundry.unfunded_hold_after_s`). While held:
 
-*   wafers/masks sit in storage at their class rate (charged to the owner);
-*   the owner resolves via `POST /orders/{id}/holds/{hold_id}/resolve` with `{action: continue | rework_to_step, step_id | abort, note}`;
-*   `foundry.hold_timeout_s` (e.g. 14 days) auto-aborts; assets then keep charging until shipped (`ship_out` can be ordered standalone) or, after `foundry.abandon_after_s`, are disposed and the account is closed out.
+- wafers/masks sit in storage at their class rate (charged to the owner);
+- the owner resolves via `POST /orders/{id}/holds/{hold_id}/resolve` with `{action: continue | rework_to_step, step_id | abort, note}`;
+- `foundry.hold_timeout_s` (e.g. 14 days) auto-aborts; assets then keep charging until shipped (`ship_out` can be ordered standalone) or, after `foundry.abandon_after_s`, are disposed and the account is closed out.
 
 All hold events, decisions and notes are public.
 
@@ -573,33 +552,31 @@ For every order-step: expected start (given current bids and program durations),
 
 Furnace A idle, `F = −6`, program `dry_ox_900_20nm`, min_fill 5, 14 wafers eligible across 3 lots bidding 9, 8 and 4 cr/wafer; one outside bidder (different program) at 3.
 
-*   Batch = all 14 wafers (same program, ≤ 25). Highest bid outside the batch = 3. Price = max(−6, 3) = **3 cr/wafer** for everyone in the batch.
-*   Had there been no outside bidder: price = max(−6, none) = **−6** → each wafer's owner is _credited_ 6 cr; the foundry pays 84 cr rather than let the tube cool.
-*   Had the foundry set `reserve +20`: nobody clears; the tube shows `offline_by_bid`, with the queue and the 20 cr floor visible to all.
+- Batch = all 14 wafers (same program, ≤ 25). Highest bid outside the batch = 3. Price = max(−6, 3) = **3 cr/wafer** for everyone in the batch.
+- Had there been no outside bidder: price = max(−6, none) = **−6** → each wafer's owner is *credited* 6 cr; the foundry pays 84 cr rather than let the tube cool.
+- Had the foundry set `reserve +20`: nobody clears; the tube shows `offline_by_bid`, with the queue and the 20 cr floor visible to all.
 
 ### 10.11 Determinism
 
 `scheduler.decide(state, event, clock) -> [Decision]` is pure; the demo event log replays to byte-identical `auction.cleared` events.
 
-* * *
+---
 
 ## 11. Machines, programs, consumables, storage, utilisation
 
 ### 11.1 Consumable charging modes
 
 | Mode | Where the cost lives | Example | Charged how |
-| --- | --- | --- | --- |
+|---|---|---|---|
 | **bundled** | inside a program's `rate_credits_per_run` (or a free-mode capability's `rate_credits_per_hour`) | furnace O2/N2, quartz wear, RIE SF6 at nominal flow, electricity, chamber hours | Part of the foundry's floor; no separate line item. The foundry sets the rate from historical draw. |
-| **metered** | pass-through at actual draw × unit cost | evaporated Au/Pt (grams, wafer-dependent), mask blanks, substrate wafers, custom targets | Separate ledger line at run end (`consumable.metered`); _estimated_ at validation for the projection. |
+| **metered** | pass-through at actual draw × unit cost | evaporated Au/Pt (grams, wafer-dependent), mask blanks, substrate wafers, custom targets | Separate ledger line at run end (`consumable.metered`); *estimated* at validation for the projection. |
 | **consignment** | customer-owned stock held at the foundry | customer's own 4-inch SOI wafers, their proprietary resist, their sputter target | No unit charge; stock decremented from `CONSIGNMENT_STOCK(account, consumable)`; storage charged by class; step validation fails at order time if stock is insufficient (`MP-100`). |
 
-Each consumable in a machine's rate table declares `mode` and, for metered ones, a _draw function_ (`draw = f(program|params, wafer_count)`) implemented per capability in code and unit-tested — no expression language needed. A program's bundled rate is what makes `foundry_bid.mode: none` well-defined: `F = bundled_cost_per_wafer`.
+Each consumable in a machine's rate table declares `mode` and, for metered ones, a *draw function* (`draw = f(program|params, wafer_count)`) implemented per capability in code and unit-tested — no expression language needed. A program's bundled rate is what makes `foundry_bid.mode: none` well-defined: `F = bundled_cost_per_wafer`.
 
-_Open exploration (§18 Q3):_ whether consignment stock should also be biddable/sellable between accounts, and whether bundled rates should be re-derived automatically from metered history.
+*Open exploration (§18 Q3):* whether consignment stock should also be biddable/sellable between accounts, and whether bundled rates should be re-derived automatically from metered history.
 
 ### 11.2 Storage
-
-yaml
 
 ```yaml
 storage_locations:
@@ -613,13 +590,13 @@ storage_rates:
   - {class: mask_box,      unit: mask,  credits_per_day: 0.05}
 ```
 
-Storage accrues per asset per hour (billed daily to the ledger as `storage.wafer` / `storage.mask`) from arrival until the asset is on a tool, in transit, shipped or disposed. A wafer _between steps_ is in storage. This is the mechanism that makes "blocked because unwilling to pay" self-limiting: waiting is not free. Recipes can move assets to a cheaper class with `logistics.store`. Storage occupancy and rates are public.
+Storage accrues per asset per hour (billed daily to the ledger as `storage.wafer` / `storage.mask`) from arrival until the asset is on a tool, in transit, shipped or disposed. A wafer *between steps* is in storage. This is the mechanism that makes "blocked because unwilling to pay" self-limiting: waiting is not free. Recipes can move assets to a cheaper class with `logistics.store`. Storage occupancy and rates are public.
 
 ### 11.3 Utilisation and market data
 
 Hourly buckets of `running/setup/idle/offline_by_bid/maintenance/down`, wafers, runs, credits cleared (may be negative), per machine and per capability; plus per-program clearing price percentiles ("market rate"). Derived from events, rebuildable.
 
-* * *
+---
 
 ## 12. Accounts, ledger, insurance
 
@@ -628,7 +605,7 @@ Hourly buckets of `running/setup/idle/offline_by_bid/maintenance/down`, wafers, 
 Credits are abstract. Every account has a `funding` mode, demonstrated in the prototype:
 
 | Mode | Rule | Effect on bidding |
-| --- | --- | --- |
+|---|---|---|
 | `prepaid` | `balance ≥ 0` always | a bid counts only if `balance − reserved_for_queued − projected_storage_7d ≥ bid × wafers`; otherwise `eligible.unfunded` |
 | `postpaid` | `balance ≥ −credit_limit` | same check against `credit_limit` instead of 0 |
 | `unlimited` | demo bots and the foundry account | never unfunded |
@@ -641,8 +618,6 @@ Append-only entries `(seq, ts, account, counter_account, kind, amount, refs)`. K
 
 ### 12.3 Insurance (pluggable; foundry and external providers look identical)
 
-yaml
-
 ```yaml
 insurance_provider:
   id: prov_foundry              # built-in; or prov_acme for external
@@ -651,19 +626,19 @@ insurance_provider:
   webhook_signing_key: …
 ```
 
-*   At order submit (or later per step), `POST /orders/{id}/insurance {provider, steps: [...] | all}` obtains a quote; accepting it writes `insurance.premium` and a `policy` record on the order.
-*   A run outcome `fail` on a covered step (with cause classification from the adapter: `machine_fault | recipe | wafer | unknown`) automatically files a claim; the provider's decision writes `insurance.claim` and, if the policy says so, funds a rework at the provider's expense.
-*   The built-in provider prices premiums from the machine's historical fault rate and covers `machine_fault` only; an external provider can cover anything. The foundry can also buy insurance for its own subsidy exposure or machine damage through the same interface.
-*   **Default with no policy:** the user pays for machine time consumed, whatever the outcome. Insurance is how that risk is moved.
+- At order submit (or later per step), `POST /orders/{id}/insurance {provider, steps: [...] | all}` obtains a quote; accepting it writes `insurance.premium` and a `policy` record on the order.
+- A run outcome `fail` on a covered step (with cause classification from the adapter: `machine_fault | recipe | wafer | unknown`) automatically files a claim; the provider's decision writes `insurance.claim` and, if the policy says so, funds a rework at the provider's expense.
+- The built-in provider prices premiums from the machine's historical fault rate and covers `machine_fault` only; an external provider can cover anything. The foundry can also buy insurance for its own subsidy exposure or machine damage through the same interface.
+- **Default with no policy:** the user pays for machine time consumed, whatever the outcome. Insurance is how that risk is moved.
 
-* * *
+---
 
 ## 13. Expression language analysis
 
 Needed in three places: machine-protection rules (foundry-authored), analysis/halt conditions (user-authored) and, optionally, bid policies. Requirements: sandboxed, deterministic, embeddable in YAML/JSON, readable in the GUI, not invented here.
 
 | Option | Sandboxing | Expressiveness | Readability in GUI | Ecosystem | Fit for foundry rules | Fit for user analysis |
-| --- | --- | --- | --- | --- | --- | --- |
+|---|---|---|---|---|---|---|
 | **Declarative checks** (`stat/field/min/max` JSON, §5.3) | Total (no code) | Low — thresholds, groupings | Excellent | n/a | Covers ~60 % of rules (limits) | Covers the common e-test case |
 | **Callback / webhook** (server POSTs inputs, expects `{pass, findings}`) | User's problem; server only sees a verdict | Unlimited | Only the verdict is visible | Any language | Poor for foundry rules (must be public & auditable) | **Best**: users run whatever they like, on their infrastructure |
 | **CEL** | Strong: non-Turing-complete, bounded cost, typed | Medium — boolean/arith over structured data, list macros | Good (one-liners) | Google, `cel-python`, `cel-go` (both languages we might use) | **Good**: rules like MP-020 are one line, evaluated identically in the GUI | Fine for simple checks |
@@ -673,21 +648,20 @@ Needed in three places: machine-protection rules (foundry-authored), analysis/ha
 | **Starlark / Lua** | Medium (deterministic, resource-limited) | High | Good | Bazel/Buck ecosystem | Reasonable but another runtime | Reasonable |
 
 **Recommendation:**
-
-1.   **Declarative checks first.** Most limits and e-test thresholds need no language. The schema stays JSON.
-2.   **Callbacks for everything user-defined.**`analysis.callback` and (optionally) bid-policy callbacks. The user's code is theirs; the foundry records inputs, verdict, and latency. Signed requests, timeouts, retries, and a public "callback failed → held" path.
-3.   **CEL as the single inline expression language** for foundry rules that aren't structural, chosen because it is sandboxed by construction, has both Python and Go implementations (protecting the Go-port option), and renders as a readable one-liner in the rules page. `analysis.expr` exposes the same evaluator to users for small checks. Rego and Python are rejected for a public server; JSONLogic for readability.
+1. **Declarative checks first.** Most limits and e-test thresholds need no language. The schema stays JSON.
+2. **Callbacks for everything user-defined.** `analysis.callback` and (optionally) bid-policy callbacks. The user's code is theirs; the foundry records inputs, verdict, and latency. Signed requests, timeouts, retries, and a public "callback failed → held" path.
+3. **CEL as the single inline expression language** for foundry rules that aren't structural, chosen because it is sandboxed by construction, has both Python and Go implementations (protecting the Go-port option), and renders as a readable one-liner in the rules page. `analysis.expr` exposes the same evaluator to users for small checks. Rego and Python are rejected for a public server; JSONLogic for readability.
 
 The rule and step schemas carry an `evaluator` field so this decision is reversible without changing documents.
 
-* * *
+---
 
 ## 14. Run assets
 
 Every run produces assets into the object store, listed on `GET /runs/{id}/assets` and downloadable by anyone:
 
 | Asset | Format | Producer |
-| --- | --- | --- |
+|---|---|---|
 | `telemetry` | NDJSON (`ts, channel, value, unit`) | adapter/simulator |
 | `summary` | JSON (`actual_duration_s, program, params_effective, outcome, cause, consumable_draw[]`) | dispatcher |
 | `log` | text | adapter |
@@ -696,22 +670,22 @@ Every run produces assets into the object store, listed on `GET /runs/{id}/asset
 | `analysis report` | JSON (`checks[], pass, findings[]`) | analysis worker |
 | `inspection` | JSON | incoming inspection |
 
-For many customers the run assets — particularly probe/e-test tables and wafer maps — _are_ the deliverable, and a recipe may end with `metrology.probe` and `logistics.store` (or disposal) instead of `ship_out` (§1). Schemas for structured outputs live in `schemas/assets/`; producers declare which schema they emit so callbacks and the GUI can rely on them. Nothing is deleted; large binaries may be tiered to cold storage after N days.
+For many customers the run assets — particularly probe/e-test tables and wafer maps — *are* the deliverable, and a recipe may end with `metrology.probe` and `logistics.store` (or disposal) instead of `ship_out` (§1). Schemas for structured outputs live in `schemas/assets/`; producers declare which schema they emit so callbacks and the GUI can rely on them. Nothing is deleted; large binaries may be tiered to cold storage after N days.
 
-* * *
+---
 
 ## 15. Public API
 
 Conventions: `/v1`, JSON, OpenAPI 3.1, ULIDs, cursor pagination, `Idempotency-Key`, unauthenticated reads, API-key writes, RFC 9457 problem+json errors. Reads: foundry, machines, auctions, runs, utilisation, consumables, capabilities, step types, templates/recipes, designs, orders, order-steps, events (+SSE), rulesets, validation reports. Writes: recipe drafts/validate/publish/fork, design upload/check, orders/cancel, bids (per-step and bulk + policy), webhooks. Demo-only: `/sim/advance`, `/sim/reset`. Additional endpoints:
 
 | Method & path | Auth | Purpose |
-| --- | --- | --- |
+|---|---|---|
 | `GET /machines/{id}/programs` | – | Locked configurations, durations, bundled rates, metered consumables |
 | `GET /machines/{id}/auction` | – | Queue incl. the foundry bid row, unfunded rows, batch formation state |
 | `PUT /machines/{id}/foundry-bid` | foundry | Set reserve/subsidy (public event) |
 | `GET /assets` · `GET /assets/{id}` · `GET /accounts/{id}/assets` | – | Physical assets, locations, storage charges to date |
 | `POST /shipments` · `GET /shipments/{id}` | key | Standalone inbound/outbound shipping; inbound creates `awaiting_inspection` assets |
-| `POST /orders` | key | Now includes `assets: {wafers: {source, count |
+| `POST /orders` | key | Now includes `assets: {wafers: {source, count | asset_ids}, masks: {source, asset_ids | mask_fab}}` and `insurance` |
 | `GET /orders/{id}/holds` · `POST /orders/{id}/holds/{hid}/resolve` | key+owner | Held-order decisions |
 | `GET /runs/{id}/assets` · `GET /assets/{id}/content` | – | Run outputs |
 | `GET /accounts/{id}` · `GET /accounts/{id}/ledger` | – | Balance, mode, limit, entries |
@@ -722,12 +696,13 @@ Conventions: `/v1`, JSON, OpenAPI 3.1, ULIDs, cursor pagination, `Idempotency-Ke
 | `GET /vendors` | – | Mask-fab and external-process vendors, lead times, prices |
 | `POST /callbacks/test` | key | Dry-run a callback endpoint with a sample payload |
 
-* * *
+
+---
 
 ## 16. Openness, abuse, safety
 
 | Risk | Mitigation |
-| --- | --- |
+|---|---|
 | Bid churn / spam | Per-key write limits; minimum increment; unfunded bids never clear |
 | Bid-and-cancel griefing | Cancelling a `queued` step writes `forfeit` of the cleared price; lowering a queued bid below its cleared price is rejected |
 | Exploiting negative prices | Metered consumables are always charged; a subsidy is the foundry's explicit choice and capped by its own bid |
@@ -738,7 +713,7 @@ Conventions: `/v1`, JSON, OpenAPI 3.1, ULIDs, cursor pagination, `Idempotency-Ke
 | IP | All designs public by declaration; takedown route; sha256 dedupe |
 | PII | Only public key ids and optional display names; emails hashed; webhook/callback URLs redacted to hostname in public views |
 
-* * *
+---
 
 ## 17. Read-only GUI
 
@@ -850,28 +825,28 @@ Site map: `/` overview · `/machines/:id` · `/auctions` · `/orders` · `/order
 
 **Recipe viewer** — step list with type, capability, pinned machines per step, program badges, metrology outputs and checks inline, logistics steps drawn as a timeline with vendor lead times, and the per-step wafer-state strip.
 
-* * *
+---
 
 ## 18. Open questions
 
-1.   **Time-window reservations** — still deferred. Emulate with `not_before` + high bid, or add real reservations later?
-2.   **Foundry bid granularity** — per machine vs. per program (a furnace may want a subsidy for `dry_ox` but a reserve for `bake_10h`). Leaning per-program with a machine default.
-3.   **Consumables** — should consignment stock be transferable/sellable between accounts? Should bundled rates auto-update from metered history? Should metered draws be _bid-able_ (a cap on consumable spend per step)?
-4.   **Batch pricing** — uniform price per batch vs. each member pays own second price. Uniform is simpler and fairer inside a batch; confirm.
-5.   **Held timeouts** — 14-day hold timeout and abandon-after are foundry constants; should recipes shorten them?
-6.   **Callback identity** — should callbacks be allowed to _set bids_ (a user's own scheduler)? Powerful, but it turns callbacks into a bidding-bot API. Probably yes with a separate scope on the API key.
-7.   **Wafer-state truth** — when incoming inspection disagrees with the recipe's assumed state, inspection wins. Is manual override by the foundry account needed?
-8.   **Split lots** — child lots are tracked; do they get their own bids, or inherit the parent's?
-9.   **Insurance claim disputes** — provider decision is final; do we need a public dispute record?
-10.   **Data-only orders** — for "silicon as a cloud service", should a recipe be allowed to end without `ship_out` or `store`, with wafers disposed after probe data is published? What is the retention/disposal policy and price?
-11.   **Go boundary** — CEL exists in both languages; the design checker (`gdstk`/KLayout) and analysis worker stay Python regardless.
+1. **Time-window reservations** — still deferred. Emulate with `not_before` + high bid, or add real reservations later?
+2. **Foundry bid granularity** — per machine vs. per program (a furnace may want a subsidy for `dry_ox` but a reserve for `bake_10h`). Leaning per-program with a machine default.
+3. **Consumables** — should consignment stock be transferable/sellable between accounts? Should bundled rates auto-update from metered history? Should metered draws be *bid-able* (a cap on consumable spend per step)?
+4. **Batch pricing** — uniform price per batch vs. each member pays own second price. Uniform is simpler and fairer inside a batch; confirm.
+5. **Held timeouts** — 14-day hold timeout and abandon-after are foundry constants; should recipes shorten them?
+6. **Callback identity** — should callbacks be allowed to *set bids* (a user's own scheduler)? Powerful, but it turns callbacks into a bidding-bot API. Probably yes with a separate scope on the API key.
+7. **Wafer-state truth** — when incoming inspection disagrees with the recipe's assumed state, inspection wins. Is manual override by the foundry account needed?
+8. **Split lots** — child lots are tracked; do they get their own bids, or inherit the parent's?
+9. **Insurance claim disputes** — provider decision is final; do we need a public dispute record?
+10. **Data-only orders** — for "silicon as a cloud service", should a recipe be allowed to end without `ship_out` or `store`, with wafers disposed after probe data is published? What is the retention/disposal policy and price?
+11. **Go boundary** — CEL exists in both languages; the design checker (`gdstk`/KLayout) and analysis worker stay Python regardless.
 
-* * *
+---
 
 ## 19. Milestones
 
 | M | Deliverable |
-| --- | --- |
+|---|---|
 | M0 | JSON Schemas (recipe, step types, machine, program, ruleset, order, assets, ledger), demo foundry, TFE template, OpenAPI skeleton |
 | M1 | Recipes + rule engine (builtin + CEL) + wafer-state + reports; `foundry-api validate` CLI |
 | M2 | Designs: upload, inventory, LM/MK checks in sandbox |
