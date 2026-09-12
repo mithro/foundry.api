@@ -46,7 +46,7 @@ The longer-term direction is silicon as a cloud service: designs go in, measured
 1. **Recipe authoring via API** from typed steps and forkable templates. Steps target a capability and may be locked to one machine or a set.
 2. **Machine-protection validation only.** Recipes and designs are checked against rules that keep tools and foundry operations safe (limits, chemistries, contamination, form factor, pattern density, program compatibility, fillable mask orders). Nothing checks whether the *device* will work — that is the user's responsibility. Chemistry and thermal limits live in each machine's declared `limits`; global rules are structural.
 3. **Orders with designs and physical assets.** Designs are public GDS/OASIS. Wafers and masks are tracked assets with owners, locations and storage charges.
-4. **Money-only auction scheduling.** The bid worth the most per machine-hour runs next; the foundry bids too (reserve or subsidy); prices can be negative; guaranteed slots exist only as futures the foundry sells. If a lot is blocked because its owner won't pay, that is the intended outcome.
+4. **Money-only auction scheduling.** The bid worth the most per machine-hour runs next; the foundry bids too (reserve or subsidy); prices can be negative; a fixed cost for a slot exists only as a future someone sells against the auction. If a lot is blocked because its owner won't pay, that is the intended outcome.
 5. **Runs produce assets** (images, tables, logs, actual durations, consumable draws). Recipes can include metrology, analysis and halt conditions; a fired halt places the order in `held` until the owner decides.
 6. **Machine registry, programs, consumables, utilisation, ledger** — all public.
 7. **No new languages or formats.** Documents are YAML/JSON with JSON Schema. Assets use PNG/CSV/Parquet/JSON/NDJSON. Expressions, where unavoidable, use an existing sandboxed language or are delegated to callbacks.
@@ -111,8 +111,7 @@ What they force into the model: step DAGs that are almost always linear, with ma
 | **Bid** | `max_credits` an account will pay in total for one run of an order-step. Auctions compare bids as an implied rate, `max_credits / machine_time(run)`, so a bidder whose program matches the machine's current program (no setup) gets more rate for the same money. |
 | **Foundry bid** | The foundry's standing bid for a machine's own idle time, expressed as an adjustment to the program's bundled rate: `F = rate_credits_per_hour + adjustment`. Positive adjustment = reserve, negative = subsidy (F may go below zero), zero = break-even. Optionally overridden per program. |
 | **Auction / Slot / Run** | Per-machine ranking of candidate runs → the next run, locked `clear_ahead_s` before the machine frees → the execution with telemetry and outputs. **A run belongs to exactly one account**; runs are never shared between accounts. |
-| **Slot future** | A contract bought in advance: the right to have one named run start on a machine inside a time window at a fixed strike price, pre-empting the auction. Sold by the foundry only (§10.6). |
-| **Slot guarantee** | A contract bought in advance from any provider: the provider bids without limit on the holder's behalf for one named run inside a window, so the holder wins the slot *through* the auction whatever rivals bid, and pays only the agreed strike; the provider pays the excess (§10.6). |
+| **Future** | A contract that fixes the holder's cost for one named run at a given time despite the auction always running: the provider agrees to pay whatever it costs to win that clearing, the holder pays the agreed strike. Sold by the foundry or any external provider; never a reservation (§10.6). |
 | **Halt** | A condition evaluated on run outputs; if true, the order goes to `held`. |
 | **Ledger** | Append-only account entries: runs cleared, consumables, storage, shipping, insurance, futures, claims, subsidies, forfeits. |
 | **Contamination class** | Ordered label on wafers and machines. Demo ordering: `clean < organic < metal_std < gold` (`organic` = resist/polyimide present). The ordering is a foundry-level ruleset constant, not a fixed enum. |
@@ -364,7 +363,7 @@ flowchart LR
         EDA[EDA / scripts / other systems]
         GUI[Read-only web GUI]
         CB[User callback endpoints]
-        INS[External providers: insurance, slot guarantees]
+        INS[External providers: insurance, futures]
     end
     subgraph core [foundry.api service]
         API[HTTP API · OpenAPI 3.1]
@@ -577,19 +576,18 @@ Lot sizing follows the machine: an order's lot must fit in one run on every cand
 
   A foundry bid is public and appears in the queue like any other row.
 - **Idle bids.** Any account may bid for a machine's next slot with the implicit program `idle` for a chosen number of hours. It is ranked, priced and charged like any run; the machine does nothing. The floor is the machine's `idle_rate_credits_per_hour` (foundry-set; default the machine's highest program rate). This is how a rival blocks someone's step: visibly, attributably, and at the full price of the time.
-- **Slot-guarantee and slot-future holders** (§10.6): a guaranteed run is bid on without limit by its provider; a run covered by a foundry future whose window is open pre-empts the auction.
+- **Future holders** (§10.6): a run covered by a future is bid on by its provider with whatever it takes; the provider, not the holder, pays the cleared price.
 
 ### 10.4 Clearing rule (per machine)
 
-Clearing is **just-in-time**: the next run is decided at `free_at − clear_ahead_s` (immediately, if the machine is idle) — `clear_ahead_s` being the time the foundry needs to stage wafers from storage to the tool. Until that moment bids on the machine compete freely and a late high bidder can still win; at that moment the winner is **locked** (`queued`) and cancelling it forfeits the cleared price (§16). The rule is re-run on every relevant event before the lock (bid changed, step became eligible, machine state changed, future bought).
+Clearing is **just-in-time**: the next run is decided at `free_at − clear_ahead_s` (immediately, if the machine is idle) — `clear_ahead_s` being the time the foundry needs to stage wafers from storage to the tool. Until that moment bids on the machine compete freely and a late high bidder can still win; at that moment the winner is **locked** (`queued`) and cancelling it forfeits the cleared price (§16). The rule is re-run on every relevant event before the lock (bid changed, step became eligible, machine state changed, future bought or opened).
 
 ```
 prev = M.current_program (or last program run)
-if a slot future on M is exercisable now (holder's step eligible, window open):
-    W = the future's run; price = future.strike; lock W; emit auction.cleared {…, via: future}; stop
 C = candidate runs: eligible order-steps s with M ∈ machines(s), funded(s), not locked on another machine,
     plus funded idle bids on M (program = idle, h = requested hours)
 for s in C:
+    if s is covered by a future whose window is open: max_credits(s) = ∞, payer(s) = the future's provider
     h(s) = hours(run(s) | prev)
     r(s) = max_credits(s) / h(s)
     F(s) = floor rate of M for program(s)          # rate + adjustment; subsidy only if applies_when/budget allow
@@ -602,7 +600,7 @@ R = max(0, highest surplus among C \ W excluding runs owned by W's account)   # 
 rate(W)  = F(W) + R                                       # the lowest rate that would still have won
 price(W) = rate(W) × h(W)                                 # second price with the foundry as a participant; ≤ max_credits(W)
 lock W as queued; reserve price(W) against the owner's account
-emit auction.cleared {machine, run, program, prev_program, hours, rate, price, floor, runner_up_surplus, losers_snapshot}
+emit auction.cleared {machine, run, program, prev_program, hours, rate, price, payer, floor, runner_up_surplus, losers_snapshot}
 ```
 
 `price` can be **negative**: if `F(W) = −20 cr/h` and no one else bids, `rate(W) = −20` and the winner is credited `20 × h` for running (§10.5 shows why this is rational for the foundry). Metered consumables are still charged separately, so a user cannot profit by burning gold; the subsidy budget bounds what the foundry can lose.
@@ -616,7 +614,7 @@ Bids from the same account never set that account's price (multi-unit Vickrey): 
 | **First-price** | Shade bids just above the next competitor; requires watching the queue | High (constant re-bidding) | Reserve only | Simple to explain; poor for headless clients |
 | **Second-price (Vickrey) on rate, foundry as participant** | Bid true value once | Low | Reserve *and* subsidy fall out naturally: the foundry's bid is just another bid that sets the floor; setup cost enters through the time model | **Adopted** |
 | **Uniform-price batch auction** | Truthful for single units | Low | Same | Not needed: runs are never shared between accounts (§10.2) |
-| **Time-window reservations** | Predictability | Low | Blocks the tool at a price the foundry did not set | Replaced by **slot futures** (§10.6), which are reservations *sold* by the foundry at its price |
+| **Time-window reservations** | Predictability | Low | Blocks the tool; reorders the queue by something other than money | Rejected. Predictability of *cost* is sold as a **future** (§10.6) that bids inside the auction; nothing is ever reserved |
 
 Why second-price works with a negative foundry bid: the foundry's subsidy is its *true valuation* of keeping the tool running (avoided shutdown and requalification cost per hour). Second-price with the foundry bidding its true value means the tool runs exactly when foundry + users together value running it more than idling — including when the user's valuation is small and the foundry tops it up.
 
@@ -632,28 +630,25 @@ Ranking by surplus (rate above floor) rather than by rate alone matters only whe
 
 Some step pairs must follow each other closely (resist coat → expose; HF dip → deposition). A step declares `max_queue_time_from_prev_s`; projections (§10.9) show `must_start_by` for it. **The auction itself has no deadline mechanism**: people set the price they are willing to pay, and the recipe's window is information. If the window is breached, the order-step **fails** and the order goes to `held` with reason `coupling_breach` (§10.7); the owner picks continue-anyway / rework-to-step / abort and pays for rework steps at auction like any other steps. There is no free rework. If the breach was caused by the machine (`down` during the window), the hold records cause `machine_fault` with evidence, so it is insurable (§12.3).
 
-The way to *guarantee* any step — a coupled successor, or step 200 of 200 — is to buy the guarantee in advance. Two instruments exist:
-
-- A **slot guarantee** is the general one: for a named step, the provider bids without limit on the holder's behalf inside a window and pays whatever the cleared price exceeds the strike — "make me the next available slot, whatever others are bidding" — for a premium priced on that risk. Sold by the foundry or any external provider (§12.3); it works entirely inside the auction, so nothing is pre-empted and the book stays honest.
-- A **slot future** additionally pre-empts the auction. Only the foundry can sell one, because only the foundry can promise its own machine:
+The auction never stops running and nothing is ever reserved. What can be bought in advance is a fixed **cost**: a **future** is someone agreeing to pay whatever it costs to win the auction for a given run at a given time, in exchange for a premium now and a strike price when it happens. The holder's step still goes through the same clearing as everyone else — its provider simply bids whatever it takes.
 
 ```yaml
 id: fut_01J8…
-provider: prov_foundry                 # the foundry sells pre-emptive futures; any provider sells slot guarantees (above)
+provider: prov_foundry                 # the foundry or any external provider (§12.3)
 holder: acct_9f3e
 run: {order: ord_01J8…, step: BOX, machine: mach_furnace-A, program: dry_ox_900_20nm, wafers: 8}
 window: {not_before: 2026-09-12T15:00:00Z, not_after: 2026-09-12T21:00:00Z}
-strike_credits: 380                    # what the run costs if exercised, regardless of the auction
-premium_credits: 45                    # paid now, non-refundable unless the provider fails to deliver
+strike_credits: 380                    # what the holder pays for the run when it clears
+premium_credits: 45                    # paid now; non-refundable except on provider failure
 terms_url: https://…
 ```
 
-- **Exercise.** When the holder's order-step becomes `eligible` inside the window, the machine's next clearing is that run at `strike_credits`; it pre-empts the auction. The queue shows the future as a row (`future · window · strike`) so other bidders can see that the next slot is spoken for.
-- **Expiry.** If the step is not eligible at any clearing inside the window (predecessor late, unfunded), the future lapses; the premium is kept by the provider.
-- **Provider failure.** If the machine cannot deliver inside the window (down, maintenance, or the foundry oversold), the provider refunds premium and pays the coverage in its terms (typically the rework of the predecessor). Filed automatically like an insurance claim.
-- **Pricing.** The foundry (built-in provider) quotes from the market-rate percentiles for the program, the current queue and its own schedule (e.g. `p90 rate × hours + margin`), and limits futures per machine (`futures_capacity`, e.g. at most 30 % of the next 24 h) so the spot market is not hollowed out. External providers cannot pre-empt a machine they don't own; they sell slot guarantees.
+- **In the auction.** While the holder's order-step is `eligible` inside the window, it is a candidate like any other, but with an unlimited bid and the provider as payer (§10.4). It therefore wins the next clearing (two futures on one machine tie-break by `eligible_since`; the other provider has then failed). The cleared price — set by the runner-up as usual, possibly far above the strike — is charged to the provider; the holder pays `strike_credits`. The queue shows the row as `future · provider · strike` so other bidders know an unlimited bid is present.
+- **Expiry.** If the step is never `eligible` inside the window (predecessor late, unfunded), the future lapses; the provider keeps the premium.
+- **Provider failure.** If no clearing the holder can win happens inside the window (machine `down`, another future won the tie-break, provider unfunded), the provider refunds the premium and pays the coverage in its terms (typically the rework of the predecessor). Filed automatically like an insurance claim (§12.3).
+- **Who sells them.** Anyone with money: an external underwriter takes a position on the machine's clearing prices; the foundry, as the built-in provider, is effectively selling a fixed price against its own market and quotes from market-rate percentiles, the current queue and its schedule (e.g. `p90 rate × hours + margin`). Because a future is only a bid, there is no capacity to ration — a provider that oversells simply loses money, publicly.
 
-Futures resolve the earlier open question about time-window reservations: reservations exist, but only as something the foundry *sells* at its own price, so they are just another bidder in the same public book.
+This is the answer to the coupled-step problem and to "I am at step 199 and want step 200 whatever it costs": buy the future before you need it. It is also why time-window reservations are rejected (§10.5): they would reorder the queue by something other than money.
 
 ### 10.7 Halts and the `held` state
 
@@ -704,7 +699,7 @@ The mechanism above is a first design. The principle (§10.1) is settled; the *m
 | H2 | Repeated clearing with persistent bidders is not truthful: waiting and sniping at the `clear_ahead_s` lock beat honest bidding | Truthful vs. sniper vs. waiter bots on one contested tool; compare surplus captured |
 | H3 | Greedy surplus-per-hour clearing per machine underperforms setup-aware sequencing (batching same-program runs) and bottleneck-aware pricing on fab throughput | Same demand, three clearing policies; measure wafers/day, mean and p90 cycle time, foundry revenue |
 | H4 | The `applies_when: no_competing_bid` subsidy cliff invites collusion (one bidder stays away so the other collects the subsidy, then they alternate) | Two colluding bots on a subsidised furnace |
-| H5 | Futures collide with long runs and idle bids in ways that cascade into holds | Random futures at 30 % capacity over a mixed queue; count provider-failure claims |
+| H5 | Futures with unlimited bids interact badly: two futures on one tool, a future against an idle bid, or a provider that cannot fund the cleared price — cascading into provider failures and holds | Random futures over a mixed queue with idle-bidding and colluding bots; count provider-failure claims and the prices providers end up paying |
 | H6 | Idle bids are used to block rivals more cheaply than outbidding them | Blocker bot vs. a lot near the end of its flow; measure cost to block vs. cost to complete |
 
 After the harness: a separate analysis document applying queueing theory (batch-service queues with sequence-dependent setups; Little's law for WIP vs. cycle time) and market design (sequential auctions with re-entry, bottleneck pricing, whether independent per-machine markets are efficient for a flow line). Its conclusions feed a v0.4 of this section.
@@ -763,14 +758,14 @@ Reaching the limit while a lot is mid-flow → `held (unfunded)` → timeout →
 
 ### 12.2 Ledger
 
-Append-only entries `(seq, ts, account, counter_account, kind, amount, refs)`. Kinds: `run.cleared` (the run's price — negative or positive — posted at `run.started`, reserved from `auction.cleared`), `consumable.metered`, `storage.wafer`, `storage.mask`, `mask_fab`, `shipping`, `insurance.premium`, `insurance.claim`, `future.premium`, `future.strike` (replaces `run.cleared` for an exercised future), `future.claim` (provider failed to deliver), `subsidy` (foundry's side of a negative price), `forfeit` (cancelled queued run), `deposit`, `adjustment`. The foundry is an account, so its books balance against users'. Everything is public (`GET /accounts/{id}/ledger`).
+Append-only entries `(seq, ts, account, counter_account, kind, amount, refs)`. Kinds: `run.cleared` (the run's price — negative or positive — posted at `run.started`, reserved from `auction.cleared`), `consumable.metered`, `storage.wafer`, `storage.mask`, `mask_fab`, `shipping`, `insurance.premium`, `insurance.claim`, `future.premium`, `future.strike` (holder's side of a run won under a future; the provider's side is the ordinary `run.cleared`), `future.claim` (provider failed to deliver), `subsidy` (foundry's side of a negative price), `forfeit` (cancelled queued run), `deposit`, `adjustment`. The foundry is an account, so its books balance against users'. Everything is public (`GET /accounts/{id}/ledger`).
 
-### 12.3 Providers: insurance and slot futures (pluggable; foundry and external providers look identical)
+### 12.3 Providers: insurance and futures (pluggable; foundry and external providers look identical)
 
 ```yaml
 provider:
   id: prov_foundry              # built-in; or prov_acme for external
-  products: [insurance, future, slot_guarantee]   # external providers: insurance and slot_guarantee only (§10.6)
+  products: [insurance, future]
   quote_url: https://…/quote    # POST {product, order, steps | run, machine stats, market rates} → {premium, strike?, coverage, terms_url}
   claim_url: https://…/claim    # POST {run, outcome, cause, cause_evidence, assets, ledger refs} → {decision, payout}
   webhook_signing_key: …
@@ -781,7 +776,7 @@ provider:
 - **Cause is evidence-backed.** The adapter classifies every failure as `machine_fault | recipe | wafer | unknown` *and* must cite `cause_evidence`: telemetry channels and time ranges, log line ranges, or inspection assets — all public run assets (§14). The foundry classifies faults on its own machines, so the evidence is what lets an external provider (or the public) audit the classification; a claim decision that disagrees with the adapter's cause is itself a public event.
 - The built-in provider prices premiums from the machine's historical fault rate and covers `machine_fault` only; an external provider can cover anything. The foundry can also buy insurance for its own subsidy exposure or machine damage through the same interface.
 - **Default with no policy: machine time is always charged, whatever the outcome — including `machine_fault`.** Metered consumables actually drawn are charged too. Insurance is the only way to move that risk; it can cover the charged time, the wafers, and the rework. This is deliberate: the foundry sells time, and the price of reliability is quoted separately and publicly by whoever is willing to underwrite it.
-- **Slot futures** use the same provider record with `product: future` (foundry only, pre-emptive) or `slot_guarantee` (any provider). Quotes, exercise, expiry and provider-failure claims are described in §10.6.
+- **Futures** use the same provider record with `product: future`; a provider selling futures must itself be an account that can fund the cleared prices it bids (its own `funding` mode applies, §12.1). Quotes, expiry and provider-failure claims are described in §10.6.
 
 ---
 
@@ -835,9 +830,9 @@ Conventions: `/v1`, JSON, OpenAPI 3.1, ULIDs, cursor pagination, `Idempotency-Ke
 | Method & path | Auth | Purpose |
 |---|---|---|
 | `GET /machines/{id}/programs` | – | Locked configurations, time models, setup matrix, bundled rates, effects, metered consumables |
-| `GET /machines/{id}/auction` | – | Candidate runs with hours, implied rate, floor and surplus; the foundry bid row; unfunded rows; exercisable futures; `clears_at` |
+| `GET /machines/{id}/auction` | – | Candidate runs with hours, implied rate, floor and surplus; the foundry bid row; unfunded rows; future-backed rows with their provider; `clears_at` |
 | `PUT /machines/{id}/foundry-bid` | foundry | Set adjustment, mode, bounds, per-program overrides (public event) |
-| `GET /machines/{id}/futures/quote?order=&step=&window=` · `POST /futures` · `GET /futures/{id}` · `GET /machines/{id}/futures` | – / key / – / – | Quote, buy and inspect slot guarantees and slot futures (§10.6); the machine's sold futures are public |
+| `GET /machines/{id}/futures/quote?order=&step=&window=` · `POST /futures` · `GET /futures/{id}` · `GET /machines/{id}/futures` | – / key / – / – | Quote, buy and inspect futures (§10.6); the futures sold on a machine are public |
 | `GET /assets` · `GET /assets/{id}` · `GET /accounts/{id}/assets` | – | Physical assets, locations, storage charges to date |
 | `POST /shipments` · `GET /shipments/{id}` | key | Standalone inbound/outbound shipping; inbound creates `awaiting_inspection` assets |
 | `POST /orders` | key | Includes `assets: {wafers: {source, count | asset_ids}, masks: {source, asset_ids | mask_fab}}` and `insurance` |
@@ -845,7 +840,7 @@ Conventions: `/v1`, JSON, OpenAPI 3.1, ULIDs, cursor pagination, `Idempotency-Ke
 | `GET /runs/{id}/assets` · `GET /assets/{id}/content` | – | Run outputs |
 | `GET /accounts/{id}` · `GET /accounts/{id}/ledger` | – | Balance, mode, limit, entries |
 | `POST /accounts/{id}/deposit` | demo/admin | Prepaid top-up (demo) |
-| `GET /providers` · `POST /orders/{id}/insurance` · `GET /orders/{id}/insurance` | key | Providers (insurance, slot guarantees, futures), quotes, policies, claims |
+| `GET /providers` · `POST /orders/{id}/insurance` · `GET /orders/{id}/insurance` | key | Providers (insurance, futures), quotes, policies, claims |
 | `GET /consignment/{account}` | – | Consignment stock |
 | `GET /storage` · `GET /storage/rates` | – | Occupancy, rates |
 | `GET /vendors` | – | Mask-fab and external-process vendors, lead times, prices |
@@ -859,7 +854,7 @@ Everything the foundry side does is also an API call, so that it is an event. Tw
 |---|---|---|
 | `PUT /machines/{id}` · `PUT /machines/{id}/programs/{pid}` | foundry | Registry revisions: capabilities, limits, programs with time models, rates, effects. Every revision is versioned; rules re-evaluate at dispatch against the revision in force (§8) |
 | `PUT /machines/{id}/state` | foundry / adapter | `maintenance` / `down` / `idle` transitions (§5.6); a running run fails with `cause: machine_fault` and evidence |
-| `PUT /storage/locations/{id}` · `PUT /storage/rates` · `PUT /vendors/{id}` · `PUT /foundry/settings` | foundry | Storage, vendors, hold/abandon timeouts, `futures_capacity`, `minimum_increment`, terms URL |
+| `PUT /storage/locations/{id}` · `PUT /storage/rates` · `PUT /vendors/{id}` · `PUT /foundry/settings` | foundry | Storage, vendors, hold/abandon timeouts, `minimum_increment`, terms URL |
 | `POST /operator/tasks/{id}/result` | foundry (operator key) | Results for `manual.*` and `logistics.receive_inspect` steps: inspection JSON, notes, wafer-state overrides with reason |
 | `POST /shipments/{id}/events` | foundry | Carrier scans: dispatched, received → creates `awaiting_inspection` assets |
 | `POST /wafers/{id}/state` | foundry | Manual wafer-state override (public, reasoned event; §8) |
@@ -889,8 +884,8 @@ An adapter that stops heart-beating is treated as `down`. The adapter never sees
 | Bid-under-the-leader (raise a rival's second price without winning) | Not eliminated (§10.5). Costs the griefer a real, funded lot in storage on that machine plus the risk of winning; bounded by `minimum_increment` and write limits; every bid change is public and attributable |
 | Bid-and-cancel griefing | Cancelling a `queued` step writes `forfeit` of the cleared price; lowering a queued bid below its cleared price is rejected |
 | Exploiting negative prices (subsidy farming: repeat cheap runs to collect the subsidy) | Metered consumables are always charged; a subsidy applies only when the tool would otherwise idle (`applies_when`), is capped by `budget_credits_per_day`, and is the foundry's explicit choice |
-| Futures hoarding | `futures_capacity` per machine; premium is forfeited on expiry; futures are non-transferable |
-| Blocking a rival with idle bids | Allowed by design (§10.1): the blocker pays the foundry the full idle rate, publicly and attributably; the blocked party's remedy is a higher bid or a slot guarantee bought earlier |
+| Futures used to corner a machine | A future is only an unlimited bid paid for by its provider; cornering means paying every runner-up's price, publicly. Premiums are forfeited on expiry; futures are non-transferable |
+| Blocking a rival with idle bids | Allowed by design (§10.1): the blocker pays the foundry the full idle rate, publicly and attributably; the blocked party's remedy is a higher bid or a future bought earlier |
 | Unfunded lots occupying storage | Storage always charges; timeout → abort → disposal path is automatic and public |
 | Callback abuse (slow/evil endpoints) | Timeouts, size caps, signed requests, outbound allow-list per foundry, failure → `held`, never retried indefinitely |
 | Malicious GDS | Size/hierarchy/polygon caps; checker in a sandboxed subprocess with CPU/mem/time limits |
@@ -925,7 +920,7 @@ Site map: `/` overview · `/machines/:id` · `/auctions` · `/futures` · `/orde
 │ ◌ DRIE          offline-by-bid│ –  (maint 18:00; reserve 9999)        │ +9999 reserve │ ord_T 400  │
 │ ● Contact aligner  running    │ ord_A s03 4w ▓░░░░░░░ 10% →14:35      │ 95 none       │ ord_N 110  │
 │ ○ Spin coater #2   idle       │ –  (top 65 < floor 72; mode none)     │ 72 none       │ ord_Q 65 ⚠ │
-│ ● LPCVD B          running    │ ord_K ISONIT 25w →19:10; next: future │ 160 none      │ fut_… 380  │
+│ ● LPCVD B          running    │ ord_K ISONIT 25w →19:10               │ 160 none      │ fut_… ∞    │
 │ ● Operator         running    │ ord_H IN_INSPECT 25w →14:20           │ 45 none       │ ord_V 120  │
 │ …                             │                                       │               │            │
 ├───────────────────────────────┴───────────────────────────────────────┴───────────────┴────────────┤
@@ -1016,9 +1011,9 @@ Site map: `/` overview · `/machines/:id` · `/auctions` · `/futures` · `/orde
 
 ## 18. Open questions
 
-Resolved in v0.3 (recorded so they are not reopened by accident): time-window reservations → slot futures sold by the foundry (§10.6); foundry bid granularity → per machine with per-program overrides (§5.1); batch pricing → moot, a run has one account (§10.2); split lots → none, lot size is validated against the path (§10.2).
+Resolved in v0.3 (recorded so they are not reopened by accident): time-window reservations → rejected; fixed cost is sold as a future that bids inside the auction (§10.6); foundry bid granularity → per machine with per-program overrides (§5.1); batch pricing → moot, a run has one account (§10.2); split lots → none, lot size is validated against the path (§10.2).
 
-1. **Futures capacity and pricing.** `futures_capacity` is a fraction of the next 24 h per machine; should it instead be per program? Should the foundry's quote formula be public (it is a policy, so probably yes)?
+1. **Futures pricing.** Should the foundry's quote formula be public (it is a policy, so probably yes)? May the foundry, as provider, see anything a rival provider cannot?
 2. **Consumables** — should consignment stock be transferable/sellable between accounts? Should bundled rates auto-update from metered history? Should metered draws be *cap-able* per step (a bid on consumable spend)?
 3. **Dummy-wafer fill** for `fill: exact` tools: always charged as metered, or should the foundry be allowed to fill from its own monitor-wafer pool at zero cost when it wants the run?
 4. **Held timeouts** — 14-day hold timeout and abandon-after are foundry constants; should recipes shorten them?
@@ -1038,14 +1033,14 @@ The scheduler is the novel and riskiest part and is a pure module with no I/O, s
 | M | Deliverable |
 |---|---|
 | M0 | JSON Schemas (recipe, step types, machine + program time model + effects, ruleset, order, assets, ledger, future), demo foundry, TFE template, OpenAPI skeleton |
-| M1 | Pure scheduler: `scheduler.decide`, rate/surplus clearing, floors, futures pre-emption, just-in-time locking; replay tests; bot-bidder economic simulation with a written report of what it found |
+| M1 | Pure scheduler: `scheduler.decide`, rate/surplus clearing, floors, future-backed unlimited bids, just-in-time locking; replay tests; bot-bidder economic simulation with a written report of what it found |
 | M2 | Recipes + rule engine (builtin + CEL) + wafer-state engine from effects + reports; `foundry-api validate` CLI |
 | M3 | Designs: upload, inventory, LM/MK checks in sandbox |
 | M4 | Accounts/ledger (prepaid, postpaid), physical assets, storage charging, shipments, incoming inspection |
 | M5 | Orders, lots, order-steps with attempts, holds, event log, SSE, webhooks; adapter interface + simulator |
 | M6 | Auction wired to orders and machines: foundry bids, negative prices, projections, bid policies; futures sold by the built-in provider |
 | M7 | Run assets, metrology programs, `analysis.check` + `analysis.callback`, halt → held |
-| M8 | Provider interface: insurance + slot guarantees, built-in provider, claims with evidence |
+| M8 | Provider interface: insurance + futures, built-in provider, claims with evidence |
 | M9 | GUI (all pages), SKY130 excerpt template, public demo, docs |
 
 ## Appendix A — Demo foundry machines
@@ -1057,12 +1052,12 @@ Spin coaters ×2, convection oven, contact aligner, maskless writer, evaporators
 **v0.3 (2026-09-12)** — auction remodelled around machine time.
 - The unit of sale is a *run* owned by exactly one account; bids are `max_credits` per run, compared as a rate per machine-hour above the program's floor. Programs carry authoritative `time` models (setup/process/cleanup), `rate_credits_per_hour` and wafer-state `effects`; `setup_matrix` feeds the time model. No cross-account batches, no split lots; batch `fill` modes with dummy-wafer top-up.
 - Foundry bid is an adjustment to the program rate with `applies_when`, daily budget and per-program overrides. Just-in-time clearing with `clear_ahead_s`; the forfeit rule applies only after the lock.
-- Slot guarantees (any provider, win through the auction) and slot futures (foundry, pre-emptive) replace time-window reservations; coupling windows stay informational with breach → hold.
+- Futures (any provider agrees to pay whatever the auction clears at; the holder pays a fixed strike) replace time-window reservations — nothing is ever reserved; coupling windows stay informational with breach → hold.
 - Machine time is always charged; fault causes must cite public evidence; insurance can refund charged time. Ledger gains future kinds.
 - MP-020/MP-030 replaced by enforcement of per-machine `max_temp_c` / `gas_combinations` (they rejected the reference processes); CEL `has()` convention; MK-003 parametrised; MP-045 lot-size rule; contamination class `poly` → `organic`.
 - State machines rewritten as transition tables; `awaiting_assets` removed in favour of provisioning steps generated from `assets_in`; `depends_on` is a DAG; `on_fail` enumerated; `offline_by_bid` derived.
 - §15.2 foundry/adapter interface added; futures endpoints; GUI mockups use ISO dates and per-hour money basis; emails never published; milestones reordered to build and stress the pure scheduler first.
-- Principle made explicit: no lot has a claim on a future slot; any account may buy idle time to block; slot guarantees are the general instrument. §10 marked provisional with a test plan (§10.12).
+- Principle made explicit: no lot has a claim on a future slot; any account may buy idle time to block; a future fixes cost, never position. §10 marked provisional with a test plan (§10.12).
 
 **v0.2** — programs and foundry bids, physical assets and storage charging, logistics steps, insurance, consumable modes, held-order flow.
 
