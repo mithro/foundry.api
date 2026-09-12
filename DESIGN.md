@@ -1,10 +1,10 @@
-# foundry.api — Design Document (Draft v0.2)
+# foundry.api — Design Document (Draft v0.3)
 
 *Open, auction-scheduled silicon/MEMS foundry orchestration prototype*
 
 | | |
 |---|---|
-| Status | Draft v0.2 |
+| Status | Draft v0.3 |
 | Date | 2026-09-12 |
 | License | Apache 2.0 (code, schemas, docs) |
 
@@ -379,9 +379,9 @@ layer_map:                                   # machine-protection metadata only:
 steps: [ ... ]                               # §5.2–5.4
 ```
 
-Note the layer map no longer carries min width/space: those are yield rules and are the user's problem (§9). It carries what the foundry needs to protect tools: which layer feeds the laser (area limit), which is etched (density limit), polarity (mask-fab spec).
+The layer map carries no min width/space: those are yield rules and are the user's problem (§9). It carries what the foundry needs to protect tools: which layer feeds the laser (area limit), which is etched (density limit), polarity (mask-fab spec).
 
-### 7.2 Step types (v0.2 catalogue)
+### 7.2 Step types (v0.3 catalogue)
 
 | Family | Types | Notes |
 |---|---|---|
@@ -685,7 +685,7 @@ Conventions: `/v1`, JSON, OpenAPI 3.1, ULIDs, cursor pagination, `Idempotency-Ke
 | `PUT /machines/{id}/foundry-bid` | foundry | Set reserve/subsidy (public event) |
 | `GET /assets` · `GET /assets/{id}` · `GET /accounts/{id}/assets` | – | Physical assets, locations, storage charges to date |
 | `POST /shipments` · `GET /shipments/{id}` | key | Standalone inbound/outbound shipping; inbound creates `awaiting_inspection` assets |
-| `POST /orders` | key | Now includes `assets: {wafers: {source, count | asset_ids}, masks: {source, asset_ids | mask_fab}}` and `insurance` |
+| `POST /orders` | key | Includes `assets: {wafers: {source, count | asset_ids}, masks: {source, asset_ids | mask_fab}}` and `insurance` |
 | `GET /orders/{id}/holds` · `POST /orders/{id}/holds/{hid}/resolve` | key+owner | Held-order decisions |
 | `GET /runs/{id}/assets` · `GET /assets/{id}/content` | – | Run outputs |
 | `GET /accounts/{id}` · `GET /accounts/{id}/ledger` | – | Balance, mode, limit, entries |
@@ -859,4 +859,4 @@ Site map: `/` overview · `/machines/:id` · `/auctions` · `/orders` · `/order
 
 ## Appendix A — Demo foundry machines
 
-Spin coaters ×2, convection oven, contact aligner, maskless writer, evaporators ×2, RIE ×2, DRIE, wet bench (Au), wet bench (clean), furnace tube A, RTA, laser release, profilometer, ellipsometer, prober, operator and shipping pseudo-machines. Furnace A and RTA `programs_only` with subsidies; RIE #1 carrying a +40 reserve during the demo to show `offline_by_bid`; an `Ellipsometer`, a `Prober` (e-test) and `Shipping` pseudo-machine added; vendors `maskco` (5-inch Cr masks, 5-day lead, 1,200 cr/layer) and `aldhouse` (external ALD, 7-day turnaround).
+Spin coaters ×2, convection oven, contact aligner, maskless writer, evaporators ×2, RIE ×2, DRIE, wet bench (Au), wet bench (clean), furnace tube A, RTA, laser release, profilometer, ellipsometer, prober, operator and shipping pseudo-machines. Furnace A and RTA `programs_only` with subsidies; RIE #1 carrying a reserve during the demo to show `offline_by_bid`; vendors `maskco` (5-inch Cr masks, 5-day lead, 1,200 cr/layer) and `aldhouse` (external ALD, 7-day turnaround).
