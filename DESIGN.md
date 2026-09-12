@@ -331,7 +331,7 @@ Written as transition tables (state × event → state) because every transition
 | `blocked` | all `depends_on` steps `done`/`skipped` and required assets present | `eligible` | |
 | `eligible` | funding check fails / passes (§12.1) | `eligible.unfunded` ⇄ `eligible` | listed in the auction, never wins |
 | `eligible` | order `held` / `continue` | `blocked · order_held` ⇄ `eligible` | |
-| `eligible` | `auction.cleared` (or future exercised) | `queued` | locked; price reserved on the account |
+| `eligible` | `auction.cleared` | `queued` | locked; price reserved on the payer's account (the provider, when the run is bid under a future) |
 | `queued` | `order_step.cancelled` (owner) | `eligible` | `forfeit` of the cleared price written; re-bid allowed |
 | `queued` | `run.started` | `running` | |
 | `running` | `run.finished {outcome: ok}` | `done` | analysis steps: `pass` |
@@ -543,7 +543,7 @@ There is **no DRC for yield**. The repo may ship the foundry's *advisory* KLayou
 
 Every machine sells its **time**. Its next run goes to the account whose bid is worth the most per machine-hour above the foundry's own floor, the way a compute spot market sells instance-hours. Bids are money; nothing else reorders the queue. An order-step whose owner won't pay enough simply waits, visibly, forever — while its wafers accrue storage charges.
 
-This holds all the way down a flow. **A lot has no claim on any future slot.** A lot at step 199 of 200 competes for step 200 exactly like a lot at step 1: its owner, who presumably wants the wafers now, should be willing to pay more than anyone else for the next slot — and if a rival is willing to pay more, or to pay the foundry to keep the machine idle (§10.3), the rival gets it. That is the market working, not a failure of it. Anyone who wants a step *guaranteed* buys the guarantee in advance — a slot guarantee or a slot future (§10.6) — at a premium that prices exactly that risk.
+This holds all the way down a flow. **A lot has no claim on any future slot.** A lot at step 199 of 200 competes for step 200 exactly like a lot at step 1: its owner, who presumably wants the wafers now, should be willing to pay more than anyone else for the next slot — and if a rival is willing to pay more, or to pay the foundry to keep the machine idle (§10.3), the rival gets it. That is the market working, not a failure of it. Anyone who wants the cost of a step fixed in advance buys a future (§10.6): someone else agrees to win the auction for them when the time comes, whatever it costs, for an agreed price.
 
 *Status:* this section is a first mechanism design, not a validated one. §10.12 lists what must be tested before it is trusted.
 
@@ -626,7 +626,7 @@ Ranking by surplus (rate above floor) rather than by rate alone matters only whe
 - A foundry could overstate a subsidy — but it pays it, within its own daily budget.
 - Cancelling a `queued` (locked) run forfeits the cleared price (§16); lowering a bid on an *eligible* (not yet locked) step is free.
 
-### 10.6 Coupling windows and slot futures
+### 10.6 Coupling windows and futures
 
 Some step pairs must follow each other closely (resist coat → expose; HF dip → deposition). A step declares `max_queue_time_from_prev_s`; projections (§10.9) show `must_start_by` for it. **The auction itself has no deadline mechanism**: people set the price they are willing to pay, and the recipe's window is information. If the window is breached, the order-step **fails** and the order goes to `held` with reason `coupling_breach` (§10.7); the owner picks continue-anyway / rework-to-step / abort and pays for rework steps at auction like any other steps. There is no free rework. If the breach was caused by the machine (`down` during the window), the hold records cause `machine_fault` with evidence, so it is insurable (§12.3).
 
@@ -639,7 +639,7 @@ holder: acct_9f3e
 run: {order: ord_01J8…, step: BOX, machine: mach_furnace-A, program: dry_ox_900_20nm, wafers: 8}
 window: {not_before: 2026-09-12T15:00:00Z, not_after: 2026-09-12T21:00:00Z}
 strike_credits: 380                    # what the holder pays for the run when it clears
-premium_credits: 45                    # paid now; non-refundable except on provider failure
+premium_credits: 45                    # optional; strike, premium and any other terms are between holder and provider
 terms_url: https://…
 ```
 
@@ -695,7 +695,7 @@ The mechanism above is a first design. The principle (§10.1) is settled; the *m
 
 | # | Hypothesis | Scenario |
 |---|---|---|
-| H1 | Per-step pricing with no path claim prices small accounts out late in a flow often enough to conflict with the 7,000-customer target (§2.2) — or it doesn't, because slot guarantees are cheap enough | TFE and SKY130 flows at 10/50/200 concurrent lots with mixed budgets; measure cycle-time and completion by account size, with and without slot guarantees |
+| H1 | Per-step pricing with no path claim prices small accounts out late in a flow often enough to conflict with the 7,000-customer target (§2.2) — or it doesn't, because futures are cheap enough | TFE and SKY130 flows at 10/50/200 concurrent lots with mixed budgets; measure cycle-time and completion by account size, with and without futures |
 | H2 | Repeated clearing with persistent bidders is not truthful: waiting and sniping at the `clear_ahead_s` lock beat honest bidding | Truthful vs. sniper vs. waiter bots on one contested tool; compare surplus captured |
 | H3 | Greedy surplus-per-hour clearing per machine underperforms setup-aware sequencing (batching same-program runs) and bottleneck-aware pricing on fab throughput | Same demand, three clearing policies; measure wafers/day, mean and p90 cycle time, foundry revenue |
 | H4 | The `applies_when: no_competing_bid` subsidy cliff invites collusion (one bidder stays away so the other collects the subsidy, then they alternate) | Two colluding bots on a subsidised furnace |
