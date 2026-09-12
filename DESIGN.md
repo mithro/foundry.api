@@ -719,7 +719,7 @@ Credits are abstract. Every account has a `funding` mode, demonstrated in the pr
 
 | Mode | Rule | Effect on bidding |
 |---|---|---|
-| `prepaid` | `balance ≥ 0` always | a bid counts only if `balance − reserved_for_queued − projected_storage_7d ≥ bid × wafers`; otherwise `eligible.unfunded` |
+| `prepaid` | `balance ≥ 0` always | a bid counts only if `balance − reserved_for_queued − projected_storage_7d ≥ max_credits`; otherwise `eligible.unfunded` |
 | `postpaid` | `balance ≥ −credit_limit` | same check against `credit_limit` instead of 0 |
 | `unlimited` | demo bots and the foundry account | never unfunded |
 
@@ -727,22 +727,25 @@ Reaching the limit while a lot is mid-flow → `held (unfunded)` → timeout →
 
 ### 12.2 Ledger
 
-Append-only entries `(seq, ts, account, counter_account, kind, amount, refs)`. Kinds: `bid.cleared` (negative or positive), `consumable.metered`, `storage.wafer`, `storage.mask`, `mask_fab`, `shipping`, `insurance.premium`, `insurance.claim`, `subsidy` (foundry's side of a negative price), `forfeit` (cancelled queued step), `deposit`, `adjustment`. The foundry is an account, so its books balance against users'. Everything is public (`GET /accounts/{id}/ledger`).
+Append-only entries `(seq, ts, account, counter_account, kind, amount, refs)`. Kinds: `run.cleared` (the run's price — negative or positive — posted at `run.started`, reserved from `auction.cleared`), `consumable.metered`, `storage.wafer`, `storage.mask`, `mask_fab`, `shipping`, `insurance.premium`, `insurance.claim`, `future.premium`, `future.strike` (replaces `run.cleared` for an exercised future), `future.claim` (provider failed to deliver), `subsidy` (foundry's side of a negative price), `forfeit` (cancelled queued run), `deposit`, `adjustment`. The foundry is an account, so its books balance against users'. Everything is public (`GET /accounts/{id}/ledger`).
 
-### 12.3 Insurance (pluggable; foundry and external providers look identical)
+### 12.3 Providers: insurance and slot futures (pluggable; foundry and external providers look identical)
 
 ```yaml
-insurance_provider:
+provider:
   id: prov_foundry              # built-in; or prov_acme for external
-  quote_url: https://…/quote    # POST {order, steps, machine failure stats} → {premium, coverage, terms_url}
-  claim_url: https://…/claim    # POST {run, outcome, assets, ledger refs} → {decision, payout}
+  products: [insurance, future, price_cap]   # external providers: insurance and price_cap only (§10.6)
+  quote_url: https://…/quote    # POST {product, order, steps | run, machine stats, market rates} → {premium, strike?, coverage, terms_url}
+  claim_url: https://…/claim    # POST {run, outcome, cause, cause_evidence, assets, ledger refs} → {decision, payout}
   webhook_signing_key: …
 ```
 
 - At order submit (or later per step), `POST /orders/{id}/insurance {provider, steps: [...] | all}` obtains a quote; accepting it writes `insurance.premium` and a `policy` record on the order.
-- A run outcome `fail` on a covered step (with cause classification from the adapter: `machine_fault | recipe | wafer | unknown`) automatically files a claim; the provider's decision writes `insurance.claim` and, if the policy says so, funds a rework at the provider's expense.
+- A run outcome `fail` on a covered step automatically files a claim; the provider's decision writes `insurance.claim` and, if the policy says so, refunds the charged machine time and funds a rework at the provider's expense.
+- **Cause is evidence-backed.** The adapter classifies every failure as `machine_fault | recipe | wafer | unknown` *and* must cite `cause_evidence`: telemetry channels and time ranges, log line ranges, or inspection assets — all public run assets (§14). The foundry classifies faults on its own machines, so the evidence is what lets an external provider (or the public) audit the classification; a claim decision that disagrees with the adapter's cause is itself a public event.
 - The built-in provider prices premiums from the machine's historical fault rate and covers `machine_fault` only; an external provider can cover anything. The foundry can also buy insurance for its own subsidy exposure or machine damage through the same interface.
-- **Default with no policy:** the user pays for machine time consumed, whatever the outcome. Insurance is how that risk is moved.
+- **Default with no policy: machine time is always charged, whatever the outcome — including `machine_fault`.** Metered consumables actually drawn are charged too. Insurance is the only way to move that risk; it can cover the charged time, the wafers, and the rework. This is deliberate: the foundry sells time, and the price of reliability is quoted separately and publicly by whoever is willing to underwrite it.
+- **Slot futures** use the same provider record with `product: future` (foundry only, pre-emptive) or `price_cap` (any provider). Quotes, exercise, expiry and provider-failure claims are described in §10.6.
 
 ---
 
@@ -816,15 +819,17 @@ Conventions: `/v1`, JSON, OpenAPI 3.1, ULIDs, cursor pagination, `Idempotency-Ke
 
 | Risk | Mitigation |
 |---|---|
-| Bid churn / spam | Per-key write limits; minimum increment; unfunded bids never clear |
+| Bid churn / spam | Per-key write limits; `minimum_increment` on `max_credits`; unfunded bids never clear |
+| Bid-under-the-leader (raise a rival's second price without winning) | Not eliminated (§10.5). Costs the griefer a real, funded lot in storage on that machine plus the risk of winning; bounded by `minimum_increment` and write limits; every bid change is public and attributable |
 | Bid-and-cancel griefing | Cancelling a `queued` step writes `forfeit` of the cleared price; lowering a queued bid below its cleared price is rejected |
-| Exploiting negative prices | Metered consumables are always charged; a subsidy is the foundry's explicit choice and capped by its own bid |
+| Exploiting negative prices (subsidy farming: repeat cheap runs to collect the subsidy) | Metered consumables are always charged; a subsidy applies only when the tool would otherwise idle (`applies_when`), is capped by `budget_credits_per_day`, and is the foundry's explicit choice |
+| Futures hoarding | `futures_capacity` per machine; premium is forfeited on expiry; futures are non-transferable |
 | Unfunded lots occupying storage | Storage always charges; timeout → abort → disposal path is automatic and public |
 | Callback abuse (slow/evil endpoints) | Timeouts, size caps, signed requests, outbound allow-list per foundry, failure → `held`, never retried indefinitely |
 | Malicious GDS | Size/hierarchy/polygon caps; checker in a sandboxed subprocess with CPU/mem/time limits |
 | Rule bypass | Rules re-evaluated at dispatch against machine revision in force; fail-safe to `held` |
 | IP | All designs public by declaration; takedown route; sha256 dedupe |
-| PII | Only public key ids and optional display names; emails hashed; webhook/callback URLs redacted to hostname in public views |
+| PII | Only public key ids and optional display names; email addresses are never published in any form (a hash is reversible for any known address); webhook/callback URLs redacted to hostname in public views |
 
 ---
 
