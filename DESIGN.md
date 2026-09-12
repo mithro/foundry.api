@@ -16,7 +16,7 @@
 
 foundry.api is an API-first service for running an open, auction-scheduled foundry. It lets anyone:
 
-- **Define a recipe** — an ordered list of process, metrology, analysis and logistics steps executed on the foundry's machines, built from forkable templates, and checked against rules whose only purpose is to protect the foundry's machines.
+- **Define a recipe** — an ordered list of process, metrology, analysis and logistics steps executed on the foundry's machines, built from forkable templates, and checked against rules that protect the foundry's machines and operations — never against whether the device will work.
 - **Order a recipe** against a design (GDS), a set of physical assets (wafers and masks — foundry-supplied or shipped in) and a bid schedule.
 - **Have every step scheduled by auction** — each machine continuously sells its next run to the bidder offering the most per machine-hour. The foundry itself is a bidder, setting a floor or paying to keep expensive-to-stop tools running.
 
@@ -44,7 +44,7 @@ The longer-term direction is silicon as a cloud service: designs go in, measured
 ### 2.1 Goals
 
 1. **Recipe authoring via API** from typed steps and forkable templates. Steps target a capability and may be locked to one machine or a set.
-2. **Machine-protection validation only.** Recipes and designs are checked against rules that keep tools safe (limits, chemistries, contamination, form factor, pattern density, program compatibility). Nothing checks whether the *device* will work — that is the user's responsibility.
+2. **Machine-protection validation only.** Recipes and designs are checked against rules that keep tools and foundry operations safe (limits, chemistries, contamination, form factor, pattern density, program compatibility, fillable mask orders). Nothing checks whether the *device* will work — that is the user's responsibility. Chemistry and thermal limits live in each machine's declared `limits`; global rules are structural.
 3. **Orders with designs and physical assets.** Designs are public GDS/OASIS. Wafers and masks are tracked assets with owners, locations and storage charges.
 4. **Money-only auction scheduling.** The bid worth the most per machine-hour runs next; the foundry bids too (reserve or subsidy); prices can be negative; guaranteed slots exist only as futures the foundry sells. If a lot is blocked because its owner won't pay, that is the intended outcome.
 5. **Runs produce assets** (images, tables, logs, actual durations, consumable draws). Recipes can include metrology, analysis and halt conditions; a fired halt places the order in `held` until the owner decides.
@@ -449,24 +449,29 @@ rules:
     scope: step
     evaluator: cel
     expr: "!machine.limits.forbidden_wafer_materials.exists(m, m in wafer.materials)"
-  - id: MP-020  # No resist/polyimide into any step > 150 °C
+  - id: MP-020  # Step temperature ≤ machine max_temp_c (free-mode params; programs are pre-qualified)
     scope: step
     evaluator: cel
-    expr: "!(step.effective_params.temp_c > 150 && (wafer.resist_present || 'polyimide' in wafer.materials))"
-  - id: MP-030  # Flammable + oxidiser gas combos
+    expr: "!has(step.effective_params.temp_c) || step.effective_params.temp_c <= machine.limits.max_temp_c"
+  - id: MP-030  # Gas combination allowed by the machine's limits.gas_combinations (per machine — a tube with a pyrogenic torch burns H2 in O2 by design)
     scope: step
-    evaluator: cel
-    expr: "!(('H2' in step.effective_params.gases && 'O2' in step.effective_params.gases) || ('SiH4' in step.effective_params.gases && 'O2' in step.effective_params.gases))"
+    evaluator: builtin
+    check: gas_combinations_allowed
   - id: MP-040  # Duration ≤ machine max continuous run
+  - id: MP-045  # Lot fits one run on every candidate machine of every step: ≤ batch.size, ≥ min_fill, == size for fill: exact unless dummy_fill (checked at order time)
   - id: MP-050  # Wafer diameter supported by every pinned/candidate machine
   - id: MP-060  # Pinned machine actually provides the capability/program
   - id: MP-070  # Every external_process is followed by receive_inspect before any tool step
   - id: MP-080  # Every logistics.mask_fab layer exists in layer_map; polarity matches vendor spec
-  - id: MP-090  # Coupling window ≥ program duration of predecessor's successor setup (warning)
+  - id: MP-090  # Coupling window ≥ successor's setup + the predecessor's cleanup (warning)
   - id: MP-100  # Consignment consumables referenced by a step exist in the owner's consignment stock (checked at order time)
 ```
 
-`step.effective_params` = program params when a program is used, else the step's own params. The wafer-state engine (contamination class, materials, resist present, stack, thickness) is also persisted per physical wafer (§5.5), so incoming-inspection results can overwrite it (a user-shipped wafer arrives with gold on it → it can never enter `clean` tools, regardless of what the recipe claims).
+`step.effective_params` = program params when a program is used, else the step's own params. **CEL convention:** every optional field is guarded with `has()` (as in MP-020); a rule that throws is reported as an `error` finding against the rule itself, never silently passed.
+
+Note what is *not* a global rule: "no resist above 150 °C" or "never mix H2 and O2" would reject the reference processes (polyimide cures at ~350 °C; pyrogenic wet oxidation burns H2 in O2 on purpose). Such limits belong to the machine that has them — `forbidden_wafer_materials`, `gas_combinations`, `max_temp_c` — and MP-011/020/030 merely enforce whatever each machine declares.
+
+**Wafer-state engine.** Rules read `wafer.{contamination_class, materials, resist_present, stack, thickness_um}`. That state is produced by threading declared **effects** through the steps: every program (§5.1) and, for free-mode capabilities, every step type declares its `effects` (`stack_push`, `stack_pop`, `materials_add`, `materials_remove`, `resist: present|removed`, `contamination_class_min`, `thickness_delta_um`, `anneal`). Effects are part of the machine registry and are versioned with it. The same engine state is persisted per physical wafer (§5.5), so incoming-inspection results can overwrite it (a user-shipped wafer arrives with gold on it → it can never enter `clean` tools, regardless of what the recipe claims), and the foundry account may override it with a public, reasoned event.
 
 Validation reports carry `rule, severity, subject, measured, limit, message, hint` per finding; errors block publish; reports are public and permanent. Rules are re-evaluated at dispatch time against the machine revision in force; a failure blocks the step and holds the order.
 
@@ -484,7 +489,7 @@ Validation reports carry `rule, severity, subject, measured, limit, message, hin
 |---|---|
 | `MK-001` per-layer pattern density in machine-declared `[min,max]` per window | etch loading, CMP dishing, evaporator source burn-through |
 | `MK-002` no geometry in the tool's edge-exclusion ring | handlers, chucks, clamps |
-| `MK-003` `RELEASE ∩ XZONE = ∅`; `RELEASE` area ≤ laser `max_release_area_mm2` | laser release optics/stage |
+| `MK-003` step-declared layer exclusions and area caps (`exclude: [[RELEASE, XZONE]]`, `RELEASE` area ≤ the laser's `max_release_area_mm2`) | laser release optics/stage; generic, parametrised by the step |
 | `MK-004` min trench width vs. DRIE aspect-ratio ceiling | endpoint detection, chamber |
 | `MK-005` vertex/polygon count ≤ direct-write ceiling | writer time bound |
 | `MK-006` mask-fab: min feature ≥ vendor min for the chosen blank | prevents unfillable mask orders |
@@ -722,7 +727,7 @@ Needed in three places: machine-protection rules (foundry-authored), analysis/ha
 |---|---|---|---|---|---|---|
 | **Declarative checks** (`stat/field/min/max` JSON, §5.3) | Total (no code) | Low — thresholds, groupings | Excellent | n/a | Covers ~60 % of rules (limits) | Covers the common e-test case |
 | **Callback / webhook** (server POSTs inputs, expects `{pass, findings}`) | User's problem; server only sees a verdict | Unlimited | Only the verdict is visible | Any language | Poor for foundry rules (must be public & auditable) | **Best**: users run whatever they like, on their infrastructure |
-| **CEL** | Strong: non-Turing-complete, bounded cost, typed | Medium — boolean/arith over structured data, list macros | Good (one-liners) | Google, `cel-python`, `cel-go` (both languages we might use) | **Good**: rules like MP-020 are one line, evaluated identically in the GUI | Fine for simple checks |
+| **CEL** | Strong: non-Turing-complete, bounded cost, typed | Medium — boolean/arith over structured data, list macros | Good (one-liners) | Google, `cel-python`, `cel-go` (both languages we might use) | **Good**: rules like MP-011 are one line, evaluated identically in the GUI | Fine for simple checks |
 | **JSONLogic** | Strong | Low–medium; awkward for aggregations | Poor (nested JSON) | Many ports | Adequate | Adequate |
 | **Rego / OPA** | Strong | High | Medium; needs OPA sidecar | Policy-focused | Good but heavy | Overkill |
 | **Sandboxed Python** (RestrictedPython / subprocess + seccomp) | Weak-to-medium; endless escape surface | Unlimited | Good | Everything | Risky on a public server | Risky; users get this via callbacks anyway |
