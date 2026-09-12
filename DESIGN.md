@@ -18,7 +18,7 @@ foundry.api is an API-first service for running an open, auction-scheduled found
 
 - **Define a recipe** — an ordered list of process, metrology, analysis and logistics steps executed on the foundry's machines, built from forkable templates, and checked against rules whose only purpose is to protect the foundry's machines.
 - **Order a recipe** against a design (GDS), a set of physical assets (wafers and masks — foundry-supplied or shipped in) and a bid schedule.
-- **Have every step scheduled by auction** — each machine continuously sells its next slot to the highest bidder. The foundry itself is a bidder, setting a floor or paying to keep expensive-to-stop tools running.
+- **Have every step scheduled by auction** — each machine continuously sells its next run to the bidder offering the most per machine-hour. The foundry itself is a bidder, setting a floor or paying to keep expensive-to-stop tools running.
 
 Everything is public: machines and their programs, live auctions, what is on every tool, storage, ledgers and run assets. A read-only web GUI renders this state; all writes go through the API.
 
@@ -46,7 +46,7 @@ The longer-term direction is silicon as a cloud service: designs go in, measured
 1. **Recipe authoring via API** from typed steps and forkable templates. Steps target a capability and may be locked to one machine or a set.
 2. **Machine-protection validation only.** Recipes and designs are checked against rules that keep tools safe (limits, chemistries, contamination, form factor, pattern density, program compatibility). Nothing checks whether the *device* will work — that is the user's responsibility.
 3. **Orders with designs and physical assets.** Designs are public GDS/OASIS. Wafers and masks are tracked assets with owners, locations and storage charges.
-4. **Money-only auction scheduling.** Highest bid runs next; the foundry bids too (reserve or subsidy); prices can be negative. If a lot is blocked because its owner won't pay, that is the intended outcome.
+4. **Money-only auction scheduling.** The bid worth the most per machine-hour runs next; the foundry bids too (reserve or subsidy); prices can be negative; guaranteed slots exist only as futures the foundry sells. If a lot is blocked because its owner won't pay, that is the intended outcome.
 5. **Runs produce assets** (images, tables, logs, actual durations, consumable draws). Recipes can include metrology, analysis and halt conditions; a fired halt places the order in `held` until the owner decides.
 6. **Machine registry, programs, consumables, utilisation, ledger** — all public.
 7. **No new languages or formats.** Documents are YAML/JSON with JSON Schema. Assets use PNG/CSV/Parquet/JSON/NDJSON. Expressions, where unavoidable, use an existing sandboxed language or are delegated to callbacks.
@@ -87,7 +87,7 @@ Numbers the architecture, auction and GUI metrics should be judged against (from
 
 **Complex — SkyWater S8/SKY130.** ~200 steps of `<mask> → <implant|etch> → <strip>` triplets between oxidations, LPCVD depositions, CMP and RTA anneals. Shipped as a ~40-step front-end excerpt `tpl_sky130-fe` using macros.
 
-What they force into the model: linear step lists with macros; coupling windows between steps (resist coat → expose; HF dip → deposition); batch tools (furnaces, wet benches, implanters); contamination classes (no gold in front-end tools); fixed furnace programs (a tube that only runs its qualified 10-hour cycle); per-layer mask metadata; metrology after critical steps (film thickness after oxidation, sheet resistance after implant/anneal) with halt thresholds.
+What they force into the model: step DAGs that are almost always linear, with macros; coupling windows between steps (resist coat → expose; HF dip → deposition); batch tools (furnaces, wet benches, implanters); contamination classes (no gold in front-end tools); fixed furnace programs (a tube that only runs its qualified 10-hour cycle); per-layer mask metadata; metrology after critical steps (film thickness after oxidation, sheet resistance after implant/anneal) with halt thresholds.
 
 ---
 
@@ -498,86 +498,148 @@ There is **no DRC for yield**. The repo may ship the foundry's *advisory* KLayou
 
 ### 10.1 Principle
 
-Every machine sells its next slot to the highest bidder, the way a compute spot market sells instances. Bids are money; nothing else reorders the queue. An order-step whose owner won't pay enough simply waits, visibly, forever — while its wafers accrue storage charges.
+Every machine sells its **time**. Its next run goes to the account whose bid is worth the most per machine-hour above the foundry's own floor, the way a compute spot market sells instance-hours. Bids are money; nothing else reorders the queue. An order-step whose owner won't pay enough simply waits, visibly, forever — while its wafers accrue storage charges.
 
-### 10.2 Bidders
+### 10.2 The unit of sale: a run
 
-- **Order-steps** that are `eligible`: predecessor done, assets present, account able to fund the bid (§12).
-- **The foundry**, via each machine's `foundry_bid`:
-  - `reserve` (positive): "don't run anyone below X". If no bid ≥ X, the machine idles (`offline_by_bid`). This is how a foundry takes a machine out of service gracefully, or refuses to run cheap jobs before scheduled maintenance.
-  - `subsidy` (negative): "I would rather pay up to |X| per wafer than have this tool stop". Used for furnaces, epi reactors, anything with expensive shutdown/qualification cycles.
-  - `none`: reserve is the program's bundled cost (foundry breaks even).
+A **run** is one order-step's lot executing one program on one machine (on a batch tool, several lots of the *same account* on the same program may share a run, up to `batch.size`). **A run belongs to exactly one account.** Nobody shares a run with a stranger; there is no cross-account batching and no shared pricing. One person is responsible for the lot and the hours.
 
-A foundry bid is public and appears in the queue like any other row.
-
-### 10.3 Clearing rule (per machine, on every relevant event)
+The machine time a run needs depends on what ran before it:
 
 ```
-E = eligible order-steps s with M ∈ machines(s) and s not queued elsewhere and funded(s)
-F = foundry_bid(M)                                    # may be negative
-rank E by bid(s) desc, ties by eligible_since asc      # nothing else
-if M.batch.size > 1: form the largest batch from the top of E whose members share a program
-                     (wait up to batch.max_wait_s from the first eligible if fill < min_fill)
-winner W = top of E (or the batch)
-if bid(W) < F: no clearing; machine is offline_by_bid (or idle if F ≤ 0 and E empty)
-price(W) = max(F, next_highest_bid_after_W)           # second price with the foundry as a participant
-           # for a batch: every member pays max(F, highest bid *outside* the batch); see §10.5
-consumables: bundled ones are inside F's baseline; metered ones are added at actual draw at run end (§11)
-emit auction.cleared {machine, winners, price, foundry_bid, losers_snapshot}
+machine_time(run | prev) = setup(prev_program → program)          # setup_matrix, else program.time.setup_s; same program → 0
+                         + process(program, lot)                   # time.process_s per run, or × wafers when batch.fill == single
+                         + cleanup(program)                        # time.cleanup_s
+hours(run | prev)        = machine_time / 3600
 ```
 
-`price` can be **negative**: if `F = −6` and there is no other bidder, `price = −6` and the winner is credited 6 cr/wafer for running (§10.4 shows why this is rational for the foundry). Metered consumables are still charged separately, so a user cannot profit by burning gold.
+All three terms come from the program (§5.1) and are authoritative — the foundry qualifies them with the program. Real durations are recorded on the run and feed the utilisation statistics, but never the price.
 
-### 10.4 Pricing-rule analysis
+A bid is `max_credits`: the most the account will pay, in total, for that run. The auction compares bids as an implied **rate** `r = max_credits / hours(run | prev)`. A bidder whose program matches the machine's current program needs no setup, so the same `max_credits` buys a higher rate — bidders who can exploit matching settings win more often at the same money, and bidders who need a changeover pay for it. No bidder ever pays more than `max_credits`.
 
-| Rule | Incentive for bidders | API churn | Foundry control | Batch tools | Verdict |
-|---|---|---|---|---|---|
-| **First-price** | Shade bids just above the next competitor; requires watching the queue | High (constant re-bidding) | Reserve only | Every member pays own bid — simple | Simple to explain; poor for headless clients |
-| **Second-price (Vickrey), foundry as participant** | Bid true value once | Low | Reserve *and* subsidy fall out naturally: the foundry's bid is just another bid that sets the floor | Needs a batch rule (§10.5) | **Recommended default** |
-| **Uniform-price batch auction** (all winners in a batch pay the highest losing bid) | Truthful for single units | Low | Same | Natural | Adopted *for batches* within second-price |
-| **Time-window reservations** (reserve a 2 h block) | Predictability | Low | Weak — blocks the tool | Awkward | Deferred; can be emulated with a high bid + `not_before` (Q1 in §18) |
+Lot sizing follows the machine: an order's lot must fit in one run on every candidate machine of every step (`wafers ≤ batch.size`, `≥ min_fill` for `fill: min`, `== size` for `fill: exact` unless the machine offers `dummy_fill`) — validated at order time (`MP-045`). There are no split lots; an order that needs more wafers than the smallest batch on its path is two orders.
 
-Why second-price works with a negative foundry bid: the foundry's subsidy is its *true valuation* of keeping the tool running (avoided shutdown cost per wafer). Second-price with the foundry bidding its true value means the tool runs exactly when society (foundry + users) values running it more than idling — including when the user's valuation is small and the foundry tops it up.
+### 10.3 Bidders
 
-**Manipulation notes.** A user can't lower the price by bidding through several keys (second price only counts *distinct competing* bids, and shills only raise prices). A foundry could overstate a subsidy — but it pays it. Cancelling a `queued` step forfeits the cleared price (§16).
+- **Order-steps** that are `eligible`: predecessors done, assets present, account able to fund `max_credits` (§12). Their bid is the step's `default_bid_credits` unless the owner or a bid policy (§10.8) overrides it.
+- **The foundry**, via each machine's `foundry_bid`. Its floor rate for a program is `F = program.rate_credits_per_hour + adjustment` (optionally per program):
+  - `reserve` (positive adjustment): "don't run anyone below F". If no candidate reaches F, the machine idles and is shown as `offline_by_bid`. This is how a foundry takes a machine out of service gracefully, or refuses cheap jobs before scheduled maintenance.
+  - `subsidy` (negative adjustment; F may go below zero): "I would rather pay than have this tool stop" — furnaces, epi reactors, anything with expensive shutdown/requalification cycles. Bounded by `applies_when: no_competing_bid` (only when the queue would otherwise be empty) and `budget_credits_per_day`.
+  - `none` (zero): the foundry breaks even at its bundled rate.
 
-### 10.5 Batch tools
+  A foundry bid is public and appears in the queue like any other row.
+- **Slot-future holders** (§10.6): a run covered by a future whose window is open pre-empts the auction.
 
-A batch clears as a set of order-steps on the same program. Each member pays `max(F, highest bid not in the batch)` — a uniform price, so nobody inside the batch pays more than the marginal outsider they displaced. A lot can span multiple batches (split lots are tracked as child lots). Batch waiting is bounded by `max_wait_s`; below `min_fill` the foundry decides through its bid whether to run partially (a subsidy makes partial runs happen; a reserve prevents them).
+### 10.4 Clearing rule (per machine)
 
-### 10.6 Coupling windows and other time limits
+Clearing is **just-in-time**: the next run is decided at `free_at − clear_ahead_s` (immediately, if the machine is idle) — `clear_ahead_s` being the time the foundry needs to stage wafers from storage to the tool. Until that moment bids on the machine compete freely and a late high bidder can still win; at that moment the winner is **locked** (`queued`) and cancelling it forfeits the cleared price (§16). The rule is re-run on every relevant event before the lock (bid changed, step became eligible, machine state changed, future bought).
 
-With no deadline boost, a coupling window (`max_queue_time_from_prev_s`) is just information: projections show "must start by 15:30". If it is breached, the order-step **fails** and the order goes to `held` with reason `coupling_breach`; the owner picks continue-anyway / rework-to-step / abort. The owner pays for the rework steps at auction like any other steps. There is no free rework.
+```
+prev = M.current_program (or last program run)
+if a slot future on M is exercisable now (holder's step eligible, window open):
+    W = the future's run; price = future.strike; lock W; emit auction.cleared {…, via: future}; stop
+C = candidate runs: eligible order-steps s with M ∈ machines(s), funded(s), not locked on another machine
+for s in C:
+    h(s) = hours(run(s) | prev)
+    r(s) = max_credits(s) / h(s)
+    F(s) = floor rate of M for program(s)          # rate + adjustment; subsidy only if applies_when/budget allow
+    surplus(s) = r(s) − F(s)
+rank C by surplus desc, ties by eligible_since asc       # nothing else
+W = top of C
+if C empty or surplus(W) < 0:
+    no clearing; M shows offline_by_bid if foundry_bid.mode == reserve else idle
+R = highest surplus among C \ W excluding runs owned by W's account (0 if none)
+rate(W)  = F(W) + R                                       # the lowest rate that would still have won
+price(W) = rate(W) × h(W)                                 # second price with the foundry as a participant; ≤ max_credits(W)
+lock W as queued; reserve price(W) against the owner's account
+emit auction.cleared {machine, run, program, prev_program, hours, rate, price, floor, runner_up_surplus, losers_snapshot}
+```
+
+`price` can be **negative**: if `F(W) = −20 cr/h` and no one else bids, `rate(W) = −20` and the winner is credited `20 × h` for running (§10.5 shows why this is rational for the foundry). Metered consumables are still charged separately, so a user cannot profit by burning gold; the subsidy budget bounds what the foundry can lose.
+
+Bids from the same account never set that account's price (multi-unit Vickrey): an account with two lots queued on one tool simply wins the next two slots; the price of each is set by other accounts' bids or the floor.
+
+### 10.5 Pricing-rule analysis
+
+| Rule | Incentive for bidders | API churn | Foundry control | Verdict |
+|---|---|---|---|---|
+| **First-price** | Shade bids just above the next competitor; requires watching the queue | High (constant re-bidding) | Reserve only | Simple to explain; poor for headless clients |
+| **Second-price (Vickrey) on rate, foundry as participant** | Bid true value once | Low | Reserve *and* subsidy fall out naturally: the foundry's bid is just another bid that sets the floor; setup cost enters through the time model | **Adopted** |
+| **Uniform-price batch auction** | Truthful for single units | Low | Same | Not needed: runs are never shared between accounts (§10.2) |
+| **Time-window reservations** | Predictability | Low | Blocks the tool at a price the foundry did not set | Replaced by **slot futures** (§10.6), which are reservations *sold* by the foundry at its price |
+
+Why second-price works with a negative foundry bid: the foundry's subsidy is its *true valuation* of keeping the tool running (avoided shutdown and requalification cost per hour). Second-price with the foundry bidding its true value means the tool runs exactly when foundry + users together value running it more than idling — including when the user's valuation is small and the foundry tops it up.
+
+Ranking by surplus (rate above floor) rather than by rate alone matters only when floors differ per program on one machine: it makes the foundry prefer the run that leaves it the most margin per hour, which is what a seller of time wants.
+
+**Manipulation notes.**
+- *Shill bids* from the same account never lower a price (they are excluded from setting it) and can only raise the prices others pay if the shill would itself be a real, funded, wafer-in-storage run — i.e. at real cost.
+- *Bid-under-the-leader* (the classic second-price attack: bid just below the leader to raise its price without winning) is possible. Its cost is that the griefer must hold a real eligible lot in storage on that machine, and risks winning if the leader withdraws; the foundry's `minimum_increment` and per-key write limits (§16) bound how finely it can be played. Not eliminated, stated.
+- A foundry could overstate a subsidy — but it pays it, within its own daily budget.
+- Cancelling a `queued` (locked) run forfeits the cleared price (§16); lowering a bid on an *eligible* (not yet locked) step is free.
+
+### 10.6 Coupling windows and slot futures
+
+Some step pairs must follow each other closely (resist coat → expose; HF dip → deposition). A step declares `max_queue_time_from_prev_s`; projections (§10.9) show `must_start_by` for it. **The auction itself has no deadline mechanism**: people set the price they are willing to pay, and the recipe's window is information. If the window is breached, the order-step **fails** and the order goes to `held` with reason `coupling_breach` (§10.7); the owner picks continue-anyway / rework-to-step / abort and pays for rework steps at auction like any other steps. There is no free rework. If the breach was caused by the machine (`down` during the window), the hold records cause `machine_fault` with evidence, so it is insurable (§12.3).
+
+The way to *guarantee* a coupled successor is to buy its slot in advance. A **slot future** is a contract:
+
+```yaml
+id: fut_01J8…
+provider: prov_foundry                 # the foundry sells pre-emptive futures; external providers sell price caps (below)
+holder: acct_9f3e
+run: {order: ord_01J8…, step: BOX, machine: mach_furnace-A, program: dry_ox_900_20nm, wafers: 8}
+window: {not_before: 2026-09-12T15:00:00Z, not_after: 2026-09-12T21:00:00Z}
+strike_credits: 380                    # what the run costs if exercised, regardless of the auction
+premium_credits: 45                    # paid now, non-refundable unless the provider fails to deliver
+terms_url: https://…
+```
+
+- **Exercise.** When the holder's order-step becomes `eligible` inside the window, the machine's next clearing is that run at `strike_credits`; it pre-empts the auction. The queue shows the future as a row (`future · window · strike`) so other bidders can see that the next slot is spoken for.
+- **Expiry.** If the step is not eligible at any clearing inside the window (predecessor late, unfunded), the future lapses; the premium is kept by the provider.
+- **Provider failure.** If the machine cannot deliver inside the window (down, maintenance, or the foundry oversold), the provider refunds premium and pays the coverage in its terms (typically the rework of the predecessor). Filed automatically like an insurance claim.
+- **Pricing.** The foundry (built-in provider) quotes from the market-rate percentiles for the program, the current queue and its own schedule (e.g. `p90 rate × hours + margin`), and limits futures per machine (`futures_capacity`, e.g. at most 30 % of the next 24 h) so the spot market is not hollowed out. External providers cannot pre-empt a machine they don't own; through the same provider interface (§12.3) they sell **price caps**: the provider bids without limit on the holder's behalf inside the window and pays the difference between the cleared price and the strike.
+
+Futures resolve the earlier open question about time-window reservations: reservations exist, but only as something the foundry *sells* at its own price, so they are just another bidder in the same public book.
 
 ### 10.7 Halts and the `held` state
 
-Any of these put an order in `held`: an `analysis.*` step's `on_fail`, a coupling breach, a run outcome `fail`, an incoming inspection failure, a dispatch-time revalidation failure, or an account that cannot fund the next step (`unfunded` for longer than `foundry.unfunded_hold_after_s`). While held:
+Any of these put an order in `held`: an `analysis.*` step's `on_fail: hold`, a coupling breach, a run outcome `fail`, an incoming inspection failure, a dispatch-time revalidation failure, or an account that cannot fund the next step (`unfunded` for longer than `foundry.unfunded_hold_after_s`). While held:
 
+- the order's `eligible` steps are withdrawn from every auction (shown as `blocked · order_held`) and return to `eligible` on `continue`;
 - wafers/masks sit in storage at their class rate (charged to the owner);
 - the owner resolves via `POST /orders/{id}/holds/{hold_id}/resolve` with `{action: continue | rework_to_step, step_id | abort, note}`;
-- `foundry.hold_timeout_s` (e.g. 14 days) auto-aborts; assets then keep charging until shipped (`ship_out` can be ordered standalone) or, after `foundry.abandon_after_s`, are disposed and the account is closed out.
+- `foundry.hold_timeout_s` (e.g. 14 days) auto-aborts; assets then keep charging until shipped (`ship_out` can be ordered standalone) or, after `foundry.abandon_after_s`, are disposed and the account is closed out. Disposal of user-shipped assets is a contractual right the account accepts on registration (`foundry.terms_url`), and every step of the path is a public event with notice periods.
 
 All hold events, decisions and notes are public.
 
 ### 10.8 Bid policies (server-side, optional)
 
-`none` (default), `deadline` (raise the critical-path step's bid to `price_to_lead` when projected completion slips past target, within a budget), `budget` (spread a budget across remaining machine-hours). Policies place ordinary bids, emitting `order_step.bid_changed {placed_by: policy:…}`.
+`none` (default), `deadline` (raise the critical-path step's `max_credits` to `price_to_lead` when projected completion slips past target, within a budget; optionally buy the foundry's future when `price_to_lead` exceeds the future's strike + premium), `budget` (spread a budget across remaining machine-hours). Policies place ordinary bids, emitting `order_step.bid_changed {placed_by: policy:…}`.
 
 ### 10.9 Projections
 
-For every order-step: expected start (given current bids and program durations), `price_to_lead` per candidate machine, and `must_start_by` from coupling windows. Recomputed on every clearing, streamed via SSE.
+For every order-step: expected start (given current bids, futures and program time models), `price_to_lead` per candidate machine (the `max_credits` that would currently rank first, computed from the runner-up's surplus and this run's hours), the foundry's current future quote for the step, and `must_start_by` from coupling windows. Recomputed on every clearing, streamed via SSE.
 
-### 10.10 Worked example (furnace with subsidy, batch of 25)
+### 10.10 Worked example (furnace with subsidy)
 
-Furnace A idle, `F = −6`, program `dry_ox_900_20nm`, min_fill 5, 14 wafers eligible across 3 lots bidding 9, 8 and 4 cr/wafer; one outside bidder (different program) at 3.
+Furnace A has just finished `bake_10h`. Rates: `dry_ox_900_20nm` 130 cr/h, `bake_10h` 150 cr/h. Foundry bid: subsidy, adjustment −150 cr/h on `dry_ox` (F = −20), 0 on `bake_10h` (F = 150). Setup `bake_10h → dry_ox` = 3600 s. Candidates at the clearing moment:
 
-- Batch = all 14 wafers (same program, ≤ 25). Highest bid outside the batch = 3. Price = max(−6, 3) = **3 cr/wafer** for everyone in the batch.
-- Had there been no outside bidder: price = max(−6, none) = **−6** → each wafer's owner is *credited* 6 cr; the foundry pays 84 cr rather than let the tube cool.
-- Had the foundry set `reserve +20`: nobody clears; the tube shows `offline_by_bid`, with the queue and the 20 cr floor visible to all.
+| Run | Program | Wafers | `max_credits` | hours (incl. setup) | rate | floor | surplus |
+|---|---|---|---|---|---|---|---|
+| ord_M · BOX | dry_ox | 8 | 300 | 1.0 + 2.5 = 3.5 | 85.7 | −20 | **105.7** |
+| ord_P · BOX | dry_ox | 6 | 200 | 3.5 | 57.1 | −20 | 77.1 |
+| ord_S · ANNEAL | bake_10h | 2 | 600 | 0 + 11.0 = 11.0 | 54.5 | 150 | −95.5 (below floor) |
+
+- Winner: ord_M. Runner-up surplus (ord_P) = 77.1 → `rate = −20 + 77.1 = 57.1 cr/h`, `price = 57.1 × 3.5 = 200 cr` — exactly ord_P's bid, as second price should be. ord_M's owner bid 300 and pays 200.
+- Had ord_P not existed: `rate = F = −20`, `price = −70 cr` → ord_M's owner is *credited* 70 cr; the foundry pays 70 cr (from its subsidy budget) rather than let the tube cool.
+- Had the previous program been `dry_ox` (no setup): ord_M needs 2.5 h, rate 120 cr/h — the same 300 cr bid ranks higher. This is the "my settings match the last run" advantage; the owner could also have bid *less* and still won.
+- Had the foundry set `reserve +100` on `dry_ox` (F = 230): no candidate reaches the floor; the tube shows `offline_by_bid` with the queue and the 230 cr/h floor visible to all.
+- ord_S never clears here (54.5 < 150). Its owner can raise `max_credits` to 1,650, wait for the subsidy budget to be exhausted (then `dry_ox` bidders compete at F = 130), or buy a future.
 
 ### 10.11 Determinism
 
-`scheduler.decide(state, event, clock) -> [Decision]` is pure; the demo event log replays to byte-identical `auction.cleared` events.
+`scheduler.decide(state, event, clock) -> [Decision]` is pure; the demo event log replays to byte-identical `auction.cleared` events. Everything non-deterministic — adapter outcomes, callback verdicts and latencies, future quotes from external providers, operator inputs — enters the system only as recorded events, so replay never calls out.
 
 ---
 
