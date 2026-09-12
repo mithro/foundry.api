@@ -59,7 +59,7 @@ Numbers the architecture, auction and GUI metrics should be judged against (from
 | Target | Value | Where it shows up |
 |---|---|---|
 | Customers | ~7,000 accounts at ~100 wafers/yr each | account and asset model scale; no per-customer configuration anywhere |
-| Throughput | ~700,000 wafers/yr (gigafab-comparable) | event log and projection volumes; batch tools |
+| Throughput | ~700,000 wafers/yr (~58,000 wafer starts/month — large-fab scale) | event log and projection volumes; batch tools |
 | Cycle time | ≤ 5 weeks order-to-data for a standard template | `projected_complete` on every order; cycle-time percentiles per template on the overview page |
 | NRE | zero — templates + programs only, no custom process work | `programs_only` default (§5.1); templates as the primary path (§7) |
 | Node focus | mature nodes: analog, power, industrial, secure silicon | shipped templates; SKY130 as the complex reference |
@@ -77,7 +77,7 @@ Numbers the architecture, auction and GUI metrics should be judged against (from
 - Versioned, immutable, content-addressed documents.
 - Explainable rejections: rule id, subject, measured value, limit, hint.
 - Deterministic, replayable scheduling from an append-only event log.
-- Boring technology: Postgres, one service, HTTP+JSON, SSE.
+- Boring technology: Postgres, one API service plus worker processes, HTTP+JSON, SSE.
 
 ---
 
@@ -124,30 +124,40 @@ What they force into the model: step DAGs that are almost always linear, with ma
 erDiagram
     FOUNDRY ||--o{ MACHINE : has
     FOUNDRY ||--o{ STORAGE_LOCATION : has
+    FOUNDRY ||--o{ VENDOR : "mask-fab, external process"
+    FOUNDRY ||--o{ CONSUMABLE : "rate table"
     MACHINE ||--o{ CAPABILITY : provides
-    MACHINE ||--o{ PROGRAM : "locked configs"
-    MACHINE ||--|| FOUNDRY_BID : "standing bid"
+    MACHINE ||--o{ PROGRAM : "locked configs + time model + effects"
+    MACHINE ||--|| FOUNDRY_BID : "standing bid (per-program overrides)"
     MACHINE ||--o{ RUN : executes
+    MACHINE ||--o{ SLOT_FUTURE : "sold on"
+    PROGRAM ||--o{ RUN : "runs"
     ACCOUNT ||--o{ LEDGER_ENTRY : has
     ACCOUNT ||--o{ PHYSICAL_ASSET : owns
     ACCOUNT ||--o{ ORDER : places
     ACCOUNT ||--o{ CONSIGNMENT_STOCK : holds
+    ACCOUNT ||--o{ SLOT_FUTURE : holds
     PHYSICAL_ASSET }o--|| STORAGE_LOCATION : "stored at (or on-tool / in-transit / external)"
-    RECIPE ||--|{ STEP : "ordered"
+    RECIPE ||--|{ STEP : "DAG"
     RECIPE ||--|| LAYER_MAP : declares
     ORDER }o--|| RECIPE : uses
     ORDER }o--o{ DESIGN : "mask set"
-    ORDER ||--|| LOT : produces
+    ORDER ||--|| LOT : "produces (no split lots)"
     LOT ||--|{ WAFER : contains
-    LOT ||--|{ ORDER_STEP : "one per step"
+    ORDER ||--|{ ORDER_STEP : "one per step, with attempts"
     ORDER_STEP ||--o{ BID : "current + history"
-    ORDER_STEP }o--o| RUN : "executed in"
+    ORDER_STEP ||--o{ RUN : "one per attempt; a run has one account"
+    ORDER_STEP }o--o| SLOT_FUTURE : "covered by"
     RUN ||--o{ RUN_ASSET : produces
     RUN ||--o{ CONSUMABLE_DRAW : records
+    CONSUMABLE_DRAW }o--|| CONSUMABLE : of
     ORDER ||--o{ HOLD : "held decisions"
+    HOLD }o--o| ORDER_STEP : "on"
     ORDER ||--o{ INSURANCE_POLICY : covered_by
-    INSURANCE_POLICY }o--|| INSURANCE_PROVIDER : "foundry or external"
+    INSURANCE_POLICY }o--|| PROVIDER : "foundry or external"
+    SLOT_FUTURE }o--|| PROVIDER : "sold by"
     SHIPMENT }o--o{ PHYSICAL_ASSET : moves
+    SHIPMENT }o--o| VENDOR : "to / from"
 ```
 
 ### 5.1 Machine (with programs and foundry bid)
@@ -288,7 +298,7 @@ lot: lot_01J8…
 scribe: "FA-2026-09-0442-07"
 spec: {material: fused_silica, diameter_mm: 150, thickness_um: 500}
 state: {contamination_class: gold, materials: [Ti, Pt, Au, polyimide], resist_present: false}   # maintained by the wafer-state engine
-location: {kind: storage, id: stor_n2cab-3, since: 2026-09-12T13:20:00Z}   # storage | on_tool | in_transit | external | disposed | shipped
+location: {kind: storage, id: stor_n2cab-3, since: 2026-09-12T13:20:00Z}   # storage | on_tool | in_transit | external | awaiting_inspection | shipped | disposed
 storage_class: n2_cabinet             # drives the charge rate
 provenance: foundry_supplied          # foundry_supplied | user_shipped | external_returned
 history: [...]                        # every location change is an event
@@ -352,7 +362,7 @@ flowchart LR
         EDA[EDA / scripts / other systems]
         GUI[Read-only web GUI]
         CB[User callback endpoints]
-        INS[External insurance providers]
+        INS[External providers: insurance, price caps]
     end
     subgraph core [foundry.api service]
         API[HTTP API · OpenAPI 3.1]
@@ -394,7 +404,7 @@ flowchart LR
 
 **Language:** Python (FastAPI, Pydantic v2, SQLAlchemy/asyncpg, Postgres, `gdstk`/KLayout for GDS inventory and geometry checks, `pytest`). Scheduler is a pure module with no I/O so it could be ported to Go. Go-first alternative: keep the design checker and analysis worker as a Python sidecar. GUI: static TypeScript, `GET` + SSE only.
 
-**Repository:** `foundry.api/` with `schemas/` (JSON Schema for every document), `templates/`, `rulesets/`, `foundries/demo/`, the Python package `foundryapi/` (`api`, `recipes`, `validation`, `orders`, `assets`, `scheduler`, `ledger`, `insurance`, `analysis`, `registry`, `sim`, `events`), `web/`, `tests/`, `docs/`.
+**Repository:** `foundry.api/` with `schemas/` (JSON Schema for every document), `templates/`, `rulesets/`, `foundries/demo/`, the Python package `foundryapi/` (`api`, `recipes`, `validation`, `wafer_state`, `orders`, `assets`, `scheduler`, `futures`, `ledger`, `providers`, `analysis`, `registry`, `adapters`, `sim`, `events`), `web/`, `tests/`, `docs/`.
 
 ---
 
@@ -779,7 +789,7 @@ Every run produces assets into the object store, listed on `GET /runs/{id}/asset
 | Asset | Format | Producer |
 |---|---|---|
 | `telemetry` | NDJSON (`ts, channel, value, unit`) | adapter/simulator |
-| `summary` | JSON (`actual_duration_s, program, params_effective, outcome, cause, consumable_draw[]`) | dispatcher |
+| `summary` | JSON (`program, params_effective, prev_program, hours, rate, price, floor, actual: {setup_s, process_s, cleanup_s}, outcome, cause, cause_evidence[], consumable_draw[]`) | dispatcher |
 | `log` | text | adapter |
 | metrology outputs | CSV/Parquet with declared schema id, plus JSON raw | metrology programs |
 | images | PNG/JPEG (`optical`, `sem`, wafer maps rendered by the server) | metrology programs, server |
@@ -979,34 +989,53 @@ Site map: `/` overview · `/machines/:id` · `/auctions` · `/futures` · `/orde
 
 ## 18. Open questions
 
-1. **Time-window reservations** — still deferred. Emulate with `not_before` + high bid, or add real reservations later?
-2. **Foundry bid granularity** — per machine vs. per program (a furnace may want a subsidy for `dry_ox` but a reserve for `bake_10h`). Leaning per-program with a machine default.
-3. **Consumables** — should consignment stock be transferable/sellable between accounts? Should bundled rates auto-update from metered history? Should metered draws be *bid-able* (a cap on consumable spend per step)?
-4. **Batch pricing** — uniform price per batch vs. each member pays own second price. Uniform is simpler and fairer inside a batch; confirm.
-5. **Held timeouts** — 14-day hold timeout and abandon-after are foundry constants; should recipes shorten them?
-6. **Callback identity** — should callbacks be allowed to *set bids* (a user's own scheduler)? Powerful, but it turns callbacks into a bidding-bot API. Probably yes with a separate scope on the API key.
-7. **Wafer-state truth** — when incoming inspection disagrees with the recipe's assumed state, inspection wins. Is manual override by the foundry account needed?
-8. **Split lots** — child lots are tracked; do they get their own bids, or inherit the parent's?
-9. **Insurance claim disputes** — provider decision is final; do we need a public dispute record?
-10. **Data-only orders** — for "silicon as a cloud service", should a recipe be allowed to end without `ship_out` or `store`, with wafers disposed after probe data is published? What is the retention/disposal policy and price?
-11. **Go boundary** — CEL exists in both languages; the design checker (`gdstk`/KLayout) and analysis worker stay Python regardless.
+Resolved in v0.3 (recorded so they are not reopened by accident): time-window reservations → slot futures sold by the foundry (§10.6); foundry bid granularity → per machine with per-program overrides (§5.1); batch pricing → moot, a run has one account (§10.2); split lots → none, lot size is validated against the path (§10.2).
+
+1. **Futures capacity and pricing.** `futures_capacity` is a fraction of the next 24 h per machine; should it instead be per program? Should the foundry's quote formula be public (it is a policy, so probably yes)?
+2. **Consumables** — should consignment stock be transferable/sellable between accounts? Should bundled rates auto-update from metered history? Should metered draws be *cap-able* per step (a bid on consumable spend)?
+3. **Dummy-wafer fill** for `fill: exact` tools: always charged as metered, or should the foundry be allowed to fill from its own monitor-wafer pool at zero cost when it wants the run?
+4. **Held timeouts** — 14-day hold timeout and abandon-after are foundry constants; should recipes shorten them?
+5. **Callback identity** — should callbacks be allowed to *set bids* (a user's own scheduler)? Powerful, but it turns callbacks into a bidding-bot API. Probably yes with a separate scope on the API key.
+6. **Wafer-state truth** — inspection overrides the recipe's assumed state, and the foundry account may override with a reason (§8). Should an override on a *user-owned* wafer require the owner's acknowledgement before the next step clears?
+7. **Insurance and future claim disputes** — provider decision is final; the adapter's `cause_evidence` is public. Do we need a public dispute record beyond "claim decision disagrees with adapter cause"?
+8. **Data-only orders** — for "silicon as a cloud service", should a recipe be allowed to end without `ship_out` or `store`, with wafers disposed after probe data is published? What is the retention/disposal policy and price?
+9. **Time-model drift** — program times are authoritative for pricing; when actuals drift, is republishing the program (new revision, public) the only correction path, or may the foundry apply a per-program correction factor?
+10. **Go boundary** — CEL exists in both languages; the design checker (`gdstk`/KLayout) and analysis worker stay Python regardless.
 
 ---
 
 ## 19. Milestones
 
+The scheduler is the novel and riskiest part and is a pure module with no I/O, so it comes first, with an economic simulation that tries to break it (bid-under-the-leader, subsidy farming, setup gaming, futures collisions) before anything is built around it.
+
 | M | Deliverable |
 |---|---|
-| M0 | JSON Schemas (recipe, step types, machine, program, ruleset, order, assets, ledger), demo foundry, TFE template, OpenAPI skeleton |
-| M1 | Recipes + rule engine (builtin + CEL) + wafer-state + reports; `foundry-api validate` CLI |
-| M2 | Designs: upload, inventory, LM/MK checks in sandbox |
-| M3 | Accounts/ledger (prepaid, postpaid), physical assets, storage charging, shipments, incoming inspection |
-| M4 | Orders, lots, order-steps, holds, event log, SSE, webhooks |
-| M5 | Auction with foundry bid, negative prices, batches, projections; simulator; replay tests |
-| M6 | Run assets, metrology programs, `analysis.check` + `analysis.callback`, halt → held |
-| M7 | Insurance provider interface + built-in provider + claims |
-| M8 | GUI (all pages), SKY130 excerpt template, public demo, docs |
+| M0 | JSON Schemas (recipe, step types, machine + program time model + effects, ruleset, order, assets, ledger, future), demo foundry, TFE template, OpenAPI skeleton |
+| M1 | Pure scheduler: `scheduler.decide`, rate/surplus clearing, floors, futures pre-emption, just-in-time locking; replay tests; bot-bidder economic simulation with a written report of what it found |
+| M2 | Recipes + rule engine (builtin + CEL) + wafer-state engine from effects + reports; `foundry-api validate` CLI |
+| M3 | Designs: upload, inventory, LM/MK checks in sandbox |
+| M4 | Accounts/ledger (prepaid, postpaid), physical assets, storage charging, shipments, incoming inspection |
+| M5 | Orders, lots, order-steps with attempts, holds, event log, SSE, webhooks; adapter interface + simulator |
+| M6 | Auction wired to orders and machines: foundry bids, negative prices, projections, bid policies; futures sold by the built-in provider |
+| M7 | Run assets, metrology programs, `analysis.check` + `analysis.callback`, halt → held |
+| M8 | Provider interface: insurance + price caps, built-in provider, claims with evidence |
+| M9 | GUI (all pages), SKY130 excerpt template, public demo, docs |
 
 ## Appendix A — Demo foundry machines
 
 Spin coaters ×2, convection oven, contact aligner, maskless writer, evaporators ×2, RIE ×2, DRIE, wet bench (Au), wet bench (clean), furnace tube A, RTA, laser release, profilometer, ellipsometer, prober, operator and shipping pseudo-machines. Furnace A and RTA `programs_only` with subsidies; RIE #1 carrying a reserve during the demo to show `offline_by_bid`; vendors `maskco` (5-inch Cr masks, 5-day lead, 1,200 cr/layer) and `aldhouse` (external ALD, 7-day turnaround).
+
+## Appendix B — Changelog
+
+**v0.3 (2026-09-12)** — auction remodelled around machine time.
+- The unit of sale is a *run* owned by exactly one account; bids are `max_credits` per run, compared as a rate per machine-hour above the program's floor. Programs carry authoritative `time` models (setup/process/cleanup), `rate_credits_per_hour` and wafer-state `effects`; `setup_matrix` feeds the time model. No cross-account batches, no split lots; batch `fill` modes with dummy-wafer top-up.
+- Foundry bid is an adjustment to the program rate with `applies_when`, daily budget and per-program overrides. Just-in-time clearing with `clear_ahead_s`; the forfeit rule applies only after the lock.
+- Slot futures (foundry, pre-emptive) and price caps (any provider) replace time-window reservations; coupling windows stay informational with breach → hold.
+- Machine time is always charged; fault causes must cite public evidence; insurance can refund charged time. Ledger gains future kinds.
+- MP-020/MP-030 replaced by enforcement of per-machine `max_temp_c` / `gas_combinations` (they rejected the reference processes); CEL `has()` convention; MK-003 parametrised; MP-045 lot-size rule; contamination class `poly` → `organic`.
+- State machines rewritten as transition tables; `awaiting_assets` removed in favour of provisioning steps generated from `assets_in`; `depends_on` is a DAG; `on_fail` enumerated; `offline_by_bid` derived.
+- §15.2 foundry/adapter interface added; futures endpoints; GUI mockups use ISO dates and per-hour money basis; emails never published; milestones reordered to build and stress the pure scheduler first.
+
+**v0.2** — programs and foundry bids, physical assets and storage charging, logistics steps, insurance, consumable modes, held-order flow.
+
+**v0.1** — initial draft.
