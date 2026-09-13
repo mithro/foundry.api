@@ -1,8 +1,8 @@
-# foundry.api — Principles (Draft v0.10)
+# foundry.api — Principles (Draft v0.11)
 
 | | |
 |---|---|
-| Status | Draft v0.10. Expected to change over several iterations. |
+| Status | Draft v0.11. Expected to change over several iterations. |
 | Date | 2026-09-13 |
 | Relationship to `DESIGN.md` | `DESIGN.md` is one attempt to implement these principles. Where the two disagree (§6), change one of them on purpose. Don't quietly work around the gap. |
 | Terms | **The foundry** means the entity that runs the machines. Whether the market and the other roles belong to the same entity is an open question (§4). |
@@ -17,11 +17,11 @@ The principles come first, in priority order. The rest of the document works out
 
 **P1. Do no harm.** Never run anything that endangers people, damages machines or shared infrastructure, contaminates other customers' wafers, or breaks the law. No amount of money and no other principle overrides this.
 
-**P2. Everything is recorded and public.** Every action by customers, the foundry, the market and the machines is recorded, and the record is public, including each machine's full history of runs, faults, maintenance, calibration and plans. Anyone must be able to rebuild what happened, and to price risk as well as the foundry could.
+**P2. Everything is recorded and public.** Every action by every participant (customers, insurers and other providers, the foundry and the market) and by every machine is recorded, and the record is public, including each machine's full history of runs, faults, maintenance and calibration. Anyone must be able to rebuild what happened, and to price risk as well as the foundry could.
 
 **P3. The foundry does as little as possible.** It operates its machines, records and publishes what they do, and sells their time now to whoever the market says won it; any other action is a safety call or follows a published rule driven by prices others set. Everything else (what time is worth, what risks cost, when to maintain, when anything will happen, futures, insurance and credit) is decided and provided by customers, insurers and other providers from public data.
 
-**P4. Every hour is paid for.** Each hour of machine time is sold to one account, which pays for the actual time it holds (including setup, cleanup and idle time) plus storage and consumables, and nothing runs until that payment is guaranteed. Hours the foundry can't provide are paid for by the foundry's own insurance, so the foundry always gets paid, whatever the outcome.
+**P4. Every hour is paid for.** Each hour of machine time is sold to one account, which pays for the actual time it holds (including setup, cleanup and idle time) plus storage and consumables, and nothing runs until that payment, and payment for any damage the job could cause, is guaranteed. The foundry's own insurance pays for hours it can't provide and for any guarantee or insurer that fails to pay, so the foundry always gets paid, whatever the outcome.
 
 **P5. Money decides.** Among requests that satisfy every earlier principle, the one that pays most runs next, and nothing else orders the queue: not customer size, loyalty, deadlines, or how far through a flow a lot is. Every preference costs money, whether about timing, machine state or running things together, so picky customers pay more and flexible customers pay less.
 
@@ -39,7 +39,7 @@ Each row is a conflict that fixes which of two principles comes first. Consolida
 | P3 over P4 | The foundry could make its income more certain by selling futures or lending to customers. It may not. If the only way to be paid is to extend credit, the run doesn't happen. |
 | P3 over P5 | No amount of money buys a reservation from the foundry. |
 | P3 over P6 | A customer can ask for a run, but can't ask the foundry to judge anything for them, such as the best time to run or a delivery date. |
-| P4 over P5 | The highest bid loses if no one has guaranteed the payment. A stranger can't pay to have their wafers added to someone else's sale, but a broker who takes responsibility for the whole sale can. A customer can't pay the foundry extra to be charged a flat price instead of actual time; a flat price has to be bought from an insurer. |
+| P4 over P5 | The highest bid loses if no one has guaranteed the payment. A stranger can't pay to have their wafers added to someone else's sale. (Whether a broker who takes responsibility for the whole sale can is open, Q12.) A customer can't pay the foundry extra to be charged a flat price instead of actual time; a flat price has to be bought from an insurer. |
 | P5 over P6 | A customer doesn't get their lot run next by asking; they get it by paying the most. |
 
 ---
@@ -51,7 +51,7 @@ Each row is a conflict that fixes which of two principles comes first. Consolida
 - **Means:** every validation rule names what it protects: a person, a machine, a consumable, a shared facility, another customer's wafers, or a legal obligation. A rule that protects only the requesting customer's own result is not a P1 rule, so P6 says delete it.
 - **Means:** protection is checked again just before a run starts, because machines and wafers change.
 - **Means:** wherever possible a protection rule is a declared limit of a machine, not a judgement about a customer.
-- **Means:** the foundry acts to protect even when nobody is paying (P1 over P4), then recovers the cost from whoever caused it (P4).
+- **Means:** the foundry acts to protect even when nobody is paying (P1 over P4). The cost is paid through the job's damage cover or the foundry's own insurance (I16); the foundry doesn't decide who caused it (I9).
 - **Rules out:** DRC for yield, and refusing a safe but pointless request.
 - **Open:** "or breaks the law" was not in the user's original list; it was added for export controls, IP takedowns and personal data (Q3).
 
@@ -63,8 +63,9 @@ Each row is a conflict that fixes which of two principles comes first. Consolida
 - **Means:** disputes are settled against the record, not anyone's memory.
 
 **Public**
-- **Means:** each machine's full history is public: every run with its telemetry and actual duration, every fault, every maintenance action and part replaced, calibration results, and planned maintenance. That is what lets anyone, not just the foundry, price insurance and futures, and lets customers judge how much a machine's current state matters to them (I15).
+- **Means:** each machine's full history is public: every run with its telemetry and actual duration, every fault, every maintenance action and part replaced, calibration results, and maintenance hours already bought. That is what lets anyone, not just the foundry, price insurance and futures, and lets customers judge how much a machine's current state matters to them (I15).
 - **Means:** queues, bids, cleared prices, ledgers, designs and results are public, so customers can see why they are waiting.
+- **Means:** providers are participants too, so insurance policies, premiums, claims and futures terms are public.
 - **Means:** the foundry measures the time it charges for (P4), so those measurements are public and overcharging is visible.
 - **Rules out:** private contracts with the foundry, confidential designs, hidden floors, and anything only the foundry knows.
 - **Open:** *when* bids become public. P2 outranks P5, so if live public bids make the auction work badly, the auction design has to adapt. The exception is if publishing bids once a clearing is final counts as satisfying P2 (Q10).
@@ -86,12 +87,13 @@ Each row is a conflict that fixes which of two principles comes first. Consolida
   | When and how often to maintain | The downtime insurer, and anyone else who buys maintenance hours | Nothing to decide: it performs maintenance in hours someone bought (I14) |
   | When machine time is most valuable | Customers | Clearing prices |
   | What a risk costs | Insurers | Premiums |
-  | The foundry's own floor and subsidies | A published formula | Running cost including the downtime premium. For a subsidy, the cost the run avoids, such as requalifying a cooled furnace. No markup and no speculative reserve. |
+  | The foundry's own floor and subsidies | A published formula | Running cost including the downtime premium. For a subsidy, the cost the run avoids, such as requalifying a cooled furnace. No markup and no speculative reserve. Wherever a formula would need a forecast (expected sold hours, the chance that another paying run arrives before a furnace cools), it uses a price quoted by insurers or futures providers instead. |
   | When anything will be done | Futures providers | Futures prices |
   | What a machine's state is worth | Customers and step insurers | Conditional bids and step premiums (I15) |
   | Whose fault a failure was | Insurers | Nothing to decide: payment doesn't depend on cause (I9) |
   | Where to add capacity | Investors, from public clearing prices | Outside the foundry's operation (candidate exception below) |
 
+- **Means:** the foundry's operating rules (staffing, how fast it repairs, which spares it keeps, how much operating risk it takes) are chosen to earn it the most, given the prices insurers and customers set. If running riskier pays after premiums, deductibles and lost sales, the rules should run riskier. Pricing that risk is the insurers' job, not the foundry's (I4).
 - **Means:** the foundry provides as little as possible. Services that don't need its machines, such as shipping, mask making, analysis, or storage outside the cleanroom, can come from other providers.
 - **Means:** the foundry promises nothing about the future and publishes no projections. Cycle time is an outcome of the market, and anyone can compute projections from public data.
 - **Means:** the foundry doesn't sell futures, insurance or credit, and doesn't act as a broker. It may *buy* insurance (I13). Those markets can exist because P2 gives everyone the same information the foundry has (I6).
@@ -120,7 +122,8 @@ Each row is a conflict that fixes which of two principles comes first. Consolida
 **Guaranteed before it runs**
 - **Means:** nothing runs until its payment is guaranteed, either by the customer's own funds or by someone who has agreed to pay (a futures provider, an insurer, a lender). The foundry handles counterparty risk by demanding a guarantee, not by trusting anyone.
 - **Means:** actual time isn't known until a run ends, so a request that could run long needs a maximum duration, collateral, or someone committed to pay for the overrun (S16).
-- **Open:** who pays the foundry when a party that promised to pay fails to (§4, S15).
+- **Means:** nothing enters the fab or runs until someone is committed to pay for any damage the job could cause. Normally this is damage cover the customer buys, priced by their insurer's assessment of the job (I16).
+- **Means:** when a guarantee, a customer's insurer or a futures provider fails to pay, the foundry's own backstop insurance pays it instead (I16, S15). Whether that backstop needs a provider of last resort behind it is a question for §4.
 
 **The foundry always gets paid**
 - **Means:** the foundry is paid for the time and resources it provides even when machines fault, operators make mistakes, runs fail or customers cancel. Anyone who wants protection from those outcomes buys it from someone else.
@@ -159,7 +162,7 @@ Each row is a conflict that fixes which of two principles comes first. Consolida
 
 **I3. The market has to pay for efficiency the foundry won't plan** (P3 + P4). Grouping same-program work to avoid setups, or batching lots, is exactly the lookahead P3 forbids the foundry. Either customers and brokers pay to arrange it (I2), or it doesn't happen. The queueing analysis has to answer two things: how much throughput this costs compared with a planned schedule, and whether the market recovers it.
 
-**I4. Reliability is priced, not promised** (P2 + P4). The foundry insures its downtime and customers insure their losses (I13), so neither refunds nor lost income push the foundry to be reliable. The pressure comes from premiums priced on public machine history. An unreliable machine makes the foundry's downtime premium, and so its running cost and floor, rise. It also makes customers' step premiums rise, so they bid less. The economic analysis has to show whether that pressure is strong enough, especially for machines with no substitute, and whether the foundry can end up gaining from its own failures (I13).
+**I4. Reliability is priced, not promised** (P2 + P3 + P4). The foundry insures its downtime and customers insure their losses (I13, I16), so the foundry has no obligation to be reliable. It should operate however earns it the most. If cutting back on staffing, repair speed or spares pays after what insurers charge for it, that is what it should do (P3). Insurers set the price of that behaviour from public history (P2). Premiums, deductibles, exclusions, and conditions such as repair response times are theirs to choose. An unreliable machine also costs customers more to insure, so they bid less for it. The economic analysis has to show whether prices find that balance, especially for machines with no substitute.
 
 **I5. Paying for actual time changes what a bid is** (P4 + P5). A run's total price can't be known when the auction clears, because its duration isn't known yet. The natural thing to bid is a rate per actual machine-hour, with the total settled when the run ends. That has two consequences:
 - **Ranking:** the auction ranks rates. A run after a compatible program no longer ranks higher; it just costs less in total, which changes who gets the saving from running things together (P5).
@@ -167,7 +170,7 @@ Each row is a conflict that fixes which of two principles comes first. Consolida
 
 A sale of "machine N for X hours at rate Y" (I11) would give the rate and a bounded duration together. What gets bid is Q4.
 
-**I6. The foundry can stay out of risk markets only if nothing is private** (P2 + P3). The foundry can leave insurance and futures to others only because others see everything it sees. If anything material stays private, only the foundry (or people close to it) can price that risk, and the market for it either won't exist or will be unfair. So P2 has to cover planned maintenance, known machine problems and upcoming changes, not only past events.
+**I6. The foundry can stay out of risk markets only if nothing is private** (P2 + P3). The foundry can leave insurance and futures to others only because others see everything it sees. If anything material stays private, only the foundry (or people close to it) can price that risk, and the market for it either won't exist or will be unfair. So P2 has to cover maintenance hours already bought, known machine problems and upcoming changes, not only past events.
 
 **I7. Transparency outranks bidding strategy** (P2 over P5). Second-price auctions work best when bidders can't react to each other's live bids. Public live bids invite waiting, sniping, and bidding just under the leader to raise its price. Because P2 comes first, the auction must be designed to work with public bids, unless publishing bids once a clearing is final is accepted as meeting P2 (Q10).
 
@@ -182,16 +185,16 @@ A sale of "machine N for X hours at rate Y" (I11) would give the rate and a boun
 - **P5:** the only way to hold the machine is to win it.
 - **P3:** it isn't a reservation. The foundry is selling the machine's time now, to the highest bidder, who chooses to leave it idle. The view of the future ("my wafer arrives in 45 minutes") is the customer's, not the foundry's.
 
-**The unit of sale (candidate).** Every sale is **"machine N for X hours at rate Y"**. Runs and idle holds are the same kind of sale. The buyer chooses X, and with it how much risk to take. At each sale, the auction ranks bids by rate Y, and the winner pays the runner-up's rate for the hours sold. When a sale ends, the machine's next X hours are auctioned again.
+**The unit of sale (candidate).** Every sale is **"machine N for X hours at rate Y"**. Runs and idle holds are the same kind of sale. The buyer chooses X, and with it how much risk to take. When a sale ends, the machine's next hours are auctioned again, so any gap between one sale and the next is a new contest. How bids are ranked and what a winner pays are not decided (Q16); the examples below don't depend on that choice.
 
-**Example.** A customer's coated wafer will be ready in about 45 minutes, and the exposure must start within 30 minutes of coating (S3). The aligner is free now. The customer can buy the 45 minutes in two ways:
+**Example.** A customer's coated wafer will be ready in about 45 minutes, and the exposure (45 minutes) must start within 30 minutes of coating (S3). The aligner is free now. The customer can hold it in two ways:
 
-| | **One sale: 1 × 45 min** | **Three sales: 3 × 15 min** |
+| | **One sale: 1 × 90 min (the wait and the exposure)** | **Short sales: 3 × 15 min, then the exposure** |
 |---|---|---|
-| Auctions to win | One, now | Three: now, at +15 min and at +30 min |
-| If a rival with a ready lot bids 250 cr/h at +30 min | Nothing changes: the customer already owns the time until +45 min | Unless the customer bids more than 250 cr/h, the rival wins the third sale. The rival's 1-hour exposure starts, the customer's wafer arrives at +45 min and waits until +90 min, the 30-minute window is missed, and the customer pays for rework (P6). |
-| If nobody else wants the aligner | Pays the floor rate for 45 minutes | Pays the floor rate for each 15 minutes. It can stop buying if the earlier step is delayed or abandoned. |
-| Payment exposure (P4) | 45 min × the bid rate, guaranteed up front | 15 min × the bid rate at a time; each later sale needs its own guarantee |
+| Auctions to win | One, now | Four: now, at +15 min and at +30 min for the wait, and at +45 min for the exposure |
+| If a rival with a ready lot bids 250 cr/h at +30 min | Nothing changes: the customer owns the aligner until +90 min | Unless the customer bids more than 250 cr/h, the rival wins. The rival's 1-hour exposure runs from +30 to +90 min, the customer's wafer arrives at +45 min and waits until +90 min, the 30-minute window is missed, and the customer pays for rework (P6). |
+| If nobody else wants the aligner | Pays the floor rate for 90 minutes. If the wafer is late or the step is abandoned, unused time can only be sold back (I12). | Pays the floor rate for each sale won, and can stop buying if the earlier step is delayed or abandoned |
+| Payment exposure (P4) | 90 min × the bid rate, guaranteed up front | 15 min × the bid rate at a time; each later sale, including the exposure, needs its own guarantee |
 
 The foundry doesn't choose between these (P6). The customer trades certainty (one long sale) against flexibility and a lower commitment (several short ones), and takes the risk of the choice.
 
@@ -205,7 +208,7 @@ Consequences:
 
 **I12. Unused time can be sold back** (P4 + P5). A customer who bought X hours and finishes early can sell the rest of the time back to the market. The remainder becomes an ordinary sale ("machine N for the remaining hours"), and the bidder with the best rate wins it. The proceeds go to the customer selling it back, not the foundry.
 
-**Example.** A customer buys the aligner as 1 × 90 minutes (a 45-minute idle hold, then a 45-minute exposure) at a bid of 200 cr/h. The runner-up's rate is 150 cr/h, so the customer pays 225 cr. The coated wafer arrives early at +30 minutes, and the exposure finishes at +70 minutes, leaving 20 minutes unused. The customer sells those 20 minutes back. A rival wins with a bid of 180 cr/h; the runner-up is 120 cr/h, so the rival pays 40 cr and the customer receives it. The customer's net cost is 185 cr, and the foundry was paid 225 cr either way.
+**Example.** A customer buys the aligner as 1 × 90 minutes (a 45-minute idle hold, then a 45-minute exposure), and the sale clears at 150 cr/h, so the customer pays 225 cr. The coated wafer arrives early at +30 minutes, and the exposure finishes at +75 minutes, leaving 15 minutes unused. The customer sells those 15 minutes back, and they sell for 120 cr/h, so the customer receives 30 cr. The customer's net cost is 195 cr, and the foundry was paid 225 cr either way.
 
 Consequences:
 - **The foundry's income doesn't change (P4).** The foundry was paid for all the time it provided, when the time was first sold. Reselling it moves money between customers only.
@@ -237,13 +240,13 @@ Consequences:
 
   Both make the foundry whole; they differ in who carries the cost and what each premium covers. This document currently assumes (a).
 - **Double payment.** If the customer pays for time that wasn't provided *and* the downtime insurer pays market value for the same hours, the foundry is paid twice. Whichever reading is chosen, each hour is paid for once.
-- **The foundry may gain from its own failures.**
-  - **Lost income is replaced.** In the example, the customer and the downtime insurer together pay the foundry 940 cr for the 6 hours 40 minutes from the start of the run. Had the etcher worked, it would have earned about 950 cr (300 cr from this customer, then 4 hours 40 minutes at 140 cr/h).
+- **The foundry may gain from its own failures, and that is allowed.**
+  - **Lost income is replaced.** In the example, the customer and the downtime insurer together pay the foundry 940 cr for the 6 hours 40 minutes from the start of the run. Had the etcher worked, it would have earned about 953 cr (300 cr from this customer, then 4 hours 40 minutes at 140 cr/h). On income alone that is a small loss; any gain comes from rework.
   - **Rework is extra demand.** The rework also creates demand for machine time, paid for by the customer's insurer. If the machines aren't fully booked, or the rework pushes prices up, the foundry comes out ahead of a day with no failure.
-  - **Two ways to push back.** One is premiums: both insurers charge more on unreliable machines. The other is *liability* cover: when the cause is a machine fault, the customer's insurer recovers the rework cost from the foundry's insurer, so the foundry's own premium carries it. Which gives the foundry the right incentive is a question for the economic analysis (I4).
-- **Measuring the market value of lost time.** Recent clearing rates are public (P2), but they can be pushed up just before an outage the foundry expects, for example by bids from parties close to the foundry. The foundry itself has no discretionary reserve to push them with (P3). The measure has to be hard to manipulate and settled against the record (P2).
+  - **Insurers decide how to price it.** If failures pay the foundry too well, insurers can raise premiums or deductibles, value lost time at what those hours would actually have sold for, or sell *liability* cover. Under liability cover, when a machine fault is the cause, the customer's insurer recovers the rework cost from the foundry's insurer, so the foundry's own premium carries it. These are the insurers' product choices, not rules in this document (I4).
+- **Valuing lost time.** How lost time is valued is part of the downtime policy's terms, which the insurer sets. Recent clearing rates are public (P2), but they can be pushed up just before an outage the foundry expects, for example by bids from parties close to the foundry. The foundry itself has no discretionary reserve to push them with (P3). The measure has to be hard to manipulate and settled against the record (P2).
 - **Planned maintenance isn't insured; it is bought.** Insurance covers uncertain losses. Planned maintenance is paid for by whoever buys the hours for it, normally the downtime insurer itself (I14). Maintenance that overruns, or is forced by a fault, is insurable downtime.
-- **Failure must not be cheaper than maintenance.** If the foundry decided maintenance, underpriced downtime insurance would make letting machines fail its cheapest option. Because the downtime insurer buys the maintenance (I14), the party that pays for failures is the one deciding how much to maintain. A wrong prediction costs that insurer, in claims or in maintenance hours. Whether competition between insurers keeps their predictions good enough is a question for the economic analysis (I15).
+- **Failure must not be cheaper than maintenance.** If the foundry decided maintenance, underpriced downtime insurance would make letting machines fail its cheapest option. Because the downtime insurer buys the maintenance (I14), the party that pays for failures is the one deciding how much to maintain. A wrong prediction costs that insurer, in claims or in maintenance hours. Whether competition between insurers keeps their predictions good enough is a question for the economic analysis (I4).
 - **Cause matters to insurers, even though the foundry ignores it.** The foundry still doesn't decide whose fault an outage was (I9), but the insurers must. If a customer's contaminated wafer takes a furnace down (S12), that customer is liable, and the foundry's downtime insurer will want to recover from them or their insurer.
 - **One outage, many claims at once.** A single breakdown affects every customer with wafers on or waiting for that machine, as well as the foundry. The losses are correlated, which is where a provider of last resort may be needed (§4). An insurer writing both kinds of policy on the same machine would be on both sides of every dispute about cause.
 - **Rework is bought at whatever the auction charges.** A step insurer paying for rework is exposed to future auction prices, so step insurance carries some of a future's risk. Policies may need a cap, or to be paired with futures.
@@ -253,7 +256,8 @@ Consequences:
   - **Futures:** a future for a slot during an outage can't be delivered by anyone. Whether the provider or the holder bears that depends on the future's terms.
 
 **I14. Maintenance is bought machine time, and insurers decide when** (P2 + P3 + P4 + P5). Maintenance takes a machine's hours out of sale, so those hours have to be bought at auction like any others. Under P3 the foundry doesn't decide when to buy them:
-- **The downtime insurer decides.** It pays for unplanned outages (I13), so it is the party that gains from maintenance. It buys maintenance hours when its own prediction says they cost less than the claims they prevent, and the foundry performs the maintenance in those hours.
+- **The downtime insurer decides.** It pays for the consequences of delaying maintenance (the outages that follow, I13), and it keeps the value of delaying it (hours bought when they are cheap). That trade is the point. It buys maintenance hours when its own prediction says they cost less than the claims they prevent, and the foundry performs the maintenance in those hours.
+- **Its cover is meant to include consequences for customers.** The working reading is that the downtime insurer also pays for what a machine fault does to customers (scrapped wafers and rework), either directly or by repaying their step insurers. The party deciding maintenance then bears the whole cost of getting it wrong (Q9).
 - **The real cost is priced.** Maintenance hours cost what others would have paid for them: the runner-up's rate, published (P2).
 - **Customers can pay for the machine state they want.** Depending on the machine, time just after maintenance may be better (more reliable, better calibrated) or worse (more likely to fail, more variable) than later time (I15). What customers pay for those hours is a price the insurer, and anyone else buying maintenance, can take into account.
 
@@ -272,6 +276,7 @@ The insurer buys Sunday night. The foundry decides nothing; it performs the clea
 - **Who else may buy maintenance?** Anyone who values it could buy maintenance hours: a step insurer, or a picky customer who wants a freshly cleaned machine for their own run. P5 allows it. A rival could buy "maintenance" just to take the machine's time, but they pay for the hours and the parts, as with any idle hold (I11). Whether to allow it is Q9.
 - **Parts and labour are priced.** Parts and consumables used in maintenance are charged to whoever bought the hours (P4), so over-maintenance costs its buyer.
 - **Bought maintenance must happen.** The foundry performs its published maintenance procedure in hours bought for maintenance and records it with evidence (P2). It doesn't choose what to do.
+- **Policy terms can distort the decision.** An insurer near the end of its policy saves money by skipping maintenance whose consequences fall on the next insurer. Several insurers each covering part of a machine may each find maintenance not worth their share, even when it is worth doing overall. Long terms or a single lead insurer are ways insurers could avoid this; simulation should include both problems.
 - **No insurer, no maintenance.** A machine nobody will insure has nobody to buy its maintenance until P1 forces the machine down. That is either an acceptable outcome (an uninsurable machine degrades until it's unsafe) or a case for a provider of last resort (§4).
 - **Maintenance is time the foundry can't sell, but it isn't downtime.** Hours bought for maintenance aren't lost time, so downtime insurance doesn't pay for them. An overrun beyond the hours bought is insurable downtime, or is covered by buying more hours.
 - **Safety still overrides the auction.** If waiting for a cheap slot would make the machine dangerous or damage it, P1 wins: the machine comes down now, whatever the market price. That forced outage counts as insurable downtime (I13).
@@ -298,6 +303,20 @@ The insurer buys Sunday night. The foundry decides nothing; it performs the clea
   - **Conditions need exact, public machine state.** Machine state must be recorded exactly and published (P2). Otherwise customers can't write conditions, and nobody can check them when a sale clears.
   - **Thin markets predict poorly.** If few insurers cover a rare machine, their predictions may be poor. That is another case for a provider of last resort (§4).
   - **Wrong predictions cost whoever made them.** An insurer that misjudges a machine's profile maintains it too often or too rarely, and pays for that in maintenance hours or in claims. Competing insurers and a public claims record correct this, not a rule.
+
+**I16. Every job carries cover for the damage it could cause** (P1 + P2 + P3 + P4). Before a job runs, someone has to be committed to pay for any damage it could cause.
+- **The customer's insurer assesses the job.** It looks at the recipe, the wafers and materials going in, incoming inspection results and the customer's public history (P2), and tells the customer what cover costs. Nothing enters the fab or runs until that cover is in place (P4).
+- **Risky jobs cost more, and some can't get cover at all.** A new account shipping in wafers of unknown origin may pay a lot for cover, or be refused it. The foundry doesn't refuse the job by judgement (P3); without a guarantee, the job simply can't run.
+- **The foundry is insured against cover failing.** If a customer's insurer doesn't pay (it disputes the claim, fails, or the damage exceeds the policy), the foundry's own backstop insurance pays the foundry (P4). The backstop insurer in turn prices how reliable customers' insurers are, so the foundry's published rule accepts cover only from insurers its backstop accepts (P3).
+- **What damage cover pays for:** repairs and parts, requalification, lost machine time that downtime insurance doesn't already cover, and other customers' wafers harmed by contamination.
+
+**Example (illustrative numbers).** Two customers want the same clean furnace. An established customer whose wafers passed incoming inspection is quoted 40 cr of cover for the run. A new account shipping in wafers from an unknown source is quoted 800 cr, because its insurer prices the chance of gold contamination (S12). Both can run if they pay; neither is judged by the foundry.
+
+**Things to watch:**
+- **Damage cover and downtime insurance overlap.** One contamination event can be claimed under the customer's damage cover and the foundry's downtime insurance. Each hour and each repair must be paid for once (I13).
+- **Large and correlated losses.** A ruined furnace tube plus many customers' lots in one event can exceed any single policy. This is where a provider of last resort may be needed (§4).
+- **Identity.** Insurers, not the foundry, decide what they need to know about a customer. Any such requirement has to fit P1's legal obligations and P2's publication.
+- **Chains of insurers.** The customer's insurer, the foundry's backstop and the backstop's own reinsurance form a chain, which has to end somewhere (§4).
 
 ---
 
@@ -363,9 +382,9 @@ The CMP tool needs 25 wafers per run. A customer has 6.
 
 Cooling and requalifying the furnace costs about 12 hours, and there is no demand tonight.
 
-- **What happens:** the foundry's published subsidy formula bids a negative price for its own furnace, up to the requalification cost a run would avoid (P3). Any customer with a suitable lot is paid to run it, and consumables are still charged (P4).
+- **What happens:** the foundry's published subsidy formula bids a negative price for its own furnace (P3). The formula is based on the requalification cost a run would avoid, and uses market prices, not a foundry forecast, for the chance that a paying run would arrive anyway. Any customer with a suitable lot is paid to run it, and consumables are still charged (P4).
 - **Principles:** P3, P4, P5.
-- **Examine:** the price jump when a second bidder appears, two bidders taking turns to collect the subsidy, and whether a seller's formula bid can still be used to push up prices (I14).
+- **Examine:** the price jump when a second bidder appears, two bidders taking turns to collect the subsidy, ten one-hour subsidised runs in a night each claiming the full requalification cost, and whether a seller's formula bid can still be used to push up prices (I14).
 
 ### S6. The machine faults mid-run
 
@@ -385,9 +404,9 @@ A run won its clearing and is locked in, but the machine goes down before the wa
 
 ### S8. A futures provider loses money
 
-A provider (never the foundry, P3) sold a customer a furnace slot at 15:00 for 400. The furnace frees at 13:00, with a rival's 11-hour anneal waiting, and another rival bids for the same slot.
+A provider (never the foundry, P3) sold a customer furnace time at 15:00 for 400 cr. The furnace frees at 13:00, with a rival's 11-hour anneal waiting, and another rival bids for the same slot.
 
-- **What happens:** the provider must win the 13:00 clearing and hold the furnace idle until 15:00 (I11), either as one 2-hour sale or as several shorter ones that the rival could win. It must also outbid the rival for the 15:00 run. The auction costs the provider 900 in total, so it loses 500, publicly (P2). The customer pays the agreed 400. The foundry sees only bids and payments.
+- **What happens:** the provider must win the 13:00 clearing and hold the furnace idle until 15:00 (I11), either as one 2-hour sale or as several shorter ones that the rival could win. It must also outbid the rival for the 15:00 run. The auction costs the provider 900 cr in total, so it loses 500 cr, publicly (P2). The customer pays the agreed 400 cr. The foundry sees only bids and payments.
 - **Principles:** P2, P3, P4, P5.
 - **Examine:** what guarantee a provider must give for an open-ended commitment to count as guaranteed payment under P4 (§4, S15).
 
@@ -419,9 +438,9 @@ The DRIE is due a 6-hour chamber clean, and demand on Thursday is high.
 
 A customer ships wafers declared clean that actually carry gold.
 
-- **What happens:** incoming inspection, paid for by the customer (P4), finds the gold, and clean tools refuse the wafers (P1). If inspection misses it and a furnace gets contaminated, the foundry acts first to protect the machine (P1 over P4), then recovers the requalification cost from the customer or their insurer (P4). The foundry's downtime insurer, having paid for the outage, will also want to recover from the customer (I13).
-- **Principles:** P1, P4, I13.
-- **Examine:** how far a customer's liability for damage extends, and whether uninsured customers can realistically be allowed to ship wafers in.
+- **What happens:** incoming inspection, paid for by the customer (P4), finds the gold, and clean tools refuse the wafers (P1). If inspection misses it and a furnace gets contaminated, the foundry acts first to protect the machine (P1 over P4). The damage (requalification, repairs, other customers' contaminated wafers) is paid by the job's damage cover, or by the foundry's backstop insurance if that cover fails (I16). Insurers argue among themselves about the cause; the foundry doesn't (I9).
+- **Principles:** P1, P2, P4.
+- **Examine:** how insurers assess wafers from new accounts, and whether damage cover works better per job or per account (I16).
 
 ### S13. A customer wants a process with no program
 
@@ -441,9 +460,9 @@ Customer A runs a program that forces a long changeover before customer B's usua
 
 ### S15. A futures provider can't pay
 
-A provider promised a customer a slot, but when the auction clears at 900 the provider can't pay.
+A provider promised a customer time on a machine, but when the auction clears at 900 cr the provider can't pay.
 
-- **What happens:** under P4 a bid counts only if payment is guaranteed, so the provider's bid never wins. The customer loses the slot and has a claim against the provider outside the market. If a settlement entity had guaranteed the provider, that entity pays the foundry and pursues the provider.
+- **What happens:** under P4 a bid counts only if payment is guaranteed, so the provider's bid never wins. The customer loses the time and has a claim against the provider outside the market. If a settlement entity had guaranteed the provider, that entity pays the foundry and pursues the provider. If a failed payment reaches the foundry anyway, its backstop insurance pays (I16).
 - **Principles:** P3, P4, P5.
 - **Examine:** whether customers can tell in advance how solid a provider's promise is (P2 helps), and whether this is what a provider of last resort is for (§4).
 
@@ -503,26 +522,50 @@ Checked against `DESIGN.md` Draft v0.3. Each row is a decision to make, not some
 9. **Maintenance (I14, S11).** Settled in principle: maintenance hours are bought at auction, normally by the downtime insurer, and the foundry performs the maintenance. P1 overrides when waiting would be unsafe. Still open:
     - **Who may buy maintenance:** only the machine's downtime insurer, or anyone (a step insurer, a picky customer, a rival)? What happens to a machine no insurer will cover (I14)?
     - **Enforcement:** must a winning maintenance bid be carried out, and what evidence is recorded?
+    - **Consequences:** does the downtime insurer's cover include what a machine fault does to customers (scrap and rework), as I14's working reading assumes?
     - **Measurement:** how are "time since maintenance" and calibration quality measured and published, so customers and insurers can price them?
     - **Data:** does the public record contain enough (runs and faults since maintenance, calibration and process results) for insurers and customers to estimate each machine's profile (I15)?
     - **Conditional requests:** which machine-state conditions can a request carry, and how are they checked when a sale clears (I15)?
 10. **When bids become public (I7).** Live, or once the clearing is final? Given P2 over P5, does "once final" count as public?
 11. **Setup attribution (S14).** Does setup belong only to the incoming run, or is it shared with the outgoing one?
 12. **Other accounts' wafers in a run (S4).** Allowed with consent, and with what responsibilities?
-13. **Liability beyond time (S12).** What about damage a customer causes? How do the downtime insurer and the customer's step insurer settle who pays (I13)?
+13. **Damage cover (I16, S12).** Settled in principle: every job carries cover for the damage it could cause, and the foundry is insured against that cover failing. Still open:
+    - Is cover bought per job or per account?
+    - How do damage cover and downtime insurance avoid paying twice?
+    - Who absorbs losses too large for any policy (§4)?
 14. **Downtime and step insurance (I13).**
     - **Charging:** is time the foundry can't provide charged to the customer, reading (a) or (b)? The document assumes (a).
     - **Market value:** how is the market value of lost time measured so it can't be manipulated?
-    - **Incentives:** should step insurance recover rework costs from the foundry's downtime insurer when a machine is at fault (liability cover), so the foundry can't gain from its own failures?
+    - **Incentives:** settled in principle: the foundry may profit from operating risk it chooses to take, and insurers price that risk (I4). Still open: are premiums, deductibles and liability cover enough to reach a sensible balance? This is for simulation.
     - **Conflicts of interest:** may one insurer write both kinds of policy on the same machine?
     - **Correlated losses:** who absorbs correlated losses when one outage triggers many claims at once (§4)?
 15. **Missing principles.** Candidates not yet included:
     - "The customer owns their wafers and data" (asset rights, disposal, lenders' collateral).
     - "Every account is treated the same" (possibly implied by P2 + P5).
-
+16. **The auction mechanism (I11).** Not decided. It needs worked comparisons of each auction and bid style, then simulation:
+    - **Ranking:** are bids ranked by rate or by total? P5's "pays most" doesn't yet say which.
+    - **Pricing:** what does the winner pay?
+    - **Ties:** how are ties broken without using arrival order?
+    - **Visibility:** when do bids become public (Q10)?
+    - **Futures:** how do futures that must win at any cost interact with each style?
 ---
 
 ## Appendix — Changelog
+
+**v0.11 (2026-09-13)**
+- **P4:** a job can't run until payment for any damage it could cause is guaranteed. The foundry's own insurance pays when a guarantee or an insurer fails.
+- **New I16, damage cover:** the customer's insurer assesses the job and prices cover for it, and the foundry holds backstop insurance.
+- **Risk-taking:** the foundry may profit from operating risk it chooses to take, and insurers price that risk (P3, I4, I13).
+- **Forecasts:** wherever a foundry formula would need a forecast, it uses a market price instead (P3, S5).
+- **Maintenance:** the downtime insurer pays for the consequences of delaying maintenance and keeps the value of delaying it. The working reading is that this includes what a machine fault does to customers. Policy-term distortions are noted (I14, Q9).
+- **P2:** now covers every participant, including insurers and providers. "Plans" became "maintenance hours already bought".
+- **Fixes from the critical review:**
+  - the I11 example (the one-sale option must cover the wait and the exposure)
+  - the I12 arithmetic (+75 minutes, 15 unused, 195 cr net)
+  - the foundry recovering costs "from whoever caused it"
+  - the broker clause in the order table
+  - units, and a wrong cross-reference
+- **Auction pricing:** I11 no longer assumes second-price pricing, and a new Q16 covers the auction mechanism.
 
 **v0.10 (2026-09-13)**
 - **P3 is now "The foundry does as little as possible", in its strict form.** Every foundry action is a safety call or follows a published rule driven by prices others set. Customers, insurers and other providers decide and provide everything else. The rule is to fall back only where following it has a consequence we won't accept.
