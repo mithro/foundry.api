@@ -1,8 +1,8 @@
-# foundry.api — Principles (Draft v0.3)
+# foundry.api — Principles (Draft v0.4)
 
 | | |
 |---|---|
-| Status | Draft v0.3. Expected to change over several iterations. |
+| Status | Draft v0.4. Expected to change over several iterations. |
 | Date | 2026-09-13 |
 | Relationship to `DESIGN.md` | `DESIGN.md` is one attempt to implement these principles. Where the two disagree (§6), change one of them on purpose. Don't quietly work around the gap. |
 | Terms | **The foundry** means the entity that runs the machines. Whether the market and the other roles belong to the same entity is an open question (§4). |
@@ -101,10 +101,12 @@ Each row is a conflict that fixes which of two principles comes first. Rows mark
 
 ### P6. Customers pay for what they actually use
 
-- **Means:** the unit of sale is measured machine-hours, not modelled ones. A run that overruns costs more, a run that finishes early costs less, and a run stopped by a machine fault costs only the time until it stopped.
+- **Means:** the unit of sale is measured machine-hours, not modelled ones. A run that overruns needs more time, and the customer pays for it.
+- **Means:** a customer pays for the time they buy, whether or not they use all of it. If a step finishes early, they can sell the unused time back to the market (I12).
+- **Means:** time the foundry can't provide, because the machine faults or goes down, isn't charged (P5: only what is provided is paid for).
 - **Means:** setup is charged to the run that needs it, and cleanup to the run that causes it. Idle time while a request holds the machine counts.
 - **Means:** storage while waiting and consumables drawn are also charged as used. Anything left unpriced will be over-consumed.
-- **Means:** overruns, underruns and failures are risks that others price from public machine history (P3) and sell as insurance or futures.
+- **Means:** overruns and failures are risks that others price from public machine history (P3) and sell as insurance or futures. Underruns are handled by selling the unused time back (I12).
 - **Means:** a program doesn't need a foundry-certified duration to be priced, so customers could write and publish their own programs within machine limits (S13).
 - **Rules out:** flat per-run prices from the foundry, and free storage, inspection, rework or dummy wafers.
 
@@ -136,7 +138,7 @@ Each row is a conflict that fixes which of two principles comes first. Rows mark
 
 ## 3. How the principles interact
 
-**I1. No reservations, only people who pay** (P4 + P5 + P8). The foundry sells only what it provides now, and money decides who gets it. So the only way to secure future work is to have someone willing to pay in the auction when the time comes. A **future** is exactly that. A provider agrees to get you a slot at time X for cost Y. When X comes, the provider must win the auction for you, whatever it costs. If the auction is cheaper than Y, the provider keeps the difference; if dearer, the provider covers it. The foundry is not a party to the contract. All it needs is to let one account bid and pay for another account's run.
+**I1. No reservations, only people who pay** (P4 + P5 + P8). The foundry sells only what it provides now, and money decides who gets it. So the only way to secure future work is to have someone willing to pay in the auction when the time comes. A **future** is exactly that. A provider agrees to get you a slot at time T for price C. When T comes, the provider must win the auction for you, whatever it costs. If the auction is cheaper than C, the provider keeps the difference; if dearer than C, the provider covers it. The foundry is not a party to the contract. All it needs is to let one account bid and pay for another account's run.
 
 **I2. Buying ahead means buying time early** (P4 + P6 + I1). A machine's time is sold when the machine becomes free, not when a customer would like to start. A provider who promised a later slot has to win the earlier clearing and pay for the idle time until the holder is ready. Otherwise a long run from someone else takes the machine (S8). I11 shows how that idle time is bought.
 
@@ -183,9 +185,21 @@ Consequences:
 - **Waiting and blocking are the same transaction.** Holding the aligner for your own wafer and holding it to keep a rival out (S2) are the same sale at the same price. Nothing needs to tell them apart (P9).
 - **Payment exposure is bounded.** A sale of X hours at rate Y can cost at most X × Y, which is easy to guarantee under P5. Anything longer needs another sale (S16).
 - **A futures provider uses the same sales.** Keeping a promised slot available is just buying idle sales, long or short, until the holder is ready (S8).
+- **Buying too much is less costly than it looks.** Unused time can be sold back (I12), which makes a long sale less risky than the table suggests. Simulation must include resale.
 - **Continuous versus sold-once is a matter of X.** Many very short sales behave like a continuously contested hold; one long sale behaves like a block. Whether the market needs limits on X (a minimum, a maximum, or neither) is for simulation to decide, not wording (Q6).
 
 ---
+
+**I12. Unused time can be sold back** (P5 + P6 + P7 + P8). A customer who bought X hours and finishes early can sell the rest of the time back to the market. The remainder becomes an ordinary sale ("machine N for the remaining hours"), and the bidder with the best rate wins it. The proceeds go to the customer selling it back, not the foundry.
+
+**Example.** A customer buys the aligner as 1 × 90 minutes (a 45-minute idle hold, then a 45-minute exposure) at a bid of 200 cr/h. The runner-up's rate is 150 cr/h, so the customer pays 225 cr. The coated wafer arrives early at +30 minutes, and the exposure finishes at +70 minutes, leaving 20 minutes unused. The customer sells those 20 minutes back. A rival wins with a bid of 180 cr/h; the runner-up is 120 cr/h, so the rival pays 40 cr and the customer receives it. The customer's net cost is 185 cr, and the foundry was paid 225 cr either way.
+
+Consequences:
+- **The foundry's income doesn't change (P5).** The foundry was paid for all the time it provided, when the time was first sold. Reselling it moves money between customers only.
+- **Unused and unprovided time are different.** Time the customer doesn't need is theirs to sell back. Time the foundry can't provide, because the machine faulted or went down, is never charged at all (P5, S6, S7).
+- **Short remainders are worth less.** A remainder only becomes available once the step has actually finished, often at short notice. A customer who needs time to bring wafers to the machine may not be able to use it, so small remainders may attract few bids or none.
+- **Each run still belongs to one customer (P7).** Whoever buys the remainder owns that time and the run in it. Nobody shares a sale.
+- **Machine time becomes something people can trade.** Once time can be resold, some participants may buy time only to resell it. P8 allows that. Whether it helps (spreading risk, filling gaps) or hurts (people buying up a bottleneck to resell at a markup) is a question for simulation, not wording (Q6).
 
 ## 4. Who does what
 
@@ -256,7 +270,7 @@ Cooling and requalifying the furnace costs about 12 hours, and there is no deman
 
 An etcher faults 40 minutes into what would have been a 2-hour run, and the wafers are scrapped.
 
-- **What happens:** the customer pays for 40 minutes (P6). The wafers are the customer's loss (P9). An insurer, if the customer bought insurance, decides whether to pay, using the public machine history and telemetry (P3). The foundry doesn't rule on the cause (I9).
+- **What happens:** the customer pays for 40 minutes (P6). The rest of the time they bought isn't charged, because the foundry couldn't provide it (I12). The wafers are the customer's loss (P9). An insurer, if the customer bought insurance, decides whether to pay, using the public machine history and telemetry (P3). The foundry doesn't rule on the cause (I9).
 - **Principles:** P3, P5, P6, P9.
 - **Examine:** whether the pressure in I4 is enough to make the foundry fix the etcher.
 
@@ -373,9 +387,12 @@ Checked against `DESIGN.md` Draft v0.3. Each row is a decision to make, not some
 5. **P8 at scale.** Is "money decides" compatible with thousands of small customers? The scenario harness has to answer this; rewording won't.
 6. **The unit of sale (I11).** Is every sale "machine N for X hours at rate Y"? To be settled by simulation and scenarios:
     - **Limits on X:** does the market need a minimum or maximum X, or can customers choose freely between continuous-like short sales and block-like long ones?
-    - **Unused time:** is X a commitment (the buyer pays for all X) or a maximum (unused time goes back to the market and isn't charged, per P6)?
+    - **Unused time:** settled in principle: the buyer pays for all X and may sell unused time back (I12). Still open:
+      - Does the customer selling time back set a minimum price, or accept whatever the market pays?
+      - Can owned time be sold back before it starts (for example the last hour of a three-hour sale, sold while the first hour is running), or only once the step has finished?
+      - Is buying time only to resell it acceptable, or does it need limits?
     - **Running out of time:** what happens when a run needs longer than the X it bought (S16)?
-7. **What futures need (I1).** Is it enough that one account can bid and pay for another's run? Under P7, which of holder and provider is "the customer" for the run? If the holder's wafers aren't ready at X, is that purely between holder and provider?
+7. **What futures need (I1).** Is it enough that one account can bid and pay for another's run? Under P7, which of holder and provider is "the customer" for the run? If the holder's wafers aren't ready at T, is that purely between holder and provider?
 8. **Reserves above cost (P4).** Is refusing to sell cheap now, in the hope of better prices later, a forbidden bet on the future?
 9. **Maintenance (S11).** Is planned maintenance a bid, a P1 case, or something else?
 10. **When bids become public (I7).** Live, or once the clearing is final? Given P3 over P8, does "once final" count as public?
@@ -389,6 +406,11 @@ Checked against `DESIGN.md` Draft v0.3. Each row is a decision to make, not some
 ---
 
 ## Appendix — Changelog
+
+**v0.4 (2026-09-13)**
+- **New I12:** a customer who finishes early can sell the unused time back to the market, with a worked example. The foundry's income is unchanged. Time the foundry can't provide (a fault or breakdown) is never charged, which is different from time the customer doesn't use.
+- **Updated:** P6, I11, S6 and Q6 to match.
+- **Renamed variables:** futures (I1, Q7) now say "time T for price C", so they don't clash with the sale unit's "X hours at rate Y".
 
 **v0.3 (2026-09-13)**
 - **New I11:** holding a machine idle while an earlier step finishes is just buying its time, and only works while the customer outbids everyone else. It proposes a candidate unit of sale, "machine N for X hours at rate Y", with the buyer choosing X (for example 1 × 45 min or 3 × 15 min) and taking the risk.
