@@ -5,6 +5,7 @@
 | | |
 |---|---|
 | Status | Draft v0.3 |
+| Principles | Governed by `PRINCIPLES.md`. Where this design conflicts with a principle, the principle wins. Known conflicts are listed in Appendix C. |
 | Date | 2026-09-12 |
 | License | Apache 2.0 (code, schemas, docs) |
 
@@ -1062,3 +1063,45 @@ Spin coaters ×2, convection oven, contact aligner, maskless writer, evaporators
 **v0.2** — programs and foundry bids, physical assets and storage charging, logistics steps, insurance, consumable modes, held-order flow.
 
 **v0.1** — initial draft.
+
+
+## Appendix C — Conflicts with `PRINCIPLES.md`
+
+This design (Draft v0.3) predates `PRINCIPLES.md` and conflicts with it in the places below. Each row is a decision to make: change the design, or deliberately change the principle. The principles are cited by the numbers and names in `PRINCIPLES.md` Draft v0.12:
+- **P1** Do no harm
+- **P2** Everything is recorded and public
+- **P3** The foundry does as little as possible
+- **P4** Every hour is paid for
+- **P5** Money decides
+- **P6** Run what is asked
+
+I, S and Q numbers refer to that document's interactions, scenarios and open questions.
+
+| This design | Conflicts with | What has to change |
+|---|---|---|
+| §5.1, §10.2: prices use modelled program durations. §10.2: "Real durations are recorded on the run and feed the utilisation statistics, but never the price." | P4; I5 | Price on actual time. What gets bid is open (Q4). Foundry-certified durations stop being needed for pricing (S13). |
+| §10.4, §10.5: bids are ranked by surplus (rate above floor) and priced at second price | P5; Q16 | How bids are ranked and priced is undecided. See `AUCTIONS.md` for the options. |
+| §10.4: "rank C by surplus desc, ties by eligible_since asc". §10.6: "two futures on one machine tie-break by `eligible_since`". | P5 | Both break ties by arrival order, which is first-come-first-served. A tie-break that isn't arrival order is needed (Q16). |
+| §10.6, §12.3, §19 (M6, M8): the foundry is a built-in provider of futures and insurance | P3 | Remove. Only third parties provide these. |
+| §12.1: `postpaid` accounts with a `credit_limit` | P3 | Remove. Credit comes from third-party lenders. |
+| §10.8: the foundry runs bidding policies (`deadline`, `budget`) for customers | P3 | Bidding strategy belongs to customers or third parties using the API. |
+| §2.2, §10.9: the foundry publishes `projected_complete`, expected start times and `price_to_lead` | P3 | The foundry makes no forecasts. Remove; third parties can compute projections from public data. |
+| §5.1: `adjustment_credits_per_hour` is set by the foundry. §10.3: a reserve "takes a machine out of service gracefully, or refuses cheap jobs before scheduled maintenance". Examples: `reserve +100` (§10.10); `+400 reserve` on RIE #1 (§17 mockup). | P3 | Floors and subsidies follow published cost formulas, and use market prices wherever they would otherwise need a forecast. No discretionary or speculative reserves. |
+| §10.3: the idle-bid floor `idle_rate_credits_per_hour` is "foundry-set; default the machine's highest program rate" | P3 | Same: a published formula, not a foundry choice. |
+| §5.1, §10.3: the subsidy applies only when no one else bids (`applies_when: no_competing_bid`) | P3, P5 | Allowed only as a published formula, not a discretionary setting. It still creates the collusion risk in S5. |
+| §5.4, §7.2: mask fabrication, external processing and shipping are foundry-run logistics steps | P3 | Services that don't need the foundry's machines can come from other providers. The foundry only hands over and receives wafers. |
+| §5.3: `analysis.check` "runs on the analysis worker" operated by the foundry | P3 | Analysis doesn't need the foundry's machines, so other providers can run it. |
+| §8: "the foundry account may override it [wafer state] with a public, reasoned event" | P3 | A foundry judgement. It either follows a published rule, or becomes a recorded exception to P3 (Q8). |
+| Foundry-set operating constants: `clear_ahead_s` (§5.1, §10.4), `foundry.hold_timeout_s` and `foundry.abandon_after_s` (§10.7), `minimum_increment` (§15.2, §16) | P3 | Setting these is the "writing and changing the rules" candidate exception (Q8). They must at least be published rules, changed only with notice. |
+| §5.6, §10.3, §15.2, §17: maintenance is a machine state the foundry sets directly, or a very high reserve (the DRIE's `reserve 9999` in the §17 mockup) | P3, P5; I14 | Maintenance hours are bought at auction by whoever wants the maintenance, normally the downtime insurer, and the foundry performs it. |
+| §5.6, §11.3, §14, §15.2: runs, telemetry, utilisation and a `maintenance` machine state are published, but not maintenance records, parts replaced, calibration results or maintenance hours bought. The §17 mockup shows one planned maintenance time, but not as a data field. | P2 | Publish the full machine history. |
+| §12.3: providers' quotes and claims go through `quote_url` and `claim_url`, and nothing says policies and premiums are public | P2 | Insurance policies, premiums, claims and futures terms are participants' actions, so they are public. |
+| §12.3: with no policy, "machine time is always charged, whatever the outcome — including `machine_fault`". Foundry insurance is optional: "The foundry can also buy insurance for its own subsidy exposure or machine damage through the same interface." | P3, P4; I13, I16 | Customers aren't charged for time the foundry can't provide (working assumption, Q14). Every machine carries downtime insurance. Every job carries damage cover. The foundry is insured against any guarantee or insurer failing. |
+| §12.3: the adapter classifies each failure's cause (`machine_fault`, `recipe`, `wafer`, `unknown`) | P4; I9 | Payment never depends on cause, so the foundry needn't classify it. Publishing the evidence may be enough. |
+| §16: cancelling a won and locked run forfeits the full cleared price | P4 | A penalty, not a charge for time. How a withdrawal is charged depends on the settlement model (Q4, Q6). |
+| §10.3, §15.1: bids carry no conditions on machine state | P5, P6; I15 | Customers need to be able to make a request conditional on public machine state, such as time since maintenance or calibration results. |
+| §10.2, §10.3: a bid is a total `max_credits` for one run, and idle bids are a separate kind of candidate (the implicit program `idle`) | P4; I11 | If every sale is "machine N for X hours at rate Y" (I11), idle holds and runs are the same kind of sale. |
+| §10.6: a future-backed run is "a candidate like any other, but with an unlimited bid and the provider as payer" | P4; I1, Q16 | An unlimited bid can't have its payment guaranteed, and it lets other bidders set the provider's price. See `AUCTIONS.md` Case 2. |
+| §15.1, §17: live bids are readable by anyone before the clearing | P2 over P5; I7 | Public bids stay unless "public once cleared" is accepted (Q10). |
+| §2.4, §6: one service runs the machine registry, auction and ledger together | `PRINCIPLES.md` §4 | Whether these roles may be combined is undecided (Q1). |
+| §5.1, §8 (`MP-045`): a `fill: exact` machine requires foundry dummy wafers or rejects the order | P4 | Consistent with the principles, but it excludes brokers (S4) unless a run may carry other accounts' wafers (Q12). |

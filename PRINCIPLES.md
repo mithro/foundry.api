@@ -1,13 +1,13 @@
-# foundry.api — Principles (Draft v0.11)
+# foundry.api — Principles (Draft v0.12)
 
 | | |
 |---|---|
-| Status | Draft v0.11. Expected to change over several iterations. |
+| Status | Draft v0.12. Expected to change over several iterations. |
 | Date | 2026-09-13 |
-| Relationship to `DESIGN.md` | `DESIGN.md` is one attempt to implement these principles. Where the two disagree (§6), change one of them on purpose. Don't quietly work around the gap. |
+| Relationship to other documents | This document is the root. Design documents cite these principles; these principles don't cite them. Where a design conflicts with a principle, the design records the conflict, and one of them is changed on purpose. |
 | Terms | **The foundry** means the entity that runs the machines. Whether the market and the other roles belong to the same entity is an open question (§4). |
 
-The principles come first, in priority order. The rest of the document works out what they mean. §2 covers each principle alone, §3 how they combine, §4 who does what, §5 concrete scenarios, §6 where `DESIGN.md` currently disagrees, and §7 what to settle next.
+The principles come first, in priority order. The rest of the document works out what they mean. §2 covers each principle alone, §3 how they combine, §4 who does what, §5 concrete scenarios, and §6 what to settle next.
 
 ---
 
@@ -476,34 +476,7 @@ An etch runs until an endpoint detector triggers. The customer's funds cover 3 h
 
 ---
 
-## 6. Where `DESIGN.md` disagrees
-
-Checked against `DESIGN.md` Draft v0.3. Each row is a decision to make, not something to patch quietly.
-
-| `DESIGN.md` | Principle | Disagreement |
-|---|---|---|
-| §5.1, §10.2: prices use modelled program durations; actual durations never affect price | P4 | `DESIGN.md` must change to actual time. What gets bid is Q4. Foundry-certified durations then stop being needed for pricing (S13). |
-| §10.6, §12.3, §19 (M6, M8): the foundry is a built-in provider of futures and insurance | P3 | Remove. Only third parties provide these. |
-| §12.1: `postpaid` accounts with a `credit_limit` | P3 | Remove. Credit comes from third-party lenders. |
-| §10.8: the foundry runs bidding policies (`deadline`, `budget`) for customers | P3 | Bidding strategy looks ahead, so it belongs to customers or third parties using the API. |
-| §2.2, §10.9: the foundry publishes `projected_complete`, expected start times and `price_to_lead` | P3 | The foundry makes no forecasts. Remove; third parties can compute projections from public data. |
-| §5.1, §10.3: the foundry sets its bid adjustment and reserves at its own discretion (`adjustment_credits_per_hour`, a `reserve` of +400) | P3 | Floors and subsidies must follow published formulas from costs, and there are no discretionary or speculative reserves. |
-| §5.4, §7.2: mask fabrication, external processing and shipping are foundry-run logistics steps | P3 | Services that don't need the foundry's machines can come from other providers. The foundry only hands over and receives wafers. |
-| §5.6, §11.3, §14, §15.2: runs, telemetry, utilisation and a `maintenance` machine state are published, but no maintenance records, parts, calibration or planned maintenance | P2 | The full machine history and all plans must be published. |
-| §2.4, §6: one service runs the machine registry, auction and ledger together | §4 | Whether these roles may be combined is undecided (Q1). |
-| §5.6, §10.3, §15.2, §17: maintenance is a machine state the foundry sets directly, or a very high reserve bid (the DRIE's `reserve 9999` before maintenance) | P3, P5, I14 | Maintenance hours are bought at auction by whoever wants the maintenance, normally the downtime insurer, and the foundry performs it. Time since maintenance and calibration results must also be published so customers and insurers can price them (P2). |
-| §10.3, §15.1: bids carry no conditions on machine state | P6, I15 | Customers need to be able to make a request conditional on public machine state, such as time since maintenance or calibration results. |
-| §12.3: with no insurance policy, the customer is charged for machine time even on `machine_fault`, and foundry insurance is optional and bought from the built-in provider | P3, P4, I13 | Customers aren't charged for time the foundry can't provide (working assumption, reading (a)). Every machine carries downtime insurance from a third party, with the premium in its rate, and customers can buy step insurance. |
-| §12.3: the adapter classifies each failure's cause (`machine_fault`, `recipe`, `wafer`, `unknown`) | P4, I9 | Payment never depends on cause, so the foundry needn't classify it. Publishing the evidence may be enough. |
-| §16: cancelling a won and locked run forfeits the full cleared price | P4 | Charge the time actually held, not a penalty (S7). |
-| §5.1, §10.3: the subsidy applies only when no one else bids (`applies_when: no_competing_bid`) | P3, P5 | Allowed only as a published formula (the requalification cost a run avoids), not a discretionary setting. It still creates the collusion risk in S5. |
-| §10.2, §10.3: a bid is a total `max_credits` for one run; idle bids are a separate kind, and one can't become a run | P4, I11 | If every sale is "machine N for X hours at rate Y" (I11), idle holds and runs are the same kind of sale. |
-| §15.1, §17: live bids are readable by anyone before the clearing | P2, I7 | P2 outranks P5, so public bids stay unless "public once cleared" is accepted (Q10). |
-| §5.1, §8 (`MP-045`): a `fill: exact` machine requires foundry dummy wafers or rejects the order | P4 | Consistent with the principles, but it excludes brokers (S4) unless a run may carry other accounts' wafers (Q12). |
-
----
-
-## 7. Open questions for the next iteration
+## 6. Open questions for the next iteration
 
 1. **Roles (§4).** Machine operator, market operator, settlement and provider of last resort: which must be separate, which can be combined, and who funds the last resort?
 2. **The order itself.** Consolidation removed both provisional pairs. Is each remaining conflict in §1 decided the right way? For example, should selling each hour to one account (part of P4) really rank above money (P5)?
@@ -551,6 +524,9 @@ Checked against `DESIGN.md` Draft v0.3. Each row is a decision to make, not some
 ---
 
 ## Appendix — Changelog
+
+**v0.12 (2026-09-13)**
+- **No more citations of `DESIGN.md`.** This document no longer cites the design document. The table of conflicts moved into `DESIGN.md` itself (its Appendix C), which cites these principles. Open questions are now §6. Earlier changelog entries still mention `DESIGN.md`, as a record of what changed at the time.
 
 **v0.11 (2026-09-13)**
 - **P4:** a job can't run until payment for any damage it could cause is guaranteed. The foundry's own insurance pays when a guarantee or an insurer fails.
