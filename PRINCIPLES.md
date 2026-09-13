@@ -1,8 +1,8 @@
-# foundry.api — Principles (Draft v0.4)
+# foundry.api — Principles (Draft v0.5)
 
 | | |
 |---|---|
-| Status | Draft v0.4. Expected to change over several iterations. |
+| Status | Draft v0.5. Expected to change over several iterations. |
 | Date | 2026-09-13 |
 | Relationship to `DESIGN.md` | `DESIGN.md` is one attempt to implement these principles. Where the two disagree (§6), change one of them on purpose. Don't quietly work around the gap. |
 | Terms | **The foundry** means the entity that runs the machines. Whether the market and the other roles belong to the same entity is an open question (§4). |
@@ -23,7 +23,7 @@ The principles come first, in priority order. The rest of the document works out
 
 **P4. The foundry sells only what it provides now.** The foundry decides what runs next and sells the machine time and storage it provides. Futures, insurance, credit, forecasts and delivery promises come from others, never from the entity running the machines.
 
-**P5. The foundry always gets paid.** The foundry is paid for everything it provides, whatever the outcome. Nothing runs unless someone has guaranteed the payment.
+**P5. The foundry always gets paid.** The foundry is paid for everything it provides whatever the outcome, and for time it can't provide through insurance it buys as a cost of running its machines. Nothing runs unless someone has guaranteed the payment.
 
 **P6. Customers pay for what they actually use.** A customer pays for the machine time their request actually uses, including setup, cleanup and any time it holds the machine, plus storage and consumables. Anyone who wants a fixed price buys one from someone willing to carry the variation.
 
@@ -84,7 +84,8 @@ Each row is a conflict that fixes which of two principles comes first. Rows mark
 
 - **Means:** scheduling is a single decision: when a machine is about to become free, which request gets it. The foundry keeps no plan and no calendar.
 - **Means:** the foundry promises nothing about the future. Cycle time is an outcome of the market, not a commitment.
-- **Means:** the foundry doesn't sell futures, insurance or credit, and doesn't act as a broker. Those markets can exist only because P3 gives everyone the same information the foundry has (I6).
+- **Means:** the foundry doesn't sell futures, insurance or credit, and doesn't act as a broker. It may *buy* insurance, such as downtime insurance for its machines (I13).
+- **Means:** those markets exist only because P3 gives everyone the same information the foundry has (I6).
 - **Means:** the foundry may still bid its own present preferences, such as a floor that covers its costs or a subsidy to keep a furnace hot, because those are about what it will accept now.
 - **Rules out:** reservations, calendars, delivery promises, postpaid accounts, the foundry as insurer or futures provider, and holding a machine idle as a bet.
 - **Open:** a reserve price above cost ("I'd rather idle than sell cheap") is a bet on future demand. Does P4 allow it? (Q8)
@@ -96,14 +97,15 @@ Each row is a conflict that fixes which of two principles comes first. Rows mark
 - **Means:** nothing runs until its payment is guaranteed, either by the customer's own funds or by someone who has agreed to pay (a futures provider, an insurer, a lender). The foundry handles counterparty risk by demanding a guarantee, not by trusting anyone.
 - **Means:** payment never depends on who caused a failure, so the foundry never needs to decide (I9).
 - **Means:** a negative price, where the foundry pays a customer to keep a tool running, is the foundry buying something it values now.
-- **Means:** if the foundry provided nothing, nothing is owed (S7).
+- **Means:** time the foundry can't provide, because a machine breaks down or needs unplanned maintenance, is paid for by the foundry's own downtime insurance, not by the customer (I13, S7).
+- **Means:** downtime insurance is effectively required for every machine, and its premium is part of the machine's running cost.
 - **Open:** who pays the foundry when a party that promised to pay fails to (§4, S15).
 
 ### P6. Customers pay for what they actually use
 
 - **Means:** the unit of sale is measured machine-hours, not modelled ones. A run that overruns needs more time, and the customer pays for it.
 - **Means:** a customer pays for the time they buy, whether or not they use all of it. If a step finishes early, they can sell the unused time back to the market (I12).
-- **Means:** time the foundry can't provide, because the machine faults or goes down, isn't charged (P5: only what is provided is paid for).
+- **Means:** time the foundry can't provide, because the machine faults or goes down, isn't charged to the customer. The foundry's downtime insurance pays for it, and the customer's own losses are covered by step insurance, if they bought it (I13).
 - **Means:** setup is charged to the run that needs it, and cleanup to the run that causes it. Idle time while a request holds the machine counts.
 - **Means:** storage while waiting and consumables drawn are also charged as used. Anything left unpriced will be over-consumed.
 - **Means:** overruns and failures are risks that others price from public machine history (P3) and sell as insurance or futures. Underruns are handled by selling the unused time back (I12).
@@ -144,7 +146,7 @@ Each row is a conflict that fixes which of two principles comes first. Rows mark
 
 **I3. The market has to pay for efficiency the foundry won't plan** (P4 + P7). Grouping same-program work to avoid setups, or batching lots, is exactly the lookahead P4 forbids the foundry. Either customers and brokers pay to arrange it (I2), or it doesn't happen. The queueing analysis has to answer two things: how much throughput this costs compared with a planned schedule, and whether the market recovers it.
 
-**I4. Reliability is priced, not promised** (P3 + P5 + P6). Customers pay for time even when a machine fails, so refunds give the foundry no reason to be reliable. The pressure comes from public machine history. Insurers charge more to cover unreliable machines, customers' total cost rises, and so they bid less. The economic analysis has to show whether that pressure is strong enough, especially for machines with no substitute.
+**I4. Reliability is priced, not promised** (P3 + P5 + P6). The foundry insures its downtime and customers insure their losses (I13), so neither refunds nor lost income push the foundry to be reliable. The pressure comes from premiums priced on public machine history. An unreliable machine makes the foundry's downtime premium, and so its running cost and floor, rise. It also makes customers' step premiums rise, so they bid less. The economic analysis has to show whether that pressure is strong enough, especially for machines with no substitute, and whether the foundry can end up gaining from its own failures (I13).
 
 **I5. Paying for actual time changes what a bid is** (P5 + P6 + P8). A run's total price can't be known when the auction clears, because its duration isn't known yet. The natural thing to bid is a rate per actual machine-hour, with the total settled when the run ends. That has two consequences:
 - **Ranking:** the auction ranks rates. A run after a compatible program no longer ranks higher; it just costs less in total, which changes how P7's savings play out.
@@ -196,10 +198,47 @@ Consequences:
 
 Consequences:
 - **The foundry's income doesn't change (P5).** The foundry was paid for all the time it provided, when the time was first sold. Reselling it moves money between customers only.
-- **Unused and unprovided time are different.** Time the customer doesn't need is theirs to sell back. Time the foundry can't provide, because the machine faulted or went down, is never charged at all (P5, S6, S7).
+- **Unused and unprovided time are different.** Time the customer doesn't need is theirs to sell back. Time the foundry can't provide, because the machine faulted or went down, isn't charged to the customer; the foundry's downtime insurance pays for it (I13).
 - **Short remainders are worth less.** A remainder only becomes available once the step has actually finished, often at short notice. A customer who needs time to bring wafers to the machine may not be able to use it, so small remainders may attract few bids or none.
 - **Each run still belongs to one customer (P7).** Whoever buys the remainder owns that time and the run in it. Nobody shares a sale.
 - **Machine time becomes something people can trade.** Once time can be resold, some participants may buy time only to resell it. P8 allows that. Whether it helps (spreading risk, filling gaps) or hurts (people buying up a bottleneck to resell at a markup) is a question for simulation, not wording (Q6).
+
+**I13. Every outage has two kinds of loss, and each is insured separately** (P3 + P4 + P5 + P6 + P9). When a machine can't provide time (a breakdown, a fault mid-run, maintenance that overruns), both the foundry and its customers lose something, and each insures its own loss:
+
+| | **Downtime insurance** | **Step insurance** |
+|---|---|---|
+| Who buys it | The foundry, for each machine | The customer, for each step they commit to |
+| What it pays | The market value of the machine time lost, paid to the foundry | A refund of what the customer paid for the failed step, the agreed value of lost wafers, and the cost of rework (paid to the foundry through the auction) |
+| Where the premium ends up | In the machine's running cost, so in its floor rate and in every customer's price on that machine | In that customer's cost of the step |
+| Priced from | Public machine history (P3) | Public machine history (P3) and the customer's own process |
+| Required? | Effectively yes: P5 requires the foundry to be paid for time it can't provide | No: the customer chooses (P9), and carries their own losses without it |
+| Seller | Never the foundry (P4) | Never the foundry (P4) |
+
+**Example.** A customer buys 2 hours on an etcher, and the auction clears at 150 cr/h. The etcher faults 40 minutes in, scrapping the wafers, and stays down for 6 hours.
+- **The customer:** pays for the 40 minutes provided, 100 cr. The other 80 minutes (200 cr) aren't charged, under the working assumption below.
+- **The foundry's downtime insurer:** pays the foundry the market value of the 6 lost hours. At a recent clearing rate of 140 cr/h that's 840 cr.
+- **The customer's step insurer:** refunds the 100 cr, pays the agreed value of the lost wafers, and pays for rework. Rework means buying this step and the earlier ones again at auction, say 1,500 cr, most of which is paid to the foundry.
+
+**Interactions to think through:**
+- **Is time the foundry can't provide charged to the customer?** There are two readings:
+  - **(a)** The customer isn't charged, and the foundry's downtime insurance covers those hours.
+  - **(b)** The customer pays for all the time they bought, as with unused time (I12). Their step insurance refunds them, and the foundry's downtime insurance covers only lost time nobody had bought.
+
+  Both make the foundry whole; they differ in who carries the cost and what each premium covers. This document currently assumes (a).
+- **Double payment.** If the customer pays for time that wasn't provided *and* the downtime insurer pays market value for the same hours, the foundry is paid twice. Whichever reading is chosen, each hour is paid for once.
+- **The foundry may gain from its own failures.**
+  - **Lost income is replaced.** In the example, the customer and the downtime insurer together pay the foundry 940 cr for the 6 hours 40 minutes from the start of the run. Had the etcher worked, it would have earned about 950 cr (300 cr from this customer, then 4 hours 40 minutes at 140 cr/h).
+  - **Rework is extra demand.** The rework also creates demand for machine time, paid for by the customer's insurer. If the machines aren't fully booked, or the rework pushes prices up, the foundry comes out ahead of a day with no failure.
+  - **Two ways to push back.** One is premiums: both insurers charge more on unreliable machines. The other is *liability* cover: when the cause is a machine fault, the customer's insurer recovers the rework cost from the foundry's insurer, so the foundry's own premium carries it. Which gives the foundry the right incentive is a question for the economic analysis (I4).
+- **Measuring the market value of lost time.** Recent clearing rates are public (P3), but they can be pushed up just before an outage the foundry expects, for example by its own reserve bids. The measure has to be hard to manipulate and settled against the record (P2).
+- **Planned maintenance isn't really insurable.** Insurance covers uncertain losses. A published maintenance plan (S11) is certain, so its cost belongs in the machine's rate, not in a claim. Maintenance that overruns, or is forced by a fault, is insurable.
+- **Cause matters to insurers, even though the foundry ignores it.** The foundry still doesn't decide whose fault an outage was (I9), but the insurers must. If a customer's contaminated wafer takes a furnace down (S12), that customer is liable, and the foundry's downtime insurer will want to recover from them or their insurer.
+- **One outage, many claims at once.** A single breakdown affects every customer with wafers on or waiting for that machine, as well as the foundry. The losses are correlated, which is where a provider of last resort may be needed (§4). An insurer writing both kinds of policy on the same machine would be on both sides of every dispute about cause.
+- **Rework is bought at whatever the auction charges.** A step insurer paying for rework is exposed to future auction prices, so step insurance carries some of a future's risk. Policies may need a cap, or to be paired with futures.
+- **Resold time, idle holds and futures.**
+  - **Resold time:** when an outage hits time that was sold back (I12), the loss belongs to the time's current owner.
+  - **Idle holds:** an outage during an idle hold (I11) can make the holder miss a coupling window, which is a loss for step insurance.
+  - **Futures:** a future for a slot during an outage can't be delivered by anyone. Whether the provider or the holder bears that depends on the future's terms.
 
 ## 4. Who does what
 
@@ -270,15 +309,15 @@ Cooling and requalifying the furnace costs about 12 hours, and there is no deman
 
 An etcher faults 40 minutes into what would have been a 2-hour run, and the wafers are scrapped.
 
-- **What happens:** the customer pays for 40 minutes (P6). The rest of the time they bought isn't charged, because the foundry couldn't provide it (I12). The wafers are the customer's loss (P9). An insurer, if the customer bought insurance, decides whether to pay, using the public machine history and telemetry (P3). The foundry doesn't rule on the cause (I9).
+- **What happens:** the customer pays for 40 minutes (P6). The rest of the time they bought isn't charged; the foundry's downtime insurance pays the foundry for the lost hours instead (P5). The wafers are the customer's loss (P9) unless they bought step insurance, which refunds the 40 minutes, pays for the wafers and funds rework (I13). The insurers use public machine history and telemetry (P3). The foundry doesn't rule on the cause (I9).
 - **Principles:** P3, P5, P6, P9.
-- **Examine:** whether the pressure in I4 is enough to make the foundry fix the etcher.
+- **Examine:** whether the pressure in I4 is enough to make the foundry fix the etcher, given that insurance replaces its lost income and rework adds demand (I13).
 
 ### S7. The machine goes down before a won run starts
 
 A run won its clearing and is locked in, but the machine goes down before the wafers are loaded.
 
-- **What happens:** the foundry provided nothing, so nothing is owed (P5, P6). The request goes back into the auction when the machine returns. A futures provider behind that run must win again at whatever it costs (I1).
+- **What happens:** the customer owes nothing for time the foundry couldn't provide (P6), and the foundry's downtime insurance pays it for the lost hours (P5, I13). The request goes back into the auction when the machine returns. A futures provider behind that run must win again at whatever it costs (I1).
 - **Principles:** P4, P5, P6.
 - **Examine:** the reverse case, where the customer withdraws after winning. Under P6 they pay for the time the machine was actually held for them, not a penalty.
 
@@ -310,7 +349,7 @@ A customer stops paying mid-flow, and their wafers sit in storage.
 
 The foundry wants the DRIE for a 6-hour chamber clean on Thursday.
 
-- **What happens:** the plan is public as soon as the foundry has it (P3 over P4), so anyone pricing futures on the DRIE can account for it. When Thursday comes, the foundry either buys the machine's time like anyone else (P8) or, if skipping the clean would harm the machine, takes the machine down under P1.
+- **What happens:** the plan is public as soon as the foundry has it (P3 over P4), so anyone pricing futures on the DRIE can account for it. When Thursday comes, the foundry either buys the machine's time like anyone else (P8) or, if skipping the clean would harm the machine, takes the machine down under P1. A planned clean is a known cost that belongs in the machine's rate, not an insurance claim. If the clean overruns, the overrun is insurable downtime (I13).
 - **Principles:** P1, P3, P4, P8.
 - **Examine:** whether planned maintenance is a bid, a P1 case, or something else (Q9).
 
@@ -318,8 +357,8 @@ The foundry wants the DRIE for a 6-hour chamber clean on Thursday.
 
 A customer ships wafers declared clean that actually carry gold.
 
-- **What happens:** incoming inspection, paid for by the customer (P6), finds the gold, and clean tools refuse the wafers (P1). If inspection misses it and a furnace gets contaminated, the foundry acts first to protect the machine (P1 over P5), then recovers the requalification cost from the customer or their insurer (P5, P6).
-- **Principles:** P1, P5, P6.
+- **What happens:** incoming inspection, paid for by the customer (P6), finds the gold, and clean tools refuse the wafers (P1). If inspection misses it and a furnace gets contaminated, the foundry acts first to protect the machine (P1 over P5), then recovers the requalification cost from the customer or their insurer (P5, P6). The foundry's downtime insurer, having paid for the outage, will also want to recover from the customer (I13).
+- **Principles:** P1, P5, P6, I13.
 - **Examine:** how far a customer's liability for damage extends, and whether uninsured customers can realistically be allowed to ship wafers in.
 
 ### S13. A customer wants a process with no program
@@ -369,6 +408,7 @@ Checked against `DESIGN.md` Draft v0.3. Each row is a decision to make, not some
 | §2.2, §10.9: the foundry publishes `projected_complete`, expected start times and `price_to_lead` | P4 | Projections look like promises. They could be dropped, clearly labelled non-binding, or left to third parties. |
 | §5.6, §11.3, §14, §15.2: runs, telemetry, utilisation and a `maintenance` machine state are published, but no maintenance records, parts, calibration or planned maintenance | P3 | The full machine history and all plans must be published. |
 | §2.4, §6: one service runs the machine registry, auction and ledger together | §4 | Whether these roles may be combined is undecided (Q1). |
+| §12.3: with no insurance policy, the customer is charged for machine time even on `machine_fault`, and foundry insurance is optional and bought from the built-in provider | P4, P5, P6, I13 | Customers aren't charged for time the foundry can't provide (working assumption, reading (a)). Every machine carries downtime insurance from a third party, with the premium in its rate, and customers can buy step insurance. |
 | §12.3: the adapter classifies each failure's cause (`machine_fault`, `recipe`, `wafer`, `unknown`) | P5, I9 | Payment never depends on cause, so the foundry needn't classify it. Publishing the evidence may be enough. |
 | §16: cancelling a won and locked run forfeits the full cleared price | P6 | Charge the time actually held, not a penalty (S7). |
 | §5.1, §10.3: the subsidy applies only when no one else bids (`applies_when: no_competing_bid`) | P4, P8 | A present preference, so allowed, but it creates the collusion risk in S5. |
@@ -394,18 +434,37 @@ Checked against `DESIGN.md` Draft v0.3. Each row is a decision to make, not some
     - **Running out of time:** what happens when a run needs longer than the X it bought (S16)?
 7. **What futures need (I1).** Is it enough that one account can bid and pay for another's run? Under P7, which of holder and provider is "the customer" for the run? If the holder's wafers aren't ready at T, is that purely between holder and provider?
 8. **Reserves above cost (P4).** Is refusing to sell cheap now, in the hope of better prices later, a forbidden bet on the future?
-9. **Maintenance (S11).** Is planned maintenance a bid, a P1 case, or something else?
+9. **Maintenance (S11).** Is planned maintenance a bid, a P1 case, or something else? Where does insurable downtime end and a known maintenance cost begin (I13)?
 10. **When bids become public (I7).** Live, or once the clearing is final? Given P3 over P8, does "once final" count as public?
 11. **Setup attribution (S14).** Does setup belong only to the incoming run, or is it shared with the outgoing one?
 12. **Other accounts' wafers in a run (S4).** Allowed with consent, and with what responsibilities?
-13. **Liability beyond time (S12).** P5 covers what the foundry provides. What about damage a customer causes?
-14. **Missing principles.** Candidates not yet included:
+13. **Liability beyond time (S12).** What about damage a customer causes? How do the downtime insurer and the customer's step insurer settle who pays (I13)?
+14. **Downtime and step insurance (I13).**
+    - **Charging:** is time the foundry can't provide charged to the customer, reading (a) or (b)? The document assumes (a).
+    - **Market value:** how is the market value of lost time measured so it can't be manipulated?
+    - **Incentives:** should step insurance recover rework costs from the foundry's downtime insurer when a machine is at fault (liability cover), so the foundry can't gain from its own failures?
+    - **Conflicts of interest:** may one insurer write both kinds of policy on the same machine?
+    - **Correlated losses:** who absorbs correlated losses when one outage triggers many claims at once (§4)?
+15. **Missing principles.** Candidates not yet included:
     - "The customer owns their wafers and data" (asset rights, disposal, lenders' collateral).
     - "Every account is treated the same" (possibly implied by P3 + P8).
 
 ---
 
 ## Appendix — Changelog
+
+**v0.5 (2026-09-13)**
+- **P5:** the foundry is also paid for time it can't provide, through downtime insurance it buys as a running cost.
+- **New I13:** downtime insurance (bought by the foundry, pays the market value of lost time) and step insurance (bought by customers, pays refunds, lost wafers and rework). Includes a worked example and the interactions to think through:
+  - whether the customer is charged for time the foundry can't provide
+  - double payment
+  - the foundry gaining from its own failures
+  - manipulation of "market value"
+  - planned maintenance not being insurable
+  - cause disputes between insurers
+  - correlated claims
+  - rework at auction prices
+- **Updated to match:** P4, P6, I4, I12, S6, S7, S11, S12, the `DESIGN.md` table, and Q9 and Q13. There is a new Q14, and missing principles moved to Q15.
 
 **v0.4 (2026-09-13)**
 - **New I12:** a customer who finishes early can sell the unused time back to the market, with a worked example. The foundry's income is unchanged. Time the foundry can't provide (a fault or breakdown) is never charged, which is different from time the customer doesn't use.
