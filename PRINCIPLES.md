@@ -1,9 +1,9 @@
-# foundry.api — Principles (Draft v0.2)
+# foundry.api — Principles (Draft v0.3)
 
 | | |
 |---|---|
-| Status | Draft v0.2. Expected to change over several iterations. |
-| Date | 2026-09-12 |
+| Status | Draft v0.3. Expected to change over several iterations. |
+| Date | 2026-09-13 |
 | Relationship to `DESIGN.md` | `DESIGN.md` is one attempt to implement these principles. Where the two disagree (§6), change one of them on purpose. Don't quietly work around the gap. |
 | Terms | **The foundry** means the entity that runs the machines. Whether the market and the other roles belong to the same entity is an open question (§4). |
 
@@ -119,6 +119,7 @@ Each row is a conflict that fixes which of two principles comes first. Rows mark
 
 - **Means:** money is a customer's only way to change the order of the queue. A lot at step 199 of 200 has no claim on step 200.
 - **Means:** a rival who values stopping you more than you value proceeding can buy the machine's time and leave it idle. That is legitimate, public and expensive.
+- **Means:** a customer may hold a machine idle while an earlier step finishes, but only for as long as they outbid everyone else who wants the machine (I11).
 - **Means:** the foundry's own preferences compete as bids in the same auction.
 - **Rules out:** fairness quotas, first-come-first-served, deadline boosts, protection for small customers, and priority for nearly-finished lots.
 - **Note:** P8 is eighth, not first. "If a customer is willing to pay enough, it can be done" holds for everything the earlier principles allow and for nothing they forbid.
@@ -137,7 +138,7 @@ Each row is a conflict that fixes which of two principles comes first. Rows mark
 
 **I1. No reservations, only people who pay** (P4 + P5 + P8). The foundry sells only what it provides now, and money decides who gets it. So the only way to secure future work is to have someone willing to pay in the auction when the time comes. A **future** is exactly that. A provider agrees to get you a slot at time X for cost Y. When X comes, the provider must win the auction for you, whatever it costs. If the auction is cheaper than Y, the provider keeps the difference; if dearer, the provider covers it. The foundry is not a party to the contract. All it needs is to let one account bid and pay for another account's run.
 
-**I2. Buying ahead means buying time early** (P4 + P6 + I1). A machine's time is sold when the machine becomes free, not when a customer would like to start. A provider who promised a later slot has to win the earlier clearing and pay for the idle time until the holder is ready. Otherwise a long run from someone else takes the machine (S8). That suggests a possible simplification: the market sells **blocks of machine time**, and a run is just the smallest block. The block's owner decides what happens inside it: run their own lot, run a broker's customers, or nothing (Q6).
+**I2. Buying ahead means buying time early** (P4 + P6 + I1). A machine's time is sold when the machine becomes free, not when a customer would like to start. A provider who promised a later slot has to win the earlier clearing and pay for the idle time until the holder is ready. Otherwise a long run from someone else takes the machine (S8). I11 shows how that idle time is bought.
 
 **I3. The market has to pay for efficiency the foundry won't plan** (P4 + P7). Grouping same-program work to avoid setups, or batching lots, is exactly the lookahead P4 forbids the foundry. Either customers and brokers pay to arrange it (I2), or it doesn't happen. The queueing analysis has to answer two things: how much throughput this costs compared with a planned schedule, and whether the market recovers it.
 
@@ -147,7 +148,7 @@ Each row is a conflict that fixes which of two principles comes first. Rows mark
 - **Ranking:** the auction ranks rates. A run after a compatible program no longer ranks higher; it just costs less in total, which changes how P7's savings play out.
 - **Guarantees:** under P5, payment must be guaranteed for a duration nobody knows yet. The guarantee could be a customer-set maximum duration at which the run stops, collateral, or an insurer who agrees to pay any overrun (S16).
 
-What gets bid is Q4.
+A sale of "machine N for X hours at rate Y" (I11) would give the rate and a bounded duration together. What gets bid is Q4.
 
 **I6. The foundry can stay out of risk markets only if nothing is private** (P3 + P4). The foundry can leave insurance and futures to others only because others see everything it sees. If anything material stays private, only the foundry (or people close to it) can price that risk, and the market for it either won't exist or will be unfair. So P3 has to cover planned maintenance, known machine problems and upcoming changes, not only past events.
 
@@ -158,6 +159,31 @@ What gets bid is Q4.
 **I9. Nobody at the foundry decides whose fault it was** (P3 + P5 + P6). Payment is for time used, whatever the cause, so the foundry has no reason to classify causes. It publishes telemetry, logs and inspection results, and the parties who care about the cause (the customer and the insurer) interpret them.
 
 **I10. Waiting is a slow bid** (P6 + P8). A customer who won't pay the going price can wait, but waiting costs storage. Every lot in the foundry is always paying for something: either to move forward or to stay put.
+
+**I11. Holding a machine idle is just buying its time** (P4 + P6 + P8 + P9). A customer may pay for a machine to sit idle while an earlier step finishes, but only if they outbid everyone else who wants that machine. This needs no new rule:
+- **P6:** time the machine is held for the customer counts as time used, even when it does nothing.
+- **P8:** the only way to hold the machine is to win it.
+- **P4:** it isn't a reservation. The foundry is selling the machine's time now, to the highest bidder, who chooses to leave it idle. The view of the future ("my wafer arrives in 45 minutes") is the customer's, not the foundry's.
+
+**The unit of sale (candidate).** Every sale is **"machine N for X hours at rate Y"**. Runs and idle holds are the same kind of sale. The buyer chooses X, and with it how much risk to take. At each sale, the auction ranks bids by rate Y, and the winner pays the runner-up's rate for the hours sold. When a sale ends, the machine's next X hours are auctioned again.
+
+**Example.** A customer's coated wafer will be ready in about 45 minutes, and the exposure must start within 30 minutes of coating (S3). The aligner is free now. The customer can buy the 45 minutes in two ways:
+
+| | **One sale: 1 × 45 min** | **Three sales: 3 × 15 min** |
+|---|---|---|
+| Auctions to win | One, now | Three: now, at +15 min and at +30 min |
+| If a rival with a ready lot bids 250 cr/h at +30 min | Nothing changes: the customer already owns the time until +45 min | Unless the customer bids more than 250 cr/h, the rival wins the third sale. The rival's 1-hour exposure starts, the customer's wafer arrives at +45 min and waits until +90 min, the 30-minute window is missed, and the customer pays for rework (P9). |
+| If nobody else wants the aligner | Pays the floor rate for 45 minutes | Pays the floor rate for each 15 minutes. It can stop buying if the earlier step is delayed or abandoned. |
+| Payment exposure (P5) | 45 min × the bid rate, guaranteed up front | 15 min × the bid rate at a time; each later sale needs its own guarantee |
+
+The foundry doesn't choose between these (P9). The customer trades certainty (one long sale) against flexibility and a lower commitment (several short ones), and takes the risk of the choice.
+
+Consequences:
+- **Holding costs what others give up.** Under second price the holder pays the runner-up's rate. Holding a machine nobody else wants is cheap; holding a contested one is expensive.
+- **Waiting and blocking are the same transaction.** Holding the aligner for your own wafer and holding it to keep a rival out (S2) are the same sale at the same price. Nothing needs to tell them apart (P9).
+- **Payment exposure is bounded.** A sale of X hours at rate Y can cost at most X × Y, which is easy to guarantee under P5. Anything longer needs another sale (S16).
+- **A futures provider uses the same sales.** Keeping a promised slot available is just buying idle sales, long or short, until the holder is ready (S8).
+- **Continuous versus sold-once is a matter of X.** Many very short sales behave like a continuously contested hold; one long sale behaves like a block. Whether the market needs limits on X (a minimum, a maximum, or neither) is for simulation to decide, not wording (Q6).
 
 ---
 
@@ -206,9 +232,9 @@ A competitor buys the prober's next 12 hours and leaves it idle so the lot in S1
 
 Resist must be exposed within 30 minutes of coating. The spin coater and the aligner are auctioned separately.
 
-- **What happens:** the foundry does nothing special (P4). The customer has three options: bid high on both machines, buy the aligner's time before coating finishes and pay for it to sit idle (P6), or buy a future for the exposure. If the window is missed, the customer pays for the rework (P5, P9).
-- **Principles:** P4, P6, P7, P9.
-- **Examine:** whether a block of time that includes idle waiting (I2) is the natural way to do this, or whether it needs its own mechanism.
+- **What happens:** the foundry does nothing special (P4). The customer has three options: bid high on both machines, buy the aligner's time before coating finishes and hold it idle (I11), or buy a future for the exposure. If they hold the aligner, they choose between one long sale and several short ones, and take the risk of losing a short one. If the window is missed, the customer pays for the rework (P5, P9).
+- **Principles:** P4, P6, P7, P8, P9.
+- **Examine:** how customers actually split idle holds under realistic competition, and how often short sales are lost at the worst moment (Q6).
 
 ### S4. A CMP tool needs a full load
 
@@ -246,7 +272,7 @@ A run won its clearing and is locked in, but the machine goes down before the wa
 
 A provider (never the foundry, P4) sold a customer a furnace slot at 15:00 for 400. The furnace frees at 13:00, with a rival's 11-hour anneal waiting, and another rival bids for the same slot.
 
-- **What happens:** the provider must win the 13:00 clearing, pay for two idle hours and outbid the rival (I2). The auction costs the provider 900 in total, so it loses 500, publicly (P3). The customer pays the agreed 400. The foundry sees only bids and payments.
+- **What happens:** the provider must win the 13:00 clearing and hold the furnace idle until 15:00 (I11), either as one 2-hour sale or as several shorter ones that the rival could win. It must also outbid the rival for the 15:00 run. The auction costs the provider 900 in total, so it loses 500, publicly (P3). The customer pays the agreed 400. The foundry sees only bids and payments.
 - **Principles:** P3, P4, P5, P6, P8.
 - **Examine:** what guarantee a provider must give for an open-ended commitment to count as guaranteed payment under P5 (§4, S15).
 
@@ -310,9 +336,9 @@ A provider promised a customer a slot, but when the auction clears at 900 the pr
 
 An etch runs until an endpoint detector triggers. The customer's funds cover 3 hours, and at 3 hours it hasn't finished.
 
-- **What happens:** P5 means the run should never have started with open-ended exposure. Every request that can run long needs one of three things: a maximum duration at which it stops (the customer's instruction, P9), collateral, or an insurer committed to pay for the overrun. Stopping at the maximum may ruin the wafers; that is the customer's choice (P9), provided stopping is safe (P1).
+- **What happens:** P5 means the run should never have started with open-ended exposure. Every request that can run long needs one of three things: a maximum duration at which it stops (the customer's instruction, P9, which is the X of its sale in I11), collateral, or an insurer committed to pay for the overrun. Stopping at the maximum may ruin the wafers; that is the customer's choice (P9), provided stopping is safe (P1).
 - **Principles:** P1, P5, P6, P9.
-- **Examine:** whether a maximum duration is a required part of every request, and what a sensible default is.
+- **Examine:** whether a maximum duration is a required part of every request, and what a sensible default is. If a run needs longer than the X it bought and someone else wins the next sale, does the run stop (if safe, P1) or does the run's owner automatically bid for more time?
 
 ---
 
@@ -332,7 +358,7 @@ Checked against `DESIGN.md` Draft v0.3. Each row is a decision to make, not some
 | §12.3: the adapter classifies each failure's cause (`machine_fault`, `recipe`, `wafer`, `unknown`) | P5, I9 | Payment never depends on cause, so the foundry needn't classify it. Publishing the evidence may be enough. |
 | §16: cancelling a won and locked run forfeits the full cleared price | P6 | Charge the time actually held, not a penalty (S7). |
 | §5.1, §10.3: the subsidy applies only when no one else bids (`applies_when: no_competing_bid`) | P4, P8 | A present preference, so allowed, but it creates the collusion risk in S5. |
-| §10.3: idle bids buy time the machine spends doing nothing, and can't become a run | P6, I2 | If blocks of time are the primitive (Q6), an idle block and a run are the same thing. |
+| §10.2, §10.3: a bid is a total `max_credits` for one run; idle bids are a separate kind, and one can't become a run | P6, I11 | If every sale is "machine N for X hours at rate Y" (I11), idle holds and runs are the same kind of sale. |
 | §15.1, §17: live bids are readable by anyone before the clearing | P3, I7 | P3 outranks P8, so public bids stay unless "public once cleared" is accepted (Q10). |
 | §5.1, §8 (`MP-045`): a `fill: exact` machine requires foundry dummy wafers or rejects the order | P7 | Consistent with the principles, but it excludes brokers (S4) unless a run may carry other accounts' wafers (Q12). |
 
@@ -343,9 +369,12 @@ Checked against `DESIGN.md` Draft v0.3. Each row is a decision to make, not some
 1. **Roles (§4).** Machine operator, market operator, settlement and provider of last resort: which must be separate, which can be combined, and who funds the last resort?
 2. **The order itself.** Two pairs are provisional (P2/P3, P6/P7). Is one-customer-per-run (P7) really above money (P8)?
 3. **Law in P1.** Was "or breaks the law" right to add, or does it need its own principle?
-4. **What gets bid when time is actual (I5).** A rate per hour, a total settled afterwards, or a rate with a maximum duration? How is payment for an open-ended run guaranteed (S16)?
+4. **What gets bid when time is actual (I5).** A rate per hour, a total settled afterwards, or "X hours at rate Y" (I11)? How is payment for an open-ended run guaranteed (S16)?
 5. **P8 at scale.** Is "money decides" compatible with thousands of small customers? The scenario harness has to answer this; rewording won't.
-6. **Blocks of time as the primitive (I2).** Should the market sell the next N hours of a machine and let the buyer decide what runs in them?
+6. **The unit of sale (I11).** Is every sale "machine N for X hours at rate Y"? To be settled by simulation and scenarios:
+    - **Limits on X:** does the market need a minimum or maximum X, or can customers choose freely between continuous-like short sales and block-like long ones?
+    - **Unused time:** is X a commitment (the buyer pays for all X) or a maximum (unused time goes back to the market and isn't charged, per P6)?
+    - **Running out of time:** what happens when a run needs longer than the X it bought (S16)?
 7. **What futures need (I1).** Is it enough that one account can bid and pay for another's run? Under P7, which of holder and provider is "the customer" for the run? If the holder's wafers aren't ready at X, is that purely between holder and provider?
 8. **Reserves above cost (P4).** Is refusing to sell cheap now, in the hope of better prices later, a forbidden bet on the future?
 9. **Maintenance (S11).** Is planned maintenance a bid, a P1 case, or something else?
@@ -360,6 +389,11 @@ Checked against `DESIGN.md` Draft v0.3. Each row is a decision to make, not some
 ---
 
 ## Appendix — Changelog
+
+**v0.3 (2026-09-13)**
+- **New I11:** holding a machine idle while an earlier step finishes is just buying its time, and only works while the customer outbids everyone else. It proposes a candidate unit of sale, "machine N for X hours at rate Y", with the buyer choosing X (for example 1 × 45 min or 3 × 15 min) and taking the risk.
+- **Updated:** I2, I5, P8, S3, S8, S16, the `DESIGN.md` table and Q4 now refer to I11.
+- **Replaced Q6:** "blocks of time as the primitive" is now "the unit of sale". Whether sales should behave continuously or as blocks is left to simulation.
 
 **v0.2 (2026-09-12)**
 - **Priority order.** Principles are now in priority order; where two conflict, the earlier one wins. The table in §1 records which conflict decided each placement.
