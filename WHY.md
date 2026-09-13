@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| Status | Draft v0.3 |
+| Status | Draft v0.4 |
 | Date | 2026-09-13 |
 | Audience | People who know how open source, cloud computing and AI changed software, but don't work in the chip industry |
 
@@ -15,9 +15,10 @@
 - **Custom chips are for giants.** Designing a chip for your own product, rather than buying one off the shelf, costs so much up front that it is mostly done by large companies chasing huge markets.
 - **So chip factories depend on a few customers.** TSMC, the world's largest contract chipmaker, made products for 522 customers in 2024, but its ten largest produced about 76% of that year's revenue.
 - **Customers that big set the terms.** They push prices down, shape the factory's plans, and make it afraid of anything that might upset them.
-- **Chasing scale is rational, and makes it worse.** Manufacturing costs fall predictably as production piles up (the "experience curve"), so factories chase the biggest customers and build ever bigger. Each new generation then costs even more, and even fewer customers can afford it. This is the doom spiral.
+- **Chasing scale is rational, and makes it worse.** Manufacturing costs fall predictably as production piles up, so factories chase the biggest customers and build ever bigger. Each new generation costs even more, and even fewer customers can afford it. This is the doom spiral.
 - **The spiral rests on one assumption:** that turning an idea into silicon has to cost a fortune. Open-source chip design tools and AI are now breaking that assumption, as the cloud and open source broke it for software.
-- **The way out is a factory built for thousands of small customers** instead of a handful of big ones. It would sell machine time openly and let customers experiment at their own expense. It would get paid for every attempt, including the many that fail, and a few of those attempts will be game-changing. Like Google, which in 2004 Chris Anderson described as making "most of its money off small advertisers (the long tail of advertising)", it would make money from many small customers rather than depending on a few big ones, and learn from all of them.[^anderson]
+- **The way out is a factory built for thousands of small customers**, not a handful of big ones. It would sell machine time openly, let customers experiment at their own expense, and get paid for every attempt, including the many that fail. A few of those attempts will be game-changing.
+- **It would earn from the many.** Like Google with its small advertisers, it would make its money from many small customers instead of a few big ones, and learn from all of them.[^anderson]
 
 ---
 
@@ -65,11 +66,15 @@ Smaller foundries show the same pattern. GlobalFoundries, the world's fifth-larg
 
 ### Step 3: So factories chase scale
 
-Chasing scale isn't foolish. It follows one of the best-established patterns in manufacturing. In 1936 the aircraft engineer T. P. Wright showed that labour costs fall along a predictable curve as production accumulates: on his example "eighty percent curve", each doubling of the number of aircraft built cut the average labour cost to 80% of its previous level.[^wright] This is now called *Wright's law*.
+Chasing scale isn't foolish. It follows one of the best-established patterns in manufacturing. In 1936 the aircraft engineer T. P. Wright showed that labour costs fall along a predictable curve as production accumulates. On his example "eighty percent curve", every time the number of aircraft built doubled, the average labour cost fell to 80% of its previous level.[^wright] This became known as *Wright's law*.
 
-The Boston Consulting Group later extended the idea beyond labour to a business's overall costs, and called it the "experience curve". It built that concept on chips. Bruce Henderson, the firm's founder, wrote that "Semiconductors provided the evidence on which to build the experience curve concept itself": in industry price data his firm analysed in 1966, one of the two patterns it found was that prices, adjusted for inflation, "declined steadily at a constant rate of about 25 percent each time accumulated experience doubled".[^bcg] A 2013 study that tested six forecasting rules against 62 technologies, including memory chips and transistors, found that "Wright's law produces the best forecasts", though a rule based simply on the passage of time ran it close.[^nagy] Many readers will know the pattern from solar panels, whose "learning rate" is 20%: "with each doubling of the installed cumulative capacity, the price of solar panels declined by 20%."[^owid]
+The Boston Consulting Group later extended the idea from labour to a business's overall costs, and called it the "experience curve". The firm's founder, Bruce Henderson, wrote that "Semiconductors provided the evidence on which to build the experience curve concept itself". His firm analysed industry price data in 1966, and one of the two patterns it found was that prices, adjusted for inflation, "declined steadily at a constant rate of about 25 percent each time accumulated experience doubled".[^bcg]
 
-For a chip factory, the implication seems plain: if costs fall as experience piles up, the fastest way to pile it up is to serve the biggest customers. When a few customers dominate demand, the sensible plan is to build exactly what they need, in the volumes they need, and to push each new generation further to keep them. The result shows in how few companies can still keep up. The semiconductor journalist Mark LaPedus writes that in 1998, "more than two dozen companies could make chips in their fabs based on the 180nm process, which was the most advanced technology back then." ("Fab" is industry shorthand for a chip factory.) David Schor of WikiChip picks up the story:
+Later researchers put it to the test. A 2013 study tested six forecasting rules against 62 technologies, including memory chips and transistors. It found that "Wright's law produces the best forecasts", though a rule based simply on the passage of time ran it close.[^nagy] Many readers will know the pattern from solar panels, whose "learning rate" is 20%: "with each doubling of the installed cumulative capacity, the price of solar panels declined by 20%."[^owid]
+
+For a chip factory, the implication seems plain. If costs fall as experience piles up, the fastest way to gain experience is to serve the biggest customers. And when a few customers dominate demand, the sensible plan is to build exactly what they need, in the volumes they need, and to push each new generation further to keep them.
+
+The result shows in how few companies can still keep up. The semiconductor journalist Mark LaPedus writes that in 1998, "more than two dozen companies could make chips in their fabs based on the 180nm process, which was the most advanced technology back then." ("Fab" is industry shorthand for a chip factory.) David Schor of WikiChip picks up the story:
 
 > "As of 2020, only three companies are now capable of fabricating integrated circuits on the most cutting-edge process: Intel, Samsung, and TSMC."[^lapedus]
 
@@ -139,21 +144,23 @@ If making a chip no longer has to cost a fortune up front, the spiral can run th
 
 ### The long tail of silicon
 
-In 2004 Chris Anderson, then editor of *Wired*, called this pattern "the long tail". When it becomes cheap to stock and deliver niche products, many products that each sell little can add up to a big market: "If the 20th-century entertainment industry was about hits, the 21st will be equally about misses."[^anderson] Wider choice has real value. Economists estimated that the far wider range of books available from online bookstores "enhanced consumer welfare by $731 million to $1.03 billion in the year 2000", which was "between 7 and 10 times as large as the consumer welfare gain from increased competition and lower prices".[^bhs]
+In 2004 Chris Anderson, then editor of *Wired*, described a related idea: "the long tail". When it becomes cheap to stock and deliver niche products, many products that each sell little can add up to a big market. In his words, "If the 20th-century entertainment industry was about hits, the 21st will be equally about misses."[^anderson] He described Google as making "most of its money off small advertisers (the long tail of advertising)".[^anderson]
 
-Chip factories have a tail too: TSMC's 512 customers outside its top ten share about a quarter of its revenue (Step 2). But the tail stops at the customers who can afford the up-front cost. The ideas that were never turned into chips, because the up-front cost was too high, don't show up in anyone's revenue at all.
+Wider choice has real value. Economists estimated that the far wider range of books available from online bookstores "enhanced consumer welfare by $731 million to $1.03 billion in the year 2000". That was "between 7 and 10 times as large as the consumer welfare gain from increased competition and lower prices".[^bhs]
 
-The long tail has a well-known critic. Anita Elberse of Harvard Business School looked at an online music service with more than a million tracks and found that "the top 10% of titles accounted for 78% of all plays, and the top 1% of titles for 32% of all plays". Hits still dominate.[^elberse] But the argument for an open chip factory doesn't need the tail to beat the head. It needs three weaker things. Each small customer must be profitable on its own, which is far more achievable when the factory does no engineering for them. Many small customers must spread the factory's risk, so that no single one can hurt it. And the tail must keep producing experiments, a few of which grow into the next big customers.
+Chip factories have a tail too. TSMC's 512 customers outside its top ten share about a quarter of its revenue (see Step 2). But the tail ends at the customers who can afford the up-front cost. Ideas that never became chips, because they cost too much to try, don't show up in anyone's revenue at all.
+
+The long tail has a well-known critic. Anita Elberse of Harvard Business School looked at an online music service with more than a million tracks and found that "the top 10% of titles accounted for 78% of all plays, and the top 1% of titles for 32% of all plays". Hits still dominate.[^elberse]
+
+But the argument for an open chip factory doesn't need the tail to outsell the hits. It needs three more modest things. Each small customer must be profitable on its own, which is far more achievable when the factory does no engineering for them. Many small customers must spread the risk, so that no single one can hurt the factory. And the tail must keep producing experiments, a few of which grow into the next big customers.
 
 ### Learning from many small attempts
 
-Wright's law counts units, and the unit matters. A 2020 article in *Science* compared energy technologies ranging from solar panels, e-bikes and smart thermostats to carbon capture and storage. Its authors found that "learning is faster for more-granular energy technologies": the smaller, cheaper and more numerous the units, the faster costs fell. They concluded that, "Under certain conditions", such technologies are "empirically associated with faster diffusion, lower investment risk, faster learning" and more.[^wilson]
+Those experiments matter for a second reason: learning. Step 3 described how costs fall as experience piles up, which is why factories chase scale. But Wright's law counts units, and what counts as a unit matters. A 2020 article in *Science* compared energy technologies ranging from solar panels, e-bikes and smart thermostats to carbon capture and storage. Its authors found that "learning is faster for more-granular energy technologies": the smaller, cheaper and more numerous the units, the faster costs fell. They concluded that, "Under certain conditions", such technologies are "empirically associated with faster diffusion, lower investment risk, faster learning" and more.[^wilson]
 
-Our argument is that chip-making has ridden the experience curve on wafers, but not on ideas. In our view, each custom design and each new process experiment happens in small numbers and in secret, so what one team learns adds little to anyone else's experience. A factory running thousands of small, public experiments would pile up experience far faster, and share it, the way open source did for software.
+Our argument is that chip-making has ridden the experience curve on wafers, but not on ideas. In our view, custom designs and new process experiments each happen in small numbers and in secret, so what one team learns adds little to anyone else's experience. A factory running thousands of small, public experiments would pile up experience far faster, and share it, as open source did for software.
 
-### Four ideas
-
-Four ideas shape a factory for that world.
+### Four ideas for the factory
 
 **1. Stop doing the customers' engineering.** The factory runs its machines safely and well. Customers develop their own processes, test their own ideas and analyse their own results, at their own expense. The factory stops guessing, years ahead, what everyone will want. For example, a customer who wants to try a new material rents time on the machines it needs, tries its own settings within the limits that keep the machines safe, measures the results, and pays for every hour whether or not the experiment works.
 
