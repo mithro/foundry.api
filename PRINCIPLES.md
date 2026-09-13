@@ -1,8 +1,8 @@
-# foundry.api — Principles (Draft v0.7)
+# foundry.api — Principles (Draft v0.8)
 
 | | |
 |---|---|
-| Status | Draft v0.7. Expected to change over several iterations. |
+| Status | Draft v0.8. Expected to change over several iterations. |
 | Date | 2026-09-13 |
 | Relationship to `DESIGN.md` | `DESIGN.md` is one attempt to implement these principles. Where the two disagree (§6), change one of them on purpose. Don't quietly work around the gap. |
 | Terms | **The foundry** means the entity that runs the machines. Whether the market and the other roles belong to the same entity is an open question (§4). |
@@ -29,7 +29,7 @@ The principles come first, in priority order. The rest of the document works out
 
 **P7. Every run belongs to one customer.** One account is responsible for each run and pays for all of it. A customer who wants the benefits of running things together (shared batches, skipped setups, back-to-back steps) pays to arrange them.
 
-**P8. Money decides.** Among requests that satisfy every earlier principle, the one that pays most runs next. Nothing else orders the queue: not customer size, loyalty, deadlines, or how far through a flow a lot is.
+**P8. Money decides.** Among requests that satisfy every earlier principle, the one that pays most runs next, and nothing else orders the queue: not customer size, loyalty, deadlines, or how far through a flow a lot is. Every preference costs money, so picky customers pay more and flexible customers pay less.
 
 **P9. Run what is asked.** Anything that satisfies every earlier principle is run exactly as asked. The foundry does not design processes, judge whether a device will work, or second-guess a customer.
 
@@ -123,6 +123,7 @@ Each row is a conflict that fixes which of two principles comes first. Rows mark
 ### P8. Money decides
 
 - **Means:** money is a customer's only way to change the order of the queue. A lot at step 199 of 200 has no claim on step 200.
+- **Means:** each condition a customer puts on a request narrows the time they will accept, whether it's about timing, which machine, or the machine's state (such as time since maintenance or calibration). They then compete for less, so they pay more and may wait longer. A customer with high margins or a tolerant recipe can take the hours picky customers refuse, and pays less for them (I15).
 - **Means:** a rival who values stopping you more than you value proceeding can buy the machine's time and leave it idle. That is legitimate, public and expensive.
 - **Means:** a customer may hold a machine idle while an earlier step finishes, but only for as long as they outbid everyone else who wants the machine (I11).
 - **Means:** the foundry's own preferences compete as bids in the same auction. That includes maintenance: the foundry buys the machine's hours from the market like any customer (I14).
@@ -135,7 +136,7 @@ Each row is a conflict that fixes which of two principles comes first. Rows mark
 - **Means:** the foundry's product is a set of machines, programs and limits, and it runs requests against them. Zero per-customer engineering (NRE) follows from this.
 - **Means:** the customer makes every judgement about their device: the recipe, whether a measurement is acceptable, whether to continue after a failed check.
 - **Means:** P9 comes last, so every refusal must trace back to an earlier principle. A refusal with no earlier principle behind it is a defect.
-- **Means:** the customer decides how much a machine's state (time since maintenance, calibration, recent faults) matters to them, and can make a request conditional on it. Being picky costs more; being flexible can buy time others refuse (I15).
+- **Means:** the customer decides how much a machine's state (time since maintenance, calibration, recent faults) matters to them, and can make a request conditional on it. What those conditions cost is P8.
 - **Rules out:** yield rules, "are you sure?" checks, foundry-recommended process changes, and picking a machine beyond what the customer allowed.
 
 ---
@@ -269,7 +270,7 @@ Sunday is cheaper, unless the machine fails before then; that risk is what the i
 - **A machine's state has to be measurable.** For customers and insurers to price it, calibration results, process results and faults by time since maintenance must be public (P3). Otherwise premiums and customers' bids are guesswork.
 - **Customers may want the post-maintenance slot in advance.** Buying it before the maintenance has even been bid for is a bet on the future, so it comes from futures providers, not the foundry (P4, I1).
 
-**I15. Being picky costs; being flexible pays** (P3 + P4 + P8 + P9). The insurance market decides what a machine's state is worth for risk, and each customer decides what it is worth to them. Nobody else decides either.
+**I15. Being picky costs; being flexible pays** (P3 + P4 + P8 + P9). This is P8 applied to machine state. The insurance market decides what a machine's state is worth for risk, and each customer decides what it is worth to them. Nobody else decides either.
 - **Insurers set premiums from their own predictions.** Neither the foundry nor this document says how risk changes with maintenance. Insurers read the public history (P3) and compete on how well they predict. A wrong prediction costs the insurer who made it.
 - **Machines have different profiles.** The history may show any shape, for example:
 
@@ -510,6 +511,10 @@ Checked against `DESIGN.md` Draft v0.3. Each row is a decision to make, not some
 ---
 
 ## Appendix — Changelog
+
+**v0.8 (2026-09-13)**
+- **P8 wording:** picky versus flexible is now part of P8's own text: "Every preference costs money, so picky customers pay more and flexible customers pay less." P8 gains a bullet explaining it.
+- **P9 and I15:** P9 now covers only the customer's right to attach conditions to a request, and I15 is described as P8 applied to machine state.
 
 **v0.7 (2026-09-13)**
 - **Premiums are set only by the insurance market.** Insurers predict from public data. The document no longer assumes that risk rises with time since maintenance, or that freshly maintained time is better.
