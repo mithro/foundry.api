@@ -25,6 +25,10 @@ Status of each hypothesis:
   - LEARN-1 to LEARN-4: why chasing scale is rational
 - **Challenges:** none verified yet. A possible one: TSMC serves 522 customers, so the "tail" is not empty (CONC-2).
 - **Leads:** COST-7 (TSMC capex trend).
+- **Context:**
+  - COST-2: older and revised IBS design-cost estimates (Partial)
+  - COST-5: TSMC's $165B US investment
+  - CONC-12: TSMC's 70.4% foundry share, and GlobalFoundries ranked fifth
 
 ## H2. Customer concentration damages a foundry
 
@@ -37,6 +41,8 @@ Status of each hypothesis:
   - CONC-6: Imagination's shares fell up to 71% when Apple, about half its revenue, planned to leave
   - FIN-1: Porter on buyer power in high-fixed-cost industries
   - RISK-1: customers depend on processes not changing
+  - CONC-4: GlobalFoundries' top ten customers were 73–75% of wafers before its IPO
+  - COST-8: TSMC spends 7.1% of revenue on R&D, guessing the future at its own expense
 - **Mixed:** CONC-7, Apple's reported "known good die" terms (reported, then disputed).
 - **Challenges (Lead):**
   - FIN-5: Patatoukas (2012), concentration can bring efficiencies
@@ -48,6 +54,12 @@ Status of each hypothesis:
   - CONC-9: capacity pre-emption (CoWoS)
   - CONC-10: value capture, Nvidia's gross margin versus TSMC's
   - CONC-11: TSMC's 2025 customer shares
+  - CONC-13: the Huawei cut-off
+  - CONC-14: Apple's move from Samsung to TSMC
+  - FIN-8: hold-up theory
+  - FIN-10: capital structure and customers
+  - RISK-2: Intel's Copy EXACTLY!
+  - RISK-3: long automotive requalification
 
 ## H3. Chasing scale is rational under the experience curve
 
@@ -62,6 +74,7 @@ Status of each hypothesis:
   - LEARN-5: solar's 20% learning rate
   - LEARN-7: Irwin & Klenow, DRAM learning rates average 20%
 - **Challenges:** LEARN-4 caveat, where a time-based rule performs almost as well and yearly production (economies of scale) explains much of the predictability.
+- **Leads:** LEARN-8 (Texas Instruments' learning-curve pricing).
 
 ## H4. Turning an idea into silicon can now be cheap
 
@@ -155,4 +168,5 @@ Status of each hypothesis:
 - **Analyses:**
   - [`analyses/critical-review-of-principles-v0.10.md`](analyses/critical-review-of-principles-v0.10.md): incentive and mechanism flaws found
   - `AUCTIONS.md` at the repository root: worked comparison of auction styles
+- **Context (Lead):** FIN-8, hold-up theory. General machine time sold on a market reduces relationship-specific investment.
 - **Needs:** literature on electricity markets, spectrum auctions, reinsurance and catastrophe bonds, and exchange clearing houses.
