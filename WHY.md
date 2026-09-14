@@ -4,8 +4,8 @@
 
 | | |
 |---|---|
-| Status | Draft v0.5 |
-| Date | 2026-09-13 |
+| Status | Draft v0.6 |
+| Date | 2026-09-14 |
 | Audience | People who know how open source, cloud computing and AI changed software, but don't work in the chip industry |
 
 ---
@@ -13,7 +13,7 @@
 ## In short
 
 - **Custom chips are for giants.** Designing a chip for your own product, rather than buying one off the shelf, costs so much up front that it is mostly done by large companies chasing huge markets.
-- **So chip factories depend on a few customers.** TSMC, the world's largest contract chipmaker, made products for 534 customers in 2025, but its ten largest produced about 78% of its revenue.
+- **So chip factories depend on a few customers.** TSMC, the world's largest contract chipmaker, made products for 534 customers in 2025, but its ten biggest customers brought in about 78% of its revenue.
 - **Customers that big set the terms.** They push prices down, shape the factory's plans, and make it afraid of anything that might upset them.
 - **Chasing scale is rational, and makes it worse.** Manufacturing costs fall predictably as production piles up, so factories chase the biggest customers and build ever bigger. Each new generation costs even more, and even fewer customers can afford it. This is the doom spiral.
 - **The spiral rests on one assumption:** that turning an idea into silicon has to cost a fortune. Open-source chip design tools and AI are now breaking that assumption, as the cloud and open source broke it for software.
@@ -56,11 +56,11 @@ In chip-making, most of the money goes out before the first working chip exists:
 
 ### Step 2: So only big customers can afford it
 
-Contract chipmakers (the industry calls them "foundries") manufacture chips that other companies design. TSMC is the largest, with 70.4% of the market in the last quarter of 2025, according to the research firm TrendForce.[^trendforce] Its annual filing for 2025 with the US Securities and Exchange Commission says:
+Contract chipmakers (the industry calls them "foundries") manufacture chips that other companies design. TSMC is the largest, with 70.4% of the market in the last quarter of 2025, according to the research firm TrendForce.[^trendforce] Its annual report for 2025, filed with the US Securities and Exchange Commission, says:
 
 > "While we generate revenue from hundreds of customers worldwide, our ten largest customers in 2023, 2024 and 2025 accounted for approximately, 70%, 76% and 78% of our net revenue in the respective year. Our largest customer in 2023, 2024 and 2025 accounted for 25%, 22% and 19% of our net revenue in the respective year. Our second largest customer in 2023, 2024 and 2025 accounted for 11%, 12%, and 17% of our net revenue in the respective year."[^tsmc-20f-2025]
 
-The ten largest customers' share is still rising, even though the single largest customer's share has fallen. In 2025 TSMC made products for 534 customers,[^tsmc-q2-2026] so the other 524 customers together provided just over a fifth of its revenue.
+So the top ten's share is still rising, even though the biggest single customer's share has fallen. In 2025 TSMC made products for 534 customers.[^tsmc-q2-2026] The other 524 together provided just over a fifth of its revenue.
 
 Smaller foundries show the same pattern. GlobalFoundries, the world's fifth-largest,[^trendforce] reports that its ten largest customers took 63% of its wafer shipments in 2025. (Wafers are the thin silicon discs that chips are made on.) It also notes that "Nearly all of our customers already maintain their own semiconductor design capability".[^gf-20f] At SkyWater, a much smaller US chipmaker, three customers provided 43%, 21% and 10% of revenue in its 2025 financial year.[^skyt-10k]
 
@@ -104,11 +104,13 @@ Imagination Technologies shows what that looks like. The British company license
 
 ### And investors charge for the risk
 
-Shareholders and lenders can see this dependence, and they price it. A 2016 study of suppliers found "a positive association between customer concentration and a supplier's cost of equity", a relation "more pronounced for suppliers that are more likely to lose major customers". (Suppliers whose customers were mainly safer government bodies had a lower cost of equity.) It also found "a positive relation between corporate customer concentration and a supplier's cost of debt".[^dhaliwal]
+Shareholders and lenders can see this dependence, and they charge for it. A company's *cost of equity* is the return its shareholders expect in exchange for the risk of owning it. Its *cost of debt* is what it pays to borrow. The higher either one is, the more it costs the company to raise money.
 
-A 2017 study of bank loans found that "Higher customer concentration increases interest rate spreads and the number of restrictive covenants", and "also abbreviates the maturity of those loans". Those effects were "intensified by … the level of relationship-specific investments": money a supplier has sunk into serving particular customers.[^campello]
+A 2016 study of suppliers found "a positive association between customer concentration and a supplier's cost of equity". In other words, suppliers that relied more on a few customers tended to have a higher cost of equity. The relation was "more pronounced for suppliers that are more likely to lose major customers". (Suppliers whose customers were mainly safer government bodies had a lower cost of equity.) The study also found "a positive relation between corporate customer concentration and a supplier's cost of debt": relying on a few company customers went with paying more to borrow.[^dhaliwal]
 
-Neither study looked at chip factories specifically. But in our view, a factory built around a few customers' products is exactly that kind of relationship-specific investment. If so, the spiral has a second loop: depending on a few customers makes the money for the next, even more expensive factory cost more too.
+A 2017 study of bank loans found that "Higher customer concentration increases interest rate spreads and the number of restrictive covenants", and "also abbreviates the maturity of those loans". Put simply, a supplier that depends on a few customers pays more interest, accepts more conditions on how it runs its business, and gets less time to repay. Those effects were "intensified by … the level of relationship-specific investments": money a supplier has sunk into serving particular customers.[^campello]
+
+Neither study looked at chip factories specifically. But in our view, a factory built around a few customers' products is exactly that kind of relationship-specific investment. If so, the spiral has a second loop. Each new factory costs more than the last, and depending on a few customers makes the money to build it more expensive too.
 
 ### Factories get built around their biggest customers
 
@@ -116,7 +118,11 @@ With customers this large, a factory's calendar, capacity and plans follow their
 
 The dependence runs both ways. GlobalFoundries explains why customers stay: "Given the time and costs associated with moving a single-sourced product to a competitor, clients are more likely to continue awarding us single-source contracts for such products."[^gf-20f] A chip designed for one factory's process is expensive to move, so the factory and its biggest customers end up locked to each other.
 
-Loosening that tie cost AMD hundreds of millions of dollars. GlobalFoundries made chips for AMD under a "take-or-pay" agreement: AMD had to pay for agreed volumes whether or not it took them. In 2012, after cutting its wafer orders for the last quarter of the year, AMD said it would "make a termination payment of $320 million related to the take-or-pay agreement with GLOBALFOUNDRIES".[^amd-2012] In 2016 it agreed to "a $100 million cash payment to GF", a warrant for 75 million AMD shares, valued at $235 million, to a subsidiary of GF's owner Mubadala, and "quarterly payments to GF … based on the volume of certain wafers purchased from another wafer foundry".[^amd-2016] Only in 2019 did AMD gain "full flexibility to contract with any wafer foundry" for its chips made at 7 nanometres and smaller, "without any one-time payments or royalties".[^amd-2019]
+Loosening that tie cost AMD hundreds of millions of dollars. GlobalFoundries (GF) made chips for AMD under a "take-or-pay" agreement: AMD had to pay for agreed volumes whether or not it took them. Loosening it took years:
+
+- **2012.** After cutting its wafer orders for the last quarter of the year, AMD said it would "make a termination payment of $320 million related to the take-or-pay agreement with GLOBALFOUNDRIES".[^amd-2012]
+- **2016.** AMD agreed to "a $100 million cash payment to GF". It also agreed to hand a warrant for 75 million AMD shares, valued at $235 million, to a subsidiary of GF's owner Mubadala. (A warrant is the right to buy a company's shares at a set price.) And it would make "quarterly payments to GF … based on the volume of certain wafers purchased from another wafer foundry", so buying some wafers elsewhere still meant paying GF.[^amd-2016]
+- **2019.** Only then did AMD gain "full flexibility to contract with any wafer foundry" for its chips made at 7 nanometres and smaller, "without any one-time payments or royalties".[^amd-2019]
 
 ### So they learn not to take risks
 
@@ -168,9 +174,9 @@ But the argument for an open chip factory doesn't need the tail to outsell the h
 
 Those experiments matter for a second reason: learning. Step 3 described how costs fall as experience piles up, which is why factories chase scale. But Wright's law counts units, and what counts as a unit matters. A 2020 article in *Science* compared energy technologies ranging from solar panels, e-bikes and smart thermostats to carbon capture and storage. Its authors found that "learning is faster for more-granular energy technologies": the smaller, cheaper and more numerous the units, the faster costs fell. They concluded that, "Under certain conditions", such technologies are "empirically associated with faster diffusion, lower investment risk, faster learning" and more.[^wilson]
 
-Learning already spreads between chip companies, but much less than it stays inside each one. A study of memory-chip makers from 1974 to 1992 found that "learning spills over just as much between firms in different countries as between firms within a given country". It also found that firms "learn three times more from an additional unit of their own cumulative production than from an additional unit of another firm's cumulative production", and that "intergenerational learning spillovers are weak": what firms learned on one generation of chips carried over little to the next.[^irwin]
+In chip-making, learning does spread between companies, but much less than it stays inside each one. A study of memory-chip makers from 1974 to 1992 found that "learning spills over just as much between firms in different countries as between firms within a given country". But it also found that firms "learn three times more from an additional unit of their own cumulative production than from an additional unit of another firm's cumulative production". Each extra unit a firm made taught it three times as much as an extra unit made by a rival. And "intergenerational learning spillovers are weak": what firms learned on one generation of chips carried over little to the next.[^irwin]
 
-Our argument is that chip-making has ridden the experience curve on wafers, but much less on ideas. In our view, custom designs and new process experiments happen in small numbers and mostly in secret, and each new generation starts largely afresh, so the spillovers that do exist have little to work with. A factory running thousands of small, public experiments would pile up experience far faster, and give it far more room to spread, as open source did for software.
+Our argument is that chip-making has ridden the experience curve on wafers, but much less on ideas. In our view, custom designs and new process experiments are few and mostly secret, and each new generation starts largely afresh. That leaves the spillovers that do exist with little to work with. A factory running thousands of small, public experiments would pile up experience far faster, and give it far more room to spread, as open source did for software.
 
 ### Four ideas for the factory
 
@@ -191,7 +197,7 @@ People inside the chip industry will say this model can't work. They are describ
 The usual objections, briefly:
 
 - **"Small customers don't pay the bills."** One at a time, they don't, so the model mustn't make each one expensive to serve. Cloud computing made the same shift, from negotiated contracts to published prices anyone can pay.[^aws]
-- **"Small customers will pay more per unit than big ones."** Yes, and that's by design. Flexibility usually costs money: customers who commit to Amazon's cloud for one or three years get "a significant discount (up to 72%) compared to On-Demand instance pricing".[^aws-ri] In an open factory, small customers pay for the freedom not to commit. In our view, anyone who wants a fixed or lower price should be able to buy that certainty from others, for example from someone willing to take on the risk of future prices.
+- **"Small customers will pay more per unit than big ones."** Yes, and that's by design. Flexibility usually costs money. On Amazon's cloud, customers who commit for one or three years get "a significant discount (up to 72%) compared to On-Demand instance pricing", Amazon's pay-as-you-go rate.[^aws-ri] In an open factory, small customers pay for the freedom not to commit. In our view, anyone who wants a fixed or lower price should be able to buy that certainty from others, for example from someone willing to take on the risk of future price changes.
 - **"Most of their ideas won't work."** True, and it doesn't matter to the factory's income. Most start-ups don't work either: in the venture-backed start-ups studied, about 55% ended at a loss.[^nber] The value comes from the few that don't, and from the fact that everyone got to try.
 - **"You can't let customers loose on a factory's processes."** The factory still protects its machines and never runs anything that would damage them. Everything else, including whether a customer's idea works, is the customer's risk, not the factory's.
 
