@@ -158,10 +158,10 @@ How much foundries depend on a few customers, and what happens when a big custom
   - **Leads:**
     - Analysts identify Customer A as Nvidia and Customer B as Apple.
     - Per the external brief, Ben Bajarin projected that in 2026 Nvidia would be about 22% and Apple about 18%.
-    - Per a search summary of TSMC's 2025 annual report, TSMC "deployed 305 distinct process technologies and manufactured 12,682 products for 534 customers". We couldn't extract the text from TSMC's PDF.
+  - Customer count (verified 2026-09-14 from TSMC's Q2 2026 results release, 2026-07-16, on Form 6-K: <https://www.sec.gov/Archives/edgar/data/1046179/000104617926000451/a2q26e_withguidancexfinal.htm>, and the TSMC 2025 annual report website): "TSMC deployed 305 distinct process technologies, and manufactured 12,682 products for 534 customers in 2025". With the top ten at 78%, the other 524 customers provided about 22% of revenue.
 - **Bears on:**
   - H1 and H2 (supports): concentration keeps rising, reaching 78% in 2025, even as the largest customer changes.
-- **Used in:** `WHY.md` §2 and "In short" (from Draft v0.5).
+- **Used in:** `WHY.md` "In short", §2, §3 and §5 (from Draft v0.5).
 - **Caveats:** the filing doesn't name customers.
 
 ### CONC-12. TSMC's foundry market share, and GlobalFoundries' rank

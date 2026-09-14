@@ -104,7 +104,7 @@ Status of each hypothesis:
   - TAIL-1: Anderson's long tail
   - TAIL-2: the value of wider choice in books
   - OPEN-5: 174 submissions to one Tiny Tapeout round
-  - CONC-2: TSMC's 512 customers outside its top ten
+  - CONC-2, CONC-11: TSMC's customers outside its top ten (512 in 2024, 524 in 2025) share a fifth to a quarter of revenue
 - **Challenges:** TAIL-3, Elberse finds hits still dominate and consumers in the tail rate niche titles lower.
 - **Needs:** chip-specific data on latent demand, such as shuttle waiting lists, university and startup tape-out counts, or multi-project wafer programme growth.
 
