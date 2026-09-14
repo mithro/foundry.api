@@ -67,7 +67,7 @@ Most entries here are **Leads**. They come from the reference list of an externa
 - **Bears on:**
   - H2 (challenges).
   - H7 (challenges): concentration isn't all downside.
-- **Used in:** not yet. `WHY.md` §6 should address it once the abstract is verified from an accessible copy, or by a person reading it directly.
+- **Used in:** not used. On 2026-09-14 the owner decided not to pursue this reference. It stays recorded here as a known counter-argument, but it isn't cited in `WHY.md`.
 
 ### FIN-6. The effect of concentration changes over the life of a relationship
 
