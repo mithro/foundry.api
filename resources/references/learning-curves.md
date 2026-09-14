@@ -94,7 +94,7 @@ Wright's law, the experience curve, learning spillovers, and whether small, nume
   - H9 (mixed):
     - (b) and (c) show real spillovers between firms. That challenges `WHY.md` §5's claim that one team's learning "adds little" to others, and it also shows there are spillovers to amplify.
     - (e) supports "each new generation starts over".
-- **Used in:** not yet. `WHY.md` §5 should be revised to cite it.
+- **Used in:** `WHY.md` §5 (from Draft v0.5), which now says learning spreads between firms "but less than it could".
 - **Caveats:** DRAM is high-volume commodity memory. Spillovers among many small, varied experiments may behave differently.
 
 ### LEARN-8. Texas Instruments priced chips on the learning curve

@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| Status | Draft v0.4 |
+| Status | Draft v0.5 |
 | Date | 2026-09-13 |
 | Audience | People who know how open source, cloud computing and AI changed software, but don't work in the chip industry |
 
@@ -13,7 +13,7 @@
 ## In short
 
 - **Custom chips are for giants.** Designing a chip for your own product, rather than buying one off the shelf, costs so much up front that it is mostly done by large companies chasing huge markets.
-- **So chip factories depend on a few customers.** TSMC, the world's largest contract chipmaker, made products for 522 customers in 2024, but its ten largest produced about 76% of that year's revenue.
+- **So chip factories depend on a few customers.** TSMC, the world's largest contract chipmaker, makes products for hundreds of customers, but its ten largest produced about 78% of its revenue in 2025.
 - **Customers that big set the terms.** They push prices down, shape the factory's plans, and make it afraid of anything that might upset them.
 - **Chasing scale is rational, and makes it worse.** Manufacturing costs fall predictably as production piles up, so factories chase the biggest customers and build ever bigger. Each new generation costs even more, and even fewer customers can afford it. This is the doom spiral.
 - **The spiral rests on one assumption:** that turning an idea into silicon has to cost a fortune. Open-source chip design tools and AI are now breaking that assumption, as the cloud and open source broke it for software.
@@ -56,11 +56,11 @@ In chip-making, most of the money goes out before the first working chip exists:
 
 ### Step 2: So only big customers can afford it
 
-Contract chipmakers (the industry calls them "foundries") manufacture chips that other companies design. TSMC is the largest, with 70.4% of the market in the last quarter of 2025, according to the research firm TrendForce.[^trendforce] Its 2024 annual filing with the US Securities and Exchange Commission says:
+Contract chipmakers (the industry calls them "foundries") manufacture chips that other companies design. TSMC is the largest, with 70.4% of the market in the last quarter of 2025, according to the research firm TrendForce.[^trendforce] Its annual filing for 2025 with the US Securities and Exchange Commission says:
 
-> "While we generate revenue from hundreds of customers worldwide, our ten largest customers in 2022, 2023 and 2024 accounted for approximately, 68%, 70% and 76% of our net revenue in the respective year. Our largest customer in 2022, 2023 and 2024 accounted for 23%, 25% and 22% of our net revenue in the respective year."[^tsmc-20f]
+> "While we generate revenue from hundreds of customers worldwide, our ten largest customers in 2023, 2024 and 2025 accounted for approximately, 70%, 76% and 78% of our net revenue in the respective year. Our largest customer in 2023, 2024 and 2025 accounted for 25%, 22% and 19% of our net revenue in the respective year. Our second largest customer in 2023, 2024 and 2025 accounted for 11%, 12%, and 17% of our net revenue in the respective year."[^tsmc-20f-2025]
 
-TSMC made products for 522 customers in 2024.[^tsmc-bo] So the other 512 customers together provided about a quarter of its revenue.
+Concentration is still rising. TSMC's most recent verified customer count is for 2024, when it made products for 522 customers[^tsmc-bo] and its ten largest provided about 76% of revenue.[^tsmc-20f] So that year, the other 512 customers together provided about a quarter.
 
 Smaller foundries show the same pattern. GlobalFoundries, the world's fifth-largest,[^trendforce] reports that its ten largest customers took 63% of its wafer shipments in 2025. (Wafers are the thin silicon discs that chips are made on.) It also notes that "Nearly all of our customers already maintain their own semiconductor design capability".[^gf-20f] At SkyWater, a much smaller US chipmaker, three customers provided 43%, 21% and 10% of revenue in its 2025 financial year.[^skyt-10k]
 
@@ -102,11 +102,21 @@ Chipmakers say so plainly in their filings:
 
 Imagination Technologies shows what that looks like. The British company licensed graphics-chip designs and relied on Apple "for about half of its revenues". In April 2017 Imagination announced that Apple planned to stop using its technology, and its shares fell by as much as 71% in a day.[^cnbc] Imagination designed chips rather than making them, but a chip factory with a customer that size is exposed in exactly the same way.
 
+### And investors charge for the risk
+
+Shareholders and lenders can see this dependence, and they price it. A 2016 study of suppliers found "a positive association between customer concentration and a supplier's cost of equity", a relation "more pronounced for suppliers that are more likely to lose major customers". It also found "a positive relation between corporate customer concentration and a supplier's cost of debt". (Concentration on safer government customers had the opposite effect.)[^dhaliwal]
+
+A 2017 study of bank loans found that "Higher customer concentration increases interest rate spreads and the number of restrictive covenants", and "also abbreviates the maturity of those loans". Those effects were "intensified by … the level of relationship-specific investments": money a supplier has sunk into serving particular customers.[^campello]
+
+Neither study looked at chip factories specifically. But in our view, a factory built around a few customers' products is exactly that kind of relationship-specific investment. If so, the spiral has a second loop: depending on a few customers makes the money for the next, even more expensive factory cost more too.
+
 ### Factories get built around their biggest customers
 
-With customers this large, a factory's calendar, capacity and plans follow theirs. TSMC's filing warns that "a more concentrated customer base will subject our revenue to seasonal demand fluctuations from our large customers".[^tsmc-20f] When SkyWater bought Infineon's Fab 25 factory in Austin, Texas, Infineon went from 7% of SkyWater's revenue to 43% in a single year.[^skyt-10k]
+With customers this large, a factory's calendar, capacity and plans follow theirs. TSMC's filing warns that "A more concentrated customer base may subject our revenue to seasonal demand fluctuations from our large customers".[^tsmc-20f-2025] When SkyWater bought Infineon's Fab 25 factory in Austin, Texas, Infineon went from 7% of SkyWater's revenue to 43% in a single year.[^skyt-10k]
 
 The dependence runs both ways. GlobalFoundries explains why customers stay: "Given the time and costs associated with moving a single-sourced product to a competitor, clients are more likely to continue awarding us single-source contracts for such products."[^gf-20f] A chip designed for one factory's process is expensive to move, so the factory and its biggest customers end up locked to each other.
+
+Getting out can cost a fortune. GlobalFoundries made chips for AMD under a "take-or-pay" agreement: AMD had to pay for agreed volumes whether or not it used them. In 2012 AMD said it would "make a termination payment of $320 million related to the take-or-pay agreement with GLOBALFOUNDRIES".[^amd-2012] In 2016 it agreed to "a $100 million cash payment to GF", a share warrant it valued at $235 million, and "quarterly payments to GF … based on the volume of certain wafers purchased from another wafer foundry".[^amd-2016] Only in 2019 did AMD gain "full flexibility to contract with any wafer foundry" for its chips made at 7 nanometres and smaller, "without any one-time payments or royalties".[^amd-2019]
 
 ### So they learn not to take risks
 
@@ -158,7 +168,9 @@ But the argument for an open chip factory doesn't need the tail to outsell the h
 
 Those experiments matter for a second reason: learning. Step 3 described how costs fall as experience piles up, which is why factories chase scale. But Wright's law counts units, and what counts as a unit matters. A 2020 article in *Science* compared energy technologies ranging from solar panels, e-bikes and smart thermostats to carbon capture and storage. Its authors found that "learning is faster for more-granular energy technologies": the smaller, cheaper and more numerous the units, the faster costs fell. They concluded that, "Under certain conditions", such technologies are "empirically associated with faster diffusion, lower investment risk, faster learning" and more.[^wilson]
 
-Our argument is that chip-making has ridden the experience curve on wafers, but not on ideas. In our view, custom designs and new process experiments each happen in small numbers and in secret, so what one team learns adds little to anyone else's experience. A factory running thousands of small, public experiments would pile up experience far faster, and share it, as open source did for software.
+Learning already spreads between chip companies, but less than it could. A study of memory-chip makers from 1974 to 1992 found that "learning spills over just as much between firms in different countries as between firms within a given country". It also found that firms "learn three times more from an additional unit of their own cumulative production than from an additional unit of another firm's cumulative production", and that "intergenerational learning spillovers are weak": what firms learned on one generation of chips carried over little to the next.[^irwin]
+
+Our argument is that chip-making has ridden the experience curve on wafers, but much less on ideas. In our view, custom designs and new process experiments happen in small numbers and mostly in secret, and each new generation starts largely afresh, so the spillovers that do exist have little to work with. A factory running thousands of small, public experiments would pile up experience far faster, and give it far more room to spread, as open source did for software.
 
 ### Four ideas for the factory
 
@@ -179,6 +191,7 @@ People inside the chip industry will say this model can't work. They are describ
 The usual objections, briefly:
 
 - **"Small customers don't pay the bills."** One at a time, they don't, so the model mustn't make each one expensive to serve. Cloud computing made the same shift, from negotiated contracts to published prices anyone can pay.[^aws]
+- **"Small customers will pay more per unit than big ones."** Yes, and that's by design. Flexibility costs money everywhere: Amazon's cloud gives customers who commit in advance "the most significant discount (up to 72% off On-Demand)".[^aws-ri] In an open factory, small customers pay for the freedom not to commit, and anyone who wants a fixed or lower price can buy that certainty from others in the market.
 - **"Most of their ideas won't work."** True, and it doesn't matter to the factory's income. Most start-ups don't work either: in the venture-backed start-ups studied, about 55% ended at a loss.[^nber] The value comes from the few that don't, and from the fact that everyone got to try.
 - **"You can't let customers loose on a factory's processes."** The factory still protects its machines and never runs anything that would damage them. Everything else, including whether a customer's idea works, is the customer's risk, not the factory's.
 
@@ -198,6 +211,8 @@ This document is about *why*. A separate draft, `PRINCIPLES.md`, sets out *how* 
 
 [^nber]: William R. Kerr, Ramana Nanda and Matthew Rhodes-Kropf, "Entrepreneurship as Experimentation", NBER Working Paper 20358, 2014 (published in the *Journal of Economic Perspectives* 28(3)): <https://www.nber.org/system/files/working_papers/w20358/w20358.pdf>
 
+[^aws-ri]: Amazon Web Services, "Amazon EC2 Reserved Instances": <https://aws.amazon.com/ec2/pricing/reserved-instances/>
+
 [^hbs]: Manuel Hoffmann, Frank Nagle and Yanuo Zhou, "The Value of Open Source Software", Harvard Business School Working Paper 24-038, 2024: <https://www.hbs.edu/ris/Publication%20Files/24-038_51f8444f-502c-4139-8bf2-56eb4b65c58a.pdf>
 
 [^arm]: Arm Holdings plc, prospectus (Form 424B4) filed with the US SEC, September 2023, citing International Business Strategy, Inc.: <https://www.sec.gov/Archives/edgar/data/1973239/000119312523235320/d550931d424b4.htm>
@@ -211,6 +226,8 @@ This document is about *why*. A separate draft, `PRINCIPLES.md`, sets out *how* 
 [^se-mature]: Mark LaPedus, "Chip Shortages Grow For Mature Nodes", *Semiconductor Engineering*, 22 July 2021: <https://semiengineering.com/chip-shortages-grow-for-mature-nodes/>
 
 [^trendforce]: TrendForce, "AI Demand Drives 4Q25 Global Top 10 Foundries Revenue Up 2.6% QoQ", 12 March 2026: <https://www.trendforce.com/presscenter/news/20260312-12965.html>
+
+[^tsmc-20f-2025]: Taiwan Semiconductor Manufacturing Company, Annual Report on Form 20-F for 2025, filed with the US SEC on 16 April 2026 (risk factors): <https://www.sec.gov/Archives/edgar/data/1046179/000162828026025362/tsm-20251231.htm>
 
 [^tsmc-bo]: TSMC, *2024 Business Overview*, published 2025: <https://investor.tsmc.com/sites/ir/annual-report/2024/2024%20Business%20Overview_0.pdf>
 
@@ -229,6 +246,16 @@ This document is about *why*. A separate draft, `PRINCIPLES.md`, sets out *how* 
 [^spectrum-gf]: Samuel K. Moore, "GlobalFoundries Halts 7-Nanometer Chip Development", *IEEE Spectrum*, 28 August 2018: <https://spectrum.ieee.org/globalfoundries-halts-7nm-chip-development>
 
 [^porter]: Michael E. Porter, "The Five Competitive Forces That Shape Strategy", *Harvard Business Review*, January 2008: <https://hbr.org/2008/01/the-five-competitive-forces-that-shape-strategy>
+
+[^dhaliwal]: D. S. Dhaliwal, J. S. Judd, M. Serfling and S. Shaikh, "Customer Concentration Risk and the Cost of Equity Capital", *Journal of Accounting and Economics* 61(1), 2016, pp. 23–48 (abstract): <https://econpapers.repec.org/RePEc:eee:jaecon:v:61:y:2016:i:1:p:23-48>
+
+[^campello]: M. Campello and J. Gao, "Customer Concentration and Loan Contract Terms", *Journal of Financial Economics* 123(1), 2017, pp. 108–136 (abstract): <https://ideas.repec.org/a/eee/jfinec/v123y2017i1p108-136.html>
+
+[^amd-2012]: AMD, "AMD Amends Wafer Supply Agreement With GLOBALFOUNDRIES", press release, 6 December 2012: <https://ir.amd.com/news-events/press-releases/detail/98/amd-amends-wafer-supply-agreement-with-globalfoundries>
+
+[^amd-2016]: AMD, "AMD Announces Multi-Year Amendment to the Wafer Supply Agreement With GLOBALFOUNDRIES", press release, 31 August 2016: <https://ir.amd.com/news-events/press-releases/detail/711/amd-announces-multi-year-amendment-to-the-wafer-supply-agreement-with-globalfoundries>
+
+[^amd-2019]: Advanced Micro Devices, Inc., Form 8-K, filed with the US SEC on 29 January 2019 (seventh amendment to the Wafer Supply Agreement): <https://www.sec.gov/Archives/edgar/data/2488/000000248819000004/a20190129q418earnings8-k.htm>
 
 [^cnbc]: Karen Gilchrist, "Imagination Technologies shares plunge as much as 71 percent after Apple ends chip deal", CNBC, 3 April 2017: <https://www.cnbc.com/2017/04/03/imagination-technologies-shares-plunge-69-percent-after-apple-withdraws.html>
 
@@ -253,6 +280,8 @@ This document is about *why*. A separate draft, `PRINCIPLES.md`, sets out *how* 
 [^bhs]: Erik Brynjolfsson, Yu (Jeffrey) Hu and Michael D. Smith, "Consumer Surplus in the Digital Economy: Estimating the Value of Increased Product Variety at Online Booksellers", *Management Science* 49(11), 2003, pp. 1580–1596 (abstract): <https://econpapers.repec.org/RePEc:inm:ormnsc:v:49:y:2003:i:11:p:1580-1596>
 
 [^elberse]: Anita Elberse, "Should You Invest in the Long Tail?", *Harvard Business Review*, July–August 2008: <https://hbr.org/2008/07/should-you-invest-in-the-long-tail>
+
+[^irwin]: Douglas A. Irwin and Peter J. Klenow, "Learning-by-Doing Spillovers in the Semiconductor Industry", *Journal of Political Economy* 102(6), 1994, pp. 1200–1227: <http://klenow.com/LBD_Spillovers.pdf>
 
 [^wilson]: Charlie Wilson, Arnulf Grubler, Nuno Bento, Steve Healey, Simon De Stercke and Caroline Zimm, "Granular technologies to accelerate decarbonization", *Science* 368(6486), 2020, pp. 36–39: <https://www.science.org/doi/10.1126/science.aaz8060> (authors' manuscript: <https://pure.iiasa.ac.at/id/eprint/16400/1/Granularity_Manuscript_preprint.pdf>)
 

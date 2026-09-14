@@ -19,7 +19,7 @@ How much foundries depend on a few customers, and what happens when a big custom
 - **Used in:** `WHY.md` "In short", §2, §3, §5.
 - **Caveats:**
   - The filing doesn't name customers. Apple (Customer A in 2024) and Nvidia are analyst attributions.
-  - 2025 figures are in CONC-11, not yet verified.
+  - 2025 figures are in CONC-11 (verified).
 
 ### CONC-2. TSMC still serves 522 customers
 

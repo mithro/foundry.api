@@ -57,8 +57,10 @@ The brief looks at the same problem as `WHY.md`, from the investor's side:
 
 ## Follow-ups
 
-1. **TSMC 2025 figures.** Verify them against the 2025 20-F (CONC-11), and update `WHY.md` if they're confirmed.
-2. **Finance papers.** Read Dhaliwal et al., Campello & Gao, and Patatoukas (FIN-2, FIN-3, FIN-5). If confirmed, add the cost-of-capital mechanism to `WHY.md` §3 and the efficiency counter-argument to §6.
-3. **AMD and GlobalFoundries.** Verify the payments from AMD's filings (CONC-8). This is a candidate hold-up example for `WHY.md` §3.
-4. **Revise `WHY.md` §5** in light of Irwin & Klenow (LEARN-7).
-5. **Add a line to `WHY.md`** explaining why small customers paying more per unit is intended.
+Status as of 2026-09-14 (`WHY.md` Draft v0.5):
+
+1. **TSMC 2025 figures.** Done. Verified from the 2025 20-F: the top ten customers rose to 78% of revenue (CONC-11). `WHY.md` is updated.
+2. **Finance papers.** Partly done. Dhaliwal et al. and Campello & Gao are verified (FIN-2, FIN-3), and the cost-of-capital mechanism is added to `WHY.md` §3. Patatoukas (FIN-5) is still only Partial, because every accessible copy of the abstract is blocked. The efficiency counter-argument is **not yet** in `WHY.md` §6.
+3. **AMD and GlobalFoundries.** Done. Verified from AMD's 2012 and 2016 press releases and 2019 8-K (CONC-8); the seventh amendment was 2019, not 2018. Added to `WHY.md` §3.
+4. **Irwin & Klenow.** Done. `WHY.md` §5 now says learning spreads between chip firms "but less than it could" (LEARN-7).
+5. **Small customers paying more.** Done. Added to `WHY.md` §6 as an objection, citing AWS's reserved-instance discount (SW-5, now Verified).

@@ -114,7 +114,7 @@ Status of each hypothesis:
 
 **Status:** Argued.
 
-- **Context:** SW-5 (Lead), where on AWS small on-demand buyers pay more per unit than committed buyers. That supports small customers paying a premium for flexibility.
+- **Context:** SW-5 (Verified), where on AWS small on-demand buyers pay more per unit than committed buyers. That supports small customers paying a premium for flexibility.
 - **Challenges:** OPEN-7, Efabless's failure, though it was an intermediary and not a fab.
 - **Needs:** cost-to-serve data for multi-project wafer and shuttle programmes, and foundry service margins by customer size.
 

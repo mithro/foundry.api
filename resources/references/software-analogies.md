@@ -54,11 +54,15 @@ What cloud computing and open source did to the cost of trying ideas in software
 
 ### SW-5. On AWS, committed buyers pay far less per unit than on-demand buyers
 
-- **Source:** AWS pricing pages, as cited in an external investor brief (see [`../analyses/tyranny-of-the-whale-brief.md`](../analyses/tyranny-of-the-whale-brief.md)).
-- **Verification:** **Lead.** We haven't checked AWS's current pages.
-- **What it says (per the brief):** Standard Reserved Instances "provide the most significant discount (up to 72% off On-Demand)", and all-upfront reservations go up to 75% off.
+- **Source:** Amazon Web Services, "Amazon EC2 Reserved Instances": <https://aws.amazon.com/ec2/pricing/reserved-instances/>. First seen in an external investor brief (see [`../analyses/tyranny-of-the-whale-brief.md`](../analyses/tyranny-of-the-whale-brief.md)).
+- **Verification:** Verified 2026-09-14 for the 72% figure. The brief's "up to 75%" for all-upfront reservations is still a **Lead**.
+- **What it says:**
+  - "Standard RIs: These provide the most significant discount (up to 72% off On-Demand) and are best suited for steady-state usage."
+  - "Convertible RIs: These provide a discount (up to 66% off On-Demand)…"
+  - Reserved Instances "provide a capacity reservation when used in a specific Availability Zone".
+  - The Savings Plans page offers "cost savings of up to 72% compared to On-Demand prices".
 - **Bears on:**
   - H6 (context): small, flexible buyers pay a premium per unit. For an open fab that premium is a feature. It matches "every preference costs money" in `PRINCIPLES.md` P5.
   - H7 (context): large committed buyers still get better terms.
-- **Used in:** not yet.
+- **Used in:** `WHY.md` §6 (from Draft v0.5).
 - **Caveats:** the brief uses this to argue that small buyers are disadvantaged. The same fact supports charging small customers more for flexibility.
