@@ -24,10 +24,10 @@ The brief looks at the same problem as `WHY.md`, from the investor's side:
 |---|---|---|
 | TSMC top ten 68% / 70% / 76% (2022–24); largest 23% / 25% / 22% | **Verified**, matches the 20-F exactly | CONC-1 |
 | TSMC serves 500+ customers | **Verified**: 522 in 2024 | CONC-2 |
-| 2025: Nvidia 19%, Apple 17% of TSMC revenue | **Lead**: check the 2025 20-F | CONC-11 |
+| 2025: Nvidia 19%, Apple 17% of TSMC revenue | **Verified** (2026-09-14): the 2025 20-F gives 19% and 17%, with the top ten at 78%. Customer names are analyst attributions. | CONC-11 |
 | TSMC held 69.9% of foundry revenue in 2025 | **Lead**. We verified 70.4% for Q4 2025, a different period, not a conflict. | CONC-12 |
 | GlobalFoundries abandoned 7nm in 2018 | **Verified** | COST-4 |
-| AMD paid GF $320M + $200M (2012) and $100M (2016) to loosen its supply agreement | **Lead** | CONC-8 |
+| AMD paid GF $320M + $200M (2012) and $100M (2016) to loosen its supply agreement | **Verified** (2026-09-14), with a correction: the $200M promissory note was *part of* the $320M payment, not in addition to it, and the seventh amendment was in 2019, not 2018 | CONC-8 |
 | Huawei was 10–15% of TSMC's business in 2019 | **Lead** | CONC-13 |
 | Nvidia booked more than 70% of 2025 CoWoS-L capacity | **Lead** | CONC-9 |
 | Apple's "known good die" deal | **Partial**: reported, then disputed. The brief notes the dispute. | CONC-7 |
@@ -35,10 +35,10 @@ The brief looks at the same problem as `WHY.md`, from the investor's side:
 | Design cost $416M at 5nm, $590M at 3nm (IBS) | **Partial**. It differs from the IBS figures in Arm's prospectus ($249M at 7nm, $725M at 2nm) because estimates from different years differ. | COST-1, COST-2 |
 | TSMC capex from $36.3B (2022) to $52–56B guidance (2026) | **Lead** | COST-7 |
 | Porter on buyer power | **Verified** | FIN-1 |
-| Dhaliwal et al. (2016), Campello & Gao (2017) on cost of capital | **Lead** | FIN-2, FIN-3 |
-| Patatoukas (2012) counter-argument | **Lead** | FIN-5 |
+| Dhaliwal et al. (2016), Campello & Gao (2017) on cost of capital | **Verified** (2026-09-14, abstracts) | FIN-2, FIN-3 |
+| Patatoukas (2012) counter-argument | **Partial**: the abstract is known only from a search summary | FIN-5 |
 | Irwin & Klenow (1994) learning spillovers | **Verified** (abstract) | LEARN-7 |
-| AWS Reserved Instances up to 72% off On-Demand | **Lead** | SW-5 |
+| AWS Reserved Instances up to 72% off On-Demand | **Verified** (2026-09-14) | SW-5 |
 | Private-equity thresholds: 15% / 20% / 30% single-customer share; 20–30% valuation discounts | **Unsourced** in the brief. Don't use them. | none |
 | Wafer prices from $3,000 (28nm) to $30,000 (2nm) | **Lead**, and the brief itself says these are unofficial channel checks | none yet |
 
