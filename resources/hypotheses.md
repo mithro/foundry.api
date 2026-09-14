@@ -34,7 +34,7 @@ Status of each hypothesis:
 
 **Claim.** Big customers push margins down, make losing one catastrophic, lock the foundry into their products, make it risk-averse, and raise its cost of capital.
 
-**Status:** Well supported on buyer power and dependence. The cost-of-capital part is still a Lead. The efficiency counter-argument is also still a Lead.
+**Status:** Well supported on buyer power, dependence and the cost of capital. The efficiency counter-argument is still only partly verified.
 
 - **Supports:**
   - CONC-1, CONC-3, CONC-5: the filings' own risk factors
@@ -43,17 +43,18 @@ Status of each hypothesis:
   - RISK-1: customers depend on processes not changing
   - CONC-4: GlobalFoundries' top ten customers were 73–75% of wafers before its IPO
   - COST-8: TSMC spends 7.1% of revenue on R&D, guessing the future at its own expense
+  - CONC-8: AMD paid $320M (2012), and $100M plus a warrant valued at $235M (2016), to loosen its GlobalFoundries supply agreement
+  - CONC-11: TSMC's top ten customers rose to 78% of revenue in 2025
+  - FIN-2: concentration raises a supplier's cost of equity and debt
+  - FIN-3: concentration worsens loan terms, more so with relationship-specific investment
 - **Mixed:** CONC-7, Apple's reported "known good die" terms (reported, then disputed).
-- **Challenges (Lead):**
-  - FIN-5: Patatoukas (2012), concentration can bring efficiencies
+- **Challenges:**
+  - FIN-5 (Partial): Patatoukas (2012), concentration can bring efficiencies
   - FIN-6: Irvine, Park & Yıldızhan (2016)
 - **Leads:**
-  - FIN-2, FIN-3: cost of equity and debt
   - FIN-4: Wal-Mart suppliers
-  - CONC-8: AMD's payments to loosen its GlobalFoundries supply agreement
   - CONC-9: capacity pre-emption (CoWoS)
   - CONC-10: value capture, Nvidia's gross margin versus TSMC's
-  - CONC-11: TSMC's 2025 customer shares
   - CONC-13: the Huawei cut-off
   - CONC-14: Apple's move from Samsung to TSMC
   - FIN-8: hold-up theory
@@ -125,7 +126,7 @@ Status of each hypothesis:
 
 - **Supports:** FIN-1 (Porter: buyers are powerful when few, or when large relative to the seller).
 - **Leads:** FIN-7 (countervailing-power theory), FIN-9 (diversification theory).
-- **Challenges (Lead):** FIN-5, enterprise concentration can bring efficiencies and stickiness.
+- **Challenges (Partial):** FIN-5, enterprise concentration can bring efficiencies and stickiness.
 
 ## H8. Openness is necessary to attract many small customers
 

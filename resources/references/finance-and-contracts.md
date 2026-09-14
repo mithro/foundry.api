@@ -20,21 +20,33 @@ Most entries here are **Leads**. They come from the reference list of an externa
 - **Used in:** `WHY.md` §3.
 - **Caveats:** a strategy framework, not an empirical study of foundries.
 
-### FIN-2. Customer concentration raises a supplier's cost of equity
+### FIN-2. Customer concentration raises a supplier's cost of equity, and its cost of debt
 
-- **Source:** D. Dhaliwal, J. S. Judd, M. Serfling and S. Shaikh, "Customer Concentration Risk and the Cost of Equity Capital", *Journal of Accounting and Economics* 61(1), 2016, pp. 23–48. DOI 10.1016/j.jacceco.2015.08.003.
-- **Verification:** **Lead.**
-- **What it says (per the brief):** a concentrated corporate customer base raises both the cost of equity and the cost of debt, and the effect is stronger where the risk of losing a major customer is higher.
-- **Bears on:** H2 (supports: concentration makes the next fab more expensive to finance).
-- **Used in:** not yet. A strong candidate for `WHY.md` §3.
+- **Source:** D. S. Dhaliwal, J. S. Judd, M. Serfling and S. Shaikh, "Customer Concentration Risk and the Cost of Equity Capital", *Journal of Accounting and Economics* 61(1), 2016, pp. 23–48. DOI 10.1016/j.jacceco.2015.08.003. Abstract: <https://econpapers.repec.org/RePEc:eee:jaecon:v:61:y:2016:i:1:p:23-48>
+- **Verification:** Verified 2026-09-14 (abstract, via EconPapers). The full paper wasn't read.
+- **What it says (abstract):**
+  - "We hypothesize that a more concentrated customer base increases a supplier's risk, which results in a higher cost of equity."
+  - "Our results show a positive association between customer concentration and a supplier's cost of equity, and this relation is more pronounced for suppliers that are more likely to lose major customers or that are more prone to larger losses if they lose such customers."
+  - "We also provide evidence that a supplier with a concentrated base of safer government customers has a lower cost of equity."
+  - "Finally, we document a positive relation between corporate customer concentration and a supplier's cost of debt."
+- **Bears on:** H2 (supports): concentration makes capital, and so the next fab, more expensive.
+- **Used in:** `WHY.md` §3 (from Draft v0.5).
+- **Caveats:**
+  - The sample is US-listed suppliers in general, not foundries.
+  - Concentration on *government* customers lowers the cost of equity, so the kind of customer matters, not just how concentrated they are.
 
-### FIN-3. Customer concentration worsens loan terms
+### FIN-3. Customer concentration worsens loan terms, especially with relationship-specific investment
 
-- **Source:** M. Campello and J. Gao, "Customer Concentration and Loan Contract Terms", *Journal of Financial Economics* 123(1), 2017, pp. 108–136. DOI 10.1016/j.jfineco.2016.03.010.
-- **Verification:** **Lead.**
-- **What it says (per the brief):** higher customer concentration increases interest-rate spreads and the number of restrictive covenants, and shortens loan maturities.
-- **Bears on:** H2 (supports).
-- **Used in:** not yet. A strong candidate for `WHY.md` §3.
+- **Source:** M. Campello and J. Gao, "Customer Concentration and Loan Contract Terms", *Journal of Financial Economics* 123(1), 2017, pp. 108–136. DOI 10.1016/j.jfineco.2016.03.010. Abstract: <https://ideas.repec.org/a/eee/jfinec/v123y2017i1p108-136.html>
+- **Verification:** Verified 2026-09-14 (abstract, via IDEAS/RePEc). The full paper wasn't read.
+- **What it says (abstract):**
+  - "Higher customer concentration increases interest rate spreads and the number of restrictive covenants featured in newly initiated as well as renegotiated bank loans."
+  - "Customer concentration also abbreviates the maturity of those loans as well as the relationship between firms and their banks."
+  - "These effects are intensified by customers' financial distress, the level of relationship-specific investments, and the use of trade credit in customer–supplier relations."
+  - "Our evidence shows that a deeper exposure to a small set of large customers bears negative consequences for a firm's relations with its creditors…"
+- **Bears on:** H2 (supports). A fab built around one customer's products is exactly the relationship-specific investment that makes the effect stronger.
+- **Used in:** `WHY.md` §3 (from Draft v0.5).
+- **Caveats:** bank loans to firms in general, not foundries specifically.
 
 ### FIN-4. Wal-Mart's suppliers earned lower margins
 
@@ -47,12 +59,15 @@ Most entries here are **Leads**. They come from the reference list of an externa
 ### FIN-5. Concentration can bring efficiencies (a counter-argument)
 
 - **Source:** P. N. Patatoukas, "Customer-Base Concentration: Implications for Firm Performance and Capital Markets", *The Accounting Review* 87(2), 2012, pp. 363–392. DOI 10.2308/accr-10198.
-- **Verification:** **Lead.**
-- **What it says (per the brief):** concentration can bring coordination efficiencies (lower selling and administrative costs, better asset use, higher accounting returns), even as gross margins fall.
+- **Verification:** **Partial.** The abstract is known only from a search summary. The publisher's page (publications.aaahq.org) is behind a bot challenge, SSRN blocks automated tools, and Semantic Scholar's copy has the abstract removed by the publisher.
+- **What it says (per a search summary of the abstract):**
+  - "In contrast to the conventional view of customer-base concentration as an impediment to supplier firm performance", the paper finds "a positive contemporaneous association" between customer concentration and accounting rates of return, "suggesting that efficiencies accrue to suppliers with concentrated customer bases".
+  - Increases in concentration predict "reduced operating expenses per dollar of sales and enhanced asset utilization".
+  - Per the external brief, gross margins fall at the same time.
 - **Bears on:**
   - H2 (challenges).
   - H7 (challenges): concentration isn't all downside.
-- **Used in:** not yet. `WHY.md` §6 should address it once verified.
+- **Used in:** not yet. `WHY.md` §6 should address it once the abstract is verified from an accessible copy, or by a person reading it directly.
 
 ### FIN-6. The effect of concentration changes over the life of a relationship
 
