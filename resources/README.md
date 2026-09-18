@@ -10,6 +10,7 @@ It is a working notebook, not a finished document. `WHY.md` and `PRINCIPLES.md` 
 |---|---|
 | [`hypotheses.md`](hypotheses.md) | The hypotheses we are testing (H1, H2, …). Each one links to the evidence for and against it. Start here. |
 | [`references/`](references/) | Reference entries, grouped by topic. One entry per source. |
+| [`demand/`](demand/) | Evidence gathered specifically on H5 (is there a long tail of demand for chips?) and H6 (can each small customer be profitable?), plus a log of what was searched and what could not be reached. |
 | [`analyses/`](analyses/) | Longer write-ups: assessments of outside reports, internal reviews, and deep dives on a single question. |
 
 ### Reference topics

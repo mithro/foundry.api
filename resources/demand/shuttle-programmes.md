@@ -418,3 +418,173 @@ is are therefore a direct measure of how many people want to make a chip at a gi
   - "This hit 500 chip designs" is the journalist's figure. Our own count from the Tiny Tapeout API
     (DEM-2) gives TT08 135 + TT09 369 + TT10 112 = 616 submissions across the three affected runs,
     or 504 for TT08 and TT09 alone — which is presumably what the 500 refers to.
+
+### DEM-16. Europractice's annual design count, 2000–2025: a twenty-year plateau, a step up, then a decline
+
+- **Sources:** EUROPRACTICE annual activity reports, all at `europractice-ic.com`:
+  - *EP activity Report 2017*: <https://europractice-ic.com/wp-content/uploads/2019/06/EP-activity-Report-2017.pdf>
+  - *Activity Report 2021*: <https://europractice-ic.com/wp-content/uploads/2022/03/europractice_ar2021_web_150dpi.pdf>
+  - *Activity Report 2022*: <https://europractice-ic.com/wp-content/uploads/2023/03/2023-03-22_europractice_ar2022_web.pdf>
+  - *Activity Report 2024*: <https://europractice-ic.com/wp-content/uploads/2025/10/Europractice_ActivityReport2024_webversion.pdf>
+  - *Activity Report 2025*: <https://europractice-ic.com/wp-content/uploads/2026/03/Europractice_AR2025_web.pdf>
+- **Verification:** **Mixed, and the entry says which part is which.**
+  - **Verified 2026-09-18** by us, from the PDFs downloaded and their text layers extracted and read:
+    the 2000–2017 series (the data labels on the 2017 report's chart), and the totals for 2016 (575),
+    2017 (614), 2021 (985), 2022 (731), 2024 (837) and 2025 (753).
+  - **Partial:** the totals for 2014 (544), 2015 (569), 2018 (624), 2019 (884), 2020 (896) and 2023
+    (813). These were reported to us with quotes and document URLs, but we did not open those six
+    PDFs ourselves.
+- **What it says:**
+  - **The series.** The 2017 report's chart, captioned "MPW designs in 2017" with the three-series
+    legend "Industry + non-European univ/research / Europractice Research / Europractice Academic",
+    carries data labels for every year from 2000. Read out of the PDF text, the label triplets are:
+    2000 140/27/313; 2001 159/46/281; 2002 155/13/237; 2003 115/48/200; 2004 128/52/234;
+    2005 138/69/243; 2006 134/84/215; 2007 154/87/298; 2008 164/85/285; 2009 153/87/305;
+    2010 113/83/337; 2011 143/96/321; 2012 139/105/301; 2013 144/87/307; 2014 153/80/311;
+    2015 169/72/328; 2016 145/128/301; 2017 182/109/323.
+  - **DERIVED**, summing each triplet: 2000 → 480; 2001 → 486; 2002 → 405; 2003 → 363; 2004 → 414;
+    2005 → 450; 2006 → 433; 2007 → 539; 2008 → 534; 2009 → 545; 2010 → 533; 2011 → 560; 2012 → 545;
+    2013 → 538; 2014 → 544; 2015 → 569; 2016 → 574; 2017 → 614.
+  - **Later years, from the reports' prose:** 2018 → 624; 2019 → 884; 2020 → 896; 2021 → 985;
+    2022 → 731; 2023 → 813; 2024 → 837; 2025 → 753.
+  - Quotes for the years we read ourselves:
+    - 2017: "In 2017, a total of 614 designs have been prototyped, a significant increase compared to
+      2016, when already a record-high number of 575 designs were noted. 70% of the designs are sent
+      in by European universities and research institutes while the remaining 30% of the designs is
+      accorded for by non-European universities (20%) and commercial companies world-wide (10%)."
+    - 2021: "In 2021, EUROPRACTICE customers submitted 985 designs. We are very pleased to see that
+      this is a ten-percent growth compared to the previous year, despite the supply shortages. Most
+      of the designs (74%) were prototyped by European academia and industry."
+    - 2024: "Our users submitted a total of 837 designs for prototyping, marking a slight
+      three-percent increase compared to the previous year. … As in previous years, the majority of
+      designs (78%) were submitted by European users. Within Europe, universities and research
+      institutes contributed 69% of the total submissions, while the industry, primarily SMEs and
+      startups, accounted for 9%."
+    - 2025: "In line with this focus, 753 designs were fabricated through Europractice MPW services
+      in 2025 by users from academic and research institutions worldwide. The majority came from
+      Europe: 85% of all designs originated from Europractice member institutions in the EU and the
+      rest of the EMEA region."
+- **Bears on:**
+  - **H5 (challenges, and this is the most important single series in the directory).** Europe's MPW
+    broker ran between **363 and 614 designs a year for the whole of 2000 to 2017** — eighteen years,
+    essentially flat, through the entire period in which design tools, IP reuse and the internet were
+    supposed to be lowering the barrier to making a chip. It stepped up to 884–985 in 2019–2021 and
+    has since fallen back to 753. There is no sign here of a dam waiting to burst.
+  - **H5 (challenges).** The users are overwhelmingly academic. In 2024, 69% of submissions came from
+    European universities and research institutes and only 9% from European industry.
+  - **H5 (supports, weakly).** Demand has been *continuous* for a quarter of a century and has never
+    collapsed, and the 2019–2021 step is real growth even allowing for the scope change below.
+- **Used in:** not yet.
+- **Caveats:**
+  - **The series is not on a consistent basis, and Europractice says so itself.** The 2019 report
+    reads: "In 2019, a total of 884 submitted designs have been prototyped on EUROPRACTICE MPW runs.
+    This number is much higher than for previous years, since it includes MPW prototypes in TSMC
+    technologies and all prototypes from MPW runs organized by CMP. Therefore, any comparison with
+    previous years will be difficult." (Reported to us; **Partial**.) So the 2019 step is at least
+    partly a merger of Europractice's and CMP's counts, not new demand. Likewise the 2025 fall is
+    partly definitional: European SMEs and start-ups moved to a separate service, EuroCDP.
+  - The chart's per-series split is inferred from the order in which the labels extract and is **not**
+    certain. Only the totals should be cited. The 2016 total from the chart (574) and from the 2017
+    report's prose (575) differ by one.
+  - Europractice is subsidised (`SMB-6`), so this is not demand at an unsubsidised price.
+  - **Europractice does not publish the number of MPW runs it offers per year** in any activity report
+    we or the search covered. See [`search-log.md`](search-log.md).
+
+### DEM-17. A Europractice stimulation programme: 98 applications, 50 designs selected
+
+- **Source:** EUROPRACTICE, *EP activity Report 2017*, section "RESULTS — MPW PROTOTYPING SERVICE":
+  <https://europractice-ic.com/wp-content/uploads/2019/06/EP-activity-Report-2017.pdf>
+- **Verification:** Verified 2026-09-18 from the PDF text.
+- **What it says, verbatim:** "Overall a total of 98 applications were submitted to 6 First User
+  Stimulation Programmes by 73 universities from 23 countries. These design proposals were and judged
+  by 5 independent expert committees and 50 designs were selected for fabrication." (The "were and
+  judged" is in the source.)
+- **DERIVED:** 50 ÷ 98 = a **51% acceptance rate**; 98 applications from 73 universities is 1.3
+  applications per institution.
+- **Bears on:**
+  - **H5 (supports).** One of very few published rejection rates for a chip-fabrication programme.
+    When Europractice offered subsidised first-time fabrication, twice as many applications arrived as
+    there were places. That is the same shape as the Google Open MPW shuttles (DEM-4 to DEM-9):
+    whenever the price approaches zero, applications exceed the slots on offer.
+  - **H5 (context).** 98 applications across 23 countries is, in absolute terms, small.
+- **Used in:** not yet.
+- **Caveats:** a subsidised, promoted, one-off programme aimed at first-time users. Oversubscription
+  at a price near zero says nothing about demand at a price that covers costs.
+
+### DEM-18. Europractice's own price list says several TSMC shuttles are "extremely loaded" and a waiting list may be created
+
+- **Source:** EUROPRACTICE IC Service, "Schedules & Prices 2025", TSMC sections, under "Important
+  notes": <https://europractice-ic.com/schedules-prices-2025/>
+- **Verification:** Verified 2026-09-18, read directly from the page text. The wording appears twice
+  on the page, once in the standard TSMC block and once in the TSMC mini@sic block.
+- **What it says, verbatim:** "Dates are GDS submission deadlines. Several TSMC shuttles are extremely
+  loaded. For any technology, please make your design registration as early as possible. We will work
+  with you and do our best to get your design on the run. If required, a waiting list will be
+  created."
+- **Bears on:**
+  - **H5 (supports).** A live, current statement from a broker that demand for particular shuttle
+    slots exceeds supply, made in the one place where saying it costs the broker something: its own
+    price list.
+- **Used in:** not yet.
+- **Caveats:**
+  - It is about **TSMC** shuttles specifically — the most advanced and most capacity-constrained
+    technologies in the portfolio — not about chip fabrication generally. Contrast DEM-2, where about
+    a third of Tiny Tapeout's own runs went materially undersubscribed.
+  - "If required, a waiting list will be created" is conditional: it does not say one exists.
+  - No numbers.
+
+### DEM-19. CMP (Grenoble) fabricated 100–400 circuits a year for thirty years, and no more
+
+- **Source:** CMP (Circuits Multi-Projets), *CMP Annual Report 2011*, history section, report
+  pp. 11–14. CMP's own site is gone (see caveats); read from the Internet Archive:
+  <https://web.archive.org/web/20210404130708if_/https://mycmp.fr/IMG/pdf/cmp_annual-report-2011_full_version.pdf>
+- **Verification:** Verified 2026-09-18 from the archived PDF, text extracted and read. (`WebFetch`
+  refuses `web.archive.org` outright, so the Wayback work was done with `curl` and the `if_`/`id_`
+  raw-content forms.)
+- **What it says** — quoted from the report's year-by-year history, with the spacing artefacts of the
+  PDF's text layer closed up:
+  - 1993: "25 runs have been organized… Nearly 200 circuits coming from 55 Institutions were
+    fabricated"
+  - 1994: "In total 32 runs gathered 251 circuits, from 75 Institutions"
+  - 1995: "95 Institutions (Universities, Research Laboratories and Industrial Companies) submitted
+    298 circuits for education, research and industrial purposes. … In total 34 runs totalizing
+    3817 mm 2 took place."
+  - 1996: "a total of 107 Institutions … submitted 354 circuits"
+  - 1998: "a total of 90 Institutions … submitted 259 circuits"
+  - 2006: "a total of 329 circuits … for 93 organizations … (22 countries). Compared to 2005 the
+    number of circuits increased by 25%."
+  - 2007: "a total of 401 circuits were fabricated for 105 organizations (Universities, Research
+    Laboratories and Industrial Companies) all over the world (23 countries). Compared to 2006 the
+    number of circuits increased by 22% and the number of participants increased by 13%."
+  - 2008: "a total of 375 circuits were fabricated for 89 organizations"
+  - 2009: "a total of 391 circuits were fabricated for 104 organizations"
+  - 2010: "a total of 354 circuits were fabricated for 122 Universities, Research Laboratories and
+    Companies from 23 countries."
+  - 2011: "a total of 273 circuits were fabricated for 96 Universities, Research Laboratories and
+    Companies from 19 countries."
+- **Bears on:**
+  - **H5 (challenges).** France's national MPW service peaked at 401 circuits a year in 2007 and was
+    back to 273 by 2011. Thirty years of continuous operation produced a service that never exceeded
+    about 400 designs a year from about 100 institutions.
+  - **H5 (context).** CMP published the run count where most services do not: 25 runs (1993), 32
+    (1994), 34 (1995) — roughly 8 to 10 circuits per run.
+- **Used in:** not yet.
+- **Caveats:**
+  - **CMP no longer exists as an operating service.** Its domain `mycmp.fr` now resolves to a
+    domain-parking page and `cmp.imag.fr` is dead. The Europractice 2022 activity report (verified for
+    DEM-20) records that CMP "had to stop fabrication activities at STMicroelectronics, ams and
+    CEA-Leti due to administrative reasons" and that "a new French MPW service, CIME-P, was created in
+    October 2022 and joined the consortium". That is a supply-side failure, not a demand one, but it
+    removed a thirty-year-old MPW service from Europe.
+  - The counts are CMP's own, in a promotional annual report, and the wording alternates between
+    "submitted" and "fabricated" from year to year.
+  - A 2015 figure — "A total of 265 circuits were fabricated for 90 Institutions, Research
+    Laboratories and Companies from 25 countries" — was reported to us from
+    <https://web.archive.org/web/20210404130708if_/https://mycmp.fr/IMG/pdf/cmp_annual-report-2015_full_version.pdf>
+    but we did not open that PDF: **Partial**.
+  - CMP's cumulative counters are internally inconsistent about runs — "1029 runs" (2017 web
+    snapshot), "1043 MPW runs" (2019 snapshot), "1142 manufacturing runs" (2021, via a conference
+    company profile). Fourteen runs in twenty-seven months followed by ninety-nine in eighteen months
+    is not a credible run rate; either the definition changed or a counter was stale. All three are
+    **Partial** — reported to us from archived pages we did not open — and no run-rate argument should
+    be built on them.

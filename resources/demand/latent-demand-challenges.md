@@ -235,3 +235,138 @@ DEM-2, DEM-9 and DEM-10, next to the supporting numbers, rather than separated o
     `investor.tsmc.com` returns 403 as well. With 534 customers and the top ten at 78% (both from
     `CONC-11`), the answer would be close to US$50 million each, but we have not verified TSMC's 2025
     revenue and so do not state it. See [`search-log.md`](search-log.md).
+
+### DEM-20. CMC Microsystems, Canada's national service, is on a four-year decline: 400+ → 240 prototypes a year
+
+- **Source:** CMC Microsystems, *Annual Report 2025-26*:
+  <https://www.cmc.ca/wp-content/uploads/2026/09/CMCMicrosystemsAnnualReport_2025-26_EN.pdf>
+- **Verification:** Verified 2026-09-18 from the PDF text.
+- **What it says, verbatim:**
+  - "13,495 Designs have been fabricated through CMC's global network"
+  - "In 2025/26, 240 advanced technology prototypes were fabricated through CMC, contributing to an
+    average of 360 prototypes over the past five years. In a continuing trend, photonics and silicon
+    photonics technologies outpace microelectronics designs at 40% of the total."
+  - Chart caption: "5-Years, 1,803 Designs Prototyped through CMC Microsystems … Period: April 2021 –
+    March 2026". Breakdown of that five-year total: "MPW manufacturing accounted for 1,369 designs,
+    and custom MNT labs were accessed through CMC to manufacture" the remainder.
+  - Company summary panel: "100+ Global supply chain vendors; includes 50+ located in Canada / 13,495
+    Prototypes manufactured / 290 Startups to-date; 49% remain active in Canada / 110,000 Trained HQP
+    / 8,400 Academic-industry collaborations supported".
+  - History: "Thanks to a novel partnership with Nortel Networks Corporation and key Canadian
+    companies, 3,300 designs were manufactured through CMC within our first 10-years."
+- **Earlier years (Partial — reported to us with URLs, not opened by us):** 2017-18 "300"; 2019-20
+  "200 designs submitted to fabrication"; 2021-22 "More than 400 semiconductor prototypes submitted
+  to fabrication, including a record 158 photonics designs"; 2023-24 "More than 360 semiconductor
+  prototypes submitted to fabrication"; 2024-25 "305 prototypes were fabricated through CMC's".
+- **Bears on:**
+  - **H5 (challenges).** Canada's national programme has fallen for four consecutive years on the
+    figures above — 400+ (2021-22), 360+ (2023-24), 305 (2024-25), **240 (2025-26)** — and the report
+    itself frames 240 against a five-year average of 360. Forty years of operation produced 13,495
+    designs, i.e. about 340 a year averaged over its whole life.
+  - **H5 (supports, weakly).** "290 Startups to-date; 49% remain active in Canada" is one of the few
+    published counts of companies that came out of a small-customer chip programme.
+- **Used in:** not yet.
+- **Caveats:**
+  - CMC is a publicly funded Canadian national programme whose volumes follow its grant funding at
+    least as much as they follow demand. A falling count may be a falling budget.
+  - Its financial years run April–March, so the labels are not calendar years.
+  - Only the 2025-26 figures were read by us; the earlier series is **Partial**.
+  - A shift toward photonics — "photonics and silicon photonics technologies outpace microelectronics
+    designs at 40% of the total" — means the mix, not just the level, changed.
+
+### DEM-21. The NSF's own workshop report: cost is a real barrier, shuttles get overbooked, shuttles get cancelled, and some designs are simply never made
+
+- **Source:** Matthew Guthaus (chair) and the steering committee (C. Batten, E. Brunvand,
+  P.-E. Gaillardon, D. Harris, R. Manohar, P. Mazumder, L. Pileggi, J. Stine), *NSF Integrated Circuit
+  Research, Education and Workforce Development Workshop Final Report*, arXiv:2311.02055, submitted
+  2023-11-03: <https://arxiv.org/abs/2311.02055> (PDF: <https://arxiv.org/pdf/2311.02055>)
+- **Verification:** Verified 2026-09-18. The PDF was downloaded and its text extracted and read.
+- **What it says, verbatim:**
+  - Under "Fabrication Costs are Significant": "For the latest technology nodes, the key challenge is
+    cost, not only pertaining to fabrication, but also managing design and verification complexity, as
+    well as usage and maintenance of designs kits and tools. Even for some older technology nodes,
+    fabricating designs with a reasonable number of transistors can quickly exceed many tens of
+    thousands of dollars." And: "Yet another challenge related to cost comes from minimum die size
+    requirements. In FinFET technologies (typically 16nm and below), some services require a minimum
+    chip area of 2mm X 2mm, which comes at a cost close to $100,000."
+  - Under "Limited Shuttle Space": "The shuttle programs can be overbooked and sometimes can be
+    canceled. In the case of the OpenMPW shuttles provided by Google and supported by Efabless, a
+    lottery system is used to select which set of 40 projects is fabricated on each shuttle. Interest
+    in particular technology nodes, such as older ones, may be mostly desired by academia yet not
+    desirable enough to make economic sense for a fabrication run. These issues can have a significant
+    impact on research progress and student graduation."
+  - Under "Summary of Current State": "Currently, there are two approaches for instructional
+    tape-outs: industry subsidized in relatively recent technology nodes (e.g., TSMC 28nm at UC
+    Berkeley and CMU) and low-cost tape-outs on older technology nodes (e.g., SkyWater 130nm through
+    Efabless at Cornell, Yale, Stanford, and UCSC). There is also the third option where a design is
+    not taped-out at all."
+  - On MOSIS: "MOSIS previously had a free academic program for tape-outs which was supported by NSF
+    and industry but was discontinued in 2020."
+- **Bears on:**
+  - **H5 (supports).** "The shuttle programs can be overbooked", the confirmation that Google's
+    OpenMPW used "a lottery system … to select which set of 40 projects is fabricated on each
+    shuttle" (independent corroboration of DEM-8's 40-slot cap), and "There is also the third option
+    where a design is not taped-out at all" are as close as this evidence base gets to a
+    peer-reviewed statement that ideas go unmade because of cost.
+  - **H5 (challenges), in the same paragraph.** "Interest in particular technology nodes, such as
+    older ones, may be mostly desired by academia yet not desirable enough to make economic sense for
+    a fabrication run" is the clearest statement found anywhere that at the price on offer, demand for
+    a mature-node run is sometimes **insufficient to justify running it**. That is the H5 failure mode
+    stated by the people who would most like H5 to be true.
+  - **H6 (context).** The minimum-die-size problem — "some services require a minimum chip area of
+    2mm X 2mm, which comes at a cost close to $100,000" — corroborates SMB-7 and SMB-8 from the buyer's
+    side.
+- **Used in:** not yet.
+- **Caveats:**
+  - A workshop consensus report by academics arguing for a national centre and for more NSF funding.
+    It has an interest in fabrication access looking hard and expensive.
+  - It gives no counts. Every quantitative claim about how often shuttles are overbooked or cancelled
+    is absent.
+  - It describes the US academic situation as of 2023.
+
+### DEM-22. MOSIS's free academic tape-out programme ended in 2020, and its public design counter did not move for a decade
+
+- **Sources:**
+  - The NSF workshop report (DEM-21), which states the discontinuation.
+  - MOSIS's own homepage as archived by the Internet Archive, at
+    <https://web.archive.org/web/20020328171117/http://www.mosis.com:80/>,
+    <https://web.archive.org/web/20070104162617/http://www.mosis.com:80/>,
+    <https://web.archive.org/web/20120119053214/http://www.mosis.com/> and
+    <https://web.archive.org/web/20140102070651/http://mosis.com/>.
+- **Verification:**
+  - **Verified 2026-09-18** for the discontinuation sentence, read by us in the NSF report PDF:
+    "MOSIS previously had a free academic program for tape-outs which was supported by NSF and
+    industry but was discontinued in 2020."
+  - **Partial** for the archived homepage banners. They were reported to us as reading "50,000
+    designs and more than 20 years of experience" (2002), "More than 50,000 designs in 25 years of
+    operation" (2007), "More than 50,000 designs in over 30 years of operation" (2012) and, by 2014,
+    a banner with no design count at all. We did not open those four snapshots ourselves.
+- **What it says:**
+  - A free route to silicon for US university classes, running since the 1980s, was withdrawn in
+    2020.
+  - CMP's 2011 survey of foreign MPW services describes the scale of that programme (**Partial**,
+    reported to us from the CMP 2011 annual report we did open for DEM-19 but from a section we did
+    not read): "In the ten-year period from 2000 to 2009, MOSIS processed a total of nearly 7000
+    student IC designs from universities in the US at no cost to the participating universities.
+    These designs came from VLSI classes totaling more than 38,000 students".
+- **Bears on:**
+  - **H5 (challenges).** The world's longest-running free chip-fabrication programme for students was
+    closed. Nothing found says it closed because nobody wanted it — the stated reason, nowhere we
+    could reach, is funding — but a programme that had run for thirty-five years ending is not the
+    behaviour of a market with obvious unmet demand.
+  - **H5 (challenges, weaker).** If the archived banners are right, MOSIS's headline cumulative
+    figure sat at "more than 50,000 designs" from 2002 to 2012 without moving. Either it was a round
+    marketing number, or throughput across that decade was small next to the accumulated base. Either
+    way, "60,000 designs in four decades" (`SMB-5`) should be treated as an order of magnitude, not a
+    counter.
+  - **H5 (supports).** "nearly 7000 student IC designs … from VLSI classes totaling more than 38,000
+    students" over 2000–2009 is a real measure of how many people will make a chip when it is free:
+    about 700 designs a year, from about 3,800 students a year.
+- **Used in:** not yet.
+- **Caveats:**
+  - MOSIS itself did **not** shut down. It was reconstituted as MOSIS 2.0 under the CA DREAMS
+    Microelectronics Commons hub and began accepting external customers in summer 2024 (`SMB-5`). A
+    deliberate search for a MOSIS shutdown found nothing supporting one; an earlier assumption in this
+    project that it "wound down" is not supported.
+  - Whether MOSIS 1.0 ever formally stopped taking orders, and why the free academic programme ended,
+    are both **unresolved**. See [`search-log.md`](search-log.md).

@@ -52,18 +52,21 @@ Read the Status lines in [`../hypotheses.md`](../hypotheses.md) before you cite 
 
 ## How the entries are organised
 
-| File | ID prefix | Covers |
+| File | IDs | Covers |
 |---|---|---|
-| [`shuttle-programmes.md`](shuttle-programmes.md) | `DEM` | Multi-project wafer and shuttle programmes: how many designs are submitted, how many are accepted, how full the runs are, and how that changed over time |
-| [`latent-demand-challenges.md`](latent-demand-challenges.md) | `DEM` | Evidence that the latent demand is not there, or that cost is not the binding constraint |
-| [`long-tail-businesses.md`](long-tail-businesses.md) | `SMB` | Public financials of businesses built on a long tail of small manufacturing customers, and the ones that failed |
-| [`pricing-and-cost-to-serve.md`](pricing-and-cost-to-serve.md) | `SMB` | Published prices for small-volume fabrication, mask and NRE costs, and what it costs to serve a small customer |
+| [`shuttle-programmes.md`](shuttle-programmes.md) | `DEM-1` … `DEM-10`, `DEM-16` … `DEM-19` | Multi-project wafer and shuttle programmes: how many designs are submitted, how many are accepted, how full the runs are, and how that changed over time |
+| [`latent-demand-challenges.md`](latent-demand-challenges.md) | `DEM-11` … `DEM-15`, `DEM-20` … `DEM-22` | Evidence that the latent demand is not there, or that cost is not the binding constraint |
+| [`long-tail-businesses.md`](long-tail-businesses.md) | `SMB-1` … `SMB-6` | Public financials of businesses built on a long tail of small manufacturing customers, and the ones that failed |
+| [`pricing-and-cost-to-serve.md`](pricing-and-cost-to-serve.md) | `SMB-7` … `SMB-13` | Published prices for small-volume fabrication, mask and NRE costs, and what it costs to serve a small customer |
 | [`search-log.md`](search-log.md) | — | What was searched, what came back, and every dead end, so nobody repeats the search |
 
-Both prefixes use a single running number across their files: `DEM-1` … `DEM-n` are unique whichever
-file they sit in, and likewise `SMB-1` … `SMB-n`. The two prefixes are new and do not collide with
-the existing `SW`, `COST`, `CONC`, `FIN`, `RISK`, `LEARN`, `TAIL` or `OPEN` entries in
-[`../references/`](../references/).
+Each prefix uses a single running number **across** its files, so `DEM-9` and `SMB-9` are each unique
+wherever they sit. The numbers are therefore not contiguous within a file: the ranges above say which
+are where. Counter-evidence that belongs beside the number it qualifies — undersubscribed shuttle
+runs, for instance — stays in `shuttle-programmes.md` rather than being moved to the challenges file.
+
+The two prefixes are new and do not collide with the existing `SW`, `COST`, `CONC`, `FIN`, `RISK`,
+`LEARN`, `TAIL` or `OPEN` entries in [`../references/`](../references/).
 
 ## Reading the verification statuses
 
