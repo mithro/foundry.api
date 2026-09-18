@@ -1,0 +1,2 @@
+# Agent worktrees live here; never commit them.
+.claude/worktrees/
