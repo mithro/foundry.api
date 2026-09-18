@@ -1,15 +1,6 @@
 # foundry.api
 
-> ## ⚠️ Warning: AI in use — use at own risk
->
-> Almost everything in this repository was written with heavy use of AI (Claude). It has been
-> directed and reviewed by a human, but it has not been independently verified end to end.
-> Expect mistakes: wrong numbers, misread sources, confident-sounding claims that don't hold up,
-> and design decisions that contradict each other between documents.
->
-> Check anything you intend to rely on against the primary source before you use it. The
-> `resources/` directory records which sources have actually been verified and which are still
-> unchecked leads — treat the unchecked ones as unproven.
+**Warning: AI in use — use at own risk**
 
 *An open, auction-scheduled silicon/MEMS foundry, designed API-first.*
 
@@ -43,7 +34,8 @@ Early and unsettled. In particular:
 - `DESIGN.md` predates the principles.
 
 Criticism, counter-evidence and sources that contradict the argument are welcome; see
-[`resources/README.md`](resources/README.md) for how evidence is recorded.
+[`resources/README.md`](resources/README.md) for how evidence is recorded, including which
+sources have been verified and which are still unchecked leads.
 
 ## Licence
 
