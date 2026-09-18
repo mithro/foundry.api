@@ -14,8 +14,8 @@ It is written to be read by an adversarial reviewer. The conclusion is **not** t
 
 - [Part 1. Cycle time: the missing number](#part-1-cycle-time-the-missing-number)
 - [Part 2. The four analogues](#part-2-the-four-analogues)
-- [Part 3. Physical industries that opened up](#part-3-physical-industries-that-opened-up)
-- [Part 4. The counter-case](#part-4-the-counter-case)
+- [Part 3. Physical industries: the coupling, the successes and the failures](#part-3-physical-industries-the-coupling-the-successes-and-the-failures)
+- [Part 4. The counter-case on the long tail](#part-4-the-counter-case-on-the-long-tail)
 - [Part 5. Adjudication](#part-5-adjudication)
 - [Part 6. Open questions](#part-6-open-questions)
 - [Changes needed in other files](#changes-needed-in-other-files)
@@ -534,13 +534,43 @@ The web is the analogue `WHY.md` reaches for first and defends least. Both halve
 
 ---
 
-## Part 3. Physical industries that opened up
+## Part 3. Physical industries: the coupling, the successes and the failures
+
+### 3.1 The break with no software analogue: customers sharing one physical process are coupled
+
+#### PAR-25. The world's most open shared fab forbids new materials without committee approval
+
+- **Sources:**
+  - Stanford Nanofabrication Facility, "Cleanliness Groups for Process Flows". <https://snfguide.stanford.edu/guide/materials/cleanliness-groups-for-process-flows>
+  - Stanford Nanofabrication Facility, "New Process or Material Requests (PROM)". <https://snfguide.stanford.edu/guide/materials/new-process-or-material-requests-prom>
+- **Verification:** Verified 2026-09-18 (both pages downloaded and the text extracted and read).
+- **What it says:**
+  - The purpose: "Cleanliness groups are used to classify equipment and materials at SNF to minimize cross-contamination risk. The choice of equipment in a process sequence will depend on the previous equipment used as well as the materials in your samples. In general, wafers can be processed in only equipment within the same or lower level of cleanliness."
+  - The "Clean" group, for front-end CMOS: "CMOS compatible substrates and film materials only. **Wafers containing any metals or metal films are strictly prohibited from being processed in this equipment.**"
+  - Contamination is a one-way ratchet: "Wafers with any previous processing in Semi-Clean and Flexible equipment will require additional considerations before returning to Clean tools. Such considerations may include procedures before processing in the previous equipment (such as chamber coating) or post-processing procedures (such as decontamination.)"
+  - For the MOCVD tools: "Wafers containing any other materials requires ProM review and obtain approval."
+  - Why wet processing is the worst case: "Wet benches are the first line of defense for protecting against cross-contamination. But a contaminated wet chemical bath is also the most effective means of spreading that contamination to any materials processed in that bath."
+  - And the governance: "If you would like to perform 'non-standard' work in our labs, please contact us. We use a format for documenting new [m]aterials that we call PROM." — "**The PROM committee will help you define a path to testing your ideas while keeping the rest of the researchers' in the fab going as well.**"
+  - The rules' provenance: "Our rules about materials are based on traditional cleanroom practices, where ionic migration properties of materials governed which tools could be used for specific purposes."
+- **Bears on:**
+  - **H11 (challenges), and it challenges `WHY.md` §5 "Four ideas for the factory" idea 1 directly.** The essay says a customer "rents time on the machines it needs, tries its own settings within the limits that keep the machines safe". SNF is a real shared fab, run for many small users, with published rules, and it does not work that way. The binding limits are not *machine-safety* limits, which a price or a deposit could cover. They are limits that protect **other customers' yield**, and they are enforced by a standing committee that reviews every non-standard material before it enters the building.
+  - **H9 (challenges):** the experiments the essay most wants — new materials, unusual settings — are exactly the ones a shared physical process cannot simply allow.
+  - H6 (challenges): "no per-customer engineering" is contradicted by the existence of the PROM committee, which is per-customer engineering by another name, and is the thing that makes the shared fab possible.
+- **Used in:** not yet.
+- **Caveats:**
+  - SNF is a university research facility, not a production foundry. Its tolerances and its economics are different, and a production fab's rules would be *stricter*, not looser — which makes this a lower bound on the problem, not an upper one.
+  - We could not read the associated "Legacy Materials/Contamination Policy" page (HTTP 403), nor find a published statement of how long a PROM review takes. The turnaround time of the approval gate is an open question and would be worth knowing.
+  - This is a rules page, not a study. It shows what an operating shared fab believes it must do; it does not quantify how much yield is at stake.
+
+**Why this matters more than it looks.** It is the one break in the analogy with no software counterpart at all. A cloud customer running broken code cannot lower another customer's success rate. A fab customer running an unapproved material can, silently, for months, across every wafer that touches the same tool afterwards. Every mechanism `WHY.md` and `PRINCIPLES.md` propose — published prices, self-service booking, "every preference costs money", insurance, futures — prices *the customer's own* risk. None of them price the externality the customer imposes on the next customer, and that externality is the reason fabs are conservative. It is not only buyer power.
+
+### 3.2 Physical industries that opened up, and physical industries that tried and failed
 
 *(filled in below)*
 
 ---
 
-## Part 4. The counter-case
+## Part 4. The counter-case on the long tail
 
 *(filled in below)*
 
