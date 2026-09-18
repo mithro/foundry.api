@@ -10,6 +10,7 @@ It is a working notebook, not a finished document. `WHY.md` and `PRINCIPLES.md` 
 |---|---|
 | [`hypotheses.md`](hypotheses.md) | The hypotheses we are testing (H1, H2, …). Each one links to the evidence for and against it. Start here. |
 | [`references/`](references/) | Reference entries, grouped by topic. One entry per source. |
+| [`demand/`](demand/) | Evidence gathered specifically on H5 (is there a long tail of demand for chips?) and H6 (can each small customer be profitable?), plus a log of what was searched and what could not be reached. |
 | [`analyses/`](analyses/) | Longer write-ups: assessments of outside reports, internal reviews, and deep dives on a single question. |
 
 ### Reference topics
@@ -24,6 +25,16 @@ It is a working notebook, not a finished document. `WHY.md` and `PRINCIPLES.md` 
 | [`references/learning-curves.md`](references/learning-curves.md) | `LEARN` | Wright's law, the experience curve, learning spillovers, and granular technologies |
 | [`references/long-tail.md`](references/long-tail.md) | `TAIL` | The long tail, and the evidence against it |
 | [`references/open-silicon-and-ai.md`](references/open-silicon-and-ai.md) | `OPEN` | Open design kits, open tools, cheap shuttles, AI-assisted design, and failures |
+| [`demand/shuttle-programmes.md`](demand/shuttle-programmes.md) | `DEM` | Multi-project wafer and shuttle programmes: designs submitted, accepted, and how full the runs were |
+| [`demand/latent-demand-challenges.md`](demand/latent-demand-challenges.md) | `DEM` | Evidence that the latent demand for chips is not there, or that cost is not the binding constraint |
+| [`demand/long-tail-businesses.md`](demand/long-tail-businesses.md) | `SMB` | Public financials of businesses serving a long tail of small manufacturing customers, and the ones that failed |
+| [`demand/pricing-and-cost-to-serve.md`](demand/pricing-and-cost-to-serve.md) | `SMB` | Published prices for small-volume fabrication, mask and NRE costs, and the cost of serving a small customer |
+| [`demand/README.md`](demand/README.md) | — | What H5 and H6 claim, what would prove or falsify each, which ID ranges live in which file |
+| [`demand/search-log.md`](demand/search-log.md) | — | What was searched, what came back, every dead end, and which sites blocked automated tools |
+
+`DEM` and `SMB` each run one sequence of numbers across their two files, so the numbers are not
+contiguous within a file. [`demand/README.md`](demand/README.md) gives the ranges, and
+[`demand/search-log.md`](demand/search-log.md) records the searches and the dead ends behind them.
 
 ## Conventions
 
@@ -34,13 +45,20 @@ Each reference entry uses this shape:
 ```markdown
 ### CONC-1. Short title
 
-- **Source:** Author, "Title", Publication, date. <URL>
+- **Source:** Author, "Title", Publication, date. <URL>   (or **Sources:** for several)
 - **Verification:** Verified | Partial | Lead (see below), with the date checked
+- **How it was counted:** optional — the reproducible method, where a figure was counted from data
+  rather than quoted
 - **What it says:** the key findings, with exact quotes where they matter
+- **DERIVED (arithmetic written out):** optional — figures we computed, never presented as quotes.
+  Small one-off derivations can instead be labelled **DERIVED** inline inside "Bears on"
 - **Bears on:** H2 (supports), H7 (challenges), …
 - **Used in:** where our documents use it (e.g. `WHY.md` §2), or "not yet"
 - **Caveats:** limits, disputes, conflicting figures
 ```
+
+`Source`/`Sources`, `Verification`, `What it says`, `Bears on`, `Used in` and `Caveats` are
+required; `How it was counted` and `DERIVED` are optional and appear in the order shown.
 
 ### Verification status
 

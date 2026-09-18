@@ -29,7 +29,7 @@ How much foundries depend on a few customers, and what happens when a big custom
   - "In 2024, the Company manufactured 11,878 different products using 288 distinct technologies for 522 different customers."
   - "TSMC represented 34 percent of the Foundry 2.0 industry … output value in 2024". "Foundry 2.0" is TSMC's broadened definition, which includes packaging, testing, mask-making, and integrated device manufacturers excluding memory.
 - **Bears on:**
-  - H5 (supports: a tail of 512 customers outside the top ten shares about a quarter of revenue).
+  - H5 (context — see DEM-15 before citing this for H5; the average non-top-ten customer is about US$41M a year).
   - H1 (context).
 - **Used in:** `WHY.md` "In short", §2, §5.
 - **Caveats:** the 34% is on TSMC's own broad "Foundry 2.0" basis, not the usual foundry market-share basis (see CONC-12).
