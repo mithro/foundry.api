@@ -340,3 +340,81 @@ is are therefore a direct measure of how many people want to make a chip at a gi
 - **Used in:** not yet. This resolves the Lead recorded under `OPEN-2`.
 - **Caveats:** the post announces a programme; it reports no submission counts. How many were
   actually submitted to the GF180MCU shuttles was **not found** — see [`search-log.md`](search-log.md).
+
+### DEM-9. Google's own total for the SkyWater programme: 240 designs manufactured from "over 364 community submissions" across six shuttles
+
+- **Source:** Johan Euphrosine and Ethan Mahintorabi, Hardware Toolchains Team, "SkyWater and Google
+  expand open source program to new 90nm technology", Google Open Source Blog, dated on the page
+  "Thursday, July 28, 2022":
+  <https://opensource.googleblog.com/2022/07/SkyWater-and-Google-expand-open-source-program-to-new-90nm-technology.html>
+- **Verification:** Verified 2026-09-18 by fetching the page, but through `WebFetch` rather than
+  `curl`: `curl` to `opensource.googleblog.com` returned HTTP 429 (rate limited) and we backed off
+  rather than retrying. The quotes are as `WebFetch` returned them from the page.
+- **What it says:**
+  - "Google has sponsored six shuttles on the Efabless platform, manufacturing 240 designs from over
+    364 community submissions."
+  - "The latest MPW-6 shuttle received 90 submissions from a diverse community across 24 different
+    countries"
+- **Bears on:**
+  - **H5 (supports):** MPW-6's 90 submissions is the highest per-shuttle figure recorded for the
+    programme, up from 45 at MPW-1 (DEM-4, DEM-6) and 75 at MPW-5 (DEM-5). Submissions grew
+    monotonically across the series as far as the record goes.
+  - **H5 (challenges, and this is the important reading).** Take the sentence at face value and it
+    is the cleanest natural experiment available: manufacturing, the process design kit and the tool
+    flow were **free**, promoted worldwide by Google, and the total global response over six
+    shuttles and roughly eighteen months was **364 submissions**. If a large population of would-be
+    chip designers were held back only by up-front cost, this is where it should have appeared. Four
+    hundred people is a real community; it is not a market.
+  - **DERIVED:** 240 manufactured ÷ 364 submitted = **66% accepted**; 364 ÷ 6 shuttles = **61
+    submissions per shuttle** on average.
+- **Used in:** not yet. Together with DEM-4 to DEM-8, this closes the "To find" note on `OPEN-1`.
+- **Caveats:**
+  - "over 364" is Google's own wording and is approximate; the "240" is likely 6 × 40 slots.
+  - Selection was capped at 40 per shuttle by the sponsor (DEM-8), so 364 is a floor on interest at a
+    price of zero, not a measurement of demand.
+  - This counts *submissions*, not people: the same designer could submit to several shuttles, and
+    the Zero to ASIC course submitted group projects "packing as many as 14 subprojects" into one
+    slot (DEM-5).
+  - It also says nothing about willingness to pay, which is the part H6 needs.
+
+### DEM-10. After Efabless failed, Tiny Tapeout's industrial share rose to 38%, and its new fab partner reserves the right to delay a shuttle under 50% full
+
+- **Source:** Nick Flaherty, "Tiny Tapeout sees industrial boost as it recovers from eFabless
+  closure", *eeNews Europe*, dated on the page "May 16, 2025":
+  <https://www.eenewseurope.com/en/tiny-tapeout-sees-industrial-boost-as-it-recovers-from-efabless-closure/>
+- **Verification:** Verified 2026-09-18, fetched and read.
+- **What it says:**
+  - "The Tiny Tapeout programme is bouncing back from recent problems with a survey that shows a
+    dramatic increase in industrial engagements."
+  - "It had partnered with eFabless which closed in March, resulting in the the TT08 and 09 runs
+    being delayed and TT10 cancelled. This hit 500 chip designs." (The doubled "the the" is in the
+    source.)
+  - "However Efabless founders Jeff DiCorpo and Mohammed Kassem have launched ChipFoundry.io,
+    re-enabling access to the 130nm process at Skywater Technology in the US using the open source
+    process development kit (PDK)."
+  - "The main differences are a price increase from $10k to $15k for 100 chips, and they reserve the
+    right to delay a shuttle if it's less than 50% full. 'They are going to support Tiny Tapeout, and
+    we plan to open our next SKY130 shuttle in July, taping out in September. Prices are to be
+    determined, but will likely be €300 for a devkit and €70 for a tile,' said Tiny Tapeout founder
+    Matt Venn."
+  - "A recent survey also showed more companies taking advantage of the open source programme. The
+    industrial customers now represent 38%, up from 14% in 2023, with 20% from hobbyists."
+- **Bears on:**
+  - **H5 (supports).** A shift from 14% to 38% industrial users in two years is the single best
+    indication found that low-cost shuttle demand is not purely hobbyist. Companies, not just
+    enthusiasts, are using the cheapest route to silicon.
+  - **H5 (challenges).** "they reserve the right to delay a shuttle if it's less than 50% full" is a
+    supplier writing undersubscription risk into its terms. It corroborates the fill rates counted
+    directly in DEM-2, where about a third of runs came in well below capacity.
+  - **H6 (context).** "a price increase from $10k to $15k for 100 chips" cross-checks the published
+    chipIgnite prices in [`pricing-and-cost-to-serve.md`](pricing-and-cost-to-serve.md) (SMB-9), where
+    the 2021 launch price was $9,750 and the current price is $14,950. The two agree.
+- **Used in:** not yet.
+- **Caveats:**
+  - The 38% / 14% / 20% figures come from an unnamed "recent survey" with no published method,
+    sample size or date, reported second-hand. **The survey itself was not found**; see
+    [`search-log.md`](search-log.md). Treat those three percentages as **Partial** even though the
+    article quoting them was read in full.
+  - "This hit 500 chip designs" is the journalist's figure. Our own count from the Tiny Tapeout API
+    (DEM-2) gives TT08 135 + TT09 369 + TT10 112 = 616 submissions across the three affected runs,
+    or 504 for TT08 and TT09 alone — which is presumably what the 500 refers to.
