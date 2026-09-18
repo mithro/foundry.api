@@ -5,8 +5,7 @@ Don't soften them."* These entries were gathered by deliberately looking for rea
 
 Three separate lines of attack turn up. First, the count of chip designs being started was falling
 through the 2000s on both analyst houses' numbers, and no current count is public. Second, the
-binding constraint on getting a working chip
-may be verification engineering rather than money. Third, the long-tail theory's own most-cited
+binding constraint on getting a working chip may be verification engineering rather than money. Third, the long-tail theory's own most-cited
 empirical test found the tail getting longer and flatter, and its author says so explicitly for
 physical goods too.
 
@@ -95,8 +94,8 @@ DEM-2, DEM-9 and DEM-10, next to the supporting numbers, rather than separated o
     projects belongs in verification ."
 - **Bears on:**
   - **H5 (challenges, and this is the most serious challenge found).** If **DERIVED** 100 − 14.4 =
-    85.6% (2024) to 100 − 5 = 95% (2026) — call it **86–95%** — of *funded,
-    professional* chip projects need at least one respin, then the money to buy a tape-out is not
+    85.6% (2024) to 100 − 5 = 95% (2026) — call it **86–95%** — of *funded, professional* chip
+    projects need at least one respin, then the money to buy a tape-out is not
     what stands between an idea and a working chip. Cheap machine time buys you one attempt.
     Reducing the price of an attempt from $50,000 to $5,000 turns an expensive failure into a cheap
     one; it does not by itself produce a product. Anyone arguing H5 has to explain what the cheap
