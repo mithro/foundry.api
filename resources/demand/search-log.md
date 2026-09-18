@@ -49,7 +49,7 @@ status.
 | Published MPW price lists | Europractice, CMP (2021, archived), MOSIS (archived), Tiny Tapeout, chipIgnite/ChipFoundry, IHP, AIM Photonics | SMB-7 to SMB-10 |
 | Mask-set cost at mature nodes | GSA survey figures quoted in *New Electronics* | SMB-12 |
 | Wafer cost per node | CSET's Table 9, modelled from TSMC's own financials | SMB-11 |
-| A long-tail manufacturing business that is profitable | JLC (SZSE: 001232) IPO prospectus | SMB-1 |
+| A long-tail manufacturing business that is profitable | JLC's IPO prospectus, filed with the Shenzhen Stock Exchange. It is a pre-listing 申报稿 and the company is unlisted, so it has no ticker: the document carries no 证券代码 or 股票代码 line at all | SMB-1 |
 | Long-tail manufacturing businesses that are not | Protolabs, Xometry, Shapeways, Fathom | SMB-2, SMB-3, SMB-4 |
 | Evidence cost is not the binding constraint | Siemens EDA / Wilson Research first-silicon success rates | DEM-12 |
 | Falling design starts | EE Times 2002, Gartner and iSuppli | DEM-11 |

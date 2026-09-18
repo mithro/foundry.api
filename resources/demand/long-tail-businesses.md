@@ -3,7 +3,7 @@
 foundry.api has no financials of its own, and no fab publishes its margin by customer size. The
 nearest available evidence for H6 is the published accounts of companies whose whole business is
 selling manufacturing to tens of thousands — or millions — of very small customers, with automated
-quoting, published prices and no per-customer engineering. Four of them file audited accounts, two
+quoting, published prices and no per-customer engineering. Four of them file audited accounts, one
 of them died, and they do not agree with each other.
 
 Every entry below was read from the filing text. Derived figures are labelled **DERIVED** and the
@@ -15,7 +15,7 @@ arithmetic is written out.
 
 - **Source:** 深圳嘉立创科技集团股份有限公司 (Shenzhen JLC Technology Group Co., Ltd.), 招股说明书（申报稿）
   (IPO prospectus, filed draft), filed with the Shenzhen Stock Exchange, April 2026. Audit report
-  容诚审字[2026]518Z0073 by 容诚会计师事务所 (Reanda). PDF fetched from the exchange's own document
+  容诚审字[2026]518Z0073 by 容诚会计师事务所 (RSM China). PDF fetched from the exchange's own document
   server:
   <http://reportdocs.static.szse.cn/UpFiles/rasinfodisc1/202604/RAS_202604_22164565DA37A2A6A74520902DB3E1B3350542.pdf>
   JLC is the parent of JLCPCB and EasyEDA.
@@ -44,6 +44,28 @@ arithmetic is written out.
     27.12% / 28.79% / 28.15%) and "公司主营业务毛利率分别为 25.11%、26.58%和 25.90%，公司 PCB 业务毛利率分别为 28.73%、30.05%和 28.06%，高于同行业可比公司平均值"
     (core-business gross margin 25.11 / 26.58 / 25.90%; PCB gross margin 28.73 / 30.05 / **28.06%**,
     "higher than the average of comparable companies in the same industry").
+  - **The margin by order size — the table the whole entry turns on.** PDF p.245 (document page
+    1-1-244) prints, under the heading "2）PCB 业务按订单面积划分的毛利率情况", a table whose columns
+    are "批量 / 销售渠道 / 收入占比 / 毛利率", the years running 2025, 2024, 2023 as the source prints
+    them. Transcribed in full (收入占比 is the share of *PCB* revenue):
+
+    | 批量 | 销售渠道 | 2025 收入占比 | 2025 毛利率 | 2024 收入占比 | 2024 毛利率 | 2023 收入占比 | 2023 毛利率 |
+    |---|---|---|---|---|---|---|---|
+    | 样板、小批量 | 线上 | 72.73% | 37.39% | 72.84% | 38.18% | 71.66% | 35.86% |
+    | 样板、小批量 | 线下 | 2.84% | 6.69% | 2.77% | 13.55% | 2.72% | 19.91% |
+    | 样板、小批量 | 小计 | 75.57% | **36.24%** | 75.61% | 37.28% | 74.38% | 35.27% |
+    | 中大批量 | 线上 | 15.39% | 8.32% | 15.02% | 13.49% | 15.76% | 14.03% |
+    | 中大批量 | 线下 | 9.04% | **−6.71%** | 9.38% | −1.77% | 9.86% | 2.89% |
+    | 中大批量 | 小计 | 24.43% | **2.76%** | 24.39% | 7.63% | 25.62% | 9.74% |
+    | 合计 | | 100.00% | **28.06%** | 100.00% | 30.05% | 100.00% | 28.73% |
+
+    The prose under the table says which business is which: "嘉立创板块的 PCB 业务通过线上商城开展，主要服务于具有样板、小批量需求的长尾客户，呈现出客户群体高度分散、均单量和均单价低、交期短等特点……因此公司对价格主导能力和毛利率相对较高。中信华板块的 PCB 业务开展以线下渠道为主，主要服务于具有中大批量需求的客户……该等客户一般采取议价的方式进行定价，产品售价和毛利率相对较低。"
+    — the JLC block sells sample and small-batch boards online to "long-tail customers … highly
+    dispersed, with low volume and low price per order", and has the higher margin; the 中信华
+    (Zhongxinhua) block sells medium/large-batch boards offline to customers who "negotiate
+    prices", and has the lower one.
+  - **The size bands are defined in the glossary** (PDF p.13): "样板 指 样品批量的印制电路板，面积在1㎡以下"；"小批量板 指 小批量印制电路板，面积在1-20㎡"；"中大批量板 指 中大批量印制电路板，面积在20㎡以上"
+    — sample boards under 1 m², small-batch 1–20 m², medium/large-batch over 20 m².
   - **The load-bearing sentence, from the risk factors:** "此外，报告期各期公司中大批量板毛利率分别为 9.74%、7.63%和 2.76%，呈下降趋势，主要系 PCB 中大批量市场竞争较为激烈，公司相关产品利润空间有限所致。"
     — "In addition, the Company's gross margin on medium- and large-batch boards was 9.74%, 7.63%
     and 2.76% in the respective periods of the reporting period, a declining trend, mainly because
@@ -57,7 +79,8 @@ arithmetic is written out.
 - **DERIVED (arithmetic written out):**
   - Revenue per paying user, 2025: CNY 10,287,064,200 ÷ 1,358,700 = **CNY 7,571** ≈ US$1,050 at
     CNY 7.2/USD.
-  - Average order value, 2025: CNY 10,287,064,200 ÷ 21,290,800 = **CNY 483** ≈ **US$67**.
+  - Average order value, 2025: CNY 10,287,064,200 ÷ 21,290,800 = **CNY 483** ≈ **US$67**. **Upper
+    bound only** — see the caveat below on the mismatch between numerator and denominator.
   - Orders per paying user, 2025: 21,290,800 ÷ 1,358,700 = **15.7**.
   - Net margin, 2025: CNY 1,300,910,400 ÷ CNY 10,287,064,200 = **12.65%**. (2024: 998,326,000 ÷
     7,999,592,700 = 12.48%. 2023: 738,464,700 ÷ 6,747,997,400 = 10.94%.)
@@ -65,16 +88,30 @@ arithmetic is written out.
   - **H6 (supports, strongly).** This is the best evidence found anywhere that a manufacturing
     business can be profitable on a long tail of tiny customers. 1.36 million paying customers, an
     average order of about US$67, and a 12.6% net margin.
-  - **H6 (supports, in the sharpest possible way).** The company's own risk factors say its margin on
-    the *small-batch* work is about 28% and its margin on the *high-volume* work has fallen to
-    2.76%. In this business the long tail is the profitable part and the big orders are the
-    commodity — the exact reverse of the assumption H6 is usually challenged with.
+  - **H6 (supports, in the sharpest possible way).** The company's own margin-by-order-size table
+    puts the gross margin on **sample and small-batch** work at **36.24%** in 2025 against **2.76%**
+    on medium- and large-batch work — and the offline medium/large-batch channel, 9.04% of PCB
+    revenue, is outright **loss-making at −6.71%**. In this business the long tail is the profitable
+    part and the big orders are the commodity — the exact reverse of the assumption H6 is usually
+    challenged with. Two things have to be said carefully about those numbers. **28.06% is not a
+    small-batch figure**: it is the blended whole-PCB-business margin (合计), and it already contains
+    the 2.76% segment. And the disclosed line combines 样板 with 小批量, so **there is no standalone
+    small-batch margin anywhere in the filing** — searching the document for 小批量板毛利率 and
+    样板毛利率 returns nothing.
   - **H7 (supports).** A largest customer worth 0.28% of revenue is what "no customer has leverage"
     looks like in an audited filing.
   - **H5 (supports).** 21.3 million orders in one year from 1.36 million paying customers is a long
     tail of hardware demand that is unambiguously real, at least for printed circuit boards.
 - **Used in:** not yet.
 - **Caveats:**
+  - **The US$67 and the ≈US$1,050 are upper bounds, because the numerator and the denominator are
+    not the same population.** The order and paying-user counts come from a peer table explicitly
+    about the *online self-service ordering site*: the sentence introducing it reads "在线自助下单网站的累计注册用户、付费用户数量、订单数量居行业前列". The revenue divided into them is
+    **group-wide** 营业收入, which also contains 中信华's offline medium/large-batch PCB sold on
+    negotiated terms (24.43% of PCB revenue), plus the electronic-component trading, PCBA, 3D
+    printing and stencil (钢网) businesses. Dividing all of the revenue by only the online orders
+    therefore overstates the true long-tail order size; the real figure is lower than US$67, by an
+    amount the filing does not let us compute.
   - **PCBs are not chips.** A bare printed circuit board is vastly cheaper, faster and less
     risky to make than an integrated circuit, and the design skill needed is far lower. The
     read-across to a silicon fab is an analogy, not a measurement.
@@ -374,6 +411,7 @@ Set side by side, per-customer revenue explains nothing about whether the busine
 | MOSIS (peak) | — | ≈ $3,300 per order | — | "self-sustaining … for 40 years", ≈ $10M/yr |
 | Europractice | 600 institutions + 300 SMEs | — | — | EU-subsidised by its own account |
 
-The business with the *smallest* order (US$67) and the *most* customers is the only one earning a
-double-digit net margin, and the one with the longest customer list went bankrupt. Whatever makes
-H6 true or false, it is not the size of the customer.
+The business with the *most* customers and much the smallest typical order — an upper bound of
+about US$67, and lower than that in reality — is the only one earning a double-digit net margin, and
+the one with the longest customer list went bankrupt. Whatever makes H6 true or false, it is not the
+size of the customer.
