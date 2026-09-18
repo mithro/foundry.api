@@ -107,7 +107,7 @@ But the *level* is small and the trend is not upward. When Google made fabricati
 The honest reading is that a long tail of *experiments* certainly exists and grows when the price falls; a long tail of *paying manufacturing demand* at a scale that could fill a fab has not been demonstrated by anything found.
 
 - **Supports:**
-  - DEM-1, DEM-2: 4,268 Tiny Tapeout designs on the site's own table and 4,314 submission records counted from its API; submissions by year 317 → 970 → 1,632; eight of twenty-four closed runs filled 100% of their tiles
+  - DEM-1, DEM-2: 4,268 Tiny Tapeout designs on the site's own table and 4,314 submission records counted from its API; submissions by year 317 → 970 → 1,632; 7 of the 24 runs with submissions filled 100% of their tiles
   - DEM-4: the first Google-sponsored shuttle filled all 40 slots in 30 days, and "Approximately 60% of the designs were submitted by software, FPGA and hardware developers (non-IC experts) — demonstrating a significant untapped underlying interest"
   - DEM-5, DEM-6, DEM-9: submissions per Open MPW shuttle rose 45 → 56 → 75 → 90 against a fixed 40 slots
   - DEM-10: Tiny Tapeout's industrial share rose from 14% (2023) to 38%, so these are not only hobbyists (the survey behind it is **Partial**)
@@ -121,7 +121,7 @@ The honest reading is that a long tail of *experiments* certainly exists and gro
 - **Challenges:**
   - DEM-16: Europractice ran 363–614 designs a year for eighteen straight years, and 69% of 2024's submissions came from universities against 9% from European industry
   - DEM-9: 364 submissions worldwide across six shuttles when the whole thing was free
-  - DEM-2: about a third of Tiny Tapeout's runs went materially undersubscribed once capacity rose to 512 tiles (TT07 58.8%, TT08 46.1%, TT10 46.9%)
+  - DEM-2: 9 of Tiny Tapeout's 24 runs with submissions came in below 75% of capacity, including TT07 at 58.8%, TT08 at 46.1% and TT10 at 46.9% after capacity rose to 512 tiles
   - DEM-10: ChipFoundry reserves "the right to delay a shuttle if it's less than 50% full"
   - DEM-11: ASIC design starts falling since the 1990s, on both analyst houses' numbers
   - DEM-12: only 5% of IC/ASIC projects reported first-silicon success in 2026, down from 14.4% in 2024 — so the binding constraint looks like verification engineering, not the price of an attempt

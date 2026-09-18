@@ -133,11 +133,14 @@ is are therefore a direct measure of how many people want to make a chip at a gi
     table at all, and `tt10`, printed as "Cancelled" on the page, holds 112 submissions in the API.
 - **Bears on:**
   - H5 (supports): demand grew from 317 submissions in the API's partial first year to 1,632 in
-    2025, and eight of the twenty-four closed runs filled 100% of their tiles.
+    2025, and **7 of the 24 runs with any submissions filled 100% of their tiles** — tt06,
+    ttihp0p2, ttihp25a, ttgf0p2, ttsky26a, ttsky26b and ttgf26a.
   - H5 (**challenges**): demand is *not* uniformly ahead of supply. Once Tiny Tapeout raised
     capacity to 512 tiles, TT07 filled 58.8%, TT08 filled 46.1% and TT10 filled 46.9%. On the IHP
-    process, ttihp25b filled 73.3%, ttihp0p4 57.5% and ttihp26b 59.6%. Roughly a third of runs went
-    materially undersubscribed. Capacity of this size is not automatically absorbed.
+    process, ttihp25b filled 73.3%, ttihp0p4 57.5% and ttihp26b 59.6%. **9 of the 24 runs with any
+    submissions came in below 75% of capacity** (ttgf0p3 71.9%, ttihp26b 59.6%, ttihp0p4 57.5%,
+    ttihp25b 73.3%, tt10 46.9%, tt08 46.1%, tt07 58.8%, tt05 74.5%, tt04 64.9%). Capacity of this
+    size is not automatically absorbed.
 - **Used in:** not yet.
 - **Caveats:**
   - `tiles_used` is Tiny Tapeout's own bookkeeping field; the entry takes it at face value.
@@ -405,7 +408,7 @@ is are therefore a direct measure of how many people want to make a chip at a gi
     enthusiasts, are using the cheapest route to silicon.
   - **H5 (challenges).** "they reserve the right to delay a shuttle if it's less than 50% full" is a
     supplier writing undersubscription risk into its terms. It corroborates the fill rates counted
-    directly in DEM-2, where about a third of runs came in well below capacity.
+    directly in DEM-2, where 9 of the 24 runs with submissions came in below 75% of capacity.
   - **H6 (context).** "a price increase from $10k to $15k for 100 chips" cross-checks the published
     chipIgnite prices in [`pricing-and-cost-to-serve.md`](pricing-and-cost-to-serve.md) (SMB-9), where
     the 2021 launch price was $9,750 and the current price is $14,950. The two agree.
