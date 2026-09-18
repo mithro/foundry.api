@@ -1,6 +1,7 @@
 # foundry.api
 
-**Warning: AI in use — use at own risk**
+> [!WARNING]
+> AI in use — use at own risk
 
 *An open, auction-scheduled silicon/MEMS foundry, designed API-first.*
 
