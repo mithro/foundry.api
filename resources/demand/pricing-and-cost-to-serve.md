@@ -148,10 +148,17 @@ almost the entire price a small customer pays is fixed cost per project, not sil
     **$149.50 per packaged chip**.
   - Price change 2021 → 2026: 14,950 ÷ 9,750 = **+53%** on the headline, though the area rose from
     10 mm² to "up to 15 mm²", so the per-mm² price is almost unchanged.
+  - The comparison with Europractice's cheapest line (SMB-7) needs a rate, so here it is: at the
+    **ECB euro reference rate for 2026-09-17, EUR 1 = USD 1.1481**
+    (<https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml>), GF 180 MCU (Open PDK) at
+    €913/mm² standard = **US$1,048/mm²**, against chipIgnite's $975/mm² (2021) and $997/mm² (2026).
+    The margin is about 5%, so the comparison turns on the exchange rate: below roughly
+    USD 1.09 per euro it reverses.
 - **Bears on:**
   - **H6 and H8 (supports).** A flat, published, no-negotiation price for a complete 130 nm tape-out
     with packaged parts, sold to anyone. This is the closest existing thing to what foundry.api
-    proposes, and it is cheaper per mm² than any commercial MPW line in SMB-7.
+    proposes, and at the exchange rate given above it is cheaper per mm² than any commercial MPW
+    line in SMB-7 — but only just, and only at that rate.
   - **H6 (context).** The price survived the collapse of the company that invented it: Efabless shut
     down in March 2025 (`OPEN-7`) and the programme was restarted by its founders under a new company
     at a higher price. The product was viable enough for someone to pick up; the company was not.
@@ -282,22 +289,31 @@ almost the entire price a small customer pays is fixed cost per project, not sil
 
 ### SMB-13. The commercial foundries do not publish shuttle prices at all
 
-- **Sources and what each one shows** (all checked 2026-09-18):
-  - **TSMC CyberShuttle**, <https://www.tsmc.com/english/dedicatedFoundry/services/cyberShuttle> —
-    no prices. The page says: "If you are a TSMC customer, login to TSMC-Online or contact your local
-    TSMC representative for the latest CyberShuttle® schedule."
+- **Sources** (all checked 2026-09-18):
+  - **TSMC CyberShuttle**: <https://www.tsmc.com/english/dedicatedFoundry/services/cyberShuttle>
+  - **TSMC via Europractice**: <https://europractice-ic.com/schedules-prices-2025/>
+  - **Muse Semiconductor** (the TSMC university shuttle broker):
+    <https://www.musesemi.com/shared-block-tapeout-pricing> and `/full-block-tapeout-pricing`
+  - **CMC Microsystems** (Canada): <https://www.cmc.ca/en/WhatWeOffer/Make/FabPricing.aspx>
+  - **AnySilicon**: <https://anysilicon.com/130nm-wafer-mpw-cost/>
+- **What it says:**
+  - **TSMC CyberShuttle** — no prices. The page says: "If you are a TSMC customer, login to
+    TSMC-Online or contact your local TSMC representative for the latest CyberShuttle® schedule."
+    **On access:** an audit note reached us saying this URL returns HTTP 403 to automated fetches.
+    Re-checked 2026-09-18 and it does not: `curl` with a generic User-Agent returns **HTTP 200** and
+    so does `WebFetch`. The sentence is in the delivered page source, though inside an embedded
+    JSON blob rather than in the rendered HTML, which is the kind of thing that makes a page look
+    empty to a naive reader. No price string appears anywhere in the body. Recorded in
+    [`search-log.md`](search-log.md) so the next person does not treat the page as blocked.
   - **TSMC via Europractice** — full MPW prices are not tabulated; only "Prices for TSMC technologies
     can be calculated through the online Price Request Form:" (SMB-7, verified directly).
-  - **Muse Semiconductor** (the TSMC university shuttle broker),
-    <https://www.musesemi.com/shared-block-tapeout-pricing> and `/full-block-tapeout-pricing` — pages
-    titled "…Services and Price" that contain no readable price. The site renders client-side, and
-    the archived copies carry no price text either.
-  - **CMC Microsystems** (Canada), <https://www.cmc.ca/en/WhatWeOffer/Make/FabPricing.aspx> —
-    **HTTP 403** to an automated fetch.
-  - **AnySilicon**, <https://anysilicon.com/130nm-wafer-mpw-cost/> — an article titled "130nm Wafer &
-    MPW Cost Explained" that contains no figures and routes the reader to a quote-request form.
+  - **Muse Semiconductor** — pages titled "…Services and Price" that contain no readable price. The
+    site renders client-side, and the archived copies carry no price text either.
+  - **CMC Microsystems** — **HTTP 403** to an automated fetch.
+  - **AnySilicon** — an article titled "130nm Wafer & MPW Cost Explained" that contains no figures
+    and routes the reader to a quote-request form.
 - **Verification:** **Partial.** The TSMC CyberShuttle quote and the Europractice "Price Request
-  Form" line were read directly (the latter by us). The Muse, CMC and AnySilicon results were
+  Form" line were both read directly, on 2026-09-18. The Muse, CMC and AnySilicon results were
   obtained by fetching those URLs and finding no price; we did not open them in a graphical browser,
   and Muse in particular may well publish prices that only render with JavaScript. **We did not
   submit any quote-request form**, which is the only route several of these offer.

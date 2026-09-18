@@ -286,11 +286,12 @@ DEM-2, DEM-9 and DEM-10, next to the supporting numbers, rather than separated o
     / 8,400 Academic-industry collaborations supported".
   - History: "Thanks to a novel partnership with Nortel Networks Corporation and key Canadian
     companies, 3,300 designs were manufactured through CMC within our first 10-years."
-- **Earlier years (Partial — reported to us with URLs, not opened by us):** 2017-18 "300"; 2019-20
-  "200 designs submitted to fabrication"; 2021-22 "More than 400 semiconductor prototypes submitted
-  to fabrication, including a record 158 photonics designs"; 2023-24 "More than 360 semiconductor
-  prototypes submitted to fabrication"; 2024-25 "305 prototypes were fabricated through CMC's".
-  **No figure was found for 2022-23**, which is the gap the "Bears on" arithmetic turns on.
+  - **Earlier years (Partial — reported to us with URLs, not opened by us):** 2017-18 "300"; 2019-20
+    "200 designs submitted to fabrication"; 2021-22 "More than 400 semiconductor prototypes
+    submitted to fabrication, including a record 158 photonics designs"; 2023-24 "More than 360
+    semiconductor prototypes submitted to fabrication"; 2024-25 "305 prototypes were fabricated
+    through CMC's". **No figure was found for 2022-23**, which is the gap the "Bears on" arithmetic
+    turns on.
 - **Bears on:**
   - **H5 (challenges).** Canada's national programme fell in each of the three years for which
     figures were read — 360+ (2023-24), 305 (2024-25), **240 (2025-26)** — and the report itself

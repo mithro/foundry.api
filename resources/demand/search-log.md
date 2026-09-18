@@ -26,6 +26,7 @@ These cost real time and are worth knowing before repeating any of this.
 | `tsri.org.tw` (Taiwan) | `ECONNREFUSED` on port 443 via `WebFetch`; empty body via `curl` with and without a browser User-Agent. | Not solved. See §3. |
 | `cmc.ca/en/WhatWeOffer/Make/FabPricing.aspx` | **HTTP 403** to an automated fetch. | Not solved; CMC's *annual reports* on the same domain fetched fine. |
 | Client-side-rendered pages | `app.tinytapeout.com/calculator`, `platform.chipfoundry.io/shuttle-metrics` and Muse Semiconductor's pricing pages return a shell with no content to a fetch. | Not solved. A human with a browser could read all three in seconds. |
+| `www.tsmc.com` (SMB-13) | Reported to us as returning **HTTP 403** to automated fetches. **It does not, as of 2026-09-18:** `curl` with a generic User-Agent and `WebFetch` both return **HTTP 200**. The catch is that the page's text sits in an embedded JSON blob rather than in the rendered HTML, so a naive read of the body looks empty. | No workaround needed. Search the raw page source, not the rendered text. |
 | Local hooks | The session's designated scratchpad is under `/tmp`, which a repository hook blocks, and another hook blocks inline `python -c`. | Worked in a project-local `tmp/` directory, deleted at the end, and wrote short script files instead of inline Python. |
 
 ---
@@ -46,11 +47,11 @@ status.
 | CMP annual circuit counts | The 2011 annual report's year-by-year history, 1985–2011, on the Internet Archive | DEM-19 |
 | MOSIS historical design counts | "more than 60,000 integrated circuit designs … up to $10 million annually at its peak", "around 3,000 orders per year" | SMB-5 |
 | CMC Microsystems (Canada) | Annual reports with prototype counts; a fall to 240 across the three years for which figures were read. **No figure was found for 2022-23**, and the five-year total implies it was the highest year in the series | DEM-20 |
-| Published MPW price lists | Europractice, CMP (2021, archived), MOSIS (archived), Tiny Tapeout, chipIgnite/ChipFoundry, IHP, AIM Photonics | SMB-7 to SMB-10 |
+| Published MPW price lists | Europractice (which carries the IHP and GlobalFoundries lists), MOSIS (archived), chipIgnite/ChipFoundry, Tiny Tapeout | SMB-7 to SMB-10 |
 | Mask-set cost at mature nodes | GSA survey figures quoted in *New Electronics* | SMB-12 |
 | Wafer cost per node | CSET's Table 9, modelled from TSMC's own financials | SMB-11 |
 | A long-tail manufacturing business that is profitable | JLC's IPO prospectus, filed with the Shenzhen Stock Exchange. It is a pre-listing 申报稿 and the company is unlisted, so it has no ticker: the document carries no 证券代码 or 股票代码 line at all | SMB-1 |
-| Long-tail manufacturing businesses that are not | Protolabs, Xometry, Shapeways, Fathom | SMB-2, SMB-3, SMB-4 |
+| Long-tail manufacturing businesses that are not | Protolabs, Xometry, Shapeways | SMB-2, SMB-3, SMB-4 |
 | Evidence cost is not the binding constraint | Siemens EDA / Wilson Research first-silicon success rates | DEM-12 |
 | Falling design starts | EE Times 2002, Gartner and iSuppli | DEM-11 |
 | The long-tail theory's own counter-evidence | Elberse's fuller findings, including her extension to physical goods | DEM-13 |
@@ -149,8 +150,10 @@ Each of these was looked for deliberately. Recording them saves the next person 
   SMB-8) but no foundry says why in public.
 - **The Global Semiconductor Association mask-cost survey itself**, behind the figures in SMB-12.
   Not obtained; the figures come through a journalist's paraphrase.
-- **Protolabs' annual order count or average order size.** Sought in every 10-K read (FY2015,
-  FY2019, FY2021, FY2022, FY2023, FY2024, FY2025). **Not disclosed in any of them.** Only cumulative
+- **Protolabs' annual order count or average order size.** Sought in every 10-K read. Four are
+  cited as sources in SMB-2 (FY2015, FY2019, FY2022, FY2025); the FY2023 and FY2024 filings were
+  also searched, for the "no single customer" phrase SMB-2 reports as having disappeared.
+  **Not disclosed in any of them.** Only cumulative
   part counts ("over 18 million unique part designs since inception") and qualitative commentary.
 - **What share of Xometry's revenue comes from its 1,760 accounts spending over $50,000 a year.**
   **Not disclosed in any 10-K read.** Without it, nobody can say how much of Xometry's revenue is
