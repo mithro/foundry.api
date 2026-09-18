@@ -1,6 +1,6 @@
 # Hypotheses
 
-These are the claims foundry.api depends on, stated so they can be tested. For each one, the evidence is listed below it, split into what supports it, what challenges it, and what is still an unverified **Lead**. Reference IDs point to entries in [`references/`](references/).
+These are the claims foundry.api depends on, stated so they can be tested. For each one, the evidence is listed below it, split into what supports it, what challenges it, and what is still an unverified **Lead**. Reference IDs point to entries in [`references/`](references/), except `DEM` and `SMB`, which point to [`demand/`](demand/) — the evidence gathered specifically on H5 and H6.
 
 Status of each hypothesis:
 - **Well supported:** several verified sources, and no strong challenge.
@@ -98,25 +98,76 @@ Status of each hypothesis:
 
 **Claim.** Many potential chip customers exist whose ideas are never made because the up-front cost is too high. If it falls, they add up to a real market.
 
-**Status:** Argued. The general long-tail evidence is contested. Chip-specific evidence of latent demand is thin.
+**Status: Contested, and weaker than we thought.** The chip-specific data asked for here has now been gathered ([`demand/`](demand/)), and it does not support the strong form of the claim.
+
+The demand is real and it is *price-elastic*: every time the price of a tape-out has fallen sharply, more people have come. Tiny Tapeout has taken over 4,300 submissions in four years at a few hundred euros a slot (DEM-1, DEM-2), and every free or subsidised programme found has been oversubscribed — 45 submissions against 40 slots on Google's first Open MPW shuttle (DEM-4, DEM-6), 98 applications for 50 Europractice places (DEM-17).
+
+But the *level* is small and the trend is not upward. When Google made fabrication, the design kit and the tools free and promoted it worldwide, the total global response over six shuttles was 364 submissions (DEM-9). Europractice ran between 363 and 614 designs a year for the whole of 2000 to 2017 and is now back to 753 after a peak of 985 (DEM-16). CMP peaked at 401 circuits in 2007 (DEM-19); CMC Microsystems has fallen four years running to 240 (DEM-20); MOSIS managed about 60,000 designs and up to $10M of revenue a year in four decades (SMB-5). The count of ASIC design starts has been falling since the 1990s (DEM-11). And the existing citation of TSMC's "tail" turns out not to support H5 at all: those customers average about US$41 million a year each (DEM-15).
+
+The honest reading is that a long tail of *experiments* certainly exists and grows when the price falls; a long tail of *paying manufacturing demand* at a scale that could fill a fab has not been demonstrated by anything found.
 
 - **Supports:**
+  - DEM-1, DEM-2: 4,268 Tiny Tapeout designs on the site's own table and 4,314 submission records counted from its API; submissions by year 317 → 970 → 1,632; eight of twenty-four closed runs filled 100% of their tiles
+  - DEM-4: the first Google-sponsored shuttle filled all 40 slots in 30 days, and "Approximately 60% of the designs were submitted by software, FPGA and hardware developers (non-IC experts) — demonstrating a significant untapped underlying interest"
+  - DEM-5, DEM-6, DEM-9: submissions per Open MPW shuttle rose 45 → 56 → 75 → 90 against a fixed 40 slots
+  - DEM-10: Tiny Tapeout's industrial share rose from 14% (2023) to 38%, so these are not only hobbyists (the survey behind it is **Partial**)
+  - DEM-17: 98 applications for 50 places in Europractice's First User Stimulation Programmes
+  - DEM-18: "Several TSMC shuttles are extremely loaded … If required, a waiting list will be created."
+  - DEM-21: the NSF workshop report — shuttle programmes "can be overbooked", a lottery picked 40 projects per Open MPW shuttle, and "There is also the third option where a design is not taped-out at all"
+  - SMB-1: JLC has 1,358,700 paying users placing 21.3 million orders a year, which is a long tail of hardware demand that unambiguously exists, though for printed circuit boards rather than chips
   - TAIL-1: Anderson's long tail
   - TAIL-2: the value of wider choice in books
   - OPEN-5: 174 submissions to one Tiny Tapeout round
-  - CONC-2, CONC-11: TSMC's customers outside its top ten (512 in 2024, 524 in 2025) share a fifth to a quarter of revenue
-- **Challenges:** TAIL-3, Elberse finds hits still dominate and consumers in the tail rate niche titles lower.
-- **Needs:** chip-specific data on latent demand, such as shuttle waiting lists, university and startup tape-out counts, or multi-project wafer programme growth.
+- **Challenges:**
+  - DEM-16: Europractice ran 363–614 designs a year for eighteen straight years, and 69% of 2024's submissions came from universities against 9% from European industry
+  - DEM-9: 364 submissions worldwide across six shuttles when the whole thing was free
+  - DEM-2: about a third of Tiny Tapeout's runs went materially undersubscribed once capacity rose to 512 tiles (TT07 58.8%, TT08 46.1%, TT10 46.9%)
+  - DEM-10: ChipFoundry reserves "the right to delay a shuttle if it's less than 50% full"
+  - DEM-11: ASIC design starts falling since the 1990s, on both analyst houses' numbers
+  - DEM-12: only 5% of IC/ASIC projects reported first-silicon success in 2026, down from 14.4% in 2024 — so the binding constraint looks like verification engineering, not the price of an attempt
+  - DEM-13: Elberse's own data — "Rather than bulking up, the tail is becoming much longer and flatter" — and she extends the conclusion to physical goods
+  - DEM-15: TSMC's 512 non-top-ten customers average about US$41M a year each, so CONC-2 and CONC-11 should no longer be read as support for H5
+  - DEM-19, DEM-20, DEM-22: CMP peaked at 401 circuits and its domain is now parked; CMC has fallen to 240; MOSIS's free academic programme ended in 2020
+  - SMB-4: Shapeways had "over one million customers" and one of them was 17–23% of revenue
+  - TAIL-3: Elberse finds hits still dominate and consumers in the tail rate niche titles lower
+- **Mixed:** DEM-21, whose one paragraph contains both the strongest statement that shuttles are overbooked and the strongest statement that a mature-node run can be "not desirable enough to make economic sense".
+- **Context:** CONC-2, CONC-11 (TSMC's customer counts — see DEM-15 before citing them for H5); SMB-5 (MOSIS's realised scale); SMB-6 (Europractice's subsidy).
+- **Needs:**
+  - A current count of ASIC design starts. The public record stops in the 2000s (DEM-11).
+  - Any survey of would-be chip customers about what actually stops them. None was found, in either direction (see [`demand/search-log.md`](demand/search-log.md)).
+  - Cases of a small chip customer becoming a large one. Still none verified.
+  - Submission counts for the Open MPW shuttles MPW-3, MPW-4, MPW-7, MPW-8 and the GF180MCU runs.
 
 ## H6. Small customers can each be profitable
 
 **Claim.** If the fab does no per-customer engineering and sells machine time at published prices, each small customer is profitable.
 
-**Status:** Argued.
+**Status: Contested.** There is now one strong, audited example on each side, and the variable that separates them is not customer size.
 
-- **Context:** SW-5 (Verified), where on AWS small on-demand buyers pay more per unit than committed buyers. That supports small customers paying a premium for flexibility.
-- **Challenges:** OPEN-7, Efabless's failure, though it was an intermediary and not a fab.
-- **Needs:** cost-to-serve data for multi-project wafer and shuttle programmes, and foundry service margins by customer size.
+For: JLC earns a 12.65% net margin from 1,358,700 paying users on an average order of about US$67, and its own risk factors say its gross margin is about 28% on the small-batch long tail against 2.76% on high-volume work — i.e. the long tail is the profitable part (SMB-1). MOSIS is described by its host institution as "a self-sustaining business for 40 years" (SMB-5). Against: Xometry has never made an operating profit in any year it has filed, on a 34.7% marketplace gross margin (SMB-3); Shapeways assembled over a million customers and went into Chapter 7 liquidation (SMB-4); Protolabs is profitable but its gross margin fell 14 points in a decade while revenue per customer went nowhere, and it is now deliberately chasing "larger orders" (SMB-2). Europractice says publicly that EU funding is what keeps it affordable (SMB-6).
+
+The cost-to-serve data asked for here turns out to be published, in the one place nobody thinks to look: the MPW price lists themselves. Every one of them prices the fixed cost per project explicitly — a minimum billable area, a flat per-project fee, an annual membership, a surcharge for splitting a block among several small customers (SMB-7, SMB-8). MOSIS's 0.13 µm price was "$17,500 + ($4,000/mm² * area)" with a 10 mm² minimum: 30% of the cheapest possible ticket was fixed cost before any silicon (SMB-8). That fixed cost is exactly what H6 assumes away, and it does not go away because the fab stops doing engineering.
+
+- **Supports:**
+  - SMB-1: JLC — 1,358,700 paying users, US$67 average order, 12.65% net margin, largest customer 0.28% of revenue, and ~28% gross margin on the long tail against 2.76% on high volume
+  - SMB-5: MOSIS, "a self-sustaining business for 40 years" at about $10M a year
+  - SMB-9: chipIgnite's flat published price survived the collapse of the company that invented it and was restarted by its founders at $14,950
+  - SMB-12: mature-node mask sets are now well under $100,000, so the fixed cost to recover per project is tens of thousands, not millions
+  - SW-5: on AWS, small on-demand buyers pay more per unit than committed buyers, so small customers can pay a premium for flexibility
+- **Challenges:**
+  - SMB-3: Xometry, no operating profit in any filed year, 34.7% marketplace gross margin, and an explicit pivot to "large enterprise customers"
+  - SMB-4: Shapeways, over a million customers, Chapter 7 liquidation on 2024-07-02, $176.9M accumulated deficit
+  - SMB-2: Protolabs' gross margin 58.5% (2015) → 44.5% (2025) while revenue per customer grew 1.28% a year; its numeric customer-concentration disclosure was dropped after FY2022
+  - SMB-6: Europractice says EU funding is what makes it affordable, and that without it "niche and emerging technologies from European sources could not be stimulated to a level that makes them viable"
+  - SMB-7, SMB-8: every published MPW price list prices the fixed cost per small customer — minimum billable areas, per-project fees, and a €1,000 "verification charge" for splitting one block among four or more sub-designs
+  - SMB-11: almost none of what a small customer pays is silicon, so "silicon is cheap" does not imply the price can fall
+  - DEM-14: Daniel Nenni — open-source tool users "do it mainly due to cost and that is a tough customer base to profit from" (his stated opinion, not data)
+  - OPEN-7: Efabless's failure, though it was an intermediary and not a fab
+- **Mixed:** SMB-2 (profitable, but the margin trend and the strategy both run away from the tail); SMB-5 (self-sustaining for forty years, but its successor's stated goal is to "achieve self-sustainability within the next few years").
+- **Needs:**
+  - A fab's own margin by customer size. Still not public anywhere; SMB-1 to SMB-6 are analogues, not measurements.
+  - What share of Xometry's revenue comes from its 1,760 accounts spending over $50,000 — not disclosed, and without it nobody can say how much of its revenue is long tail (SMB-3).
+  - The academic cost-to-serve literature. Kaplan and Narayanan (2001) could not be obtained legally; **the widely repeated "20% of customers generate 150–300% of profits" figures must not be quoted in this project until someone with library access checks them.** See [`demand/search-log.md`](demand/search-log.md).
 
 ## H7. Many small customers reduce risk and remove buyer power
 
