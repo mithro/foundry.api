@@ -17,7 +17,12 @@ Open process design kits (PDKs), open design tools, low-cost shuttles, AI-assist
   - H5 (context): a test of latent demand when manufacturing is free.
 - **Used in:** `WHY.md` §4.
 - **Caveats:** free manufacturing was paid for by Google, which is a subsidy, not a business model.
-- **To find:** how many designs the Google Open MPW shuttles received and manufactured, as evidence for H5.
+- **Found (2026-09-18):** the shuttle submission and acceptance counts this entry asked for are now
+  recorded in [`../demand/shuttle-programmes.md`](../demand/shuttle-programmes.md) as DEM-4 to DEM-9.
+  In short: 45 designs submitted to MPW-1 against 40 slots, 56 to MPW-2, 75 (Google) or 78
+  (Hackster) to MPW-5, 90 to MPW-6, and "240 designs from over 364 community submissions" across the
+  first six shuttles. Read DEM-9 before citing any of it — the same total is the best evidence
+  against H5 as well as for it.
 
 ### OPEN-2. GlobalFoundries' 180nm open design kit is still a preview
 
@@ -29,7 +34,7 @@ Open process design kits (PDKs), open design tools, low-cost shuttles, AI-assist
   - "While the GF180MCU process node and the PDK from which this open source release was derived have been used to create many designs that have been successfully manufactured commercially in significant quantities, the open source PDK is not intended to be used for production settings at this current time."
 - **Bears on:** H4 (mixed): open, but not yet for production.
 - **Used in:** `WHY.md` §4.
-- **Leads:** Google Open Source Blog, "Announcing GlobalFoundries Open MPW Shuttle Program", October 2022 (the page rate-limited us). Per a search summary it describes Google-sponsored no-cost shuttles, with the first test shuttle open for submissions 2022-10-31 to 2022-12-05.
+- **Lead resolved (2026-09-18):** the Google Open Source Blog post "Google funds open source silicon manufacturing shuttles for GlobalFoundries PDK" (2022-10-31) was fetched and read; it is recorded as DEM-8 in [`../demand/shuttle-programmes.md`](../demand/shuttle-programmes.md). It confirms the no-cost shuttles and the GF-MPW-0 submission window of 2022-10-31 to 2022-12-05, and adds that "Each shuttle run will select 40 projects". It reports no submission counts, and none were found elsewhere.
 
 ### OPEN-3. IHP's 130nm BiCMOS open design kit is also a preview
 
