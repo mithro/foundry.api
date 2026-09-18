@@ -68,7 +68,7 @@ is are therefore a direct measure of how many people want to make a chip at a gi
     size."). These are experiments and teaching exercises, not products.
   - Design counts are not customer counts. One person can submit many designs, and university
     courses submit in bulk. See DEM-2 for a count of distinct projects.
-  - The TT03 figure carries an asterisk with no footnote anywhere on the page. DEM-4 explains it.
+  - The TT03 figure carries an asterisk with no footnote anywhere on the page. DEM-3 explains it.
   - The table is Tiny Tapeout's own; DEM-2 is an independent count from its API that agrees.
 
 ### DEM-2. Counting Tiny Tapeout's submissions from its public API, and how full each run was
@@ -206,7 +206,7 @@ is are therefore a direct measure of how many people want to make a chip at a gi
     demand at a price above zero, and says nothing about H6.
   - This is a vendor press release, not an independent count. It gives the accepted number (40) in
     its own headline but not the submitted number; DEM-6 supplies that (45) from Efabless's own
-    programme page, and DEM-5 cross-checks the 45.
+    programme page, and DEM-7 cross-checks the 45 against a secondary report.
   - "60%" is stated without a method.
 
 ### DEM-5. Google's own count: "around 250" projects manufactured, and 75 submitted to MPW-5 from 19 countries
