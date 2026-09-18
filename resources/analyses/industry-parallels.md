@@ -657,10 +657,64 @@ The honest statement of the project's position after this review is narrower tha
 
 ## Part 6. Open questions
 
-*(filled in below)*
+Recorded rather than answered, because we could not settle them.
+
+1. **How long does a PROM-style approval take?** PAR-25 shows a shared fab gates new materials through a committee. Nobody publishes the turnaround. If it is days, an open fab can automate it; if it is months, it is a second cycle time stacked on top of the first and it dominates everything. This is the highest-value unknown in the file.
+2. **What is the cost to serve one MPW customer?** H6 needs this and we still do not have it. EUROPRACTICE publishes prices (PAR-3) but not costs. Nobody publishes the staff time per shuttle participant, which is the number that decides whether "no per-customer engineering" is achievable.
+3. **What is the respin rate for small, mature-node designs?** PAR-6 gives 5% first-silicon success for IC/ASIC projects generally, weighted towards large commercial designs. The rate for a Tiny Tapeout-scale design on an open PDK is unknown and could be very different in either direction.
+4. **Has MPW cycle time improved over 30 years?** PAR-3 gives current figures and the 2020 lead time; PAR-1 and PAR-2 give fab cycle time in 1992–1995 and 2017. We do not have a consistent MPW series. EUROPRACTICE schedules from the 1990s and 2000s would settle it and may exist in the Internet Archive.
+5. **Do published prices actually attract small buyers?** H8 asks this and we found no study of price transparency and small-buyer adoption in any industry. The evidence we have is existence proofs (AWS, EUROPRACTICE, JLCPCB), not causal evidence.
+6. **Is there a post-EUV measurement of cycle time at 7nm or 5nm?** PAR-2's 80–100 day figures were a 2017 projection that explicitly assumed no EUV. We found no measured replacement.
+7. **What does an open fab do about the externality one customer imposes on the next?** No mechanism in `PRINCIPLES.md` or `AUCTIONS.md` prices it (PAR-25). Insurance is the obvious candidate and it is not obvious that it works: the loss is another party's yield, discovered late, and hard to attribute.
+8. **Does the aggregator reading change the thesis?** Part 5.4 argues the web's evidence supports "be the aggregator", and the aggregator position is a near-monopoly in every case examined. If that is right, the project is claiming winner-take-most economics, which is a different and much stronger claim than `WHY.md` makes. Nobody has decided whether the project intends it.
 
 ---
 
 ## Changes needed in other files
 
-*(filled in below)*
+This file does not edit anything else. Everything below is a change someone else should make.
+
+### `resources/hypotheses.md`
+
+The README's rule is that adding an entry means updating the hypothesis it bears on. These are the updates this file implies.
+
+| Hypothesis | Change |
+|---|---|
+| **H1** | Add PAR-16 and PAR-17 as **supports by analogy** — frontier AI reproduced the doom spiral in a decade. Add PAR-2 as **supports**: the leading edge is getting slower as well as dearer. |
+| **H2** | Add PAR-9 as **supports**: CoreWeave's risk factors are GlobalFoundries' risk factors. |
+| **H3** | Add PAR-1 as **mixed**: "fab size above 7,000 wafer starts per week does not improve performance" is a measured limit on the returns to scale that Step 3 assumes. |
+| **H4** | Status should change from "Contested" to note a second axis. Add PAR-2, PAR-3, PAR-4 and PAR-6 as **challenges**: cost is not the only barrier, and cycle time and respin rate are not falling. Add PAR-5 as **supports**. Promote the existing hedge "at least on mature processes" to a premise (see PAR-17). |
+| **H5** | Add PAR-5 as the **strongest support** yet recorded (360 designs manufactured out of 600+ submissions). Add PAR-3 and PAR-4 as **challenges** (1–5 attempts a year). Add PAR-22, PAR-23 and PAR-19 as **challenges** — the tail is thin wherever it has been measured. Add PAR-24 as **supports**. |
+| **H6** | Add PAR-7, PAR-9 and PAR-11 as **challenges**: the cloud's money is in committed contracts and it pays to acquire the tail. Add PAR-25 as a **challenge**: "no per-customer engineering" is contradicted by the PROM committee that makes a shared fab possible. |
+| **H7** | Add PAR-9 as the **strongest challenge in the repository**. Add PAR-10 and PAR-22. The status should move from "Argued from theory" to "Contested", because there is now a direct counter-example in the industry the hypothesis is modelled on. |
+| **H8** | Add PAR-3 as **supports with a sting**: the open, published-price, self-service shuttle model already exists and has not transformed the industry. Add PAR-24 as **mixed**: arXiv replaced the gate rather than removing it. Add PAR-21. The "Needs" line about price transparency and small-buyer adoption is still unmet; see Part 6 item 5. |
+| **H9** | Add PAR-15 as the **closest published support** — but note it locates the gain in the contributor, not the platform. Add PAR-17 and PAR-25 as **challenges**. Add PAR-12 as **mixed**. |
+| **H10** | Add PAR-12 and PAR-19 as **supports**: skew observed directly in two more domains. |
+| **H11** | Add PAR-25 as a **challenge**: no proposed mechanism prices the externality one customer imposes on the next. |
+
+### `WHY.md`
+
+In rough order of how much they matter.
+
+1. **§1 has no cycle time in it, and that is the biggest single gap in the essay.** A reader who knows software will assume "cheap to try" implies "quick to try". It does not. One paragraph with PAR-3's table would fix it, and the essay is more credible for naming the limit than for omitting it.
+2. **§5, "Four ideas for the factory", idea 1 is contradicted by an operating shared fab.** "tries its own settings within the limits that keep the machines safe" — PAR-25 shows the binding limits are not machine-safety limits but limits protecting other customers' yield, enforced by a committee. Either the sentence needs rewriting or the essay needs to say how an open fab prices that externality.
+3. **§6's cloud argument is incomplete in a way a hostile reader will find.** Quoting AWS reserved-instance discounts to show small customers happily pay more, without mentioning that AWS carries about 1.5 years of revenue in multi-year commitments (PAR-7) and that the purest version of the model is 67% one customer on take-or-pay (PAR-9), is selective. Add them and answer them.
+4. **§5's "as open source did for software" should be confined to §4.** Open source's mechanism is the copy operation and silicon has none (Part 5.2).
+5. **§1 and §4 use AI as a cheapening force.** It is also the fastest-running example of the doom spiral in history (PAR-16, PAR-17). Using it in both directions would strengthen the essay considerably.
+6. **§5's long-tail passage should record the concentration half of the web story** (PAR-22, PAR-23), and should decide whether the essay is claiming the tail position or the aggregator position (Part 5.4, point 3).
+7. **Factual addition for §4:** about 95% of IC/ASIC projects now need a respin (PAR-6). "Cheap first chip" is a weaker claim than it sounds if you need three of them.
+
+### `resources/references/software-analogies.md`
+
+- **SW-5** should cross-reference PAR-8 (Google Cloud's committed-use discounts, which are explicitly take-or-pay: "You are billed monthly for your committed resources … regardless of whether or not you use those resources") and PAR-9. SW-5's caveat currently frames the brief's reading as the unfriendly one; PAR-7 and PAR-9 make the brief's reading the better-supported one.
+- **SW-1** (Andreessen's hundredfold figure) should cross-reference PAR-21, which gives the same story from the sellers' own published prices rather than from an investor anecdote.
+- **SW-3**'s caveat about the Open Path critique is still a Lead. Separately, PAR-12 adds what SW-3 does not: the contributor concentration behind the value concentration.
+
+### `resources/references/long-tail.md`
+
+- The Lead at the end of TAIL-3, "The Long Tail Debate: A Response to Chris Anderson" (2008), is **blocked**: <https://hbr.org/2008/07/the-long-tail-debate-a-respons> serves only the header and the first sentence to an unauthenticated reader. Verified from that fragment: the author is Anita Elberse and the piece opens "my recent article in the _Harvard Business Review_, '[Should You Invest in the Long Tail?]' has stirred up a debate among long-tail enthusiasts and critics alike." The body was not read. Record it as blocked rather than leaving it as an open Lead.
+- The "Evidence that would help" list should be updated: PAR-5 supplies the shuttle oversubscription figure it asks for, and PAR-4 supplies a submissions-over-time series.
+
+### `resources/README.md`
+
+- The "Reference topics" table lists ID prefixes for files in `references/`. `PAR` is used in an `analyses/` file. Either add a line noting that analyses may also carry an ID prefix, or move these entries into `references/`. Our preference is to leave them here, because the adjudication in Part 5 is the point of the file and it is not a reference list.
