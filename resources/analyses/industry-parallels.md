@@ -2,9 +2,19 @@
 
 `WHY.md` argues that chip manufacturing is stuck where software was before cheap experimentation, and that opening it up will do for chips what the internet, open source, cloud computing and machine learning did for software. This file tests that claim in both directions.
 
-It is written to be read by an adversarial reviewer. The conclusion is **not** that the analogy holds. Of the four analogues, one is load-bearing in a narrow and specific way, two are illustrative only, and one points the other way — it is better evidence *for* the doom spiral than against it.
+It is written to be read by an adversarial reviewer. **The conclusion is not that the analogy holds.**
 
-**ID prefix:** `PAR`. Entries follow the format in [`../README.md`](../README.md). This file does not edit any other file; see the last section for changes that belong elsewhere.
+- **Cloud computing** is load-bearing for the access model and misleading for the customer mix.
+- **Open source** is load-bearing for chip design and misleading for chip manufacturing.
+- **Machine learning** is misleading as the essay uses it, and is better evidence *for* the doom spiral than against it.
+- **The internet** is illustrative only.
+- A fifth analogue the essay does not use — **self-service physical manufacturing**, from PCB fabs to Protolabs to the two companies that went bankrupt doing exactly what `WHY.md` proposes — is the only one where the whole mechanism transfers, and it is the one the project should be arguing from.
+
+Two things are missing from the essay entirely and are supplied here: **cycle time**, which is the first-order limit on how often a customer can return and which appears nowhere else in this repository, and **the coupling between customers who share one physical process**, which has no software analogue at all.
+
+**ID prefix:** `PAR`, PAR-1 to PAR-38. Entries follow the format in [`../README.md`](../README.md). This file does not edit any other file; see the last section for changes that belong elsewhere.
+
+**Verification counts:** 24 Verified, 12 Partial, 1 Lead, plus PAR-37, which is a summary of figures verified at other entries. Every blocker is recorded with the exact reason at the entry that hit it. Entries marked Partial for the specific reason that a delegated research pass, rather than this file's author, read the source are PAR-18, PAR-21, PAR-28, PAR-30, PAR-31, PAR-32, PAR-34 and PAR-35; each says so.
 
 **Date compiled:** 2026-09-18.
 
@@ -12,11 +22,11 @@ It is written to be read by an adversarial reviewer. The conclusion is **not** t
 
 ## Contents
 
-- [Part 1. Cycle time: the missing number](#part-1-cycle-time-the-missing-number)
-- [Part 2. The four analogues](#part-2-the-four-analogues)
-- [Part 3. Physical industries: the coupling, the successes and the failures](#part-3-physical-industries-the-coupling-the-successes-and-the-failures)
-- [Part 4. The counter-case on the long tail](#part-4-the-counter-case-on-the-long-tail)
-- [Part 5. Adjudication](#part-5-adjudication)
+- [Part 1. Cycle time: the missing number](#part-1-cycle-time-the-missing-number) — PAR-1 to PAR-6
+- [Part 2. The four analogues](#part-2-the-four-analogues) — PAR-7 to PAR-24
+- [Part 3. Physical industries: the coupling, the successes and the failures](#part-3-physical-industries-the-coupling-the-successes-and-the-failures) — PAR-25 to PAR-35
+- [Part 4. The counter-case on the long tail](#part-4-the-counter-case-on-the-long-tail) — PAR-36 to PAR-38
+- [Part 5. Adjudication](#part-5-adjudication) — the verdicts
 - [Part 6. Open questions](#part-6-open-questions)
 - [Changes needed in other files](#changes-needed-in-other-files)
 
@@ -401,7 +411,7 @@ This is the analogue that points the other way. `WHY.md` §1 puts AI alongside o
 - **Sources:**
   - Ben Cottier, Ben Snodin, David Owen and Tom Adamczewski, "LLM inference prices have fallen rapidly but unequally across tasks", Epoch AI, 2025-03-12. <https://epoch.ai/data-insights/llm-inference-price-trends>
   - Stanford Institute for Human-Centered AI, *AI Index Report 2025*, Chapter 1. <https://hai.stanford.edu/assets/files/hai_ai-index-report-2025_chapter1_final.pdf>
-- **Verification:** Verified 2026-09-18 (both fetched and read by a delegated research pass; quotes reproduced from that read). Marked **Partial** for the AI Index figures, which we did not re-read against the PDF ourselves.
+- **Verification:** Partial, 2026-09-18. Both pages were fetched and read by a delegated research pass and the quotes are reproduced from that read; we did not re-read either against the source ourselves.
 - **What it says:**
   - Epoch AI: "the price to achieve GPT-4's performance on a set of PhD-level science questions fell by 40x per year. The rate of decline varies dramatically depending on the performance milestone, ranging from 9x to 900x per year." And: "Across all of these benchmarks and performance thresholds, we found prices declining between 9x per year and 900x per year, with a median of 50x per year."
   - AI Index 2025: "the inference cost for an AI model scoring the equivalent of GPT-3.5 (64.8) on MMLU … dropped from $20 per million tokens in November 2022 to just $0.07 per million tokens by October 2024 (Gemini-1.5-Flash-8B)—a more than 280-fold reduction in approximately 1.5 years."
@@ -461,7 +471,7 @@ The web is the analogue `WHY.md` reaches for first and defends least. Both halve
   - VeriSign, Inc., "Verisign Reports First Quarter 2026 Results". <https://investor.verisign.com/news-releases/news-release-details/verisign-reports-first-quarter-2026-results>
   - Jeff Barr, "Amazon S3", AWS News Blog, 2006-03-14. <https://aws.amazon.com/blogs/aws/amazon_s3/>
   - "AWS Storage Update – S3 & Glacier Price Reductions + Additional Retrieval Options for Glacier", AWS News Blog, 2016-11-21. <https://aws.amazon.com/blogs/aws/aws-storage-update-s3-glacier-price-reductions/>
-- **Verification:** Verified 2026-09-18 by a delegated research pass that fetched each page; the current (2026) S3 price was **not** verified because the AWS pricing page renders its tables in JavaScript.
+- **Verification:** Partial, 2026-09-18. Each page was fetched and read by a delegated research pass; we did not re-read them ourselves, and the current (2026) S3 price was **not** verified at all because the AWS pricing page renders its tables in JavaScript.
 - **What it says:**
   - InterNIC, 1995–96 terms: "The Registration Fee for a new domain name is $100.00. New domain names are valid for two years"; "there will be an Maintenance Fee of $50.00 per year per domain name".
   - Verisign, 2026: "Verisign announces that it will increase the annual registry-level wholesale fee for each new and renewal .com domain name registration from $10.26 to $10.97 effective Nov. 1, 2026."
@@ -628,7 +638,7 @@ This is the section the brief asked for specifically, and it is the most useful 
   - Stratasys Ltd. Form 20-F for FY2015: <https://www.sec.gov/Archives/edgar/data/0001517396/000120677416005045/stratasys_20f.htm>. Acquisition announcement, Exhibit 99.1 to a Form 6-K: <https://www.sec.gov/Archives/edgar/data/0001517396/000110465913050451/a13-15347_1ex99d1.htm>
   - MOSIS: <https://www.mosis.org/about-us> (live, 2026-09-18), and the archived self-description at <https://web.archive.org/web/20020711010856/http://www.mosis.com/about/whatis.html>
   - BASF news release P-19-398, "BASF Acquires 3D Printing Service Provider Sculpteo", 2019-11-18: <https://www.basf.com/global/en/media/news-releases/2019/11/p-19-398>
-- **Verification:** Verified 2026-09-18 by a delegated research pass that fetched each page and read the quoted text. Marked **Partial** overall here, because we did not re-read these ourselves and the pattern claim is our own synthesis, not a finding of any of these documents.
+- **Verification:** Partial, 2026-09-18. Each page was fetched and its quoted text read by a delegated research pass; we did not re-read them ourselves, and the pattern claim is our own synthesis, not a finding of any of these documents.
 - **What it says:**
   - **Efabless**, the company that ran the open MPW programmes in `WHY.md` §4: "Shutdown Notice. Due to funding challenges, Efabless has shut down operations until further notice." Its site now says: "Umbralogic Technologies LLC, doing business as ChipFoundry, has acquired the assets of Efabless Corporation."
   - **MakerBot**, the flagship "3D printing for everyone" brand: Stratasys acquired it in 2013 with an "initial value of $403 million based on Stratasys' closing stock price of $84.60 as of June 19, 2013" (announcement) and an aggregate purchase price of "$493.7 million" at closing (FY2015 20-F). It then wrote the goodwill off in three steps: "$102.5 million" (FY2014), "$150.4 million" (Q1 2015) and "an additional non-tax-deductible impairment charge of $125.1 million" — "As of December 31, 2015, there was no remaining goodwill balance assigned to MakerBot reporting unit."
@@ -678,7 +688,7 @@ This is the section the brief asked for specifically, and it is the most useful 
 #### PAR-30. Xometry owns no machines, and its small-customer count is growing 20% a year
 
 - **Sources:** Xometry, Inc. Form 10-K for FY2025 (filed 2026-02-24): <https://www.sec.gov/Archives/edgar/data/1657573/000119312526066959/xmtr-20251231.htm>; Form 10-K for FY2022: <https://www.sec.gov/Archives/edgar/data/1657573/000095017023008494/xmtr-20221231.htm>
-- **Verification:** Verified 2026-09-18 by a delegated research pass that fetched both filings and read the quoted text. We did not re-read these ourselves; recorded as **Partial** on that basis.
+- **Verification:** Partial, 2026-09-18. Both filings were fetched and the quoted text read by a delegated research pass; we did not re-read them ourselves.
 - **What it says:**
   - "The number of Active Buyers on our platform reached 81,821 as of December 31, 2025, up 20% from 68,267 as of December 31, 2024." FY2022: "Active Buyers on our platform reached 40,664 as of December 31, 2022, up 45% from 28,130 as of December 31, 2021."
   - Definitions: "we define Active Buyers as buyers who have made at least one purchase on our marketplace during the last twelve months."
@@ -697,7 +707,7 @@ This is the section the brief asked for specifically, and it is the most useful 
   - PCBWay: <https://www.pcbway.com/>
   - ChipFoundry (successor to Efabless): <https://chipfoundry.io/> and <https://chipfoundry.io/about>
   - Tiny Tapeout FAQ: <https://tinytapeout.com/faq/>
-- **Verification:** Verified 2026-09-18 by a delegated research pass that read each quoted string out of the raw HTML. **These are company marketing pages, not audited figures.** None of these companies is public and none of these numbers is independently attested.
+- **Verification:** Partial, 2026-09-18. A delegated research pass read each quoted string out of the raw HTML; we did not re-read them ourselves. **These are company marketing pages, not audited figures.** None of these companies is public and none of these numbers is independently attested.
 - **What it says:**
   - JLCPCB's published product grid: "FR-4 PCBs … From $2.00 / 5 pcs **Build Time: 24 hours**"; "Flexible PCBs … From $2.00 / 5 pcs Build Time: 5-6 days"; "PCB Assembly … From $8.00 Build Time: 24 hours"; "Rapid Fab & Assembly As fast as 24 hours". Its own scale claims, footnoted "* As of Dec 2025": "9.5M + Customers"; "21M + Orders/Year"; "10,000 + Employees"; "180 + Countries Covered".
   - PCBWay: "PCB Prototype … From $5 /10pcs … Build Time:24 hours"; counters reading "256,000+ / Customers" and "128,000+ / Paying".
@@ -717,7 +727,7 @@ This is the section the brief asked for specifically, and it is the most useful 
 #### PAR-32. The shipping container: the largest measured effect of a standardised physical interface
 
 - **Source:** Daniel M. Bernhofen, Zouheir El-Sahli and Richard Kneller, "Estimating the effects of the container revolution on world trade", *Journal of International Economics*, Vol. 98 (C), 2016, pp. 36–50. The published version at <https://www.sciencedirect.com/science/article/abs/pii/S0022199615001403> is paywalled and was **not** fetched. The version read is the open-access accepted manuscript, every page stamped "ACCEPTED MANUSCRIPT", dated "September 2, 2015", at the University of Brighton repository: <https://cris.brighton.ac.uk/ws/portalfiles/portal/376845/JIE%20accepted%20manuscript%20online%20version%20(1).pdf>
-- **Verification:** Verified 2026-09-18 by a delegated research pass that fetched and read the accepted manuscript in full. Recorded as **Partial** here because we did not read it ourselves and because the accepted manuscript is not the version of record.
+- **Verification:** Partial, 2026-09-18. A delegated research pass fetched and read the accepted manuscript in full; we did not read it ourselves, and the accepted manuscript is not the version of record.
 - **What it says:**
   - "Restricting our sample to North-North trade, which are mainly the early adopters, our benchmark specification which uses differences in the timing of adoption between countries suggests that the cumulative average treatment effect (ATE) of containerization was about 1,240% after 15 years. For all countries we find an effect that is smaller but still of economic importance at 900%."
   - Against trade policy: "Overall, we find that the estimated effects of containerization are generally much bigger than the estimated effects of the trade policy variables in all specifications." The cumulative ATE of a free-trade agreement is "about 68% at the end of 15-years"; of bilateral GATT membership, "194%".
@@ -901,13 +911,39 @@ The honest statement of the project's position after this review is narrower tha
 
 **Verdict: illustrative.** Keep it in §1 as a way of orienting a reader who knows software. Do not derive any prediction about an open fab from it, and add the concentration half, because leaving it out is the kind of omission an informed reader will notice and hold against the rest of the essay.
 
+### 5.5 The fifth analogue nobody asked for: self-service physical manufacturing — **load-bearing, and the only one that is**
+
+The four analogues the essay uses are all software. The analogue that actually tests the thesis is a physical one, and it is better evidence than any of them because it removes the one variable that ruins the others: these businesses make things out of atoms.
+
+**What transfers.** All of it, and it is the only place where "all of it" is true. Published prices, instant quoting, no salesperson, no minimum order, thousands or millions of small customers, an expensive machine the customer could never buy. JLCPCB does it at $2.00 and 24 hours with a claimed 9.5 million customers (PAR-31). Protolabs does it profitably while owning its factories (PAR-29). MOSIS has done it for silicon since 1981 (PAR-28). The model is not speculative; it is ordinary.
+
+**What breaks, and it is not what the essay expects.**
+
+1. **It is not cost that separates PCBs from silicon; it is cost *and* time together.** $2.00 and 24 hours versus $14,950 and up to a year (PAR-31). PCB fabrication became a self-service commodity when *both* fell far enough. Silicon has moved a long way on price — from millions to $300 (OPEN-5) — and essentially not at all on time (PAR-1 against PAR-2, PAR-3).
+2. **The businesses that own the machines retreat from the tail.** Protolabs says so in writing: "our strategic focus to earn larger orders from our customers", with the customer count down three years running and gross margin down 18 points in twelve years (PAR-29). Shapeways said the same before it failed: "Our customer count may continue to decline as we increase our focus on middle market and enterprise opportunities" (PAR-26). **Two independent firms, in different materials, both drifted from the tail towards the head — under exactly the commercial pressure `WHY.md` §2 describes.**
+3. **A million customers did not prevent concentration.** Shapeways had over a million lifetime customers and one customer at 23% of revenue (PAR-26). H7's central assumption — that many small customers means no customer has leverage — has a direct counter-example in the closest available industry.
+4. **Nobody has shown it pays.** Protolabs is profitable and shrinking its tail; Xometry is growing its tail and losing $61.7m a year; Shapeways ran a 42% gross margin and liquidated; Fast Radius ran a 10% gross margin and went bankrupt (PAR-26, PAR-27, PAR-29, PAR-30). **There is no example in this file of a company profitably growing a tail of small customers while owning the capital.** MOSIS comes closest and runs on 45 years of government money.
+
+**Verdict: load-bearing, and it is the analogue the project should be arguing from.** It supports H8 strongly and challenges H6 and H7 hard, and both of those are more useful than another software comparison. `WHY.md` would be a much better essay if §5 and §6 argued from JLCPCB, Protolabs and Shapeways instead of from AWS — partly because the evidence is better, and mostly because an informed reader will raise Shapeways whether the essay does or not.
+
+### 5.6 Summary table
+
+| Analogue | Verdict | The one-line reason |
+|---|---|---|
+| Cloud computing | **Load-bearing for the access model, misleading for the customer mix** | Published self-service pricing brought the customers in; the money went to multi-year take-or-pay commitments, and the purest version of the model is 67% one customer (PAR-7, PAR-9) |
+| Open source | **Load-bearing for design, misleading for manufacturing** | Its mechanism is the copy operation, and silicon has none (PAR-12, PAR-33) |
+| Machine learning / AI | **Misleading — it is evidence for the doom spiral, not against it** | Training cost growing 2.4× a year; two academic models in 2025 against 93 from industry (PAR-16, PAR-17) |
+| The internet / the web | **Illustrative only** | The cost collapse is real and entirely non-physical; the same mechanism produced an 80% advertising duopoly (PAR-20, PAR-22) |
+| Self-service physical manufacturing | **Load-bearing — and the project should argue from this one** | The only analogue where the whole mechanism transfers, and the only one that tests H6 and H7 with real balance sheets (PAR-26, PAR-29, PAR-31) |
+
 ---
 
 ## Part 6. Open questions
 
 Recorded rather than answered, because we could not settle them.
 
-1. **How long does a PROM-style approval take?** PAR-25 shows a shared fab gates new materials through a committee. Nobody publishes the turnaround. If it is days, an open fab can automate it; if it is months, it is a second cycle time stacked on top of the first and it dominates everything. This is the highest-value unknown in the file.
+0. **What happened to ES2 (European Silicon Structures), 1985–1993?** A pan-European fast-turnaround electron-beam direct-write fab built explicitly to take designs from many small customers, which failed. **If any historical case is the direct precedent for this project, it is that one, and nobody has checked it.** It is not recorded here even as a Lead entry, because we have read nothing about it. This is the single highest-value unchecked item in the file and it should be someone's next task.
+1. **How long does a PROM-style approval take?** PAR-25 shows a shared fab gates new materials through a committee. Nobody publishes the turnaround. If it is days, an open fab can automate it; if it is months, it is a second cycle time stacked on top of the first and it dominates everything.
 2. **What is the cost to serve one MPW customer?** H6 needs this and we still do not have it. EUROPRACTICE publishes prices (PAR-3) but not costs. Nobody publishes the staff time per shuttle participant, which is the number that decides whether "no per-customer engineering" is achievable.
 3. **What is the respin rate for small, mature-node designs?** PAR-6 gives 5% first-silicon success for IC/ASIC projects generally, weighted towards large commercial designs. The rate for a Tiny Tapeout-scale design on an open PDK is unknown and could be very different in either direction.
 4. **Has MPW cycle time improved over 30 years?** PAR-3 gives current figures and the 2020 lead time; PAR-1 and PAR-2 give fab cycle time in 1992–1995 and 2017. We do not have a consistent MPW series. EUROPRACTICE schedules from the 1990s and 2000s would settle it and may exist in the Internet Archive.
@@ -915,6 +951,8 @@ Recorded rather than answered, because we could not settle them.
 6. **Is there a post-EUV measurement of cycle time at 7nm or 5nm?** PAR-2's 80–100 day figures were a 2017 projection that explicitly assumed no EUV. We found no measured replacement.
 7. **What does an open fab do about the externality one customer imposes on the next?** No mechanism in `PRINCIPLES.md` or `AUCTIONS.md` prices it (PAR-25). Insurance is the obvious candidate and it is not obvious that it works: the loss is another party's yield, discovered late, and hard to attribute.
 8. **Does the aggregator reading change the thesis?** Part 5.4 argues the web's evidence supports "be the aggregator", and the aggregator position is a near-monopoly in every case examined. If that is right, the project is claiming winner-take-most economics, which is a different and much stronger claim than `WHY.md` makes. Nobody has decided whether the project intends it.
+9. **Is there any example of a company profitably growing a tail of small customers while owning the capital?** This file did not find one (Part 5.5, point 4). Protolabs is profitable and shrinking its tail; Xometry is growing its tail and losing money; Shapeways and Fast Radius failed; MOSIS is subsidised. If such an example exists it would be the most valuable single piece of evidence for H6 and H7, and if it does not exist that is itself the finding.
+10. **Does Pisano's learning-before-doing distinction hold for semiconductor process development?** PAR-38 records the citation and nothing else, because no legitimate route to the text was found. It bears directly on H9.
 
 ---
 
@@ -928,14 +966,14 @@ The README's rule is that adding an entry means updating the hypothesis it bears
 
 | Hypothesis | Change |
 |---|---|
-| **H1** | Add PAR-16 and PAR-17 as **supports by analogy** — frontier AI reproduced the doom spiral in a decade. Add PAR-2 as **supports**: the leading edge is getting slower as well as dearer. |
+| **H1** | Add PAR-16 and PAR-17 as **supports by analogy** — frontier AI reproduced the doom spiral in a decade. Add PAR-2 as **supports**: the leading edge is getting slower as well as dearer. Add PAR-34 as **supports**: mask-set cost per design rising from hundreds of thousands at 90nm to an estimated $40m at 3nm. |
 | **H2** | Add PAR-9 as **supports**: CoreWeave's risk factors are GlobalFoundries' risk factors. |
 | **H3** | Add PAR-1 as **mixed**: "fab size above 7,000 wafer starts per week does not improve performance" is a measured limit on the returns to scale that Step 3 assumes. |
-| **H4** | Status should change from "Contested" to note a second axis. Add PAR-2, PAR-3, PAR-4 and PAR-6 as **challenges**: cost is not the only barrier, and cycle time and respin rate are not falling. Add PAR-5 as **supports**. Promote the existing hedge "at least on mature processes" to a premise (see PAR-17). |
-| **H5** | Add PAR-5 as the **strongest support** yet recorded (360 designs manufactured out of 600+ submissions). Add PAR-3 and PAR-4 as **challenges** (1–5 attempts a year). Add PAR-22, PAR-23 and PAR-19 as **challenges** — the tail is thin wherever it has been measured. Add PAR-24 as **supports**. |
-| **H6** | Add PAR-7, PAR-9 and PAR-11 as **challenges**: the cloud's money is in committed contracts and it pays to acquire the tail. Add PAR-25 as a **challenge**: "no per-customer engineering" is contradicted by the PROM committee that makes a shared fab possible. |
-| **H7** | Add PAR-9 as the **strongest challenge in the repository**. Add PAR-10 and PAR-22. The status should move from "Argued from theory" to "Contested", because there is now a direct counter-example in the industry the hypothesis is modelled on. |
-| **H8** | Add PAR-3 as **supports with a sting**: the open, published-price, self-service shuttle model already exists and has not transformed the industry. Add PAR-24 as **mixed**: arXiv replaced the gate rather than removing it. Add PAR-21. The "Needs" line about price transparency and small-buyer adoption is still unmet; see Part 6 item 5. |
+| **H4** | Status should change from "Contested" to note a second axis. Add PAR-2, PAR-3, PAR-4 and PAR-6 as **challenges**: cost is not the only barrier, and cycle time and respin rate are not falling. Add PAR-33 as the **best-argued challenge available**, and PAR-34 for mask cost. Add PAR-5 as **supports**. Promote the existing hedge "at least on mature processes" to a premise (see PAR-17). |
+| **H5** | Add PAR-5 as the **strongest support** yet recorded (360 designs manufactured out of 600+ submissions). Add PAR-3 and PAR-4 as **challenges** (1–5 attempts a year). Add PAR-22, PAR-23, PAR-19 and PAR-37 as **challenges** — the tail is thin wherever it has been measured. Add PAR-36 as a **support** and as the response to TAIL-3. Add PAR-24 as **supports**. Add PAR-26, PAR-27 and PAR-29 as **challenges**. |
+| **H6** | Add PAR-7, PAR-9 and PAR-11 as **challenges**: the cloud's money is in committed contracts and it pays to acquire the tail. Add PAR-25 as a **challenge**: "no per-customer engineering" is contradicted by the PROM committee that makes a shared fab possible. Add PAR-27 (a 10% gross margin on self-serve on-demand manufacturing) and PAR-29 (Protolabs' gross margin down 18 points in twelve years) as **challenges**. |
+| **H7** | Add PAR-9 as the **strongest challenge in the repository**, and PAR-26 as the second: a company with over a million lifetime customers still had one customer at 23% of revenue. Add PAR-10 and PAR-22. Add PAR-29 as the best **support** H7 has — a profitable, capital-owning manufacturer with no customer above 2%. The status should move from "Argued from theory" to "Contested". |
+| **H8** | Add PAR-3 as **supports with a sting**: the open, published-price, self-service shuttle model already exists and has not transformed the industry. Add PAR-31 as **strong support** in a physical industry (JLCPCB: published price, published lead time, 9.5 million claimed customers) and PAR-32 for standardised interfaces. Add PAR-24 as **mixed**: arXiv replaced the gate rather than removing it. Add PAR-21 and PAR-28 (MOSIS has done this since 1981, on public money). The "Needs" line about price transparency and small-buyer adoption is still unmet; see Part 6 item 5. |
 | **H9** | Add PAR-15 as the **closest published support** — but note it locates the gain in the contributor, not the platform. Add PAR-17 and PAR-25 as **challenges**. Add PAR-12 as **mixed**. |
 | **H10** | Add PAR-12 and PAR-19 as **supports**: skew observed directly in two more domains. |
 | **H11** | Add PAR-25 as a **challenge**: no proposed mechanism prices the externality one customer imposes on the next. |
@@ -951,6 +989,8 @@ In rough order of how much they matter.
 5. **§1 and §4 use AI as a cheapening force.** It is also the fastest-running example of the doom spiral in history (PAR-16, PAR-17). Using it in both directions would strengthen the essay considerably.
 6. **§5's long-tail passage should record the concentration half of the web story** (PAR-22, PAR-23), and should decide whether the essay is claiming the tail position or the aggregator position (Part 5.4, point 3).
 7. **Factual addition for §4:** about 95% of IC/ASIC projects now need a respin (PAR-6). "Cheap first chip" is a weaker claim than it sounds if you need three of them.
+8. **§6 should answer Shapeways.** The section is called "It can't work" and lists the objections. The strongest objection is not in it: two public companies built this business in physical manufacturing and both went bankrupt, and the one that survives is deliberately shedding its small customers (PAR-26, PAR-27, PAR-29). An informed reader will raise it. Better to raise it first.
+9. **Consider replacing the software analogies in §5 and §6 with physical ones.** JLCPCB at $2.00 and 24 hours (PAR-31) makes the case for published self-service pricing better than AWS does, in the right kind of industry, and it comes with the honest contrast that the same model in silicon costs $14,950 and takes a year.
 
 ### `resources/references/software-analogies.md`
 
@@ -958,8 +998,15 @@ In rough order of how much they matter.
 - **SW-1** (Andreessen's hundredfold figure) should cross-reference PAR-21, which gives the same story from the sellers' own published prices rather than from an investor anecdote.
 - **SW-3**'s caveat about the Open Path critique is still a Lead. Separately, PAR-12 adds what SW-3 does not: the contributor concentration behind the value concentration.
 
+### `resources/references/open-silicon-and-ai.md`
+
+- **OPEN-7** (Efabless's closure) should record the successor: efabless.com now states "Umbralogic Technologies LLC, doing business as ChipFoundry, has acquired the assets of Efabless Corporation", and ChipFoundry's chipIgnite is selling tape-outs at "$14,950 / per tapeout" (PAR-28, PAR-31). It should also note that the CEO quote it carries appears only in secondary reporting; we found no primary source for it.
+- **OPEN-5** (Tiny Tapeout at $300) should record the published wait alongside the price: "The chips are taking between 6 and 9 months to manufacture … So expect up to 1 year's wait time!" (PAR-31), and PAR-4's measured 228–451 days from shuttle close to shipped chips.
+- A new entry is warranted for **MOSIS**, which has run an open, published-price, many-small-customers silicon shuttle continuously since 1981 and is still running as "MOSIS 2.0" under the CHIPS Act (PAR-28). It is both the best precedent for the project and the sharpest question about it, since it has never stood without public funding.
+
 ### `resources/references/long-tail.md`
 
+- **PAR-36** should be added here as the direct response to TAIL-3: Brynjolfsson, Hu and Simester (2011) find the internet channel significantly less concentrated than the traditional channel *at the same retailer with the same catalogue and prices*, and attribute it to search and discovery tools rather than to shelf space. Abstract only; the blocker is recorded at PAR-36.
 - The Lead at the end of TAIL-3, "The Long Tail Debate: A Response to Chris Anderson" (2008), is **blocked**: <https://hbr.org/2008/07/the-long-tail-debate-a-respons> serves only the header and the first sentence to an unauthenticated reader. Verified from that fragment: the author is Anita Elberse and the piece opens "my recent article in the _Harvard Business Review_, '[Should You Invest in the Long Tail?]' has stirred up a debate among long-tail enthusiasts and critics alike." The body was not read. Record it as blocked rather than leaving it as an open Lead.
 - The "Evidence that would help" list should be updated: PAR-5 supplies the shuttle oversubscription figure it asks for, and PAR-4 supplies a submissions-over-time series.
 
