@@ -25,6 +25,14 @@ It is a working notebook, not a finished document. `WHY.md` and `PRINCIPLES.md` 
 | [`references/learning-curves.md`](references/learning-curves.md) | `LEARN` | Wright's law, the experience curve, learning spillovers, and granular technologies |
 | [`references/long-tail.md`](references/long-tail.md) | `TAIL` | The long tail, and the evidence against it |
 | [`references/open-silicon-and-ai.md`](references/open-silicon-and-ai.md) | `OPEN` | Open design kits, open tools, cheap shuttles, AI-assisted design, and failures |
+| [`demand/shuttle-programmes.md`](demand/shuttle-programmes.md) | `DEM` | Multi-project wafer and shuttle programmes: designs submitted, accepted, and how full the runs were |
+| [`demand/latent-demand-challenges.md`](demand/latent-demand-challenges.md) | `DEM` | Evidence that the latent demand for chips is not there, or that cost is not the binding constraint |
+| [`demand/long-tail-businesses.md`](demand/long-tail-businesses.md) | `SMB` | Public financials of businesses serving a long tail of small manufacturing customers, and the ones that failed |
+| [`demand/pricing-and-cost-to-serve.md`](demand/pricing-and-cost-to-serve.md) | `SMB` | Published prices for small-volume fabrication, mask and NRE costs, and the cost of serving a small customer |
+
+`DEM` and `SMB` each run one sequence of numbers across their two files, so the numbers are not
+contiguous within a file. [`demand/README.md`](demand/README.md) gives the ranges, and
+[`demand/search-log.md`](demand/search-log.md) records the searches and the dead ends behind them.
 
 ## Conventions
 
