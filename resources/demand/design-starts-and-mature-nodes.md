@@ -133,12 +133,14 @@ products in production at mature nodes.
     independent quotations of Gartner agree. DEM-11 marks the SKMurphy table as **Lead**; this entry
     upgrades it to **Partial** (page fetched and read; Gartner's own tables still not seen).
 
-### TRAD-3. The chart's Section A is a near-constant **4.4×–4.7× multiple** of Gartner's published ASIC figures, and the multiple is unexplained
+### TRAD-3. The chart's Section A is a near-constant **4.4×–4.7× multiple** of Gartner's published ASIC figures over 2000–2008, and the multiple is unexplained
 
 - **Source:** derived from TRAD-1, TRAD-2 and the owner-supplied chart "Number of design starts for
   commercial sectors".
-- **Verification:** the arithmetic is `DERIVED` and written out below. The Section A values are
-  **read off a chart, not from a table**, and are approximate to roughly ±500.
+- **Verification:** Partial, 2026-09-18. This entry is arithmetic over TRAD-1, TRAD-2 and the
+  owner's chart, not a source of its own; every input carries its own status. All arithmetic is
+  `DERIVED` and written out below. The Section A values are **read off a chart, not from a table**,
+  and are approximate to roughly ±500.
 
 > [!NOTE]
 > **Read TRAD-19 with this entry.** A Gartner chart of 1994–2013 ASIC design starts, reproduced in a
@@ -200,6 +202,8 @@ products in production at mature nodes.
     <https://web.archive.org/web/20230927043658/https://semico.com/content/asic-design-starts-2022-new-applications-and-ai-become-market-drivers>
   - "ASIC Design Starts by Major Market Applications" (SC106-23), Semico Research.
     <https://web.archive.org/web/20240221130711/https://semico.com/content/asic-design-starts-major-market-applications>
+  - "ASIC Design Starts: Growing Applications and AI Drive the Market" (SC107-23), Semico Research.
+    <https://web.archive.org/web/2023/https://semico.com/content/asic-design-starts-growing-applications-and-ai-drive-market>
 - **Verification:** Verified 2026-09-18. The Semiconductor Digest page was fetched directly (HTTP
   200). The three Semico pages were fetched from the Internet Archive (captures 2023-09-27,
   2024-02-21, and a 2020 capture of the automotive page) after the live site was found to redirect to
@@ -215,6 +219,9 @@ products in production at mature nodes.
     and consumer markets continue to grow above the industry average."
   - SC107-22: "forecasts that total ASIC design starts will grow at a 3.7% CAGR from 2021 through
     2025."
+  - SC107-23: "forecasts that ASIC design starts will continue to increase to meet the demand for
+    more evolved, better performing products in all markets with automotive/transportation having the
+    highest CAGR at 4.8% from 2022 through 2027."
   - SC106-23: "ASIC design starts increased 3.1% in 2022." Jim Feldhan, President, Semico Research,
     is quoted on the pressure: "These metrics are well known:  rising design and mask set costs,
     increasing device complexity, rising design cycle times and shrinking market windows" (the double
@@ -234,6 +241,11 @@ products in production at mature nodes.
     in which the project's thesis says traditional demand was flat or falling.
 - **Used in:** not yet.
 - **Caveats:**
+  - **The exact report named on the owner's chart was not located.** The chart credits "Semico
+    Research, ASIC Design Starts for 2022 by Key End Market Applications", which is Semico's SKU
+    SC106-22. No page for SC106-22 was found in the Internet Archive; the sibling reports above
+    (SC106-16, SC107-22, SC106-23, SC107-23) were. The figures in this entry are therefore from the
+    same report families and the same analysts, but **not from the report the chart cites**.
   - These are press-release growth *rates*. **No absolute Semico level was found in public** — see
     TRAD-5. So we cannot say whether Semico's level was ~6,000, ~600 or ~60,000.
   - Semico's growth rates are not all outcomes: +5.0% (2016), +3.7% CAGR (2021–2025) and +6.6% CAGR
