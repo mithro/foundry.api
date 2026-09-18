@@ -45,7 +45,7 @@ status.
 | Europractice oversubscription | "Several TSMC shuttles are extremely loaded … If required, a waiting list will be created." | DEM-18 |
 | CMP annual circuit counts | The 2011 annual report's year-by-year history, 1985–2011, on the Internet Archive | DEM-19 |
 | MOSIS historical design counts | "more than 60,000 integrated circuit designs … up to $10 million annually at its peak", "around 3,000 orders per year" | SMB-5 |
-| CMC Microsystems (Canada) | Annual reports with prototype counts; a four-year decline to 240 | DEM-20 |
+| CMC Microsystems (Canada) | Annual reports with prototype counts; a fall to 240 across the three years for which figures were read. **No figure was found for 2022-23**, and the five-year total implies it was the highest year in the series | DEM-20 |
 | Published MPW price lists | Europractice, CMP (2021, archived), MOSIS (archived), Tiny Tapeout, chipIgnite/ChipFoundry, IHP, AIM Photonics | SMB-7 to SMB-10 |
 | Mask-set cost at mature nodes | GSA survey figures quoted in *New Electronics* | SMB-12 |
 | Wafer cost per node | CSET's Table 9, modelled from TSMC's own financials | SMB-11 |

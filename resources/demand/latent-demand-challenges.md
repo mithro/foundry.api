@@ -3,8 +3,9 @@
 `resources/README.md` says: *"Challenges are as valuable as support. Record them with the same care.
 Don't soften them."* These entries were gathered by deliberately looking for reasons H5 is wrong.
 
-Three separate lines of attack turn up. First, the count of chip designs being started has been
-falling for twenty-five years, not rising. Second, the binding constraint on getting a working chip
+Three separate lines of attack turn up. First, the count of chip designs being started was falling
+through the 2000s on both analyst houses' numbers, and no current count is public. Second, the
+binding constraint on getting a working chip
 may be verification engineering rather than money. Third, the long-tail theory's own most-cited
 empirical test found the tail getting longer and flatter, and its author says so explicitly for
 physical goods too.
@@ -51,7 +52,7 @@ DEM-2, DEM-9 and DEM-10, next to the supporting numbers, rather than separated o
     definition "a design start equals a unique tapeout". **Status: Lead.** We did not open that page
     ourselves and the underlying Gartner tables are not public.
 
-### DEM-12. Only 5% of chip projects get working first silicon, and the reasons given are about engineering, not money
+### DEM-12. Only 5% of surveyed IC/ASIC projects got working first silicon in 2026, and the reasons given are about engineering, not money
 
 - **Sources:** Harry Foster, Chief Scientist Verification, Siemens EDA, *Verification Horizons* blog:
   - "The 2026 Functional Verification Study: Evidence of a New Verification Operating State",
@@ -59,10 +60,9 @@ DEM-2, DEM-9 and DEM-10, next to the supporting numbers, rather than separated o
     <https://blogs.sw.siemens.com/verificationhorizons/2026/09/08/the-2026-functional-verification-study/>
   - "Why First-Silicon Success Is Getting Harder for System Companies", 2025-09-03:
     <https://blogs.sw.siemens.com/verificationhorizons/2025/09/03/why-first-silicon-success-is-getting-harder-for-system-companies/>
-- **Verification:** Verified 2026-09-18 for the 2026 post, fetched and read in full. The 2025 post's
-  figures ("only 14% of ASIC/SoC projects achieved first-silicon success — the lowest figure in more
-  than twenty years", "60–70% of engineering effort in chip projects belongs in verification") were
-  reported to us but **we did not open that page ourselves: treat the 2025 quotes as Partial**.
+- **Verification:** Verified 2026-09-18. Both posts were fetched and read in full; every quote below
+  was located in the page text. (The 2025 post was originally recorded as Partial, reported to us
+  rather than opened; it has since been fetched and its two quoted sentences read in place.)
 - **What it says (2026 post, read directly):**
   - "Among IC/ASIC respondents, only 5% reported first-silicon success in 2026 , compared with 14.4%
     in 2024 ."
@@ -76,8 +76,26 @@ DEM-2, DEM-9 and DEM-10, next to the supporting numbers, rather than separated o
     assurance requirements."
   - He also cautions against over-reading the metric: "This is one reason I believe we need to be
     careful when interpreting first-silicon success."
+  - **On whether 2024 and 2026 are comparable**, which the caveat below used to leave open: the post
+    says the study's "Methodology Reference Paper documents how the study was conducted and explains
+    the recruitment-methodology transition between the historical 2007–2022 studies and the current
+    2024–2026 study period." So 2024 and 2026 sit inside one methodology regime and the fall from
+    14.4% to 5% is a within-regime comparison; the break is between 2022 and 2024.
+  - **On the missing sample information:** "The Functional Verification Data Atlas provides the
+    supporting charts, historical trends, survey bases, nonresponse information, and qualifications
+    behind the published findings." The Atlas itself was not obtained, but the survey bases and
+    nonresponse data do exist and are published somewhere in that collection.
+  - On the causes: "Logic and functional errors remain important and continue to be a major
+    contributor to ASIC respins."
+- **What it says (2025 post, read directly):**
+  - "In the 2024 Siemens EDA / Wilson Research Group Functional Verification Study , which I
+    authored, we found that only 14% of ASIC/SoC projects achieved first-silicon success — the
+    lowest figure in more than twenty years of tracking this data."
+  - "Our study data continues to underline a consistent truth: 60–70% of engineering effort in chip
+    projects belongs in verification ."
 - **Bears on:**
-  - **H5 (challenges, and this is the most serious challenge found).** If 86–95% of *funded,
+  - **H5 (challenges, and this is the most serious challenge found).** If **DERIVED** 100 − 14.4 =
+    85.6% (2024) to 100 − 5 = 95% (2026) — call it **86–95%** — of *funded,
     professional* chip projects need at least one respin, then the money to buy a tape-out is not
     what stands between an idea and a working chip. Cheap machine time buys you one attempt.
     Reducing the price of an attempt from $50,000 to $5,000 turns an expensive failure into a cheap
@@ -88,10 +106,15 @@ DEM-2, DEM-9 and DEM-10, next to the supporting numbers, rather than separated o
     silicon.
 - **Used in:** not yet.
 - **Caveats:**
-  - **Sample size, sampling frame and question wording are not stated in the blog post.** The
-    underlying Siemens EDA / Wilson Research Group study was not obtained. The respondent base is
-    self-selected industry professionals working on large, complex designs; a Tiny Tapeout tile is
-    not in that population and its "first-silicon success" rate could be very different.
+  - **Sample size, sampling frame and question wording are not stated in the blog post.** They are
+    said to be in the "Functional Verification Data Atlas", which was not obtained; so is the
+    "Methodology Reference Paper". The respondent base is self-selected industry professionals
+    working on large, complex designs; a Tiny Tapeout tile is not in that population and its
+    "first-silicon success" rate could be very different.
+  - **Comparability between 2024 and 2026 is not the problem it looked like.** The post states that
+    the methodology transition falls between the 2007–2022 studies and the 2024–2026 study period,
+    so the 14.4% → 5% fall is within one regime. Any comparison reaching back before 2024 — including
+    the 2025 post's "lowest figure in more than twenty years" — crosses the break.
   - Siemens EDA sells verification tools, so it has an interest in verification looking hard.
   - Foster himself says the study "does not establish that processor content, AI acceleration,
     safety, security, DFT integration, or any other individual factor causes lower first-silicon
@@ -203,17 +226,21 @@ DEM-2, DEM-9 and DEM-10, next to the supporting numbers, rather than separated o
   (`data.sec.gov` serves automated requests; `www.sec.gov/Archives/...` returns HTTP 403 to `curl`).
   The customer count and concentration percentage are Verified entries already in
   [`../references/customer-concentration.md`](../references/customer-concentration.md).
-- **DERIVED (arithmetic written out), for financial year 2024:**
-  - Customers outside the top ten: 522 − 10 = **512**.
-  - Their share of revenue: 100% − 76% = **24%**.
-  - Their revenue: US$88,268,000,000 × 0.24 = **US$21,184,320,000**.
-  - Average per customer: US$21,184,320,000 ÷ 512 = **US$41,375,625**, i.e. about **US$41 million a
-    year each**.
-  - In New Taiwan dollars: NT$2,894,307,700,000 × 0.24 ÷ 512 = **NT$1,356,706,734**, about
-    NT$1.36 billion each.
+- **What it says:** put together, the three verified figures above — 522 customers, a top ten
+  taking 76% of revenue, and US$88,268,000,000 of revenue, all for financial year 2024 — say that
+  the average TSMC customer outside the top ten spends about US$41 million a year.
+  - **DERIVED (arithmetic written out), for financial year 2024:**
+    - Customers outside the top ten: 522 − 10 = **512**.
+    - Their share of revenue: 100% − 76% = **24%**.
+    - Their revenue: US$88,268,000,000 × 0.24 = **US$21,184,320,000**.
+    - Average per customer: US$21,184,320,000 ÷ 512 = **US$41,375,625**, i.e. about **US$41 million
+      a year each**.
+    - In New Taiwan dollars: NT$2,894,307,700,000 × 0.24 ÷ 512 = **NT$1,356,706,734**, about
+      NT$1.36 billion each.
 - **Bears on:**
-  - **H5 (challenges the way the existing evidence is read).** `hypotheses.md` lists CONC-2 and
-    CONC-11 under "Supports" for H5, on the grounds that TSMC's 512 customers outside its top ten
+  - **H5 (challenges the way the existing evidence is read).** `hypotheses.md` listed CONC-2 and
+    CONC-11 under "Supports" for H5 until this entry — they are now under "Context" — on the grounds
+    that TSMC's 512 customers outside its top ten
     share about a quarter of revenue. That is true, but the *average* member of that tail spends
     about US$41 million a year with TSMC. These are not small customers in any sense foundry.api
     means. The existing foundry tail is a tail of *large companies*; it is not evidence that a tail
@@ -221,7 +248,12 @@ DEM-2, DEM-9 and DEM-10, next to the supporting numbers, rather than separated o
   - **H5 (context).** It does not follow that no tail of small customers exists — only that TSMC's
     customer list is not evidence for one, and should not be cited as if it were.
 - **Used in:** not yet. `WHY.md` §5 currently cites the TSMC tail; this entry is the arithmetic a
-  reader would need to judge that citation, and a reason to be careful with it.
+  reader would need to judge that citation, and a reason to be careful with it. **The two are on
+  different years, and that has to be said plainly:** `WHY.md` uses the **2025** figures ("534
+  customers … The other 524 together provided just over a fifth of its revenue"), while the
+  arithmetic here is for **2024** (522 customers, 512 outside the top ten, 24%). The 2025 version
+  of this calculation could not be completed — see the caveats — so this entry qualifies the shape
+  of `WHY.md`'s claim, not its exact numbers.
 - **Caveats:**
   - **An average is not a distribution.** The 512 are certainly themselves heavily skewed: customers
     ranked 11 to 30 will be far above the mean and the smallest will be far below. The smallest TSMC
@@ -236,7 +268,7 @@ DEM-2, DEM-9 and DEM-10, next to the supporting numbers, rather than separated o
     `CONC-11`), the answer would be close to US$50 million each, but we have not verified TSMC's 2025
     revenue and so do not state it. See [`search-log.md`](search-log.md).
 
-### DEM-20. CMC Microsystems, Canada's national service, is on a four-year decline: 400+ → 240 prototypes a year
+### DEM-20. CMC Microsystems, Canada's national service, fell in each of the three years for which figures were read: 360+ → 240 prototypes a year
 
 - **Source:** CMC Microsystems, *Annual Report 2025-26*:
   <https://www.cmc.ca/wp-content/uploads/2026/09/CMCMicrosystemsAnnualReport_2025-26_EN.pdf>
@@ -258,11 +290,19 @@ DEM-2, DEM-9 and DEM-10, next to the supporting numbers, rather than separated o
   "200 designs submitted to fabrication"; 2021-22 "More than 400 semiconductor prototypes submitted
   to fabrication, including a record 158 photonics designs"; 2023-24 "More than 360 semiconductor
   prototypes submitted to fabrication"; 2024-25 "305 prototypes were fabricated through CMC's".
+  **No figure was found for 2022-23**, which is the gap the "Bears on" arithmetic turns on.
 - **Bears on:**
-  - **H5 (challenges).** Canada's national programme has fallen for four consecutive years on the
-    figures above — 400+ (2021-22), 360+ (2023-24), 305 (2024-25), **240 (2025-26)** — and the report
-    itself frames 240 against a five-year average of 360. Forty years of operation produced 13,495
-    designs, i.e. about 340 a year averaged over its whole life.
+  - **H5 (challenges).** Canada's national programme fell in each of the three years for which
+    figures were read — 360+ (2023-24), 305 (2024-25), **240 (2025-26)** — and the report itself
+    frames 240 against a five-year average of 360. **It is not a four-year decline, and the entry
+    should not be cited as one.** No figure was found for 2022-23, and the five-year total the same
+    report gives implies that the missing year was the *highest* in the series: **DERIVED**,
+    1,803 − (400 + 360 + 305 + 240) = **498** for 2022-23, against 400+ in 2021-22. ("More than
+    400" and "more than 360" are floors, so 498 is an upper bound on the missing year; both would
+    have to be understated by about fifty for 2022-23 to fall below 2021-22.) On those numbers
+    the series peaked in 2022-23 and has fallen since, rather than falling throughout.
+    Forty-two years of operation (CMC was founded in 1984) produced 13,495 designs: **DERIVED**,
+    13,495 ÷ 42 = about **321 a year** averaged over its whole life.
   - **H5 (supports, weakly).** "290 Startups to-date; 49% remain active in Canada" is one of the few
     published counts of companies that came out of a small-customer chip programme.
 - **Used in:** not yet.
@@ -361,7 +401,8 @@ DEM-2, DEM-9 and DEM-10, next to the supporting numbers, rather than separated o
     counter.
   - **H5 (supports).** "nearly 7000 student IC designs … from VLSI classes totaling more than 38,000
     students" over 2000–2009 is a real measure of how many people will make a chip when it is free:
-    about 700 designs a year, from about 3,800 students a year.
+    **DERIVED**, 7,000 ÷ 10 years = about **700 designs a year**, from 38,000 ÷ 10 = about **3,800
+    students a year**.
 - **Used in:** not yet.
 - **Caveats:**
   - MOSIS itself did **not** shut down. It was reconstituted as MOSIS 2.0 under the CA DREAMS
