@@ -33,7 +33,8 @@ products in production at mature nodes.
 | TRAD-4 … TRAD-6 | The Semico half, the definitional mismatch, and the verdict on the splice |
 | TRAD-7 … TRAD-9 | ASML's mature-node chart, verified, and what it does and does not say |
 | TRAD-10 … TRAD-13 | The mature-node complication tested: capacity, utilisation, pricing, subsidy |
-| TRAD-14 … TRAD-16 | Related corroboration: leading-edge manufacturer count, and evidence *against* the declining story |
+| TRAD-14 … TRAD-18 | Related corroboration, and evidence *against* the declining-demand story |
+| Verdict | Where readings (a) and (b) land once all of it is weighed |
 
 ---
 
@@ -475,6 +476,359 @@ products in production at mature nodes.
     national fabs are overwhelmingly not leading-edge) but **is not established by this document**.
   - The 0.8% figure attached to the +150 row is a CAGR contribution, not a share.
 
+### TRAD-11. Reading (b), the hard test: in 2024–25 mature-node utilisation, margins and prices all fell
+
+- **Sources:**
+  - Alan Patterson, "Mature-Node Foundries Face Overcapacity from China", *EE Times*, 2025-01-02.
+    <https://www.eetimes.com/mature-node-foundries-face-overcapacity-from-china/>
+  - "[News] Taiwan's UMC Reportedly to Slash Supplier Prices 15% in 2026—Mature Node Shake-Up Ahead",
+    TrendForce, 2025-10-02.
+    <https://www.trendforce.com/news/2025/10/02/news-taiwans-2nd-largest-foundry-umc-reportedly-to-slash-supplier-prices-15-in-2026-mature-node-shake-up-ahead/>
+- **Verification:** Partial, 2026-09-18. Both pages were read through `WebFetch`, which returned the
+  figures below as quotations. The underlying analyst products (SemiAnalysis, TechInsights) are paid
+  and were **not** obtained; the TrendForce piece is itself reporting *Commercial Times* and *Economic
+  Daily News*, so several figures are third-hand. Company gross margins are checkable against filings
+  and were not independently checked here.
+- **What it says:**
+  - EE Times, attributed to Sravan Kundojjala of SemiAnalysis: mature-node foundry utilisation
+    "dropped to a low 70% in 2024"; global mature-node operating profit excluding TSMC and Samsung
+    "plunged by 23% from the previous year"; mature-node average selling prices "declined 5% on
+    average"; China's logic and foundry capex "soared in 2024 by about 30% from the previous year".
+  - EE Times, attributed to Dan Hutcheson of TechInsights: "China's capacity can address well over
+    half of mature- and essential-node chip demand"; global fab utilisation for mature and
+    essential-node chips is "well below 80%".
+  - TrendForce/*Commercial Times*: UMC told suppliers "all supply contracts must see a price
+    reduction of at least 15%" from 2026-01-01; "UMC's gross margin has fallen from 45.12% in 2022 to
+    27.72% in H1 this year"; "Chinese foundries, led by SMIC and Hua Hong, are continuing to expand
+    28nm to 90nm capacities".
+  - TrendForce/*Economic Daily News*: mature-node utilisation "could fall from around 70% in the
+    first half to 60% or lower in the second half" of 2025; Q3 orders "dropped 20–30% from Q2 levels".
+- **Bears on:**
+  - **Reading (b) (challenges it hard).** If mature-node growth showed that the economics at the
+    trailing edge are durably good, 2024–25 should not have looked like this: utilisation in the 60s
+    and 70s, prices down 5%, operating profit down 23%, a 15% supplier price cut, and UMC's gross
+    margin down 17 percentage points from 2022. That is the profile of a **subsidised capacity glut**,
+    not of healthy demand.
+  - **Context.** ASML predicted exactly this in 2022 (TRAD-10: "Intensified foundry competition could
+    lead to period with overcapacity as players try to capture market share").
+- **Used in:** not yet.
+- **Caveats:**
+  - 2022 was the peak of the shortage. Measuring 2024–25 against it exaggerates the fall. UMC's
+    45.12% gross margin in 2022 was a shortage margin, not a normal one.
+  - "Utilisation fell" is not the same as "demand fell": capacity was added very fast. Both the
+    numerator and denominator moved.
+  - Every figure here is attributed to a paid analyst product we did not read.
+
+### TRAD-12. …and by 2026 it had turned round again, which is why neither year settles the question
+
+- **Sources:**
+  - "Capacity Cuts and Surging Demand for AI Power ICs Set Stage for Mature-Node Foundry Price
+    Increases, Says TrendForce", TrendForce, 2026-05-07.
+    <https://www.trendforce.com/presscenter/news/20260507-13036.html>
+  - "AI Component Capacity Squeeze and Foundry Output Cuts to Extend Mature-Node Price Increases in
+    2027, Says TrendForce", TrendForce, 2026-06-30.
+    <https://www.trendforce.com/presscenter/news/20260630-13127.html>
+- **Verification:** Partial, 2026-09-18. Both TrendForce press releases were read through `WebFetch`,
+  which returned the quoted strings below. TrendForce's underlying research reports are paid products
+  and were not obtained.
+- **What it says:**
+  - 2026-05-07: "average 8-inch capacity utilization rate among the world's top 10 foundries is
+    projected to approach 90% in 2026", up from "around 80% in 2025", and to "remain above 80% through
+    1H27". "TSMC and Samsung Foundry have been reducing 8-inch capacity since the second half of
+    2025". On 12-inch mature nodes, "nearly 70% of capacity expansion is being driven by Chinese
+    foundries". Foundries have "begun successfully passing through price increases to customers".
+  - 2026-06-30: 8-inch utilisation "recovered to 88% in 2026 and is expected to reach 90% in the
+    second half of the year"; "Foundry prices have risen across the board between the first and second
+    quarters of 2026, with average increases ranging from 5% to 15%"; further increases of "5–10%
+    between the second and third quarters of 2026"; increases expected "to extend through to 2027".
+- **Bears on:**
+  - **Reading (b) (restores some of it, but not on the original grounds).** Mature-node economics in
+    2026 are tight and prices are rising — but the stated reasons are (i) **leading-edge players
+    withdrawing capacity** (TSMC and Samsung cutting 8-inch) and (ii) **AI-server power management and
+    interposer demand**. That is not "mature nodes are intrinsically well-priced"; it is a supply cut
+    plus an AI-driven demand shock.
+  - **Method (critical).** Taken together, TRAD-11 and TRAD-12 show the mature-node series swinging
+    from glut to shortage in about eighteen months. **No single year of mature-node utilisation or
+    pricing can be used to settle an argument about long-run economics.**
+- **Used in:** not yet.
+- **Caveats:** TrendForce forecasts. The 2026 figures for the second half of 2026 and for 2027 are
+  projections, not outcomes.
+
+### TRAD-13. The best counter-argument to the "Chinese subsidy glut" reading
+
+- **Source:** Paul Triolo, "Legacy Chip Overcapacity in China: Myth and Reality", *Trustee China Hand*,
+  Center for Strategic and International Studies, 2024-04-30.
+  <https://www.csis.org/blogs/trustee-china-hand/legacy-chip-overcapacity-china-myth-and-reality>
+- **Verification:** Partial, 2026-09-18. Read through `WebFetch`; the quoted strings below are as
+  returned. The industry study it cites for the 90%/37% figures is not named in what we retrieved.
+- **What it says:** the argument is that the overcapacity panic is overstated and that semiconductors
+  do not behave like photovoltaics or EVs. Specific points returned:
+  - Chinese share is "around 27 percent for 28-65 nm process node production, falling to around 20
+    percent for 90-180 nm".
+  - An industry study projecting that "by 2030 domestic capacity will be able to cover around 90% of
+    domestic demand", against 37% in 2020.
+  - SMIC "has gone from having 60 percent of its production for foreign customers 5 years ago to
+    nearly 80 percent of capacity now used for domestic customers".
+  - Leading Chinese foundries' "margins, capex, and depreciation compare favorably with industry
+    averages", making it hard to attribute price cuts solely to subsidy.
+  - Fabs normally run at 70–90% utilisation; the 99% of the shortage was the anomaly.
+- **Bears on:**
+  - **Reading (b) (mixed).** If Chinese mature-node expansion is mostly *import substitution for
+    Chinese domestic demand*, then it is demand-driven after all — just demand that used to be served
+    from outside China. That weakens "the growth is purely subsidy" without supporting "the trailing
+    edge is intrinsically better economics".
+  - **TRAD-11 (challenges it).** Triolo's point that 70–90% is normal utilisation undercuts reading
+    the 2024 "low 70%" as evidence of a glut.
+- **Used in:** not yet.
+- **Caveats:**
+  - Written 2024-04-30, before the 2024–25 margin and price deterioration in TRAD-11. It is a
+    forecast that has since been partly tested and did not do well on the near term.
+  - CSIS is a think tank with funders and a policy position; this is advocacy as well as analysis.
+
+---
+
+## Related corroboration, and evidence against the declining-demand story
+
+### TRAD-14. A second, independent count of leading-edge manufacturers: 18 at 130 nm in 2001
+
+- **Source:** Mark LaPedus, "Foundry Wars Begin", *Semiconductor Engineering*, 2021-04-19.
+  <https://semiengineering.com/foundry-wars-begin/>
+- **Verification:** Partial, 2026-09-18. Read through `WebFetch`, which returned the quoted strings
+  below. The IBS data behind the 18 figure is a paid product and was not obtained.
+- **What it says:**
+  - "In 2001, there were 18 chipmakers with fabs that could process 130nm chips, which was the
+    leading-edge process at the time", attributed to IBS.
+  - "Today, Samsung and TSMC are the only two foundry vendors capable of providing processes at the
+    most advanced logic nodes, namely 7nm and 5nm", with Intel re-entering foundry in March 2021.
+- **Bears on:**
+  - **H1 (supports).** A second, independently published data point on the same consolidation already
+    recorded in [`../references/costs-and-consolidation.md`](../references/costs-and-consolidation.md)
+    COST-3.
+  - **H5 (context).** Fewer manufacturers is a *supply-side* count. It says who will serve you, not
+    how many people want a chip.
+- **Used in:** not yet.
+- **Caveats:**
+  - COST-3 records "more than two dozen in 1998; three by 2020"; this gives 18 in 2001. **These are
+    not the same count** — different years, and "chipmakers with fabs that could process 130nm"
+    includes IDMs making their own parts, whereas "two foundry vendors" counts merchant foundries
+    only. Do not blend them into one series.
+  - The often-quoted "18–28 in 2001–2002 down to 3" is therefore at least two different counts
+    stitched together. Anyone using it must say which definition they mean at each end.
+
+### TRAD-15. Against the story: the designs did not disappear, they got bigger — Gartner's own figures
+
+- **Source:** Kurt Shuler, "The Three Consequences Of Fewer Design Starts", *Semiconductor
+  Engineering*, 2012-03-22.
+  <https://semiengineering.com/the-three-consequences-of-fewer-design-starts/>
+  The author was Vice President of Marketing at Arteris; the post is labelled "SPONSOR BLOG". It
+  reports figures from the Gartner report in TRAD-1 and from "Gartner Webinar Semiconductor Forecast:
+  1Q12 Update", 2012-03-08 (analysts named as Bryan Lewis, Peter Middleton and Jim Walker).
+- **Verification:** Verified 2026-09-18 — the page was fetched directly (HTTP 200) and the strings
+  below are copied from it. **Verified for what Shuler published**; the underlying Gartner report and
+  webinar are paywalled and were not obtained.
+- **What it says**, verbatim:
+  - "Bryan and Ganesh found that as the number of design starts in our semiconductor industry
+    continues its slow, inexorable decline, the value, complexity and chip units per design are
+    increasing."
+  - "ASIC and ASSP design starts decreased by 2.3% from 2010 to 2011."
+  - "Design starts are expected to decrease an average of 2.9% per year through 2016."
+  - "ASICs earning greater than $30 million through their product life cycle increased to 11% in 2011,
+    from 8 % in 2010." (the space in "8 %" is the source's)
+  - "ASIC designs with a product run of over 5 million units increased to 17% of all ASIC design
+    starts in 2011, from 12% in 2010."
+  - "ASICs with a gate count greater than 60 million gates were 15% of the total in 2011, an increase
+    from 12% in 2010."
+- **Bears on:**
+  - **H5 (challenges the way the design-starts series is usually read).** This is the strongest public
+    support for "design starts fell partly because designs got bigger and absorbed what used to be
+    several chips". The same Gartner data that gives the falling count gives rising revenue per
+    design, rising units per design and rising gate count per design. A falling count of starts is
+    therefore **not** by itself evidence that less custom silicon is wanted.
+  - **H1 (supports).** It also shows the bar rising: by 2011 a larger share of designs needed >5m
+    units and >$30m lifetime revenue to make sense. That is the exclusion mechanism the project's
+    thesis is about, measured.
+  - **Both at once.** The same four bullets support the thesis's *mechanism* and undercut its
+    *headline metric*. Use them together or not at all.
+- **Used in:** not yet.
+- **Caveats:**
+  - A vendor sponsor blog. Arteris sells SoC interconnect IP and benefits from the "fewer, bigger
+    chips" narrative. The figures are nonetheless specific, attributed and dated.
+  - The year-on-year changes (8%→11%, 12%→17%, 12%→15%) are one year's movement, not a trend.
+  - -2.3% from 2010 to 2011 is a far milder number than the chart's Section A slope (TRAD-1).
+
+### TRAD-16. Against the story: TSMC's own count of distinct products has grown, not shrunk, 2019–2025
+
+- **Sources:** TSMC annual reports and business overviews, `investor.tsmc.com`:
+  - 2019: <https://investor.tsmc.com/static/annualReports/2019/english/pdf/2019_tsmc_ar_e_ch5.pdf>
+  - 2020: <https://investor.tsmc.com/sites/ir/annual-report/2020/2020_Business_Overview_E.pdf>
+  - 2021: <https://investor.tsmc.com/sites/ir/annual-report/2021/2021_Business_Overview_E.pdf>
+  - 2022: <https://investor.tsmc.com/sites/ir/annual-report/2022/2022_Business_Overview_E.pdf>
+  - 2023: <https://investor.tsmc.com/sites/ir/annual-report/2023/2023_Business_Overview_E.pdf>
+  - 2024: <https://investor.tsmc.com/sites/ir/annual-report/2024/2024%20Business%20Overview_0.pdf>
+  - 2025: <https://investor.tsmc.com/sites/ir/annual-report/2025/2025%20Annual%20Report_E.pdf>
+- **Verification:** Verified 2026-09-18. Each PDF was downloaded and its text extracted; each figure
+  below comes from the sentence quoted from that year's own document. (The 2020 and 2022 PDFs return
+  HTTP 403 to a plain scripted request and were retrieved through `WebFetch`, which saved the PDF
+  locally; the text was then extracted from the saved file.)
+- **What it says:**
+
+  | Year | Different products | Distinct technologies | Different customers |
+  |---|---|---|---|
+  | 2019 | 10,761 | — | 499 |
+  | 2020 | 11,617 | 281 | 510 |
+  | 2021 | 12,302 | 291 | 535 |
+  | 2022 | 12,698 | 288 | 532 |
+  | 2023 | 11,895 | 288 | 528 |
+  | 2024 | 11,878 | 288 | 522 |
+  | 2025 | 12,682 | 305 | 534 |
+
+  Sample sentences, verbatim: "TSMC manufactured 10,761 different products for 499 customers in
+  2019."; "The Company manufactured 11,617 different products using 281 distinct technologies for 510
+  different customers in 2020."; "In 2025, the Company manufactured 12,682 different products using
+  305 distinct technologies for 534 different customers."
+- **Bears on:**
+  - **H5 (challenges).** This is the only *long, primary, audited-company* public series on the number
+    of distinct chip products found anywhere in this work. At the largest foundry in the world the
+    number of distinct products rose 17.9% from 2019 to 2025 (`DERIVED`: 12,682 / 10,761 − 1 =
+    0.1785), and the number of customers rose from 499 to 534. It did not fall.
+  - **H5 (also supports, on the customer count).** 534 customers, essentially flat across seven years
+    despite the product count moving, is a strikingly small and stable number for the world's largest
+    foundry. The set of organisations that can buy from TSMC is not growing.
+- **Used in:** not yet. Overlaps
+  [`../references/customer-concentration.md`](../references/customer-concentration.md) CONC-2, which
+  records the 2024 sentence.
+- **Caveats:**
+  - **One company.** TSMC gained foundry share over this period, so its product count can rise while
+    the industry total falls. This is not an industry series.
+  - A "different product" here is a part TSMC manufactured in that year — a **stock**, like ASML's
+    mask sets (TRAD-7), not a flow of new designs. It includes long-running parts. Do not compare it
+    to a design-start count as a level or as a rate.
+  - The 2019 figure is from a different sentence form and does not state a technology count.
+  - The 2023–24 dip and 2025 rebound track the industry cycle, not a structural change.
+
+### TRAD-17. Against the story: semiconductor revenue set records through the whole period
+
+- **Source:** "Global Annual Semiconductor Sales Increase 25.6% to $791.7 Billion in 2025",
+  Semiconductor Industry Association, 2026-02-06.
+  <https://www.semiconductors.org/global-annual-semiconductor-sales-increase-25-6-to-791-7-billion-in-2025/>
+  Monthly sales are compiled by World Semiconductor Trade Statistics (WSTS).
+- **Verification:** Verified 2026-09-18. The page was fetched directly (HTTP 200) and the strings
+  below are copied from it. The live page returns HTTP 403 to `WebFetch`; a scripted request with an
+  ordinary browser user-agent succeeds.
+- **What it says**, verbatim:
+  - "global semiconductor sales hit $791.7 billion in 2025, an increase of 25.6% compared to the 2024
+    total of $630.5 billion"
+  - "Sales of logic products increased by 39.9%, totaling $301.9 billion in 2025, making it the
+    largest product category by sales."
+  - John Neuffer, SIA president and CEO: "The global semiconductor industry posted its highest-ever
+    annual sales in 2025, nearly hitting $800 billion, and global sales in 2026 are projected to reach
+    roughly $1 trillion".
+- **Bears on:**
+  - **H5 (challenges, but only in one direction).** Any claim that "traditional chip demand is
+    declining" has to be stated carefully: **revenue is at record highs and accelerating.** What is
+    claimed to be declining is the *number of distinct commercial design projects*, which is a
+    different quantity and can move the opposite way (TRAD-15). Never let the two be conflated.
+- **Used in:** not yet.
+- **Caveats:**
+  - **Revenue, not units.** No public unit-shipment series was found in the SIA material retrieved;
+    the 2025 SIA Factbook charts "Annual Semiconductor Shipments ($ Billion)", i.e. dollars. An
+    industry unit series remains **not found**.
+  - The 2025 number is heavily AI- and memory-driven and is not representative of the broad market.
+  - The release contains an apparent error in its own text: "Memory products were second in terms of
+    sales, increasing by 34.8% **in 2024** to a total of $223.1 billion" appears in the paragraph about
+    2025. Quoted here exactly as published; do not silently correct it.
+
+### TRAD-18. Against the story: chip startup funding is at record levels
+
+- **Source:** Jesse Allen, "Startup Funding: Q1 2026", *Semiconductor Engineering*, 2026-04-13.
+  <https://semiengineering.com/startup-funding-q1-2026/>
+- **Verification:** Partial, 2026-09-18. Read through `WebFetch`; the quoted strings below are as
+  returned. Not read directly.
+- **What it says:** "80 startups raise $8.4B" in the first quarter of 2026; 18 companies raised rounds
+  above $100 million; Rapidus and Cerebras each reached $1 billion; the majority of the large rounds
+  are for chips "designing chips primarily for AI inference workloads or attempting to overcome
+  bandwidth limitations".
+- **Bears on:**
+  - **H5 (challenges).** If the up-front cost of a chip were an absolute barrier, one would not expect
+    80 private companies to raise $8.4bn in a quarter to design chips. Money is not the binding
+    constraint at the top of the market.
+  - **H5 (supports, on reflection).** $8.4bn across 80 companies is `DERIVED` an average of
+    8,400 / 80 = **$105m each**. That is the *entry ticket*, and it is consistent with the project's
+    claim that a chip project is out of reach of anyone without nine figures of capital. The evidence
+    cuts both ways and must be quoted with both readings.
+- **Used in:** not yet.
+- **Caveats:**
+  - Highly skewed: two of the 80 took $1bn each, so the mean above is not a typical round. A median
+    would be far lower and was not published.
+  - One quarter, at the top of an AI capital cycle.
+  - "Semiconductor startups" here includes equipment, materials and EDA companies, not only chip
+    designers.
+
+---
+
+## Verdict on the two readings
+
+**Reading (a) — how can mature-node products grow >40% while design starts fall?** They can, easily,
+and the reconciliation is not interesting: ASML counts a **stock** ("# of mask sets (products) **in
+production**", TRAD-7) and Gartner counts a **flow** ("a unique tapeout", TRAD-2). A stock of products
+in production rises whenever products are retired more slowly than they are added, which is exactly
+what long automotive and industrial lifetimes produce. Three further points are established:
+ASML says the migration is *upward*, from mature to advanced (TRAD-8, page 22), so the mature stock is
+not being fed by aging leading-edge designs; there is genuine new mature-node demand from automotive
+electrification, sensors and smart grids, in ASML's words and TSMC's (TRAD-8, TRAD-9); and the two
+series count different populations anyway. **The >40% is not evidence of >40% more design activity and
+must never be used as if it were.** The owner's caption phrasing "40% increase in **new** products" is
+the flow reading and is not what ASML's slide says.
+
+**Reading (b) — does mature-node growth show the leading edge is not always economically superior?**
+*Partly, and much more weakly than it looks.*
+
+- **For it:** ASML's own 2020–2030 planning puts the largest single block of added wafer capacity at
+  mature nodes, +380 of +930 kwspm/yr, `DERIVED` 40.9% (TRAD-9). Products in production at ≥28 nm grew
+  >40% over 2012–2021 (TRAD-7). New applications keep appearing at nodes twelve to twenty years old
+  (TRAD-8). None of that is what one would see if the leading edge dominated on economics everywhere.
+- **Against it:** ASML itself carves out +150 of the +930, `DERIVED` **16.1%**, as driven by
+  "Technological sovereignty and foundry competition" rather than demand, and calls the resulting
+  capacity "~10% inefficiency" (TRAD-10). Advanced logic grows at **12.0%/yr against mature's 6.0%/yr**
+  — mature is bigger only in absolute terms, off a much larger base (TRAD-9). And when the shortage
+  ended, mature-node economics were poor: utilisation in the 60s–70s, ASPs down 5%, operating profit
+  ex-TSMC/Samsung down 23%, a 15% supplier price cut at UMC (TRAD-11).
+- **The honest answer:** the ASML chart is drawn across 2012–2021 and its "past few years" callout
+  starts at 2015. That window **ends at the peak of the worst semiconductor shortage in the industry's
+  history.** It is a shortage-flattered window. When the 2024–25 data arrived, mature nodes behaved
+  like a subsidised glut, not like a structurally superior business (TRAD-11); by 2026 they had
+  tightened again, but for reasons — leading-edge players *withdrawing* mature capacity, plus AI power
+  ICs — that are not about mature-node economics being intrinsically good (TRAD-12). The best
+  counter-argument to the subsidy reading is that Chinese expansion is import substitution for real
+  Chinese domestic demand (TRAD-13), which is demand-driven but says nothing about relative node
+  economics.
+- **What survives:** a narrow, defensible claim. *Mature nodes are not dying, they attract real
+  investment, and new applications keep appearing there.* That is enough to refute "the leading edge is
+  always and everywhere the right place to be". It is **not** enough to claim that mature-node
+  economics are good, or improving, or that the market would reward a new entrant there. The 2024–25
+  evidence points the other way.
+
+**What contradicts the "traditional demand is declining" story, in order of force:**
+
+1. **TRAD-15.** Gartner's own data says the count fell while value, units and gate count *per design*
+   rose. The metric may be measuring integration, not demand.
+2. **TRAD-4.** Semico — the house named on half the owner's chart — publicly said ASIC design starts
+   *grew* 3–5% a year through the period that half covers.
+3. **TRAD-16.** TSMC's distinct product count rose 17.9% from 2019 to 2025 and its customer count rose.
+4. **TRAD-17.** Semiconductor revenue is at record highs, $791.7bn in 2025, up 25.6%.
+5. **TRAD-7 to TRAD-9.** Mature-node products in production grew >40%; mature nodes are the largest
+   block of planned capacity addition to 2030.
+6. **TRAD-18.** 80 chip startups raised $8.4bn in one quarter of 2026.
+7. **TRAD-1.** Even Gartner's own report contains a "Contrarian View" that FPGA/PLD design starts were
+   set to *grow* while ASIC/ASSP starts slowed — the custom-function demand moved, it did not vanish.
+
+The strongest surviving version of the project's own claim is therefore **not** "fewer chips are
+wanted". It is: *the number of organisations for whom a commercial custom chip is economically
+possible has shrunk, the bar per design has risen, and the foundries serve a small and stable set of
+customers.* TRAD-14, TRAD-15 and TRAD-16 (the flat 499→534 customer count) all support that narrower
+claim. The broad "design starts are collapsing" claim, as drawn on the owner's chart, does not
+survive.
+
 ---
 
 ## Changes needed in other files
@@ -498,9 +852,20 @@ products in production at mature nodes.
    2006: 3,391; 2007: 3,196; 2008: 3,048 — note the 2008 figure 3,048 matches what DEM-11 records.
 
 3. **`resources/references/costs-and-consolidation.md`, COST-3** — add the IBS figure recorded in
-   TRAD-14 of this file as a second, independent data point on the same decline.
+   TRAD-14 of this file as a second, independent data point on the same decline, **with the warning
+   in TRAD-14's caveats**: "18 chipmakers with fabs that could process 130nm in 2001" and "three
+   foundries by 2020" are not the same count and must not be drawn as one line.
 
-4. **`resources/hypotheses.md`, H5** — the evidence in this file is genuinely two-sided and the H5
+4. **`resources/references/customer-concentration.md`, CONC-2** — CONC-2 records TSMC's 2024 sentence
+   in isolation. The 2019–2025 series is in TRAD-16 of this file and shows the count *rising*
+   (10,761 → 12,682 products; 499 → 534 customers). Suggested added caveat for CONC-2:
+
+   > The 522 customers of 2024 is a cyclical low, not a trend: TSMC reported 499 (2019), 510 (2020),
+   > 535 (2021), 532 (2022), 528 (2023), 522 (2024) and 534 (2025). See
+   > [`../demand/design-starts-and-mature-nodes.md`](../demand/design-starts-and-mature-nodes.md)
+   > TRAD-16.
+
+5. **`resources/hypotheses.md`, H5** — the evidence in this file is genuinely two-sided and the H5
    status line should say so. Suggested addition to H5's evidence list:
    "Commercial design starts: TRAD-1 to TRAD-6 (the widely used 2000–2025 chart is two incompatible
    series; the Gartner half supports a decline, the Semico half is contradicted by Semico's own
@@ -518,3 +883,31 @@ products in production at mature nodes.
   starts.
 - Where does the owner's caption on the ASML chart come from? It is not ASML's wording in either the
   2021 or 2022 Investor Day deck.
+- Is there a public **unit-shipment** series for the industry, as opposed to a revenue series? The
+  2025 SIA Factbook charts dollars only. WSTS holds the unit data and sells it.
+- **Mask-set cost by node was not verified.** Searching produced only secondary marketing and
+  aggregator pages quoting incompatible figures (e.g. 7 nm variously "$3–$5M" and "$15 million"),
+  with no primary source. The best-known primary-ish figures are IBS's, which are a paid product;
+  SemiAnalysis's treatment is behind a paid newsletter. Neither was obtained and neither should be
+  quoted from a search summary. `../references/costs-and-consolidation.md` COST-1 and COST-2 already
+  hold the IBS *design*-cost figures with their provenance; a mask-set-cost entry should be added
+  only when a citable primary figure is found.
+- Does Gartner still publish an ASIC/ASSP design-starts series after 2015? Gartner document
+  2967017, "Forecast: ASIC and ASSP Chip Design Starts, Worldwide, 2015 Update", exists in Gartner's
+  public catalogue; nothing later was found. If the series was discontinued, that is itself worth
+  recording.
+
+## Sources that could not be reached, and why
+
+| Source | Blocker |
+|---|---|
+| Gartner G00229088 report body (TRAD-1) | Paid product. Live page returns HTTP 403 to automated fetch; only the archived abstract and contents page was used. No attempt made to obtain the body. |
+| Gartner "Forecast: ASIC and ASSP Chip Design Starts, Worldwide, 2015 Update" (doc 2967017) | Paid product; not obtained. |
+| Semico SC101-12 / SC106-16 / SC107-16 / SC107-22 / SC106-23 report bodies (TRAD-4) | Paid products. `semico.com` now redirects every page to `/lander`; only Internet Archive captures of the public press pages were used. |
+| IBS leading-edge manufacturer counts (TRAD-14) and IBS mask-cost figures | Paid product; not obtained. |
+| SemiAnalysis mature-node analysis (TRAD-11) | Paid newsletter; only the EE Times report of it was used. |
+| TechInsights capacity figures (TRAD-11) | Paid product; only the EE Times report of it was used. |
+| TrendForce research reports behind TRAD-12 | Paid products; only the free press releases were used. |
+| `www.eetimes.com` direct fetch (TRAD-2, TRAD-6) | Two scripted HTTPS requests timed out after 120 s each. Those pages were read only through a summarising fetch tool, so their entries are Partial. |
+| `www.sec.gov` direct fetch | Returns HTTP 403 to an ordinary browser user-agent. SEC asks requesters to identify themselves in the User-Agent; we do not put personal details in headers, so SEC URLs were read through a fetch tool instead. The ASML deck was obtained from `media.asml.com` directly in any case. |
+| EE Times, "Sockets scant for costly ASICs" (the origin of the Gartner table in TRAD-2) | Not located; only SKMurphy's reproduction of the chart was found. |
