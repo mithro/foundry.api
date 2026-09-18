@@ -73,10 +73,41 @@ It is written to be read by an adversarial reviewer. The conclusion is **not** t
   - **End-to-end fab cycle time did not:** 2.9 × 20 layers = 58 days then; 40 to 50 layers at 28nm at ~1.25 days = 50 to 63 days. Essentially unchanged.
   - Over the same period the deploy cycle in software went from days or weeks to seconds. **The per-unit metric improved in both industries; the thing the customer actually waits for improved by about 10^6 in one and not at all in the other.**
 
-### PAR-3. A shared academic shuttle quotes a 106-day lead time and runs twice a year
+### PAR-3. A shared academic shuttle: about 6 months from booking to chips, 1 to 5 chances a year, and the wait gets longer at finer nodes
 
-- **Source:** EUROPRACTICE IC Service, "2020 MINI@SIC EUROPRACTICE MPW RUN SCHEDULE AND PRICELIST", version 201015 – v6. <https://europractice-ic.com/wp-content/uploads/2020/10/Miniasic-MPW-EUROPRACTICE-201015-v6.pdf>
-- **Verification:** Verified 2026-09-18 (PDF downloaded and text extracted; all quotes and prices read from the document).
+The single best cycle-time dataset we found, because EUROPRACTICE publishes both ends of the schedule for every run, so the lead times can be computed rather than asserted.
+
+- **Sources:**
+  - EUROPRACTICE IC Service, "TSMC RUN SCHEDULE 2026", January 26, 2026 – v1.3c (the mini@sic schedule). <https://europractice-ic.com/wp-content/uploads/2025/11/TSMC_EPmini@sicschedule2026V1_3c.pdf>
+  - EUROPRACTICE IC Service, "2020 MINI@SIC EUROPRACTICE MPW RUN SCHEDULE AND PRICELIST", version 201015 – v6. <https://europractice-ic.com/wp-content/uploads/2020/10/Miniasic-MPW-EUROPRACTICE-201015-v6.pdf>
+- **Verification:** Verified 2026-09-18 (both PDFs downloaded and their text extracted; all dates, quotes and prices read from the documents).
+
+#### The 2026 schedule
+
+- **What it says:** the published columns are "Technology", "Month", "Run", "Foundry ref", "Fab", "Reserve before", "Signed quote/PO before", "Dry run GDS", "Final GDS", "Tape-out", "Estimated shipment date". Notes attached to the tables:
+  - "Shipment date is an estimation. Additional cycle time of (1~3 weeks) might be required."
+  - "The estimated shipment date is applicable for reservations with quantity <200 dies. If additional samples are required, additional cycle time of (1~3 weeks) might be needed."
+  - "Cycle time estimates are based on typical conditions. Corner wafers or SHDMiM processing requires additional cycle time."
+  - Optional services that add still more: "Lead free & cupper bumping: 4 days"; "Extra wafer thinning (thinner than 10mils): up to 12 days".
+  - Booking is committing: "Single reservation for multiple chips"; "No backup reservation".
+
+- **DERIVED (arithmetic shown, computed with a script from the published dates):**
+
+  | Technology | Runs in 2026 | Tape-out → estimated shipment | Reserve-before → estimated shipment |
+  |---|---|---|---|
+  | 0.13 µm BCD Plus | 1 | 62 days | 170 days |
+  | 65 nm CMOS | 5 | 73 days | 189–202 days |
+  | 40 nm Logic / MS-RF | 2 | 72 days | 192–194 days |
+  | 28 nm RF HPC Plus | 5 | 82 days | 189–200 days |
+  | 16 nm RF FinFET Compact | 2 | 85 days | 199–224 days |
+
+  Three things fall out of this table, and all three matter.
+  1. **The end-to-end wait is about six months**, every time, on every node — 170 to 224 days from the booking deadline to estimated shipment, before the "1~3 weeks" of slack the schedule itself warns about.
+  2. **The number of chances per year is 1 to 5.** Not thousands. Not hundreds. On 16 nm it is two.
+  3. **Tape-out to shipment gets monotonically longer at finer nodes**: 62 → 73 → 72 → 82 → 85 days from 0.13 µm to 16 nm. This is an independent, current, primary-source confirmation of PAR-2's claim that cycle time rises with node, measured from a published schedule rather than from an interview.
+
+#### The 2020 schedule (the numeric lead-time statement and the prices)
+
 - **What it says:**
   - The "Microblock" offer on TSMC 28nm HPC/HPC+ gives a designer 1 mm² of silicon. Its published terms are: "Designed area: 1110µm x 1110µm."; "**Lead time of 106 days, including tapeout preparation.**"; "100 parts per participation."; "**2 runs per year** with timing tuned towards key conferences."
   - Booking is not casual: "Microblock and mini@sic reservations/registrations should be done no later than **4 months before the deadline**." For several TSMC technologies, "please make reservation 4 months in advance."
@@ -86,13 +117,15 @@ It is written to be read by an adversarial reviewer. The conclusion is **not** t
   - What "cheapest possible" buys: for TSMC at 65nm and 28nm, "100 samples"; for TSMC 0.18µm, "40 samples".
 - **Bears on:**
   - H4 (mixed): a real published price for a first chip, far below a dedicated mask set — but €7,650 is not $0, and the discounted price is not available to a commercial customer.
-  - H5 (challenges), H6 (context): **2 runs a year on 28nm is the ceiling on how often a small customer can iterate.**
-  - H8 (supports): prices and schedules are published openly, with no negotiation, which is exactly the model `WHY.md` §5 asks for — and it has existed since the 1990s without producing the explosion `WHY.md` predicts.
+  - **H5 (challenges), H6 (context): 1 to 5 runs a year is the ceiling on how often a small customer can iterate**, and roughly six months is the wait each time.
+  - H8 (supports): prices and schedules are published openly, with no negotiation, which is exactly the model `WHY.md` §5 asks for — and it has existed since the 1990s without producing the explosion `WHY.md` predicts. **That is the most awkward single fact in this file for the essay's argument:** the open, published-price, self-service, many-small-customers shuttle model already exists, has existed for three decades, and has not transformed the industry.
 - **Used in:** not yet.
 - **Caveats:**
-  - This is the 2020 price list, chosen because it is the version that states the lead time numerically. The 2026 schedules exist at <https://europractice-ic.com/schedules-prices-2026/> and show more runs per year on TSMC 65nm and 28nm, but the run-count reading for 2026 is **Partial**: it came from an automated read of the schedule page, not from the underlying PDFs, and the current TSMC PDF link published on that page returned 404 when fetched directly.
-  - EUROPRACTICE is a subsidised European service. Its prices are not a commercial foundry's prices.
-  - "Lead time" here is from tape-out preparation to delivery of unpackaged, untested die. "Prices are given for the delivery of unpackaged, untested prototypes. Encapsulation and testing will be charged separately."
+  - EUROPRACTICE is a subsidised European service, and its discounted prices require the customer to be an academic or publicly funded body. Its prices are not a commercial foundry's prices.
+  - "Lead time" and "estimated shipment" are to delivery of unpackaged, untested die: "Prices are given for the delivery of unpackaged, untested prototypes. Encapsulation and testing will be charged separately."
+  - Shipment dates in the 2026 schedule are EUROPRACTICE's own estimates, and the document says so.
+  - The 2020 prices are five years stale; we quote them for scale, not as current.
+  - **Blocked:** the general (non-mini@sic) TSMC MPW schedule for 2026, at <https://europractice-ic.com/wp-content/uploads/2025/11/TSMC_EP_MPW_schedule_2026_V1_3b.pdf>, 404s; the version linked from the 2026 schedules page downloads but is an image-only PDF with no extractable text, so we could not read the general-MPW dates. The mini@sic schedule above is what we could verify.
 
 ### PAR-4. The cheapest open shuttle in the world takes 7.5 to 15 months from close to chips in hand
 
