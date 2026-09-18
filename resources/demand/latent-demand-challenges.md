@@ -239,9 +239,9 @@ DEM-2, DEM-9 and DEM-10, next to the supporting numbers, rather than separated o
       NT$1.36 billion each.
 - **Bears on:**
   - **H5 (challenges the way the existing evidence is read).** `hypotheses.md` listed CONC-2 and
-    CONC-11 under "Supports" for H5 until this entry — they are now under "Context" — on the grounds
-    that TSMC's 512 customers outside its top ten
-    share about a quarter of revenue. That is true, but the *average* member of that tail spends
+    CONC-11 under "Supports" for H5 until this entry — they are now under "Context" — on the
+    grounds that TSMC's 512 customers outside its top ten share about a quarter of revenue. That is
+    true, but the *average* member of that tail spends
     about US$41 million a year with TSMC. These are not small customers in any sense foundry.api
     means. The existing foundry tail is a tail of *large companies*; it is not evidence that a tail
     of tiny ones exists or would pay.

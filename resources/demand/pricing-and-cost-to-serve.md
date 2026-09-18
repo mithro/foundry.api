@@ -296,12 +296,17 @@ almost the entire price a small customer pays is fixed cost per project, not sil
     <https://www.musesemi.com/shared-block-tapeout-pricing> and `/full-block-tapeout-pricing`
   - **CMC Microsystems** (Canada): <https://www.cmc.ca/en/WhatWeOffer/Make/FabPricing.aspx>
   - **AnySilicon**: <https://anysilicon.com/130nm-wafer-mpw-cost/>
+- **Verification:** **Partial.** The TSMC CyberShuttle quote and the Europractice "Price Request
+  Form" line were both read directly, on 2026-09-18. The Muse, CMC and AnySilicon results were
+  obtained by fetching those URLs and finding no price; we did not open them in a graphical browser,
+  and Muse in particular may well publish prices that only render with JavaScript. **We did not
+  submit any quote-request form**, which is the only route several of these offer.
 - **What it says:**
   - **TSMC CyberShuttle** — no prices. The page says: "If you are a TSMC customer, login to
     TSMC-Online or contact your local TSMC representative for the latest CyberShuttle® schedule."
-    **On access:** an audit note reached us saying this URL returns HTTP 403 to automated fetches.
-    Re-checked 2026-09-18 and it does not: `curl` with a generic User-Agent returns **HTTP 200** and
-    so does `WebFetch`. The sentence is in the delivered page source, though inside an embedded
+    **On access:** this URL was reported to us as returning HTTP 403 to automated fetches. It does
+    not, as of 2026-09-18: `curl` with a generic User-Agent returns **HTTP 200**, and so does
+    `WebFetch`. The sentence is in the delivered page source, though inside an embedded
     JSON blob rather than in the rendered HTML, which is the kind of thing that makes a page look
     empty to a naive reader. No price string appears anywhere in the body. Recorded in
     [`search-log.md`](search-log.md) so the next person does not treat the page as blocked.
@@ -312,11 +317,6 @@ almost the entire price a small customer pays is fixed cost per project, not sil
   - **CMC Microsystems** — **HTTP 403** to an automated fetch.
   - **AnySilicon** — an article titled "130nm Wafer & MPW Cost Explained" that contains no figures
     and routes the reader to a quote-request form.
-- **Verification:** **Partial.** The TSMC CyberShuttle quote and the Europractice "Price Request
-  Form" line were both read directly, on 2026-09-18. The Muse, CMC and AnySilicon results were
-  obtained by fetching those URLs and finding no price; we did not open them in a graphical browser,
-  and Muse in particular may well publish prices that only render with JavaScript. **We did not
-  submit any quote-request form**, which is the only route several of these offer.
 - **Bears on:**
   - **H8 (supports).** "Published prices, visible queues and public results" is a real
     differentiator, not a restatement of what the industry already does. The largest foundry in the
