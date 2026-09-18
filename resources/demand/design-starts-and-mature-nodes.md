@@ -23,7 +23,9 @@ products in production at mature nodes.
 > (Semico counts FPGAs and PLDs as ASIC product types; Gartner treats FPGA/PLD as a separate,
 > oppositely-moving series), and Semico's own public statements for the Section B window say design
 > starts were *growing*, not falling. The *within-section* Gartner trend survives scrutiny. Section
-> B, as drawn, does not.
+> B, as drawn, does not. **And no level on either half can be used:** Gartner's own published ASIC
+> design-start series never exceeds about 11,150 in any year between 1994 and 2013 (TRAD-19), while
+> Section A starts at ~34,000. Cite TRAD-19's figures, not the chart's.
 
 ## Contents
 
@@ -34,6 +36,7 @@ products in production at mature nodes.
 | TRAD-7 … TRAD-9 | ASML's mature-node chart, verified, and what it does and does not say |
 | TRAD-10 … TRAD-13 | The mature-node complication tested: capacity, utilisation, pricing, subsidy |
 | TRAD-14 … TRAD-18 | Related corroboration, and evidence *against* the declining-demand story |
+| TRAD-19, TRAD-20 | A full Gartner ASIC design-start series 1994–2013, found late, which settles the scale question; and an NRE-cost and long-tail assertion from the same document |
 | Verdict | Where readings (a) and (b) land once all of it is weighed |
 
 ---
@@ -136,6 +139,12 @@ products in production at mature nodes.
   commercial sectors".
 - **Verification:** the arithmetic is `DERIVED` and written out below. The Section A values are
   **read off a chart, not from a table**, and are approximate to roughly ±500.
+
+> [!NOTE]
+> **Read TRAD-19 with this entry.** A Gartner chart of 1994–2013 ASIC design starts, reproduced in a
+> Xilinx corporate fact sheet, was found after this entry was written. It shows the series never
+> exceeding about 11,150 in any year of that twenty-year span. That makes reading 2 below — a
+> mis-scaled axis — much more likely than it appears here, though it does not rule out reading 1.
 - **What it says:**
 
   | Year | Gartner published ASIC starts (TRAD-2) | Chart Section A (read off, approx.) | Ratio `DERIVED` |
@@ -285,9 +294,12 @@ products in production at mature nodes.
   spec, an FPGA prototype of an ASIC, a derivative of a platform? It names Rich Wawrzyniak of Semico
   as someone who does track both.
 - **The verdict on the owner's chart:**
-  1. **Section A (Gartner, 2000–2012) is sound as a trend.** Two independent public quotations of
-     Gartner figures (TRAD-2) give the same shape and almost the same rate of decline. The *levels*
-     drawn are unexplained and about 4.5× the published ASIC figures (TRAD-3).
+  1. **Section A (Gartner, 2000–2012) is sound as a trend and wrong in its levels.** Three
+     independent public reproductions of Gartner figures (TRAD-2, TRAD-19) give the same shape and
+     almost the same rate of decline — `DERIVED` −10.27%/yr for Gartner 2000–2012 against Section A's
+     −8.98%/yr. But Gartner's ASIC design starts never exceed about 11,150 in any year from 1994 to
+     2013 (TRAD-19), while Section A starts at ~34,000. The levels drawn are between 3× and 5× the
+     published figures and are unexplained (TRAD-3).
   2. **Section B (Semico, 2015–2022) is contradicted as a trend** by Semico's own published growth
      rates (TRAD-4). As drawn it falls ~1.2%/yr; Semico says it rose 3–5%/yr.
   3. **The step between them is not a measurement.** `DERIVED`: 11,000 → 6,200 is a fall of
@@ -295,10 +307,15 @@ products in production at mature nodes.
      (6,200 / 11,000)^(1/3) − 1 = **−17.4%/yr**, twice the steepest rate anywhere in Section A. There
      is no data point in 2013 or 2014 on the chart. Given TRAD-5, the most likely explanation is
      **definitional, not real**.
-  4. **Therefore: do not present the blue line as one series, do not fit one exponential across both
+  4. **Fitting an exponential is itself misleading.** Gartner's own series *rose* from 1994 to 1997
+     and its two big falls are 2001 and 2009, both recessions, with mild single-digit declines
+     in between (TRAD-19). A single exponential fitted from 2000 attributes to a secular trend what
+     is substantially two downturns, and it hides the 1994–1997 hump by starting after it.
+  5. **Therefore: do not present the blue line as one series, do not fit one exponential across both
      halves, and do not quote any level from either half.** Use Section A's *direction* (commercial
-     ASIC/ASSP design starts fell through the 2000s, at roughly 9–11%/yr early and slowing) as
+     ASIC design starts fell through the 2000s, hard in 2001 and 2009 and mildly in between) as
      evidence. Do not use Section B at all until the Semico contradiction in TRAD-4 is resolved.
+     Prefer citing TRAD-19's figures directly to citing the chart.
 - **Bears on:** **H5 (context)**, and the honesty of any chart built on this.
 - **Used in:** not yet.
 - **Caveats:** none that soften the above.
@@ -764,6 +781,117 @@ products in production at mature nodes.
   - "Semiconductor startups" here includes equipment, materials and EDA companies, not only chip
     designers.
 
+### TRAD-19. A full Gartner ASIC design-start series, 1994–2013, published in a Xilinx fact sheet — and it never exceeds ~11,150
+
+- **Source:** Xilinx, Inc., *Corporate Fact Sheet*, December 2009, page 3. Chart headed "ASIC
+  Landscape Continues to Deteriorate: 22% Decline in 2009", y-axis "Number of Annual Design Starts",
+  x-axis "Calendar Year" 1994–2013, attribution line "Source: Gartner (March 2009)".
+  <http://media.corporate-ir.net/media_files/irol/21/212763/XilinxPR_factsheet_December2009_v2.pdf>
+- **Verification:** Verified 2026-09-18. The PDF was downloaded directly (HTTP 200, 456,555 bytes),
+  its text extracted, and page 3 rendered to an image and read. Every string quoted below is from that
+  page. **The bar heights are read off a chart and are approximate**; the growth percentages are
+  printed labels and are exact as printed. The Gartner data behind it is a paid product and was not
+  obtained.
+- **What it says:**
+  - The chart's y-axis runs 0 to 12,000. **The tallest bar, 1997, is about 11,150.** The series rises
+    1994–1997 and falls from 1998 onward — it is a hump, not a pure exponential decay.
+  - Bar heights read off the chart, approximate, to the nearest 50: 1994 ~9,850; 1995 ~10,050;
+    1996 ~10,900; 1997 ~11,150; 1998 ~9,950; 1999 ~8,950; **2000 ~7,750**; 2001 ~4,950; 2002 ~4,000;
+    thereafter the bars sit between ~3,800 and ~2,050.
+  - Printed growth labels, exact: 2003 **-4.3%**, 2004 **-1.8%**, 2005 **-2.4%**, 2006 **-5.9%**,
+    2007 **-7.1%**, 2008 **-9.5%**, 2009 **-21.7%** (bar highlighted in red, with the callout "22%
+    Decline in 2009"), 2010 **0.2%**, 2011 **-2.8%**, 2012 **-3.4%**, 2013 **-3.8%**.
+  - Bryan Lewis, Gartner Analyst, quoted on the chart: "More likely, we will see a large percentage of
+    these questionable designs not hit any production and die a slow death by indefinite push-outs."
+- **`DERIVED` reconstruction of the series.** Anchoring on 2005 = 3,623 (TRAD-2, SKMurphy's reproduced
+  Gartner table) and applying the printed growth labels in turn:
+
+  | Year | Growth label | Derived level |
+  |---|---|---|
+  | 2005 | — (anchor) | 3,623 |
+  | 2006 | −5.9% | 3,623 × 0.941 = **3,409** |
+  | 2007 | −7.1% | 3,409 × 0.929 = 3,167 |
+  | 2008 | −9.5% | 3,167 × 0.905 = 2,866 |
+  | 2009 | −21.7% | 2,866 × 0.783 = 2,244 |
+  | 2010 | +0.2% | 2,244 × 1.002 = 2,249 |
+  | 2011 | −2.8% | 2,249 × 0.972 = 2,186 |
+  | 2012 | −3.4% | 2,186 × 0.966 = **2,112** |
+  | 2013 | −3.8% | 2,112 × 0.962 = 2,031 |
+
+  **The 2006 cross-check is decisive for the label-to-year assignment:** the derived 3,409 matches the
+  3,408 that EE Times published for Gartner's 2006 figure in December 2007 (TRAD-2) to within one
+  unit, from two entirely independent documents. The 2007 and 2008 derived values (3,167 and 2,866)
+  sit below SKMurphy's 3,196 and 3,048, which is expected — SKMurphy's table is a 2007 Gartner
+  forecast, this chart is Gartner's March 2009 revision after the crash.
+- **Bears on:**
+  - **TRAD-3 (resolves most of it).** Gartner's ASIC design starts, on Gartner's own chart, **never
+    reach 12,000 in any of the twenty years 1994–2013**. The owner's Section A begins at ~34,000 in
+    2000. `DERIVED`: 34,000 / 11,150 = **3.0×** the highest value the Gartner series ever reaches. At
+    2012 the gap is `DERIVED` 11,000 / 2,112 = **5.2×**. Section A's *levels* are therefore certainly
+    not Gartner ASIC design starts. Either they are ASIC + ASSP with ASSP starts several times ASIC
+    starts, or the axis is mis-scaled.
+  - **H5 (challenges, and sharpens the challenge).** The underlying decline is real and large:
+    `DERIVED` 7,749 (2000) → 2,112 (2012) is −10.27%/yr over twelve years, close to Section A's
+    −8.98%/yr. **The shape of Section A is right. Its numbers are not.**
+  - **H5 (also complicates it).** The 1994–1997 rise and the −21.7% in 2009 show the series is
+    strongly cyclical. The mid-2000s declines are mild single digits (−1.8% to −7.1%); the collapses
+    are 2001 and 2009, both recessions. Fitting a single exponential across 2000–2012 attributes to a
+    secular trend what is substantially two recessions.
+- **Used in:** not yet.
+- **Caveats:**
+  - **This is a Xilinx marketing document.** Xilinx sold FPGAs and the page is headed "Today's Global
+    Economics Favor Programmable Chips". It has every reason to show ASIC design starts falling. The
+    *attribution* to Gartner (March 2009) and the printed growth labels are nonetheless specific and
+    checkable, and one of them reproduces an independently published Gartner figure exactly.
+  - 2009–2013 on this chart are **forecasts made in March 2009**, at the trough of the financial
+    crisis. Do not present 2012 = ~2,112 as an outcome. It is a 2009 forecast of 2012.
+  - The chart is headed "ASIC Landscape"; the surrounding text discusses ASICs *and* ASSPs. Whether
+    the bars are ASIC-only or ASIC+ASSP is **not stated**. If they are ASIC+ASSP, then Section A of
+    the owner's chart is definitively mis-scaled, because there is then nothing left for ASSP to add.
+  - Bar heights are read off a chart. Only the growth percentages and the axis maximum are printed.
+  - The host `media.corporate-ir.net` is a legacy investor-relations CDN. Archive the PDF if it is to
+    be cited.
+
+### TRAD-20. The same Xilinx fact sheet gives an NRE cost escalation figure, and draws the long tail explicitly
+
+- **Source:** Xilinx, Inc., *Corporate Fact Sheet*, December 2009, page 3 (same document as TRAD-19).
+- **Verification:** Verified 2026-09-18 from the rendered page.
+- **What it says:**
+  - Verbatim: "Application-specific devices can take 12 to 24 months to design, and the fixed costs
+    associated with semiconductor manufacturing have risen to an exorbitant $60 million on the most
+    advanced 40nm chip-making technology from $20 million on 90nm technology, just three years ago.
+    Even the tiniest mistake in implementation can result in a multimillion dollar mask re-spin,
+    leading to time-to-market delays and a potentially devastating "domino effect" on a company's
+    business."
+  - The second chart on the page is headed "ASIC/ASSP Application Gap is Growing", sub-headed "Growing
+    Number of Underserved Applications". Its axes are "Market Size" (vertical) and "Application Market
+    Segments" (horizontal), with no numbers on either. The bars are labelled in three bands:
+    "ASIC/ASSP Class Applications" (the tall left-hand bars), "Underserved Applications" (the middle),
+    "Traditional FPGA Class Applications" (the long right-hand tail), with "+ 100s More" at the far
+    right.
+- **Bears on:**
+  - **H1 (supports).** A dated, primary, corporate statement of NRE escalation: `DERIVED` 60 / 20 =
+    **3×** in about three years, 90 nm to 40 nm. Complements the IBS design-cost figures in
+    [`../references/costs-and-consolidation.md`](../references/costs-and-consolidation.md) COST-1 and
+    COST-2 with a different metric ("fixed costs associated with semiconductor manufacturing") and a
+    different, non-analyst source.
+  - **H5 (supports, weakly but notably).** In 2009 a major semiconductor vendor published a **long-tail
+    diagram of chip demand** and asserted a *growing* band of "Underserved Applications" sitting
+    between what justifies an ASIC/ASSP and what a traditional FPGA serves. That is the project's H5
+    claim, drawn by a chip company, sixteen years before this repository.
+- **Used in:** not yet.
+- **Caveats:**
+  - **The long-tail chart has no numbers on either axis and no source line.** It is an illustration of
+    a marketing argument, not data. It establishes that the claim was made, not that it is true. Cite
+    it as an *assertion by Xilinx*, never as evidence of the tail's size.
+  - Xilinx's commercial interest here is direct: the "underserved" band is exactly what it wanted to
+    sell FPGAs into.
+  - "$60 million" is not defined — it is "fixed costs associated with semiconductor manufacturing",
+    which may or may not mean the mask set, and may or may not include design. Do not present it as a
+    mask-set cost. `../references/costs-and-consolidation.md` COST-1 puts total 7 nm *design* cost at
+    about $249m, which is a different and much larger quantity; the two are not comparable.
+  - December 2009. Superseded by a decade and a half of further escalation.
+
 ---
 
 ## Verdict on the two readings
@@ -875,7 +1003,11 @@ survive.
 ## Open questions
 
 - What is Gartner's count of **ASSP** design starts? A single public figure would decide between the
-  two readings in TRAD-3.
+  two readings in TRAD-3. TRAD-19 narrows it: if the Xilinx chart is already ASIC+ASSP, the question
+  is closed and Section A is simply mis-scaled. The chart does not say which it is.
+- **Is the owner's Section A perhaps not a Gartner series at all?** Its levels match nothing Gartner
+  published. Someone should ask where the chart's numbers were actually taken from before the chart
+  is used anywhere.
 - What is **Semico's definition** of a design start, and what absolute level does it report? Neither
   was found in public.
 - Does any public source give **new mask sets per year** (a flow) at mature nodes, rather than mask
@@ -885,7 +1017,10 @@ survive.
   2021 or 2022 Investor Day deck.
 - Is there a public **unit-shipment** series for the industry, as opposed to a revenue series? The
   2025 SIA Factbook charts dollars only. WSTS holds the unit data and sells it.
-- **Mask-set cost by node was not verified.** Searching produced only secondary marketing and
+- **Mask-set cost by node was not verified.** TRAD-20 gives one dated primary figure for "fixed costs
+  associated with semiconductor manufacturing" ($20m at 90 nm rising to $60m at 40 nm), but that is
+  not a mask-set cost and stops at 2009. Searching for a modern per-node mask-set cost produced only
+  secondary marketing and
   aggregator pages quoting incompatible figures (e.g. 7 nm variously "$3–$5M" and "$15 million"),
   with no primary source. The best-known primary-ish figures are IBS's, which are a paid product;
   SemiAnalysis's treatment is behind a paid newsletter. Neither was obtained and neither should be
