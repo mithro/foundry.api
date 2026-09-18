@@ -12,9 +12,9 @@ It is written to be read by an adversarial reviewer. **The conclusion is not tha
 
 Two things are missing from the essay entirely and are supplied here: **cycle time**, which is the first-order limit on how often a customer can return and which appears nowhere else in this repository, and **the coupling between customers who share one physical process**, which has no software analogue at all.
 
-**ID prefix:** `PAR`, PAR-1 to PAR-38. Entries follow the format in [`../README.md`](../README.md). This file does not edit any other file; see the last section for changes that belong elsewhere.
+**ID prefix:** `PAR`, PAR-1 to PAR-39. Entries follow the format in [`../README.md`](../README.md). This file does not edit any other file; see the last section for changes that belong elsewhere.
 
-**Verification counts:** 24 Verified, 12 Partial, 1 Lead, plus PAR-37, which is a summary of figures verified at other entries. Every blocker is recorded with the exact reason at the entry that hit it. Entries marked Partial for the specific reason that a delegated research pass, rather than this file's author, read the source are PAR-18, PAR-21, PAR-28, PAR-30, PAR-31, PAR-32, PAR-34 and PAR-35; each says so.
+**Verification counts:** 24 Verified, 13 Partial, 1 Lead, plus PAR-37, which is a summary of figures verified at other entries. Every blocker is recorded with the exact reason at the entry that hit it. Entries marked Partial for the specific reason that a delegated research pass, rather than this file's author, read the source are PAR-18, PAR-21, PAR-28, PAR-30, PAR-31, PAR-32, PAR-34, PAR-35 and PAR-39; each says so.
 
 **Date compiled:** 2026-09-18.
 
@@ -25,7 +25,7 @@ Two things are missing from the essay entirely and are supplied here: **cycle ti
 - [Part 1. Cycle time: the missing number](#part-1-cycle-time-the-missing-number) — PAR-1 to PAR-6
 - [Part 2. The four analogues](#part-2-the-four-analogues) — PAR-7 to PAR-24
 - [Part 3. Physical industries: the coupling, the successes and the failures](#part-3-physical-industries-the-coupling-the-successes-and-the-failures) — PAR-25 to PAR-35
-- [Part 4. The counter-case on the long tail](#part-4-the-counter-case-on-the-long-tail) — PAR-36 to PAR-38
+- [Part 4. The counter-case on the long tail](#part-4-the-counter-case-on-the-long-tail) — PAR-36 to PAR-39
 - [Part 5. Adjudication](#part-5-adjudication) — the verdicts
 - [Part 6. Open questions](#part-6-open-questions)
 - [Changes needed in other files](#changes-needed-in-other-files)
@@ -600,7 +600,7 @@ This is the section the brief asked for specifically, and it is the most useful 
   - Its own description of the model: "Historically, Shapeways has been a self-service digital manufacturing platform growing through our customers and through organic customer acquisition."
 - **Bears on:**
   - **H5, H6, H7 (challenges, and this is the most direct challenge in the repository).** Shapeways is the closest existing thing to the business `WHY.md` proposes, in a different material. It had the customers. It had published prices and self-service. It did not have a profit, and its revenue did not grow.
-  - **H7 (challenges, specifically and painfully).** A business with **over one million lifetime customers** still had one customer at 23%, 20% and 17% of revenue in successive years — and wrote a risk factor about it that reads exactly like SkyWater's and GlobalFoundries' (CONC-5). **Customer count is not customer base.** H7 assumes that many small customers means no customer has leverage. Shapeways had more customers than TSMC has ever had and more concentration than GlobalFoundries.
+  - **H7 (challenges, specifically and painfully).** A business with **over one million lifetime customers** still had one customer at 23%, 20% and 17% of revenue in successive years — and wrote a risk factor about it that reads exactly like SkyWater's and GlobalFoundries' (CONC-5). **Customer count is not customer base.** H7 assumes that many small customers means no customer has leverage. Shapeways had far more customers than TSMC's 534 (`WHY.md` §2) and a single-customer share — 23%, 20%, 17% — of the same order as TSMC's largest customer over the same years (25% in 2023, 22% in 2024, 19% in 2025, per CONC-11). Not worse than TSMC's, but not better either, from a base of a million customers instead of 534. We have no single-customer figure for GlobalFoundries, so no comparison is made there.
   - H10 (challenges): being paid for every attempt is necessary but plainly not sufficient.
 - **Used in:** not yet.
 - **Caveats:**
@@ -832,6 +832,25 @@ Not a single source; a summary of what this file found, so it is in one place.
 - **Bears on:** H9, H4 — direction unknown until someone reads it.
 - **Caveats:** everything above after the citation is our characterisation of a paper we have not read. **Do not cite it until someone does.** A university library copy or an interlibrary route would settle it.
 
+#### PAR-39. Manufacturing knowledge is tacit and local, and it travels when people change jobs
+
+- **Source:** Gary P. Pisano and Willy C. Shih, "Restoring American Competitiveness", *Harvard Business Review*, July–August 2009, reprint R0907S. The HBR page at <https://hbr.org/2009/07/restoring-american-competitiveness> is paywalled. The text was read from a freely-hosted reprint PDF at <https://dailyreporter.com/files/2012/11/restoring-american-competitiveness.pdf>, which is stamped "This article is made available to you with compliments of FM Global Insurance."
+- **Verification:** Partial, 2026-09-18. The reprint PDF was fetched and the quotes below were read from its extracted text. It is a distributed reprint, not the publisher's version of record, and its own footer restricts further posting — so treat the URL as the reading route, not the citation.
+- **What it says:**
+  - The industrial commons: "a commons can include R&D know-how, advanced process development and engineering skills, and manufacturing competencies related to a specific technology."
+  - **Why it stays put:** "much technical knowledge, even in hard sciences, is highly tacit and therefore far more effectively transmitted face-to-face. Other studies show that the main way knowledge spreads from company to company is when people switch jobs. And even in America's relatively mobile society, it turns out that the vast majority of job hopping is local."
+  - And the example that makes the point sharpest: "even though virtually all the raw data from the Human Genome Project … is available electronically all over the world, the drug research it has generated is heavily concentrated in the Boston, San Diego, and San Francisco areas."
+  - On outsourcing: "the outsourcing has not stopped with low-value tasks like simple assembly or circuit-board stuffing. Sophisticated engineering and manufacturing capabilities that underpin innovation in a wide range of products have been rapidly leaving too."
+- **Bears on:**
+  - **H9 (challenges, and it is the most substantive challenge to H9 in the repository).** `WHY.md` §5 argues that thousands of small *public* experiments would pile up experience and give it "far more room to spread". Pisano and Shih's claim is that the part of manufacturing knowledge that matters is tacit, is transmitted face-to-face, and moves between firms mainly when engineers change jobs. Publishing the data may transfer much less than the essay assumes. The Human Genome Project line is the direct counter-example: total data openness, and the capability still concentrated in three cities.
+  - This is consistent with LEARN-7, which already records that firms learn about three times more from their own production than from others'.
+  - H4 (context): the same argument says design capability and manufacturing capability are not separable, which cuts against "the factory stops doing the customers' engineering".
+- **Used in:** not yet.
+- **Caveats:**
+  - It is an HBR management article, not an empirical paper; the claims about tacit knowledge and job-hopping are summaries of other work that it does not cite in the reprint text we read.
+  - Its purpose is an argument about US industrial policy, which is a different question from ours, and it has a clear thesis it is arguing for.
+  - **It is a challenge to the *mechanism*, not a refutation.** Open-source software also transmits a great deal of tacit knowledge in public, through review and issue threads, and PAR-15 finds a measurable gain to contributors. The honest position is that publishing results helps less than the essay implies, not that it does not help.
+
 ---
 
 ## Part 5. Adjudication
@@ -848,14 +867,14 @@ Before the individual verdicts, the one number that governs every comparison.
 
 | | Software on a cloud | Silicon on a shuttle |
 |---|---|---|
-| Marginal cost of one more attempt | ≈ $0 | **$300 to €30,000** (OPEN-5; PAR-3) |
+| Marginal cost of one more attempt | fractions of a cent to a few dollars of compute | **$300 to €30,000**, or $14,950 commercially (OPEN-5; PAR-3; PAR-31) |
 | Time from decision to result | seconds to minutes | **170 to 224 days** (PAR-3); 228 to 451 days (PAR-4) |
 | Attempts available per year | thousands | **1 to 5** (PAR-3) |
 | Cost of an attempt that fails | the compute you used | the whole attempt, plus the wait, and ~95% of projects need another (PAR-6) |
 | Can you revert? | yes, instantly | no |
-| Does one customer's failure hurt another's? | no | **yes** — see Part 4 |
+| Does one customer's failure hurt another's? | no | **yes** — see PAR-25 |
 
-`WHY.md` argues from the first column to the second. The ratios between them are roughly 10^4 in cost per attempt and 10^3 in attempts per year. **An argument that survives a factor of ten is not the same as an argument that survives a factor of a thousand, and the essay never tests it against the larger number.** Everything below is a variation on this.
+`WHY.md` argues from the first column to the second. Attempts per year differ by about **three orders of magnitude**, and cost per attempt by **at least four**. (The cost ratio is not stated precisely because the software side is not exactly zero and depends entirely on what is being run; three to six orders of magnitude covers any reasonable reading, and the argument does not turn on which.) **An argument that survives a factor of ten is not the same as an argument that survives a factor of a thousand, and the essay never tests it against the larger number.** Everything below is a variation on this.
 
 The honest statement of the project's position after this review is narrower than `WHY.md`'s, and stronger for being narrow:
 
@@ -870,7 +889,7 @@ The honest statement of the project's position after this review is narrower tha
 1. **The revenue did not follow the tail.** AWS carries about 1.5 years of revenue in contracts longer than a year at a 4.0-year weighted-average life (PAR-7). Its largest announced commercial event is one customer for $38bn over seven years (PAR-10). It pays to acquire the tail (PAR-11).
 2. **The purest form of the model concentrated hardest.** CoreWeave rents an expensive shared physical asset by the hour, was founded in the pay-as-you-go era, publishes on-demand prices — and takes 67% of revenue from one customer, with 98% of revenue on **take-or-pay** contracts (PAR-9). That is worse concentration than TSMC's 78% across ten customers (CONC-11). And the instrument it converged on is the same take-or-pay contract that cost AMD $320m and then $335m to escape (CONC-8).
 3. **Cycle time.** A cloud customer iterates in seconds; a fab customer 1 to 5 times a year (PAR-3). The cloud's defining property — that a failed experiment costs you an hour and is reverted — does not exist in silicon at all.
-4. **The asset is not shared in the same way.** A cloud region is a large number of independent, interchangeable machines. A fab process is one physical resource that every customer's wafer passes through, so customers are coupled (Part 4). AWS has nothing resembling this.
+4. **The asset is not shared in the same way.** A cloud region is a large number of independent, interchangeable machines. A fab process is one physical resource that every customer's wafer passes through, so customers are coupled (PAR-25). AWS has nothing resembling this.
 
 **Verdict: load-bearing for H8 (openness and published prices attract customers who could not otherwise buy), misleading for H7 (many small customers remove buyer power).** The cloud is the best evidence the project has for its access model and the *strongest single piece of evidence against its risk model*. `WHY.md` §6 uses AWS reserved-instance pricing to argue that small customers happily pay more. The same disclosures say the money is in the customers who commit.
 
@@ -974,7 +993,7 @@ The README's rule is that adding an entry means updating the hypothesis it bears
 | **H6** | Add PAR-7, PAR-9 and PAR-11 as **challenges**: the cloud's money is in committed contracts and it pays to acquire the tail. Add PAR-25 as a **challenge**: "no per-customer engineering" is contradicted by the PROM committee that makes a shared fab possible. Add PAR-27 (a 10% gross margin on self-serve on-demand manufacturing) and PAR-29 (Protolabs' gross margin down 18 points in twelve years) as **challenges**. |
 | **H7** | Add PAR-9 as the **strongest challenge in the repository**, and PAR-26 as the second: a company with over a million lifetime customers still had one customer at 23% of revenue. Add PAR-10 and PAR-22. Add PAR-29 as the best **support** H7 has — a profitable, capital-owning manufacturer with no customer above 2%. The status should move from "Argued from theory" to "Contested". |
 | **H8** | Add PAR-3 as **supports with a sting**: the open, published-price, self-service shuttle model already exists and has not transformed the industry. Add PAR-31 as **strong support** in a physical industry (JLCPCB: published price, published lead time, 9.5 million claimed customers) and PAR-32 for standardised interfaces. Add PAR-24 as **mixed**: arXiv replaced the gate rather than removing it. Add PAR-21 and PAR-28 (MOSIS has done this since 1981, on public money). The "Needs" line about price transparency and small-buyer adoption is still unmet; see Part 6 item 5. |
-| **H9** | Add PAR-15 as the **closest published support** — but note it locates the gain in the contributor, not the platform. Add PAR-17 and PAR-25 as **challenges**. Add PAR-12 as **mixed**. |
+| **H9** | Add PAR-39 as the **most substantive challenge** — manufacturing knowledge is tacit and local, so publishing results may transfer less than §5 assumes. Add PAR-15 as the **closest published support**, noting it locates the gain in the contributor, not the platform. Add PAR-17 and PAR-25 as **challenges**. Add PAR-12 as **mixed**. Add PAR-38 as a **Lead** worth chasing. |
 | **H10** | Add PAR-12 and PAR-19 as **supports**: skew observed directly in two more domains. |
 | **H11** | Add PAR-25 as a **challenge**: no proposed mechanism prices the externality one customer imposes on the next. |
 
