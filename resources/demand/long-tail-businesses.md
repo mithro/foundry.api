@@ -158,6 +158,16 @@ arithmetic is written out.
     from our customers … Our revenue per customer contact grew 13.3% as compared to 2024."
   - FY2015 MD&A: "During 2015, we served 27,235 unique product developers and engineers, an increase
     of 26% over the same period in 2014."
+  - **FY2015 revenue**, which the derivation below needs: **$264,106,000** (2014: $209,583,000).
+    `www.sec.gov/Archives/...` returns 403 to an automated fetch, so this was read from the SEC's
+    own XBRL company-concept API rather than from the filing's prose —
+    <https://data.sec.gov/api/xbrl/companyconcept/CIK0001443669/us-gaap/SalesRevenueNet.json>,
+    the fact tagged `2015-01-01 .. 2015-12-31` reported in accession 0001437749-16-026114, i.e. the
+    FY2015 10-K itself. The same source gives gross profit $154,403,000 for 2015 and $128,401,000
+    for 2014, which reproduces the "61.3%" and "58.5%" quoted below.
+  - **FY2025 operating income: $25,110,000** (2024: $19,911,000), from the same API
+    (<https://data.sec.gov/api/xbrl/companyconcept/CIK0001443669/us-gaap/OperatingIncomeLoss.json>,
+    accession 0001443669-26-000010, the FY2025 10-K).
   - **Gross margin, both ends of the decade.** FY2015: "Gross profit increased from $128.4 million,
     or 61.3% of revenues, in 2014 to $154.4 million, or 58.5% of revenues, in 2015". FY2025: "Gross
     profit increased to $237.1 million in 2025 from $223.2 million in 2024. Gross margin decreased to
@@ -175,6 +185,7 @@ arithmetic is written out.
     company's own published figure exactly, so the method is sound.
   - Ten-year growth in revenue per customer: (11,012 ÷ 9,697)^(1/10) − 1 = **+1.28% a year**.
   - Gross margin change: 58.5% (2015) → 44.5% (2025) = **−14.0 percentage points**.
+  - Operating margin, FY2025: $25,110,000 ÷ $533,127,000 = **+4.71%**.
 - **Bears on:**
   - **H6 (mixed, leaning against).** Protolabs is profitable, and it serves about 48,000 customers a
     year at about $11,000 each with no per-customer engineering — so small customers can be served
@@ -198,13 +209,12 @@ arithmetic is written out.
 
 ### SMB-3. Xometry: 81,821 active buyers, a 34.7% marketplace gross margin, and no profit in any year it has filed
 
-- **Sources:** Xometry, Inc. (NASDAQ: XMTR), CIK 0001657573, Annual Reports on Form 10-K:
-  - FY2021, filed 2022-03-18, accession 0000950170-22-004158:
-    <https://www.sec.gov/Archives/edgar/data/1657573/000095017022004158/xmtr-20211231.htm>
-  - FY2024, filed 2025-02-25, accession 0000950170-25-026655:
-    <https://www.sec.gov/Archives/edgar/data/1657573/000095017025026655/xmtr-20241231.htm>
-  - FY2025, filed 2026-02-24, accession 0001193125-26-066959:
-    <https://www.sec.gov/Archives/edgar/data/1657573/000119312526066959/xmtr-20251231.htm>
+- **Sources:** Xometry, Inc. (NASDAQ: XMTR), CIK 0001657573, Annual Report on Form 10-K for FY2025,
+  filed 2026-02-24, accession 0001193125-26-066959:
+  <https://www.sec.gov/Archives/edgar/data/1657573/000119312526066959/xmtr-20251231.htm>. Every
+  quoted figure below comes from that filing. (The FY2021 and FY2024 10-Ks were opened while
+  building this entry but nothing is attributed to either, so they are not listed as sources; the
+  FY2024 and FY2023 revenue figures the derivations need are cited from the XBRL API below.)
 - **Verification:** Verified 2026-09-18 from the filing text, as for SMB-2.
 - **What it says:**
   - Item 1: "With a rapidly growing global network of 4,996 Active Suppliers, Xometry offers
@@ -222,6 +232,12 @@ arithmetic is written out.
   - **Losses.** FY2025 consolidated statement of operations (in $000): Revenue 686,631; cost of
     revenue 417,858; gross profit 268,773; total operating expenses 314,289; **Loss from operations
     (45,516)**; prior years (56,149) for 2024 and (73,576) for 2023.
+  - **Revenue for the two prior years**, which the operating-margin derivations below need:
+    **$545,529,000 (2024)** and **$463,406,000 (2023)**. Read from the SEC's XBRL company-concept
+    API (`www.sec.gov/Archives/...` returns 403 to an automated fetch):
+    <https://data.sec.gov/api/xbrl/companyconcept/CIK0001657573/us-gaap/RevenueFromContractWithCustomerExcludingAssessedTax.json>,
+    facts reported in accessions 0000950170-25-026655 (the FY2024 10-K) and 0000950170-24-023214
+    (the FY2023 10-K).
   - **The enterprise pivot, stated in Item 1:** "We are establishing Xometry as the core digital
     infrastructure for custom manufacturing for our large enterprise customers. … As our platform
     becomes more embedded in enterprise workflows, it is driving larger, more predictable,
@@ -234,6 +250,7 @@ arithmetic is written out.
   - Operating margin, FY2025: −45,516 ÷ 686,631 = **−6.6%**. FY2024: −56,149 ÷ 545,529 = −10.3%.
     FY2023: −73,576 ÷ 463,406 = −15.9%.
   - Share of buyers spending $50,000 or more: 1,760 ÷ 81,821 = **2.15%**.
+  - Blended gross margin, FY2025: $268,773,000 ÷ $686,631,000 = **39.14%**.
 - **Bears on:**
   - **H6 (challenges).** A pure marketplace with automated quoting, published prices and no
     per-customer engineering — the closest structural match to the foundry.api model in the US — has
@@ -245,7 +262,7 @@ arithmetic is written out.
     "large enterprise customers" and "larger, more predictable, multi-year spend".
 - **Used in:** not yet.
 - **Caveats:**
-  - The blended gross margin (39.1% in FY2025) is flattered by a separate, high-margin advertising
+  - The blended gross margin (**DERIVED**, 39.1% in FY2025) is flattered by a separate, high-margin advertising
     and media business (Thomas). The 34.7% marketplace figure is the one that bears on H6.
   - **Not disclosed in any year read:** what share of revenue comes from the 1,760 accounts spending
     over $50,000. Without it, it is impossible to say how much of Xometry's revenue is genuinely
@@ -257,8 +274,9 @@ arithmetic is written out.
 ### SMB-4. Shapeways: over a million customers, and one of them was 17–23% of revenue. Chapter 7 in 2024
 
 - **Sources:** Shapeways Holdings, Inc. (formerly NYSE: SHPW), CIK 0001784851:
-  - Form 10-K for FY2021, accession 0001628280-22-006888 (figures read from the filing text at
-    <https://www.sec.gov/Archives/edgar/data/1784851/>).
+  - Form 10-K for FY2021, filed 2022-03-31, accession 0001193125-22-091992:
+    <https://www.sec.gov/Archives/edgar/data/1784851/000119312522091992/d208861d10k.htm>
+    (a 10-K/A followed a day later, 2022-04-01, accession 0001193125-22-093855).
   - Form 10-K for FY2023, filed 2024-03-28, accession 0001628280-24-013659:
     <https://www.sec.gov/Archives/edgar/data/1784851/000162828024013659/shpw-20231231.htm>
   - Form 8-K filed 2024-07-03, accession 0001628280-24-030980:
@@ -282,12 +300,20 @@ arithmetic is written out.
     and recurring losses from operations since inception, resulting in an accumulated deficit of
     approximately $176.9 million as of December 31, 2023, that raise substantial doubt about its
     ability to continue as a going concern."
+  - **FY2023 revenue and gross profit**, which the gross-margin figure below needs: revenue
+    **$34,460,000**, gross profit **$14,505,000**. Read from the SEC's XBRL company-concept API
+    (`www.sec.gov/Archives/...` returns 403 to an automated fetch) —
+    <https://data.sec.gov/api/xbrl/companyconcept/CIK0001784851/us-gaap/RevenueFromContractWithCustomerExcludingAssessedTax.json>
+    and `.../us-gaap/GrossProfit.json`, both facts reported in accession 0001628280-24-013659, the
+    FY2023 10-K itself.
   - 8-K, Item 1.03: "On July 2, 2024, after considering all strategic alternatives, Shapeways
     Holdings, Inc. (the 'Company') ceased operations and filed a voluntary petition for relief (the
     'Bankruptcy Filing') under the provisions of Chapter 7 of Title 11 of the United States Code …
     in the United States Bankruptcy Court for the District of Delaware." And: "As a result of the
     Bankruptcy Filing, a Chapter 7 trustee will be appointed by the Bankruptcy Court and will
     administer the Company's bankruptcy estate, including liquidating the assets of the Company".
+- **DERIVED (arithmetic written out):**
+  - Gross margin, FY2023: $14,505,000 ÷ $34,460,000 = **42.1%**.
 - **Bears on:**
   - **H5 and H6 (challenges, hard).** Shapeways is the closest thing there was to the foundry.api
     model in another material: upload a file, get a published price, no engineer talks to you. It
@@ -338,7 +364,7 @@ arithmetic is written out.
     the only direct statement found anywhere that a chip-shuttle brokerage covered its own costs over
     a long period.
   - **H5 (challenges, and this is the most important number in this entry).** Sixty thousand designs
-    in forty years is about 1,500 a year; the peak was "around 3,000 orders per year" and up to $10
+    in forty years is **DERIVED** 60,000 ÷ 40 = about **1,500 a year**; the peak was "around 3,000 orders per year" and up to $10
     million of annual revenue. That is the realised size, over four decades, of the aggregated
     American long tail for prototype chips — smaller than one mid-sized customer of a real fab, and
     a fiftieth of the revenue of a single Protolabs. **DERIVED:** $10,000,000 ÷ 3,000 orders =
@@ -382,7 +408,7 @@ arithmetic is written out.
     "about" page, that it is affordable *because* the EU pays part of the bill, and that without
     public funding the niche technologies "could not be stimulated to a level that makes them
     viable". That is the operator of the long tail saying the long tail does not cover its own cost.
-  - **H5 (supports, modestly).** 900 institutions and SMEs, and "more than 800 fabricated prototypes"
+  - **H5 (supports, modestly).** **DERIVED** 600 + 300 = **900** institutions and SMEs, and "more than 800 fabricated prototypes"
     a year, is a real and continuing tail — one that has existed without interruption since 1989.
 - **Used in:** not yet.
 - **Caveats:**
@@ -405,9 +431,9 @@ Set side by side, per-customer revenue explains nothing about whether the busine
 | Business | Customers | Revenue per customer | Gross margin | Bottom line |
 |---|---|---|---|---|
 | JLC (FY2025) | 1,358,700 paying | ≈ US$1,050 | 28.1% (PCB) | **+12.65% net margin** |
-| Protolabs (FY2025) | 48,415 contacts | $11,012 | 44.5% | +4.7% operating margin |
+| Protolabs (FY2025) | 48,415 contacts | $11,012 | 44.5% | **+4.7% operating margin** (DERIVED) |
 | Xometry (FY2025) | 81,821 active buyers | $8,392 | 34.7% (marketplace) | **−6.6% operating margin** |
-| Shapeways (FY2023) | "over one million" since inception; one customer = 17% of revenue | — | ≈ 42% | **Chapter 7, 2024-07-02** |
+| Shapeways (FY2023) | "over one million" since inception; one customer = 17% of revenue | — | 42.1% (DERIVED) | **Chapter 7, 2024-07-02** |
 | MOSIS (peak) | — | ≈ $3,300 per order | — | "self-sustaining … for 40 years", ≈ $10M/yr |
 | Europractice | 600 institutions + 300 SMEs | — | — | EU-subsidised by its own account |
 
