@@ -22,7 +22,7 @@ Most entries here are **Leads**. They come from the reference list of an externa
 
 ### FIN-2. Customer concentration raises a supplier's cost of equity, and its cost of debt
 
-- **Source:** D. S. Dhaliwal, J. S. Judd, M. Serfling and S. Shaikh, "Customer Concentration Risk and the Cost of Equity Capital", *Journal of Accounting and Economics* 61(1), 2016, pp. 23–48. DOI 10.1016/j.jacceco.2015.08.003. Abstract: <https://econpapers.repec.org/RePEc:eee:jaecon:v:61:y:2016:i:1:p:23-48>
+- **Source:** D. S. Dhaliwal, J. S. Judd, M. Serfling and S. Shaikh, "Customer Concentration Risk and the Cost of Equity Capital", *Journal of Accounting and Economics* 61(1), 2016, pp. 23–48. DOI 10.1016/j.jacceco.2015.03.005. Abstract: <https://econpapers.repec.org/RePEc:eee:jaecon:v:61:y:2016:i:1:p:23-48>
 - **Verification:** Verified 2026-09-14 (abstract, via EconPapers). The full paper wasn't read.
 - **What it says (abstract):**
   - "We hypothesize that a more concentrated customer base increases a supplier's risk, which results in a higher cost of equity."
