@@ -175,7 +175,329 @@ It is written to be read by an adversarial reviewer. The conclusion is **not** t
 
 ## Part 2. The four analogues
 
-*(filled in below)*
+Taken in order of how close they are to the claim, not in the order `WHY.md` uses them: cloud computing first, because it is the analogue the project itself says is closest; the internet last, because it is the one used most rhetorically and least mechanically.
+
+### 2.1 Cloud computing
+
+This is the analogue the project leans on hardest, and the one that most rewards a hard look. The surface fit is excellent: a huge fixed-cost asset, rented by the hour, at published prices, to people who could never buy one. The evidence below says the *access model* transferred and the *customer mix* did not.
+
+#### PAR-7. AWS's money is in multi-year commitments, not in the pay-as-you-go tail
+
+- **Sources:**
+  - Amazon.com, Inc., Form 10-Q for the quarterly period ended June 30, 2025. <https://www.sec.gov/Archives/edgar/data/1018724/000101872425000086/amzn-20250630.htm>
+  - Amazon.com, Inc., "Amazon.com Announces Fourth Quarter Results", 2026-02-05 (Q4 and full-year 2025 earnings release). <https://s2.q4cdn.com/299287126/files/doc_earnings/2025/q4/earnings-result/AMZN-Q4-2025-Earnings-Release.pdf>
+- **Verification:** Verified 2026-09-18. The 10-Q paragraph was read from the SEC filing; the earnings release PDF was downloaded and its text read directly. Note: `www.sec.gov` refuses plain command-line fetches ("Your Request Originates from an Undeclared Automated Tool"); the filing was read through our fetch tool, which the site does serve.
+- **What it says:**
+  - 10-Q, Q2 2025: "Additionally, we have performance obligations, primarily related to AWS, associated with commitments in customer contracts for future services that have not yet been recognized in our consolidated financial statements. For contracts with original terms that exceed one year, those commitments not yet recognized were approximately $195 billion as of June 30, 2025. The weighted-average remaining life of our long-term contracts is 4.0 years."
+  - Earnings release: "AWS segment sales increased 24% year-over-year to $35.6 billion" in Q4 2025, and for the full year "AWS segment sales increased 20% year-over-year to $128.7 billion". "AWS segment operating income was $45.6 billion, compared with operating income of $39.8 billion in 2024."
+  - Amazon's own XBRL tagging of `RevenueRemainingPerformanceObligation` stops after Q2 2020 (last tagged value $41.0 billion at 2020-06-30, from the Q2 2020 10-Q), so the series has to be read out of the filing text rather than the structured data.
+- **Bears on:**
+  - H6 (challenges), H7 (challenges): the cloud is held up as proof that you can build a huge infrastructure business on many small self-serve customers. Its own disclosures say the revenue base is contracted, long-dated and large.
+  - H8 (context): published pay-as-you-go pricing is the *front door*, not the revenue model.
+- **Used in:** not yet.
+- **Caveats:**
+  - Remaining performance obligations are not the same as revenue share by customer size. Amazon does not disclose revenue by customer, or any customer-concentration figure for AWS. It is possible that a large number of mid-sized customers, not a few giants, sign these contracts. We cannot tell from the filing and should not pretend otherwise.
+  - The phrase is "primarily related to AWS", so the $195 billion is not purely AWS.
+  - The 10-Q figure (June 2025) and the revenue figure (full-year 2025) are from different periods; the derived ratio below is therefore approximate and is labelled as such.
+
+- **DERIVED (arithmetic shown):** $195bn of commitments not yet recognised ÷ $128.7bn AWS net sales for 2025 = **1.5 years of AWS revenue already committed** under contracts with original terms longer than a year, at a weighted-average remaining life of 4.0 years. The comparison mixes a mid-2025 balance with a full-year 2025 flow and is indicative only.
+
+#### PAR-8. Cloud committed-use discounts are paid whether or not the capacity is used
+
+- **Source:** Google Cloud, "Committed use discounts (CUDs) for Compute Engine" (Compute Engine documentation). <https://docs.cloud.google.com/compute/docs/instances/committed-use-discounts-overview>
+- **Verification:** Verified 2026-09-18.
+- **What it says:**
+  - "You get a discount of up to 70% for memory-optimized machine series and a discount of up to 55% for all other machine series."
+  - "You are billed monthly for your committed resources until the end of your commitment term, regardless of whether or not you use those resources."
+  - Terms are "either 1 year or 3 years", and a "3-year plan offers a higher discount rate than a 1-year plan."
+- **Bears on:**
+  - H6 (context), H7 (challenges): this is a **take-or-pay contract**. It is the same instrument as the AMD/GlobalFoundries wafer agreement in `WHY.md` §3, which the essay presents as a symptom of the doom spiral. The largest, most successful "rent the expensive machine" businesses in the world converged on it voluntarily.
+- **Used in:** not yet. Extends SW-5, which covers AWS reserved instances but not the obligation to pay for unused capacity, and not a second provider.
+- **Caveats:** a documentation page, not a filing. It states list terms; actual enterprise agreements are negotiated and not public.
+
+#### PAR-9. CoreWeave — the purest "rent the expensive machine by the hour" business — is 67% one customer and 98% take-or-pay
+
+- **Source:** CoreWeave, Inc., Form 10-K for the fiscal year ended December 31, 2025. <https://s205.q4cdn.com/133937190/files/doc_financials/2025/q4/CoreWeave-Inc-FY25-10-K-7.pdf> (also filed at <https://www.sec.gov/Archives/edgar/data/1769628/000176962826000104/crwv-20251231.htm>)
+- **Verification:** Verified 2026-09-18 (PDF downloaded, text extracted, all quotes read in place).
+- **What it says:**
+  - Risk factor heading: "A substantial portion of our revenue is driven by a limited number of our customers, and the loss of, or a significant reduction in, spending from one or a few of our top customers would adversely affect our business, operating results, financial condition, and prospects."
+  - "We recognized an aggregate of approximately 67% of our revenue from our top customer, Microsoft, for the year ended December 31, 2025. We recognized an aggregate of approximately 77% of our revenue from our top two customers for the year ended December 31, 2024. We recognized an aggregate of approximately 73% of our revenue for the year ended December 31, 2023, from our top three customers. None of our other customers represented 10% or more of our revenue for the year ended December 31, 2025."
+  - The Customer Concentration note gives the table: Customer A 67% (2025), 62% (2024), 35% (2023); Customer B 15% (2024), 17% (2023); Customer C 21% (2023). "Customer A and D accounted for 68% and 11% of accounts receivable, net, respectively, as of December 31, 2025."
+  - On the contract form: "We currently sell access to our platform either through committed contracts, which are take-or-pay, or on-demand, which are pay-as-you-go. For the years ended December 31, 2025, 2024, and 2023, committed contracts accounted for over 98%, 96% and 88% of our revenue, respectively."
+  - And why it will persist: "We expect that our customer concentration with a limited number of top customers is likely to continue in future years because of the long-term nature of contracts with those customers."
+  - Scale: "Our revenue was $5.1 billion, $1.9 billion, and $229 million for the years ended December 31, 2025, 2024, and 2023, respectively", with "net losses of $1.2 billion, $863 million, and $594 million" in the same years. "As of December 31, 2025, we had $60.7 billion of remaining performance obligations ("RPO"), compared to $15.1 billion of RPO as of December 31, 2024. As of December 31, 2025, our committed contracts had a weighted-average contract duration of approximately five years."
+  - Named forward commitments: OpenAI "committed to pay us up to approximately $6.5 billion through May 31, 2031"; Meta Platforms, Inc. "initially committed to pay us up to approximately $14.2 billion through December 2031".
+- **Bears on:**
+  - **H7 (challenges, strongly).** This is the central hypothesis — that many small customers remove buyer power — and here is a company that rents an extremely expensive shared physical asset by the hour, founded in the pay-as-you-go era, with published on-demand prices, that ended up *more* concentrated than TSMC. TSMC's top ten are 78% of revenue (CONC-11); CoreWeave's top **one** is 67%.
+  - **H2 (supports):** its own risk factors read like GlobalFoundries' and SkyWater's.
+  - **H6 (challenges):** the on-demand pay-as-you-go tail is under 2% of revenue.
+  - H10 (challenges): being paid for every attempt is not what happened; being paid by three hyperscalers is.
+- **Used in:** not yet.
+- **Caveats:**
+  - CoreWeave sells GPU capacity in an extraordinary demand spike, which may be a phase rather than an equilibrium. The 2023 → 2025 trend is towards *more* concentration, not less, but three years is a short series.
+  - It is a young company still raising capital; a mature CoreWeave might look different.
+  - The 88% → 96% → 98% committed-contract series could reflect deliberate strategy (financing capex against contracts) rather than an absence of small-customer demand. The filing does not separate the two.
+
+- **DERIVED:** RPO $60.7bn ÷ 2025 revenue $5.1bn = **about 12 years of current revenue already contracted**, at a weighted-average duration of about five years.
+
+#### PAR-10. The largest publicly announced cloud contract is one customer at $38 billion over seven years
+
+- **Source:** Amazon, "AWS announces new partnership to power OpenAI's AI workloads" (About Amazon). <https://www.aboutamazon.com/news/aws/aws-open-ai-workloads-compute-infrastructure>
+- **Verification:** Partial, 2026-09-18. The quotes below were read from the page. The page as served to us did not carry a machine-readable publication date; contemporaneous reporting dates the announcement to 2025-11-03, which we have **not** verified against a primary source.
+- **What it says:** "Under this new $38 billion agreement, which will have continued growth over the next seven years", "OpenAI is accessing AWS compute comprising hundreds of thousands of state-of-the-art NVIDIA GPUs, with the ability to expand to tens of millions of CPUs".
+- **Bears on:** H7 (challenges): the mature cloud's headline commercial event is a single whale, not the tail.
+- **Used in:** not yet.
+- **Caveats:** a press release, with no contract terms disclosed. "$38 billion" is a headline number whose recognition profile is unknown.
+
+- **DERIVED:** $38bn ÷ 7 years ≈ $5.4bn a year, or about **4% of AWS's 2025 revenue of $128.7bn** (PAR-7) from one customer on one agreement.
+
+#### PAR-11. The cloud buys its tail: AWS gives startups credits
+
+- **Source:** Amazon Web Services, "AWS Activate". <https://aws.amazon.com/activate/>
+- **Verification:** Partial, 2026-09-18. The credit figure was read from the page; the eligibility tiers and the programme's stated rationale were not stated on the page in the form we asked for.
+- **What it says:** the page offers "up to $200,000 in AWS Activate Credits", with "additional credits available for AI startups ready to scale", described as offsetting costs "on infrastructure, data services, and AI/ML models".
+- **Bears on:**
+  - H6 (challenges): the tail is not simply profitable at published prices; the largest cloud provider pays to acquire it.
+  - H5 (context): it does imply the provider believes the tail contains future large customers, which is `WHY.md` §5's third claim.
+- **Used in:** not yet.
+- **Caveats:** a marketing page. It says nothing about how many startups receive credits, the cost of the programme, or its return.
+
+### 2.2 Open source software
+
+SW-3 already records the Hoffmann, Nagle and Zhou demand-side value estimate. The entries here go to the parts of the open-source story the essay does not tell: who actually does the work, who pays for it, and what it did not fix. The mechanism that matters for our question is that **open source lowered the cost of *copying* work that had already been done**. Silicon has no copy operation, which is why this analogue transfers to chip *design* and not to chip *manufacturing*.
+
+#### PAR-12. Most widely-used open source is written by a handful of people, not a crowd
+
+- **Sources:**
+  - F. Nagle, J. Dana, J. Hoffman, S. Randazzo and Y. Zhou, "Census II of Free and Open Source Software — Application Libraries", The Linux Foundation and The Laboratory for Innovation Science at Harvard, March 2022. <https://www.linuxfoundation.org/hubfs/Census%20II%20FINAL%202March2022.pdf>
+  - F. Nagle, K. Powell, R. Zitomer and D. A. Wheeler, "Census III of Free and Open Source Software / Application Libraries", The Linux Foundation, December 2024. <https://www.linuxfoundation.org/hubfs/LF%20Research/lfr_censusiii_120424a.pdf>
+- **Verification:** Verified 2026-09-18 (both PDFs fetched and read).
+- **What it says:**
+  - Census II, from over half a million observations: "Reviewing 49 of the top 50 non-npm projects from our lists, for commits in the year 2021, it was found that 23% of projects had one developer accounting for more than 80% of the lines of code (LOC) added. Further, 94% of projects had fewer than ten developers accounting for more than 90% of the LOC added. These findings are counter to the typically held belief that thousands or millions of developers are responsible for developing and maintaining FOSS projects. At a higher level, it was found that 136 developers were responsible for more than 80% of the LOC added to these 50 FOSS projects."
+  - Census III, from "over twelve million observations": "Reviewing 47 of the top 50 non-npm projects from our version-agnostic direct list, for commits in the year 2023, it was found that 17% of projects had one developer accounting for more than 80% of commits authored. Further, 40% of projects had only one or two developers accounting for more than 80% of commits authored, 64% of projects had four or less developers accounting for more than 80% of commits authored, and 81% of projects had ten or less developers accounting for more than 80% of commits authored."
+  - Census II on the fragility this creates: "Many of the Top 500 packages on our lists are hosted under individual developer accounts. The consequences of such heavy reliance upon individual developer accounts must not be discounted."
+- **Bears on:**
+  - H10 (supports): extremely skewed contribution, consistent with SW-3's "96% of the demand-side value is created by only 5% of OSS developers".
+  - H9 (mixed): the open-source learning story is not "a million experiments"; it is a very small number of people doing the work in public. That weakens `WHY.md` §5's implicit model of open source as mass parallel experimentation, while strengthening the separate claim that *publishing* results multiplies their value.
+- **Used in:** not yet.
+- **Caveats:**
+  - The two editions measure different things. Census II counts **lines of code added**; Census III counts **commits authored**. The apparent fall from 23% to 17% is partly a change of metric, not a change in the world. Do not present it as a trend.
+  - Neither Census publishes a "N packages account for X% of all usage" statistic. Their concentration finding is about contributors per project. Do not let a usage-concentration number be attributed to Census.
+
+#### PAR-13. Open source is mostly paid work, done by companies
+
+- **Source:** The Linux Foundation, "2017 Linux Kernel Development Report". <https://www.linuxfoundation.org/hubfs/Reports/LinuxKernelReport_2017.pdf>
+- **Verification:** Verified 2026-09-18 (PDF fetched and read).
+- **What it says:**
+  - "The top 10 contributors, including the groups 'unknown' and 'none,' make up just over 54 percent of the total contributions to the kernel; that is up slightly from the previous version of this report. It is worth noting that, even if one assumes that all of the 'unknown' contributors are working on their own time, well over 85 percent of all kernel development is demonstrably done by developers who are being paid for their work."
+  - "Interestingly, the volume of contributions from unpaid developers has been in slow decline for many years. It was 14.6 percent in the 2012 version of this report, but is 8.2 percent this time around."
+  - Top contributing companies, changes 4.8–4.13: Intel 13.1%, "none" 8.2%, Red Hat 7.2%, Linaro 5.6%, "unknown" 4.1%, IBM 4.1%, consultants 3.3%, Samsung 3.2%, SUSE 3.0%, Google 3.0%.
+  - And a tail does exist: "But there is a 'long tail' of companies (nearly 500 of which do not appear in the above list) which have made significant changes since the 4.7 release."
+- **Bears on:**
+  - H4 (challenges, indirectly): the open-source analogy is often read as "volunteers made it free". The kernel's own numbers say the opposite — it is corporate R&D, coordinated in public. An open-silicon ecosystem on the same model would need the same corporate funding, and `WHY.md` does not say where that comes from.
+  - H5 (context): a long tail of ~500 contributing companies exists alongside a concentrated head, which is the shape `WHY.md` §5 hopes for.
+- **Used in:** not yet.
+- **Caveats:** the report is from 2017. We could not reach a newer Linux Foundation kernel report carrying the paid/unpaid percentages; the 2020 "Kernel History Report" does not contain them. Treat the 85% as of 2017.
+
+#### PAR-14. What open source did not fix: critical infrastructure maintained by one unpaid person
+
+- **Sources:**
+  - Nadia Eghbal, "Roads and Bridges: The Unseen Labor Behind Our Digital Infrastructure", Ford Foundation, 2016. <https://www.fordfoundation.org/media/2976/roads-and-bridges-the-unseen-labor-behind-our-digital-infrastructure.pdf>
+  - Cyber Safety Review Board, "Review of the December 2021 Log4j Event", published 2022-07-11. <https://www.cisa.gov/sites/default/files/publications/CSRB-Report-on-Log4-July-11-2022_508.pdf>
+- **Verification:** Verified 2026-09-18 (both PDFs fetched and read).
+- **What it says:**
+  - Eghbal on OpenSSL before Heartbleed: "By 2014, two-thirds of all Web servers were using OpenSSL"; "Despite the number of individuals and companies relying on their software, OSF never received more than $2,000 in donations per year. Gross revenues (which came from consulting and contract work) never broke $1M"; "There was enough to pay the salary of one developer, Stephen Henson. That meant that two-thirds of the Web relied on encryption software maintained by just one full-time employee."
+  - S. Marquess, quoted by Eghbal: "The mystery is not that a few overworked volunteers missed this bug; the mystery is why it hasn't happened more often."
+  - Eghbal on why nobody fixes it: "No individual company or organization is incentivized to address the problem alone, because open source code is a public good." And: "Many infrastructure projects have no legal entity at all."
+  - The Cyber Safety Review Board, a US government body, on Log4j: "The event also called attention to security risks unique to the thinly-resourced, volunteer-based open source community. This community is not adequately resourced to ensure that code is developed pursuant to industry-recognized secure coding practices and audited by experts."
+  - And: "The Board concluded that a focused review, performed by someone with sufficient experience with the security implications of adding the JNDI support, could have identified the unintended functionality (i.e., the vulnerability). Unfortunately, the resources to perform such a review were not available to the volunteer developers who led this open-source project in 2013."
+- **Bears on:**
+  - H4 (challenges): open source made software cheap to *use*, not cheap to *maintain*. The equivalent risk for open silicon is an open PDK or tool chain that everyone depends on and nobody funds — which is what OPEN-2 and OPEN-3 (preview-status PDKs) and OPEN-7 (Efabless's closure) already hint at.
+  - H8 (context): openness attracted users far faster than it attracted money.
+- **Used in:** not yet.
+- **Caveats:** Eghbal's report is advocacy commissioned by a funder with an interest in the conclusion; its factual claims about OpenSSL's finances are sourced to the project's own people. The CSRB report is a government review with a security remit, so its framing emphasises risk.
+
+#### PAR-15. Firms contribute to open source because contributing teaches them more than free-riding
+
+- **Source:** Frank Nagle, "Learning by Contributing: Gaining Competitive Advantage Through Contribution to Crowdsourced Public Goods", *Organization Science* 29, no. 4 (July–August 2018): 569–587.
+- **Verification:** Partial, 2026-09-18. The citation was read from the author's own CV at <https://www.hbs.edu/ris/Profile%20Files/Frank_Nagle_CV_11-3-24_ce20c46a-4111-4d45-8f05-31f99a5452a5.pdf>; the abstract was read from the Internet Archive capture of the HBS record page at <https://web.archive.org/web/20240223112758/https://www.hbs.edu/faculty/Pages/item.aspx?num=54809>, because the live page returns HTTP 403. The full paper was not read.
+- **What it says:** "This study argues that such firms learn by contributing as they receive feedback from the crowd of more experienced users and are therefore able to better capture value from using the goods. … this study shows that contributing firms capture up to 100% more productive value from usage of OSS than their free-riding peers."
+- **Bears on:**
+  - **H9 (supports).** This is the closest published test of `WHY.md` §5's claim that public experiments make everyone learn faster, and it finds the effect in the direction the essay needs — but it locates the benefit in the *contributor*, not in the platform. Applied to a fab, it argues customers who publish results gain; it does not show the fab gains.
+  - H8 (supports, indirectly).
+- **Used in:** not yet.
+- **Caveats:** abstract only. "Up to 100% more" is an upper bound from a matched observational design, not a causal experiment. A companion paper, "Open Source Software and Firm Productivity", *Management Science* 65, no. 3 (2019): 1191–1215, is recorded as a **Lead**: its publisher page returned HTTP 403 and we did not read the abstract.
+
+### 2.3 Machine learning and AI
+
+This is the analogue that points the other way. `WHY.md` §1 puts AI alongside open source and the cloud as a force that made experimentation cheap. On the evidence, frontier AI is a near-perfect replica of the chip industry's doom spiral — rising cost per attempt, a shrinking number of organisations that can pay, and falling disclosure — while the cheap, open, many-participants part of AI sits one or two generations behind the frontier. That is exactly the relationship between leading-edge and mature nodes in chip-making.
+
+#### PAR-16. Frontier AI training cost is growing 2.4× a year and will exclude all but the best-funded
+
+- **Source:** Ben Cottier, Robi Rahman, Loredana Fattorini, Nestor Maslej, Tamay Besiroglu and David Owen, "The rising costs of training frontier AI models", arXiv:2405.21015. <https://arxiv.org/abs/2405.21015> (v1 submitted 2024-05-31; v2 2025-02-07)
+- **Verification:** Verified 2026-09-18. Abstract read from the arXiv abstract page; the detailed figures below were read from the PDF at <https://arxiv.org/pdf/2405.21015>.
+- **What it says:**
+  - Abstract: "The analysis reveals that the amortized cost to train the most compute-intensive models has grown precipitously at a rate of 2.4x per year since 2016 (90% CI: 2.0x to 2.9x). … **If the trend of growing development costs continues, the largest training runs will cost more than a billion dollars by 2027, meaning that only the most well-funded organizations will be able to finance frontier AI models.**"
+  - "We find that the most expensive publicly-announced training runs to date are OpenAI's GPT-4 at $40M and Google's Gemini Ultra at $30M."
+  - Growth-rate table: amortized hardware CapEx plus energy, 2.4× per year (90% CI 2.0–2.9), doubling time 9 months (8–12), R² 0.58, N = 41. Excluding TPU-based models the rate rises to 3.0× per year.
+  - "we estimate that it cost $800M to acquire the hardware used to train GPT-4, compared to $40M for the [amortized cost]".
+  - Team size: "The number of reported contributors increased from 25 for GPT-3 to 284 for GPT-4".
+- **Bears on:**
+  - **H1 (supports, by analogy — and this is the important direction).** A rising cost per attempt, doubling every nine months, with the population of organisations able to pay shrinking, is the doom spiral, re-run in a different industry in a single decade. The essay cites AI as an escape; the primary literature on AI describes a trap.
+  - H4 (challenges as used in `WHY.md` §1): AI is not uniformly a cheapening force.
+- **Used in:** not yet.
+- **Caveats:** cost estimates for private training runs are modelled, not observed; the paper is explicit about method sensitivity. Its own cloud-rental method gives roughly twice the amortized figure — the same team's GPT-4 estimate is "$40M" amortized and about "$79 million" by cloud rental. Cite the method, not just the number.
+
+#### PAR-17. Ninety-three notable AI models from industry in 2025, two from academia
+
+- **Source:** Stanford Institute for Human-Centered AI, *AI Index Report 2026*, Chapter 1, "Research and Development". <https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_1_research_development.pdf>
+- **Verification:** Verified 2026-09-18 (PDF downloaded, text extracted, quotes read in place).
+- **What it says:**
+  - "Industry produced over 90% of notable AI models in 2025, but the most capable models are now the least transparent. Training code, parameter counts, dataset sizes, and training duration are no longer disclosed for several of the most resource-intensive systems, including those from OpenAI, Anthropic, and Google."
+  - "The development of notable AI models continues to be predominantly concentrated in industry … the share produced by industry has grown steadily and now represents the largest share by a wide margin (91.2%). **In 2025, Epoch AI identified two notable AI models originating from academia, compared to 93 from industry.**"
+  - "In 2025, the top contributors were OpenAI (20), Google (14), and Alibaba (11)."
+  - On the compute underneath: "Total capacity has increased by an estimated 3.3x per year since 2022, reaching approximately 17.1 million H100-equivalents. Nvidia AI chips currently account for over 60% of total compute, with Google and Amazon supplying much of the remainder".
+- **Bears on:**
+  - **H1 (supports by analogy), H4 (challenges as used).** In the most celebrated example of "anyone can now build with it", university laboratories have been driven out of the frontier almost entirely in about ten years. This is the clearest available warning that falling unit costs do not prevent concentration when the *scale* of a competitive attempt rises faster than the unit cost falls — which is precisely `WHY.md`'s own Step 4.
+  - H9 (challenges): the most valuable work is becoming *less* public, not more.
+- **Used in:** not yet.
+- **Caveats:** "notable models" is Epoch AI's own curated selection, with inclusion criteria that favour large, well-publicised systems. Academic work that is not a frontier model release — datasets, methods, evaluation — is not counted, so the figure measures presence at the frontier, not academic contribution overall.
+
+#### PAR-18. The other direction: inference prices fell by a median of 50× a year
+
+- **Sources:**
+  - Ben Cottier, Ben Snodin, David Owen and Tom Adamczewski, "LLM inference prices have fallen rapidly but unequally across tasks", Epoch AI, 2025-03-12. <https://epoch.ai/data-insights/llm-inference-price-trends>
+  - Stanford Institute for Human-Centered AI, *AI Index Report 2025*, Chapter 1. <https://hai.stanford.edu/assets/files/hai_ai-index-report-2025_chapter1_final.pdf>
+- **Verification:** Verified 2026-09-18 (both fetched and read by a delegated research pass; quotes reproduced from that read). Marked **Partial** for the AI Index figures, which we did not re-read against the PDF ourselves.
+- **What it says:**
+  - Epoch AI: "the price to achieve GPT-4's performance on a set of PhD-level science questions fell by 40x per year. The rate of decline varies dramatically depending on the performance milestone, ranging from 9x to 900x per year." And: "Across all of these benchmarks and performance thresholds, we found prices declining between 9x per year and 900x per year, with a median of 50x per year."
+  - AI Index 2025: "the inference cost for an AI model scoring the equivalent of GPT-3.5 (64.8) on MMLU … dropped from $20 per million tokens in November 2022 to just $0.07 per million tokens by October 2024 (Gemini-1.5-Flash-8B)—a more than 280-fold reduction in approximately 1.5 years."
+- **Bears on:**
+  - H4 (supports): the cost of *using* a capability collapses even while the cost of *creating* it explodes.
+  - H5 (supports, by analogy): that collapse is what opened ML to a large number of small builders.
+- **Used in:** not yet.
+- **Caveats:** these are prices, not costs, and are set strategically in a land-grab. Epoch's own caution: "The fastest price drops in that range have occurred in the past year, so it's less clear that those will persist."
+
+- **The reading that matters for us.** The two halves of the AI story map cleanly onto chip-making: the frontier training run is the leading-edge node, and cheap inference on a year-old model is the mature node. In AI as in chips, the cheap and open part of the market sits a generation or two behind the frontier and cannot catch it. If the analogy is taken seriously, it says an open fab is necessarily a **mature-node** business — which `WHY.md` half-concedes ("at least on mature processes" in H4) but does not build into its argument.
+
+#### PAR-19. Many more people can build with ML, but the engagement is thin
+
+- **Sources:**
+  - Stanford Institute for Human-Centered AI, *AI Index Report 2026*, Chapter 1, §1.5 "Open-Source AI Software". <https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_1_research_development.pdf>
+  - Hugging Face model index, model counts read from the page. Live: <https://huggingface.co/models>. Historical, via the Internet Archive: <https://web.archive.org/web/20211130070153/https://huggingface.co/models> and <https://web.archive.org/web/20230531211532/https://huggingface.co/models>
+- **Verification:** Verified 2026-09-18 for the AI Index quotes (PDF read). Partial for the Hugging Face counts, which are a live site counter rather than a published statistic; the historical points are citable only as archive captures.
+- **What it says:**
+  - AI Index 2026: "The number of AI-related GitHub projects increased from 1,549 in 2011 to approximately 5.6 million in 2025, with year-over-year growth accelerating 23.7% from 2024. **However, most repositories often consist of personal or experimental work and receive minimal attention. When filtering for projects with at least 10 stars, a rough proxy for community engagement, the count drops to 206,880 in 2025.**"
+  - "From 2023 to 2025, model uploads more than tripled, while dataset uploads grew fourfold."
+  - Hugging Face model counts as displayed: 21,671 (archive capture 2021-11-30); 215,597 (2023-05-31); 3,075,514 (live, 2026-09-18).
+- **Bears on:**
+  - H5 (mixed). Both halves matter. Millions of people did start building — and the overwhelming majority of what they built drew no attention at all. 206,880 out of 5.6 million is **3.7%** clearing a ten-star bar.
+  - H10 (supports): that is the skew the essay's model depends on, observed directly.
+- **Used in:** not yet.
+- **Caveats:** GitHub stars are a weak proxy for value. The Hugging Face counter is a raw upload count including forks, quantisations and duplicates, so it overstates distinct work by an unknown factor.
+
+- **DERIVED:** 206,880 ÷ 5,600,000 = **3.7%** of AI-related GitHub projects reach ten stars. If an open fab's tail behaves the same way, roughly 96% of tape-outs would attract no external interest whatever. `WHY.md` §5's case does not require otherwise — it requires only that each attempt is paid for — but the essay should say so plainly rather than implying a thriving ecosystem.
+
+### 2.4 The internet and the web
+
+The web is the analogue `WHY.md` reaches for first and defends least. Both halves of its history have to be recorded: it produced the largest explosion of independent publishers in history *and* the most concentrated advertising market in history, at the same time, from the same mechanism.
+
+#### PAR-20. The number of websites went from 18,957 to about 1.5 billion
+
+- **Sources:**
+  - Mike Prettejohn, "The first year August 1995 - August 1996", Netcraft, dated August 1st, 1996. Read via the Internet Archive: <http://web.archive.org/web/19961230090403/http://www.netcraft.com:80/survey/year1.html>
+  - Netcraft, "July 2026 Web Server Survey". <https://www.netcraft.com/blog/july-2026-web-server-survey>
+- **Verification:** Verified 2026-09-18. The 1996 page was read from the Internet Archive because the live Netcraft site no longer hosts it; the 2026 survey was read live.
+- **What it says:**
+  - "The first Netcraft Web Server Survey was done over the last weekend in July 1995. It had responses from 18,957 hosts."
+  - "The growth in the number of sites from 18,957 a year ago to todays 342,081 partly reflects the natural growth in the number of sites, and partly that we have got better at finding them."
+  - July 2026: "In the July 2026 survey we received responses from 1,494,915,628 sites across 305,348,459 domains and 14,772,048 web-facing computers."
+- **Bears on:** H5 (supports, by analogy), H4 (supports, by analogy): when the cost of publishing fell to near zero, the number of publishers rose by nearly five orders of magnitude.
+- **Used in:** not yet.
+- **Caveats:**
+  - **Sites are not publishers.** July 2026 counts 1.49 billion sites across only 305 million domains — most "sites" are parked, duplicated or machine-generated hostnames. Do not use the site count as a count of independent publishers; the domain count is the more conservative figure.
+  - Netcraft themselves warn that early growth "partly reflects … that we have got better at finding them".
+  - The survey is universally cited as the "August 1995" survey but Netcraft's own text says the run was "over the last weekend in July 1995".
+
+- **DERIVED:** 1,494,915,628 ÷ 18,957 = a factor of about **78,900** in 31 years. On the more defensible domain count, 305,348,459 ÷ 18,957 ≈ **16,100**.
+
+#### PAR-21. And the cost of publishing collapsed: domain registration $50 a year to about $10, storage $0.15 a GB-month to $0.023
+
+- **Sources:**
+  - InterNIC / Network Solutions, "Fee for Registration of Domain Names", read via the Internet Archive capture of 1997-01-09: <http://web.archive.org/web/19970109000617/http://www.rs.internic.net:80/domain-info/fee-policy.html>
+  - VeriSign, Inc., "Verisign Reports First Quarter 2026 Results". <https://investor.verisign.com/news-releases/news-release-details/verisign-reports-first-quarter-2026-results>
+  - Jeff Barr, "Amazon S3", AWS News Blog, 2006-03-14. <https://aws.amazon.com/blogs/aws/amazon_s3/>
+  - "AWS Storage Update – S3 & Glacier Price Reductions + Additional Retrieval Options for Glacier", AWS News Blog, 2016-11-21. <https://aws.amazon.com/blogs/aws/aws-storage-update-s3-glacier-price-reductions/>
+- **Verification:** Verified 2026-09-18 by a delegated research pass that fetched each page; the current (2026) S3 price was **not** verified because the AWS pricing page renders its tables in JavaScript.
+- **What it says:**
+  - InterNIC, 1995–96 terms: "The Registration Fee for a new domain name is $100.00. New domain names are valid for two years"; "there will be an Maintenance Fee of $50.00 per year per domain name".
+  - Verisign, 2026: "Verisign announces that it will increase the annual registry-level wholesale fee for each new and renewal .com domain name registration from $10.26 to $10.97 effective Nov. 1, 2026."
+  - S3 at launch, 2006: "storing 1 GB of data for 1 month costs just 15 cents. Transferring data in and out of the system costs 20 cents per GB."
+  - S3 in 2016: S3 Standard in US East (Northern Virginia) fell to "$0.0230" per GB-month for the first 50 TB.
+- **Bears on:** H4, H8 (supports by analogy): SW-1's hundredfold figure is a single investor anecdote; these are published prices from the sellers themselves.
+- **Used in:** not yet. This is the sourced version of what SW-1 asserts anecdotally.
+- **Caveats:** the $10.26 is a wholesale registry fee, not a retail price. The 1995 fee is nominal, so the real fall is larger than 5×. No current S3 price was verified.
+
+#### PAR-22. The same mechanism produced the most concentrated advertising market on record
+
+- **Sources:**
+  - Competition and Markets Authority, "Online platforms and digital advertising: Market study final report", 1 July 2020. <https://assets.publishing.service.gov.uk/media/5efc57ed3a6f4023d242ed56/Final_report_1_July_2020_.pdf>
+  - Australian Competition and Consumer Commission, "Digital Platforms Inquiry — Final Report", June 2019. <https://www.accc.gov.au/system/files/Digital%20platforms%20inquiry%20-%20final%20report.pdf>
+  - Australian Competition and Consumer Commission, "Digital advertising services inquiry — Final report", August 2021. <https://www.accc.gov.au/system/files/Digital%20advertising%20services%20inquiry%20-%20final%20report.pdf>
+- **Verification:** Verified 2026-09-18. The CMA PDF was downloaded and the headline quotes below were re-read in place by us directly; the ACCC quotes were read by a delegated pass that downloaded both reports.
+- **What it says:**
+  - CMA, summary paragraph 16: "We estimate that around £14 billion was spent on digital advertising in the UK in 2019, around 80% of which was spent on Google and Facebook. Search advertising comprised around half of these revenues, at over £7 billion, and display expenditure was over £5 billion."
+  - CMA, paragraph 2.63: "Overall, we estimate that around 80% of all expenditure on search and display advertising in the UK in 2019 was accrued as revenue by just two companies – Google and Facebook. This includes the revenue from advertising on each of their own platforms, as well as from intermediation services."
+  - CMA, paragraph 18: "Google has generated around 90% or more of UK search traffic each year over the last ten years and generated over 90% of UK search advertising revenues in 2019."
+  - CMA, paragraph 19: "Facebook (including Instagram, which it bought in 2012) generated over half of UK display advertising revenues in 2019. For comparison, its largest competitor, YouTube (owned by Google), earned between 5 and 10%."
+  - CMA on why it persists: "We have not seen a significant challenge to the position of Google and Facebook for many years and have identified a number of characteristics of these markets that inhibit entry and expansion by rivals and undermine effective competition. These include: • network effects and economies of scale; • consumer decision making and the power of defaults; • unequal access to user data;"
+  - CMA, paragraph 5.3, which is the sharpest line for our purposes: "However, Google and Facebook's collective share of digital advertising revenues is significantly greater than the share of time spent by users on these platforms, suggesting that their ability to monetise through advertising is not simply a function of scale."
+  - ACCC 2019: "The ACCC estimates that for a typical AU$100 spent by advertisers on online advertising (excluding classifieds): $47 goes to Google (some of which is for the provision of ad tech services) $24 goes to Facebook $29 goes to all other websites and ad tech." And: "Outside of Google and Facebook, online advertising is highly fragmented with a large number of websites offering ad inventory, each with a small market share."
+  - ACCC 2021, on the pipe rather than the revenue: "In 2020, we estimate that over 90% of ad impressions traded via the ad tech supply chain passed through at least one Google service."
+- **Bears on:**
+  - **H5, H7 (challenges).** A tail of hundreds of millions of publishers exists and captures a small minority of the money. If an open fab's tail behaves the same way, the fab had better be the aggregator and not one of the tail.
+  - H7 (supports, in one specific reading): Google's own *customers* are millions of small advertisers, which is the position `WHY.md` wants the fab to occupy. The analogy works in the aggregator direction and fails in the participant direction — and `WHY.md` does not distinguish the two.
+- **Used in:** not yet.
+- **Caveats:**
+  - The CMA and ACCC figures are UK 2019 and Australia 2018 respectively, with different scopes (the ACCC excludes classifieds). **Do not merge them into a single global "~80%" claim.**
+  - The CMA notes its own denominator differs from the industry's: "the most recent IAB/PwC Digital Adspend Report estimated that total spend on UK search advertising was around £8 billion in 2019, and spend on display advertising was around £6.2 billion" — roughly 10–13% above the CMA's estimate.
+  - We rejected the US House Judiciary Subcommittee's "Investigation of Competition in Digital Markets" as a source for this: its advertising-share figures are footnoted to journalism, not to primary data.
+
+#### PAR-23. Attention concentrated too: the top 1,000 properties take 83% of time online
+
+- **Source:** Competition and Markets Authority, "Online platforms and digital advertising: Market study final report", 1 July 2020, paragraphs 2.14–2.17 and Figure 2.2. <https://assets.publishing.service.gov.uk/media/5efc57ed3a6f4023d242ed56/Final_report_1_July_2020_.pdf>
+- **Verification:** Verified 2026-09-18 (the "83% of total user time spent online" note was re-read by us in the downloaded PDF).
+- **What it says:**
+  - "UK consumers spent around 83% of their total time online on these top 1000 properties, with the remaining 17% split between an extremely long tail of websites." Figure 2.2's source note states the method: "Comscore MMX Multi-Platform, Total Digital Population, Desktop aged 6+, Mobile aged 13+, February 2020, UK."
+  - "Of the total time spent by UK users online in February 2020, 37% was on sites owned by either Google (including YouTube) or Facebook (including Instagram and WhatsApp)."
+  - "The characteristics of many of these markets are such that they tend to tip towards high levels of concentration."
+- **Bears on:** H5 (challenges): this is TAIL-3's finding reproduced at the scale of the whole web, by a regulator, with the panel definition stated.
+- **Used in:** not yet.
+- **Caveats:** UK only, a single month, and *time spent* rather than pageviews or referrals. No primary source with a stated methodology was found for referral-traffic share; the widely-circulated referral figures come from vendor blogs whose panels are not documented.
+
+#### PAR-24. arXiv: removing a gatekeeper multiplied volume by about a thousand — but the gate was replaced, not removed
+
+- **Sources:**
+  - arXiv, "Monthly submissions" statistics page and its published CSV. <https://arxiv.org/stats/monthly_submissions>, data at <https://arxiv.org/stats/get_monthly_submissions>
+  - arXiv, *2025 Annual Report*. <https://info.arxiv.org/about/reports/2025_arXiv_annual_report.pdf>
+  - arXiv, "Endorsement". <https://info.arxiv.org/help/endorsement.html>
+- **Verification:** Verified 2026-09-18 by a delegated research pass that fetched the page, downloaded the CSV and cross-checked it against the annual report. The three agree.
+- **What it says:**
+  - Statistics page: "Total number of submissions as of September 18, 2026 = 3,173,333 ." The chart covers "each month since August 1991".
+  - 2025 Annual Report: "284,486 submissions in 2025"; "23,707 submissions per month, on average"; "Most submissions in a month, ever 27,692 in October 2025"; "6 billion total downloads"; "5 million+ monthly active users"; "28 staff members"; "262 moderators".
+  - And: "arXiv received 284,486 new submissions in 2025, up from 244,031 the previous year – an increase of over 16%."
+  - Free at the point of use: "There are no fees or costs for article submission." "Since our founding in 1991, arXiv has been free to use and open to all."
+  - **But a gate remains:** "arXiv requires that users be endorsed before submitting their first paper to arXiv or a new category", in order to "verify that arXiv contributors belong to the scientific community in a fair and sustainable way that can scale with arXiv's growth".
+- **Bears on:**
+  - H5, H8 (supports): removing a cost and a gatekeeper multiplied participation enormously, and openness was the mechanism.
+  - **H8 (challenges, and this is the useful part):** arXiv did not remove the gatekeeper. It replaced an expensive editorial gate with a cheap membership-verification gate, and still employs 262 moderators. An open fab is likely to need the same: a cheap, fast, scalable check that the customer is not going to damage the shared resource — which is what the Stanford PROM committee in PAR-33 actually is.
+- **Used in:** not yet.
+- **Caveats:**
+  - Submissions are not independent authors and are not successful results.
+  - arXiv's own operational notes describe strain from volume and mention lower-quality submissions; we did not read those paragraphs cleanly enough to quote them, so that observation is recorded as unverified.
+  - Minor inconsistency in arXiv's own data: the page says "since August 1991" while the CSV's first row is July 1991, with 2 submissions.
+
+- **DERIVED (from arXiv's own CSV, summed by us in a script):** yearly submission totals 1995: 13,014 · 2000: 30,601 · 2005: 46,855 · 2010: 70,131 · 2015: 105,280 · 2020: 178,329 · 2024: 244,031 · 2025: 284,486. From 13,014 in 1995 to 284,486 in 2025 is a factor of **21.9** in 30 years — an order of magnitude less than the web's growth, because the supply of people qualified to submit is bounded in a way the supply of people able to make a web page is not. **That bound is the closer analogue for silicon.**
 
 ---
 
