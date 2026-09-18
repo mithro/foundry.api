@@ -564,15 +564,263 @@ The web is the analogue `WHY.md` reaches for first and defends least. Both halve
 
 **Why this matters more than it looks.** It is the one break in the analogy with no software counterpart at all. A cloud customer running broken code cannot lower another customer's success rate. A fab customer running an unapproved material can, silently, for months, across every wafer that touches the same tool afterwards. Every mechanism `WHY.md` and `PRINCIPLES.md` propose — published prices, self-service booking, "every preference costs money", insurance, futures — prices *the customer's own* risk. None of them price the externality the customer imposes on the next customer, and that externality is the reason fabs are conservative. It is not only buyer power.
 
-### 3.2 Physical industries that opened up, and physical industries that tried and failed
+### 3.2 Physical industries that tried the open, self-service, many-small-customers model — and failed
 
-*(filled in below)*
+This is the section the brief asked for specifically, and it is the most useful part of the file. Two public companies built exactly the business `WHY.md` describes — published prices, instant online quoting, no salesperson, thousands of small customers, physical manufacturing — and both went bankrupt. Their filings are public.
+
+#### PAR-26. Shapeways: self-serve 3D printing for thousands of small customers, liquidated under Chapter 7
+
+- **Sources:**
+  - Shapeways Holdings, Inc., Form 8-K, filed 2024-07-03, period of report 2024-07-02. Filing index: <https://www.sec.gov/Archives/edgar/data/1784851/000162828024030980/0001628280-24-030980-index.htm>; document: <https://www.sec.gov/Archives/edgar/data/1784851/000162828024030980/shpw-20240702.htm>
+  - Financial figures from Shapeways' XBRL company facts (SEC CIK 0001784851), as tagged in its own Forms 10-K: <https://data.sec.gov/api/xbrl/companyfacts/CIK0001784851.json>
+- **Verification:** Verified 2026-09-18. The 8-K text was read from the SEC filing; the financial figures were read from the SEC's XBRL API, which serves the values the company itself tagged in its 10-K filings.
+- **What it says:**
+  - "the Company ceased operations and filed a voluntary petition for relief under the provisions of Chapter 7", in the "United States Bankruptcy Court for the District of Delaware", on July 2, 2024. "Each of the Company's subsidiaries also ceased operations and filed voluntary petitions for bankruptcy relief."
+  - "a Chapter 7 trustee will be appointed by the Bankruptcy Court and will administer the Company's bankruptcy estate, including liquidating the assets of the Company in accordance with the Bankruptcy Code."
+  - "Following the Bankruptcy Filing, neither the Company nor any of its subsidiaries have officers or employees."
+  - Revenue as tagged in its 10-K filings: 2020 $31,775,000 · 2021 $33,623,000 · 2022 $33,157,000 · 2023 $34,460,000.
+  - Gross profit: 2020 $13,872,000 · 2021 $15,950,000 · 2022 $14,298,000 · 2023 $14,505,000.
+  - Net loss attributable to parent: 2021 $16,376,000 · 2022 $20,221,000 · **2023 $43,911,000**.
+  - **The finding that matters most**, from the 10-K narratives (read by a delegated research pass from the filings at <https://www.sec.gov/Archives/edgar/data/1784851/000162828024013659/shpw-20231231.htm>, <https://www.sec.gov/Archives/edgar/data/1784851/000162828023009934/shpw-20221231.htm> and <https://www.sec.gov/Archives/edgar/data/1784851/000119312522091992/d208861d10k.htm>):
+    - FY2023 10-K: "We have delivered over 24 million parts to over one million customers in over 180 countries from inception through 2023. … **In 2023, one customer accounted for approximately 17% of our revenue.**"
+    - FY2022 10-K: "In 2022, one customer accounted for approximately 20% of our revenue."
+    - FY2021 10-K, risk factor heading: "**We depend on our largest customer for a substantial portion of our revenue.**" — "Our largest customer accounted for approximately 23% of our revenue for the year ended December 31, 2021."
+    - FY2023 10-K: "There is substantial doubt as to our ability to continue as a going concern." Accumulated deficit at 2023-12-31: $176.9 million.
+    - FY2022 10-K, stating the retreat explicitly: "**Our customer count may continue to decline as we increase our focus on middle market and enterprise opportunities.**"
+  - Its own description of the model: "Historically, Shapeways has been a self-service digital manufacturing platform growing through our customers and through organic customer acquisition."
+- **Bears on:**
+  - **H5, H6, H7 (challenges, and this is the most direct challenge in the repository).** Shapeways is the closest existing thing to the business `WHY.md` proposes, in a different material. It had the customers. It had published prices and self-service. It did not have a profit, and its revenue did not grow.
+  - **H7 (challenges, specifically and painfully).** A business with **over one million lifetime customers** still had one customer at 23%, 20% and 17% of revenue in successive years — and wrote a risk factor about it that reads exactly like SkyWater's and GlobalFoundries' (CONC-5). **Customer count is not customer base.** H7 assumes that many small customers means no customer has leverage. Shapeways had more customers than TSMC has ever had and more concentration than GlobalFoundries.
+  - H10 (challenges): being paid for every attempt is necessary but plainly not sufficient.
+- **Used in:** not yet.
+- **Caveats:**
+  - **3D printing is not chip-making**, and the differences cut both ways. Shapeways' machines are far cheaper than a fab's, so its fixed-cost advantage over a customer buying its own printer is far smaller — desktop 3D printers got good enough that customers could defect, which has no silicon equivalent. Against that, its cycle times were days rather than months, which should have made it *easier*, not harder.
+  - The 2023 loss of $43.9m against $34.5m of revenue includes impairments we did not itemise; do not read it as pure cash burn.
+  - We did not read the 10-K narrative, so we have no company explanation of the failure and offer none. What is verified is the shape: four years of flat revenue at a ~42% gross margin, accelerating losses, then liquidation.
+
+- **DERIVED:** gross margin $14,505,000 ÷ $34,460,000 = **42.1%** in 2023. Revenue grew 8.4% in total across the four years 2020 to 2023 ($31.775m → $34.460m), or about 2.7% a year. **A 42% gross margin was not enough**, which is the number to hold against any projection for an open fab: if a self-service physical manufacturer with a 42% gross margin and thousands of small customers cannot cover its operating costs, the open-fab model needs either much higher margins or a far smaller cost base than Shapeways had.
+
+#### PAR-27. Fast Radius: on-demand manufacturing, public in February 2022, Chapter 11 in November 2022
+
+- **Source:** Fast Radius, Inc., Form 8-K, filed 2022-11-08, period of report 2022-11-04. Filing index: <https://www.sec.gov/Archives/edgar/data/1832351/000095017022022842/0000950170-22-022842-index.htm>; document: <https://www.sec.gov/Archives/edgar/data/1832351/000095017022022842/fsrd-20221104.htm>
+- **Verification:** Verified 2026-09-18 for the quotes below (read from the SEC filing). The company's operating revenue is **not** verified: its only Form 10-K on EDGAR covers the predecessor shell company, so the XBRL facts are not the operating business's.
+- **What it says:**
+  - "On November 7, 2022, Fast Radius, Inc., a Delaware corporation … together with its wholly-owned subsidiaries (the 'Debtors'), filed voluntary petitions … for bankruptcy protection under Chapter 11 of Title 11 of the United States Bankruptcy Code", in the "United States Bankruptcy Court for the District of Delaware", "In re Fast Radius, Inc., et al., Case No. 22-11051".
+  - The Debtors intended to "pursue a structured sale of their assets pursuant to a competitive bidding and auction process."
+  - Days earlier: "On November 3, 2022, the Company's board of directors … approved a reduction in force of approximately 20% of the Company's workforce in order to reduce the Company's operating expenses."
+  - EDGAR records the company as "formerly operated as 'ECP Environmental Growth Opportunities Corp.' through February 4, 2022" — so it became a public company in February 2022 and filed for bankruptcy in November 2022.
+  - From its Form 10-Q for the quarter ended 2022-09-30 (<https://www.sec.gov/Archives/edgar/data/1832351/000095017022025107/fsrd-20220930.htm>, read by a delegated research pass), the condensed consolidated statements of net loss, in $000s: revenues 7,072 (Q3 2022) against 4,916 (Q3 2021); cost of revenues 6,372 against 7,049; **gross profit 700 against (2,133)**. For the nine months: revenues 20,609, gross profit 1,593, against revenues 13,579 and gross profit (498).
+  - From the FY2021 10-K narrative: "As of December 31, 2021, we had an accumulated deficit of approximately $123.3 million, including 2021 net losses of approximately $67.9 million." And: "Our recurring losses from operations and negative cash flows raise substantial doubt about our ability to continue as a going concern."
+- **Bears on:**
+  - H5, H6 (challenges): a second, independent failure of the same model in the same period.
+  - **H6 (challenges, sharply):** gross profit of $0.7m on $7.1m of revenue is roughly a 10% gross margin, and the prior-year comparatives are *negative* — it was selling parts for less than they cost to make. H6 says each small customer is profitable if the fab does no per-customer engineering. Fast Radius did on-demand digital manufacturing with instant quoting, and each small customer was not profitable.
+- **Used in:** not yet.
+- **Caveats:**
+  - 2022 was a bad year for companies that listed via SPAC generally, so the failure is over-determined and should not be attributed solely to the business model. It is recorded as a data point, not a proof.
+  - The Form 10-K on EDGAR for FY2021 is filed under the predecessor shell (ECP Environmental Growth Opportunities Corp.), so its income statement is the shell's; the operating figures above come from the 10-Q and from the 10-K's narrative and going-concern notes.
+
+- **DERIVED:** public on 2022-02-04, Chapter 11 on 2022-11-07 — **276 days**, which is roughly one Tiny Tapeout shuttle (PAR-4). Q3 2022 gross margin 700 ÷ 7,072 = **9.9%**.
+
+#### PAR-28. The recurring failure mode is the storefront, not the factory
+
+- **Sources:**
+  - Efabless shutdown notice, read via the Internet Archive capture of 2025-03-01: <https://web.archive.org/web/20250301210729/https://efabless.com/notice>. Successor: <https://efabless.com/> and <https://chipfoundry.io/> (both live, 2026-09-18).
+  - Stratasys Ltd. Form 20-F for FY2015: <https://www.sec.gov/Archives/edgar/data/0001517396/000120677416005045/stratasys_20f.htm>. Acquisition announcement, Exhibit 99.1 to a Form 6-K: <https://www.sec.gov/Archives/edgar/data/0001517396/000110465913050451/a13-15347_1ex99d1.htm>
+  - MOSIS: <https://www.mosis.org/about-us> (live, 2026-09-18), and the archived self-description at <https://web.archive.org/web/20020711010856/http://www.mosis.com/about/whatis.html>
+  - BASF news release P-19-398, "BASF Acquires 3D Printing Service Provider Sculpteo", 2019-11-18: <https://www.basf.com/global/en/media/news-releases/2019/11/p-19-398>
+- **Verification:** Verified 2026-09-18 by a delegated research pass that fetched each page and read the quoted text. Marked **Partial** overall here, because we did not re-read these ourselves and the pattern claim is our own synthesis, not a finding of any of these documents.
+- **What it says:**
+  - **Efabless**, the company that ran the open MPW programmes in `WHY.md` §4: "Shutdown Notice. Due to funding challenges, Efabless has shut down operations until further notice." Its site now says: "Umbralogic Technologies LLC, doing business as ChipFoundry, has acquired the assets of Efabless Corporation."
+  - **MakerBot**, the flagship "3D printing for everyone" brand: Stratasys acquired it in 2013 with an "initial value of $403 million based on Stratasys' closing stock price of $84.60 as of June 19, 2013" (announcement) and an aggregate purchase price of "$493.7 million" at closing (FY2015 20-F). It then wrote the goodwill off in three steps: "$102.5 million" (FY2014), "$150.4 million" (Q1 2015) and "an additional non-tax-deductible impairment charge of $125.1 million" — "As of December 31, 2015, there was no remaining goodwill balance assigned to MakerBot reporting unit."
+  - **MOSIS did not shut down**, contrary to a common assumption we started with. It is still running: "In 2023, MOSIS evolved into MOSIS 2.0 as a core component of the Defense Ready Electronics and Microdevices Superhub (CA DREAMS), one of eight regional innovation hubs established under the Department of War Microelectronics Commons Program through the CHIPS and Science Act of 2022." Its historic scale, from the 2002 archive: "Since 1981, MOSIS has fabricated more than 50,000 circuit designs for commercial firms, government agencies, and research and educational institutions around the world." And: "By June 1985, 1706 designs had been fabricated over the prior twelve months."
+  - **Sculpteo** was acquired by BASF in 2019 and still operates; its designer Marketplace closed in 2023 (**Lead** — the company's own post at <https://www.sculpteo.com/blog/2023/10/13/the-marketplace-closure-will-have-no-impact-on-our-activities/> returned HTTP 403, so the wording and date are unverified).
+- **Bears on:**
+  - H5, H6 (challenges): in case after case the capital-intensive production asset survived and **the many-small-customers storefront on top of it was shed**. MakerBot, Sculpteo's Marketplace, Shapeways' shops, Ponoko's "make & sell", and Protolabs' own retreat (PAR-29) are the same move.
+  - H8 (mixed): MOSIS is the strongest counter-example in the other direction — an open, published-price, many-small-customers silicon shuttle that has run since 1981. But it has run on 45 years of public funding, most recently CHIPS Act money. It is a subsidised service, not a self-sustaining business, which is the distinction `WHY.md` has to clear.
+- **Used in:** not yet. OPEN-7 already covers Efabless's closure; this adds the successor and the pattern.
+- **Caveats:**
+  - **The pattern is our reading, not any source's finding.** Each case has its own causes; MakerBot's failure in particular is usually attributed to desktop-printer quality problems and competition, not to the storefront model.
+  - The widely-quoted Efabless CEO line about being "unable to complete our latest funding round" appears only in secondary reporting; it is recorded in OPEN-7 and should stay marked as such. We did not find it in a primary document.
+  - We found no SkyWater statement about the Efabless closure.
+  - **Highest-value unchecked item in this whole file:** **ES2 (European Silicon Structures)**, 1985–1993, a pan-European fast-turnaround electron-beam direct-write "send us your design, get silicon" fab built explicitly for many small customers, which failed. If any historical case is the direct precedent for this project, it is that one, and nobody here has checked it. **Lead.**
+
+### 3.3 Physical industries where it worked — and where the capital sits
+
+#### PAR-29. Protolabs owns the machines, and has been losing small customers and margin for a decade
+
+- **Sources:** Proto Labs, Inc. Forms 10-K, read from SEC EDGAR:
+  - FY2025 (filed 2026-02-20): <https://www.sec.gov/Archives/edgar/data/1443669/000144366926000010/prlb-20251231.htm>
+  - FY2018 (filed 2019-02-22): <https://www.sec.gov/Archives/edgar/data/1443669/000143774919003141/prlb20181231_10k.htm>
+  - FY2015: <https://www.sec.gov/Archives/edgar/data/1443669/000143774916026114/prlb20151231_10k.htm>
+- **Verification:** Verified 2026-09-18. We re-read the FY2025 headline quotes ourselves through the SEC filing; the FY2018 and FY2015 figures, the MD&A table and the margin series were read by a delegated research pass from the filings. Note: plain command-line fetches of `www.sec.gov` were refused for us ("Your Request Originates from an Undeclared Automated Tool") and succeeded for the delegated pass, so the block appears to be rate-based rather than absolute.
+- **What it says:**
+  - The business is exactly the shape `WHY.md` describes: "Our customers conduct nearly all their business with us over the Internet." "…we provide our customers an eCommerce experience where they can upload their part design and receive a rapid (or instantaneous) quote coupled with design for manufacturability feedback, evaluate the costs and lead times for a variety of manufacturing processes, and easily order parts at quantities 1 to 1 million-plus."
+  - Fast: "Our technology-enabled digital engineering and manufacturing applications enable us to produce commercial-grade prototype and production plastic, metal, and liquid silicone rubber parts **in as fast as one day**."
+  - Big tail: "We serve over 48,000 customers annually, ranging from the largest and most innovative organizations in the world, to entrepreneurs and small business owners." "Since our inception, we have manufactured over 700 million parts, and served over 300,000 customers".
+  - Capital-intensive, in its own words: "Our quick-turn factory business model requires that we invest in our capacity well in advance of demand to ensure we can fulfill the expectations for quick delivery of products manufactured in house to our customers."
+  - **And it is walking away from the tail, deliberately and in writing:** "During 2025, we served 48,415 unique customer contacts who purchased our products through our web-based customer interface, a decrease of 6.1% over the same period in 2024. Our customer contacts served decreased while our revenue increased. This was primarily due to our mix of customers served in 2025 as compared to 2024 and **our strategic focus to earn larger orders from our customers** as we strive to be their supplier of choice … Our revenue per customer contact grew 13.3% as compared to 2024."
+  - Definition: "Customer contacts are product developers, engineers, procurement and supply chain professionals and other individuals who place an order, and that order is shipped and invoiced during the period."
+  - Earlier years, when it was growing the tail: "During 2018, we served 45,968 unique product developers and engineers … an increase of 22.5% over the same period in 2017." "During 2015, we served 27,235 unique product developers and engineers, an increase of 26% over the same period in 2014." "During 2013, we served 16,128 unique product developers and engineers".
+  - Margins: FY2013 62.4% of revenues; FY2014 61.3%; FY2015 58.5%; FY2017 56.3%; FY2018 53.6%; FY2024 44.6%; "Gross margin decreased to 44.5% of revenue in 2025 from 44.6% in 2024."
+  - **Correction to a common assumption:** the recent 10-Ks carry **no quantified customer-concentration sentence and no 10% concentration note at all**. The quantified version is in the older filings: FY2018 and FY2015 both say "Our revenue is generated from a diverse customer base, with no single customer company representing more than 2% of our total revenue".
+- **Bears on:**
+  - **H7 (supports, and it is the best support H7 has):** here is a real, profitable, capital-owning manufacturer whose largest customer was under 2% of revenue. It can be done. `WHY.md` §5's third claim is not fantasy.
+  - **H6 (challenges):** the same company's gross margin fell from 62.4% to 44.5% over twelve years while it did this, and it is now *reducing* its customer count on purpose. If serving many small customers were the profitable strategy, the company best placed to know would not be retreating from it.
+  - H5 (mixed): 48,415 customers a year is a real tail; it peaked around 2023 at 53,464 and has fallen three years running.
+- **Used in:** not yet.
+- **Caveats:**
+  - Injection moulding and CNC machining are not chip-making. Protolabs' machines cost thousands to millions; a fab costs billions. The direction of that difference is unclear: a fab's fixed-cost advantage over a customer's own equipment is far larger, which helps, but so is its need for utilisation, which hurts.
+  - "Customer contacts" counts individuals who ordered, not companies, so the count and the concentration measure different things.
+  - The falling margin has causes we did not investigate — mix, competition from Asian suppliers, its own network business at lower margin. Do not attribute it solely to serving small customers.
+
+- **DERIVED:** revenue per customer contact, from the 10-K's own table: $9,425 (2023), $9,716 (2024), $11,012 (2025). Customer contacts 53,464 → 51,552 → 48,415, a fall of **9.4%** over two years, against revenue of $503.9m → $500.9m → $533.1m. The company is getting more revenue from fewer, larger customers. **That is the doom spiral's Step 2 and Step 3, in miniature, in a self-service physical manufacturing business with instant online quoting — the exact business model `WHY.md` proposes, drifting towards the exact outcome `WHY.md` wants to escape.**
+
+#### PAR-30. Xometry owns no machines, and its small-customer count is growing 20% a year
+
+- **Sources:** Xometry, Inc. Form 10-K for FY2025 (filed 2026-02-24): <https://www.sec.gov/Archives/edgar/data/1657573/000119312526066959/xmtr-20251231.htm>; Form 10-K for FY2022: <https://www.sec.gov/Archives/edgar/data/1657573/000095017023008494/xmtr-20221231.htm>
+- **Verification:** Verified 2026-09-18 by a delegated research pass that fetched both filings and read the quoted text. We did not re-read these ourselves; recorded as **Partial** on that basis.
+- **What it says:**
+  - "The number of Active Buyers on our platform reached 81,821 as of December 31, 2025, up 20% from 68,267 as of December 31, 2024." FY2022: "Active Buyers on our platform reached 40,664 as of December 31, 2022, up 45% from 28,130 as of December 31, 2021."
+  - Definitions: "we define Active Buyers as buyers who have made at least one purchase on our marketplace during the last twelve months."
+  - Concentration: "For 2025, 2024, and 2023, no one customer accounted for more than 10% of the Company's revenues."
+  - **The distinction that matters, in its own words:** "We are focused on driving strong free cash flow conversion given our **asset light model**, with capital expenditures that are predominately capitalized software costs." "All of our offices are leased and we do not own any real property." "We rely on our network of suppliers to provide the sophisticated manufacturing processes that we offer to our buyers."
+  - Margins and losses: "Total gross margin was 39.1% for the year ended December 31, 2025, as compared to 39.5% … Gross margin for marketplace was 34.7% … Gross margin for our services was 88.6%." "We incurred a net loss available to common stockholders of $61.7 million in 2025 and, as a result of these losses, we had an accumulated deficit of $432.0 million as of December 31, 2025."
+- **Bears on:**
+  - **H6, H7 (mixed, and this is the sharpest comparison in the file).** Put PAR-29 and PAR-30 side by side. Protolabs owns the machines: 48,415 small customers, falling 6.1% a year, 44.5% gross margin, profitable. Xometry owns no machines: 81,821 small customers, rising 20% a year, 34.7% marketplace gross margin, losing $61.7m a year. **The many-small-customers model is growing where nobody owns the capital and shrinking where somebody does** — and neither version has yet shown that it pays.
+- **Used in:** not yet.
+- **Caveats:** a marketplace and a factory are not comparable businesses and we are comparing them anyway; treat the contrast as suggestive, not as a controlled test. Xometry's losses could be growth spending rather than a broken unit economics, and the filing does not settle it.
+
+#### PAR-31. What self-service physical manufacturing looks like when it works: $2 and 24 hours
+
+- **Sources:**
+  - JLCPCB: <https://jlcpcb.com/> and <https://jlcpcb.com/about-us>
+  - PCBWay: <https://www.pcbway.com/>
+  - ChipFoundry (successor to Efabless): <https://chipfoundry.io/> and <https://chipfoundry.io/about>
+  - Tiny Tapeout FAQ: <https://tinytapeout.com/faq/>
+- **Verification:** Verified 2026-09-18 by a delegated research pass that read each quoted string out of the raw HTML. **These are company marketing pages, not audited figures.** None of these companies is public and none of these numbers is independently attested.
+- **What it says:**
+  - JLCPCB's published product grid: "FR-4 PCBs … From $2.00 / 5 pcs **Build Time: 24 hours**"; "Flexible PCBs … From $2.00 / 5 pcs Build Time: 5-6 days"; "PCB Assembly … From $8.00 Build Time: 24 hours"; "Rapid Fab & Assembly As fast as 24 hours". Its own scale claims, footnoted "* As of Dec 2025": "9.5M + Customers"; "21M + Orders/Year"; "10,000 + Employees"; "180 + Countries Covered".
+  - PCBWay: "PCB Prototype … From $5 /10pcs … Build Time:24 hours"; counters reading "256,000+ / Customers" and "128,000+ / Paying".
+  - And the same page style, for silicon. ChipFoundry's chipIgnite: "**$14,950 / per tapeout**", for "Up to 15mm² of die space with a standard I/O ring" and the "Option of 100 QFN-packaged parts or Bare Die". Its about page: "Born from the success of open source silicon, which created a thriving community of over 10,000 members and facilitated more than 600 fabricated chip designs".
+  - Tiny Tapeout's FAQ, on the wait: "**The chips are taking between 6 and 9 months to manufacture. Then we need to do PCBA, test and order fulfillment. So expect up to 1 year's wait time!**"
+- **Bears on:**
+  - **H8 (supports strongly):** published prices, published lead times, no salesperson, no negotiation, no minimum — and 9.5 million claimed customers. This is the mechanism `WHY.md` §5 idea 4 describes, working, at scale, in physical manufacturing.
+  - **H5 (challenges, by the same page):** the PCB business does this at **$2.00 and 24 hours**. The silicon business does it at **$14,950 and up to a year**. Same model, same kind of page, four orders of magnitude apart in price and three in time. PCB fabrication became a commodity many-small-customers business because the cost and the wait fell to near-triviality. Silicon has not, and PAR-2 says the physics is moving the wrong way.
+- **Used in:** not yet. This extends OPEN-5 (Tiny Tapeout at $300) with the commercial tier and the published wait.
+- **Caveats:**
+  - Marketing pages. "From $2.00" is a headline price for the cheapest configuration; "9.5M + Customers" is unaudited and its definition is unstated.
+  - Tiny Tapeout's own price is calculator-gated ("Use the calculator to check current prices"), so the published figure here is the lead time, not the price. We did not operate the calculator, which would be submitting a form.
+  - Seeed Studio's Fusion price is also calculator-gated; no headline price was obtained.
+
+- **DERIVED:** JLCPCB's advertised 24-hour build time against Tiny Tapeout's own "up to 1 year's wait time" is a ratio of about **365×**. Against ChipFoundry's $14,950 per tape-out, JLCPCB's $2.00 for five boards is about **7,500×**. Both are self-service, both are published, both are Chinese or US companies selling to hobbyists and startups today. **That gap, not the gap between silicon and software, is the honest measure of how far silicon has to travel.**
+
+#### PAR-32. The shipping container: the largest measured effect of a standardised physical interface
+
+- **Source:** Daniel M. Bernhofen, Zouheir El-Sahli and Richard Kneller, "Estimating the effects of the container revolution on world trade", *Journal of International Economics*, Vol. 98 (C), 2016, pp. 36–50. The published version at <https://www.sciencedirect.com/science/article/abs/pii/S0022199615001403> is paywalled and was **not** fetched. The version read is the open-access accepted manuscript, every page stamped "ACCEPTED MANUSCRIPT", dated "September 2, 2015", at the University of Brighton repository: <https://cris.brighton.ac.uk/ws/portalfiles/portal/376845/JIE%20accepted%20manuscript%20online%20version%20(1).pdf>
+- **Verification:** Verified 2026-09-18 by a delegated research pass that fetched and read the accepted manuscript in full. Recorded as **Partial** here because we did not read it ourselves and because the accepted manuscript is not the version of record.
+- **What it says:**
+  - "Restricting our sample to North-North trade, which are mainly the early adopters, our benchmark specification which uses differences in the timing of adoption between countries suggests that the cumulative average treatment effect (ATE) of containerization was about 1,240% after 15 years. For all countries we find an effect that is smaller but still of economic importance at 900%."
+  - Against trade policy: "Overall, we find that the estimated effects of containerization are generally much bigger than the estimated effects of the trade policy variables in all specifications." The cumulative ATE of a free-trade agreement is "about 68% at the end of 15-years"; of bilateral GATT membership, "194%".
+  - **The authors' own caveat, which must travel with the number:** "an identification strategy based solely on differences in the timing of adoption of the container does not appear capable of providing convincing evidence of causal effects. The additional trade can be attributed to the container revolution only with caution."
+- **Bears on:**
+  - H8 (supports, by analogy): a standardised physical interface, which anyone could use without negotiating, produced an effect an order of magnitude larger than decades of trade diplomacy. That is the strongest available argument for standardisation and open interfaces in a physical industry.
+  - H4 (context): the container did not make ships cheaper. It made the *interface between* transport modes cheap. The open-fab equivalent is the PDK and the tape-out format, not the fab.
+- **Used in:** not yet.
+- **Caveats:**
+  - **Citation hygiene warning.** The headline number is different in every draft: a 2012 working paper says "about 700%" in its abstract and "790%" in its body (internally inconsistent); a 2014 revision says "about 500%" over 15 years; the 2016 JIE version says 1,240%. Anyone citing 700%, 790%, 517% or 500% is citing a different draft. Cite the 2016 set: 1,240% / 900% / GATT 194% / FTA 68%.
+  - The published abstract contains no numbers. Do not attribute a percentage to it.
+  - The authors themselves decline to claim causality for the all-country sample.
+
+- **A related correction.** The widely-quoted loading-cost figure from M. Levinson's *The Box* is "**$5.83**" per ton for break-bulk against "15.8¢ per ton" for the SS *Ideal X*, from <https://worksthatwork.com/2/intermodal-container>: "When McLean's accountants ran the numbers, they pegged the cost of loading the SS Ideal X at 15.8¢ per ton, a tiny fraction of the US$5.83 it cost to load one ton of freight aboard an average break-bulk ship." Note the scope: this is the cost of *loading*, for one ship on one voyage in April 1956, as calculated by an interested party's own accountants. It is not an industry average. Better-sourced figures are in the free sample of chapter 1 of *The Box*, 2nd ed., at <http://assets.press.princeton.edu/chapters/s10724.pdf>: "In 1961, before the container was in international use, ocean freight costs alone accounted for 12 percent of the value of U.S. exports and 10 percent of the value of U.S. imports" (p. 11), and a cost table (p. 12) in which "Half the total outlay went for port costs". Levinson's own caveat, p. 10: "How much the container matters to the world economy has proven challenging to quantify."
+
+### 3.4 The strongest written case that software analogies mislead about hardware
+
+#### PAR-33. "Open source has not pervaded the hardware industry in an analogous way"
+
+- **Source:** Gagan Gupta, Tony Nowatzki, Vinay Gangadhar and Karthikeyan Sankaralingam, "Open-source Hardware: Opportunities and Challenges", arXiv:1606.01980v2, 11 June 2016. <https://arxiv.org/pdf/1606.01980v2> (title page stamped "To Appear in IEEE Computer – Draft – Subject to Change"). Published as "Kickstarting Semiconductor Innovation with Open Source Hardware", *Computer*, vol. 50, no. 6, pp. 50–59, 2017, DOI 10.1109/MC.2017.162.
+- **Verification:** Verified 2026-09-18 (PDF downloaded, text extracted, every quote below matched in place). The published *Computer* version was **not** read; note that its title differs, so the quotes must be attributed to the arXiv preprint.
+- **What it says:**
+  - "Open source has not pervaded the hardware industry in an analogous way. While open source has been fruitful at the system hardware and circuit board levels …, it has been **inconsequential at the semiconductor level** for SoC and FPGA design."
+  - Why: "A similar virtuous cycle has not formed for OSH because OSH differs from OSS, preventing analogous pillars from taking hold. We view the differences and resulting challenges as follows: 1. **Fundamental differences.** These are inherent and arise because hardware requires physical embodiment (incurring manufacturing cost) and complex tools (to accomplish multiple non-trivial design processes), and is inherently concurrent (making it complex to reason about)."
+  - The sharpest sentence: "Practicality is heavily impacted by hardware's fundamental difference to software of requiring a physical embodiment and complex (expensive) toolchains. **Neither platforms analogous to the PC, nor tools analogous to GCC are available to physically realize and design hardware, posing a significant entry barrier for hobbyists.**"
+  - And the practical version: "the FPGA environment setup is often plagued with tool issues taking weeks and months, and is rarely like `apt-get module install`." "Licensing commercial EDA tools and fabricating a prototype can easily cost ∼$1M, well outside an hobbyist's budget". "Developing back-end tools and fabrication requires inputs and design rules from foundries, which they seldom disclose."
+- **Bears on:**
+  - **H4 (challenges), and it is the best-argued challenge available.** This is the exact argument — that the open-source *software* analogy fails for silicon — made by named academics with semiconductor-architecture standing, peer-reviewed in IEEE *Computer*, naming specific mechanisms rather than gesturing at "hardware is hard".
+  - H4 (supports, in part): the paper's own remedy overlaps with `WHY.md` §4 — it says "Fab shuttle services can lower prototyping costs" and expects them to help. The authors are not opponents of the project's thesis; they are describing what has to be true for it to work.
+- **Used in:** not yet.
+- **Caveats:**
+  - It is from 2016, before SKY130, OpenROAD's maturity, Tiny Tapeout and the current wave — so its "∼$1M" figure is out of date in the direction that helps `WHY.md`. OPEN-1, OPEN-4 and OPEN-5 are partly the answer to it. **That is the right way to use this source: as the checklist the project is trying to work through, with the design-tool items now largely ticked and the manufacturing items not.**
+  - It is about open-source *hardware*, which is adjacent to but not the same as an open *fab*.
+
+#### PAR-34. Mask sets: the NRE with no software equivalent
+
+- **Source:** Dylan Patel, "The Dark Side Of The Semiconductor Design Renaissance – Fixed Costs Soaring Due To Photomask Sets, Verification, and Validation", SemiAnalysis, 2022-07-24. <https://semianalysis.com/2022/07/24/the-dark-side-of-the-semiconductor/>
+- **Verification:** Partial, 2026-09-18. Fetched and the quotes read by a delegated research pass; the date is from the page's own JSON-LD (`datePublished` 2022-07-24T21:54:53+00:00). We did not re-read it. The figures themselves are the author's estimates, not a foundry price list, and no primary source for mask-set prices was found.
+- **What it says:**
+  - "Every unique chip design requires its own mask set."
+  - "On a foundry process node, at 90nm to 45nm, mask sets cost on the order of hundreds of thousands of dollars. At 28nm it moves beyond $1M. With 7nm, the cost increases beyond $10M, and now, as we cross the 3nm barrier, mask sets will begin to push into the $40M range."
+  - On respins, which is PAR-6's point from inside the industry: "For Ice Lake, it took Intel 6 revisions to ship, and Sapphire Rapids looks far more abysmal. They have done 12 steppings without it being fully validated for volume shipment. A0, A1, B0, C0, C1, C2, D0, E0, E2, E3, E4, and now E5."
+  - And the conclusion, which is `WHY.md`'s own doom spiral stated by an industry analyst: "More companies will not have volumes high enough to amortize their fixed costs associated to mask sets to take advantage of improving cost per transistor." And: "As the semiconductor design renaissance flourishes, it won't all be rosy. There will be a path of littered bodies from failed designs."
+- **Bears on:**
+  - **H1 (supports), H4 (challenges):** the mask set is a per-design fixed cost with no software analogue at all. Software's equivalent of "make a new version" is free; silicon's is $1m at 28nm on a dedicated set. The shuttle model (PAR-3) exists precisely to amortise this, which is why shuttle economics are the whole game for a small customer.
+- **Used in:** not yet. This is the first mask-cost evidence in the repository.
+- **Caveats:** a Substack newsletter, not peer-reviewed, and the numbers are estimates. **We looked for a primary source for mask-set prices and did not find one** — foundries do not publish them. Treat these as orders of magnitude. Cross-check available: the eBeam Initiative mask turnaround times in PAR-2 are from an industry survey and are consistent with masks being a major, separately-managed cost and schedule item.
+
+#### PAR-35. "Bits are inherently easier/cheaper to develop and distribute than atoms"
+
+- **Source:** Ben Einstein, "Hardware is NOT the New Software", The Bolt Blog, dated on the page January 28, 2014. <https://blog.bolt.io/hardware-is-not-the-new-software/>. Byline at the foot of the post: "Ben Einstein was one of the founders of Bolt."
+- **Verification:** Partial, 2026-09-18. Fetched and quoted by a delegated research pass; we did not re-read it.
+- **What it says:**
+  - "Everywhere I turn, someone is saying 'hardware is the new software.' Here's why they're wrong."
+  - "When you compare hardware and software on paper, it's fairly justifiable: cost of goods is much higher, development time is longer, iterations are harder, manufacturing must be done, distribution channels are expensive, teams need more experience, cash flow is constrained, AND you still have to build a software product."
+  - "By no means is building a hardware product the same as building a software product, now or ever. Bits are inherently easier/cheaper to develop and distribute than atoms."
+  - But not a counsel of despair: "Hardware will never be as easy as software, but as long as startups and investors are prepared for these differences, the potential to build world-changing hardware companies is higher than ever."
+- **Bears on:** H4 (challenges, rhetorically).
+- **Used in:** not yet.
+- **Caveats:** a short venture-capital blog post from 2014 by an investor with a position in hardware startups. It is recorded because it is a literal, dated rebuttal of the exact slogan `WHY.md` is adjacent to, not because it is strong evidence. PAR-33 carries the argument and PAR-34 the numbers; this one carries the phrasing.
 
 ---
 
 ## Part 4. The counter-case on the long tail
 
-*(filled in below)*
+TAIL-3 already records Elberse's counter-evidence. These are the additions the brief asked for — including the response to Elberse, which cuts the other way and is recorded with the same care.
+
+#### PAR-36. The response to Elberse: online channels really are less concentrated, and search tools are why
+
+- **Source:** Erik Brynjolfsson, Yu Jeffrey Hu and Duncan Simester, "Goodbye Pareto Principle, Hello Long Tail: The Effect of Search Costs on the Concentration of Product Sales", *Management Science* 57, no. 8 (2011): 1373–1386. DOI 10.1287/mnsc.1110.1371.
+- **Verification:** **Partial**, 2026-09-18. The abstract was read from the Semantic Scholar Graph API record for the DOI (<https://api.semanticscholar.org/graph/v1/paper/DOI:10.1287/mnsc.1110.1371>), which reproduces the publisher's abstract. The author names and publication date are from OpenAlex (<https://api.openalex.org>), which prints them as "Erik Brynjolfsson, Yu Jeffrey Hu, Duncan Simester"; Semantic Scholar prints the same authors as "Erik Brynjolfsson, Yu Hu, D. Simester". **The full paper was not read**, and the blocker is recorded below.
+- **What it says (abstract, verbatim):** "Many markets have historically been dominated by a small number of best-selling products. The Pareto principle, also known as the 80/20 rule, describes this common pattern of sales concentration. However, information technology in general and Internet markets in particular have the potential to substantially increase the collective share of niche products, thereby creating a longer tail in the distribution of sales. This paper investigates the Internet's "long tail" phenomenon. By analyzing data collected from a multichannel retailer, it provides empirical evidence that the Internet channel exhibits a significantly less concentrated sales distribution when compared with traditional channels. Previous explanations for this result have focused on differences in product availability between channels. However, we demonstrate that the result survives even when the Internet and traditional channels share exactly the same product availability and prices. Instead, we find that consumers' usage of Internet search and discovery tools, such as recommendation engines, are associated with an increase the share of niche products."
+- **Bears on:**
+  - **H5 (supports, and it is the best counter to TAIL-3 in the repository).** Its design is the strong part: the same retailer, the same catalogue, the same prices, two channels — so the difference cannot be availability. The mechanism it identifies is **search and discovery**, not shelf space.
+  - H8 (supports, and this is the transferable part): if the tail is made by *discoverability* rather than by availability, then `WHY.md` §5 idea 4 — published prices, visible queues, public results — is doing more work than it appears to. The open fab's catalogue and its search are part of the product.
+- **Used in:** not yet. It should be added to `resources/references/long-tail.md` as the response to TAIL-3.
+- **Caveats:**
+  - **Abstract only.** The effect size, the retailer, the period and the robustness checks are all unread. Do not cite a number from this paper.
+  - **Blocker, recorded exactly:** the open-access copy that OpenAlex and Semantic Scholar both point to, <https://dspace.mit.edu/bitstream/1721.1/74642/1/Brynjolfsson_Goodbye%20pareto.pdf>, is behind an AWS WAF CAPTCHA ("Human Verification … you need to verify that you're not a robot by solving a CAPTCHA puzzle"). We did not attempt to solve it. The SSRN copy and the INFORMS publisher page were also unreachable (403). The paper is legitimately open access and we could not legitimately reach it.
+  - It is retail consumer goods, not business customers buying manufacturing time — the same limitation TAIL-3 has.
+
+#### PAR-37. Where the tail has been measured since, it is thin
+
+Not a single source; a summary of what this file found, so it is in one place.
+
+- **Verification:** each figure is verified at the entry cited.
+- **What it says:**
+  - **Web attention:** the top 1,000 properties take 83% of UK time online (PAR-23).
+  - **Web money:** two companies take around 80% of UK digital advertising (PAR-22).
+  - **Open-source AI:** 206,880 of 5.6 million AI-related GitHub projects reach ten stars — 3.7% (PAR-19).
+  - **Open-source contribution:** 17% of top non-npm projects have one developer writing over 80% of commits; 81% have ten or fewer (PAR-12). SW-3's 96%-of-value-from-5%-of-developers is the same shape.
+  - **Venture returns:** 6% of venture-backed startups produced about half the gross return (SW-4).
+  - **And in the closest physical case:** Shapeways had over one million lifetime customers and one customer at 17–23% of revenue (PAR-26).
+- **Bears on:** H5 (challenges), H10 (supports).
+- **The honest reading.** Every market where cheap experimentation arrived has the same shape: a very long tail of participants and a very short head that takes the money. `WHY.md` §5 is right that its argument does not need the tail to outsell the head. But it needs something it has not yet claimed out loud: that the tail keeps *paying* even though almost none of it succeeds. PAR-26 is the warning — a business can have a million customers, a thriving-looking tail, and still fail, because the tail does not pay enough and the head it does have is concentrated anyway.
+
+#### PAR-38. Where to look next: process development as learning that cannot be simulated
+
+- **Source:** Gary P. Pisano, "Learning-before-doing in the development of new process technology", *Research Policy* 25, no. 7 (1996): 1097–1119. DOI 10.1016/S0048-7333(96)00896-7.
+- **Verification:** **Lead.** 2026-09-18. The citation above is verified against the Crossref record (<https://api.crossref.org/works/10.1016/S0048-7333(96)00896-7>), which gives the author as "Gary P. Pisano", volume 25, issue 7, pages 1097–1119, published print 1996-10. **No content was read.** The publisher page returned HTTP 403, OpenAlex records the work as closed access with no open copy, Semantic Scholar's record states the abstract has been "elided by the publisher", and the EconPapers record carries no abstract. We found no legitimate route to the text.
+- **Why it is recorded anyway:** Pisano's distinction between *learning before doing* (simulation, theory, modelling) and *learning by doing* (physical trials) is the academic frame this whole question belongs to, and the repository has no entry in it. His argument, as it is generally described, is that where the underlying science is well understood you can substitute simulation for physical experiment, and where it is not you cannot. Semiconductor process development is the canonical "cannot" case. If that holds, it is the deepest reason cheap simulation does not make cheap silicon, and it would bear directly on H9 and on `WHY.md` §5's learning argument.
+- **Bears on:** H9, H4 — direction unknown until someone reads it.
+- **Caveats:** everything above after the citation is our characterisation of a paper we have not read. **Do not cite it until someone does.** A university library copy or an interlibrary route would settle it.
 
 ---
 
