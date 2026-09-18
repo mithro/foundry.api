@@ -548,7 +548,80 @@ The web is the analogue `WHY.md` reaches for first and defends least. Both halve
 
 ## Part 5. Adjudication
 
-*(filled in below)*
+For each analogue: what transfers, what breaks, and a plain verdict. The scale used is:
+
+- **Load-bearing** — the mechanism genuinely applies, and an argument may rest on it.
+- **Illustrative** — useful for explaining the shape of the idea to a reader, but it cannot carry weight. Do not derive a prediction from it.
+- **Misleading** — the analogue points the other way, or the differences are large enough that using it imports a false conclusion.
+
+### 5.0 The break that applies to all four
+
+Before the individual verdicts, the one number that governs every comparison.
+
+| | Software on a cloud | Silicon on a shuttle |
+|---|---|---|
+| Marginal cost of one more attempt | ≈ $0 | **$300 to €30,000** (OPEN-5; PAR-3) |
+| Time from decision to result | seconds to minutes | **170 to 224 days** (PAR-3); 228 to 451 days (PAR-4) |
+| Attempts available per year | thousands | **1 to 5** (PAR-3) |
+| Cost of an attempt that fails | the compute you used | the whole attempt, plus the wait, and ~95% of projects need another (PAR-6) |
+| Can you revert? | yes, instantly | no |
+| Does one customer's failure hurt another's? | no | **yes** — see Part 4 |
+
+`WHY.md` argues from the first column to the second. The ratios between them are roughly 10^4 in cost per attempt and 10^3 in attempts per year. **An argument that survives a factor of ten is not the same as an argument that survives a factor of a thousand, and the essay never tests it against the larger number.** Everything below is a variation on this.
+
+The honest statement of the project's position after this review is narrower than `WHY.md`'s, and stronger for being narrow:
+
+> Cheap experimentation in silicon means going from *one attempt every few years, for those who can afford several million dollars* to *a few attempts a year, for those who can afford a few thousand*. That is a real and large change. It is not the change that happened to software, and calling it that invites a reader who knows software to expect something that will not arrive.
+
+### 5.1 Cloud computing — **load-bearing for the access model, misleading for the customer mix**
+
+**What transfers.** All of the access mechanism, and it transfers well. A single enormous fixed-cost asset; published prices with no negotiation (SW-2); self-service; pay for what you use; a customer who could never own the asset renting a slice of it. The claim that this model brings in customers who were previously excluded is supported. So is `PRINCIPLES.md`'s "every preference costs money": committed buyers do pay far less per unit (SW-5, PAR-8), and the small flexible buyer pays the premium.
+
+**What breaks.**
+
+1. **The revenue did not follow the tail.** AWS carries about 1.5 years of revenue in contracts longer than a year at a 4.0-year weighted-average life (PAR-7). Its largest announced commercial event is one customer for $38bn over seven years (PAR-10). It pays to acquire the tail (PAR-11).
+2. **The purest form of the model concentrated hardest.** CoreWeave rents an expensive shared physical asset by the hour, was founded in the pay-as-you-go era, publishes on-demand prices — and takes 67% of revenue from one customer, with 98% of revenue on **take-or-pay** contracts (PAR-9). That is worse concentration than TSMC's 78% across ten customers (CONC-11). And the instrument it converged on is the same take-or-pay contract that cost AMD $320m and then $335m to escape (CONC-8).
+3. **Cycle time.** A cloud customer iterates in seconds; a fab customer 1 to 5 times a year (PAR-3). The cloud's defining property — that a failed experiment costs you an hour and is reverted — does not exist in silicon at all.
+4. **The asset is not shared in the same way.** A cloud region is a large number of independent, interchangeable machines. A fab process is one physical resource that every customer's wafer passes through, so customers are coupled (Part 4). AWS has nothing resembling this.
+
+**Verdict: load-bearing for H8 (openness and published prices attract customers who could not otherwise buy), misleading for H7 (many small customers remove buyer power).** The cloud is the best evidence the project has for its access model and the *strongest single piece of evidence against its risk model*. `WHY.md` §6 uses AWS reserved-instance pricing to argue that small customers happily pay more. The same disclosures say the money is in the customers who commit.
+
+### 5.2 Open source software — **load-bearing for design, misleading for manufacturing**
+
+**What transfers.** Shared, free building blocks genuinely cut the cost of building something new (SW-3), and firms that contribute learn more than firms that free-ride (PAR-15). That supports `WHY.md` §4 exactly: open PDKs and open tools are lowering the cost of chip *design*. H4's design-side half is well supported.
+
+**What breaks.**
+
+1. **Open source's mechanism is the copy operation, and silicon has none.** The reason open source made software cheap is that the marginal cost of the thousandth user of a library is zero. A fab has no copy operation: the thousandth wafer costs about what the first one did, minus a learning-curve discount. Every claim that transfers "what open source did" to a fab has to survive the removal of the one property that made it work. Applied to manufacturing, it does not.
+2. **The crowd is not a crowd.** 17% of the top non-npm projects have one developer writing more than 80% of commits; 81% have ten or fewer doing so (PAR-12). Over 85% of Linux kernel work is done by paid employees of companies (PAR-13). Open source is not mass parallel experimentation; it is a small number of mostly-paid people working in public.
+3. **It did not solve funding.** Two-thirds of the web's encryption rested on one full-time developer, on an organisation that "never received more than $2,000 in donations per year" (PAR-14). The open-silicon equivalent is visible already: open PDKs stuck at preview status (OPEN-2, OPEN-3) and Efabless closing for want of a funding round (OPEN-7).
+
+**Verdict: load-bearing for H4's design half; misleading if extended to manufacturing.** The essay should stop using "as open source did for software" as a general warrant in §5 and confine it to §4, where it is earned.
+
+### 5.3 Machine learning and AI — **misleading, and it is better evidence for the doom spiral than against it**
+
+**What transfers.** Falling inference prices — a median of 50× a year across benchmarks (PAR-18) — genuinely put a capability in many more hands, and AI-assisted design is a real reduction in the cost of a chip design (OPEN-6).
+
+**What breaks.** Everything else, and it breaks in the direction of `WHY.md`'s own Step 4.
+
+1. Frontier training cost is growing 2.4× a year, doubling roughly every nine months, and the paper's own conclusion is "only the most well-funded organizations will be able to finance frontier AI models" (PAR-16). Read `WHY.md` §2's four-step spiral against that sentence: it is the same spiral, running about ten times faster.
+2. In 2025 there were **two** notable models from academia and 93 from industry, and the most capable ones stopped disclosing training details (PAR-17). An industry that started as the most open in computing has, in a decade, concentrated to a handful of firms and closed up. That is the outcome `WHY.md` is trying to avoid, produced by cheap tools.
+3. The cheap, open, many-participants part of AI sits one or two generations behind the frontier and cannot reach it. **That is the relationship between mature nodes and the leading edge, reproduced exactly.**
+
+**Verdict: misleading as used in `WHY.md` §1. But it is genuinely valuable as a warning, and the essay would be stronger if it used it that way.** AI shows that falling cost per unit does not prevent concentration when the scale of a competitive attempt rises faster than the unit cost falls. It also implies something the project should state openly: an open fab is a **mature-node business**, and the leading edge is not coming back within reach. H4's hedge, "at least on mature processes", should be promoted from a hedge to a premise.
+
+### 5.4 The internet and the web — **illustrative**
+
+**What transfers.** The cost of publishing collapsed (PAR-21) and the number of publishers rose by four to five orders of magnitude (PAR-20). arXiv shows the same pattern in a professional field (PAR-24). As a way of telling a reader "when the cost of trying falls, many more people try", this is fine and true.
+
+**What breaks.**
+
+1. **Nothing about the web's mechanism is physical.** Zero marginal cost, instant distribution, unlimited parallelism, free reverts. Of the properties that produced the outcome, silicon has none.
+2. **The tail did not capture the value.** Around 80% of UK digital advertising went to two companies (PAR-22); 83% of time online went to the top 1,000 properties (PAR-23). The web produced the largest long tail in history *and* the most concentrated market in history, from the same mechanism, at the same time.
+3. **The essay's own use of it is ambiguous in an important way.** `WHY.md` §5 cites Anderson's "Google makes most of its money off small advertisers" — that is the **aggregator's** position, not a tail participant's. The web's evidence is that the aggregator position is extremely valuable and extremely concentrated. Taking it seriously means the open-fab thesis is not "a fab can serve the tail" but "**one** fab can be the aggregator for the tail, and being second is worth little". `WHY.md` never says this, and it changes what the project is claiming.
+4. **arXiv shows the gate is replaced, not removed.** arXiv still requires endorsement and still employs 262 moderators (PAR-24). Volume grew 22× in 30 years, not 78,000× as the web did, because the supply of qualified participants is bounded. Silicon's bound is tighter still.
+
+**Verdict: illustrative.** Keep it in §1 as a way of orienting a reader who knows software. Do not derive any prediction about an open fab from it, and add the concentration half, because leaving it out is the kind of omission an informed reader will notice and hold against the rest of the essay.
 
 ---
 
