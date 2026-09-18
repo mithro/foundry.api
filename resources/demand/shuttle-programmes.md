@@ -6,7 +6,9 @@ dollars, or to nothing. These are the closest thing that exists to a direct test
 A **multi-project wafer** (MPW), or **shuttle**, run puts many customers' designs onto one set of
 masks and one wafer lot, so they share the mask cost. It is how universities and small companies
 have made prototype chips since the 1980s. Submission counts, acceptance rates and how full each run
-is are therefore a direct measure of how many people want to make a chip at a given price.
+is are therefore the closest available proxy for how many people want to make a chip at a given
+price — a proxy, not a measure: DEM-2's caveats give the reasons (a project is not a person, and
+course batches inflate the counts).
 
 ---
 
@@ -58,7 +60,10 @@ is are therefore a direct measure of how many people want to make a chip at a gi
 - **Bears on:**
   - H5 (supports): between four and five thousand separate chip designs were submitted by paying
     customers in four years, on three different foundry processes, at a price of a few hundred
-    dollars. These are people who would not otherwise have made a chip at all.
+    dollars. **Our interpretation, not the source's:** we read these as people who would not
+    otherwise have made a chip at all. The page says nothing about who submitted or what they would
+    have done otherwise, and the caveat below — design counts are not customer counts — cuts against
+    the reading.
   - H4 (supports).
 - **Used in:** not yet.
 - **Caveats:**
@@ -126,8 +131,10 @@ is are therefore a direct measure of how many people want to make a chip at a gi
 
     Four further shuttles (ttsky26d, ttboat26, ttgf26c, ttgf26d) had deadlines after the fetch date
     and two tiles used each.
-  - **Cross-check against DEM-1.** For the 22 shuttles that appear both on the chips page and in the
-    API, 20 agree exactly. Two differ by one: TTIHP25a is 547 on the page and 546 records in the API
+  - **Cross-check against DEM-1.** Of the 22 shuttles that appear both on the chips page and in the
+    API, 20 print a number on the page; 18 of those agree exactly and two differ by one. (The other
+    two print no number: TTIHP26b prints "Open" and TT10 prints "Cancelled".) The two that differ:
+    TTIHP25a is 547 on the page and 546 records in the API
     (540 distinct projects), and TT07 is 120 on the page and 119 in the API. Two shuttles with
     submissions in the API — `ttcad25a` (257) and `ttihp0p3` (23) — have no row in the chips-page
     table at all, and `tt10`, printed as "Cancelled" on the page, holds 112 submissions in the API.
@@ -143,6 +150,12 @@ is are therefore a direct measure of how many people want to make a chip at a gi
     size is not automatically absorbed.
 - **Used in:** not yet.
 - **Caveats:**
+  - **These totals are a live snapshot and they move.** ttihp26b was still open on the fetch date
+    (deadline 2026-09-21), so its count keeps rising. Re-running the documented method on the same
+    day already returned **4,315 records / 4,309 distinct projects** and 1,396 for 2026, against the
+    4,314 / 4,308 / 1,395 recorded above. The figures in this entry are the 2026-09-18 snapshot and
+    were right when taken; anyone reproducing them should expect a slightly larger number and check
+    which shuttles were still open.
   - `tiles_used` is Tiny Tapeout's own bookkeeping field; the entry takes it at face value.
   - Some runs are explicitly labelled test shuttles on the chips page ("None - test shuttle"), and a
     low fill on a test run means less.
@@ -231,8 +244,8 @@ is are therefore a direct measure of how many people want to make a chip at a gi
     submissions until Monday, June 8, 2022."
 - **Bears on:**
   - H5 (supports): submissions per shuttle rose from 45 (MPW-1, DEM-4/DEM-6) to a "record" 75 by
-    MPW-5, against a fixed 40 slots — so the programme was running at roughly 1.9× oversubscription
-    by its fifth run.
+    MPW-5, against a fixed 40 slots — so the programme was running at **DERIVED** 75 ÷ 40 =
+    **1.9× oversubscription** by its fifth run.
 - **Used in:** not yet.
 - **Caveats:**
   - **Conflicts with DEM-7.** Google's blog says 75 projects for MPW-5; the *Hackster.io* report of
@@ -365,9 +378,10 @@ is are therefore a direct measure of how many people want to make a chip at a gi
   - **H5 (challenges, and this is the important reading).** Take the sentence at face value and it
     is the cleanest natural experiment available: manufacturing, the process design kit and the tool
     flow were **free**, promoted worldwide by Google, and the total global response over six
-    shuttles and roughly eighteen months was **364 submissions**. If a large population of would-be
+    shuttles and roughly sixteen months — MPW-1's submission window opened on 2021-04-06 (DEM-4) and
+    this post is dated 2022-07-28 — was **364 submissions**. If a large population of would-be
     chip designers were held back only by up-front cost, this is where it should have appeared. Four
-    hundred people is a real community; it is not a market.
+    hundred submissions is a real community; it is not a market.
   - **DERIVED:** 240 manufactured ÷ 364 submitted = **66% accepted**; 364 ÷ 6 shuttles = **61
     submissions per shuttle** on average.
 - **Used in:** not yet. Together with DEM-4 to DEM-8, this closes the "To find" note on `OPEN-1`.
@@ -430,7 +444,7 @@ is are therefore a direct measure of how many people want to make a chip at a gi
   - *Activity Report 2022*: <https://europractice-ic.com/wp-content/uploads/2023/03/2023-03-22_europractice_ar2022_web.pdf>
   - *Activity Report 2024*: <https://europractice-ic.com/wp-content/uploads/2025/10/Europractice_ActivityReport2024_webversion.pdf>
   - *Activity Report 2025*: <https://europractice-ic.com/wp-content/uploads/2026/03/Europractice_AR2025_web.pdf>
-- **Verification:** **Mixed, and the entry says which part is which.**
+- **Verification:** **Partial** (the entry says which part is which).
   - **Verified 2026-09-18** by us, from the PDFs downloaded and their text layers extracted and read:
     the 2000–2017 series (the data labels on the 2017 report's chart), and the totals for 2016 (575),
     2017 (614), 2021 (985), 2022 (731), 2024 (837) and 2025 (753).
@@ -447,7 +461,8 @@ is are therefore a direct measure of how many people want to make a chip at a gi
     2015 169/72/328; 2016 145/128/301; 2017 182/109/323.
   - **DERIVED**, summing each triplet: 2000 → 480; 2001 → 486; 2002 → 405; 2003 → 363; 2004 → 414;
     2005 → 450; 2006 → 433; 2007 → 539; 2008 → 534; 2009 → 545; 2010 → 533; 2011 → 560; 2012 → 545;
-    2013 → 538; 2014 → 544; 2015 → 569; 2016 → 574; 2017 → 614.
+    2013 → 538; 2014 → 544; 2015 → 569; 2016 → 574 (see caveat: the same report's prose says 575);
+    2017 → 614.
   - **Later years, from the reports' prose:** 2018 → 624; 2019 → 884; 2020 → 896; 2021 → 985;
     2022 → 731; 2023 → 813; 2024 → 837; 2025 → 753.
   - Quotes for the years we read ourselves:
@@ -471,8 +486,10 @@ is are therefore a direct measure of how many people want to make a chip at a gi
   - **H5 (challenges, and this is the most important single series in the directory).** Europe's MPW
     broker ran between **363 and 614 designs a year for the whole of 2000 to 2017** — eighteen years,
     essentially flat, through the entire period in which design tools, IP reuse and the internet were
-    supposed to be lowering the barrier to making a chip. It stepped up to 884–985 in 2019–2021 and
-    has since fallen back to 753. There is no sign here of a dam waiting to burst.
+    supposed to be lowering the barrier to making a chip. It stepped up to 884–985 in 2019–2021 —
+    of which only the 985 for 2021 is Verified; the 884 (2019) and 896 (2020) are **Partial**, from
+    PDFs we did not open — and has since fallen back to 753 (Verified). There is no sign here of a
+    dam waiting to burst.
   - **H5 (challenges).** The users are overwhelmingly academic. In 2024, 69% of submissions came from
     European universities and research institutes and only 9% from European industry.
   - **H5 (supports, weakly).** Demand has been *continuous* for a quarter of a century and has never
@@ -484,8 +501,14 @@ is are therefore a direct measure of how many people want to make a chip at a gi
     This number is much higher than for previous years, since it includes MPW prototypes in TSMC
     technologies and all prototypes from MPW runs organized by CMP. Therefore, any comparison with
     previous years will be difficult." (Reported to us; **Partial**.) So the 2019 step is at least
-    partly a merger of Europractice's and CMP's counts, not new demand. Likewise the 2025 fall is
-    partly definitional: European SMEs and start-ups moved to a separate service, EuroCDP.
+    partly a merger of Europractice's and CMP's counts, not new demand.
+  - **The 2025 fall may be partly definitional, but that is our inference and not the report's.**
+    The 2025 report nowhere attributes the decline to EuroCDP. What it says is that EuroCDP was
+    "recently launched" and that under Europractice 2.0 "Europractice will continue focusing on
+    academia … while EuroCDP will concentrate on startups and SMEs" — future tense, a statement of
+    intended division of labour, not of a transfer that has already happened and moved designs out
+    of the 2025 count. Read the 753 as a like-for-like fall unless someone finds the evidence that
+    it is not.
   - The chart's per-series split is inferred from the order in which the labels extract and is **not**
     certain. Only the totals should be cited. The 2016 total from the chart (574) and from the 2017
     report's prose (575) differ by one.
@@ -531,8 +554,8 @@ is are therefore a direct measure of how many people want to make a chip at a gi
 - **Used in:** not yet.
 - **Caveats:**
   - It is about **TSMC** shuttles specifically — the most advanced and most capacity-constrained
-    technologies in the portfolio — not about chip fabrication generally. Contrast DEM-2, where about
-    a third of Tiny Tapeout's own runs went materially undersubscribed.
+    technologies in the portfolio — not about chip fabrication generally. Contrast DEM-2, where
+    9 of the 24 runs with any submissions came in below 75% of capacity.
   - "If required, a waiting list will be created" is conditional: it does not say one exists.
   - No numbers.
 
@@ -540,7 +563,7 @@ is are therefore a direct measure of how many people want to make a chip at a gi
 
 - **Source:** CMP (Circuits Multi-Projets), *CMP Annual Report 2011*, history section, report
   pp. 11–14. CMP's own site is gone (see caveats); read from the Internet Archive:
-  <https://web.archive.org/web/20210404130708if_/https://mycmp.fr/IMG/pdf/cmp_annual-report-2011_full_version.pdf>
+  <https://web.archive.org/web/20191129095720if_/https://mycmp.fr/IMG/pdf/cmp_annual-report-2011_full_version.pdf>
 - **Verification:** Verified 2026-09-18 from the archived PDF, text extracted and read. (`WebFetch`
   refuses `web.archive.org` outright, so the Wayback work was done with `curl` and the `if_`/`id_`
   raw-content forms.)
@@ -570,12 +593,13 @@ is are therefore a direct measure of how many people want to make a chip at a gi
     back to 273 by 2011. Thirty years of continuous operation produced a service that never exceeded
     about 400 designs a year from about 100 institutions.
   - **H5 (context).** CMP published the run count where most services do not: 25 runs (1993), 32
-    (1994), 34 (1995) — roughly 8 to 10 circuits per run.
+    (1994), 34 (1995) — **DERIVED**, roughly 8 to 9 circuits per run: 200 ÷ 25 = 8.0,
+    251 ÷ 32 = 7.8, 298 ÷ 34 = 8.8.
 - **Used in:** not yet.
 - **Caveats:**
   - **CMP no longer exists as an operating service.** Its domain `mycmp.fr` now resolves to a
     domain-parking page and `cmp.imag.fr` is dead. The Europractice 2022 activity report (verified for
-    DEM-20) records that CMP "had to stop fabrication activities at STMicroelectronics, ams and
+    DEM-16) records that CMP "had to stop fabrication activities at STMicroelectronics, ams and
     CEA-Leti due to administrative reasons" and that "a new French MPW service, CIME-P, was created in
     October 2022 and joined the consortium". That is a supply-side failure, not a demand one, but it
     removed a thirty-year-old MPW service from Europe.
@@ -583,7 +607,7 @@ is are therefore a direct measure of how many people want to make a chip at a gi
     "submitted" and "fabricated" from year to year.
   - A 2015 figure — "A total of 265 circuits were fabricated for 90 Institutions, Research
     Laboratories and Companies from 25 countries" — was reported to us from
-    <https://web.archive.org/web/20210404130708if_/https://mycmp.fr/IMG/pdf/cmp_annual-report-2015_full_version.pdf>
+    <https://web.archive.org/web/20191129095711if_/https://mycmp.fr/IMG/pdf/cmp_annual-report-2015_full_version.pdf>
     but we did not open that PDF: **Partial**.
   - CMP's cumulative counters are internally inconsistent about runs — "1029 runs" (2017 web
     snapshot), "1043 MPW runs" (2019 snapshot), "1142 manufacturing runs" (2021, via a conference
