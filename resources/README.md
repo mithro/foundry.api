@@ -39,6 +39,7 @@ ID prefixes:
 | [`demand/long-tail-businesses.md`](demand/long-tail-businesses.md), [`demand/pricing-and-cost-to-serve.md`](demand/pricing-and-cost-to-serve.md) | `SMB` | Public financials of long-tail manufacturing businesses, and what small-volume fabrication costs |
 | [`demand/open-programme-growth.md`](demand/open-programme-growth.md) | `OPG` | Growth of the open-entry programmes |
 | [`demand/payment-growth.md`](demand/payment-growth.md) | `PAY` | Money actually paid, per year, for the three programmes where customers pay: Tiny Tapeout, chipIgnite/ChipFoundry, wafer.space |
+| [`demand/chipfoundry.md`](demand/chipfoundry.md) | `CF` | ChipFoundry (UmbraLogic Technologies LLC): the corrected corporate history, every published per-shuttle number, the whole price list, and a verdict on whether an unsubsidised, investor-free open-shuttle business works |
 | [`demand/design-starts-and-mature-nodes.md`](demand/design-starts-and-mature-nodes.md) | `TRAD` | Design starts and mature-node demand in the traditional industry |
 | [`demand/pcb-industry-comparables.md`](demand/pcb-industry-comparables.md) | `PCB` | Audited PCB makers' margin by order size — the closest industry parallel |
 | [`demand/in-house-fabrication.md`](demand/in-house-fabrication.md) | `IHF` | Companies that built or bought their own fab, and what it cost |

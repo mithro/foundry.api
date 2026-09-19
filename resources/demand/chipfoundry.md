@@ -247,7 +247,9 @@ happens to be 53% above the price a dead company used to charge.
     Cypress. **The search plainly works**; the zero for UmbraLogic is a real zero.
   - `efabless Corp` has filed **exactly one** document with the SEC, a **Form D** filed
     **2024-10-08**, state of incorporation **Delaware**, address 969 Industrial Road, Suite I,
-    San Carlos, CA. Its content, verbatim from the XML:
+    San Carlos, CA, exemption `06b` (Rule 506(b)), and the security offered is
+    `<typesOfSecuritiesOffered><isDebtType>true</isDebtType></typesOfSecuritiesOffered>` —
+    **debt, not equity**, which is what `PAY-10` also records. Its content, verbatim from the XML:
     `<dateOfFirstSale><value>2024-09-27</value></dateOfFirstSale>`,
     `<totalOfferingAmount>2500000</totalOfferingAmount>`,
     `<totalAmountSold>2500000</totalAmountSold>`, `<totalRemaining>0</totalRemaining>`,
@@ -271,10 +273,13 @@ happens to be 53% above the price a dead company used to charge.
     **Absence of a filing is not a statement of policy.** We found **no public statement by
     ChipFoundry or its founders of a "no investors" or "profitable from day one" position anywhere**
     (see the blocked list).
-  - **H6 (context).** Efabless's last raise was $2.5m from a single accredited investor, five months
-    before it stopped. The one public number about the money behind the old company says it was a
-    bridge, not a Series B — which fits, without confirming, the owner's account that a funding
-    round was blocked by an early investor refusing dilution. **Lucio Lanza**, of Lanza techVentures,
+  - **H6 (context).** Efabless's last raise was **$2.5m of debt** from a single accredited
+    investor, five months before it stopped. **A company that can raise equity does not usually
+    raise a single-investor debt round instead.** The one public number about the money behind the
+    old company therefore says it was a bridge, not a Series B — which fits, without confirming, the
+    owner's account that a funding round was blocked by an early investor refusing dilution: a
+    blocked equity round is exactly the circumstance in which an existing holder lends instead.
+    **Lucio Lanza**, of Lanza techVentures,
     an early-stage EDA investor, sits on that board; we name him because the filing does, **not**
     because we have any evidence he is the investor in question, and the repository should not imply
     that he is.
