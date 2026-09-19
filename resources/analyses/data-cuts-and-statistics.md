@@ -645,6 +645,176 @@ from", and this is the first time the repository has been able to put a figure o
 
 ---
 
-*Sections 2 (growth rates, free versus paid, drop-one), 6 (attacking the JLC decomposition),
-7 (sensitivity), 8 (arithmetic errata), 9 (small-number statistics), 10 (verdict table) and 11 (the
-strongest argument against the project) follow.*
+## 6. Cut: attacking the JLC decomposition
+
+[`long-tail-pays-for-the-capital.md`](long-tail-pays-for-the-capital.md) is the strongest single
+piece of evidence in the repository. It is attacked here from scratch, with every input taken from
+the `SMB-1` quotes and nothing taken from the analysis.
+
+### 6.1 The arithmetic is right
+
+```python
+# tmp/jlc.py -- the p.245 table, four leaf rows + two subtotals per year
+blend_leaf = sum(share*margin for the four channel rows)
+blend_sub  = share_ss*margin_ss + share_big*margin_big
+```
+
+| Year | Leaf-level Σ(share × margin) | Subtotal-level | Printed 合计 | Largest discrepancy |
+|---|---:|---:|---:|---:|
+| 2023 | 0.28735 | 0.28729 | 0.2873 | +0.0049 pp |
+| 2024 | 0.30046 | 0.30048 | 0.3005 | −0.0042 pp |
+| 2025 | 0.28058 | 0.28061 | 0.2806 | −0.0024 pp |
+
+The revenue shares also sum to 1.0000 in every year. **The disclosure reconciles and the analysis's
+reconciliation claim ("agreeing to within 0.005 pp in all three years") is exactly right.**
+
+The share-of-gross-profit headline reproduces to four decimal places:
+
+| Year | Long tail's share of gross profit | Analysis |
+|---|---:|---|
+| 2023 | 0.9131 | 91.31% ✓ |
+| 2024 | 0.9381 | 93.81% ✓ |
+| 2025 | **0.9760** | 97.60% ✓ |
+
+**No arithmetic error was found anywhere in this document.** Everything below is about
+interpretation.
+
+### 6.2 Fragility 1 — the 13.1× is a ratio with a collapsing denominator
+
+| Year | Revenue per 1 of gross profit, long tail | …big batch | Ratio |
+|---|---:|---:|---:|
+| 2023 | 2.84 | 10.27 | **3.62×** |
+| 2024 | 2.68 | 13.11 | **4.89×** |
+| 2025 | 2.76 | 36.23 | **13.13×** |
+
+The headline "13.1×" nearly **quadrupled in two years** while the long tail's own margin went
+35.27 → 37.28 → 36.24, i.e. flat. **The entire movement is in the denominator.** Sensitivity:
+
+| Big-batch margin | Ratio | vs printed |
+|---|---:|---:|
+| 0.76% | 47.7× | +263% |
+| 1.76% | 20.6× | +57% |
+| **2.76% (as printed)** | **13.1×** | — |
+| 3.76% | 9.6× | −27% |
+| 5.76% | 6.3× | −52% |
+| 9.74% (the 2023 value) | 3.7× | −72% |
+
+**A one-percentage-point error in a single printed number moves the headline from 13.1× to 9.6× or
+20.6×.** This is the most fragile figure in the repository. It should be quoted as "the long tail
+generates most of the gross profit, and the multiple has ranged from 3.6× to 13.1× across three
+disclosed years", never as "13.1×".
+
+### 6.3 Fragility 2 — the counterfactual assumes overhead is fully variable
+
+The analysis holds "everything below the gross line" at 15.50 pp of revenue, derived as group gross
+margin (28.15%) minus group net margin (12.65%), and then applies it to **PCB-only** segment
+margins. Two problems, one fatal and one not.
+
+**Not fatal.** The 15.50 pp is treated as variable in revenue, but removing the big-batch segment
+removes 24.43% of PCB revenue from the same plant. If any of that overhead is fixed, the ratio
+rises:
+
+| Share of overhead assumed fixed | Overhead ratio | Long-tail-only net margin |
+|---|---:|---:|
+| 0% (as in the analysis) | 15.50% | **+20.74%** |
+| 25% | 16.75% | +19.49% |
+| 50% | 18.01% | +18.23% |
+| 75% | 19.26% | +16.98% |
+| **100%** | 20.51% | **+15.73%** |
+
+**The "a sample-and-small-batch-only JLC would be more profitable" conclusion survives even if every
+penny of overhead is fixed.** That is a strong result and it should be stated: it is robust to a
+100% error in the key assumption.
+
+**The mirror conclusion is not symmetric** and the analysis does not say so. On the same logic the
+big-batch-only counterfactual goes from −12.74% to −60.69% as overhead is moved from fully variable
+to fully fixed. The "−12.74%" printed in the analysis is the *most favourable* value in the range.
+
+**Fatal to the presentation, not the conclusion.** Mixing a group-level overhead ratio with
+PCB-level gross margins means the row labelled "the actual PCB business 28.06% → +12.56%" is not a
+computation of anything JLC reports; the reported 12.65% comes from 28.15% − 15.50%, which is true
+by construction. The counterfactual rows should be labelled as segment-margin arithmetic under a
+group cost structure, not as implied net margins.
+
+### 6.4 Fragility 3 — **order size is not customer size**, and this is the real problem
+
+`SMB-1`'s own glossary, quoted in the entry: 样板 is an order **under 1 m²**, 小批量 is **1–20 m²**,
+中大批量 is **over 20 m²**. These are **order-area bands**. They are not customer segments.
+
+The analysis reads them as customer segments throughout — "long-tail customers", "the segment with
+concentrated, price-negotiating customers", "small customers are not merely each profitable; they
+are where essentially all the profit is". **Nothing in the filing links an order-area band to a
+customer size.** A large industrial buyer ordering five prototype boards sits in the 样板 band. JLC's
+own disclosed top-five customers are Megmeet, Haier, Wasion, 华立科技 and 尚研 — large industrial
+firms — and the filing does not say which band their orders fall in.
+
+The prose `SMB-1` quotes does associate the bands with channels and with customer character (the
+online 嘉立创 block serves "highly dispersed" customers; the offline 中信华 block serves customers who
+"negotiate prices"). That is real support for the reading, and it is why the conclusion is probably
+directionally right. But it is an association stated by the company in its business narrative, not a
+measurement, and the entry's bearing on **H6** — "*small customers* can each be profitable" — is
+carried entirely by that association.
+
+**The defensible version of the finding is: small *orders* carry a high margin and large *orders*
+carry none.** That is still extremely relevant to a foundry, because a foundry's problem is exactly
+small orders. It is not the same statement as "small customers are where the profit is", and the
+repository should stop making the second one from this evidence.
+
+The separate fact that JLC's top five fell from 2.00% → 1.37% → 1.16% of revenue is genuine support
+for **H7**, and it does not depend on any of the above.
+
+### 6.5 Fragility 4 — what if the big batch is the filler?
+
+Capital is serviced out of gross profit **per unit of capacity consumed**. The filing gives revenue
+share, not area share, and the analysis correctly flags this as "does not establish". Push it
+further. Let `k` be the ratio of revenue per m² in the long tail to revenue per m² in big batch;
+`k` must be well above 1 because the bands are defined at <1 m² and >20 m².
+
+| `k` | Big batch's share of area consumed | …for 2.4% of the gross profit |
+|---|---:|---:|
+| 2 | 39.3% | 2.4% |
+| 5 | 61.8% | 2.4% |
+| 10 | 76.4% | 2.4% |
+| 20 | 86.6% | 2.4% |
+| 50 | 94.2% | 2.4% |
+
+On any plausible `k`, **the big-batch segment consumes most of the plant and returns almost
+nothing**. The analysis reads this as making the long tail look *better* ("expect it to favour the
+long tail by more than 13.1×"). There is a second reading it does not consider, and it cuts the
+other way:
+
+> This is what **yield management** looks like. Near-zero-margin bulk work absorbs capacity the
+> long tail cannot fill and carries a share of fixed cost, which is exactly why the long tail's
+> price can be held at a 36% margin. On that reading the long-tail margin is partly *enabled by*
+> the existence of the filler, and a "sample and small-batch only" JLC — which is what an open fab
+> would be — would not keep 36.24%.
+
+**Neither reading can be settled from the filing.** But the second is the one an adversarial
+reviewer will raise, it is the standard explanation for exactly this margin pattern in
+capacity-constrained manufacturing, and the analysis should state it. It also matters directly to
+`PRINCIPLES.md`: a fab that sells *only* to the long tail has nobody to sell its idle capacity to.
+
+### 6.6 What would have to be true for the decomposition to mislead
+
+In descending order of how likely each is:
+
+1. **The order-size/customer-size elision is doing the work** (§6.4). Likely; partly conceded by the
+   filing's own prose, but unresolved.
+2. **The big batch is filler that subsidises the long tail's price** (§6.5). Plausible and untested.
+3. **2025's 2.76% is an outlier and the multiple reverts to 3–5×** (§6.2). The three-year series
+   says this is the most likely single-number correction.
+4. **The overhead ratio is wrong.** Tested in §6.3; the conclusion survives a 100% error.
+5. **The disclosure is wrong.** No evidence for it; the table reconciles to 0.005 pp.
+
+### 6.7 And the caveat the analysis states but does not weigh
+
+"PCBs are not chips." The analysis says so. It is worth a number: `PAR-31` puts JLCPCB at **$2.00
+and 24 hours** against chipIgnite at **$14,950 and up to a year**. A margin structure observed at
+$2.00 and 24 hours is being used to argue about a product at 7,500× the price and 365× the wait.
+That is not an argument against using it — it is the best analogue available — but it should be
+carried in the same sentence as the 97.6%.
+
+---
+
+*Sections 7 (sensitivity), 8 (arithmetic errata), 9 (small-number statistics), 10 (verdict table)
+and 11 (the strongest argument against the project) follow.*
