@@ -185,8 +185,8 @@ directory.
 - **DERIVED (arithmetic written out):**
   - Capex per square foot: $65,000,000 / 57,000 sq ft = **$1,140 per sq ft**.
   - Public subsidy per new job: $930,000 / 50 jobs = **$18,600 per job over ten years**.
-  - Verified with `uv run python tmp/arith.py` (script deleted after use; the two divisions above are
-    the whole of it).
+  - Both divisions were checked with a throwaway Python script, deleted after use; the two lines
+    above are the whole of it.
 - **Bears on:** H6 (context — this is the closest thing found to a public capex figure for a *small,
   modern, non-leading-edge* fab expansion, and it is the denominator any "can small customers pay for
   themselves" calculation needs); H5 (context).
@@ -259,7 +259,7 @@ directory.
 
 - **DERIVED (arithmetic written out):** $3,000,000 / $750,000,000 = **0.400%** of the price the site
   reportedly changed hands for around 2000 — a factor of **250** lower. Verified with
-  `uv run python tmp/arith.py`.
+  a throwaway Python script, deleted after use.
 - **Read this entry together with IHF-8**, which gives the audited accounts of the same fab. The price
   is only interpretable against them: $3.0M bought a business turning over about EUR 2.9 million a
   year and losing money on it. The low price is not a bargain so much as a valuation.
@@ -481,7 +481,7 @@ directory.
   - PolyMUMPs: EUR 3,700 / (10 mm × 10 mm = 100 mm²) = **EUR 37.0 per mm²**.
   - SOIMUMPs and PiezoMUMPs: EUR 3,700 / (11 mm × 11 mm = 121 mm²) = **EUR 30.6 per mm²**.
   - Per delivered die: EUR 3,700 / 15 = **EUR 247 per chip**.
-  - Verified with `uv run python tmp/arith.py`.
+  - Checked with a throwaway Python script, deleted after use; the arithmetic above is the whole of it.
 - **Bears on:** H6 (**supports** — EUR 3,700 for a fixed 1 cm² tile and 15 finished MEMS chips is a
   genuinely small ticket, and the programme ran for "over a decade" at that kind of price); H5
   (mixed — the flyer's own description of its customer base is "many universities … to teach
@@ -517,7 +517,7 @@ directory.
   - Minimum ticket, standard rate: EUR 1,253/mm² × 10 mm² = **EUR 12,530**.
   - Minimum ticket, discounted rate: EUR 1,168/mm² × 10 mm² = **EUR 11,680**.
   - Against PolyMUMPs' 2020 block rate: EUR 1,253 / EUR 37.0 per mm² = **33.9× more per mm²**.
-  - Verified with `uv run python tmp/arith.py`.
+  - Checked with a throwaway Python script, deleted after use; the arithmetic above is the whole of it.
 - **Bears on:** H6 (**supports** — the minimum billable area is the fixed cost per small customer made
   explicit, exactly as `SMB-7`/`SMB-8` found for silicon MPWs, and it is now EUR 12,530 before a
   single mm² of useful design); H5 (challenges — Europe's flagship prototyping programme carries one
@@ -560,7 +560,7 @@ floor area, all audited.
   by the Group's statutory auditors"; the annual report is the audited filing.
 - **How it was counted:** no counting was needed — the figures are line items. The derivations under
   DERIVED are divisions of those line items, written out below and checked with
-  `uv run python tmp/arith2.py`.
+  a throwaway Python script, deleted after use.
 - **What it says.**
 
   **The plant.** From the annual report's description of the subsidiaries (§ on MEMSCAP Inc.), the
@@ -624,7 +624,7 @@ floor area, all audited.
   of MEMSCAP", and the strategic section states the fab "includes the US production plant, teams,
   equipment, technologies and related customers". The group swung from a EUR 328 thousand net loss in
   FY2021 to a EUR 1,048 thousand net profit in FY2022.
-- **DERIVED (arithmetic written out):** all checked with `uv run python tmp/arith2.py`.
+- **DERIVED (arithmetic written out):** all checked with a throwaway Python script, deleted after use.
   - Cleanroom area in US units: 475 m² × 10.7639 = **5,113 sq ft**.
   - Science's planned expansion against it: 57,000 sq ft (IHF-2) / 5,113 sq ft = **11.1×** the
     existing plant area.
@@ -752,7 +752,7 @@ different technology, by a company that had to disclose it.
   a **$38.6 million judgment** in litigation brought by Qorvo, and states that without relief "the
   Company will be required to seek protection under applicable bankruptcy laws". This was a
   litigation failure, not a demonstration that owning a small fab does not work.
-- **DERIVED (arithmetic written out):** checked with `uv run python tmp/arith3.py`.
+- **DERIVED (arithmetic written out):** checked with a throwaway Python script, deleted after use.
   - Price per square foot of facility: $2,750,000 / 120,000 sq ft = **$22.92 per sq ft** — including
     the tools, the 57 acres and an operating business.
   - Buying used against the company's own build-new estimate: $50,000,000 (a *floor*; the source says
