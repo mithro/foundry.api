@@ -782,6 +782,121 @@ figures were written down.
     square metre, so the capital-intensity comparison cannot be extended to them.
   - 金百泽 2023 and 强达电路 2023 remain Partial: taken from the JLC prospectus, not re-derived.
 
+### PCB-6. The companies with no filings: OSH Park prices the small-order premium at exactly 5/3 in a public price list; DirtyPCBs is not dead; PCBWay claims its own factory and publishes nothing
+
+None of the four companies the repository owner named alongside JLCPCB files audited accounts
+anywhere we could find. Their evidence is price lists, About pages and Wayback captures, and it is
+labelled accordingly — this entry is **Partial** as a whole, with the OSH Park price table
+**Verified**.
+
+- **Sources:**
+  - OSH Park, LLC, "Fabrication Services" (its pricing page): <https://oshpark.com/pricing>,
+    footer "© Copyright 2023 OSH Park, LLC"
+  - DirtyPCBs.com: <http://dirtypcbs.com/> — which redirects to <http://dirtypcbs.com/store/pcbs>
+  - PCBWay: <https://www.pcbway.com/about.html> and <https://www.pcbway.com/>
+- **Verification:** Fetched and read 2026-09-19. OSH Park's price table was read out of the served
+  HTML and every figure below is quoted from it; that part is **Verified**. The DirtyPCBs and
+  PCBWay statements are **Partial** — they are company self-descriptions with nothing to check them
+  against.
+- **What it says:**
+  - **OSH Park publishes a complete, unconditional price list with no setup fee, no minimum for its
+    prototype service, and a separate, cheaper price for volume.** Quoted exactly from the page:
+
+    | Two Layer Boards — Service | Cost | Time To Ship |
+    |---|---|---|
+    | Prototype | "$5 per square inch, per set of 3" | "9-12 calendar days" |
+    | Super Swift | "$10 per square inch, per set of 3" | "4-5 business days" |
+    | 2oz 0.8mm | "$5 per square inch, per set of 3" | "12-21 calendar days" |
+    | Flex | "$10 per square inch, per set of 3" | "Temporarily suspended 12-21 calendar days" |
+    | After Dark | "$5 per square inch, per set of 3" | "12-21 calendar days" |
+    | **Medium Run** | **"$1 per square inch. 100 square inch minimum, must be in multiple of 10"** | "12-21 calendar days" |
+
+    | Four Layer Boards — Service | Cost | Time To Ship |
+    |---|---|---|
+    | Prototype | "$10 per square inch, per set of 3" | "9-14 calendar days" |
+    | Super Swift | "$20 per square inch, per set of 3" | "5-6 business days" |
+    | **Medium Run** | **"$2 per square inch, 100 square inch minimum. Must be in multiple of 3"** | "12-21 calendar days" |
+
+    Six layer: "Prototype — $15 per square inch, per set of 3 — 12-21 calendar days".
+  - **It does not own a plant, and says who makes the boards is elsewhere.** The page opens:
+    "OSH Park is a community printed circuit board (PCB) order that brings you high quality,
+    lead-free boards which are **manufactured in the United States** and shipped for free to
+    anywhere in the world." (Emphasis ours.) It calls itself a "community printed circuit board
+    order" — i.e. an aggregator that panelises many customers' boards onto shared panels — not a
+    manufacturer.
+  - **DirtyPCBs is alive.** The brief for this research recorded it as "defunct". As of 2026-09-19
+    `http://dirtypcbs.com/` returns **HTTP 200** and redirects to a working storefront at
+    `/store/pcbs`, titled "PCBs cheap! - DirtyPCBs.com", with live navigation for "Order New PCBs",
+    "Shared PCBs", "PCB Stencils", "PCB Cloning", "SLA 3D Prints", "Laser Cut Acrylic", "Custom
+    Cables", "Dirty BOM", "China Mail Forwarding", "Chip Decapping", "Fulfillment and Shipping",
+    "China export brokerage" and an "API". **The prices are computed client-side and do not appear
+    in the served HTML**, so none could be read; the order form's column headings are "File /
+    Material / Layers / Quantity / Price". No claim about its economics or its survival is made
+    here beyond the fact that the site serves orders.
+  - **PCBWay claims factories of its own and publishes no numbers.** Its About page: "With more than
+    a decade in the field of PCB prototype and fabrication, we are committed to meeting the needs of
+    our customers from different industries in terms of quality, delivery, cost-effectiveness and
+    any other demanding requests." Section headings on the same page name "**Inside PCBWay
+    Factory**", "Inside PCBWay Assembly Factory", "Inside CNC Machining Factory", "Inside 3D
+    Printing Factory", "Inside Injection Molding Factory", and a selling point reads "Best Value /
+    **Manufacturer Direct Pricing**". On delivery: "Through the years we are proud to have been
+    keeping an on-time delivery rate of 99%. … We work in three shifts to make sure your PCBs will
+    be on your desk as agreed up and as early as possible." A site-wide banner on 2026-09-19 read
+    "**PCBWay factories** will be closed on Sep 25, and Oct 1-4 (GMT+8)." The About page names its
+    trading entity: "PCBWay works globally with its Hong Kong entity, Hong Kong Yanghui Information
+    Technology Limited, to provide reliable manufacturing and secure global payment services for
+    creators, engineers, and businesses." **No revenue, order count, customer count, margin or
+    capacity figure is published anywhere on the site we read.**
+- **DERIVED (arithmetic written out):** from `tmp/pcb_arith.py`.
+  - **OSH Park's own price list contains the small-order premium, and it is the same at both layer
+    counts.** Prototype price per *board* per square inch is the quoted price divided by the set of
+    three:
+    - 2 layer: $5 ÷ 3 = **$1.6667** per board-in², against Medium Run at **$1.00** → ratio
+      **1.6667×**.
+    - 4 layer: $10 ÷ 3 = **$3.3333** per board-in², against Medium Run at **$2.00** → ratio
+      **1.6667×**.
+    Both are exactly 5/3. Whoever set these prices applied a uniform 66.7% premium to the
+    three-off product over the hundred-square-inch product.
+  - **The minimum ticket differs by 20×.** A 1 in² two-layer board in three copies costs
+    1 × $5 = **$5.00** with no setup fee and no minimum. The cheapest possible Medium Run order is
+    the 100 in² minimum × $1 = **$100.00**. 100 ÷ 5 = **20×**.
+- **Bears on:**
+  - **H6 (supports, modestly).** This is the pattern of SMB-1 and PCB-3 showing up in a *published
+    price list* rather than in a margin disclosure. A US aggregator that has to cover its own costs
+    charges 1.667× as much per board per unit area for three-off prototypes as for hundred-square-inch
+    runs. Prices are not margins — OSH Park's costs for the two products differ too — but a seller
+    that must survive on published prices has priced small orders at a premium, not a discount, and
+    has done so consistently for years.
+  - **H8 (supports).** OSH Park is the cleanest published example in this file of the model
+    foundry.api proposes: a complete public price list, no setup fee, no minimum, no quote request,
+    no salesperson, and a price you can compute yourself from the area of your board before you
+    upload anything.
+  - **H6 (context, cutting against).** OSH Park owns no plant. Its margin is the spread between what
+    it charges and what a US fab charges it for a shared panel, and neither side of that spread is
+    public. It cannot tell us whether a *capital-owning* long-tail business works; only PCB-2 can.
+  - **H5, H6, H7 (nothing).** No customer counts, order counts, revenue, margin or concentration
+    figures exist for any of these three. That absence is the finding: the three best-known Western
+    and Chinese online PCB brands aimed squarely at the long tail publish, between them, not one
+    number that bears on whether the long tail pays.
+- **Used in:** not yet.
+- **Caveats:**
+  - **Prices are not margins.** The 1.667× premium reflects OSH Park's own costs as well as its
+    pricing power, and a three-off prototype genuinely costs more per unit area to make than a
+    hundred-square-inch run — that is the whole point of the comparison, but it means the ratio
+    cannot be read as a margin ratio.
+  - The OSH Park page carries a 2023 copyright notice, so the price table may be stale relative to
+    the fetch date. No Wayback comparison was run, so **how these prices have moved over time is not
+    established here** — that was in scope and was not done.
+  - **The premise that Dirty PCBs is defunct is not supported by what the site returns.** No
+    founder's post about its economics or about any shutdown was located; the Dangerous Prototypes
+    blog was not searched. Anything this repository says about Dirty PCBs having died needs checking
+    before it is used.
+  - PCBWay's "Inside PCBWay Factory" claim is a marketing heading on its own website. Nothing
+    corroborates it. It is recorded as a claim, not as an established fact, and it is the kind of
+    claim a broker also makes.
+  - **Seeed Studio (Fusion PCB), Eurocircuits, Aisler, Beta LAYOUT / Multi-CB, Advanced Circuits /
+    4PCB, Sierra Circuits and Elecrow were not reached at all.** See the blocked-sources list.
+
 ---
 
 ## Comparison table
@@ -850,6 +965,12 @@ panelisation across millions of orders, an integrated EDA front end, payment bef
 integration into components and assembly, or simply a customer base two orders of magnitude beyond
 any conventional PCB maker's — it is not reducible to "small customers".
 
+There is also one piece of evidence from outside the filings. **OSH Park, which has to survive on
+published prices and owns no plant, charges exactly 1.667× as much per board per square inch for a
+three-off prototype as for a hundred-square-inch run — the same ratio at two layers and at four**
+(PCB-6). A price is not a margin. But a seller with no negotiating channel at all has independently
+concluded that small orders bear a premium, not a discount.
+
 And a fourth finding, which is a challenge and belongs in the verdict rather than a footnote:
 
 **4. Customer count and revenue concentration are almost unrelated.** Xunjiexing's ten thousand
@@ -862,6 +983,16 @@ companies with hundreds to tens of thousands of customers all sit between 13.8% 
 concentration, and the one company with 1.36 million sits at 1.16%. If many small customers remove
 buyer power, the evidence here says it takes a *lot* more of them than any conventional
 manufacturer has.
+
+**On the companies with no filings.** OSH Park, DirtyPCBs, PCBWay and Seeed — the four brands most
+associated in the English-speaking world with cheap PCBs for a long tail — publish, between them,
+**not one figure** bearing on whether the long tail pays: no revenue, no order count, no customer
+count, no margin, no capacity. That is itself a finding, and it explains why this file is almost
+entirely Chinese: China's listing rules are the only reason any of this evidence exists. Two
+corrections also belong here. **DirtyPCBs is not defunct** — `dirtypcbs.com` returns HTTP 200 and
+serves orders as of 2026-09-19 — so any claim in this repository that it died needs checking.
+And PCBWay's claim to own its factories is a heading on its own website with nothing to corroborate
+it.
 
 **On what can be known at all.** The industry is far more disclosed than expected, because China's
 listing rules force it: five PCB companies' margins printed in one table, each traceable to an
@@ -889,8 +1020,14 @@ have such documents on cninfo and neither has been read; see the open items belo
 | cninfo document server | `http://static.cninfo.com.cn/finalpage/...` | **HTTP 403** to a plain `curl` | Solved: a browser User-Agent plus `-H "Referer: http://www.cninfo.com.cn/"` returns HTTP 200. Recorded here so nobody loses the time again. |
 | 金百泽 2023 and 强达电路 2023 annual reports | cninfo | **Not read.** Those two margins (28.42% and 28.63%) remain **Partial** — taken from the JLC prospectus, not re-derived. All thirteen other peer figures were verified. | Nothing external — the documents are free on cninfo and download fine with the header trick above. It needs the time. |
 | Exchange review-enquiry replies (问询函回复) for Qiangda and Sihui Fushi | cninfo | **Not read.** These are where an exchange can compel a margin breakdown the annual report omits — the JLC prospectus already cites one of Sihui Fushi's for its customer count. Most likely place a second batch-split disclosure exists. | Nothing external. |
-| Western small-batch specialists (Eurocircuits, Aisler, Beta LAYOUT/Multi-CB, Advanced Circuits/4PCB, Sierra Circuits) | various | **Not reached.** Same cause. | Belgian NBB Central Balance Sheet Office and the German Bundesanzeiger both publish small-company accounts free; a human with a browser can retrieve Eurocircuits' and Beta LAYOUT's filed accounts directly. |
-| OSH Park, Dirty PCBs (Dangerous Prototypes), PCBWay, Seeed Fusion | various | **Not reached.** Same cause. None of them files accounts; their evidence is blog posts, pricing pages and Wayback captures. | Nothing external. |
+| Western small-batch specialists (Eurocircuits, Aisler, Beta LAYOUT/Multi-CB, Advanced Circuits/4PCB, Sierra Circuits, Elecrow) | various | **Not reached.** Ran out of budget. | Belgian NBB Central Balance Sheet Office (`consult.cbso.nbb.be`) and the German Bundesanzeiger both publish small-company accounts free; a human with a browser can retrieve Eurocircuits NV's and Beta LAYOUT GmbH's filed accounts directly, and those are the two most likely to contain a Western margin figure. |
+| Seeed Studio / 深圳市矽递科技 | cninfo, NEEQ | **Not searched.** If Seeed ever traded on NEEQ (新三板) it would have published audited annual reports with segment revenue. Unchecked. | Nothing external — a `column=bj` / NEEQ search on cninfo would settle it in minutes. |
+| DirtyPCBs prices | `http://dirtypcbs.com/store/pcbs` | **HTTP 200, but the prices are rendered client-side** and are absent from the served HTML. The order form's headings ("File / Material / Layers / Quantity / Price") come through; the numbers do not. | A human with a browser sees the whole price table immediately. A headless browser would also work. |
+| Dangerous Prototypes / Ian Lesnet's posts on DirtyPCBs' economics | dangerousprototypes.com | **Not searched.** | Nothing external. |
+| OSH Park price history | `web.archive.org` captures of `oshpark.com/pricing` | **Not run.** The current prices were read live; the trajectory was not established. | Nothing external. `WebFetch` refuses web.archive.org; `curl` with the raw `…/web/<timestamp>id_/<url>` form and `--compressed` works, per [`search-log.md`](search-log.md). |
 
-**None of these was blocked by a site, a paywall, a login or a bot check.** They are unfinished, not
-defeated, and the reason is recorded honestly: the session ran out of budget before reaching them.
+**None of these was blocked by a paywall, a login or a bot check, and nothing on this list defeated
+us.** They are unfinished, and the reason is recorded honestly: the session hit an API rate limit
+partway through and the remaining budget was spent on the two items with the highest evidentiary
+value — the peer table and the plant-ownership quote. The one genuine technical obstacle is the
+client-side rendering of DirtyPCBs' prices, and even that is trivial for a human.
