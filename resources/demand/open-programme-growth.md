@@ -1120,3 +1120,73 @@ while the older subsidised programmes did not — is
     of an open-PDK shuttle whose numbers could be compared with Efabless's.
   - "40 bare die" against chipIgnite's "100 QFN packaged parts" makes the two prices not directly
     comparable.
+
+### OPG-20. The Open MPW submission windows, read off Efabless's own shuttle pages — and the "30 days" everyone quotes for MPW-1 is not what the platform said
+
+- **Sources:** the archived Efabless shuttle pages on `platform.efabless.com`, raw-content form. Each
+  page prints its own schedule as two lines, "<date>: Project submission is OPEN" and
+  "<date>: Project submission is CLOSED at 23:59 PT".
+  - MPW-1: <https://web.archive.org/web/20240227030521id_/https://platform.efabless.com/shuttles/MPW-1>
+  - MPW-7: <https://web.archive.org/web/20221204010751id_/https://platform.efabless.com/shuttles/MPW-7>
+  - MPW-8: <https://web.archive.org/web/20221121184401id_/https://platform.efabless.com/shuttles/MPW-8>
+  - GF MPW-0: <https://web.archive.org/web/20221115002500id_/https://platform.efabless.com/shuttles/GFMPW-0>
+  - GF MPW-1: <https://web.archive.org/web/20240227030244id_/https://platform.efabless.com/shuttles/GFMPW-1>
+  - MPW-6's window is not on a surviving page; it comes from `DEM-6` (Efabless's own programme page:
+    "April 11, 2022: Project submission is OPEN", "June 8, 2022: Project submission is CLOSED") and is
+    corroborated by Google's blog, `DEM-5`: "the next MPW-6 shuttle will accept open source project
+    submissions until Monday, June 8, 2022."
+- **Verification:** **Verified 2026-09-19.** The five platform pages were fetched with `curl` and
+  their schedule lines read directly.
+- **How it was counted** (reproducible): the Wayback CDX API lists every archived
+  `platform.efabless.com/shuttles*` URL; for each shuttle, a capture was fetched in the
+  `/web/<timestamp>id_/` raw form and the two schedule lines extracted.
+- **What it says:**
+
+  | Shuttle | Submission opened | Submission closed | **Window** | Submissions (`OPG-1` sheet) | Submissions (`OPG-2` page) | **Per day** (sheet) |
+  |---|---|---|---|---|---|---|
+  | MPW-1 | 2020-11-12 | 2021-02-19 | **99 d** | 37 | 37 (45 per `DEM-6`/`DEM-7`) | **0.37** (0.45 on 45) |
+  | MPW-2 | *not recoverable* | 2021-06-18 (tapeout) | — | 57 | 57 | — |
+  | MPW-3 | *not recoverable* | 2021-11-15 (tapeout) | — | 53 | 53 | — |
+  | MPW-4 | *not recoverable* | 2021-12-31 (tapeout) | — | 52 | 52 | — |
+  | MPW-5 | *not recoverable* | 2022-03-21 (tapeout) | — | 75 | 76 | — |
+  | MPW-6 | 2022-04-11 | 2022-06-08 | **58 d** | 90 | 86 | **1.55** |
+  | MPW-7 | 2022-07-08 | 2022-09-12 | **66 d** | 106 | 110 | **1.61** |
+  | MPW-8 | 2022-11-19 | 2022-12-31 | **42 d** | 147 | 144 | **3.50** |
+  | GF MPW-0 | 2022-10-31 | 2022-12-05 | **35 d** | 88 | 86 | **2.51** |
+  | GF MPW-1 | 2023-10-28 | 2023-12-11 | **44 d** | 116 | 116 | **2.64** |
+
+- **DERIVED (arithmetic written out; computed with `uv run python` in a throwaway script and
+  reproducible from the figures shown):**
+  - MPW-1: 2020-11-12 → 2021-02-19 = **99 days**; 37 ÷ 99 = **0.37/day**, 45 ÷ 99 = **0.45/day**.
+  - MPW-6: 2022-04-11 → 2022-06-08 = **58 days**; 90 ÷ 58 = **1.55/day**.
+  - MPW-7: 2022-07-08 → 2022-09-12 = **66 days**; 106 ÷ 66 = **1.61/day**.
+  - MPW-8: 2022-11-19 → 2022-12-31 = **42 days**; 147 ÷ 42 = **3.50/day**.
+  - GF MPW-0: 2022-10-31 → 2022-12-05 = **35 days**; 88 ÷ 35 = **2.51/day**.
+  - GF MPW-1: 2023-10-28 → 2023-12-11 = **44 days**; 116 ÷ 44 = **2.64/day**.
+- **Bears on:**
+  - **`ACC-8`'s per-day comparison, which it destroys from the Google side as well as the AFRL side.**
+    `ACC-8` divided MPW-1's 45 submissions by **30 days**. Efabless's own platform says the MPW-1
+    submission window was **99 days**. The "30 days" in the SkyWater press release (`DEM-4`) and on
+    Efabless's marketing page (`DEM-6`) is either how long it took to *fill the 40 slots* or an
+    error; it is not the submission window the platform recorded. **Both denominators in `ACC-8` were
+    wrong, in opposite directions.**
+  - **H5 (supports), on the honest version of the comparison.** Against AFRL's 82 ÷ 78 = 1.05
+    proposals a day (`ACC-15`), **four of the six Google shuttles with a recoverable window beat it**,
+    and MPW-8 beat it by **3.3×** (3.50 ÷ 1.05). The one Google shuttle that loses is **MPW-1 — the
+    one `ACC-8` chose**.
+  - **H5 (context) on the metric itself.** Submissions per day of window is a bad measure for a
+    programme with a hard 40-slot cap: MPW-8 looks fastest partly because its window was shortest and
+    the community already knew the deadline. The reason to compute it is to show that it does not
+    support the claim `ACC-8` made with it, not to make the opposite claim.
+- **Used in:** [`../analyses/open-access-audit.md`](../analyses/open-access-audit.md) §6.5.
+- **Caveats:**
+  - **Four of the ten windows are not recoverable.** Every surviving capture of the MPW-2, MPW-3,
+    MPW-4 and MPW-5 pages was taken *after* tapeout, and on those captures the template prints the
+    same date for "OPEN" and "CLOSED" (both equal to the tapeout date). They are therefore left blank
+    rather than guessed. The Wayback CDX API holds no pre-tapeout capture of any of them.
+  - The submission counts are the ones already recorded and already disputed: `OPG-1` (the owner's
+    sheet) and `OPG-2` (Efabless's own statistics block) disagree by a few on most shuttles and by 8
+    on MPW-1, where `DEM-6` and `DEM-7` say 45 and both machine sources say 37. Both are shown.
+  - A "window" here is a calendar span, not an exposure: MPW-1 was the first of its kind and had no
+    audience; MPW-8 was the eighth and had a community of thousands. Dividing by days does not
+    correct for that, which is the point.

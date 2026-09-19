@@ -7,10 +7,13 @@ own direct offerings are **not yet audited** and are marked as such in the matri
 eighteen rows filled in and the rest marked honestly is more useful than a complete one that does not
 exist.
 
-**One of our own claims has already been withdrawn.** `ACC-4` originally read Europractice's 2026
+**Two of our own claims have now been withdrawn.** `ACC-4` originally read Europractice's 2026
 price list as tightening its eligibility rules. `ACC-12` — CMP's October 2019 price list, recovered
-later in the same session — shows the condition was seven years old. The claim is corrected in place
-rather than quietly removed, and it is listed in §4 alongside everyone else's contradictions.
+later in the same session — shows the condition was seven years old. And the AFRL/AFWERX comparison
+this audit called "the audit's best counter-example" **does not survive contact with the primary
+sources**: see the corrections at §3.15 and §6.2(a) and the whole of **§6.5**, added 2026-09-19 after
+the repository owner challenged it. Both claims are corrected in place rather than quietly removed,
+and the first is listed in §4 alongside everyone else's contradictions.
 
 ---
 
@@ -448,21 +451,31 @@ at STMicroelectronics, ams and CEA-Leti due to administrative reasons". A succes
 in Europractice's 2026 schedule as the body designs are submitted to (`ACC-4`), but its own terms were
 **not audited**.
 
-### 3.15 The AFRL / AFWERX design challenge, 2018–2020 — **context row, and the audit's best counter-example · S**
+### 3.15 The AFRL / AFWERX *Advanced Microelectronics Design and Prototype Challenge*, 2018–2020 — **context row · S** *(rewritten 2026-09-19; the old version of this section was wrong)*
 
 Closed on almost every criterion: the node was 14 nm, "the designs were proprietary", entry was by
 competition, and selection was by a government body. **A4 = 0, A5 = 0, A7 = 0.** The one open
 criterion is unusual: "the entrants had to agree to publish their IC designs, the intended
-applications and other key information in order to enter the challenge" (`ACC-8`).
+applications and other key information in order to enter the challenge" (`ACC-8`) — although the Air
+Force's own page also promised "maintaining the design IP that is **yours to retain**" (`ACC-15`).
 
-**It drew 82 unique IC designs in 45 days, "80 percent from small enterprises and academics", with
-"the cost of IP, EDA and foundry … covered" if selected** (`ACC-8`, **Partial** — Efabless's own
-newsletter describing someone else's programme; the primary AFRL source was not found).
+**What it actually was.** Six phases over about eighteen months, run by AFRL at Wright-Patterson AFB
+with AFWERX Vegas, with Efabless as a paid consultant on phases 1 and 2 (`ACC-13`, `ACC-15`).
+**Phase 1 — a paper round — ran 2018-11-05 to 2019-01-22 (78 days) and drew 82 *proposals*:**
+"effectively **summary business plans** including an architectural-level IC **block diagram** … team
+bios" (`ACC-13`). **Ten of the 82 were selected** to go through to final design and demonstration
+(`ACC-14`). Entry was free and there was no prize: "There is no charge to register, there is no charge
+to participate" (`ACC-15`); "no guarantees, no prizes and no contracts" (`ACC-13`). Selected
+participants got an EDA and IP licence the Air Force valued at "$10M per license", fabrication access,
+and unquantified "funding available" in later phases (`ACC-15`).
 
-**DERIVED:** 82 ÷ 45 days = **1.82 designs a day**, against Google's first open shuttle at 45 ÷ 30 =
-**1.50 a day** (or 37 ÷ 30 = 1.23 on Efabless's own platform count). **A closed, gate-kept,
-government-funded competition out-drew the open shuttle per day of open window.** §6.2 deals with
-what that does and does not show.
+> **CORRECTION, 2026-09-19.** This section used to be headed "the audit's best counter-example" and
+> derived "82 ÷ 45 days = **1.82 designs a day**, against Google's first open shuttle at 45 ÷ 30 =
+> **1.50 a day** … **A closed, gate-kept, government-funded competition out-drew the open shuttle per
+> day of open window.**" **That is withdrawn.** The window was 78 days, not 45; what was counted was
+> business plans, not designs; Google's MPW-1 window was 99 days, not 30; and the AFRL rate of 1.05
+> proposals a day is beaten by **four of the six Google shuttles whose window can be recovered**, the
+> fastest by 3.3×. **§6.5 sets out the corrected comparison in full.**
 
 ---
 
@@ -607,7 +620,7 @@ audited. **Score = points ÷ points available on the criteria actually establish
 | **TSMC cyberShuttle** | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | ? | 0 | **0/18** | **P/M** | not published |
 | **CMC Microsystems** | 0 | — | 0 | — | 0 | — | — | — | — | — | **0/6** | **U(S)** | 240 prototypes 2025-26 |
 | **CMP (defunct)** | — | — | — | — | — | — | — | — | — | — | **n/a** | **U(S)** | peaked 401 circuits/yr |
-| **AFRL design challenge** | — | — | — | 0 | 0 | — | 0 | — | — | — | **0/6** | **S** | 82 designs in 45 days |
+| **AFRL design challenge** | — | — | — | 0 | 0 | — | 0 | — | — | — | **0/6** | **S** | 82 *proposals* in 78 days; 10 selected (§6.5) |
 | Silex, Teledyne DALSA, Tronics, IMT | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
 | imec, Fraunhofer, VTT | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
 | SkyWater direct, GF direct | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
@@ -687,11 +700,14 @@ MOSIS (~3,000 orders a year at peak, and its free arm NSF-funded), CMC (13,495 d
 publicly funded), Google Open MPW (821 submissions, Google-funded). The unsubsidised ones are the
 small ones.
 
-And the **AFRL design challenge is a direct counter-example on the growth question**: a closed-PDK,
+~~And the **AFRL design challenge is a direct counter-example on the growth question**: a closed-PDK,
 proprietary-design, competition-gated, government-funded programme drew **82 designs in 45 days** —
-**DERIVED** 1.82 a day against Google's 1.50 a day on MPW-1 (`ACC-8`). Whatever drew those people, it
-was not an open PDK, because there was not one. It was that somebody else paid for IP, EDA and
-foundry.
+**DERIVED** 1.82 a day against Google's 1.50 a day on MPW-1 (`ACC-8`).~~ **Withdrawn 2026-09-19.** The
+AFRL window was 78 days and what it counted was business plans; on the corrected figures the AFRL rate
+of 1.05 a day is beaten by four of the six Google shuttles with a recoverable window, and the only one
+it beats is MPW-1 — the shuttle this paragraph chose. **§6.5** sets out the whole comparison. The
+argument in this subsection now rests entirely on Europractice, MOSIS, CMC and Google themselves,
+which is enough for it; **AFRL was never needed and never supported it.**
 
 **What survives the challenge.** Subsidy explains the *level* but not the *slope*. Europractice ran
 between 363 and 614 designs a year for eighteen consecutive years while subsidised throughout
@@ -797,6 +813,174 @@ publishing it.
 
 ---
 
+### 6.5 The AFRL comparison, redone from the primary sources — and why our own version of it was cherry-picked
+
+*Added 2026-09-19, after the repository owner challenged §3.15 and §6.2. The challenge was right.*
+
+The audit used to argue that the AFRL/AFWERX challenge "drew **82 designs in 45 days**, i.e. **1.82/day
+against Google's first open shuttle at 1.50/day**", and concluded that *"somebody else pays"* might be
+the operative variable rather than *"the PDK is open"*. Four objections were put to it: that 45 days
+was only the first shuttle and later shuttles were bigger; that the incentive structures might not be
+comparable; and how much money went into each. This section answers all four from primary sources that
+the earlier pass recorded as unfindable and which have now been found.
+
+#### (a) What the AFRL programme actually was
+
+Its name is the **Advanced Microelectronics Design and Prototype Challenge**, run by AFRL at
+Wright-Patterson AFB in partnership with **AFWERX Vegas**, with **Efabless as a paid consultant on
+phases 1 and 2** and Centauri (a KBR company) named as an organiser (`ACC-13`, `ACC-15`, `ACC-16`).
+Its own challenge page (`ACC-15`) sets out **six** phases over about eighteen months:
+
+| Phase | What it asked for | Window, as printed | ISO |
+|---|---|---|---|
+| 1 | **Submit Proposals** | SUBMIT: 11/5/18 — 1/22/19 | **2018-11-05 → 2019-01-22** |
+| 2 | Design & Simulation | SUBMIT: 3/1/19 — 6/28/19 | 2019-03-01 → 2019-06-28 |
+| 3 | Physical Design | SUBMIT: 8/6/19 — 10/4/19 | 2019-08-06 → 2019-10-04 |
+| 4 | Physical Prototype | SUBMIT: 10/22/19 — 4/18/20 | 2019-10-22 → 2020-04-18 |
+| 5 | Prototype Testing | TBD | — |
+| 6 | Full Production | TBD | — |
+
+**82 is the phase-1 number, and phase 1 was a paper round.** Efabless, writing at the time as the
+programme's own consultant: "**Eighty-two proposals were submitted!!**… The proposals are effectively
+**summary business plans** including an architectural-level IC **block diagram**, a description of the
+targeted application… **team bios**" (`ACC-13`). **Ten of the 82 were selected** to go through to
+final design and demonstration (`ACC-14`).
+
+A Google Open MPW submission was a different object entirely: a GDSII in a fixed Caravel harness,
+reproducible from source, that had to pass the "Open MPW precheck tool, including LVS and DRC clean"
+before it counted (`ACC-9`). **A business plan and a DRC-clean GDSII are not the same unit, and no
+arithmetic on days makes them one.** That, and not the arithmetic, is the fatal objection to the old
+comparison.
+
+#### (b) Every Google shuttle with a count and a window, against AFRL
+
+`OPG-20` recovers the submission windows from Efabless's own shuttle pages. Six of the ten are
+recoverable; the MPW-2…MPW-5 pages survive only in post-tapeout captures that print the tapeout date
+for both ends. **DERIVED throughout; computed with `uv run python` and written out below so it can be rechecked:**
+
+| Programme / shuttle | Submissions | Window | **Per day** | Notes |
+|---|---|---|---|---|
+| **AFRL phase 1** | **82 proposals** | 2018-11-05 → 2019-01-22 = **78 d** | **1.05** | paper proposals; 10 selected |
+| Google MPW-1 | 37 (sheet) / 45 (`DEM-6`) | 2020-11-12 → 2021-02-19 = **99 d** | **0.37 / 0.45** | GDSII; 40 manufactured |
+| Google MPW-2 | 57 | not recoverable | — | |
+| Google MPW-3 | 53 | not recoverable | — | |
+| Google MPW-4 | 52 | not recoverable | — | |
+| Google MPW-5 | 75 | not recoverable | — | |
+| Google MPW-6 | 90 | 2022-04-11 → 2022-06-08 = **58 d** | **1.55** | |
+| Google MPW-7 | 106 | 2022-07-08 → 2022-09-12 = **66 d** | **1.61** | Tiny Tapeout packed 152 projects into one slot here (`OPG-5`) |
+| Google MPW-8 | 147 | 2022-11-19 → 2022-12-31 = **42 d** | **3.50** | |
+| Google GF MPW-0 | 88 | 2022-10-31 → 2022-12-05 = **35 d** | **2.51** | |
+| Google GF MPW-1 | 116 | 2023-10-28 → 2023-12-11 = **44 d** | **2.64** | |
+
+Arithmetic, written out: 82 ÷ 78 = 1.051; 37 ÷ 99 = 0.374 and 45 ÷ 99 = 0.455; 90 ÷ 58 = 1.552;
+106 ÷ 66 = 1.606; 147 ÷ 42 = 3.500; 88 ÷ 35 = 2.514; 116 ÷ 44 = 2.636.
+
+**The honest comparison says the opposite of what the audit said.** Of the six Google shuttles with a
+recoverable window, **four are faster than AFRL** and the fastest is **3.3× faster** (3.50 ÷ 1.05 =
+3.33). The single Google shuttle that AFRL beats is **MPW-1 — the first, smallest, least-known run,
+and the one the audit chose.** That is a cherry-pick, and it was ours.
+
+Two further corrections in the same direction and one against:
+
+- **Against us:** the "30 days" the audit used for MPW-1 is not the window. Efabless's own platform
+  prints "November 12, 2020: Project submission is OPEN" and "February 19, 2021: Project submission is
+  CLOSED" — **99 days** (`OPG-20`). On the real window MPW-1 is *slower* than we said, 0.37–0.45/day
+  against the 1.50 we quoted. **The old comparison was wrong in our favour on the AFRL side and wrong
+  against us on the Google side, and it still reached the wrong conclusion.**
+- **For us:** the AFRL window was 78 days, not 45 (`ACC-15`), so 1.82/day was never right.
+- **Decisive:** on **absolute** numbers — which is what a demand question needs — AFRL produced **10**
+  selected designs from one 18-month competition, while the Google programme took **821 submissions**
+  across ten shuttles and manufactured several hundred (`OPG-1`, `DEM-9`). Conversion to silicon was
+  **10 ÷ 82 = 12.2%** for AFRL against **40 ÷ 45 = 88.9%** on MPW-1 and **240 ÷ 364 = 65.9%** across
+  Google's first six (`ACC-14`, `DEM-4`, `DEM-9`).
+
+#### (c) The incentive structures: were there prizes?
+
+**No.** This is the clearest answer in the whole section, and it comes from both sides.
+
+- The Air Force's own page: "**There is no charge to register, there is no charge to participate**",
+  and the "What's in it for you" list contains resources, access, partnership, a Las Vegas showcase
+  "**if your solution is selected**", official recognition, and "access to a top Department of Defense
+  initiative with an initial approved budget of $2 billion". **No purse, no cash award, no guaranteed
+  contract** (`ACC-15`).
+- Efabless, contemporaneously: "Not a targeted RFP to the world's largest chip companies. **No BIG
+  juicy contract.**… Also, **no guarantees, no prizes and no contracts.** Just the opportunity to
+  invent, be discovered" (`ACC-13`).
+
+So the objection that would have sunk the comparison — "somebody pays *you* to enter" — does **not**
+apply. Both programmes were free to enter and paid in kind. But the shapes still differ in three ways
+that matter more than the per-day rate:
+
+| | Google Open MPW | AFRL/AFWERX challenge |
+|---|---|---|
+| What you submit | A DRC/LVS-clean GDSII (`ACC-9`) | A business plan with a block diagram (`ACC-13`) |
+| What you get, and when | Fabrication, packaging, boards and shipping, **paid for all 40 selected**, one shuttle, months (`ACC-9`) | Tools, IP and fabrication **if selected**, across five more phases and ~18 months (`ACC-15`) |
+| Odds | 40 of 45 on MPW-1; 240 of 364 over six (`DEM-4`, `DEM-9`) | **10 of 82** (`ACC-14`) |
+| Who owns the result | Must be fully open source (`ACC-9`) | "**maintaining the design IP that is yours to retain**" (`ACC-15`) |
+| Recruitment | A blog post and a PDK release | A **two-day boot camp** that drew "**more than 60 small-business innovators**" to Las Vegas on 4–5 December 2018, seven weeks before the deadline (`ACC-16`) |
+
+The last row is the one the audit never considered. **Openness, subsidy and outreach are three
+variables, and the AFRL row varies all three at once.** It cannot isolate any of them.
+
+#### (d) Money per design
+
+This is the weakest part of the record and the section says so plainly.
+
+**AFRL.** No dollar figure for the challenge appears on any page recovered. What exists:
+
+- "Access to the EDA tools and IP libraries is **valued at $10M per license**, but the USAF is
+  offering it **FREE to selected participants**" (`ACC-15`). That is a **claimed list value of an
+  in-kind licence, asserted by the giver**. If ten were selected (`ACC-14`), the *notional* in-kind
+  value is 10 × $10M = **$100M**, i.e. **$10M per selected design** and **$1.22M per proposal
+  submitted** (10 × 10,000,000 ÷ 82 = 1,219,512). Nobody should believe the Air Force spent that; EDA
+  list prices are not prices. It is recorded as the only number the programme itself published.
+- "In Phase 3 we have funding available to support the detailed design drawings and in Phases 4&5 we
+  have funding available to build your prototype and test it" — **no amount stated** (`ACC-15`).
+- The "$2 billion" on the page is the **DoD microelectronics initiative** the challenge sat inside,
+  not the challenge's budget. Quoting it as the challenge's budget would be a second cherry-pick.
+- **FPDS returned nothing.** The public FPDS-NG ATOM feed (a plain GET, no key) was queried for
+  `VENDOR_FULL_NAME:"EFABLESS"`, `VENDOR_NAME:"EFABLESS"`, `VENDOR_FULL_NAME:"CENTAURI"` and
+  `DESCRIPTION_OF_REQUIREMENT:"ADVANCED MICROELECTRONICS DESIGN AND PROTOTYPE"`: **zero contract
+  actions each**. This is weak evidence of absence — AFWERX work commonly ran through DEFENSEWERX or
+  through existing prime contracts whose descriptions never name the challenge — but it is what the
+  public contract record returns.
+
+**Google Open MPW.** No figure has ever been published for what Google paid per slot. The best
+available proxy is the **same platform's list price for the same product on the same node**:
+chipIgnite sold a 10 mm² Caravel slot with 100 packaged parts for **$9,750** in 2021 (`SMB-9`), and
+Cadence/SkyWater now sell a comparable SKY130 MPW slot at **$10,000 for 40 bare die** (`OPG-19`). At
+$9,750 a slot:
+
+- one 40-slot shuttle = **$390,000**;
+- ten shuttles × 40 slots = **$3.9M** for the whole Google programme;
+- **$4,750 per submission** (400 × 9,750 ÷ 821 = 4,750.30).
+
+**So the order of magnitude, with every caveat attached: the open programme cost something like
+$10⁴ per design; the AFRL programme's own stated in-kind value was $10⁷ per selected design — a ratio
+of about 1,000:1** (10,000,000 ÷ 9,750 = 1,026). Even discounting the $10M claim by 90%, the two
+programmes are not spending on the same scale, and a programme spending six or seven figures per
+entrant is not evidence about the same phenomenon as one spending four.
+
+#### (e) Verdict on the "somebody else pays" hypothesis
+
+**Weakened, not dead — and no longer supported by this row at all.**
+
+- **What dies:** the specific claim that a closed, gate-kept programme *out-drew* the open one. It did
+  not. It beat one shuttle out of ten, on a metric that compares business plans with GDSII, using a
+  window for the Google side that Efabless's own platform contradicts. §3.15's "the audit's best
+  counter-example" and §6.2(a)'s "direct counter-example on the growth question" are both withdrawn.
+- **What survives:** the general observation, made in §6.2(a) and unaffected by this row, that **every
+  programme in the record that ever reached a large absolute number was subsidised** — Europractice,
+  MOSIS, CMC, Google. That is still the strongest challenge in the audit, and it stands on its own
+  evidence without AFRL.
+- **What the AFRL row is now good for:** it is a **context row**, and a useful one. It shows that a
+  government body offering a 14 nm tape-out through a competitive gate, with a hosted boot camp and a
+  $2bn programme of record behind it, could get **82 paper proposals, of which 10 were selected to go forward**. Google
+  offering a 130 nm tape-out to anyone who could produce a clean GDSII got **821 submissions**.
+  Whatever else that shows, it is not that openness is incidental.
+
+---
+
 ## 7. Blocked sources
 
 Everything below was attempted read-only. Being blocked is recorded, not worked around.
@@ -812,7 +996,7 @@ Everything below was attempted read-only. Being blocked is recorded, not worked 
 | **CMC Microsystems prices** | `cmc.ca/en/WhatWeOffer/Make/FabPricing.aspx` returns **HTTP 403** to an automated fetch | A browser. CMC's annual-report PDFs on the same domain fetch fine |
 | **ChipFoundry's terms of service** | `chipfoundry.io/terms` returns **HTTP 404**, although the site footer links to "Terms", "Privacy" and "Commercial" | Following the footer link from a rendered page; the link target was not resolvable from the fetched HTML |
 | **Efabless's terms of service and technology licence agreement** | The Wayback CDX API returns a single capture of `efabless.com/info_terms_of_services`, status **302**, i.e. a redirect and no content. The Internet Archive was also **"Temporarily Offline"** for part of this session | Retrying the CDX search for `efabless.com/page/terms/`, `efabless.com/privacy/` and the `marketplace/?q=content/technology-license-agreement` forms, all of which appear in the URL index |
-| **The primary AFRL / AFWERX design-challenge source** | Not found before the search budget ran out. Everything in `ACC-8` is at one remove, through Efabless's newsletter | A search of AFRL, AFWERX or Centauri/KBR press releases from 2018–2020, or a SAM.gov / DoD contract record |
+| ~~**The primary AFRL / AFWERX design-challenge source**~~ **FOUND 2026-09-19** | It was never a search problem. The Air Force's own challenge page (`ACC-15`) and newsroom post (`ACC-16`) were recovered through the Wayback CDX API, with no search engine involved — every search engine reachable from this session was refusing automated queries | Nothing. What remains blocked is the **money**: no dollar figure for the challenge appears in any recovered page, and the public FPDS-NG ATOM feed returns zero contract actions for Efabless, for Centauri, or for the challenge name. USAspending's award-search endpoints are POST-only and this session is GET-only, so they were not queried |
 | **Tiny Tapeout's all-in headline price** | `app.tinytapeout.com/calculator` is a client-side application returning no price text to a fetch | A browser, in seconds. Already recorded in `search-log.md` |
 | **wafer.space's own terms and export-control position** | No terms page found; `wafer.space/faq/` (trailing slash) is **404** while `/faq` is 200. Crowd Supply's terms were not read | Crowd Supply's site-wide terms of service, and a browser pass over `wafer.space` |
 | **SEC EDGAR, for Efabless's funding rounds** | Returns **HTTP 403** — "Your Request Originates from an Undeclared Automated Tool" — and requires a declared identifying User-Agent, which we will not send | EDGAR full-text search in a browser, looking for Efabless Corporation Form D filings. This is the most likely public record of who funded chipIgnite and how much |

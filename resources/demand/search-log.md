@@ -398,6 +398,7 @@ questionnaire. Those sentences were quoted as findings. None of the addresses wa
 | Obstacle | Detail | Workaround |
 |---|---|---|
 | **The session's web-search budget ran out** | `WebSearch` returned "this session has used its web search budget (200 of 200 WebSearch calls)" part-way through. Everything after that had to come from `curl` against URLs already known or discoverable from a page already fetched | None. It is the reason the AFRL/AFWERX primary source was never found |
+| **Every web search engine refused automated queries (2026-09-19)** | The search budget was already exhausted at the start of the AFRL follow-up session, and every alternative was blocked: `html.duckduckgo.com` and `lite.duckduckgo.com` return HTTP 202 and then a CAPTCHA ("Select all squares containing a duck"); `mojeek.com` returns **403** "your network appears to be sending automated queries"; `search.marginalia.nu` 302s; `searx.be`, `search.inetol.net`, `baresearch.org` and `opnxng.com` all serve bot checks; `searxng.site` 403s; `priv.au` 429s. Bing through `WebFetch` returned results in Chinese unrelated to the query. **No CAPTCHA was solved and none was attempted.** | **The Wayback CDX API is a search engine for dead sites and nobody rate-limits it.** `https://web.archive.org/cdx/search/cdx?url=<domain>&matchType=domain&output=text&fl=original&collapse=urlkey&limit=2000&filter=!original:.*(api|css|js|png|jpg|svg|woff).*` returns every archived URL on a domain. That is how the AFWERX challenge page was found (`ACC-15`) after the previous pass recorded it as unfindable. **`https://www.fpds.gov/ezsearch/FEEDS/ATOM?FEEDNAME=PUBLIC&templateName=1.5.3&q=<query>` is a GET-only federal contract search that needs no key** and works, though it returned nothing for this programme |
 | **Sub-agent fan-out exhausted the token budget** | Three delegated agents were launched to audit the MEMS, European and North American programmes. All three were killed by a session-wide API rate limit and **their findings were lost**, including a MEMS pass that had already started | Do the work directly. The MEMS audit was then redone by hand in about fifteen minutes |
 | `chipfoundry.io/terms` | **HTTP 404**, although the site footer links to "Terms", "Privacy" and "Commercial" | Not solved. The FAQ at `chipfoundry.io/faqs` fetches fine and carries the commercial terms that matter |
 | `wafer.space/faq/` | **HTTP 404** with the trailing slash; `wafer.space/faq` (no slash) returns 200 | Drop the trailing slash |
@@ -419,16 +420,24 @@ questionnaire. Those sentences were quoted as findings. None of the addresses wa
 | A programme with published prices and closed access | The TSMC University FinFET Program: full price table, and "Applications will be reviewed and approved by TSMC, after which an NDA will be shared" | `ACC-5` |
 | The licences on the open PDKs | SKY130, GF180MCU, IHP-Open-PDK and Caravel all Apache-2.0, from the unauthenticated GitHub API | `ACC-6` |
 | Who underwrote Efabless | Its own 2020 newsletter: Google paid for the prototypes, OpenROAD was "DARPA-funded", Silicon Catalyst was an in-kind partner, and Mentor, Arm and X-FAB contributed tools and IP. Its CEO's farewell adds GlobalFoundries, SkyWater, Synopsys and AFRL | `ACC-8` |
-| A subsidised programme on a **closed** PDK, for comparison | The AFRL / AFWERX design challenge: "82 unique IC designs were submitted in 45 days – 80 percent from small enterprises and academics", designs proprietary, costs covered if selected | `ACC-8` |
+| A subsidised programme on a **closed** PDK, for comparison | The AFRL / AFWERX design challenge, as Efabless's 2021 newsletter described it: "82 unique IC designs were submitted in 45 days – 80 percent from small enterprises and academics" | `ACC-8` — **and the comparison drawn from it has since been retracted** |
+| **The primary AFRL / AFWERX source, previously recorded as not found** | The Air Force's own challenge page, `www.afwerxchallenge.com/microdesign`: programme name **Advanced Microelectronics Design and Prototype Challenge**, six phases, phase-1 submissions **11/5/18 — 1/22/19**, "There is no charge to register, there is no charge to participate", EDA and IP licence "valued at $10M per license … FREE to selected participants", "funding available" in later phases with no amount stated | `ACC-15` |
+| AFWERX's own account of the recruitment | Its newsroom: a two-day boot camp on **4–5 December 2018** in Las Vegas for "**more than 60 small-business innovators and technologists**", seven weeks before the deadline | `ACC-16` |
+| Efabless's contemporaneous account | Its January 2019 article: 82 **proposals**, "effectively summary business plans", challenge "began last November 2", "no guarantees, no prizes and no contracts". Its 2019 Year in Review adds that **ten** were selected | `ACC-13`, `ACC-14` |
+| The Open MPW submission windows | Off Efabless's own archived shuttle pages: MPW-1 **2020-11-12 → 2021-02-19 (99 days)**, not the 30 days everyone quotes; MPW-6 58 d, MPW-7 66 d, MPW-8 42 d, GF MPW-0 35 d, GF MPW-1 44 d. MPW-2…MPW-5 are not recoverable | `OPG-20` |
+| What the AFRL programme cost | **Not established.** No dollar figure appears on any recovered page. FPDS-NG's public ATOM feed returns **zero** contract actions for `VENDOR_FULL_NAME:"EFABLESS"`, `VENDOR_NAME:"EFABLESS"`, `VENDOR_FULL_NAME:"CENTAURI"` and `DESCRIPTION_OF_REQUIREMENT:"ADVANCED MICROELECTRONICS DESIGN AND PROTOTYPE"`. USAspending's award-search endpoints are **POST-only** and this session was GET-only, so they were not queried; SBIR.gov's API returned **403** to every request | audit §6.5(d) |
 | MEMS shuttle terms | MEMSCAP's MUMPs: a published two-tier price list ($5,800 / $4,200 a die site), a published run schedule, design rules "free to download and distribute", commercial-only CAD, and a quote number before submission | `ACC-10` |
 | Whether MUMPs still exists publicly | Its page last returned 200 on 2023-01-30 and 404 by 2023-11-15; MEMSCAP's live site has no foundry section; `memsrus.com` is a spam blog | `ACC-11` |
 
 ### 7.3 Searched for, and not found
 
-- **The primary AFRL / AFWERX design-challenge source.** Everything in `ACC-8` is at one remove,
-  through Efabless's own newsletter. The web-search budget was gone before it could be looked for.
-  **What would unblock a human:** AFRL, AFWERX or Centauri/KBR press releases from 2018–2020, or a
-  contract record. The named programme lead in the newsletter is "Len Orlando".
+- ~~**The primary AFRL / AFWERX design-challenge source.**~~ **Found 2026-09-19** — see `ACC-15` and
+  `ACC-16`. It was never a search problem: the Wayback CDX API lists every archived URL on
+  `afwerxchallenge.com`, and `/microdesign` is the challenge's own page. **What is still not found is
+  the money**: no budget, contract value or prize figure for the challenge exists in any recovered
+  page, and FPDS returns nothing. **What would unblock a human:** USAspending's award search (its
+  endpoints are POST-only, which this session's rules forbade), SAM.gov's contract-opportunity API
+  (needs a registered key), or the Air Force's FY2019–FY2021 RDT&E budget justification books.
 - **Efabless's terms of service and technology licence agreement.** The Wayback URL index lists
   `efabless.com/info_terms_of_services`, `efabless.com/page/terms/`, `efabless.com/privacy/` and
   `www.efabless.com/marketplace/?q=content/technology-license-agreement`, but the one capture checked
