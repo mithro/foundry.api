@@ -849,6 +849,33 @@ floor area, all audited.
   million** off the balance sheet. That is the net book value of an entire working MEMS toolset —
   the same tools the Europractice MUMPs shuttles and the third-party foundry business ran on.
 
+  **Customer concentration in the foundry business, and it is genuinely low.** *Added 2026-09-19 from
+  the 2021 annual report, note 4.3 "Principaux clients", which the entry had not previously used.* The
+  note gives "Les principaux clients représentant plus de 10% du chiffre d'affaires total du Groupe"
+  ("the main customers representing more than 10% of the Group's total revenue"). For the
+  **Produits sur mesure** division — the foundry — the entries for both the first and the second
+  customer, in both 2021 and 2020, read "**--**": **no customer reached 10% of group revenue**. The
+  Produits standards division, by contrast, had a customer at **12.2%** (2021) and a second at
+  **11.6%**. This is a merchant fab whose customer base really was fragmented, which is what H5 and H6
+  describe. Note the bound is weaker than it looks: the threshold is a share of *group* revenue, and
+  the division was only a quarter of the group (DERIVED below).
+
+  **And a single tool going down cost it 7.3% of a year's revenue.** From the same report:
+
+  > "L'indisponibilité d'un équipement industriel du site américain sur le 1er semestre 2021 suite à
+  > un incident technique en fin d'exercice 2020, a pesé sur les volumes d'activité de la division
+  > Produits sur mesure en repli de -0,2 million d'euros / -7,3% comparé à l'exercice 2020."
+
+  *"The unavailability of an industrial tool at the American site during the first half of 2021,
+  following a technical incident at the end of the 2020 financial year, weighed on the activity
+  volumes of the Custom Products division, which fell by EUR 0.2 million / -7.3% compared with the
+  2020 financial year."*
+
+  One tool, out for roughly six months, took **EUR 225 thousand** off a EUR 3.1 million business. In a
+  fab with one of everything there is no redundancy, and this is the clearest illustration in the
+  repository of what that costs. It also fills a gap the file had flagged: **FY2020 divisional revenue
+  was EUR 3,083 thousand.**
+
   **What the seller said about it.** The FY2022 release describes the disposal as the completion of a
   plan, under the heading "Finalisation of the FABLITE program transforming the profitability profile
   of MEMSCAP", and the strategic section states the fab "includes the US production plant, teams,
@@ -870,6 +897,14 @@ floor area, all audited.
     currency caveat.
   - The fall in group production FTE (37 → 22 = 15) is consistent with the 14 US staff at
     31 December 2021.
+  - **Customer-concentration bound, FY2021.** Group revenue EUR 11,396 thousand, so the 10% disclosure
+    threshold is **EUR 1,139.6 thousand**. The foundry division was EUR 2,858 thousand, i.e. **25.08%**
+    of the group. Since no foundry customer crossed the threshold, the **largest foundry customer was
+    below 39.9% of divisional revenue** (1,139.6 / 2,858). That is a real upper bound, but a loose
+    one: it does not establish that the division had *many* customers, only that it had no one
+    customer above two fifths of it.
+  - **The 2021 tool outage**: 2,858 − 3,083 = **−EUR 225 thousand**, **−7.3%**, matching the report's
+    own figures.
 - **Bears on:**
   - **H6 (challenges, strongly).** This is a real merchant MEMS foundry, selling to many small
     customers through the industry's longest-running MEMS multi-project wafer shuttles (IHF-6), and
@@ -1626,7 +1661,9 @@ Recorded so nobody repeats the attempt. Being blocked is an expected outcome, no
 | Science Foundry full price list and ordering platform | behind "Start your order" on `https://science.xyz/services/foundry/mems/standard-technologies/` | Requires creating an account. **Deliberately not attempted** — account creation is forbidden under this project's read-only rule | A human willing to register. This is where the decomposition of the "$13,520+" price lives |
 | CMC Microsystems list price for "Science Foundry Poly MEMS" | `https://www.cmc.ca/polymumps-multi-user-mems/` | Page loads; the list price field reads "Coming soon …" and subscriber pricing requires a login | Nothing — CMC has not published it. (`search-log.md` already records CMC's `FabPricing.aspx` returning 403) |
 | MEMSCAP FY2022 annual report / FY2022 earnings release | `memscap.com` | **Not blocked, and now retrieved — see IHF-8.** Recorded here because the route is non-obvious: the investor page's PDF list does not contain them. They are reachable through the WordPress REST API at `https://memscap.com/en/wp-json/wp/v2/posts?search=…`, which returns the post URLs; each post then links a single PDF | Nothing. The route above works and needs no browser |
-| MEMSCAP 2021 annual report PDF | `https://memscap.com/en/2022/04/29/memscap-2021-annual-report/` | Page loads, but the only PDF it links is an *availability notice*, not the report | Following MEMSCAP's investor pagination or the AMF/Euronext filing archive. It would give the fab's FY2020 revenue and a second description of the 475 m² plant |
+| MEMSCAP 2021 annual report PDF | `https://memscap.com/en/2022/04/29/memscap-2021-annual-report/` | **Unblocked, 2026-09-19.** That page links only an availability notice, but `https://memscap.com/en/memscap_an_rep/` lists every annual report PDF directly, 2021 to 2025. The 2021 report is at `https://memscap.com/wp-content/uploads/2023/04/Rapport-annuel-Memscap-2021-29_04_2022.pdf` | Nothing. It gave the FY2020 revenue, the plant lease term and rent, the landlord's name, the mixed ISO 4/ISO 6 cleanroom class and the customer-concentration note — see IHF-3 and IHF-8 |
+| Published asking or realised prices for used 150 mm fab tools | SDI/Fabsurplus (`https://www.fabsurplus.com/`), the largest openly-browsable catalogue | Loads fine to `curl`; the category listings have **no price field at all**. Prices are quoted on request only | Nothing automated will work — there is no public price index. The audited transaction figures in IHF-11 are the substitute. A human could request quotes, but that means contacting a company, which is out of scope here |
+| Further web searching, 2026-09-19 | `WebSearch` | **Session budget exhausted (200 of 200 calls) before this pass began.** All sources below were therefore reached by direct `curl`/`WebFetch` of URLs derived from filings and site indexes | Raising `CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION`, or starting a fresh session. Some of what is still missing may simply be one search away |
 | Rigetti Computing foundry page | `https://www.rigetti.com/foundry` | **HTTP 404** — the page has moved or gone | A site search, or the Wayback Machine |
 | `web.archive.org` via `WebFetch` | — | Refuses outright (already recorded in `search-log.md` §1) | Use `curl` with the `…/web/<timestamp>id_/<url>` raw-content form |
 
@@ -1638,10 +1675,17 @@ Listed so the next person does not have to rediscover it.
 
 In rough order of how much each would add.
 
-1. **A third small-fab transaction price.** Two points ($2.75M in 2017, $3.0M in 2022, both at about
-   1× trailing revenue) are the beginning of a market price for a small MEMS fab, and this is the
-   cheapest remaining research in this file: EDGAR full-text search (`efts.sec.gov`) serves automated
-   requests and the two found here were located that way in minutes.
+0. **Done, 2026-09-19 — read this first.** The audited accounting behind *both* transactions has now
+   been read and both headline prices were found to mean less than this file claimed. See the
+   correction notes at the head of IHF-3 and IHF-9, and the new IHF-11. In particular: the MEMSCAP
+   deal was an asset purchase with the liabilities left behind and a EUR 655k/year rent attached; the
+   Akoustis headline of $2.75M was $2.85M of cash plus a $1.73M contingent liability against $6.3M of
+   appraised assets, and was set "without significant price negotiation" by a public-sector seller.
+1. **A third small-fab transaction price — still wanted, and now for a different reason.** Neither of
+   the two found was an arm's-length auction, so there is still *no* market-clearing price for a small
+   MEMS fab in this file. EDGAR full-text search (`efts.sec.gov`) serves automated requests with
+   `curl` and everything new here was found that way; so does `data.sec.gov` (submissions, companyfacts
+   and companyconcept). `www.sec.gov/Archives/...` still refuses `curl` and needs `WebFetch`.
 2. **Upgrade IHF-9 and IHF-10 from Partial to Verified** by opening the Akoustis and Rigetti filings
    in a browser. `www.sec.gov/Archives/...` returns 403 to `curl` but `WebFetch` reaches it; only the
    targeted excerpts were read, not the documents.
@@ -1652,11 +1696,21 @@ In rough order of how much each would add.
    Commissioners' own minutes or the NC Department of Commerce. All three trade-press reports of it
    refuse automated fetches.
 5. **Verify the "approximately $750M" JDS Uniphase / Cronos figure** against a JDS Uniphase filing. It
-   is currently a Lead quoted from the buyer's own blog.
+   is currently a Lead quoted from the buyer's own blog. Not attempted in the 2026-09-19 pass.
+5a. **What the MEMSCAP supply agreement with Science was worth.** The single open leg of IHF-3. No
+   minimum purchase obligation is disclosed on MEMSCAP's side in 2022 or 2023 (note 25.1 shows nil),
+   and neither party publishes volumes or prices, so a below-market sale price recovered through the
+   supply contract remains possible but unevidenced. MEMSCAP's 2024 and 2025 annual reports were not
+   read and might quantify purchases from "un fournisseur stratégique américain".
+5b. **What the EUR 1,217 thousand of "frais nets afférents à la cession" was spent on.** 41% of the
+   MEMSCAP consideration, broken down nowhere in the 2022 report. If any of it flowed to Science, the
+   effective price was lower than US$3.0 million.
 6. **The split of MEMSCAP's EUR 2.9M foundry revenue** between MUMPs shuttle customers and contract
    manufacturing, and the group overhead allocated to the division. Both are the difference between
-   IHF-8 being a fatal result for H6 and being an artefact of transfer pricing. Neither is in the
-   2022 annual report; the 2021 and 2020 reports were not read.
+   IHF-8 being a fatal result for H6 and being an artefact of transfer pricing. **The 2021 annual
+   report has now been read and does not give either split** — but it does give FY2020 divisional
+   revenue (EUR 3,083 thousand), the customer-concentration bound and the tool-outage figure, all now
+   in IHF-8. The 2020 and earlier reports remain unread and are the only remaining route.
 7. **Comparable cases not yet worked at all:** **Neuralink** (in-house thin-film fabrication,
    private, so expect little), **Paradromics**, **Precision Neuroscience**, and the photonics and
    lab-on-chip fields, which were not reached. Failures matter as much as successes — the only
