@@ -578,3 +578,109 @@ each entry before using any of these.**
 
 ---
 
+## 4. Verdict on H5 and H6
+
+### On H5 (there is a long tail of demand for chips): supports the *mechanism*, does not size the market
+
+This is the best-documented case yet found of the thing H5 asserts. A funded commercial company, not
+a hobbyist and not a university, stated in its own words that the existing industry could not serve
+it — "simply inaccessible for this kind of low-volume work, often with uncommon materials and tool
+parameters" (IHF-5) — and then spent money to prove it meant it. Its description of the gap, "the
+low-volume, high-complexity, rapid-iteration end", is H5's claim in a supplier's vocabulary. Better
+still, the segment it names is not price-sensitive hobby demand: these are companies that will pay,
+and Science's stated target industries are medical devices, aerospace, defence, quantum computing and
+optical telecoms (IHF-1).
+
+**But it does not size anything.** One company's motive is one data point. Nothing found says how
+many customers Science Foundry has, what they pay, or whether the business is profitable — Science
+Corp is private and its Form D filings disclose only securities sold, not revenue. The most that can
+be said is that at least one well-capitalised buyer, with $47M raised at the time of the decision
+(and $230M by 2026), found the merchant market closed to it. H5 needs *many* such buyers, and this
+file has evidence of one, with the rest of the demand asserted rather than counted.
+
+**And there is a direct challenge in the same body of evidence.** MEMSCAP ran the industry's
+longest-standing MEMS multi-project wafer service for over a decade (IHF-6) and then deliberately
+exited fab ownership, calling it the successful completion of a planned "FABLITE Program" expected to
+deliver "significant improvement to MEMSCAP agility and profitability" (IHF-3). Meanwhile
+Europractice's MEMS offering fell from three MUMPs processes in 2020 to a single X-FAB process in
+2026 (IHF-6, IHF-7). If the long tail of MEMS demand were large and growing, a public company that
+already owned the assets and the customer book would be an odd party to walk away, and the shop
+window would be getting fuller, not emptier.
+
+**Net:** H5's mechanism is now evidenced by a named, credible, paying buyer. H5's *scale* is not, and
+one of the two sides of the transaction studied here concluded the opposite.
+
+### On H6 (small customers can each be profitable): the capex number helps more than the demand story
+
+The $3.0M in IHF-3 is the most useful thing in this file for H6, and it cuts against the assumption
+that a fab's fixed costs are necessarily enormous. A complete, certified, staffed, customer-carrying
+MEMS foundry cleared the market at three million dollars. If that is the asset base, then the
+revenue needed to cover it is on a scale a few thousand small customers could plausibly reach — which
+is the arithmetic H6 depends on and has never had a real number for.
+
+Three things pull the other way, and they are not small:
+
+1. **The $3.0M is the price of a *depressed* asset, not the cost of capability.** The same company
+   then budgeted "up to $65 million" to expand it (IHF-2). The acquisition price is what it cost to
+   *buy a fab nobody else wanted*; the expansion figure is closer to what it costs to *have* one.
+2. **The fixed cost per small customer shows up in the price list, exactly as `SMB-7` and `SMB-8`
+   found for silicon.** X-FAB's MEMS MPW charges a "minimum fabrication cost equivalent to 10mm²" —
+   EUR 12,530 before any useful area (IHF-7). MUMPs sold a fixed 1 cm² block whether you needed it or
+   not (IHF-6). Science publishes a floor, "$13,520+" (IHF-4). Every MEMS price list found behaves
+   the same way as every silicon one: the first millimetre costs thousands. H6 assumes that fixed cost
+   away and the MEMS evidence says it is still there.
+3. **Nobody has shown this is a profitable business.** Science Foundry is a unit of a
+   venture-funded medical-device company with $230M of fresh capital (2026 Form D) whose actual
+   product is a retinal implant. Its foundry may be cross-subsidised by that, exactly as Europractice
+   is by EU funding (`SMB-6`). The one participant here whose foundry economics *are* public —
+   MEMSCAP — sold the fab and told its shareholders it expected to be more profitable without it.
+
+**Net, stated honestly: this tells us less than hoped on H6.** It gives us one excellent capex number
+and one worked example of the business model, and it confirms — with fresh evidence from a different
+technology — the finding that already damages H6 most: the fixed cost per project is real, published,
+and does not go away.
+
+---
+
+## 5. Blocked sources
+
+Recorded so nobody repeats the attempt. Being blocked is an expected outcome, not a failure.
+
+| Source | URL | What happened | What would unblock a human |
+|---|---|---|---|
+| Business Wire (MEMSCAP sale release) | `https://www.businesswire.com/news/home/20221207005667/en/...` | **HTTP 403** to both `WebFetch` and `curl` with a browser User-Agent ("Access Denied", Akamai edge error) | Opening it in a browser. Not needed in the end: MEMSCAP's own PDF of the same release was fetched from `memscap.com`, and citybiz carries a verbatim syndication |
+| Business North Carolina | `https://businessnc.com/med-tech-company-to-add-50-jobs-spent-65-million-in-durham/` | **HTTP 403** to `curl`; served a "Just a moment… Checking your browser" interstitial. `WebFetch` also returned 403 | A browser. This is the main independent cross-check on IHF-2's $65M / 57,000 sq ft / 50 jobs |
+| North Carolina Biotechnology Center | `https://www.ncbiotech.org/news/science-corp-set-expand-rtp-facility` | **HTTP 403**, same "Just a moment…" bot check | A browser. Second independent cross-check on IHF-2 |
+| Axios Raleigh | `https://www.axios.com/local/raleigh/2024/07/11/medical-device-company-science-corp-chip-making-triangle` | **HTTP 403** to `WebFetch` | A browser. Third cross-check on IHF-2, and reportedly describes the plant |
+| SEC `www.sec.gov/cgi-bin/browse-edgar` | company-name search | **HTTP 403** to `curl` — "Your Request Originates from an Undeclared Automated Tool" | Already known (`search-log.md` §1). Worked around: `efts.sec.gov/LATEST/search-index` (EDGAR full-text search) and `data.sec.gov/submissions/` both serve automated requests with a generic non-personal User-Agent, and `WebFetch` reaches `www.sec.gov/Archives/...` |
+| Science Foundry full price list and ordering platform | behind "Start your order" on `https://science.xyz/services/foundry/mems/standard-technologies/` | Requires creating an account. **Deliberately not attempted** — account creation is forbidden under this project's read-only rule | A human willing to register. This is where the decomposition of the "$13,520+" price lives |
+| CMC Microsystems list price for "Science Foundry Poly MEMS" | `https://www.cmc.ca/polymumps-multi-user-mems/` | Page loads; the list price field reads "Coming soon …" and subscriber pricing requires a login | Nothing — CMC has not published it. (`search-log.md` already records CMC's `FabPricing.aspx` returning 403) |
+| MEMSCAP FY2022 annual report / FY2022 earnings release | `https://memscap.com/en/memscap_investors/` | Not blocked, **not yet retrieved**. The investor page's PDF list was read but the FY2022 annual report was not located among the links enumerated | Following the investor page's pagination. This would give the RTP fab's revenue and headcount before the sale, and the reported capital gain on disposal — the best available cross-check on IHF-3 |
+| Rigetti Computing foundry page | `https://www.rigetti.com/foundry` | **HTTP 404** — the page has moved or gone | A site search, or the Wayback Machine |
+| `web.archive.org` via `WebFetch` | — | Refuses outright (already recorded in `search-log.md` §1) | Use `curl` with the `…/web/<timestamp>id_/<url>` raw-content form |
+
+---
+
+## 6. Still to do
+
+Listed so the next person does not have to rediscover it.
+
+- **Cross-check IHF-2** ($65M / 57,000 sq ft / 50 jobs / $930,000) against the Durham County Board of
+  Commissioners' own minutes or the NC Department of Commerce, neither of which was reached.
+- **Retrieve MEMSCAP's FY2022 annual report** for the North Carolina fab's revenue, headcount and
+  book value before disposal, and the capital gain recognised on the sale. This would convert IHF-3
+  from "a price" into "a price against a known asset base and revenue", which is what the cost
+  section most needs.
+- **Verify the "approximately $750M" JDS Uniphase / Cronos figure** against a JDS Uniphase filing. It
+  is currently a Lead quoted from the buyer's blog.
+- **Comparable cases not yet worked**, each a company that built or bought its own line rather than
+  buy wafers: **Rigetti Computing** (its "Fab-1" in Fremont/Berkeley, California, which its FY2025
+  10-K describes as supporting "Rigetti Foundry Services … leverag[ing] the company's U.S. based
+  in-house wafer fabrication facility ('Fab-1') to deliver superconducting quantum chips" to
+  academic, defence and national-laboratory customers — the same build-then-externalise pattern as
+  Science, and a listed company that must disclose costs); **Akoustis Technologies**, which bought an
+  existing MEMS fab (the former STC-MEMS facility in Canandaigua, New York) in 2017 and disclosed the
+  transaction in an 8-K — 75 EDGAR documents mention "STC-MEMS" and were located but not read;
+  **Neuralink**; **Paradromics**; and **Precision Neuroscience**. Failures matter as much as
+  successes and none has yet been written up.
+
