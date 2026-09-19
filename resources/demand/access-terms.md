@@ -942,7 +942,8 @@ eligibility condition is new.
     Trusted Silicon Stratus secure cloud based microelectronics design environment".
   - **The result banner, on the archived page.** "Selections have been made for the AFWERX Showcase
     February 20-21 in Las Vegas."
-- **DERIVED (arithmetic written out, computed in `tmp/afrl_arith.py` under `uv run python`):**
+- **DERIVED (arithmetic written out; computed with `uv run python` in a throwaway script and
+  reproducible from the figures shown):**
   - **Phase-1 window: 2018-11-05 → 2019-01-22 = 78 days.** 82 ÷ 78 = **1.05 proposals a day**.
   - On `ACC-13`'s start date instead (2 November 2018): 81 days, 82 ÷ 81 = **1.01 a day**.
   - `ACC-8` used 45 days and got 1.82 a day. **The window is 73–80% longer than `ACC-8` assumed, and

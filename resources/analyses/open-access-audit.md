@@ -840,7 +840,7 @@ comparison.
 
 `OPG-20` recovers the submission windows from Efabless's own shuttle pages. Six of the ten are
 recoverable; the MPW-2…MPW-5 pages survive only in post-tapeout captures that print the tapeout date
-for both ends. **DERIVED throughout, computed in `tmp/afrl_arith.py` under `uv run python`:**
+for both ends. **DERIVED throughout; computed with `uv run python` and written out below so it can be rechecked:**
 
 | Programme / shuttle | Submissions | Window | **Per day** | Notes |
 |---|---|---|---|---|

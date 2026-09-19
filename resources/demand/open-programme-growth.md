@@ -1152,7 +1152,8 @@ while the older subsidised programmes did not — is
   | GF MPW-0 | 2022-10-31 | 2022-12-05 | **35 d** | 88 | 86 | **2.51** |
   | GF MPW-1 | 2023-10-28 | 2023-12-11 | **44 d** | 116 | 116 | **2.64** |
 
-- **DERIVED (arithmetic written out, computed in `tmp/afrl_arith.py` under `uv run python`):**
+- **DERIVED (arithmetic written out; computed with `uv run python` in a throwaway script and
+  reproducible from the figures shown):**
   - MPW-1: 2020-11-12 → 2021-02-19 = **99 days**; 37 ÷ 99 = **0.37/day**, 45 ÷ 99 = **0.45/day**.
   - MPW-6: 2022-04-11 → 2022-06-08 = **58 days**; 90 ÷ 58 = **1.55/day**.
   - MPW-7: 2022-07-08 → 2022-09-12 = **66 days**; 106 ÷ 66 = **1.61/day**.
