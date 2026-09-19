@@ -16,8 +16,11 @@ arithmetic is written out.
 - **Source:** 深圳嘉立创科技集团股份有限公司 (Shenzhen JLC Technology Group Co., Ltd.), 招股说明书（申报稿）
   (IPO prospectus, filed draft), filed with the Shenzhen Stock Exchange, April 2026. Audit report
   容诚审字[2026]518Z0073 (a report number, left as the filing prints it) by 容诚会计师事务所
-  (Rongcheng Certified Public Accountants; previously recorded here as "RSM China" — that
-  international-network affiliation has not been verified). PDF fetched from the exchange's own
+  (Rongcheng Certified Public Accountants — **verified 2026-09-19** as the
+  China member firm of RSM International, trading in English as *RSM China CPA LLP*; RSM's own site
+  states "容诚会计师事务所（特殊普通合伙) 作为RSM国际网络的一员，以RSM名义提供服务" — "Rongcheng
+  Certified Public Accountants (Special General Partnership), as a member of the RSM international
+  network, provides services under the RSM name", <https://www.rsm.global/china>). PDF fetched from the exchange's own
   document server:
   <http://reportdocs.static.szse.cn/UpFiles/rasinfodisc1/202604/RAS_202604_22164565DA37A2A6A74520902DB3E1B3350542.pdf>
   JLC is the parent of JLCPCB and EasyEDA.

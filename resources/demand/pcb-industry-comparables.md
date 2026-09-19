@@ -215,9 +215,10 @@ printed.
     is not neutral evidence, and the selection is itself a caveat on the 10.00 pp gap.
   - The document is a filed *draft* prospectus ("申报稿" — "filed draft"). The financial statements
     carry an audit report (number 容诚审字[2026]518Z0073, an identifier, left as printed) by
-    容诚会计师事务所 (Rongcheng Certified Public Accountants; recorded elsewhere in this repository
-    as "RSM China" — the international-network affiliation has not been verified here and the
-    firm's own Chinese name is what the filing prints); the business narrative does not.
+    容诚会计师事务所 (Rongcheng Certified Public Accountants, **verified 2026-09-19** as the China
+    member firm of RSM International, trading in English as *RSM China CPA LLP* — see SMB-1 in
+    [`long-tail-businesses.md`](long-tail-businesses.md) for the quote from RSM's own site); the
+    business narrative does not.
   - All translations are ours; the Chinese is quoted exactly so a reader can check them.
 
 ### PCB-2. JLC owns its plant: five production bases on about a million square metres, CNY 3.26bn of fixed assets, CNY 1.4bn of capex in one year — and an audited impairment taken against the big-batch factories because they are not full
