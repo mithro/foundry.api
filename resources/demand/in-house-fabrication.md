@@ -19,7 +19,7 @@ on [H6](../hypotheses.md#h6-small-customers-can-each-be-profitable).
 
 Everything here was gathered read-only, HTTP GET only, between 2026-09-18 and 2026-09-19. No form
 was submitted, no account created, no person contacted by any channel. Sources that could not be
-reached are listed in [§ Blocked sources](#blocked-sources) rather than dropped.
+reached are listed in [§ Blocked sources](#5-blocked-sources) rather than dropped.
 
 ---
 
@@ -164,7 +164,7 @@ directory.
 - **Verification:** Verified against the company's own page, 2026-09-19. **Not yet cross-checked
   against a second independent source** — the two trade-press reports found (Business North Carolina
   and the North Carolina Biotechnology Center) both refuse automated fetches; see
-  [§ Blocked sources](#blocked-sources). The Durham County Board of Commissioners' own minutes would
+  [§ Blocked sources](#5-blocked-sources). The Durham County Board of Commissioners' own minutes would
   settle it and were not reached.
 - **What it says (quoted in full, because every number in it matters):**
 
@@ -260,9 +260,13 @@ directory.
 - **DERIVED (arithmetic written out):** $3,000,000 / $750,000,000 = **0.400%** of the price the site
   reportedly changed hands for around 2000 — a factor of **250** lower. Verified with
   `uv run python tmp/arith.py`.
-- **Bears on:** H6 (**supports, strongly** — the fixed asset base needed to run a real MEMS foundry,
-  including an ISO 9001:2015 quality system, a trained team and a live customer book, was available
-  on the open market for $3.0M, which is far below any figure this project had for what a fab costs);
+- **Read this entry together with IHF-8**, which gives the audited accounts of the same fab. The price
+  is only interpretable against them: $3.0M bought a business turning over about EUR 2.9 million a
+  year and losing money on it. The low price is not a bargain so much as a valuation.
+- **Bears on:** H6 (**supports, on the capital question only** — the fixed asset base needed to run a
+  real MEMS foundry, including an ISO 9001:2015 quality system, a trained team and a live customer
+  book, was available on the open market for $3.0M, which is far below any figure this project had
+  for what a fab costs; **but see IHF-8, where the same fab's profitability challenges H6 hard**);
   H5 (mixed — see caveats); H1 (context — the same physical site went from a reported ~$750M to $3.0M
   in about twenty-two years).
 - **Used in:** not yet.
