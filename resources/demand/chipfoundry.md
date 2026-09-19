@@ -219,7 +219,7 @@ happens to be 53% above the price a dead company used to charge.
     revenue has to be judged is small — but so is the capacity to absorb a bad shuttle.
   - **Corporate history.** "Similar founders" in the owner's account is confirmed: the CTO of the
     new company was an executive officer and director of the old one.
-- **Used in:** `CF-16`.
+- **Used in:** `CF-17`.
 - **Caveats:**
   - The `community` API is an opt-in directory, not a staff list. Six records is the size of the
     *directory*, not of the company or its customer base.
@@ -278,7 +278,7 @@ happens to be 53% above the price a dead company used to charge.
     an early-stage EDA investor, sits on that board; we name him because the filing does, **not**
     because we have any evidence he is the investor in question, and the repository should not imply
     that he is.
-- **Used in:** `CF-16`.
+- **Used in:** `CF-17`.
 - **Caveats:**
   - Form D covers exempt *securities* offerings. Debt, founder capital, revenue-financing, a
     foreign-only placement or an intra-family transfer need not appear.
@@ -394,7 +394,7 @@ happens to be 53% above the price a dead company used to charge.
     shuttles are comparable: 21 → 23 → 29 on the three completed/fabricating runs. **Three points
     is not a trend**, and `PAY-8`'s "+2.3%" year-on-year for ChipFoundry compares part-years.
   - **H6 (context).** 21, 23 and 29 paying customers per shuttle is the size of this business.
-- **Used in:** `CF-7`, `CF-11`, `CF-16`; supersedes the numbers in `OPG-9` and the ChipFoundry rows
+- **Used in:** `CF-7`, `CF-11`, `CF-17`; supersedes the numbers in `OPG-9` and the ChipFoundry rows
   of `PAY-8` with a dated series.
 - **Caveats:**
   - **ChipFoundry defines none of these words.** "Committed" is read here, as in `OPG-9`, as "paid
@@ -477,7 +477,7 @@ happens to be 53% above the price a dead company used to charge.
     only unsubsidised open-shuttle operator in existence moves its dates by one to three months
     routinely and deletes announced runs. A market design that assumes a fixed calendar is
     designing for a world that does not exist yet.
-- **Used in:** `CF-16`.
+- **Used in:** `CF-17`.
 - **Caveats:**
   - "Customer shipped" is ChipFoundry's own milestone; we have not verified that any customer
     received anything on those dates. Tiny Tapeout's independent dates (`CF-9`) are the only
@@ -522,7 +522,7 @@ happens to be 53% above the price a dead company used to charge.
     for `PRINCIPLES.md`: it is an independent, market-tested estimate of how far below cost the
     subsidised-and-then-dead price was. It is **not proof** — the two companies' cost structures,
     volumes and suppliers differ, and SkyWater's own prices moved over four years.
-- **Used in:** `CF-11`, `CF-16`.
+- **Used in:** `CF-11`, `CF-17`.
 - **Caveats:**
   - $14,950 buys 100 QFN parts and an eval board; $9,750 bought 100 QFN or 300 WCSP and five eval
     boards (`PAY-7`). The bundles are **not identical**, and nobody has costed the difference.
@@ -589,7 +589,7 @@ happens to be 53% above the price a dead company used to charge.
   - **`PAY-8` needs amending.** It flags "at least five ChipFoundry-era slots are Tiny Tapeout's own
     purchases"; this entry identifies exactly which five, and adds that they are **partly
     subsidised**, so the double-count correction in `PAY-8`'s combined table understates the problem.
-- **Used in:** `CF-11`, `CF-16`.
+- **Used in:** `CF-11`, `CF-17`.
 - **Caveats:**
   - "One slot per TT run" is an inference from the table's one-shuttle-per-run mapping; a TT chip
     might occupy more or less than a nominal slot, and TTSKY26a and TTSKY26b sharing CI2605 is the
@@ -633,7 +633,7 @@ happens to be 53% above the price a dead company used to charge.
   - **The auction design (context).** A customer's exposure when the operator fails is the whole
     lead time, and the lead time is nine months to two years. `PRINCIPLES.md` treats the auction as
     allocating capacity; this is the counterparty risk that sits behind the allocation.
-- **Used in:** `CF-16`.
+- **Used in:** `CF-17`.
 - **Caveats:**
   - Whether ChipFoundry's asset purchase (`CF-3`) covered any obligation to these customers is not
     stated anywhere public. We do **not** know who paid for TT08's recovery, and it should not be
@@ -682,7 +682,7 @@ happens to be 53% above the price a dead company used to charge.
   - **Revenue per employee, on the four people we can name (`CF-4`):** $1,091,350 ÷ 4 = **about
     $273,000**. If the company is eight people it is about $136,000, which for a US
     semiconductor-services business is not a viable figure. **This single ratio is the crux of the
-    verdict in `CF-16`**, and it is a derivation from a floor headcount, not a measurement.
+    verdict in `CF-17`**, and it is a derivation from a floor headcount, not a measurement.
 - **Bears on:**
   - **H6 (context).** The visible business is small and the derived gross is about $1m a year. The
     knowledge base and the marketplace are the artefacts of a product organisation, not of a large
@@ -691,7 +691,7 @@ happens to be 53% above the price a dead company used to charge.
     slots, and an empty contests list. Efabless ran design contests with free fabrication as prizes
     (`OPG-6`); ChipFoundry's contest table is empty. Whatever community activity there is, it is not
     visible here.
-- **Used in:** `CF-16`.
+- **Used in:** `CF-17`.
 - **Caveats — and these matter more than the numbers:**
   - **Every revenue figure above is committed slots × list price. It is not a measurement**, it is
     the same derivation `PAY-8` makes, with the same three holes: committed may be a deposit, pool
@@ -753,7 +753,7 @@ happens to be 53% above the price a dead company used to charge.
     the thing three operators independently chose.**
   - **H6 (context).** MPW yield is a shared-fate problem between customers. A pooled run externalises
     one customer's design error onto their neighbours, and the operator absorbs the dispute.
-- **Used in:** `CF-16`.
+- **Used in:** `CF-17`.
 - **Caveats:**
   - The 50% rule is reported by Tiny Tapeout, not stated on ChipFoundry's own site; the FAQ's
     version is the vaguer "minimum customer commitment threshold". Treat the *number* 50% as
@@ -843,7 +843,7 @@ happens to be 53% above the price a dead company used to charge.
   - **H5 (context).** "Customers retain all intellectual property rights" and "Appropriate NDAs can
     be executed upon request" confirm `ACC-3`: this is a **private** shuttle with no open-source
     requirement, so the visible design count (`CF-11`) will always understate the customer count.
-- **Used in:** `CF-16`.
+- **Used in:** `CF-17`.
 - **Caveats:**
   - Three pages give three slightly different versions of the same terms, and the payment-terms page
     is sixteen months stale and still names "ChipCreate" and the CC-era schedule. Which governs is
@@ -910,7 +910,7 @@ happens to be 53% above the price a dead company used to charge.
     price.
   - **H6 (context).** ChipFoundry's contest API (`/api/v1/showcase/contests`) returns `[]` while
     three contests demonstrably ran. The platform's public surface understates the business.
-- **Used in:** `CF-11`, `CF-16`.
+- **Used in:** `CF-11`, `CF-17`.
 - **Caveats:**
   - "3 Winning Designs Fabricated" is ChipFoundry's own count and the showcase corroborates it, but
     we did not verify that the three chips exist.
@@ -983,7 +983,7 @@ happens to be 53% above the price a dead company used to charge.
   - **H6 (context).** "Delivery: Singulated, Untested Die (Gross Die)" with sort, packaging and tape
     & reel as options is the cost-to-serve discipline `SMB`-series entries keep finding: the
     profitable version of a long-tail offer strips everything optional out of the base price.
-- **Used in:** `CF-16`.
+- **Used in:** `CF-17`.
 - **Caveats:**
   - **This is a marketing page for a product that may have no customers.** First archived 2026-02-11;
     nothing on the site, in the API or in the GitHub organisation shows an Anchor run existing. Treat
@@ -993,9 +993,82 @@ happens to be 53% above the price a dead company used to charge.
   - The whole page is contingent on SkyWater accepting a ChipFoundry-owned production mask set; no
     statement from SkyWater is public.
 
+### CF-16. The rest of the price list: a 36-block commercial IP catalogue at $6,200–$42,900 a licence, SRAM at $2,500, support at $1,000 — and the ML product repriced at **+50%**, the same step as the shuttle
+
+- **Sources**, all fetched live on 2026-09-20 (`/ml`, `/commercial-sram` and `/ip-catalog` are in the
+  sitemap and the navigation; `/chipcreate` still exists and still says "$14,950 per tapeout"):
+  - <https://chipfoundry.io/ip-catalog>, <https://chipfoundry.io/commercial-sram>,
+    <https://chipfoundry.io/commercial-sram-macro>, <https://chipfoundry.io/ml>,
+    <https://chipfoundry.io/support>, <https://chipfoundry.io/how-it-works>
+  - For the Efabless comparison, `PAY-7`.
+- **Verification:** **Verified 2026-09-20.**
+- **What it says**, verbatim:
+  - **chipIgnite ML:** "Proto-Only Option: Available as an open-source solution for prototyping and
+    proof-of-concept projects. **Pricing starts at $22,250.** Proto + Production Option: Includes full
+    features for production-ready applications, **starting at $45,000.**"
+  - **Commercial SRAM:** "**Pricing: $2500 per project**" … "You can implement as many instances of
+    the above macros in a single ChipCreate project for the same price."
+  - **IP catalogue:** "chipIgnite IP Catalog — **36 Commercial IP blocks** / **6 Licensing
+    categories** / 130nm SkyWater process node / **Unlimited Instances per licence**." Individual
+    licence fees run from **$6,200** to **$33,900** (e.g. "12-bit SAR ADC CF_ADC_SAR12 … **$33,900**";
+    "Delta-Sigma Modulator ADC CF_ADC_DSM20 … **$30,800**"; "Continuous-Time Comparator CF_CMP_CT …
+    **$18,500**"), with four group tiers: "Tier T1 · **Group license $42,900**", "Tier T2 · **Group
+    license $21,500**", "Tier T3 · **Group license $14,300**", "Tier T4 · **Group license $8,600**".
+    Delivery is "**Black-box views only**", fee basis "**Per-project fee, category tiers**", and the
+    provenance claim is "Each block was designed into commercial mixed-signal microcontroller
+    products and built in volume on this process node. **None of it was authored for this catalog or
+    lifted from a test chip.**"
+  - **Support:** "**$1000** for 5 hours of extended support" and "**$450 per seat** per year" for
+    training; "Classroom Training: Billed at a **2:1 ratio** due to preparation requirements";
+    "Custom Design Services: Pricing is determined on a per-project basis."
+  - **How it works** independently repeats `CF-13`: "Secure your spot on the shuttle with a deposit
+    of **$500 USD**. Please note that reservations are non-refundable unless the shuttle is
+    cancelled." / "**A minimum of 20 confirmed participants are required for a shuttle fabrication
+    run.**"
+- **DERIVED (arithmetic written out), and the first of these is the important one:**
+  - **The ML product was repriced by the same ~50% as the shuttle.** Efabless's chipIgnite ML
+    (`PAY-7`) was "Proto-Only … Pricing starts at **$14,750**. Proto + Production … starting at
+    **$30,000**." ChipFoundry's is $22,250 and $45,000. **22,250 ÷ 14,750 = +50.8%.
+    45,000 ÷ 30,000 = +50.0%.** Against the shuttle's 14,950 ÷ 9,750 = **+53.3%**.
+    **Three independent product lines, three repricings, all between +50% and +53%.** That is not a
+    coincidence and it is not a bundle difference: it is a company re-basing an entire inherited
+    price list by about half as much again. **This is the strongest quantitative support in the
+    repository for the proposition that the subsidised-era open-shuttle price was roughly a third
+    below the cost of running the service** (1 − 1/1.5 = **33%**).
+  - **The attach sale is larger than the tapeout.** A customer taking one tapeout, one Tier-1 IP
+    block, the SRAM macro and one support block pays 14,950 + 30,800 + 2,500 + 1,000 = **$49,250**,
+    **3.3× the headline price**. A single T1 group licence at $42,900 is **2.9× a tapeout on its own.**
+  - **How much of this is realised is completely unknown.** The marketplace API (`CF-11`) returns
+    100 entries of which 99 are tagged `ip`, and the catalogue page says 36 are commercial; nothing
+    anywhere says how many licences have been sold.
+- **Bears on:**
+  - **H6 (supports, and this may be the most useful business-model finding in the file).** The
+    shuttle is the *entry point*, not the product. The margin is designed to sit in IP licences at
+    $6,200–$42,900, SRAM at $2,500, support at $1,000 a block, training at $450 a seat, design
+    services by quote, and production aggregation (`CF-15`). **Every `CF-11` revenue derivation in
+    this file counts only the razor and none of the blades, and is therefore a floor.** For a
+    project asking whether a long tail of small customers can be profitable, the operator's own
+    answer is visible in its price list: **not on fabrication alone.**
+  - **H6 (context).** "Unlimited Instances per licence" and "Black-box views only" are the
+    economics of software, applied to silicon IP: zero marginal cost, priced per project, delivered
+    without source.
+  - **`PAY-7` and `PAY-8` can be extended.** `PAY-7` dated Efabless's ML prices but had no successor
+    figures; they are here, and they make the ~50% re-basing a three-point pattern rather than a
+    single observation.
+- **Used in:** `CF-17`.
+- **Caveats:**
+  - **Published list prices, not transactions.** Nothing says a single IP licence has been sold.
+  - The ML comparison assumes the two products are equivalent; both are described as an ML/analog
+    SoC flow on SKY130, but the bundles were not compared item by item.
+  - "Starting at" on both ML tiers means the realised price is ≥ the number, in both eras, so the
+    +50% is a comparison of floors.
+  - `/chipcreate` and `/chipignite` are now the same page with the same price; the old product name
+    survives in URLs, in the commercial SRAM copy ("a single ChipCreate project") and in the
+    support page ("your purchase of ChipCreate"), seventeen months after the rebrand.
+
 ---
 
-## CF-16. Verdict: what ChipFoundry's record actually shows
+## CF-17. Verdict: what ChipFoundry's record actually shows
 
 **The honest headline: there is not enough public data to say whether an unsubsidised,
 investor-free open-shuttle business works. There is enough to say what it looks like while it is
@@ -1007,9 +1080,13 @@ being attempted, and that picture is neither an endorsement nor a refutation.**
    taped out, two delivered to customers, 89 paying-or-committed slots, roughly **$1.1m a year of
    gross bookings at list price** (`CF-11`). It is not a project or a grant line item. Nobody is
    paying it to exist.
-2. **It priced the same physical product 53% above the dead company's price, from its first public
-   day, and has not moved that price in seventeen months** (`CF-2`, `CF-8`). If you want one number
-   from this file, it is that one: the market's own estimate of how far below cost $9,750 was.
+2. **It re-based the whole inherited price list by about half as much again, from its first public
+   day, and has not moved it in seventeen months** (`CF-2`, `CF-8`, `CF-16`). The shuttle went
+   $9,750 → $14,950, **+53.3%**. The ML product went $14,750 → $22,250, **+50.8%**, and
+   $30,000 → $45,000, **+50.0%**. **Three products, three repricings, all +50% to +53%.** If you
+   want one number from this file, it is that one: an independent company's estimate that the
+   subsidised-era open-shuttle price was about **a third below** what the service costs to provide
+   (1 − 1/1.5 = 33%).
 3. **It cut the cadence at the same time** — from four shuttles a year to two, then three, and it
    says so itself (`CF-7`). Higher price, fewer runs, same node. That is what a company optimising
    for survival rather than growth does.
@@ -1026,10 +1103,12 @@ being attempted, and that picture is neither an endorsement nor a refutation.**
 7. **It is paid in full about nine months before it delivers** (`CF-13`): final payment falls 14
    days before the submission deadline, and delivery lands 193–250 days after tapeout. The operator
    carries no receivable and needs no working capital for the run itself.
-8. **It does not rely on the shuttle alone.** It sells reservation options ($500 non-refundable,
-   `CF-13`), contest sponsorships (`CF-14`), IP, commercial SRAM, ReRAM, ML, support and design
-   review, and it has launched an "Anchor / Tenant" **production** aggregation product (`CF-15`).
-   None of that is visible in any number we can derive.
+8. **It does not rely on the shuttle alone, and its own price list says the shuttle is the cheap
+   part.** A Tier-1 IP licence is **$42,900**, an individual block up to **$33,900**, SRAM
+   **$2,500**, a support block **$1,000**, training **$450** a seat (`CF-16`) — against a
+   **$14,950** tapeout. It also sells reservation options ($500 non-refundable, `CF-13`), contest
+   sponsorships (`CF-14`) and an "Anchor / Tenant" production product (`CF-15`). **None of that is
+   in any number derived in this file, so every revenue figure here is a floor.**
 
 **What that adds up to, stated carefully.**
 
