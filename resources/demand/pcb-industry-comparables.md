@@ -79,11 +79,13 @@ printed.
   - **SMB-1 left open which companies the prospectus treats as 同行业可比公司. This is the answer.**
     Under the heading "3、与同行业可比公司主营业务毛利率比较分析" ("3. Comparative analysis of
     core-business gross margin against comparable companies in the same industry"), the prospectus
-    prints, with columns 可比公司名称 / 2025年度 / 2024 年度 / 2023年度:
+    prints, with columns 可比公司名称 / 2025年度 / 2024 年度 / 2023年度 — "name of comparable
+    company / financial year 2025 / financial year 2024 / financial year 2023" (年度 = financial
+    year). Transcribed with the Chinese as printed and our English beside it:
 
-    | 可比公司名称 (comparable company) | 2025年度 | 2024 年度 | 2023年度 |
+    | 可比公司名称 (comparable company) | 2025年度 (FY2025) | 2024 年度 (FY2024) | 2023年度 (FY2023) |
     |---|---|---|---|
-    | **PCB 行业** | | | |
+    | **PCB 行业** (PCB industry) | | | |
     | 兴森科技 (Fastprint) | 未披露 | 26.96% | 28.72% |
     | 金百泽 (Jinbaize) | 21.17% | 23.97% | 28.42% |
     | 迅捷兴 (Xunjiexing) | 8.52% | 14.33% | 15.14% |
@@ -92,7 +94,8 @@ printed.
     | **PCB 行业均值** (PCB industry mean) | **18.06%** | **22.37%** | **25.09%** |
     | **本公司 PCB 业务** (this Company's PCB business) | **28.06%** | **30.05%** | **28.73%** |
 
-    "未披露" means *not disclosed*. The table's footnote reads: "注：部分可比公司同时存在其他主营业务，表中取相关数据。"
+    "未披露" means *not disclosed*, and appears wherever a peer had not yet published that year's
+    figure. The table's footnote reads: "注：部分可比公司同时存在其他主营业务，表中取相关数据。"
     — "Note: some comparable companies also have other core businesses; the table takes the relevant
     data." (Our translation.)
   - **The prospectus explains the 2023 outlier itself, and the explanation is the thesis.**
@@ -212,7 +215,9 @@ printed.
     is not neutral evidence, and the selection is itself a caveat on the 10.00 pp gap.
   - The document is a filed *draft* prospectus ("申报稿" — "filed draft"). The financial statements
     carry an audit report (number 容诚审字[2026]518Z0073, an identifier, left as printed) by
-    容诚会计师事务所 (Grant Thornton China / RSM China); the business narrative does not.
+    容诚会计师事务所 (Rongcheng Certified Public Accountants; recorded elsewhere in this repository
+    as "RSM China" — the international-network affiliation has not been verified here and the
+    firm's own Chinese name is what the filing prints); the business narrative does not.
   - All translations are ours; the Chinese is quoted exactly so a reader can check them.
 
 ### PCB-2. JLC owns its plant: five production bases on about a million square metres, CNY 3.26bn of fixed assets, CNY 1.4bn of capex in one year — and an audited impairment taken against the big-batch factories because they are not full

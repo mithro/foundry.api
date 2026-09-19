@@ -15,8 +15,10 @@ arithmetic is written out.
 
 - **Source:** 深圳嘉立创科技集团股份有限公司 (Shenzhen JLC Technology Group Co., Ltd.), 招股说明书（申报稿）
   (IPO prospectus, filed draft), filed with the Shenzhen Stock Exchange, April 2026. Audit report
-  容诚审字[2026]518Z0073 by 容诚会计师事务所 (RSM China). PDF fetched from the exchange's own document
-  server:
+  容诚审字[2026]518Z0073 (a report number, left as the filing prints it) by 容诚会计师事务所
+  (Rongcheng Certified Public Accountants; previously recorded here as "RSM China" — that
+  international-network affiliation has not been verified). PDF fetched from the exchange's own
+  document server:
   <http://reportdocs.static.szse.cn/UpFiles/rasinfodisc1/202604/RAS_202604_22164565DA37A2A6A74520902DB3E1B3350542.pdf>
   JLC is the parent of JLCPCB and EasyEDA.
 - **Verification:** Verified 2026-09-18. The PDF was downloaded, its text extracted, and every

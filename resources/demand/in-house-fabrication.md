@@ -550,7 +550,7 @@ floor area, all audited.
     DEVELOPMENT OF THE MEMSCAP GROUP", press release, Grenoble, 2023-03-28, 06:30 PM.
     <https://memscap.com/wp-content/uploads/2023/04/PR-FY22-GB_28032023.pdf>
     (linked from <https://memscap.com/en/2023/03/28/memscap-earnings-for-fy22/>)
-  - MEMSCAP S.A., *Rapport annuel 2022*, filed 2023-04-28 (in French).
+  - MEMSCAP S.A., *Rapport annuel 2022* (*Annual Report 2022*), filed 2023-04-28 (in French).
     <https://memscap.com/wp-content/uploads/2023/05/Rapport-annuel-Memscap-2022-28_04_2023.pdf>
     (linked from <https://memscap.com/en/2023/04/28/memscap-2022-annual-report/>)
 - **Verification:** Verified, 2026-09-19. Both PDFs were fetched directly from `memscap.com` and the
@@ -561,6 +561,11 @@ floor area, all audited.
 - **How it was counted:** no counting was needed — the figures are line items. The derivations under
   DERIVED are divisions of those line items, written out below and checked with
   a throwaway Python script, deleted after use.
+- **Note on language:** the annual report is in French. French passages are quoted in the original,
+  because the original is the evidence; **the English translations are ours**, not the company's, and
+  each follows the passage it translates. (The press release is the company's own English document
+  and is quoted as published.) French filings use a comma as the decimal separator, so "0,5 million
+  d'euros" is 0.5 million euros.
 - **What it says.**
 
   **The plant.** From the annual report's description of the subsidiaries (§ on MEMSCAP Inc.), the
@@ -571,21 +576,32 @@ floor area, all audited.
   > production de silicium en location (475 m², classe ISO 4), en format de production de tranches
   > silicium de 6 pouces."
 
-  In English: a leased silicon production plant of **475 m², cleanroom class ISO 4**, running **6-inch
+  In English (our translation): "MEMSCAP Inc., based in the United States, carried on MEMSCAP's
+  Custom Products business until December 2022 through operations based in North Carolina,
+  incorporating a **leased silicon production plant (475 m², class ISO 4)**, in a **6-inch silicon
+  wafer** production format."
+
+  That is: a leased silicon production plant of **475 m², cleanroom class ISO 4**, running **6-inch
   wafers**. (The same report elsewhere gives ISO/FS 209 equivalences for the Norwegian site — "200 m²,
-  classe ISO 8 ou classe 100 000 selon FS 209" — so the "classe ISO 4" is deliberate and means
-  FS 209 Class 10, not Class 100.) The same paragraph confirms what was sold:
+  classe ISO 8 ou classe 100 000 selon FS 209", "200 m², class ISO 8 or class 100,000 under FS 209" —
+  so the "classe ISO 4" is deliberate and means FS 209 Class 10, not Class 100.) The same paragraph
+  confirms what was sold:
 
   > "le Groupe a procédé à la cession de l'ensemble des équipes de Caroline du Nord, du bail afférent
   > à l'usine de fabrication ainsi que la totalité des équipements industriels et technologies
   > associés, et des activités de fabrication pour compte de tiers (« Foundry Business »)."
+
+  In English (our translation): "the Group disposed of the whole of the North Carolina teams, of the
+  lease relating to the manufacturing plant, and of all the associated industrial equipment and
+  technologies, and of the manufacturing activities carried out on behalf of third parties
+  ('Foundry Business')."
 
   **The headcount.** The annual report's workforce table gives the group's total employees by
   geography. At 31 December 2021, before the sale:
 
   > "Etats-Unis ........................................................................ 14"
 
-  out of a group total of 60. At 31 December 2022, after the sale, the United States line is gone
+  — "United States … 14" — out of a group total of 60. At 31 December 2022, after the sale, the United States line is gone
   entirely and the total is 48 (France 4, Norway 44). The group's average full-time-equivalent
   headcount in **production** fell from 37 to 22 across the same period.
 
@@ -614,6 +630,9 @@ floor area, all audited.
 
   > "La cession des équipements industriels des activités abandonnées, soit un impact net de -0,5
   > million d'euros en date de cession (Décembre 2022)."
+
+  In English (our translation): "The disposal of the industrial equipment of the discontinued
+  operations, being a net impact of −0.5 million euros at the date of disposal (December 2022)."
 
   The disposal of **all** the industrial equipment of the discontinued business took **EUR 0.5
   million** off the balance sheet. That is the net book value of an entire working MEMS toolset —
