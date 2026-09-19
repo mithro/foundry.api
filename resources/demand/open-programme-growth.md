@@ -1171,7 +1171,7 @@ while the older subsidised programmes did not — is
     error; it is not the submission window the platform recorded. **Both denominators in `ACC-8` were
     wrong, in opposite directions.**
   - **H5 (supports), on the honest version of the comparison.** Against AFRL's 82 ÷ 78 = 1.05
-    proposals a day (`ACC-15`), **four of the six Google shuttles with a recoverable window beat it**,
+    proposals a day (`ACC-15`), **five of the six Google shuttles with a recoverable window beat it**,
     and MPW-8 beat it by **3.3×** (3.50 ÷ 1.05). The one Google shuttle that loses is **MPW-1 — the
     one `ACC-8` chose**.
   - **H5 (context) on the metric itself.** Submissions per day of window is a bad measure for a

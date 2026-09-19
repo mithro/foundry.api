@@ -474,7 +474,7 @@ and unquantified "funding available" in later phases (`ACC-15`).
 > **1.50 a day** … **A closed, gate-kept, government-funded competition out-drew the open shuttle per
 > day of open window.**" **That is withdrawn.** The window was 78 days, not 45; what was counted was
 > business plans, not designs; Google's MPW-1 window was 99 days, not 30; and the AFRL rate of 1.05
-> proposals a day is beaten by **four of the six Google shuttles whose window can be recovered**, the
+> proposals a day is beaten by **five of the six Google shuttles whose window can be recovered**, the
 > fastest by 3.3×. **§6.5 sets out the corrected comparison in full.**
 
 ---
@@ -704,7 +704,7 @@ small ones.
 proprietary-design, competition-gated, government-funded programme drew **82 designs in 45 days** —
 **DERIVED** 1.82 a day against Google's 1.50 a day on MPW-1 (`ACC-8`).~~ **Withdrawn 2026-09-19.** The
 AFRL window was 78 days and what it counted was business plans; on the corrected figures the AFRL rate
-of 1.05 a day is beaten by four of the six Google shuttles with a recoverable window, and the only one
+of 1.05 a day is beaten by five of the six Google shuttles with a recoverable window, and the only one
 it beats is MPW-1 — the shuttle this paragraph chose. **§6.5** sets out the whole comparison. The
 argument in this subsection now rests entirely on Europractice, MOSIS, CMC and Google themselves,
 which is enough for it; **AFRL was never needed and never supported it.**

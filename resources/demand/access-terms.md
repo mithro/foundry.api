@@ -400,7 +400,7 @@ PDK" or "contact us for a price", that sentence is the finding.** It was recorde
 > - **Google's MPW-1 window was 99 days, not 30.** Efabless's own platform page prints "November 12,
 >   2020: Project submission is OPEN" and "February 19, 2021: Project submission is CLOSED"
 >   (`OPG-20`). The "30 days" repeated in `DEM-4`, `DEM-6` and `DEM-7` is not the submission window.
-> - **MPW-1 was the cherry.** Against AFRL's 1.05 a day, **four of the six Google shuttles with a
+> - **MPW-1 was the cherry.** Against AFRL's 1.05 a day, **five of the six Google shuttles with a
 >   recoverable window are faster** — MPW-6 1.55, MPW-7 1.61, GF MPW-0 2.51, GF MPW-1 2.64, MPW-8
 >   **3.50** — and only MPW-1 (0.37–0.45) is slower (`OPG-20`).
 > - **There were no prizes.** "There is no charge to register, there is no charge to participate"
