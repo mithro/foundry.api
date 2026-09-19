@@ -253,12 +253,15 @@ What the audit found actually predicts behaviour:
   - ACC-10: MEMSCAP published MUMPs prices, a run schedule and redistributable design rules,
     commercially, for **thirty-one years** on a closed process, and reached "Over 80 full process
     runs" at 3–4 a year. Transparency without an open PDK bought longevity, not scale
-  - ACC-8: **the AFRL/AFWERX design challenge (2018–20) was closed-PDK, proprietary-designs,
-    competition-gated and government-funded — and drew 82 designs in 45 days, or 1.82/day against
-    Google's first open shuttle at 1.50/day.** A closed, gate-kept programme out-drew the open one
-    per day of window. What the two share is that somebody else paid, which suggests **"somebody
-    else pays" may be the operative variable rather than "the PDK is open"** (Partial: it comes
-    through Efabless's newsletter; the primary AFRL source was not found)
+  - ~~ACC-8: the AFRL/AFWERX design challenge drew 82 designs in 45 days, 1.82/day against Google's
+    first open shuttle at 1.50/day, so a closed, gate-kept programme out-drew the open one per day of
+    window.~~ **Withdrawn 2026-09-19.** The primary sources were found (`ACC-15`, `ACC-16`): phase 1
+    ran **78 days**, not 45; what was submitted was a **business plan with a block diagram**, not a
+    design (`ACC-13`); **ten of the 82 were selected** (`ACC-14`); Google's MPW-1 window was **99
+    days**, not 30 (`OPG-20`); and at 1.05 proposals a day the AFRL rate is beaten by **four of the
+    six Google shuttles with a recoverable window**, the fastest by 3.3×. MPW-1 was the only one it
+    beat, and MPW-1 is the one the audit chose. Entry to the AFRL challenge was free and there was
+    **no prize** — "no guarantees, no prizes and no contracts". See the audit §6.5
   - ACC-1: even the most open programme retains a discretionary right of refusal and a full
     ITAR/OFAC regime
   - §6.1 of the audit: the sector is smaller today than MOSIS was in 1995
