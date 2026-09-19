@@ -113,7 +113,11 @@ evidence shows a mixture; the bracket is not decoration, it is a finding.
 | **P** | Commercial entity trying to make a profit on this activity | A company sells the service at a price intended to exceed its cost |
 | **M** | Commercial entity running it as marketing or ecosystem-building for another business | A company runs it to sell something else — tools, wafers at volume, an ecosystem |
 
-**P(S)** therefore means "a company trying to profit, materially underwritten by others". That
+**P(S)** therefore means "a company trying to profit, materially underwritten by others". **As of
+the corrections of 2026-09-19 and 2026-09-20 no programme in this audit is scored `P(S)` any longer**
+— chipIgnite and Tiny Tapeout were both rescored `P`, and the reasoning that put them there is
+recorded in §3.2 and §3.3. The category is kept because it is the right question to ask; it simply
+turns out to have no members here. That
 combination turns out to describe almost every commercial entrant in the record, and §6 argues it is
 the single most important qualification on our thesis.
 
@@ -161,7 +165,7 @@ programme ended when the sponsor stopped, not when demand fell
 lottery (operations, and decisive for three applicants in four). Recorded as the audit's cleanest
 example of the gap.
 
-### 3.2 Efabless chipIgnite, 2021–2025 — **16/18 open · P(S)**
+### 3.2 Efabless chipIgnite, 2021–2025 — **16/18 open · P**
 
 | | Finding | Source |
 |---|---|---|
@@ -207,7 +211,7 @@ chipIgnite is the repository's clearest example of demand at a price the custome
 $9,750, later $14,950 (`SMB-9`), on a private shuttle with "no open-source requirement" (`OPG-7`).
 What the open PDK underneath it was paid for by others is a separate question, treated in §6.2.
 
-### 3.3 Tiny Tapeout — **16/20 open · P(S)**
+### 3.3 Tiny Tapeout — **16/20 open · P**
 
 | | Finding | Source |
 |---|---|---|
@@ -222,7 +226,23 @@ What the open PDK underneath it was paid for by others is a separate question, t
 | A9 | **0.** A full EAR / OFAC / ITAR regime in the terms, with named excluded countries and a customer warranty: "You hereby represent and warrant that: (i) no Design and/or Design Documentation you submit hereunder would be subject to the ITAR". | `ACC-1` |
 | A10 | **2.** €70. The smallest published unit of chip manufacturing found anywhere. | `SMB-10` |
 
-**Axis 2: P(S).** Tiny Tapeout B.V. is a company and sells at published prices. But `OPG-14` records
+**Axis 2: P — a commercial company, with no external or venture investors.**
+
+> ### ⚠️ Correction, 2026-09-20
+>
+> This section previously scored Tiny Tapeout `P(S)`. **Tiny Tapeout has taken no external or
+> venture-capital investment**, and neither has wafer.space; ChipFoundry was founded explicitly
+> with **no investors and aiming at profitability from day one**, after Efabless died when an early
+> investor blocked a funding round. All four members of the open-and-commercial quadrant are
+> therefore genuine `P`.
+>
+> **Sponsorship of particular orders is not the same as underwriting the business.** A sponsor
+> paying for eighty capped early-bird places, or for workshop seats, buys those places at the
+> published price; it does not make the price a subsidised one. The test that matters is what
+> happened when the sponsor vanished — and `OPG-14` records that **Tiny Tapeout's prices did not
+> rise when Efabless disappeared**. That is the behaviour of a price that was covering its costs.
+
+Tiny Tapeout B.V. is a company and sells at published prices. `OPG-14` records
 that from about January 2024 until Efabless died, "Efabless is sponsoring a special early bird offer
 of $150" against a $300 standard price, capped at "The first 80 orders from individuals"; and the live
 workshops page lists sponsors including chipIgnite, ChipFoundry, IEEE, IEEE SSCS, Synopsys, CMC, Chip
