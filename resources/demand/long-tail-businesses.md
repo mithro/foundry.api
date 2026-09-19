@@ -61,7 +61,7 @@ arithmetic is written out.
     the Chinese headings and row labels kept beside their English (收入占比, "share of revenue", is the
     share of *PCB* revenue):
 
-    | Batch size (批量) | Sales channel (销售渠道) | 2025 share of revenue (收入占比) | 2025 gross margin (毛利率) | 2024 share of revenue | 2024 gross margin | 2023 share of revenue | 2023 gross margin |
+    | Batch size (批量) | Sales channel (销售渠道) | 2025 share of revenue (收入占比) | 2025 gross margin (毛利率) | 2024 share of revenue (收入占比) | 2024 gross margin (毛利率) | 2023 share of revenue (收入占比) | 2023 gross margin (毛利率) |
     |---|---|---|---|---|---|---|---|
     | Sample and small batch (样板、小批量) | Online (线上) | 72.73% | 37.39% | 72.84% | 38.18% | 71.66% | 35.86% |
     | Sample and small batch (样板、小批量) | Offline (线下) | 2.84% | 6.69% | 2.77% | 13.55% | 2.72% | 19.91% |
