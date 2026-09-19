@@ -88,6 +88,181 @@ Two caveats on that source, stated before any conclusion rests on it:
 
 ---
 
+## 2. Cut: growth rates on both sides, on matched windows
+
+### 2.1 Every series we hold
+
+CAGR is endpoint-to-endpoint; the p-value is from a log-linear OLS regression of `log(value)` on
+year, which uses every point rather than only the ends.
+
+```python
+# tmp/growth.py
+def cagr(a, b, yrs): return (b/a)**(1.0/yrs) - 1.0
+def ols_loggrowth(years, vals):        # slope of log(value) on year, with a t-test
+    y = np.log(vals); b, a = np.polyfit(years, y, 1)
+    se = sqrt(sum((y - (a+b*years))**2)/(n-2) / sum((years-years.mean())**2))
+    return exp(b)-1, 2*t.sf(abs(b/se), n-2)
+```
+
+**Traditional (population 1)**
+
+| Series | Window | n | CAGR | log-OLS p |
+|---|---|---:|---:|---:|
+| Gartner ASIC design starts (`TRAD-19`) | 1994–2013 | 18 | **−8.0 %** | <0.0001 |
+| …measured part only | 1994–2008 | 13 | **−8.4 %** | <0.0001 |
+| Europractice designs (`DEM-16`) | 2000–2025 | 26 | **+1.8 %** | 0.0000 |
+| …2000–2017, the "flat" claim | 2000–2017 | 18 | **+1.5 %** | 0.0001 |
+| CMP circuits (`DEM-19`) | 1993–2015 | 12 | +1.3 % | 0.141 |
+| CMC prototypes (`DEM-20`) | 2017–2025 | 7 | −2.8 % | **0.796** |
+| TSMC distinct products **[stock]** (`TRAD-16`) | 2019–2025 | 7 | +2.8 % | 0.096 |
+| TSMC distinct customers **[stock]** (`TRAD-16`) | 2019–2025 | 7 | +1.1 % | 0.085 |
+
+**Open (population 2)**
+
+| Series | Window | n | CAGR | log-OLS p |
+|---|---|---:|---:|---:|
+| Tiny Tapeout design records | 2022–2026 | 5 | +68.7 % | 0.033 |
+| Tiny Tapeout **first-time** designs | 2022–2026 | 5 | +62.8 % | 0.024 |
+| Tiny Tapeout tiles sold | 2023–2026 | 4 | +76.2 % | 0.103 |
+| Tiny Tapeout active designers | 2022–2026 | 5 | +73.0 % | 0.013 |
+| Google Open MPW submissions (`OPG-1`) | 2020–2023 | 4 | +46.4 % | **0.452** |
+| chipIgnite submissions (`OPG-7`) | 2021–2024 | 4 | +94.8 % | 0.009 |
+| IHP free-MPW designs (`OPG-10`) | 2023–2025 | 3 | +483 % | 0.078 |
+| Efabless community members (`OPG-15`) | 2021–2025 | 3 | +85.4 % | 0.110 |
+
+**Three results the repository does not currently reflect.**
+
+1. **Europractice is not flat, and it is not declining. It is rising, significantly.** Over the
+   eighteen years the repository describes as "eighteen years, essentially flat … There is no sign
+   here of a dam waiting to burst", the log-linear trend is **+1.5%/yr with p = 0.0001**. The 2000–2025
+   trend is +1.8%/yr, also significant. `DEM-16` files this series under H5 **Challenges**. On the
+   arithmetic it belongs under Supports, weakly. The range framing ("between 363 and 614 designs a
+   year") conceals a 28% rise across the window.
+2. **CMC's "decline" is not statistically distinguishable from noise** (p = 0.80, n = 7). `DEM-20`
+   is already careful — it says "It is not a four-year decline, and the entry should not be cited as
+   one" — but it still lists the series under H5 Challenges. It cannot bear that weight.
+3. **Google's Open MPW growth is not significant either** (p = 0.45, n = 4), because the series is
+   37 → 162 → 506 → 116 and the last year is a stub (one GF shuttle). The programme's growth is
+   real per-shuttle; as an annual series it is four points with a collapse at the end caused by
+   Google stopping.
+
+### 2.2 The matched-window problem, which is the most serious finding in this section
+
+Years in which *any* traditional series and *any* open series both have a datum: **2020–2025 only.**
+
+- The Gartner decline — the only traditional series with a large, highly significant downward
+  trend — **ends in 2013**, and its last five points are a forecast made in March 2009.
+- The open-programme growth — every series of it — **begins in 2020**.
+
+**There is not one year in which a credible traditional-decline series and a credible open-growth
+series are both measured.** The two-population contrast is assembled from two non-overlapping eras.
+
+What the overlapping years actually contain:
+
+| Series | 2021 → 2025 | CAGR | 2022 → 2025 | CAGR |
+|---|---|---:|---|---:|
+| Europractice designs | 985 → 753 | **−6.5 %** | 731 → 753 | **+1.0 %** |
+| CMC prototypes | 400 → 240 | −12.0 % | 498 → 240 | −21.6 % |
+| TSMC products [stock] | 12,302 → 12,682 | +0.8 % | 12,698 → 12,682 | −0.0 % |
+| TSMC customers [stock] | 535 → 534 | −0.0 % | 532 → 534 | +0.1 % |
+| Tiny Tapeout design records | — | — | 166 → 1,530 | +109.7 % |
+| Tiny Tapeout active designers | — | — | 122 → 971 | +99.7 % |
+
+**The sign of the Europractice trend in the overlap window depends entirely on the start year:**
+
+| Start | → 2025 CAGR | log-OLS %/yr | p | n |
+|---|---:|---:|---:|---:|
+| 2016 | +3.1 % | +3.4 % | 0.098 | 10 |
+| 2017 | +2.6 % | +2.2 % | 0.320 | 9 |
+| 2018 | +2.7 % | +0.5 % | 0.827 | 8 |
+| 2019 | −2.6 % | −2.9 % | 0.152 | 7 |
+| 2020 | −3.4 % | −3.5 % | 0.204 | 6 |
+| **2021** | **−6.5 %** | −3.9 % | 0.343 | 5 |
+| 2022 | +1.0 % | +1.2 % | 0.760 | 4 |
+
+2021 is the all-time peak of a 26-year series, and `DEM-16`'s own caveat records that the 2019 step
+up is partly the absorption of CMP's counts rather than new demand. **Nothing in the record makes
+2021 the right place to start**, and no start year in the overlap window produces a significant
+decline.
+
+**Conclusion of the cut, stated plainly.** In the only window where the two populations can be
+compared at all, the open side grows fast and significantly, and *the traditional side does not
+decline in any statistically defensible way*. The traditional decline that the project's thesis
+rests on is a 1994–2013 phenomenon. It may well still be true in 2025; nothing we hold measures it.
+The honest version of the two-population claim is therefore: **"open programmes are growing
+sharply, and the conventional route has been flat-to-slightly-up for a quarter of a century."**
+That is a weaker but genuinely supported claim, and it is close to the narrower statement
+`design-starts-and-mature-nodes.md` already reaches by a different route.
+
+### 2.3 The Gartner decline itself is two recessions
+
+| Window | CAGR | log-OLS %/yr | p | n |
+|---|---:|---:|---:|---:|
+| 1994–2013 | −8.0 % | −9.8 % | <0.00001 | 18 |
+| 1997–2013 | −10.1 % | −10.3 % | <0.00001 | 15 |
+| 2000–2013 | −9.8 % | −8.6 % | <0.00001 | 12 |
+| 2002–2013 | −6.0 % | −6.9 % | 0.00001 | 10 |
+| **2002–2008 (between the recessions)** | — | **−5.2 %** | 0.007 | 5 |
+
+The decline is real and significant under every start year. But it is about **−5%/yr between the
+two recessions** and about −10%/yr when 2001 and 2009 are included. `TRAD-6` already says
+"Fitting a single exponential across 2000–2012 attributes to a secular trend what is substantially
+two recessions"; this quantifies it. The secular part is roughly half the headline.
+
+### 2.4 Free versus paid — the cut that was expected to be decisive, and is not
+
+| | Window | From → to | CAGR |
+|---|---|---|---:|
+| **Free / subsidised** | | | |
+| Google Open MPW (Google-funded) | 2020–2023 | 37 → 116 | +46.4 % |
+| IHP free MPW (German public funds) | 2023–2025 | 2 → 68 | +483 % |
+| Europractice (EU-subsidised) | 2000–2025 | 480 → 753 | +1.8 % |
+| CMC (Canadian public funds) | 2017–2025 | 300 → 240 | −2.8 % |
+| **Paid** | | | |
+| chipIgnite submissions ($9,750–$14,950) | 2021–2024 | 51 → 377 | **+94.8 %** |
+| Tiny Tapeout tiles (€70–$300) | 2023–2026 | 510 → 2,788 | **+76.2 %** |
+| Tiny Tapeout active designers | 2022–2026 | 122 → 1,094 | **+73.0 %** |
+| wafer.space backers | 2025–2026 | 6 → 23 | +283 % (n = 2) |
+| **ChipFoundry `committed` (paid)** | 2025–2026 | 44 → 45 | **+2.3 %** |
+| ChipFoundry `interest` (unpaid) | 2025–2026 | 129 → 262 | +103 % |
+
+**This cut does not undermine the growth claim; it strengthens it.** The paid series grow *faster*
+than the subsidised ones. The IHP row is meaningless (a base of 2) and the wafer.space row has n = 2,
+but chipIgnite and Tiny Tapeout are the two longest paid series and both are near +80%/yr. The
+project's "demand appears when the price falls" story is supported by demand that people *paid for*,
+which is precisely the evidence the repository says it is weakest on.
+
+**The one place it bites.** The only series in the entire evidence base that counts **money
+committed** rather than interest expressed is ChipFoundry's `committed` field, and it is
+**+2.3%/yr**, against +103%/yr for `interest` on the same shuttles. Two points is not a trend and
+this must not be presented as one. But it is the only measurement of the gap, and the gap is the
+whole question.
+
+### 2.5 Drop-one-programme robustness
+
+Is "open programmes grow" driven by Tiny Tapeout alone? The only window in which more than one open
+series has both endpoints is **2023 → 2024**; chipIgnite dies in 2024 and ChipFoundry and
+wafer.space start in 2025, so no open aggregate spans more than two consecutive years.
+
+| Aggregate (2023 → 2024) | From | To | Change |
+|---|---:|---:|---:|
+| all three (TT tiles + chipIgnite + IHP) | 737 | 2,163 | **+193.5 %** |
+| drop Tiny Tapeout | 227 | 394 | **+73.6 %** |
+| drop chipIgnite | 512 | 1,786 | +248.8 % |
+| drop IHP | 735 | 2,146 | +192.0 % |
+
+**The conclusion survives.** Removing Tiny Tapeout cuts the growth rate by roughly two-thirds but
+leaves it strongly positive: chipIgnite on its own grew +67.6% that year and +94.8%/yr over
+2021–2024. The growth finding is **not** an artefact of one programme.
+
+Two cautions. First, these three series count different objects (tiles, submissions, designs) and
+adding them is only defensible as a robustness check, never as a level. Second, **Tiny Tapeout's
+tiles sit inside chipIgnite's and IHP's slots**, so the aggregate double-counts; `OPG-11` says
+exactly this ("Do not add IHP's customer count to Tiny Tapeout's design count"). The drop-one test
+is valid because it only asks whether the sign survives; the aggregate itself should not be quoted.
+
+---
+
 ## 3. Cut: the Tiny Tapeout distribution, from real per-designer data
 
 ### 3.1 The question
