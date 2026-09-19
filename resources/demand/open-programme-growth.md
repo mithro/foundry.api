@@ -332,6 +332,8 @@ while the older subsidised programmes did not — is
   - Slide 23: "**TinyTapeout 152 projects in 1 slot Submitted to MPW-7** tinytapeout.com"
   - Slide 24, on Japanese submissions: "MPW3: １ Jacaranda-8 (8-bit ISA) MPW5: １ PMU MPW6: 5 Marmot:
     Linux capable RISC-V SoC NNgen ML accelerator Ramen Timer HP35 RTL clone Color convertor"
+    (the slide sets the counts in full-width digits: "１" is the digit 1, so MPW3 and MPW5 carried
+    one Japanese submission each and MPW6 carried five)
   - Slide 33, the intended funnel: "Community ↓ Group submission ↓ Open MPW shuttles ↓ Private
     shuttles ↓ Full wafer ↓ Industry"
 - **Bears on:**
@@ -669,7 +671,8 @@ while the older subsidised programmes did not — is
   - **Two runs are open.** "Open Source SG13G2 29.09.2026", registration deadline "2026-09-21",
     price "SG13G2 - 2800€ per ㎟". And "Open Source MPW CMOS5L 09.11.2026", deadline "2026-10-26",
     price "SG13CMOS5L - 1500€ per ㎟", carrying the warning "**Minimal required area not reached yet**"
-    with "Minimum area 90㎟" and "Lowest price 900€ per ㎟".
+    with "Minimum area 90㎟" and "Lowest price 900€ per ㎟". (㎟ is the single-character form of mm²,
+    as IHP's page prints it: €2,800/mm² and €1,500/mm², a 90 mm² minimum and a €900/mm² floor.)
   - **Who has registered, and how much, read from the page:**
 
     *SG13G2 run closing 2026-09-29* — IHP_ext 2, Lund University 1, Navia Labs 9,

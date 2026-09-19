@@ -277,7 +277,7 @@ shuttles in 2025 and 3 in 2026" (`ACC-3`).
 
 | | Finding | Source |
 |---|---|---|
-| A1 | **2.** Published per-run: "SG13G2 - 2800€ per ㎟" and "SG13CMOS5L - 1500€ per ㎟", with "Minimum area 90㎟" and "Lowest price 900€ per ㎟" printed on the page. | `OPG-11` |
+| A1 | **2.** Published per-run: "SG13G2 - 2800€ per ㎟" and "SG13CMOS5L - 1500€ per ㎟", with "Minimum area 90㎟" and "Lowest price 900€ per ㎟" printed on the page. (㎟ is the single-character form of mm², as the source prints it: €2,800 and €1,500 per mm², 90 mm² minimum, €900 per mm² floor.) | `OPG-11` |
 | A2 | **1.** A registration page, and "**Participation requires signing the Open Silicon MPW Program Participation Agreement.**" | `OPG-11` |
 | A3 | **1.** A participation agreement, not an NDA, and the PDK is public regardless. | `OPG-11` |
 | A4 | **2.** `IHP-GmbH/IHP-Open-PDK`, Apache-2.0. | `ACC-6` |

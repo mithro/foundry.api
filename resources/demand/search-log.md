@@ -50,7 +50,7 @@ status.
 | Published MPW price lists | Europractice (which carries the IHP and GlobalFoundries lists), MOSIS (archived), chipIgnite/ChipFoundry, Tiny Tapeout | SMB-7 to SMB-10 |
 | Mask-set cost at mature nodes | GSA survey figures quoted in *New Electronics* | SMB-12 |
 | Wafer cost per node | CSET's Table 9, modelled from TSMC's own financials | SMB-11 |
-| A long-tail manufacturing business that is profitable | JLC's IPO prospectus, filed with the Shenzhen Stock Exchange. It is a pre-listing 申报稿 and the company is unlisted, so it has no ticker: the document carries no 证券代码 or 股票代码 line at all | SMB-1 |
+| A long-tail manufacturing business that is profitable | JLC's IPO prospectus, filed with the Shenzhen Stock Exchange. It is a pre-listing 申报稿 ("filed draft") and the company is unlisted, so it has no ticker: the document carries no 证券代码 ("securities code") or 股票代码 ("stock code") line at all | SMB-1 |
 | Long-tail manufacturing businesses that are not | Protolabs, Xometry, Shapeways | SMB-2, SMB-3, SMB-4 |
 | Evidence cost is not the binding constraint | Siemens EDA / Wilson Research first-silicon success rates | DEM-12 |
 | Falling design starts | EE Times 2002, Gartner and iSuppli | DEM-11 |
@@ -335,13 +335,13 @@ channel.
 
 | Looked for | Found | Entry |
 |---|---|---|
-| Which companies the JLC prospectus treats as 同行业可比公司 (the open question left by SMB-1) | Five, named in a table on PDF p.246 with three years of gross margin each: 兴森科技, 金百泽, 迅捷兴, 四会富仕, 强达电路 | PCB-1 |
-| Whether JLC owns its plant (a concrete open item against SMB-1) | **Yes.** "自有的生产仓储基地", "五大数字化自营生产基地", CNY 3.26bn of fixed assets, CNY 1.40bn of capex, buildings with ownership certificates, land bought at auction | PCB-2 |
+| Which companies the JLC prospectus treats as 同行业可比公司 ("comparable companies in the same industry" — the open question left by SMB-1) | Five, named in a table on PDF p.246 with three years of gross margin each: 兴森科技 (Fastprint), 金百泽 (Jinbaize), 迅捷兴 (Xunjiexing), 四会富仕 (Sihui Fushi), 强达电路 (Qiangda) | PCB-1 |
+| Whether JLC owns its plant (a concrete open item against SMB-1) | **Yes.** "自有的生产仓储基地" ("its own production and warehousing bases"), "五大数字化自营生产基地" ("five digital, self-operated production bases"), CNY 3.26bn of fixed assets, CNY 1.40bn of capex, buildings with ownership certificates, land bought at auction | PCB-2 |
 | A second company disclosing margin by batch size | **None found.** Fastprint, the best-placed candidate, splits by industry, product, region and sales channel and never by batch | PCB-4 |
-| A second company describing the batch/margin relationship | Xunjiexing's FY2025 report prints it as an industry characteristic: 样板 高 / 小批量板 较高 / 大批量板 一般低于样板、小批量板 | PCB-3 |
-| A second company attributing a margin fall to a shift toward batch | Xunjiexing FY2023: revenue +3.65%, PCB volume +30.02%, gross margin −5.62 pp, "一方面是市场竞争加剧价格竞争激烈使得批量产品降价，另一方面是公司批量占比逐步增加" | PCB-3 |
+| A second company describing the batch/margin relationship | Xunjiexing's FY2025 report prints it as an industry characteristic: 样板 高 / 小批量板 较高 / 大批量板 一般低于样板、小批量板 — sample boards "high", small-batch boards "relatively high", large-batch boards "generally lower than sample and small-batch boards" | PCB-3 |
+| A second company attributing a margin fall to a shift toward batch | Xunjiexing FY2023: revenue +3.65%, PCB volume +30.02%, gross margin −5.62 pp, "一方面是市场竞争加剧价格竞争激烈使得批量产品降价，另一方面是公司批量占比逐步增加" — "on the one hand because intensified market competition and fierce price competition drove down the prices of batch products, and on the other because the Company's batch share gradually increased" | PCB-3 |
 | Whether the prospectus's peer figures are reliable | 13 of 15 re-derived from the peers' own audited annual reports; **all 13 agree exactly** | PCB-5 |
-| Customer concentration across the peer set | JLC 1.16%, 金百泽 13.82%, 强达电路 16.31%, 四会富仕 19.36%, 兴森科技 27.29%, 迅捷兴 40.07% | PCB-3, PCB-4, PCB-5 |
+| Customer concentration across the peer set | JLC 1.16%, 金百泽 (Jinbaize) 13.82%, 强达电路 (Qiangda) 16.31%, 四会富仕 (Sihui Fushi) 19.36%, 兴森科技 (Fastprint) 27.29%, 迅捷兴 (Xunjiexing) 40.07% | PCB-3, PCB-4, PCB-5 |
 | A published price list separating small orders from volume | OSH Park: $5/in² per set of 3 vs $1/in² Medium Run (100 in² minimum) — exactly 5/3, at two layers and at four | PCB-6 |
 
 ## 10. Negative results and corrections (PCB comparables)
@@ -351,7 +351,7 @@ channel.
   stencils, SLA 3D prints, laser-cut acrylic, custom cables and a BOM tool. No shutdown notice was
   found. Nothing about its economics was located either, because its prices render client-side and
   its founder's writing was not searched.
-- **The JLC prospectus's "未披露" for 兴森科技's 2025 margin is a timing artefact, not a
+- **The JLC prospectus's "未披露" ("not disclosed") for 兴森科技 (Fastprint)'s 2025 margin is a timing artefact, not a
   non-disclosure.** Fastprint's FY2025 annual report was published on **2026-04-25**, after the
   prospectus was filed; it gives **25.26%**. Substituting it raises the 2025 peer mean from 18.06%
   to 19.50% and cuts JLC's margin premium from +10.00 pp to +8.56 pp. This correction is against
@@ -368,11 +368,12 @@ channel.
   Jinbaize: sample < 5 m², small batch 5–20 m². Any cross-company comparison of "small batch"
   compares differently drawn lines.
 - **JLC's online orders are not unattended.** The prospectus says the system generates a *reference*
-  quote and "市场部对订单审核后向客户发送最终报价" — the marketing department reviews the order and
+  quote and "市场部对订单审核后向客户发送最终报价" — "the marketing department reviews the order and
   sends the final quote. Any claim that a JLC order completes with zero human involvement is not
   supported by the filing.
-- **The large listed Chinese PCB makers were not examined.** 深南电路 (Shennan), 沪电股份 (WUS),
-  景旺电子 (Kinwong) and 崇达技术 (Chongda) were in scope as a wider control group and were not
+- **The large listed Chinese PCB makers were not examined.** 深南电路 (Shennan Circuits),
+  沪电股份 (WUS Printed Circuit), 景旺电子 (Kinwong Electronic) and 崇达技术 (Chongda Technology)
+  were in scope as a wider control group and were not
   reached. They are also *not* the comparables JLC chose, which is itself worth noting: JLC's peer
   set is five companies ranked 7th to 83rd among domestically-funded makers, not the leaders.
 
@@ -380,9 +381,9 @@ channel.
 
 | Question | Source A | Source B | Status |
 |---|---|---|---|
-| 兴森科技's 2025 core-business gross margin | JLC prospectus: 未披露 | Fastprint FY2025 annual report: PCB 25.26% | **Not a disagreement** — the report post-dates the prospectus. Both recorded. |
-| Xunjiexing's top-five customer share, 2025 | Annual report: "40.07%" of 年度销售总额 | Our recomputation against 主营业务收入: 40.08% | Different denominators (total sales vs main-business revenue). Both recorded. |
-| The definition of 样板 / 小批量板 | JLC: < 1 m² / 1–20 m² | Xunjiexing: < 5 m² / 5–50 m²; Jinbaize: < 5 m² / 5–20 m² | Three incompatible definitions. All recorded; none adopted. |
+| 兴森科技 (Fastprint)'s 2025 core-business gross margin | JLC prospectus: 未披露 (not disclosed) | Fastprint FY2025 annual report: PCB 25.26% | **Not a disagreement** — the report post-dates the prospectus. Both recorded. |
+| Xunjiexing's top-five customer share, 2025 | Annual report: "40.07%" of 年度销售总额 ("total annual sales") | Our recomputation against 主营业务收入 ("core-business revenue"): 40.08% | Different denominators (total sales vs main-business revenue). Both recorded. |
+| The definition of 样板 (sample board) / 小批量板 (small-batch board) | JLC: < 1 m² / 1–20 m² | Xunjiexing: < 5 m² / 5–50 m²; Jinbaize: < 5 m² / 5–20 m² | Three incompatible definitions. All recorded; none adopted. |
 
 ## 12. The open-access audit, 2026-09-18 and 2026-09-19
 
