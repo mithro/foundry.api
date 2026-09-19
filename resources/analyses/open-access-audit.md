@@ -1,9 +1,11 @@
 # The open-access audit: which small-customer programmes were actually open, and which were actually businesses
 
-**Status: first pass, committed incomplete on purpose.** Fifteen programmes are scored below. The
-MEMS programmes, X-FAB, imec, Fraunhofer, VTT, EuroCDP and SkyWater's and GlobalFoundries' own direct
-offerings are **not yet audited** and are marked as such in the matrix. A matrix with fifteen rows
-filled in and the rest marked honestly is more useful than a complete one that does not exist.
+**Status: first pass, committed incomplete on purpose.** Sixteen programmes are scored below,
+including one MEMS programme (MEMSCAP's MUMPs, §3.16). The other MEMS shuttles — Silex, Teledyne
+DALSA, Tronics, IMT — and X-FAB, imec, Fraunhofer, VTT, EuroCDP and SkyWater's and GlobalFoundries'
+own direct offerings are **not yet audited** and are marked as such in the matrix. A matrix with
+sixteen rows filled in and the rest marked honestly is more useful than a complete one that does not
+exist.
 
 ---
 
@@ -443,6 +445,47 @@ what that does and does not show.
 
 ---
 
+### 3.16 MEMSCAP MUMPs (PolyMUMPs, SOIMUMPs, PiezoMUMPs), 1992–2023 — **10/18 open · P/M**
+
+The only MEMS programme audited, and the most interesting row in the table, because it is the one
+combination the rest of the record lacks: **a commercial company publishing prices on a closed
+process.**
+
+| | Finding | Source |
+|---|---|---|
+| A1 | **2.** A public price list, no login: "1 Standard Die Site - 15 die delivered" at **$5,800** non-academic and **$4,200** academic, "Additional Standard Die Sites on same run $3000/ea". | `ACC-10` |
+| A2 | **0.** A quote number, an FTP account and a CAPTCHA stand between you and a submission: "you'll need the temporary userid and password assigned to you in your reservation confirmation email"; the submission form requires "Quote# *". | `ACC-10` |
+| A3 | **1.** No NDA to read the design rules, which are a public download — but the CAD kits are routed through tool vendors: "To receive design kits for Coventorware, SoftMEMS, or Intellisense, please visit the following links". | `ACC-10` |
+| A4 | **1, and it is an unusual 1.** "**All of the documents below are free to download and distribute.**" That is explicit redistribution permission for design rules, run data, FAQs and course slides — but it is a sentence on a web page, not a licence, and it covers the documentation, not the process. | `ACC-10` |
+| A5 | **2.** No institution, country or company requirement found. The academic rate is a **discount**, not a gate: **DERIVED**, $4,200 ÷ $5,800 = **72.4%** of the commercial rate. | `ACC-10` |
+| A6 | **0.** L-Edit, CoventorWare, IntelliSense or SoftMEMS. There is no open MEMS flow here at all. | `ACC-10` |
+| A7 | **2.** "reserve a die site on a scheduled run, and start designing!" No review or selection process is described anywhere. | `ACC-10` |
+| A8 | **1.** A published run schedule with design deadlines and ship dates — PolyMUMPs runs 133–136, PiezoMUMPs 23–26, SOIMUMPs 74–77 — but **no submission count, no fill rate and no list of who was on a run**, ever. | `ACC-10` |
+| A9 | **`?`.** Nothing found. MEMSCAP is French with a US operation and MEMS can be export-controlled, so absence of a statement is not evidence of absence. | §7 |
+| A10 | **1.** $4,200–$5,800. | `ACC-10` |
+
+**Axis 2: P/M.** A listed French company (MEMSCAP S.A., Crolles) running a shuttle beside a sensor and
+optical-attenuator business. Its own page calls it "a well-established, Multi Project Wafer
+**commercial** program". No subsidy was found. But the parent's revenue comes from products, and the
+half-year results MEMSCAP publishes today describe only those products — which is why the row is
+P/M rather than P.
+
+**And it is gone from the public internet.** The MUMPs page last returned HTTP 200 on **2023-01-30**
+and was **404 by 2023-11-15**; MEMSCAP's current site has no foundry or MPW section at all; and
+`memsrus.com`, the programme's historic domain, is now a spam blog (`ACC-11`). **Nothing found says
+the programme stopped, and this audit does not claim it did** — but a new customer reading MEMSCAP's
+site today would not learn that a MEMS shuttle exists. That is the access barrier this audit measures,
+in its maximum form.
+
+**Why this row matters more than its score.** MUMPs ran for thirty-one years, published its prices
+throughout, published a run schedule, let anyone redistribute its design rules, and had no eligibility
+rule — on a **closed** process, with **no open tooling**, as a **commercial** programme. If openness
+of the *PDK* were the whole mechanism, MUMPs should have been unable to build a community; if
+published prices and free documentation were sufficient, it should have grown. Neither happened:
+"Over 80 full process runs … to hundreds of organizations" in three decades, at three to four runs a
+year. **It is the audit's best single case that published prices and free documentation are not
+sufficient, and it sits directly against `ACC-8`'s case that an open PDK is not necessary.**
+
 ## 4. Where marketing and terms disagree
 
 Recorded prominently, as instructed, because each one is a finding in its own right.
@@ -474,6 +517,7 @@ audited. **Score = points ÷ points available on the criteria actually establish
 | **IHP Open Silicon MPW** | 2 | 1 | 1 | 2 | 2 | 2 | 1 | 2 | ? | 1 | **14/18** | **U(S)** | 59.2 mm² registered on one run |
 | **Cadence/SkyWater MPW** | 2 | — | 1 | 2 | — | 1 | — | — | — | — | **6/8** | **M** | not published |
 | **Europractice** | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 1 | 0 | 0 | **3/20** | **S** | 753–985 designs/yr |
+| **MEMSCAP MUMPs** | 2 | 0 | 1 | 1 | 2 | 0 | 2 | 1 | ? | 1 | **10/18** | **P/M** | >80 runs in 31 yr; page gone 2023 |
 | **MOSIS 1.0** | 2 | 1 | 0 | 0 | ? | 0 | ? | 1 | ? | 0 | **4/14** | **U** | ~3,000 orders/yr at peak |
 | **TSMC Univ. FinFET** | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | ? | 0 | **3/18** | **S** | not published |
 | **MUSE Semiconductor** | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | ? | 0 | **1/18** | **P/M** | not published |
@@ -481,8 +525,7 @@ audited. **Score = points ÷ points available on the criteria actually establish
 | **CMC Microsystems** | 0 | — | 0 | — | 0 | — | — | — | — | — | **0/6** | **U(S)** | 240 prototypes 2025-26 |
 | **CMP (defunct)** | — | — | — | — | — | — | — | — | — | — | **n/a** | **U(S)** | peaked 401 circuits/yr |
 | **AFRL design challenge** | — | — | — | 0 | 0 | — | 0 | — | — | — | **0/6** | **S** | 82 designs in 45 days |
-| MEMSCAP MUMPs | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
-| Silex, Teledyne DALSA, Tronics | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
+| Silex, Teledyne DALSA, Tronics, IMT | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
 | X-FAB, imec, Fraunhofer, VTT | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
 | SkyWater direct, GF direct | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
 | EuroCDP, MOSIS 2.0 terms | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
@@ -504,7 +547,15 @@ Cross the two axes. Take "open" as **≥ 12/18-equivalent** (two-thirds of avail
 | | **Subsidised / academic (U, S, M)** | **Commercial (P)** |
 |---|---|---|
 | **Open (≥ ⅔)** | Google Open MPW (S/M), IHP Open Silicon (U(S)), Cadence/SkyWater (M) | **wafer.space, ChipFoundry.io, Tiny Tapeout, Efabless chipIgnite** |
-| **Closed (< ⅔)** | Europractice (S), MOSIS (U), CMC (U(S)), CMP (U(S)), TSMC Univ. FinFET (S), AFRL (S) | MUSE (P/M), TSMC cyberShuttle (P/M) |
+| **Closed (< ⅔)** | Europractice (S), MOSIS (U), CMC (U(S)), CMP (U(S)), TSMC Univ. FinFET (S), AFRL (S) | **MEMSCAP MUMPs (P/M, 10/18 — the near miss)**, MUSE (P/M), TSMC cyberShuttle (P/M) |
+
+**MEMSCAP's MUMPs is the row to look at hardest**, because at 10/18 it is the only entry that sits
+near the line from the *closed* side while being commercial. It published its prices for thirty-one
+years, published a run schedule, let anyone redistribute its design rules, and imposed no eligibility
+rule — and it still scores 0 on open tooling and 0 on self-service, because the process was closed and
+every route to a submission ran through a quote (§3.16). It is the audit's cleanest demonstration that
+**published prices plus free documentation, without an open PDK or an open tool flow, produce a
+service that lasts three decades and stays small.**
 
 **So the "genuinely open AND genuinely commercial" quadrant is not empty. It has four members. That
 is the good news, and it is the only good news in this section.**
@@ -625,7 +676,10 @@ Taking the two axes separately, as the whole point of this document:
    publishes prices to the euro and is closed on six other criteria (`ACC-5`); Tiny Tapeout, the most
    open programme in the audit, does *not* publish a headline price (`ACC-2`). H8's phrasing —
    "published prices, visible queues and public results" — bundles three things of which the first is
-   the weakest.
+   the weakest. **MEMSCAP's MUMPs settles this one.** It published prices *and* a run schedule *and*
+   redistributable design rules, commercially, for thirty-one years, with no eligibility rule — and it
+   reached "Over 80 full process runs … to hundreds of organizations" at three to four runs a year
+   (`ACC-10`). Transparency without an open PDK and an open tool flow bought longevity, not scale.
 4. **Commercial profit-motive predicts nothing good, and possibly something bad.** The only programme
    in the record that died was the commercial one. The only entity described as self-sustaining is a
    university. The four commercial occupants of the open quadrant are collectively smaller than MOSIS
@@ -655,7 +709,8 @@ Everything below was attempted read-only. Being blocked is recorded, not worked 
 | What | Blocker | What would unblock a human |
 |---|---|---|
 | **Web search, from part-way through** | The session's web-search budget was exhausted (200/200 calls). Later evidence had to come from `curl` against URLs already known | A raised search budget; nothing about the sources themselves is blocked |
-| **The MEMS programmes entirely** (MEMSCAP MUMPs, Silex, Teledyne DALSA, Tronics, IMT) | Not audited. The delegated agent gathering them was terminated by a session-wide API rate limit before reporting. Its last partial line suggested MEMSCAP's current site may no longer carry a MUMPs section — **that is unverified and must not be cited** | A fresh pass over `memscap.com`, `memsrus.com`, the CMC and Europractice MEMS catalogues, and the Wayback Machine for the MUMPs design handbooks |
+| **Silex, Teledyne DALSA, Tronics, IMT** | Not audited. The delegated agent gathering the MEMS programmes was terminated by a session-wide API rate limit before reporting; MEMSCAP's MUMPs was then audited directly (§3.16, `ACC-10`, `ACC-11`) but the others were not | A pass over `silexmicrosystems.com`, Teledyne DALSA's MEMS pages, `tronicsgroup.com` and `imtmems.com`, plus the CMC and Europractice MEMS catalogues |
+| **Whether MUMPs is still buyable through a reseller** | Not checked. MUMPs was resold through CMC Microsystems and Europractice; whether either still lists it would settle whether the programme survives its own website's disappearance | The Europractice technology index (it lists a MEMS section: CEA-Leti, Science, SINTEF, Tyndall, X-FAB) and CMC's catalogue — the latter behind an HTTP 403 for automated fetches |
 | **X-FAB, imec, Fraunhofer, VTT, EuroCDP, CIME-P** | Same cause — not audited | As above. Europractice's per-foundry access pages are the fastest route; its 2026 price list already shows Fraunhofer IISB requires "a valid NDA" (`ACC-4`) |
 | **MOSIS's domestic/foreign eligibility text** | Its price lists are titled "domestic", implying an export or nationality distinction; the eligibility page behind it was not recovered. `mosis.com` became a JavaScript application in late 2020 and the archived HTML has no readable body | Working back through pre-2000 Wayback captures of `mosis.com/Orders/`, which are plain HTML and did serve to `curl` for `SMB-8` |
 | **MUSE Semiconductor prices and schedule** | `musesemi.com/shared-block-tapeout-pricing` returns HTTP 200 but is a Wix application with no price in the ~494 KB body; the recent Wayback captures are the same shell | Opening the page in an ordinary browser, or working back through the 2019–2021 captures which may predate the rewrite |
