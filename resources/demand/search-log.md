@@ -307,3 +307,79 @@ shadow libraries, no contact with any person.
 | Science Foundry's cleanroom class | MEMSCAP's audited 2022 annual report: "475 m², classe ISO 4" | A MEMS-industry blog: "5,000 sq. ft. of Class 100 cleanroom" (= ISO 5) | Unresolved. **The areas agree** (475 m² is 5,113 sq ft); the classes differ by one. The audited filing is preferred and both are recorded (IHF-8) |
 | The company's own name | SEC registrant: "Science Corp" | Website and `schema.org` metadata: "Science Corporation"; the MEMS unit is "Science Foundry" and "officially known as Science Wafer Services" | Unresolved and probably unresolvable without corporate filings. All refer to one company; whether Science Wafer Services is separately incorporated is not established |
 | Date of the MEMSCAP sale announcement | Press release dateline: "Grenoble (France) – December 7, 2022 – 06:30 PM"; Science's blog post: 2022-12-07 | MEMSCAP's own website post: 2022-12-12 | Not a real disagreement — the website post-dates the release. Both recorded |
+
+# PCB industry comparables (2026-09-19)
+
+Searching done while building [`pcb-industry-comparables.md`](pcb-industry-comparables.md), whose
+question was: does JLC's long-tail-high-margin / big-batch-commodity result (SMB-1) generalise
+across the PCB industry, or is JLC an outlier?
+
+Everything here was read-only. HTTP GET only, apart from cninfo's own document-search endpoint,
+which is a POST search query and nothing else. No forms submitted, no accounts, no logins, no
+paywall or bot-check circumvention, no shadow libraries, and no contact with any person by any
+channel.
+
+## 8. Tool and access notes (new ones only)
+
+| Obstacle | Detail | Workaround used |
+|---|---|---|
+| `static.cninfo.com.cn` (Chinese listed-company filings) | Returns **HTTP 403** to a plain `curl` for every `finalpage/.../*.PDF` path. | A browser User-Agent **plus** `-H "Referer: http://www.cninfo.com.cn/"` returns HTTP 200. Both headers are needed. This is the single most useful fact in this section. |
+| Finding a Chinese filing's URL at all | There is no guessable path. | `POST http://www.cninfo.com.cn/new/hisAnnouncement/query` with `pageNum`, `pageSize`, `column=szse` (or `sse`, `bj`), `tabName=fulltext`, `searchkey=<URL-encoded Chinese name>` and `category=category_ndbg_szsh` (annual reports) returns JSON in which each document's `adjunctUrl` is the path to append to `http://static.cninfo.com.cn/`. Searching by company name works; searching by `stock=<code>` returned nothing. |
+| `reportdocs.static.szse.cn` (the JLC prospectus) | Serves fine to `curl` with a generic User-Agent. HTTP 200, 14,709,306 bytes. | None needed. |
+| `www.pcbway.com/aboutus.html` and `/pcb-prototype/` | **HTTP 404**. The paths guessed from other sources are wrong. | The real paths are `/about.html` and the home page; both return HTTP 200. Extract links from the served HTML rather than guessing. |
+| `dirtypcbs.com` prices | Site returns **HTTP 200** and a working storefront, but the price table is rendered client-side and is **absent from the served HTML**. | Not solved. A human with a browser, or a headless browser, sees it at once. |
+| Chinese annual-report PDFs and `pypdf` | Text extracts cleanly, including the tables, but table cells arrive space-separated on one line and long numbers are sometimes split across two lines by the PDF's line breaks (e.g. `1,269,812,602.` / `58`). | Read the surrounding lines, not a single grep hit, before trusting a figure. Two numbers were nearly misread this way. |
+| Session-wide API rate limit | The work was killed partway through by an account-level rate limit, not by any site. | Committed early and often afterwards. The unfinished items are listed in the entry file's blocked-sources table, labelled as unfinished rather than blocked. |
+
+## 9. What was found, and where it went
+
+| Looked for | Found | Entry |
+|---|---|---|
+| Which companies the JLC prospectus treats as 同行业可比公司 (the open question left by SMB-1) | Five, named in a table on PDF p.246 with three years of gross margin each: 兴森科技, 金百泽, 迅捷兴, 四会富仕, 强达电路 | PCB-1 |
+| Whether JLC owns its plant (a concrete open item against SMB-1) | **Yes.** "自有的生产仓储基地", "五大数字化自营生产基地", CNY 3.26bn of fixed assets, CNY 1.40bn of capex, buildings with ownership certificates, land bought at auction | PCB-2 |
+| A second company disclosing margin by batch size | **None found.** Fastprint, the best-placed candidate, splits by industry, product, region and sales channel and never by batch | PCB-4 |
+| A second company describing the batch/margin relationship | Xunjiexing's FY2025 report prints it as an industry characteristic: 样板 高 / 小批量板 较高 / 大批量板 一般低于样板、小批量板 | PCB-3 |
+| A second company attributing a margin fall to a shift toward batch | Xunjiexing FY2023: revenue +3.65%, PCB volume +30.02%, gross margin −5.62 pp, "一方面是市场竞争加剧价格竞争激烈使得批量产品降价，另一方面是公司批量占比逐步增加" | PCB-3 |
+| Whether the prospectus's peer figures are reliable | 13 of 15 re-derived from the peers' own audited annual reports; **all 13 agree exactly** | PCB-5 |
+| Customer concentration across the peer set | JLC 1.16%, 金百泽 13.82%, 强达电路 16.31%, 四会富仕 19.36%, 兴森科技 27.29%, 迅捷兴 40.07% | PCB-3, PCB-4, PCB-5 |
+| A published price list separating small orders from volume | OSH Park: $5/in² per set of 3 vs $1/in² Medium Run (100 in² minimum) — exactly 5/3, at two layers and at four | PCB-6 |
+
+## 10. Negative results and corrections (PCB comparables)
+
+- **"Dirty PCBs is defunct."** Not supported. `http://dirtypcbs.com/` returned **HTTP 200** on
+  2026-09-19 and redirects to a working storefront at `/store/pcbs` with live ordering for PCBs,
+  stencils, SLA 3D prints, laser-cut acrylic, custom cables and a BOM tool. No shutdown notice was
+  found. Nothing about its economics was located either, because its prices render client-side and
+  its founder's writing was not searched.
+- **The JLC prospectus's "未披露" for 兴森科技's 2025 margin is a timing artefact, not a
+  non-disclosure.** Fastprint's FY2025 annual report was published on **2026-04-25**, after the
+  prospectus was filed; it gives **25.26%**. Substituting it raises the 2025 peer mean from 18.06%
+  to 19.50% and cuts JLC's margin premium from +10.00 pp to +8.56 pp. This correction is against
+  our own thesis and is recorded in PCB-4 and in the verdict.
+- **"Serving a long tail is what produces the margin" is not supported by the peer set.** Qiangda
+  has about 3,000 customers, sells 100% direct on negotiated terms, and earns 26.10% — within two
+  points of JLC. Xunjiexing has "over ten thousand", calls itself a sample-board specialist, and
+  earns 8.52% with a net loss. Customer count predicts neither margin nor concentration across the
+  six (Spearman ρ = +0.314 and −0.486; −0.200 and −0.100 excluding JLC; n = 6, so none of it means
+  anything on its own).
+- **There is no industry-standard definition of "small batch".** Three of the companies define the
+  bands and no two agree. JLC: sample < 1 m², small batch 1–20 m², medium/large > 20 m².
+  Xunjiexing: sample < 5 m², small batch 5–50 m², large > 50 m² (per average order).
+  Jinbaize: sample < 5 m², small batch 5–20 m². Any cross-company comparison of "small batch"
+  compares differently drawn lines.
+- **JLC's online orders are not unattended.** The prospectus says the system generates a *reference*
+  quote and "市场部对订单审核后向客户发送最终报价" — the marketing department reviews the order and
+  sends the final quote. Any claim that a JLC order completes with zero human involvement is not
+  supported by the filing.
+- **The large listed Chinese PCB makers were not examined.** 深南电路 (Shennan), 沪电股份 (WUS),
+  景旺电子 (Kinwong) and 崇达技术 (Chongda) were in scope as a wider control group and were not
+  reached. They are also *not* the comparables JLC chose, which is itself worth noting: JLC's peer
+  set is five companies ranked 7th to 83rd among domestically-funded makers, not the leaders.
+
+## 11. Disagreements between sources (PCB comparables)
+
+| Question | Source A | Source B | Status |
+|---|---|---|---|
+| 兴森科技's 2025 core-business gross margin | JLC prospectus: 未披露 | Fastprint FY2025 annual report: PCB 25.26% | **Not a disagreement** — the report post-dates the prospectus. Both recorded. |
+| Xunjiexing's top-five customer share, 2025 | Annual report: "40.07%" of 年度销售总额 | Our recomputation against 主营业务收入: 40.08% | Different denominators (total sales vs main-business revenue). Both recorded. |
+| The definition of 样板 / 小批量板 | JLC: < 1 m² / 1–20 m² | Xunjiexing: < 5 m² / 5–50 m²; Jinbaize: < 5 m² / 5–20 m² | Three incompatible definitions. All recorded; none adopted. |
