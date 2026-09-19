@@ -202,7 +202,23 @@ directory.
 
 ### IHF-3. What a complete, operating, ISO-certified MEMS foundry sold for: US$3.0 million
 
-**This is the single most valuable number in this file.**
+**This is the single most valuable number in this file — and it needs the whole structure beside it.**
+
+> **Correction note, 2026-09-19.** This entry previously presented US$3.0 million as, in effect, the
+> cost of acquiring a working MEMS foundry. The audited disposal note in MEMSCAP's 2022 annual
+> report has now been read, together with the 2021 annual report's description of the plant lease.
+> Three things change. **(1)** It was an **asset purchase**, and the US legal entity — carrying a
+> **US$5.87 million accumulated deficit** and **EUR 5.3 million** of parent funding, EUR 4.5 million
+> of it already written off — **stayed with MEMSCAP**. The liabilities were real and larger than the
+> price; the buyer did not take them. **(2)** There was no building and no land: the fab was a
+> **leased cleanroom inside somebody else's semiconductor plant**, at a rent of **EUR 655 thousand a
+> year** — so the purchase price is about **4.5 years of rent**, and rent is the larger number over
+> any realistic holding period. **(3)** The seller received **EUR 2,940 thousand** in cash but booked
+> **EUR 1,217 thousand** of disposal costs against it, netting **EUR 1,723 thousand**.
+> Anywhere this repository says or implies "a small MEMS fab costs $3M", it must instead say
+> *"US$3.0 million bought the tools, the team and the customer book of a small MEMS foundry, with no
+> building, no land, no facilities plant and no liabilities, and with about EUR 0.66 million a year
+> of rent to pay from day one."* The number itself survived every check. Its meaning did not.
 
 - **Sources:**
   - MEMSCAP S.A., "HEADING FOR 2023: MEMSCAP ANNOUNCES THE SALE OF ITS NORTH CAROLINA MANUFACTURING
@@ -212,13 +228,26 @@ directory.
     (linked from <https://memscap.com/en/2022/12/12/memscap-announces-the-sale-of-its-north-carolina-usa-manufacturing-plant-to-science-corporation-the-conclusion-of-a-strategic-supply-agreement-for-optical-communications-products/>)
   - Same release syndicated via Business Wire and reproduced by citybiz, 2022-12-07.
     <https://www.citybiz.co/article/356444/memscap-announces-the-sale-of-its-north-carolina-manufacturing-plant/>
+  - **MEMSCAP S.A., *Rapport annuel 2022*, filed 2023-04-28 (French) — note 4 "Activités abandonnées",
+    the audited disposal note, and the parent-company subsidiary table.**
+    <https://memscap.com/wp-content/uploads/2023/05/Rapport-annuel-Memscap-2022-28_04_2023.pdf>
+  - **MEMSCAP S.A., *Rapport annuel 2021*, filed 2022-04-29 (French) — note 10 "Contrats de location",
+    which gives the US plant lease term and rent, and §2.6 / the environmental section, which name the
+    landlord.**
+    <https://memscap.com/wp-content/uploads/2023/04/Rapport-annuel-Memscap-2021-29_04_2022.pdf>
+  - MEMSCAP S.A., *Rapport annuel 2023*, filed 2024-04-29 (French) — the post-deal fabless segment and
+    the off-balance-sheet commitments note.
+    <https://memscap.com/wp-content/uploads/2024/04/Rapport-annuel-Memscap-2023-29_04_2024.pdf>
   - Science Corporation's own account of the same transaction: IHF-1.
 - **Verification:** Verified, 2026-09-19. The MEMSCAP PDF was fetched directly from `memscap.com` and
   the text extracted with `pypdf`; the citybiz copy was fetched independently and the two agree word
   for word on the passages quoted. MEMSCAP is a listed company (Euronext Paris, ISIN FR0010298620,
   ticker MEMS) and this is a regulatory announcement, so it is a primary source. Business Wire's own
   copy of the release returns **HTTP 403** to automated fetches; the citybiz reproduction was used
-  instead and carries the "GRENOBLE, France–(BUSINESS WIRE)–Regulatory News:" dateline.
+  instead and carries the "GRENOBLE, France–(BUSINESS WIRE)–Regulatory News:" dateline. The three
+  annual reports were fetched from `memscap.com` and extracted with `pypdf` on 2026-09-19; the
+  disposal note reconciles exactly (see DERIVED), which is itself a check that the figures were read
+  correctly.
 - **What it says.** MEMSCAP sold, to Science Corporation:
 
   > "– The entire North Carolina teams.
@@ -252,41 +281,242 @@ directory.
   The buyer did not get everything: the Variable Optical Attenuator products, IP and business stayed
   with MEMSCAP, and Science agreed to keep making them — "a minimum of 3 years supply of chips and
   wafers".
+
+- **It was an asset purchase, and the word matters.** The press release is explicit about the legal
+  form:
+
+  > "MEMSCAP entered into a definitive **Asset Purchase Agreement** with Science Corporation … covering
+  > the sale and transfer of **certain assets of its US subsidiary (MEMSCAP Inc.)**"
+
+  (emphasis added). MEMSCAP Inc. itself was **not** sold. The 2022 annual report's consolidation scope
+  still lists "Etats-Unis — Memscap, Inc. — Février 1999 — 100% — Intégration globale" ("United States
+  — Memscap, Inc. — February 1999 — 100% — full consolidation") at 31 December 2022, and the 2023
+  report lists it again at 31 December 2023. The shell, and everything attached to it, stayed with the
+  seller.
+
+- **What stayed behind was not small.** The parent-company accounts' subsidiary table gives, for
+  Memscap Inc. (USA), a share capital of **$10** and reserves of **$(5,868,536)** — an accumulated
+  deficit of **US$5.87 million**. The parent's loans and advances to it stood at **EUR 5,319,815**,
+  "dépréciés à hauteur de … Memscap Inc. (USA) : 4 533 595 €" ("impaired to the extent of … Memscap
+  Inc. (USA): EUR 4,533,595"). On top of that:
+
+  > "Sur l'exercice 2022, la Société a accordé à sa filiale américaine Memscap Inc. un abandon de
+  > créance d'un montant de 1 000 000 euros (notes 4.3 et 4.17 – 2021 : 500 000 euros)."
+
+  In English: *"During the 2022 financial year, the Company granted its American subsidiary Memscap
+  Inc. a debt waiver of EUR 1,000,000 (notes 4.3 and 4.17 — 2021: EUR 500,000)."* So the fab's owner
+  had been forgiving its debts at EUR 0.5–1.0 million a year. **This is the direct answer to "unless
+  it came with massive debt obligations": the debt was there, it was several times the purchase price,
+  and the buyer did not take it.** The US$3.0M is the price of the assets *stripped of* the
+  liabilities, not a price that was low *because of* them.
+
+- **The audited disposal note, which the press release does not give.** From note 4 of the 2022
+  annual report, "L'impact de la cession de l'activité abandonnée sur la situation financière du
+  Groupe s'analyse comme suit" ("the effect of the disposal of the discontinued operation on the
+  Group's financial position breaks down as follows"), in thousands of euros:
+
+  > "Immobilisations corporelles … (498) / Immobilisations incorporelles … (1) / Stocks … (383) /
+  > Fournisseurs et autres créditeurs … 295 / Recyclage des écarts de change … 618 / **Actifs et
+  > passifs nets … 31** / **Contrepartie reçue en numéraire … 2 940** / **Frais nets afférents à la
+  > cession … (1 217)** / Trésorerie et équivalents de trésorerie cédés … -- / **Entrée nette de
+  > trésorerie … 1 723**"
+
+  In English: property, plant and equipment (498); intangibles (1); inventories (383); trade and
+  other payables 295; recycling of exchange differences 618; **net assets and liabilities 31**;
+  **consideration received in cash 2,940**; **net costs relating to the disposal (1,217)**; cash and
+  cash equivalents disposed of nil; **net cash inflow 1,723**. The note adds:
+
+  > "Il est précisé que la trésorerie afférente aux activités du site industriel américain du Groupe,
+  > gérée de manière centralisée (Cash pooling), est exclue du périmètre de cession."
+
+  *"It is specified that the cash relating to the activities of the Group's American industrial site,
+  managed centrally (cash pooling), is excluded from the scope of the disposal."*
+
+  Four things follow. **(a)** The consideration was **EUR 2,940 thousand, received in cash** — an
+  implied US$1.0204 per euro against the announced US$3.0 million, consistent with the euro/dollar
+  rate around the December 2022 closing. **(b)** It was **all cash at closing**: the note shows no
+  receivable, no deferred consideration and no contingent element, and none appears in the 2023
+  report either. **(c)** The seller's **net** proceeds were **EUR 1,723 thousand** — only **58.6%** of
+  the headline — because of EUR 1,217 thousand of disposal costs, which neither report breaks down.
+  **(d)** No lease liability, provision, pension or restoration obligation appears in the disposal
+  column at all, because there was none to transfer (see the lease, below).
+
+- **There was no building, and the lease is a 12-month rolling tenancy inside someone else's fab.**
+  The 2021 annual report, note 10:
+
+  > "Concernant le contrat de location de l'usine de la filiale américaine, d'une durée de 12 mois
+  > renouvelable soumis à l'accord conjoint du bailleur et du preneur, le Groupe a choisi de
+  > comptabiliser la charge locative afférente, soit **655 000 euros** au titre de l'exercice 2021
+  > (2020 : 658 000 euros) de façon linéaire, comme le permet IFRS 16 pour les contrats de location à
+  > court terme. Au 31 décembre 2021, l'engagement locatif du Groupe relatif à ce contrat s'établit à
+  > **684 000 euros**."
+
+  *"As regards the lease of the American subsidiary's plant, which has a renewable 12-month term
+  subject to the joint agreement of the lessor and the lessee, the Group elected to recognise the
+  related rental charge, i.e. **EUR 655,000** for the 2021 financial year (2020: EUR 658,000), on a
+  straight-line basis, as IFRS 16 permits for short-term leases. At 31 December 2021 the Group's lease
+  commitment under this contract stands at **EUR 684,000**."*
+
+  This is why no right-of-use asset or lease liability for the US plant appears anywhere: MEMSCAP took
+  the IFRS 16 short-term exemption. The EUR 5.1 million of lease obligations on the 2022 balance sheet
+  is the **Norwegian** Skoppum site on a 21-year lease, not North Carolina.
+
+  **And the landlord is another semiconductor company.** From the 2021 report:
+
+  > "L'unité de production américaine est louée à la société Micross Advanced Interconnect
+  > Technologies. De ce fait, les dispositifs de sécurité et de respect des normes environnementales
+  > associés à cette usine sont exclusivement gérés par Micross Advanced Interconnect Technologies,
+  > sous contrôle du gouvernement américain, conformément à la législation locale en vigueur."
+
+  *"The American production unit is leased from Micross Advanced Interconnect Technologies. As a
+  result, the safety systems and environmental-compliance arrangements associated with this plant are
+  managed exclusively by Micross Advanced Interconnect Technologies, under United States government
+  oversight, in accordance with the local legislation in force."*
+
+  The environmental section adds that Micross is "propriétaire du site" ("owner of the site"), that
+  hazardous waste "sont recueillis par le personnel de Micross Advanced Interconnect Technologies"
+  ("is collected by Micross Advanced Interconnect Technologies personnel"), and that the site operates
+  under a Durham County wastewater permit (# DC-015) and EPA hazardous-waste ID NCD018946590. The
+  subsidiary's registered address is **3021 Cornwallis Road, Durham, NC 27709** — Research Triangle
+  Park, the historic MCNC/Cronos site.
+
+  **So what Science bought was a tenancy, not a plant.** The shell, the chemical distribution, the
+  acid-waste neutralisation, the scrubbers, the utilities and the entire EHS function belong to the
+  landlord and are paid for in the rent. A buyer of this asset has **no** fab-shell capital cost and
+  **no** decommissioning or remediation exposure — and equally **no** security of tenure beyond twelve
+  months, terminable at the landlord's option on renewal.
+
+- **Why MEMSCAP sold: tested, and it was not distress.** At 31 December 2022 the group had
+  "une trésorerie nette, immédiatement disponible, de 4,2 millions d'euros (2021 : 3,6 millions)"
+  ("net cash, immediately available, of EUR 4.2 million (2021: EUR 3.6 million)"), equity of
+  EUR 15.6 million, and net cash of +EUR 0.2 million after four consecutive years of net debt. The
+  going-concern paragraph is clean and unqualified:
+
+  > "Les comptes consolidés du Groupe ont été arrêtés selon le principe de continuité d'exploitation.
+  > La direction du Groupe considère que ce principe est respecté au regard du plan de trésorerie
+  > prévisionnel pour l'exercice 2023 et des actifs financiers disponibles au 31 décembre 2022 soit
+  > 5,5 millions d'euros."
+
+  *"The Group's consolidated accounts have been prepared on a going-concern basis. Group management
+  considers that this basis is satisfied in the light of the forecast cash plan for the 2023 financial
+  year and the financial assets available at 31 December 2022, i.e. EUR 5.5 million."*
+
+  No *procédure de sauvegarde*, no covenant language, no auditor emphasis of matter. The seller was
+  **small** — market capitalisation EUR 10.4 million at end-2022, below its own book equity — and had
+  been subsidising the US division for years, but it was not selling under duress and it did not need
+  the cash: it had more cash after the sale than the sale produced. The disposal was, as MEMSCAP said,
+  the last step of a three-year plan.
+
+- **The supply agreement: looked for, and no hidden consideration found.** The theory that MEMSCAP
+  accepted a low price in exchange for committed supply (or that Science paid through above-market
+  purchase prices) is testable against the off-balance-sheet note, and it fails. Note 25.1 of both the
+  2022 and the 2023 annual report lists, under "Obligations contractuelles figurant en engagement hors
+  bilan", "**Obligations d'achat irrévocables … --**" ("irrevocable purchase obligations … nil") and
+  "Autres obligations à long terme … --" ("other long-term obligations … nil"), and concludes: "A la
+  connaissance de la Société, il n'y a pas d'autre engagement hors bilan significatif" ("to the
+  Company's knowledge there is no other material off-balance-sheet commitment"). The commitment in the
+  press release — "a minimum of 3 years supply of chips and wafers" — is therefore a commitment by
+  **Science to supply**, not by MEMSCAP to buy any minimum quantity. Nothing found puts a value,
+  volume or price on it.
+
+  What the agreement was worth to MEMSCAP can be seen indirectly: in FY2023, its first full year
+  fabless, the new Optical Communications segment reported revenue of **EUR 1,555 thousand** and a
+  segment result of **EUR 429 thousand** — a **27.6%** segment margin, buying its wafers from Science,
+  against a division that had lost money making them in-house. MEMSCAP's 2023 report describes
+  production as "intégralement sous-traitées à un fournisseur stratégique américain disposant d'un
+  site industriel aux Etats-Unis" ("entirely subcontracted to a strategic American supplier with an
+  industrial site in the United States") and rates dependence on it a "**Risque critique**" ("critical
+  risk"), but never names it and never quantifies the purchases. **This is the one leg of the
+  transaction that cannot be closed from public filings**, and it is recorded as an open question, not
+  as a finding either way.
+
 - **The history of the same site, for scale.** Science's own announcement (IHF-1) states:
 
   > "MEMSCAP acquired their US foundry business in 2002 from JDS Uniphase, which itself had acquired
   > the site for approximately $750M from Cronos Integrated Microsystems shortly prior."
 
-- **DERIVED (arithmetic written out):** $3,000,000 / $750,000,000 = **0.400%** of the price the site
-  reportedly changed hands for around 2000 — a factor of **250** lower. Verified with
-  a throwaway Python script, deleted after use.
+- **DERIVED (arithmetic written out):** all checked with a throwaway Python script, deleted after use.
+  - $3,000,000 / $750,000,000 = **0.400%** of the price the site reportedly changed hands for around
+    2000 — a factor of **250** lower.
+  - **The disposal note reconciles exactly, which is the strongest available check that these figures
+    were read correctly.** Gain on disposal = consideration 2,940 − disposal costs 1,217 − net book
+    value of net assets sold (498 + 1 + 383 − 295 = 587) + FX recycling 618 = **1,754** — the figure
+    the income statement reports as "Résultat de cession de l'activité abandonnée … 1 754".
+  - Net cash inflow = 2,940 − 1,217 − 0 = **1,723**, as reported.
+  - Discontinued-operation cash flow for FY2022 = −1,311 (operating) − 29 (capex) + 1,723 (disposal) =
+    **+383**, as reported.
+  - Disposal costs as a share of the headline: 1,217 / 2,940 = **41.4%**. The seller kept **58.6%**.
+  - **Strip out the FX recycling** — a reclassification of previously-parked translation differences,
+    not cash and not value — and the economic gain was 1,754 − 618 = **EUR 1,136 thousand**.
+  - Implied exchange rate: 3,000 / 2,940 = **US$1.0204 per euro**.
+  - **Rent against the price.** 2,940 / 655 = **4.49 years of rent** buys the assets outright. Put the
+    other way, five years' occupancy at the 2021 rent costs 5 × 655 = EUR 3,275 thousand — **more than
+    the purchase price**.
+  - Rent as a share of what the fab earned: 655 / 2,858 = **22.9%** of FY2021 divisional revenue.
+  - A crude first-year economic cost to the buyer: price 2,940 + one year's rent 655 + the operating
+    cash burn the business was running at (1,311) = **EUR 4,906 thousand**. Indicative only — the
+    buyer's cost base is not MEMSCAP's.
+  - FY2023 fabless optical segment margin: 429 / 1,555 = **27.6%**.
 - **Read this entry together with IHF-8**, which gives the audited accounts of the same fab. The price
   is only interpretable against them: $3.0M bought a business turning over about EUR 2.9 million a
   year and losing money on it. The low price is not a bargain so much as a valuation.
-- **Bears on:** H6 (**supports, on the capital question only** — the fixed asset base needed to run a
-  real MEMS foundry, including an ISO 9001:2015 quality system, a trained team and a live customer
-  book, was available on the open market for $3.0M, which is far below any figure this project had
-  for what a fab costs; **but see IHF-8, where the same fab's profitability challenges H6 hard**);
+- **Bears on:** H6 (**supports, on the capital question, but weaker than this entry first claimed** —
+  the *transferable* asset base of a real MEMS foundry, including an ISO 9001 quality system, a
+  trained team and a live customer book, was available on the open market for US$3.0 million in cash
+  with no assumed liabilities; but the **recurring** cost of occupancy, at EUR 0.66 million a year for
+  a cleanroom the operator does not own and cannot secure beyond twelve months, is the part a capital
+  figure hides, and **IHF-8 shows the same fab losing money against exactly that cost base**);
   H5 (mixed — see caveats); H1 (context — the same physical site went from a reported ~$750M to $3.0M
   in about twenty-two years).
 - **Used in:** not yet.
 - **Caveats and honest limits:**
-  - **$3.0M bought a lease, not a building.** "The North Carolina plant lease as well as all plant's
-    tools and equipment" — the real estate was not part of it. A fab's rent does not appear anywhere
-    in this number.
-  - **It bought used tools of unknown age.** The line was built by Cronos in the late 1990s. Nothing
-    found states the age or replacement value of the tool set. $3.0M is the *market clearing price of
-    a distressed-category asset*, not the cost of assembling the same capability new.
+  - **$3.0M bought a tenancy, not a building — and the rent is the bigger number.** "The North
+    Carolina plant lease as well as all plant's tools and equipment": the real estate was never part
+    of it, and it was never MEMSCAP's to sell. Rent ran at **EUR 655–658 thousand a year**, so the
+    purchase price is **4.5 years of rent**. Any statement of "what the fab cost" that omits the rent
+    understates the cost of occupancy by more than the purchase price itself within five years.
+  - **The tenure is twelve months, renewable by mutual agreement.** That cuts both ways. The buyer
+    assumed no multi-year lease liability — which is *why* no lease obligation appears in the disposal
+    note — but it also bought no security of tenure. A landlord who is itself a semiconductor company
+    on the same site holds a real option over the buyer's fab every year.
+  - **This is a price for assets with the liabilities removed, and the liabilities were larger than
+    the price.** US$5.87 million of accumulated deficit and EUR 5.3 million of parent funding stayed
+    inside MEMSCAP Inc., which MEMSCAP still owned at the end of 2023. Do not read US$3.0 million as
+    "the enterprise value of a MEMS foundry". It is the value of a clean set of assets, sold out of a
+    vehicle that was deeply under water.
+  - **The seller netted EUR 1.72 million, not EUR 2.94 million.** EUR 1,217 thousand of "frais nets
+    afférents à la cession" is 41% of the consideration and is **not broken down anywhere** in the
+    2022 report — not in the consolidated notes, not in the parent accounts, not in the management
+    report. Advisers, retention payments, transition services and a contribution to the buyer would
+    all sit in that line and cannot be distinguished. **This is the largest unresolved item in the
+    entry.** If some of it flowed to Science, the effective price was lower still; if it is all
+    third-party fees, it does not change what the buyer paid.
+  - **The supply agreement could not be priced.** No minimum purchase obligation is disclosed on
+    MEMSCAP's side in either 2022 or 2023 (note 25.1 shows nil irrevocable purchase obligations), and
+    no volumes or prices are published by either party. A below-market sale price recovered through
+    the supply contract remains **possible but unevidenced**; the absence of a disclosed purchase
+    commitment is evidence against the strongest form of that theory, not a refutation of it.
+  - **It bought used tools of unknown age.** The line was built by Cronos in the late 1990s and
+    converted to 150 mm wafers at the end of 2004 ("Ce site est passé fin 2004 en format de production
+    de tranches silicium de 6 pouces" — *"this site moved to 6-inch silicon wafer production format at
+    the end of 2004"*, 2021 annual report). Nothing found states the tool count or replacement value.
+    $3.0M is the *market clearing price of a depreciated-category asset* (see IHF-11), not the cost of
+    assembling the same capability new.
   - **The $750M comparison is not like-for-like and is only partly verified.** It is quoted from
     Science's blog, not from a JDS Uniphase filing, and it was the price for *Cronos Integrated
     Microsystems as a company* — a dot-com-era optical-components acquisition — not for the building
     and tools alone. The cross-check against JDS Uniphase's own disclosure was not completed. Do not
     quote "$750M → $3.0M" in `WHY.md` as a like-for-like depreciation until that is done.
-  - **The seller was pleased.** MEMSCAP framed the sale as the successful execution of a planned
-    "FABLITE" programme, and said it expected "significant improvement to MEMSCAP agility and
-    profitability". A public MEMS company concluded that *not* owning a MEMS fab was worth more than
+  - **The seller was pleased, and it was not distressed.** MEMSCAP framed the sale as the successful
+    execution of a planned "FABLITE" programme, and said it expected "significant improvement to
+    MEMSCAP agility and profitability". Its going-concern statement is clean, it held EUR 5.5 million
+    of available financial assets at the year end, and it ended 2022 in net cash for the first time in
+    five years. A public MEMS company concluded that *not* owning a MEMS fab was worth more than
     owning one. That is a real challenge to the premise that fab ownership is valuable, and it sits
     directly beside the H6 support above. Both readings are true at once, from the same document.
+    Against this: the seller was tiny (EUR 10.4 million market capitalisation) and had been writing
+    off the subsidiary's debts at EUR 0.5–1.0 million a year, so it had every reason to take a clean
+    exit at a modest price rather than hold out.
   - MEMSCAP kept a three-year supply agreement, so Science acquired a fab with a guaranteed anchor
     customer attached. A buyer without one would be buying a different asset.
 
