@@ -1031,7 +1031,8 @@ Recorded so nobody repeats the attempt. Being blocked is an expected outcome, no
 | SEC `www.sec.gov/cgi-bin/browse-edgar` | company-name search | **HTTP 403** to `curl` — "Your Request Originates from an Undeclared Automated Tool" | Already known (`search-log.md` §1). Worked around: `efts.sec.gov/LATEST/search-index` (EDGAR full-text search) and `data.sec.gov/submissions/` both serve automated requests with a generic non-personal User-Agent, and `WebFetch` reaches `www.sec.gov/Archives/...` |
 | Science Foundry full price list and ordering platform | behind "Start your order" on `https://science.xyz/services/foundry/mems/standard-technologies/` | Requires creating an account. **Deliberately not attempted** — account creation is forbidden under this project's read-only rule | A human willing to register. This is where the decomposition of the "$13,520+" price lives |
 | CMC Microsystems list price for "Science Foundry Poly MEMS" | `https://www.cmc.ca/polymumps-multi-user-mems/` | Page loads; the list price field reads "Coming soon …" and subscriber pricing requires a login | Nothing — CMC has not published it. (`search-log.md` already records CMC's `FabPricing.aspx` returning 403) |
-| MEMSCAP FY2022 annual report / FY2022 earnings release | `https://memscap.com/en/memscap_investors/` | Not blocked, **not yet retrieved**. The investor page's PDF list was read but the FY2022 annual report was not located among the links enumerated | Following the investor page's pagination. This would give the RTP fab's revenue and headcount before the sale, and the reported capital gain on disposal — the best available cross-check on IHF-3 |
+| MEMSCAP FY2022 annual report / FY2022 earnings release | `memscap.com` | **Not blocked, and now retrieved — see IHF-8.** Recorded here because the route is non-obvious: the investor page's PDF list does not contain them. They are reachable through the WordPress REST API at `https://memscap.com/en/wp-json/wp/v2/posts?search=…`, which returns the post URLs; each post then links a single PDF | Nothing. The route above works and needs no browser |
+| MEMSCAP 2021 annual report PDF | `https://memscap.com/en/2022/04/29/memscap-2021-annual-report/` | Page loads, but the only PDF it links is an *availability notice*, not the report | Following MEMSCAP's investor pagination or the AMF/Euronext filing archive. It would give the fab's FY2020 revenue and a second description of the 475 m² plant |
 | Rigetti Computing foundry page | `https://www.rigetti.com/foundry` | **HTTP 404** — the page has moved or gone | A site search, or the Wayback Machine |
 | `web.archive.org` via `WebFetch` | — | Refuses outright (already recorded in `search-log.md` §1) | Use `curl` with the `…/web/<timestamp>id_/<url>` raw-content form |
 
@@ -1041,22 +1042,31 @@ Recorded so nobody repeats the attempt. Being blocked is an expected outcome, no
 
 Listed so the next person does not have to rediscover it.
 
-- **Cross-check IHF-2** ($65M / 57,000 sq ft / 50 jobs / $930,000) against the Durham County Board of
-  Commissioners' own minutes or the NC Department of Commerce, neither of which was reached.
-- **Retrieve MEMSCAP's FY2022 annual report** for the North Carolina fab's revenue, headcount and
-  book value before disposal, and the capital gain recognised on the sale. This would convert IHF-3
-  from "a price" into "a price against a known asset base and revenue", which is what the cost
-  section most needs.
-- **Verify the "approximately $750M" JDS Uniphase / Cronos figure** against a JDS Uniphase filing. It
-  is currently a Lead quoted from the buyer's blog.
-- **Comparable cases not yet worked**, each a company that built or bought its own line rather than
-  buy wafers: **Rigetti Computing** (its "Fab-1" in Fremont/Berkeley, California, which its FY2025
-  10-K describes as supporting "Rigetti Foundry Services … leverag[ing] the company's U.S. based
-  in-house wafer fabrication facility ('Fab-1') to deliver superconducting quantum chips" to
-  academic, defence and national-laboratory customers — the same build-then-externalise pattern as
-  Science, and a listed company that must disclose costs); **Akoustis Technologies**, which bought an
-  existing MEMS fab (the former STC-MEMS facility in Canandaigua, New York) in 2017 and disclosed the
-  transaction in an 8-K — 75 EDGAR documents mention "STC-MEMS" and were located but not read;
-  **Neuralink**; **Paradromics**; and **Precision Neuroscience**. Failures matter as much as
-  successes and none has yet been written up.
+In rough order of how much each would add.
+
+1. **A third small-fab transaction price.** Two points ($2.75M in 2017, $3.0M in 2022, both at about
+   1× trailing revenue) are the beginning of a market price for a small MEMS fab, and this is the
+   cheapest remaining research in this file: EDGAR full-text search (`efts.sec.gov`) serves automated
+   requests and the two found here were located that way in minutes.
+2. **Upgrade IHF-9 and IHF-10 from Partial to Verified** by opening the Akoustis and Rigetti filings
+   in a browser. `www.sec.gov/Archives/...` returns 403 to `curl` but `WebFetch` reaches it; only the
+   targeted excerpts were read, not the documents.
+3. **Rigetti's property, plant and equipment note and capital-expenditure line.** Rigetti is listed
+   and must disclose them; they were not opened here. That would give a *built-from-new* capex for a
+   small specialist fab, which is the biggest hole in § 3.
+4. **Cross-check IHF-2** ($65M / 57,000 sq ft / 50 jobs / $930,000) against the Durham County Board of
+   Commissioners' own minutes or the NC Department of Commerce. All three trade-press reports of it
+   refuse automated fetches.
+5. **Verify the "approximately $750M" JDS Uniphase / Cronos figure** against a JDS Uniphase filing. It
+   is currently a Lead quoted from the buyer's own blog.
+6. **The split of MEMSCAP's EUR 2.9M foundry revenue** between MUMPs shuttle customers and contract
+   manufacturing, and the group overhead allocated to the division. Both are the difference between
+   IHF-8 being a fatal result for H6 and being an artefact of transfer pricing. Neither is in the
+   2022 annual report; the 2021 and 2020 reports were not read.
+7. **Comparable cases not yet worked at all:** **Neuralink** (in-house thin-film fabrication,
+   private, so expect little), **Paradromics**, **Precision Neuroscience**, and the photonics and
+   lab-on-chip fields, which were not reached. Failures matter as much as successes — the only
+   failure written up here is Akoustis, and its cause was litigation rather than the fab.
+8. **What happened to the Canandaigua fab in Akoustis's bankruptcy.** The 8-K does not name it. The
+   Chapter 11 docket would say, and would give a second resale price for a small MEMS fab.
 
