@@ -906,11 +906,34 @@ floor area, all audited.
   - **EUR 0.5 million is net book value after depreciation, not what the tools are worth or what they
     would cost to replace.** Late-1990s tools fully depreciated over twenty years will carry at close
     to nothing whatever they can still do. It is a floor, not a valuation.
-  - **The 475 m² / ISO 4 figures are from the 2022 report only** and were not found in a second
-    document. A secondary source (a MEMS-industry blog) describes the Science Foundry site as
-    "5,000 sq. ft. of Class 100 cleanroom" — which **agrees on area** (475 m² is 5,113 sq ft) but
-    **disagrees on class** (Class 100 is ISO 5, one class dirtier than ISO 4). The audited French
-    filing is preferred here and the disagreement is recorded rather than resolved.
+  - **The 475 m² figure is confirmed by a second filing; the cleanroom class is now resolved.**
+    *Erratum, 2026-09-19.* This caveat previously said the 475 m² / ISO 4 description came from the
+    2022 report alone. The **2021** annual report gives the same area and is more precise about the
+    class:
+
+    > "L'usine de Caroline du Nord (Etats-Unis d'Amérique) est dotée d'une salle blanche d'une surface
+    > de 475 m² en classe ISO 4 (Classe 10 selon FS 209) **et ISO 6 (Classe 1000 selon FS 209)**. Ce
+    > site est passé fin 2004 en format de production de tranches silicium de 6 pouces. Le système de
+    > management de la qualité est certifié ISO 9001."
+
+    *"The North Carolina plant (United States of America) has a 475 m² cleanroom of class ISO 4
+    (Class 10 under FS 209) **and ISO 6 (Class 1000 under FS 209)**. This site moved to 6-inch silicon
+    wafer production format at the end of 2004. The quality management system is ISO 9001 certified."*
+
+    So it is a **mixed-class** cleanroom, ISO 4 in part and ISO 6 in part, not uniformly ISO 4. The
+    secondary source's "Class 100" (ISO 5) sits between the two and is a reasonable rounding of a
+    mixed facility. The disagreement is largely explained, and the 2022 report's bare "classe ISO 4"
+    is the incomplete description, not the blog's.
+
+  - **The fab was a tenancy inside another semiconductor company's plant, and the rent was EUR 655
+    thousand a year.** *Added 2026-09-19; see IHF-3 for the sourcing.* The 2021 report's note 10
+    discloses a **12-month renewable** lease at **EUR 655 thousand (2021)** and **EUR 658 thousand
+    (2020)**, accounted for under the IFRS 16 short-term exemption, with the landlord named as
+    **Micross Advanced Interconnect Technologies**, which also owns the site and runs its EHS and
+    hazardous-waste systems. This materially changes how the audited loss should be read: rent was
+    **22.9%** of FY2021 divisional revenue, and it is a *facility* cost the division could not reduce
+    by owning less equipment. It also means the EUR 0.5 million equipment carrying value is not
+    understating a hidden building asset — there was no building asset to hide.
   - The French text is quoted in the original; the English renderings are this entry's, not the
     company's.
 
