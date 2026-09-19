@@ -21,7 +21,7 @@ The headline result is in §"The revenue table" and §"Growth on revenue against
 submissions", and the second of those is the uncomfortable one.
 
 Conflict of interest, stated once and plainly: **wafer.space is the repository owner's own
-company.** `PAY-13` and `PAY-14` are our own numbers.
+company.** `PAY-9` is our own numbers, and `PAY-5` shows that Tiny Tapeout buys from it.
 
 ---
 
@@ -456,3 +456,275 @@ company.** `PAY-13` and `PAY-14` are our own numbers.
     programmes in the rest of this file, at $9,750–$14,950 a slot, and pays for boards, packaging
     and shipping out of these numbers. Nothing here is margin, and nothing here says the programme
     is profitable or that it is not.
+
+---
+
+## Efabless chipIgnite and ChipFoundry.io
+
+### PAY-7. chipIgnite's price never changed: $9,750 from May 2021 to the day the company died
+
+- **Sources:** Internet Archive captures of Efabless's own chipIgnite pages, fetched in raw (`id_`)
+  form where available and in rendered form where not:
+  - <https://web.archive.org/web/20210520000214/https://efabless.com/chipignite/2106q> (2021-05-20)
+  - <https://web.archive.org/web/20211219031133/https://efabless.com/chipignite/2110C> (2021-12-19)
+  - <https://web.archive.org/web/20220202204841/https://efabless.com/chipignite/2204C> (2022-02-02)
+  - <https://web.archive.org/web/20240521021124id_/https://efabless.com/chipignite> (2024-05-21)
+  - <https://web.archive.org/web/20241216140400id_/https://efabless.com/chipignite> (2024-12-16)
+  - <https://web.archive.org/web/20250901050905id_/https://efabless.com/chipignite> (2025-09-01)
+  - <https://web.archive.org/web/20250829062705id_/https://efabless.com/chipignite-mini> (2025-08-29)
+  - <https://web.archive.org/web/20250826233607id_/https://efabless.com/chipignite-ml> (2025-08-26)
+  - <https://web.archive.org/web/20250302002325id_/https://efabless.com/chipignite-university-program> (2025-03-02)
+
+  and, for the successor, <https://chipfoundry.io/chipignite> and <https://chipfoundry.io/faqs>.
+- **Verification:** **Verified 2026-09-19.** Nineteen archived Efabless pages and both live
+  ChipFoundry pages were fetched with `curl --compressed` and read.
+- **What it says**, verbatim, in date order:
+  - **2021-05-20** (the launch page, four weeks before the first tapeout): "Two pricing options:
+    **$9,750 for 100 QFN or 300 WCSP parts** / 1000 parts for $20 each", "Private shuttle -- no
+    open-source requirement", "Make a reservation with a **$200 deposit**", "**$200 reservation fee
+    (fully refundable if minimum projects not met)**", "Note: Schedule depends on meeting minimum
+    project capacity". The identical wording is on every capture through **2022-02-02**.
+  - **2024-05-21, 2024-12-16, 2025-09-01** (the site stayed up, frozen, after the shutdown): "Create
+    your own chip with our rapid IC creation platform for just **$9,750 per project**". The 2024
+    page also lists what the price buys: "10 sq mm of project space", "38 programmable IO's",
+    "100 QFN or Bare Die", "5 evaluation PCB boards", "Firmware and test tools".
+  - **chipIgnite Mini**, a cheaper product that appears in captures from 2024-08-23: "chipIgnite Mini
+    offers an affordable and efficient solution for bringing your ASIC designs to life. At just
+    **$3,500 per project**, we divide our proven 'Caravel' design space into four independent
+    projects".
+  - **chipIgnite ML**, from 2024-11: "Proto-Only Option: … Pricing starts at **$14,750**.
+    Proto + Production Option: … starting at **$30,000**."
+  - **chipIgnite University Program**: "Tier I Pool of 5 projects **$48,750**", "Tier II Pool of 10
+    projects **$87,750**".
+  - **ChipFoundry, live on 2026-09-19:** "**$14,950 per tapeout**"; the FAQ states the change in its
+    own words — "**Pricing: chipIgnite projects are priced at $14,950 compared to $9,750**" — and
+    adds "There is an option for an additional 50 bare die for $3000", "We do not offer discounts
+    for individual project submissions", and "If a shuttle does not meet the minimum customer
+    commitment threshold required for launch, you will be offered: A full refund of your project
+    fee, or The option to roll over your project to the next scheduled shuttle".
+- **DERIVED (arithmetic written out):**
+  - **The headline price was flat for four years.** $9,750 in May 2021 and $9,750 in December 2024.
+    Against US CPI that is a real price *cut*; the repository does not deflate anywhere else, so it
+    is left as a nominal observation.
+  - Tier I is 5 × $9,750 = **$48,750 exactly — no discount at all**. Tier II is $87,750 ÷ 10 =
+    **$8,775 per project, a 10% discount** (1 − 8,775 ÷ 9,750 = 0.10).
+  - chipIgnite Mini is a quarter of the Caravel area for 35.9% of the price
+    (3,500 ÷ 9,750 = 0.359), i.e. **1.44× the price per unit area** of a full slot.
+  - ChipFoundry's rise: 14,950 ÷ 9,750 = **+53.3%**.
+- **Bears on:**
+  - **H6 (context, and it corrects an impression).** The repository has treated "$9,750 in 2021,
+    $14,950 today" as a price series. It is not a series; it is **one price held flat for four
+    years by one company, and then a 53% step change by a different company** after the first one
+    failed. The flat price is itself evidence: Efabless never found it could charge more, and the
+    successor immediately did.
+  - **H6 (supports).** The $200 refundable deposit and the "minimum project capacity" clause are in
+    the launch page from day one. **Both operators, four years apart, wrote undersubscription risk
+    into their own published terms** — `OPG-9` records ChipFoundry's version and this is Efabless's.
+    A programme that sells slots at a published price still cannot guarantee the run happens.
+  - **`SMB-9` and `OPG-9` can both be upgraded.** `SMB-9` gives only the endpoints; the whole
+    interior is now dated. `OPG-9`'s caveat marks the $14,950 price and the refund clause as
+    **Partial**, read by a delegated agent; both were re-read directly on 2026-09-19 and are
+    **Verified**.
+- **Used in:** the price in `PAY-8`.
+- **Caveats:**
+  - The 2024–2025 efabless.com captures are of a site nobody was maintaining; the price on a dead
+    company's page is not proof it was being charged.
+  - chipIgnite Mini at $3,500 means **not every 2024 slot was sold at $9,750**, and no capture says
+    how many Minis were sold. `PAY-8` therefore over-states 2024.
+  - No capture gives a discount schedule for individuals, and ChipFoundry says there is none.
+
+### PAY-8. DERIVED: chipIgnite and ChipFoundry revenue, 2021–2026 — and the peak was 2024
+
+- **Sources:** the manufactured-slot counts in `OPG-1` and `OPG-3` (the repository owner's extract
+  of Efabless's platform database), the archived platform pages re-read for this entry (URLs in the
+  caveats), the prices in `PAY-7`, and ChipFoundry's live `all-metrics` API
+  (<https://platform.chipfoundry.io/api/v1/shuttles/all-metrics>, re-fetched 2026-09-19).
+- **Verification:** **DERIVED.** The slot counts are **Partial** (owner-supplied for four shuttles
+  that no archive covers); the prices are Verified; ChipFoundry's `committed` counts were re-fetched
+  on 2026-09-19 and are Verified as a reading of the API.
+- **How it was counted:** `OPG-1`'s `Slots` column is the source spreadsheet's `Manufactured` field
+  — the number of projects actually fabricated on that shuttle. **On chipIgnite, unlike the free
+  Google Open MPW shuttles, being fabricated is what you pay for**, so a manufactured slot is taken
+  here as a paid slot. Revenue = manufactured slots × the price in force. For ChipFoundry the
+  equivalent field is `committed`, which `OPG-9` reads as "paid and locked in".
+- **What it gives:**
+
+  | Shuttle | Tapeout | Paid slots | Price | Revenue |
+  |---|---|---:|---:|---:|
+  | CI 2106Q | 2021-06-18 | 19 | $9,750 | $185,250 |
+  | CI 2110C | 2021-11-26 | 13 | $9,750 | $126,750 |
+  | CI 2204C | 2022-04-08 | 16 | $9,750 | $156,000 |
+  | CI 2206Q | 2022-06-17 | 14 | $9,750 | $136,500 |
+  | *CI 2209C* | *2022-09-19* | *8, status unconfirmed* | *$9,750* | *$78,000* |
+  | CI 2211Q | 2022-12-05 | 22 | $9,750 | $214,500 |
+  | CI 2304C | 2023-04-24 | 19 | $9,750 | $185,250 |
+  | CI 2306Q | 2023-06-05 | 21 | $9,750 | $204,750 |
+  | CI 2309 | 2023-09-11 | 20 | $9,750 | $195,000 |
+  | CI 2311 | 2023-11-15 | 33 | $9,750 | $321,750 |
+  | CI 2404 | 2024-04-24 | 40 | $9,750 | $390,000 |
+  | CI 2406 | 2024-06-03 | 40 | $9,750 | $390,000 |
+  | CI 2409 | 2024-09-16 | 40 | $9,750 | $390,000 |
+  | CI 2411 | 2024-11-11 | 40 | $9,750 | $390,000 |
+  | *CI 2504* | *never taped out* | *0 (20 projects had arrived)* | *$9,750* | *$0* |
+  | CI 2509 | 2025-09-12 | 21 committed | $14,950 | $313,950 |
+  | CI 2511 | 2025-11 | 23 committed | $14,950 | $343,850 |
+  | CI 2605 | 2026, in fabrication | 29 committed | $14,950 | $433,550 |
+  | CI 2609 | 2026, open | 16 committed so far | $14,950 | $239,200 |
+  | CI 2612 | 2026, open | 0 so far | $14,950 | $0 |
+
+  **By year of tapeout, CI 2209C excluded:**
+
+  | Year | Paid slots | Revenue | Operator |
+  |---|---:|---:|---|
+  | 2021 | 32 | **$312,000** | Efabless |
+  | 2022 | 52 | **$507,000** | Efabless |
+  | 2023 | 93 | **$906,750** | Efabless |
+  | 2024 | **160** | **$1,560,000** | Efabless |
+  | 2025 | 44 | **$657,800** | ChipFoundry |
+  | 2026 (to 2026-09-19) | 45 | **$672,750** | ChipFoundry |
+  | **Total** | **426** | **$4,616,300** | |
+
+  Including CI 2209C adds 8 slots and $78,000 to 2022.
+- **DERIVED growth, and this is the answer to the question this file was written for:**
+  - **Paid slots** 2021 → 2024: 32 → 52 → 93 → 160. Year on year ×1.63, ×1.79, ×1.72.
+    CAGR = (160 ÷ 32)^(1/3) − 1 = 5^(1/3) − 1 = **+71.0%/yr**.
+  - **Submissions** over the same years (`OPG-7`): 51 → 125 → 225 → 377. Year on year ×2.45, ×1.80,
+    ×1.68. CAGR = (377 ÷ 51)^(1/3) − 1 = **+94.8%/yr**.
+  - **Over the three years, submissions rose 7.39× and paid slots rose 5.00×.**
+    **Revenue grew, but it grew more slowly than interest did**, and the reason is visible in the
+    table: the shuttle was capped at 40 slots and hit the cap in 2024, while submissions kept
+    climbing to 377.
+  - **ChipFoundry**: 44 paid in 2025, 45 so far in 2026 — **+2.3%**, against `interest` of 129 and
+    262 on the same shuttles, **+103%** (`OPG-9`). Two points is not a trend and must not be
+    presented as one.
+  - **The peak is 2024 and the programme has not recovered.** $1,560,000 in 2024 against $657,800 in
+    2025 and $672,750 so far in 2026 — **57.8% down** on the peak
+    (1 − 657,800 ÷ 1,560,000 = 0.578).
+- **Bears on:**
+  - **H5 (challenges, and this is the most important number in the file).** The repository's
+    headline for the paid programme is `OPG-7`'s "about 1.7× a year". **On money it is about
+    1.7× a year too — until 2024, when it stops, because the supplier ran out of slots and then ran
+    out of money.** The submission series and the revenue series agree about *direction* and
+    disagree about *ceiling*. Interest is uncapped; a 40-slot shuttle is not.
+  - **H5 (challenges).** The gap between 377 submissions and 160 paid slots in 2024 is not all
+    unmet demand. Efabless ran design contests on its own shuttles with **free fabrication as the
+    prize** — its April 2024 release offers "The top ten winners will be awarded free fabrication
+    of their designs" (`OPG-6`). An unknown share of chipIgnite "submissions" were contest entries
+    competing for a sponsored slot, not customers who would have paid $9,750.
+  - **H6 (context).** $1.56m of gross revenue in the best year, from a company that then failed to
+    raise a Series B (`OPG-15`). Whatever a SkyWater shuttle costs, four a year at 40 slots was not
+    enough to sustain the company.
+  - **H6 (context).** ChipFoundry is running the same product at +53% price and about a quarter of
+    the volume, with a published refund clause for shuttles that do not fill (`PAY-7`).
+- **Used in:** the revenue table at the foot of this file.
+- **Caveats — several, and two of them are serious:**
+  - **"Manufactured slots = paid slots" is an inference, not a statement.** Nobody at Efabless ever
+    said so. Free contest slots and sponsored academic slots are inside these counts and are not
+    revenue. Ten free TinyML prizes alone would cut 2024 by $97,500.
+  - **The 40s are suspicious.** All four 2024 shuttles show exactly 40 manufactured, which is also
+    the nominal capacity Efabless's platform used for every shuttle. Either they all filled exactly,
+    or 40 is a default. **We could not resolve this.** The archived platform pages carry a separate
+    line, "*N* of 40 project slots reserved", and it reads **19** for CI 2106Q, **13** for CI 2110C,
+    **16** for CI 2204C and **14** for CI 2206Q on captures taken after those shuttles closed — but
+    **0** for CI 2211Q, CI 2404 and CI 2406 on captures taken while they were open, and the field is
+    absent from the later page layout entirely. It behaves like a manually maintained field, not a
+    live count, so it cannot serve as an independent check. Captures read on 2026-09-19:
+    `https://web.archive.org/web/20240421145959id_/https://platform.efabless.com/shuttles/2106Q`,
+    `…/20221206073015id_/…/2110C`, `…/20231114083445id_/…/2204C`,
+    `…/20240519044142id_/…/2206Q?active_tab=summary`, `…/20221114235435id_/…/2211Q`,
+    `…/20240227031436id_/…/CI%202404`, `…/20240413194415id_/…/CI%202406`,
+    `…/20240718142010id_/…/CI%202409`, `…/20250124154327id_/…/CI%202411`,
+    `…/20250125035816id_/…/CI%202504`.
+  - **chipIgnite Mini at $3,500 (`PAY-7`) was on sale from about August 2024** and would cut $6,250
+    off this table for every slot sold as a Mini.
+  - Four of the Efabless-era rows (CI 2304C, CI 2306Q, CI 2311, CI 2209C) have **no Internet Archive
+    capture at all** and rest entirely on the owner's spreadsheet.
+  - ChipFoundry's fields are mutable and have been revised downwards (`OPG-9`); the counts here are
+    as read on 2026-09-19, and CI 2609 and CI 2612 are still open, so 2026 will rise.
+  - **Eight Efabless-era slots and at least five ChipFoundry-era slots are Tiny Tapeout's own
+    purchases** (`PAY-5` maps them). That money is in this table as chipIgnite revenue and in
+    `PAY-6` as Tiny Tapeout revenue. **Adding the two programmes double-counts it**; the combined
+    table below nets it out.
+  - Everything is gross revenue. The wafers, the masks, the packaging and the staff come out of it.
+
+---
+
+## wafer.space
+
+### PAY-9. wafer.space: $55,500, then $175,000, then $125,000 so far — the only programme here that publishes the money itself
+
+- **Sources:**
+  - <https://www.crowdsupply.com/wafer-space/gf180mcu-run-1>
+  - <https://www.crowdsupply.com/wafer-space/gf180mcu-run-2>
+  - <https://www.crowdsupply.com/wafer-space/gf180mcu-run-3>
+  - <https://wafer.space/> and <https://wafer.space/news/>
+- **Verification:** **Verified 2026-09-19.** All five pages fetched with `curl --compressed` and a
+  browser `User-Agent`, and read directly by the author of this entry. `OPG-12` recorded these
+  figures **Partial**, from a delegated agent; this is the re-read it asked for, and **two of the
+  numbers have moved**.
+  **Conflict of interest: wafer.space is the repository owner's own company** (the campaign pages
+  list Tim Ansell as founder; the site footer reads "© 2025 Wafer Space PTE. LTD." at
+  "143 Cecil Street, #17-04, GB Building, Singapore 069542").
+- **What it says**, verbatim, as read on 2026-09-19:
+
+  | Campaign | Raised | Goal | Backers | Status |
+  |---|---|---|---:|---|
+  | GF180MCU Run 1 | "$ 55,500 raised" | "of $ 40,000 goal", "138 % Funded!" | **6** | "Nov 28 2025 funded on"; products "No Longer Available" |
+  | GF180MCU Run 2 | "$ 175,000 raised" | "of $ 1 goal", "Funded!" | **18** | "Jun 29 funded on" (2026) |
+  | GF180MCU Run 3 | "$ 125,000 raised" | "of $ 1 goal", "Funded!" | **6** | "91 days left"; "Funding ends on Dec 19, 2026 at 03:59 PM PST" |
+
+  **Run 3 has moved since `OPG-12` was written**: `OPG-12` records "$121,500 raised" and "5 backers";
+  the page now reads $125,000 and 6 backers. It is a live page and will move again.
+
+  Prices, as printed:
+  - **Run 1**: "GF180MCU Shuttle Slot, Bare Dies … Includes 1,000 bare dies delivered in a Gel-Pak"
+    **$7,000**; "GF180MCU Shuttle Slot, Wire-Bonded … Includes 1,000 dies mounted to PCBs and wire
+    bonded" **$8,500**; "Undiced Full Wafer … Can only be ordered with a design slot purchase"
+    **$2,000**. Slot geometry: "Each slot consists of a 3.88 mm × 5.07 mm (19.67 mm²) fixed die
+    area, replicated 1,000 times."
+  - **Run 2**: 1×1 **$7,000** early bird / **$7,500** standard; 0.5×1 and 1×0.5 **$4,000** /
+    **$4,500**. "Early bird pricing is available through 30 April 2026."
+  - **Run 3**: 1×1 **$7,000** / **$8,000**; 0.5×1 and 1×0.5 **$4,000** / **$5,000**;
+    0.5×0.5, new this run, **$2,000** / **$3,000**. Add-on: "Chip on Board Packaging $1,500 USD ·
+    $1.50 per die". Early-bird deadline 30 September 2026, purchase deadline 9 December 2026,
+    "Q2 2027 Bare dies and packaged parts shipped".
+  - The site's own headline: "Get 1,000 custom silicon dies from just $2 per die".
+- **DERIVED (arithmetic written out):**
+  - **Revenue by year of campaign close:** 2025 → **$55,500** (Run 1, closed 2025-11-28);
+    2026 → **$300,000 so far** (Run 2's $175,000, closed 2026-06-29, plus Run 3's $125,000 with
+    three months still to run). **Total to date $355,500.**
+  - Growth 2025 → 2026: 300,000 ÷ 55,500 = **×5.4**, on n = 2 and with 2026 incomplete. Two data
+    points are not a growth rate and this must not be quoted as one.
+  - **Revenue per backer:** Run 1 $55,500 ÷ 6 = **$9,250**; Run 2 $175,000 ÷ 18 = **$9,722**;
+    Run 3 $125,000 ÷ 6 = **$20,833**. The first two sit just above the $7,000–$8,500 full-slot
+    price, so the typical backer bought about one slot plus an add-on. Run 3's is 2.1× that, so its
+    six backers are buying several slots each — a **different kind of customer**, or, on six orders,
+    simply noise.
+  - **Backers, not customers:** 6 + 18 + 6 = **30 orders in thirteen months**, worldwide.
+- **Bears on:**
+  - **H5 (supports).** $355,500 of unsubsidised, pre-paid orders in thirteen months, at a published
+    flat price, with no sales process and no NDA. On revenue that is already about half of Tiny
+    Tapeout's entire five-year total (`PAY-6`), reached in a year.
+  - **H5 (challenges).** **Thirty orders.** That is the whole worldwide response. `OPG-12` makes
+    this point and re-reading the pages does not soften it: the money is real and the customer count
+    is tiny. A programme whose 2026 revenue rests on six orders has no law of large numbers
+    protecting it.
+  - **H6 (supports).** The money arrives before the wafer does, at a published price, with the
+    buyers carrying the fill risk. That is the shape `PRINCIPLES.md` argues for, and wafer.space is
+    the only programme here whose takings are published as a matter of course.
+- **Used in:** the revenue table at the foot of this file.
+- **Caveats:**
+  - **Self-interested.** Our own company, our own numbers.
+  - "Raised" is the platform's gross figure. **Crowd Supply takes a fee and it is not published on
+    these pages**, so wafer.space's own receipts are lower than these numbers by an unknown margin.
+  - "Backers" counts **orders**, not people, and includes non-slot pledges (the $2,000 undiced
+    wafer, the $1,500 chip-on-board add-on).
+  - Run 1's goal was restated mid-campaign from $68,012 to $40,000 (`OPG-12`), so its
+    "138 % Funded!" badge should not be quoted. Runs 2 and 3 carry a $1 placeholder goal, so theirs
+    should not be quoted either.
+  - **Run 3 is open.** Its $125,000 and its 6 backers are both floors.
+  - **Tiny Tapeout is one of the buyers.** `PAY-5` shows TTGF0p2 on WS-2512 and TTGF26a, TTGF26b and
+    TTGF0p3 on WS-2606, so part of Run 1's and Run 2's money is Tiny Tapeout's, and part of
+    wafer.space's backer count is one intermediary reselling tiles. `OPG-11` records the same
+    pattern at IHP.
+  - No campaign publishes how many slots were sold — only how much money and how many orders.
