@@ -728,3 +728,272 @@ company.** `PAY-9` is our own numbers, and `PAY-5` shows that Tiny Tapeout buys 
     wafer.space's backer count is one intermediary reselling tiles. `OPG-11` records the same
     pattern at IHP.
   - No campaign publishes how many slots were sold — only how much money and how many orders.
+
+---
+
+## Company filings
+
+### PAY-10. Efabless's last financing was $2.5m of debt from one investor, five months before it shut down — and it declined to disclose its revenue
+
+- **Source:** Efabless Corporation, Form D (notice of exempt offering of securities), filed with the
+  US Securities and Exchange Commission on 2024-10-08.
+  Accession number **0002039822-24-000001**, CIK **0002039822**, file number 021-526093.
+  Document: <https://www.sec.gov/Archives/edgar/data/2039822/000203982224000001/xslFormDX01/primary_doc.xml>
+  Company index: <https://data.sec.gov/submissions/CIK0002039822.json>
+- **Verification:** **Verified 2026-09-19.** The filing was located through EDGAR full-text search
+  (`https://efts.sec.gov/LATEST/search-index?q=efabless`, which serves automated requests and
+  returned 21 hits, exactly one of them a Form D) and the document itself was read through
+  `WebFetch`. **`curl` cannot fetch `www.sec.gov/Archives` at all** — every request returns HTTP 403
+  "Your Request Originates from an Undeclared Automated Tool", under every `User-Agent` tried, and
+  SEC's stated remedy is to put a contact e-mail address in the `User-Agent`, which this work does
+  not do. `www.sec.gov/cgi-bin/browse-edgar` returns 403 for the same reason.
+- **What it says**, field by field:
+  - Issuer **efabless Corp**, incorporated in **Delaware**, "Over Five Years Ago", principal place
+    of business **969 Industrial Road, Suite I, San Carlos, California 94070**.
+  - Related persons: **Michael Wishart** (executive officer and director), **Mohamed Kassem**
+    (executive officer and director), **Lucio Lanza**, **Jack Hughes**, **Jeremy Hitchcock**
+    (directors).
+  - Industry group: **Other Technology**.
+  - **Issuer size / revenue range: "Decline to Disclose".**
+  - Type of filing: **new notice**. Federal exemption: **Rule 506(b)**.
+  - Securities offered: **Debt**.
+  - **Date of first sale: 2024-09-27. Total offering amount $2,500,000. Total amount sold
+    $2,500,000. Remaining to be sold $0. Number of investors: 1.** Sales commissions $0, finders'
+    fees $0, minimum investment $0.
+  - Signed by **Michael Wishart, Chief Executive Officer, 2024-10-05**.
+  - **It is the only filing EDGAR holds for this issuer.** The submissions index lists one
+    accession number and nothing else.
+- **Bears on:**
+  - **H6 (context, and it is the sharpest piece of context in the file).** **Money raised is not
+    revenue and must never be presented as such.** But the shape of this raise is informative:
+    five months before it shut down, and at the point `OPG-15` says it "was not able to close our
+    Series B round", Efabless took **$2.5m of debt from a single investor** — a bridge, not a
+    round. Set beside `PAY-8`'s $1.56m of 2024 chipIgnite gross revenue, a $2.5m bridge is roughly
+    nineteen months of that revenue line, and it was not enough.
+  - **H6 (context).** "Decline to Disclose" on the revenue box is a legal option, freely chosen. It
+    is the closest thing to an Efabless revenue disclosure that exists, and it discloses nothing.
+  - **H5 (context).** Lucio Lanza and Jack Hughes on the board are serious EDA and semiconductor
+    names. This was not an unfunded hobby; it had the people who would know.
+- **Used in:** context for `PAY-8`.
+- **Caveats:**
+  - **A Form D is a notice of an exempt offering. It is not audited and carries no revenue figure.**
+    Nothing in it says what Efabless sold or earned.
+  - "Over Five Years Ago" and the single-filing history mean **EDGAR does not hold Efabless's
+    earlier venture rounds**. Either they were filed under a different registrant we did not find,
+    or they were not filed on EDGAR. `OPG-15`'s account of the funding history is not corroborated
+    here beyond this one filing.
+  - The document was read through `WebFetch`, which summarises with a small model; the field values
+    above were requested verbatim and are consistent across two separate reads of the raw XML and
+    the XSL-rendered form, but **no human re-read the primary document**.
+
+### PAY-11. Tiny Tapeout B.V.'s filed accounts would settle the question outright, and we could not reach them
+
+- **Source:** Tiny Tapeout's own terms of service name the legal entity — "The Terms constitute a
+  binding agreement between you and **Tiny Tapeout B.V.**" — and set jurisdiction: "These Terms
+  shall be governed by the laws of the Netherlands … the competent court located in **Amsterdam,
+  the Netherlands**" (<https://tinytapeout.com/terms/>, read from the site's public source
+  repository on 2026-09-19).
+- **Verification:** **Verified** for the entity name and jurisdiction. **Blocked** for the accounts.
+- **What it says, and what it would say if it could be read:** a Dutch **besloten vennootschap**
+  (B.V., a private limited company) is required to file annual accounts with the KvK (Kamer van
+  Koophandel, the Chamber of Commerce). KvK's own page states the obligation and the retention
+  period — in the original Dutch, "**Bv's en nv's zijn vrijwel altijd verplicht een jaarrekening te
+  deponeren**" (*translated: "B.V.s and N.V.s are almost always required to file annual
+  accounts"*) and "**Je kunt jaarrekeningen opvragen tot 7 jaar terug**" (*translated: "You can
+  request annual accounts going back up to 7 years"*), at
+  <https://www.kvk.nl/producten-bestellen/jaarrekeningen/> (read 2026-09-19).
+  A small B.V. files an abbreviated balance sheet, which normally shows total assets, equity and
+  sometimes turnover. **That single document would replace the whole of `PAY-6` with a measurement.**
+- **What was tried, and what blocked it** (all on 2026-09-19):
+  - `https://www.kvk.nl/zoeken/?zoekwoord=tiny%20tapeout` returns HTTP 200 but the trade-register
+    results are rendered client-side; the served HTML contains only the CMS chrome. Read through
+    `WebFetch` it comes back as "a generic landing/help page … no trade register entries".
+  - `https://www.kvk.nl/zoeken/handelsregister/?handelsnaam=tiny+tapeout` returns **HTTP 404**.
+  - `https://api.kvk.nl/api/v2/zoeken?naam=tiny%20tapeout` returns **HTTP 401**; the KvK API needs a
+    key, which needs an account, and **this work does not create accounts**.
+  - The ordering flow for a filed annual account is a paid product. **We did not enter it**, so we
+    cannot state its price. KvK's published product list does not print a price on the
+    jaarrekeningen page itself.
+  - No KvK number appears anywhere on tinytapeout.com — not in the terms, not on the contact page,
+    not in the site footer.
+- **Bears on:**
+  - **H6 (context).** This is the one document that would turn the largest estimate in this file
+    into a fact, and it exists, and it is cheap for a human. **Recorded as the single highest-value
+    open item in this file.**
+- **Used in:** the blocked-sources list.
+- **Caveats:**
+  - We did not establish that Tiny Tapeout B.V. *has* filed. A company incorporated in 2023 or 2024
+    may have filed once or not at all, and a micro-entity's filing may contain no turnover figure.
+  - We did not establish the KvK number, so even the existence of the registration is, strictly,
+    inferred from the company's own terms of service.
+  - **What a human should do:** search `https://www.kvk.nl/zoeken/handelsregister/` for
+    "Tiny Tapeout" in an ordinary browser, note the KvK number, then order the deposited
+    jaarrekening for each available year. Everything after the search costs money.
+
+---
+
+## The revenue table
+
+All three programmes, by calendar year. Tiny Tapeout on the **MID** assumption from `PAY-6`;
+chipIgnite/ChipFoundry from `PAY-8`; wafer.space from `PAY-9`. Euro amounts are converted at the
+**ECB euro reference rate for 2026-09-17, EUR 1 = USD 1.1481**, the same rate `SMB-9` uses.
+
+| Year | Tiny Tapeout | chipIgnite → ChipFoundry | wafer.space | **Total (US$)** |
+|---|---:|---:|---:|---:|
+| 2021 | — | $312,000 | — | **$312,000** |
+| 2022 | $11,650 | $507,000 | — | **$518,650** |
+| 2023 | $42,400 | $906,750 | — | **$949,150** |
+| 2024 | $166,925 | **$1,560,000** | — | **$1,726,925** |
+| 2025 | $217,858 | $657,800 | $55,500 | **$931,158** |
+| 2026 (to 2026-09-19) | $392,317 | $672,750 | $300,000 | **$1,365,067** |
+| **Total** | **$831,150** | **$4,616,300** | **$355,500** | **$5,802,950** |
+
+Tiny Tapeout's 2025 row is $38,100 + €156,570 = $38,100 + $179,758; its 2026 row is €341,710.
+The **LOW** and **HIGH** Tiny Tapeout cases (`PAY-6`) move the 2026 total between $1,255,000 and
+$1,505,000 and the six-year total between $5.6m and $6.1m — so **the Tiny Tapeout uncertainty,
+large as it is in percentage terms, barely moves the sector total.** The sector total is
+chipIgnite's number.
+
+**Netting out the double count.** Tiny Tapeout buys its wafer space from the other two programmes
+(`PAY-5`): at least one chipIgnite slot for each of TT02, TT03, TT04, TT05, TT06, TT07, TT08, TT09,
+TTSKY25a, TTSKY25b, TTSKY26a/b and TTSKY26c, plus wafer.space slots for the TTGF runs.
+**DERIVED:** one slot per shuttle at the price of the day is 1 × $9,750 (2022) + 3 × $9,750 (2023)
++ 4 × $9,750 (2024) + 2 × $14,950 (2025) + 2 × $14,950 (2026) = 9,750 + 29,250 + 39,000 + 29,900 +
+29,900 = **$137,800**, about **2.4%** of the $5.80m total. It is small, but it is real, and the
+combined total is a sector *gross* figure, not a sector *value-added* figure.
+
+## Growth on revenue against growth on submissions
+
+This is what the file was written to answer. **They do not tell the same story, and they diverge in
+opposite directions for different programmes.**
+
+| Programme | Window | Interest series | CAGR | Money series | CAGR | Which grew faster |
+|---|---|---|---:|---|---:|---|
+| **chipIgnite** | 2021–2024 | submissions 51 → 377 | **+94.8%** | paid slots 32 → 160 | **+71.0%** | **interest, by a wide margin** |
+| **ChipFoundry** | 2025 → 2026 | `interest` 129 → 262 | **+103%** | `committed` 44 → 45 | **+2.3%** | **interest, overwhelmingly** |
+| **Tiny Tapeout** | 2022–2025 | design records 166 → 1,530 | **+109.7%** | revenue $11,650 → $217,858 | **+156% to +165%** | **money** |
+| **wafer.space** | 2025 → 2026 | orders 6 → 24 | ×4.0 | revenue $55,500 → $300,000 | ×5.4 | money, on n = 2 |
+| **All three** | 2021–2024 | — | — | total $312k → $1.73m | **+76.9%** | — |
+| **All three** | 2021–2025 | — | — | total $312k → $931k | **+31.4%** | — |
+
+**Four findings, stated plainly.**
+
+1. **On chipIgnite — the longest paid series in the record — revenue grew materially more slowly
+   than submissions.** Submissions rose 7.39× over three years; paid slots rose 5.00×. The cause is
+   not mysterious: **a 40-slot shuttle caps revenue and nothing caps interest.** Every
+   "oversubscribed" figure in `OPG-1`, `OPG-2` and `shuttle-programmes.md` is measuring the
+   uncapped side.
+2. **On ChipFoundry the divergence is total.** Interest doubled; money did not move. `OPG-9`
+   already said this and it survives re-reading the API. Two points is not a trend, and it is the
+   only direct measurement of the gap anyone publishes.
+3. **On Tiny Tapeout revenue grew *faster* than designs** — because the price rose. Revenue per
+   design went $70 → $102 → $194 → $134 → €252 (`PAY-6`). This is the one place where the money
+   series is *better* news than the unit series, and the reason is pricing power, not volume.
+4. **The sector's money fell 46% in 2025, the year its unit counts hit a record.**
+   $1,726,925 in 2024 → $931,158 in 2025 (1 − 931,158 ÷ 1,726,925 = 0.461), while
+   `data-cuts-and-statistics.md` §3.2 records 2025 as Tiny Tapeout's largest year ever at 1,530
+   design records. **A reader given only the submission series would not know that 2025 was the
+   worst year the sector has had.** That is the strongest single argument in this repository for
+   not quoting submission counts as demand.
+
+   The cause is known and it is not a demand collapse: Efabless failed in March 2025, CI 2504 never
+   taped out, and TT10 was cancelled. `OPG-3`, `OPG-7` and `PAY-5` all say so. But **"the operator
+   died" is exactly the kind of risk a revenue series shows and a submission series hides**, and
+   H6 is about whether serving these customers is a business, not about whether they want the
+   product.
+
+## Cross-check against the top-down estimate
+
+`open-access-audit.md` §6.1 estimates the entire genuinely-open, genuinely-commercial sector at
+**"plausibly one to three million dollars of annual revenue"** in 2026, and ChipFoundry alone at
+"roughly $1M a year".
+
+**DERIVED, bottom-up, for 2026:** $1,365,067 for the first 8.6 months. Annualised at the same rate,
+1,365,067 × 12 ÷ 8.6 = **about $1.9m**. ChipFoundry alone: 672,750 × 12 ÷ 8.6 = **about $0.94m**.
+
+**The two agree, and the bottom-up figure sits in the lower half of the top-down range.** Where they
+differ I trust the bottom-up figure, because every one of its inputs is a dated published price
+multiplied by a dated published unit count, and the top-down figure is an informed guess. Two things
+qualify that:
+
+- The bottom-up figure covers **only these three programmes**. It excludes IHP's paid Open-Silicon
+  MPW. **DERIVED from `OPG-11`:** its SG13G2 run had 59.2 mm² registered at €2,800/mm² =
+  **€165,760**, and its CMOS5L run 44.5 mm² at €1,500/mm² = **€66,750** — together about
+  **€232,510, or $267,000**, though registered area is not a paid order and the CMOS5L run had not
+  reached its 90 mm² minimum. It also excludes Cadence/SkyWater's $10,000 aggregation service
+  (`OPG-19`) and anything we did not find. The true sector figure is higher than $1.9m.
+- Two of the five open shuttles counted (CI 2609, CI 2612) and one wafer.space campaign (Run 3) are
+  still taking orders, so 2026 will end higher than the annualisation implies.
+
+**The honest statement is therefore: the whole open-and-commercial sector is running at roughly
+$2m a year of gross revenue in 2026, its best year was 2024 at about $1.7m from three programmes,
+and it has never been larger than that.** `open-access-audit.md` §6.1's comparison stands and gets
+sharper: `SMB-5` records MOSIS at "up to $10 million annually at its peak" in 1990s money.
+
+## Revenue per customer and per design
+
+| Programme | Unit | 2021 | 2022 | 2023 | 2024 | 2025 | 2026 |
+|---|---|---:|---:|---:|---:|---:|---:|
+| chipIgnite / ChipFoundry | per paid slot | $9,750 | $9,750 | $9,750 | $9,750 | $14,950 | $14,950 |
+| wafer.space | per order | — | — | — | — | $9,250 | $9,722 / $20,833 |
+| Tiny Tapeout | per design | — | $70 | $102 | $194 | $134 | €252 |
+| Tiny Tapeout | per tile | — | $70 | $69 | $109 | $144 | €134 |
+
+**DERIVED:** a chipIgnite customer was worth **50×** a Tiny Tapeout design in 2024
+(9,750 ÷ 194 = 50.3), and a ChipFoundry customer is worth **52×** a Tiny Tapeout design in 2026
+(14,950 ÷ (252 × 1.1481) = 14,950 ÷ 289 = 51.7).
+Across the three programmes in 2026, **$972,750 of the $1,365,067 — 71% — came from roughly fifty
+orders** (45 ChipFoundry commitments and about six wafer.space orders in the year), and the
+remaining 29% came from 1,358 Tiny Tapeout designs.
+
+**The reading for H6.** The long tail in this sector is real in *headcount* and almost absent in
+*money*. Seven pounds in ten comes from a few dozen orders a year at $7,000–$15,000 each; three
+pounds in ten comes from well over a thousand orders at €70–€400 each. Any business model built on
+the thousand has to be almost entirely self-serve, because `data-cuts-and-statistics.md` §5.3's
+lifetime value of €122–$521 per acquired designer leaves nothing for a sales motion — and this file
+puts the same conclusion on the revenue side. Any business model built on the fifty is a business
+with fifty customers, which is `CONC`-style concentration at the bottom of the market, exactly as
+`OPG-11` found at IHP.
+
+## Blocked sources
+
+Everything that could not be reached, with the blocker, as `resources/README.md` requires.
+
+| Source | What it would have given | Blocker |
+|---|---|---|
+| **KvK deposited annual accounts for Tiny Tapeout B.V.** | Filed turnover and balance sheet — would replace `PAY-6` with a measurement | Trade-register search is client-side and `…/zoeken/handelsregister/` returns HTTP 404; `api.kvk.nl` returns HTTP 401 without a key; a key needs an account and the accounts themselves are a paid product. **We create no accounts and pay for nothing.** Highest-value open item in this file. |
+| **`www.sec.gov/Archives` and `cgi-bin/browse-edgar` via `curl`** | Efabless's Form D | HTTP 403, "Your Request Originates from an Undeclared Automated Tool", under every `User-Agent`. SEC's remedy is an e-mail address in the `User-Agent`, which this work will not do. **Worked around**: `efts.sec.gov` serves automated requests and `WebFetch` reached the document (`PAY-10`). |
+| **Efabless's earlier venture rounds** | Amounts and dates before the 2024 bridge | EDGAR holds exactly one filing for CIK 0002039822. Earlier rounds are either under a registrant we did not find or were never filed on EDGAR. |
+| **Keyword search of conference talks and slides** (FOSSi Dial-Up, ORConf, Supercon, FOSDEM) for Tiny Tapeout unit or revenue numbers | Possibly a founder-stated revenue figure | **The session's web-search budget was exhausted (200 of 200 calls) before this task reached that step.** Nothing was searched for. The task explicitly asked for it and it is **not done**. |
+| **`platform.efabless.com` shuttle pages for CI 2304C, CI 2306Q, CI 2311, CI 2209C** | Independent check on four rows of `PAY-8` | The site is dead and the CDX API returns no captures for these URLs on any date (`OPG-2` records the same). |
+| **Whether Efabless's four 2024 shuttles really manufactured 40 slots each** | Would fix the largest single number in `PAY-8` | The "*N* of 40 project slots reserved" field on the archived pages behaves like a manually maintained value (0 while open, a real number after close, absent from the later layout). No source resolves it. |
+| **Tiny Tapeout's sponsored-versus-sold split per shuttle** | Would fix `PAY-6`'s largest uncertainty | Never published. The IEEE block booking on TTSKY26b ("Half the area and PCBs have been reserved for them") is the only quantified instance and even that gives no price. |
+| **Crowd Supply's platform fee** | wafer.space's net receipts | Not printed on the campaign pages, and Crowd Supply does not publish a public rate card on them. |
+| **Tiny Tapeout PCB attach rate after 2024** | Would replace the 0.50–0.70 assumption in `PAY-6` | Published for TT04 and TT06 only (`PAY-4`). |
+| **`app.tinytapeout.com/prepurchase`** (prepaid credits for universities) | Institutional pricing | An empty single-page-application shell, like the calculator; the prices are not in the served HTML and we did not find a second price module. |
+| **Internet Archive, intermittently** | — | The CDX API returned "Internet Archive services are temporarily offline" for part of 2026-09-19, and `web.archive.org` rate-limits after roughly twenty fetches. Every capture cited above was eventually retrieved, with backoff. |
+
+## Changes this file implies for files it does not own
+
+1. **`SMB-10`'s caveat is now wrong** and should be corrected. It says "The headline Tiny Tapeout
+   price (tile + ASIC + board) is **not published as a number** anywhere we could read". It is:
+   `PAY-3` reads the whole schedule out of the order application's own invoice module. `SMB-10`'s
+   €3,900/mm² derivation can also be redone against that schedule.
+2. **`OPG-9`'s caveat can be upgraded from Partial to Verified** for two items: ChipFoundry's
+   "$14,950 per project" price and the minimum-commitment refund clause were both re-read directly
+   from `https://chipfoundry.io/faqs` on 2026-09-19 (`PAY-7`).
+3. **`OPG-12` is out of date on wafer.space Run 3.** It records "$121,500 raised" and "5 backers";
+   the page read $125,000 and 6 backers on 2026-09-19 (`PAY-9`). `OPG-12`'s Partial status can also
+   be upgraded — all three campaign pages have now been read directly.
+4. **`SMB-9` should point at `PAY-7`** for the interior of the price history. Its "$9,750 in 2021,
+   $14,950 today" reads as a series; `PAY-7` shows it is a flat price followed by a step change by
+   a different company.
+5. **`OPG-1`'s `Slots` column should carry the warning in `PAY-8`'s caveats** — that it is the
+   spreadsheet's `Manufactured` field, that on chipIgnite it is the closest thing to a paid-customer
+   count, and that the four 2024 shuttles' identical 40s are unverified.
+6. **`hypotheses.md` needs H5 and H6 updating** with the divergence in the growth-rate table above.
+   H5's Challenges list should gain "the sector's revenue fell 46% in 2025, the year its unit counts
+   set a record"; H6's should gain "71% of the sector's money comes from about fifty orders a year".
+7. **`data-cuts-and-statistics.md` §2.4** ("Free versus paid") now has a matched money series to sit
+   beside its unit series, and §5.3's "€540,960 – $2,318,400" lifetime range can be narrowed to
+   `PAY-6`'s $0.63m – $1.11m.
