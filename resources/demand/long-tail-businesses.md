@@ -20,8 +20,11 @@ arithmetic is written out.
   <http://reportdocs.static.szse.cn/UpFiles/rasinfodisc1/202604/RAS_202604_22164565DA37A2A6A74520902DB3E1B3350542.pdf>
   JLC is the parent of JLCPCB and EasyEDA.
 - **Verification:** Verified 2026-09-18. The PDF was downloaded, its text extracted, and every
-  figure below located in the extracted text and read in place. The reporting period ("报告期") is
-  financial years 2023, 2024 and 2025; figures are given in 万元 (units of CNY 10,000).
+  figure below located in the extracted text and read in place. The reporting period ("报告期" —
+  "reporting period") is financial years 2023, 2024 and 2025; figures are given in 万元 (*wàn yuán*,
+  units of CNY 10,000).
+- **Note on language:** this is a Chinese-language filing. Chinese passages are quoted in the
+  original so a reader can check them; **the English renderings are ours**, not the source's.
 - **What it says:**
   - **The company defines the long tail in its own glossary.** "长尾需求 指 对需求量低但种类很多的产品或服务的需求"
     — "long-tail demand: demand for products or services where the quantity demanded is low but the
@@ -33,7 +36,8 @@ arithmetic is written out.
     suffer from high cost, unstable delivery times, uneven quality and narrow service. The Company
     has changed the model by which traditional factories serve long-tail demand."
   - **Customers and orders**, from the peer-comparison table "公司及同行业公司的用户及订单数量对比情况"
-    (the 嘉立创 row): "报告期各期末，公司的注册用户数量分别为 548.71 万个、711.89 万个和 959.16 万个；报告期内，公司的付费用户数量分别为 84.39 万个、100.52 万个和 135.87 万个；报告期内，公司的订单数量分别为 1,450.24 万笔、1,780.69 万笔和 2,129.08 万笔"
+    — "comparison of user and order numbers between the Company and comparable companies in the same
+    industry" (the 嘉立创 / JLC row): "报告期各期末，公司的注册用户数量分别为 548.71 万个、711.89 万个和 959.16 万个；报告期内，公司的付费用户数量分别为 84.39 万个、100.52 万个和 135.87 万个；报告期内，公司的订单数量分别为 1,450.24 万笔、1,780.69 万笔和 2,129.08 万笔"
     — registered users 5,487,100 / 7,118,900 / 9,591,600; **paying users 843,900 / 1,005,200 /
     1,358,700**; **orders 14,502,400 / 17,806,900 / 21,290,800**, for 2023 / 2024 / 2025
     respectively.
@@ -41,41 +45,59 @@ arithmetic is written out.
     — revenue CNY 6,747,997,400 / 7,999,592,700 / **10,287,064,200**; net profit attributable to the
     parent's shareholders CNY 738,464,700 / 998,326,000 / **1,300,910,400**.
   - **Gross margin:** "报告期内，公司综合毛利率分别为 27.12%、28.79%和 28.15%" (blended gross margin
-    27.12% / 28.79% / 28.15%) and "公司主营业务毛利率分别为 25.11%、26.58%和 25.90%，公司 PCB 业务毛利率分别为 28.73%、30.05%和 28.06%，高于同行业可比公司平均值"
-    (core-business gross margin 25.11 / 26.58 / 25.90%; PCB gross margin 28.73 / 30.05 / **28.06%**,
-    "higher than the average of comparable companies in the same industry").
+    27.12% / 28.79% / 28.15% — 综合毛利率 is the blended, all-business margin) and
+    "公司主营业务毛利率分别为 25.11%、26.58%和 25.90%，公司 PCB 业务毛利率分别为 28.73%、30.05%和 28.06%，高于同行业可比公司平均值"
+    — "the Company's gross margin on its core business was 25.11%, 26.58% and 25.90% respectively,
+    and the Company's gross margin on its PCB business was 28.73%, 30.05% and **28.06%**
+    respectively, higher than the average of 同行业可比公司 (comparable companies in the same
+    industry)."
   - **The margin by order size — the table the whole entry turns on.** PDF p.245 (document page
-    1-1-244) prints, under the heading "2）PCB 业务按订单面积划分的毛利率情况", a table whose columns
-    are "批量 / 销售渠道 / 收入占比 / 毛利率", the years running 2025, 2024, 2023 as the source prints
-    them. Transcribed in full (收入占比 is the share of *PCB* revenue):
+    1-1-244) prints, under the heading "2）PCB 业务按订单面积划分的毛利率情况" — "(2) Gross margin of
+    the PCB business broken down by order area" — a table whose columns are
+    "批量 / 销售渠道 / 收入占比 / 毛利率" — "Batch size / Sales channel / Share of revenue / Gross
+    margin" — the years running 2025, 2024, 2023 as the source prints them. Transcribed in full, with
+    the Chinese headings and row labels kept beside their English (收入占比, "share of revenue", is the
+    share of *PCB* revenue):
 
-    | 批量 | 销售渠道 | 2025 收入占比 | 2025 毛利率 | 2024 收入占比 | 2024 毛利率 | 2023 收入占比 | 2023 毛利率 |
+    | Batch size (批量) | Sales channel (销售渠道) | 2025 share of revenue (收入占比) | 2025 gross margin (毛利率) | 2024 share of revenue | 2024 gross margin | 2023 share of revenue | 2023 gross margin |
     |---|---|---|---|---|---|---|---|
-    | 样板、小批量 | 线上 | 72.73% | 37.39% | 72.84% | 38.18% | 71.66% | 35.86% |
-    | 样板、小批量 | 线下 | 2.84% | 6.69% | 2.77% | 13.55% | 2.72% | 19.91% |
-    | 样板、小批量 | 小计 | 75.57% | **36.24%** | 75.61% | 37.28% | 74.38% | 35.27% |
-    | 中大批量 | 线上 | 15.39% | 8.32% | 15.02% | 13.49% | 15.76% | 14.03% |
-    | 中大批量 | 线下 | 9.04% | **−6.71%** | 9.38% | −1.77% | 9.86% | 2.89% |
-    | 中大批量 | 小计 | 24.43% | **2.76%** | 24.39% | 7.63% | 25.62% | 9.74% |
-    | 合计 | | 100.00% | **28.06%** | 100.00% | 30.05% | 100.00% | 28.73% |
+    | Sample and small batch (样板、小批量) | Online (线上) | 72.73% | 37.39% | 72.84% | 38.18% | 71.66% | 35.86% |
+    | Sample and small batch (样板、小批量) | Offline (线下) | 2.84% | 6.69% | 2.77% | 13.55% | 2.72% | 19.91% |
+    | Sample and small batch (样板、小批量) | Subtotal (小计) | 75.57% | **36.24%** | 75.61% | 37.28% | 74.38% | 35.27% |
+    | Medium and large batch (中大批量) | Online (线上) | 15.39% | 8.32% | 15.02% | 13.49% | 15.76% | 14.03% |
+    | Medium and large batch (中大批量) | Offline (线下) | 9.04% | **−6.71%** | 9.38% | −1.77% | 9.86% | 2.89% |
+    | Medium and large batch (中大批量) | Subtotal (小计) | 24.43% | **2.76%** | 24.39% | 7.63% | 25.62% | 9.74% |
+    | Total (合计) | | 100.00% | **28.06%** | 100.00% | 30.05% | 100.00% | 28.73% |
 
     The prose under the table says which business is which: "嘉立创板块的 PCB 业务通过线上商城开展，主要服务于具有样板、小批量需求的长尾客户，呈现出客户群体高度分散、均单量和均单价低、交期短等特点……因此公司对价格主导能力和毛利率相对较高。中信华板块的 PCB 业务开展以线下渠道为主，主要服务于具有中大批量需求的客户……该等客户一般采取议价的方式进行定价，产品售价和毛利率相对较低。"
-    — the JLC block sells sample and small-batch boards online to "long-tail customers … highly
-    dispersed, with low volume and low price per order", and has the higher margin; the 中信华
-    (Zhongxinhua) block sells medium/large-batch boards offline to customers who "negotiate
-    prices", and has the lower one.
+
+    — "The PCB business of the 嘉立创 (JLC) block is conducted through an online store, and mainly
+    serves long-tail customers with sample-board and small-batch demand; it exhibits characteristics
+    such as a highly dispersed customer base, a low average order quantity and average order price,
+    and short lead times … the Company therefore has relatively strong pricing power and a relatively
+    high gross margin. The PCB business of the 中信华 (Zhongxinhua) block is conducted mainly through
+    offline channels, and mainly serves customers with medium- and large-batch demand … such
+    customers generally set prices by negotiation, and product selling prices and gross margins are
+    relatively low." (The ellipses "……" are the source's own.)
   - **The size bands are defined in the glossary** (PDF p.13): "样板 指 样品批量的印制电路板，面积在1㎡以下"；"小批量板 指 小批量印制电路板，面积在1-20㎡"；"中大批量板 指 中大批量印制电路板，面积在20㎡以上"
-    — sample boards under 1 m², small-batch 1–20 m², medium/large-batch over 20 m².
+
+    — "样板 (sample board): a printed circuit board in sample quantities, of area under 1 ㎡ [m²]";
+    "小批量板 (small-batch board): a small-batch printed circuit board, of area 1–20 ㎡";
+    "中大批量板 (medium- and large-batch board): a medium- or large-batch printed circuit board, of
+    area over 20 ㎡". That is, sample boards under 1 m², small-batch 1–20 m², medium/large-batch over
+    20 m².
   - **The load-bearing sentence, from the risk factors:** "此外，报告期各期公司中大批量板毛利率分别为 9.74%、7.63%和 2.76%，呈下降趋势，主要系 PCB 中大批量市场竞争较为激烈，公司相关产品利润空间有限所致。"
     — "In addition, the Company's gross margin on medium- and large-batch boards was 9.74%, 7.63%
     and 2.76% in the respective periods of the reporting period, a declining trend, mainly because
     competition in the medium- and large-batch PCB market is relatively fierce and the profit room
     for the related products is limited."
-  - **Customer concentration** ("5、公司前五大客户销售情况", top five customers by revenue). For 2025:
-    麦格米特 (Megmeet) CNY 29,021,500 = 0.28%; 华立科技集团 CNY 26,024,500 = 0.25%; 尚研集团
-    CNY 23,298,800 = 0.23%; 海尔集团 (Haier) CNY 22,277,600 = 0.22%; 威胜集团 (Wasion)
-    CNY 18,322,300 = 0.18%. "合计 11,894.47 1.16%" — **top five combined = 1.16% of revenue**. The
-    same table gives 1.37% for 2024 and 2.00% for 2023.
+  - **Customer concentration** ("5、公司前五大客户销售情况" — "5. Sales to the Company's top five
+    customers"). For 2025: 麦格米特 (Megmeet) CNY 29,021,500 = 0.28%; 华立科技集团 (Huali Technology
+    Group — pinyin rendering; the filing gives no English name) CNY 26,024,500 = 0.25%; 尚研集团
+    (Shangyan Group — pinyin rendering; no English name given) CNY 23,298,800 = 0.23%; 海尔集团
+    (Haier Group) CNY 22,277,600 = 0.22%; 威胜集团 (Wasion Group) CNY 18,322,300 = 0.18%.
+    "合计 11,894.47 1.16%" — "Total 11,894.47 [万元, i.e. CNY 118,944,700] 1.16%", so the **top five
+    combined = 1.16% of revenue**. The same table gives 1.37% for 2024 and 2.00% for 2023.
 - **DERIVED (arithmetic written out):**
   - Revenue per paying user, 2025: CNY 10,287,064,200 ÷ 1,358,700 = **CNY 7,571** ≈ US$1,050 at
     CNY 7.2/USD.
@@ -94,10 +116,11 @@ arithmetic is written out.
     revenue, is outright **loss-making at −6.71%**. In this business the long tail is the profitable
     part and the big orders are the commodity — the exact reverse of the assumption H6 is usually
     challenged with. Two things have to be said carefully about those numbers. **28.06% is not a
-    small-batch figure**: it is the blended whole-PCB-business margin (合计), and it already contains
-    the 2.76% segment. And the disclosed line combines 样板 with 小批量, so **there is no standalone
-    small-batch margin anywhere in the filing** — searching the document for 小批量板毛利率 and
-    样板毛利率 returns nothing.
+    small-batch figure**: it is the blended whole-PCB-business margin (合计, "total"), and it already
+    contains the 2.76% segment. And the disclosed line combines 样板 (sample boards) with 小批量
+    (small batch), so **there is no standalone small-batch margin anywhere in the filing** —
+    searching the document for 小批量板毛利率 ("small-batch board gross margin") and 样板毛利率
+    ("sample-board gross margin") returns nothing.
   - **H7 (supports).** A largest customer worth 0.28% of revenue is what "no customer has leverage"
     looks like in an audited filing.
   - **H5 (supports).** 21.3 million orders in one year from 1.36 million paying customers is a long
@@ -106,10 +129,14 @@ arithmetic is written out.
 - **Caveats:**
   - **The US$67 and the ≈US$1,050 are upper bounds, because the numerator and the denominator are
     not the same population.** The order and paying-user counts come from a peer table explicitly
-    about the *online self-service ordering site*: the sentence introducing it reads "在线自助下单网站的累计注册用户、付费用户数量、订单数量居行业前列". The revenue divided into them is
-    **group-wide** 营业收入, which also contains 中信华's offline medium/large-batch PCB sold on
-    negotiated terms (24.43% of PCB revenue), plus the electronic-component trading, PCBA, 3D
-    printing and stencil (钢网) businesses. Dividing all of the revenue by only the online orders
+    about the *online self-service ordering site*: the sentence introducing it reads
+    "在线自助下单网站的累计注册用户、付费用户数量、订单数量居行业前列" — "the cumulative registered
+    users, number of paying users and number of orders of the online self-service ordering website
+    rank among the leaders in the industry". The revenue divided into them is **group-wide**
+    营业收入 ("operating revenue"), which also contains 中信华 (Zhongxinhua)'s offline
+    medium/large-batch PCB sold on negotiated terms (24.43% of PCB revenue), plus the
+    electronic-component trading, PCBA, 3D printing and stencil (钢网, "steel mesh", i.e. SMT solder
+    paste stencils) businesses. Dividing all of the revenue by only the online orders
     therefore overstates the true long-tail order size; the real figure is lower than US$67, by an
     amount the filing does not let us compute.
   - **PCBs are not chips.** A bare printed circuit board is vastly cheaper, faster and less
