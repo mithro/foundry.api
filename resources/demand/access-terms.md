@@ -474,3 +474,156 @@ PDK" or "contact us for a price", that sentence is the finding.** It was recorde
 - **Used in:** [`../analyses/open-access-audit.md`](../analyses/open-access-audit.md).
 - **Caveats:** the capture is dated 2022-12-04, during the MPW-8 era; earlier and later shuttles may
   have worded their requirements differently. Efabless's live platform is gone.
+
+### ACC-10. MEMSCAP's MUMPs, the longest-running MEMS shuttle in the world: a published two-tier price list, design rules "free to download and distribute", commercial-only CAD, and a quote number before you may submit
+
+- **Sources** (all read from the Internet Archive with the raw-content `id_` form, because the live
+  pages are gone — see `ACC-11`):
+  - The MUMPs programme page, last capture returning HTTP 200:
+    <https://web.archive.org/web/20230130050732id_/http://memscap.com/products/mumps>
+  - PolyMUMPs Reference Material:
+    <https://web.archive.org/web/20210415064757id_/http://www.memscap.com/products/mumps/polymumps/reference-material>
+  - PolyMUMPs Submit Design:
+    <https://web.archive.org/web/20210425222322id_/http://www.memscap.com/products/mumps/polymumps/submit-design2>
+  - The price list, published as an image on the Pricing page:
+    <https://web.archive.org/web/20210425205618id_/http://www.memscap.com/__data/assets/image/0007/1699/Price_list_MUMPs_2017.jpg>
+  - The run schedule, also an image:
+    <https://web.archive.org/web/20210509054528id_/http://www.memscap.com/__data/assets/image/0006/1698/MUMPs_Run_Schedule_2021.jpg>
+- **Verification:** **Verified 2026-09-19.** Every page was fetched with `curl` and read; the two
+  images were downloaded (582 KB and 88 KB JPEGs) and read as images. The prices and the schedule
+  below are transcribed from those images.
+- **What it says:**
+  - **What the programme is**, from the MUMPs page: "The Multi-User MEMS Processes, or MUMPs®, is a
+    well-established, Multi Project Wafer commercial program that provides customers with
+    cost-effective access to MEMS prototyping and a seamless transition into volume manufacturing."
+    And: "**The MUMPs® program has run consistently since 1992. Over 80 full process runs have been
+    completed and shipped over that time to hundreds of organizations.**"
+  - **How it works**, same page: "customers purchase one or more individual die locations(1cm x 1cm
+    size) or tiles on any regularly scheduled run, then create and submit a design based on the
+    process design rules. Eight to 12 weeks later, the customer receives 15 identical chips of their
+    design. To get started, pick a process link above, reserve a die site on a scheduled run, and
+    start designing!"
+  - **The price list**, transcribed from the 2017 image, headed "MUMPs Price List" with the columns
+    "All MUMPs", "Non-Academic Rate", "Academic Rate":
+
+    | Line | Non-Academic | Academic |
+    |---|---|---|
+    | 1 Standard Die Site - 15 die delivered | **$5,800** | **$4,200** |
+    | Additional Die Same Design | $100/die | $100/die |
+    | Additional Standard Die Sites on same run | $3000/ea | $3000/ea |
+
+    Post-processing is priced separately and identically for both tiers: "Saw Subdicing (per 15 die)
+    $200 for each cut"; "HF Release (up to 60 subdie) $800"; "CO2 Dry … (first 15 units) $1000/15 die
+    or subdie"; for Piezo and SOI, "Laser Subdicing 1 cut (per 15 die) $1,050" and "**Laser Subdicing
+    > 2 cuts (per 15 die) Quoted on Individual basis**". The notes give the unit: "'Standard Die Site'
+    is a 10mmx10mm design space with 15 die shipped" for PolyMUMPs and "11.15mmx11.15mm" for Piezo and
+    SOI.
+  - **Reference material is explicitly redistributable**, from the Reference Material page: "Below you
+    will find links to various reference material for PolyMUMPs. **All of the documents below are free
+    to download and distribute.**" The list includes "PolyMUMPs Design Rules" ("This is the most
+    important document to review and understand"), "PolyMUMPs Run Data" ("The published run data for
+    every PolyMUMPs run since #5 is available in one Excel file"), the Technical FAQ, "A Guide to
+    PolyMUMPs by Microsoft Research", release instructions, substrate specifications and three
+    PowerPoint short-course decks "for use as instructional aids or classroom tools".
+  - **But the CAD files are for commercial tools only**, same page: "Basic process setup files and
+    design kits are available here for L-Edit." followed by "To receive design kits for
+    **Coventorware, SoftMEMS**, or **Intellisense**, please visit the following links".
+  - **And a quote number is required before you may submit.** From the Submit Design page: "Before
+    submitting your design, you'll need the **temporary userid and password assigned to you in your
+    reservation confirmation email** to upload the file to our ftp site." The form's required fields
+    are "Name *", "Organization *", "Email *", "Phone *", "**Quote# ***", "File Name *", "Top Level
+    Cell Name *", and it ends with "Security Check. Enter word*" — a CAPTCHA.
+  - **The queue is published as a table of dates.** Transcribed from the 2021 schedule image, with the
+    columns "Run", "Design Deadline", "Standard Ship Date", "Post Processing Ship Date":
+    Poly MUMPs runs **133** (deadline 2020-11-17), **134** (2021-03-02), **135** (2021-07-01),
+    **136** (2021-11-02); Piezo MUMPs runs **23**, **24**, **25**, **26**; SOI MUMPs runs **74**,
+    **75**, **76**, **77**. Footer: "Schedule subject to change".
+- **DERIVED (arithmetic written out):**
+  - A PolyMUMPs standard die site is 10 × 10 mm = 100 mm². $5,800 ÷ 100 = **$58 per mm²**
+    non-academic, and $4,200 ÷ 100 = **$42 per mm²** academic, **including 15 finished dies**.
+    Against Europractice's cheapest silicon line (GF 180 MCU Open PDK, €913/mm², `ACC-4`) that is
+    roughly **sixteen times cheaper per square millimetre**. MEMS at these feature sizes is not the
+    same product as CMOS, and the comparison is given to show the scale, not to claim they compete.
+  - The academic rate is 4,200 ÷ 5,800 = **72.4% of the commercial rate**, i.e. a **27.6% discount**
+    for being academic.
+  - **Three PolyMUMPs runs in the 2021 calendar year**: deadlines 2021-03-02, 2021-07-01 and
+    2021-11-02, with a fourth deadline falling in November 2020.
+- **Bears on:**
+  - **The audit's Axis 1.** MUMPs scores unusually well for a closed-PDK commercial programme:
+    published prices with no login, a published run schedule, design rules a third party may
+    redistribute, and no eligibility rule beyond a cheaper academic tier. It scores badly on
+    self-service — a quote number, an FTP account and a CAPTCHA stand between you and a submission —
+    and on tooling: L-Edit, CoventorWare, IntelliSense or SoftMEMS, all commercial.
+  - **H8 (mixed, and usefully).** Here is a **commercial** MEMS foundry that published prices for
+    thirty years, on a **closed** process, running three to four shuttles a year. It is the closest
+    thing in the record to "published prices without an open PDK", which is the cell our thesis most
+    needs and has least of.
+  - **H6 (context).** "Over 80 full process runs … to hundreds of organizations" over three decades,
+    at $5,800 a die site, is the realised scale of the world's longest-running MEMS shuttle. No
+    plausible number of die sites per run makes that a large business.
+- **Used in:** [`../analyses/open-access-audit.md`](../analyses/open-access-audit.md).
+- **Caveats:**
+  - **The programme page and the run schedule disagree.** The page says "Over 80 full process runs
+    have been completed" while the schedule shows PolyMUMPs alone at run **136** in 2021, plus
+    PiezoMUMPs 26 and SOIMUMPs 77. Either the "80" is stale copy, or the run numbers are not a count
+    of completed runs. **We did not resolve it and do not pick one.**
+  - The price-list image is named "Price_list_MUMPs_2017" and the capture is from 2021, so it may have
+    been stale on the page when captured. No later price list was found.
+  - The prices are transcribed by us from an image. Anyone rechecking should open the JPEG.
+  - **Nothing was found about export control, ITAR or citizenship for MUMPs.** MEMSCAP is a French
+    company with a North Carolina operation and MEMS devices can be export-controlled, so the absence
+    of a statement is not evidence of absence.
+  - No submission, customer or fill-rate count is published for any MUMPs run, so MUMPs cannot enter
+    any demand series in this repository.
+
+### ACC-11. The MUMPs service disappeared from MEMSCAP's website during 2023, and memsrus.com is now a spam blog
+
+- **Sources:**
+  - MEMSCAP's current site: <https://www.memscap.com/>
+  - The Wayback CDX API for `memscap.com/products/mumps`
+  - <http://www.memsrus.com/>, the historic MUMPs domain
+- **Verification:** **Verified 2026-09-19.** The live pages were fetched with `curl` and read; the
+  capture history was listed with the CDX API and the boundary captures checked.
+- **What it says:**
+  - **The live site has no foundry, MPW or MUMPs section at all.** MEMSCAP's navigation on 2026-09-19
+    reads "About / News / Products / Aerospace & Defense / Medical and biomedical / Optical
+    communications / Contact us / Investors", and the company describes itself as: "MEMSCAP designs,
+    manufactures and markets ultra-high precision and stability pressure sensors for the Avionics and
+    Medical market segments" and "MEMSCAP also supplies Variable Optical Attenuator chips for the
+    fiber optics markets and receives royalties on the one of its registered trade marks (IOMA)".
+    **No prototyping or multi-project-wafer service is mentioned anywhere on the page.**
+    `https://www.memscap.com/products/mumps` returns **HTTP 404**.
+  - **When it went.** Of the captures of `memscap.com/products/mumps`, the **last one returning HTTP
+    200 is 2023-01-30**; the **first returning HTTP 404 is 2023-11-15**. The page therefore
+    disappeared some time in 2023.
+  - **The historic domain is gone too.** `www.memsrus.com`, the address MUMPs used for years, returns
+    HTTP 200 for a site titled "**Professional Cleaning and Janitorial Services for a Spotless
+    Environment – MEMSRUS.COM**", whose articles are about IPTV subscriptions, rat control and
+    volunteering abroad. The domain has been taken over and filled with spam.
+- **Bears on:**
+  - **H5 (challenges), and it is a third instance of one pattern.** `DEM-19`: CMP's `mycmp.fr` is a
+    parked domain and the service no longer exists. `OPEN-7`: Efabless is gone and
+    `platform.efabless.com` 404s. Now MUMPs: gone from its operator's site in 2023, its own domain
+    turned into a spam blog. **Three of the longest-running small-customer prototyping services in the
+    world have vanished from the public internet within about four years**, and in each case the
+    evidence survives only in the Internet Archive.
+  - **H5 (context), stated carefully.** **Nothing found says MUMPs stopped**, and this audit does not
+    assert that it did. MEMSCAP still publishes half-year results and describes a live sensor and VOA
+    business. A service can be taken off a website and still be sold to people who ask. What is
+    established is that **a prospective new customer reading MEMSCAP's site today would not learn that
+    a MEMS shuttle programme exists.** That is the access barrier this audit measures, in its maximum
+    form.
+  - **The audit's Axis 2.** MUMPs was run by a listed commercial company — MEMSCAP S.A., Crolles,
+    France, with a Norwegian site — alongside its sensor business. It is a **P/M** row: a real
+    business, but one whose parent's revenue comes from products rather than from the shuttle.
+- **Used in:** [`../analyses/open-access-audit.md`](../analyses/open-access-audit.md).
+- **Caveats:**
+  - **"Disappeared during 2023" is bounded by captures, not by an announcement.** No statement by
+    MEMSCAP about ending or changing MUMPs was found. **Do not write that MEMSCAP closed MUMPs.**
+  - The CDX boundary is only as good as the Internet Archive's sampling; a capture between 2023-01-30
+    and 2023-11-15 would narrow it.
+  - MUMPs was also resold through CMC Microsystems and Europractice. **Whether either still lists it
+    was not checked** — that is the obvious next step, and it would settle whether the programme is
+    still buyable.
+  - `memsrus.com` may have lapsed years before the MEMSCAP page went. The two dates are not linked by
+    any evidence.
