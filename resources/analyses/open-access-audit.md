@@ -317,3 +317,180 @@ open-source my design? No. The PDK is open; your design can be open or closed.**
 rubric, and it comes out top. It is included because leaving it out would be worse, and flagged
 because a reader must be able to strike it.
 
+### 3.8 MOSIS 1.0 (USC ISI, 1981–c. 2020) — **4/14 open · U**
+
+| | Finding | Source |
+|---|---|---|
+| A1 | **2.** Public price lists for decades: "First lot of 40 parts (rounded to nearest whole dollar): $17,500 + ($4,000/mm² * 32.081 mm²) = $145,824". | `SMB-8` |
+| A2 | **1.** Orders through MOSIS's own system; not established whether a card sufficed. | `SMB-8` |
+| A3 | **0.** Foundry PDKs (Orbit, IBM, TSMC) under vendor NDA. | `OPG-8` |
+| A4 | **0.** None redistributable. | `OPG-8` |
+| A5 | **`?`, and this is a gap worth naming.** MOSIS published a "**domestic** price list", which implies a domestic/foreign distinction with an export dimension — **we did not recover the eligibility text that goes with it.** | `SMB-8`, §7 |
+| A6 | **0.** Commercial EDA. | `OPG-8` |
+| A7 | **`?`.** Not established. | — |
+| A8 | **1.** Schedules published; per-run results not. | `SMB-8` |
+| A9 | **`?`.** See A5. | §7 |
+| A10 | **0.** "The minimum area for 0.13 micron processes is 10.0 mm²", and the fixed fee alone was $17,500. **DERIVED:** at the minimum, $17,500 + 10 × $4,000 = $57,500, of which **30% is fixed charge before any silicon**. | `SMB-8` |
+
+**Axis 2: U — a university service, and the one entity in the whole record described as covering its
+own costs.** "'MOSIS has been extremely successful,' Mike Haney, Deputy Director of the DREAMS hub,
+said. '**Even though it was run by a university, it was a self-sustaining business for 40 years.**'"
+(`SMB-5`). Its *free academic* programme was separately subsidised and was withdrawn: "MOSIS
+previously had a free academic program for tape-outs which was supported by NSF and industry but was
+discontinued in 2020" (`DEM-21`). **MOSIS 2.0 is U(S)** — it runs under the federally funded CA
+DREAMS Microelectronics Commons hub and its stated goal is to "achieve self-sustainability within the
+next few years" (`SMB-5`), i.e. it is not self-sustaining now.
+
+**Scale, for the comparison in §6.3:** "Over four decades, MOSIS delivered more than 60,000 integrated
+circuit designs and generated **up to $10 million annually at its peak**", at "around 3,000 orders per
+year" (`SMB-5`).
+
+### 3.9 MUSE Semiconductor — **1/18 open · P/M (unresolved)**
+
+| | Finding | Source |
+|---|---|---|
+| A1 | **0.** Pages titled "…Services and Price" that contain no price. The Wix application renders client-side and the ~494 KB response has no price string; the most recent Wayback capture is the same empty shell. | `SMB-13`, `OPG-18` |
+| A2 | **0.** Not possible; the route is a quote. | `OPG-18` |
+| A3 | **0.** "We require only two agreements: A Mutual Non-Disclosure Agreement (MNDA)…A **TSMC 3-way NDA** between Muse, TSMC, and the customer." (plus a Master Technology Usage Agreement for TSMC IP access) | `OPG-18` |
+| A4 | **0.** TSMC PDK. | `OPG-18` |
+| A5 | **1.** University-focused but not university-only: "Yes! We have several commercial customers. Semiconductor startups and semiconductor IP suppliers can access TSMC technology cost-effectively." | `OPG-18` |
+| A6 | **0.** TSMC flow. | — |
+| A7 | **0.** A three-way NDA with the foundry is a foundry approval step by construction. | `OPG-18` |
+| A8 | **0.** The schedule page is the same unreadable shell. | `OPG-18` |
+| A9 | **`?`.** Not established. | — |
+| A10 | **0.** `OPG-8` gives "~$24k USD" for 10 mm² of the nearest node — **unverified, from the comparison document alone**. | `OPG-8` |
+
+**Axis 2: P/M, unresolved.** A commercial company acting as TSMC's university channel. Whether it is
+trying to profit on the shuttle or to seed TSMC's future customer base is not established, and
+`OPG-8` marks its external-funding cell "Maybe?".
+
+### 3.10 TSMC cyberShuttle — **0/18 open · P/M**
+
+Every criterion that could be checked is closed, and the whole finding is one sentence on TSMC's own
+page: "**If you are a TSMC customer, login to TSMC-Online or contact your local TSMC representative
+for the latest CyberShuttle® schedule.**" (`SMB-13`, verified). No price, no schedule, no PDK without
+a foundry relationship, no eligibility for anyone who is not already a customer, nothing public about
+the queue. A1–A8 and A10 score 0; A9 is `?`. **DERIVED:** nine criteria established, eighteen points available, zero scored.
+
+**Axis 2: P/M.** The world's largest foundry, running a shuttle for customers it already has.
+
+### 3.11 TSMC University FinFET Program, via Europractice / imec IC-link — **3/18 open · S**
+
+The audit's demonstration that **published prices and open access are independent**.
+
+- **A1 = 2.** Full published price table: "TSMC 7nm Log FinFET (min area = 2mm²) 49,050" EUR, down to a
+  mini@sic line at "16,850" EUR for 1 mm² (`ACC-5`).
+- **A5 = 0.** "EUROPRACTICE-member universities"; "also open to universities in North America".
+- **A7 = 0 and A3 = 0**, in one sentence: "**Applications will be reviewed and approved by TSMC, after
+  which an NDA will be shared. Access will be granted through imec's secure data-sharing platform.**"
+- **A4 = 0**, **A6 = 0**, **A2 = 0**, **A8 = 1** (MPW schedules published), **A9 = `?`**,
+  **A10 = 0** (**DERIVED:** €49,050 ÷ 2 mm² = **€24,525/mm²** at the minimum).
+- One kit is teaching-only: "N16ADFP (Academic Design Foster Package): **For Teaching Purpose Only**".
+
+**Axis 2: S.** Inside the EU-subsidised Europractice envelope, with TSMC contributing access —
+corporate ecosystem-building on the foundry's side and public subsidy on the broker's.
+
+### 3.12 Cadence / SkyWater SKY130 MPW aggregation — **partially audited, 6/8 scored · M**
+
+- **A1 = 2:** "USD $10,000 per design", with "40 bare die" (`OPG-19`, **Partial**).
+- **A3 = 1:** each submission requires "an executed legal agreement" — less than an NDA, more than
+  "just clone".
+- **A4 = 2:** the open SKY130 PDK.
+- **A6 = 1:** verification "uses the Cadence® Pegasus™ Physical Verification Solution, based on the
+  SKY130 design rules" — a commercial tool in the required path.
+- A2, A5, A7, A8, A9, A10: **not established.**
+
+**Axis 2: M.** The largest EDA vendor running an open-PDK shuttle. "Cadence plans to offer multiple
+MPW runs per year"; the audience is "students and researchers to entrepreneurs and early-stage
+teams". No slot or submission count is published, so it cannot enter any series (`OPG-19`).
+
+### 3.13 CMC Microsystems (Canada) — **not audited beyond two cells · U(S)**
+
+- **A1 = 0:** `cmc.ca/en/WhatWeOffer/Make/FabPricing.aspx` returns **HTTP 403** to an automated fetch
+  (`SMB-13`, search log). Not established whether prices are published to a human with a browser.
+- **A3 = 0** and **A5 = 0** on `OPG-8`'s comparison-document cells ("NDAs required: Yes";
+  "Commercial Allowed: Restricted") — **owner-supplied, not confirmed from CMC's own pages.**
+- Everything else: **not audited.**
+
+**Axis 2: U(S).** A publicly funded Canadian national programme; `DEM-20` records 13,495 designs over
+42 years and a fall to 240 prototypes in 2025-26, and warns that "A falling count may be a falling
+budget."
+
+### 3.14 CMP / Circuits Multi-Projets (France) — **context row, defunct · U(S)**
+
+Not scorable: "CMP no longer exists as an operating service"; `mycmp.fr` is a parked domain and
+`cmp.imag.fr` is dead (`DEM-19`). It ran 100–400 circuits a year for thirty years and stopped for
+supply-side reasons — Europractice's 2022 report records that CMP "had to stop fabrication activities
+at STMicroelectronics, ams and CEA-Leti due to administrative reasons". A successor, CIME-P, appears
+in Europractice's 2026 schedule as the body designs are submitted to (`ACC-4`), but its own terms were
+**not audited**.
+
+### 3.15 The AFRL / AFWERX design challenge, 2018–2020 — **context row, and the audit's best counter-example · S**
+
+Closed on almost every criterion: the node was 14 nm, "the designs were proprietary", entry was by
+competition, and selection was by a government body. **A4 = 0, A5 = 0, A7 = 0.** The one open
+criterion is unusual: "the entrants had to agree to publish their IC designs, the intended
+applications and other key information in order to enter the challenge" (`ACC-8`).
+
+**It drew 82 unique IC designs in 45 days, "80 percent from small enterprises and academics", with
+"the cost of IP, EDA and foundry … covered" if selected** (`ACC-8`, **Partial** — Efabless's own
+newsletter describing someone else's programme; the primary AFRL source was not found).
+
+**DERIVED:** 82 ÷ 45 days = **1.82 designs a day**, against Google's first open shuttle at 45 ÷ 30 =
+**1.50 a day** (or 37 ÷ 30 = 1.23 on Efabless's own platform count). **A closed, gate-kept,
+government-funded competition out-drew the open shuttle per day of open window.** §6.2 deals with
+what that does and does not show.
+
+---
+
+## 4. Where marketing and terms disagree
+
+Recorded prominently, as instructed, because each one is a finding in its own right.
+
+| Programme | The marketing | The terms | Verdict |
+|---|---|---|---|
+| **Google Open MPW** | "The shuttle program is open to anyone" (`ACC-9`) | 40 slots per run, selected by lottery (`DEM-8`, `DEM-21`); **28% accepted at MPW-8** | **Both true, and the gap is the point.** Open to apply ≠ open to access |
+| **Tiny Tapeout** | The cheapest, most open route to silicon; €70 a tile | Apache-2.0 compulsory, publication compulsory, refusal at "sole discretion", full EAR/OFAC/ITAR regime with named excluded countries, all fees non-refundable (`ACC-1`) | Not a contradiction, but "no conditions" is not what the contract says |
+| **ChipFoundry** | "$14,950 per project", published, flat | "reserve your spot … by submitting a request to us through this form"; discounts "request a custom quote … contact us" (`ACC-3`) | **A published price you cannot buy without a form.** Self-service scores 1, not 2 |
+| **Europractice** | A public price list, thirty years old, no login | Membership fee before use; institution type, country and — new in 2026 — *purpose* (`ACC-4`, `OPG-17`) | The price list is open; the service is not |
+| **TSMC University FinFET** | Prices published to the euro | "Applications will be reviewed and approved by TSMC, after which an NDA will be shared" (`ACC-5`) | The sharpest case of the two criteria coming apart |
+| **chipIgnite / Efabless** | `OPG-8`: "Requires External Funding: **No**" | Its own newsletter and its CEO's letter name Google, DARPA, GF, SkyWater, Synopsys, X-FAB, Arm, AFRL and Silicon Catalyst (`ACC-8`, `OPG-15`); it died when a Series B failed | **The product was unsubsidised. The company was not.** |
+| **MOSIS** | "a self-sustaining business for 40 years" (`SMB-5`) | Its free academic arm was "supported by NSF and industry" and was discontinued in 2020 (`DEM-21`); MOSIS 2.0's goal is to "achieve self-sustainability within the next few years" | Two different things called MOSIS |
+
+---
+
+## 5. The matrix
+
+`2` open · `1` partial · `0` closed · `?` not established (excluded from the score) · `—` not yet
+audited. **Score = points ÷ points available on the criteria actually established.**
+
+| Programme | A1 price | A2 self-serve | A3 no NDA | A4 redistributable | A5 no eligibility | A6 open tools | A7 no gatekeeper | A8 queue visible | A9 no export gate | A10 low floor | **Open score** | **Axis 2** | Scale |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| **wafer.space** | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | ? | 1 | **17/18** | **P** | 6, 18, 5 backers |
+| **Tiny Tapeout** | 1 | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 0 | 2 | **16/20** | **P(S)** | ~4,300 designs in 4 yr |
+| **Efabless chipIgnite** | 2 | 1 | 2 | 2 | 2 | 2 | 2 | 2 | ? | 1 | **16/18** | **P(S)** | 763 subs / 13 shuttles; dead |
+| **ChipFoundry.io** | 2 | 1 | 2 | 2 | 2 | 2 | 2 | 2 | ? | 1 | **16/18** | **P** | 21–29 paying per shuttle |
+| **Google Open MPW** | 2 | 1 | 2 | 2 | 2 | 2 | 0 | 2 | ? | 2 | **15/18** | **S/M** | 821 subs / 10 shuttles; ended |
+| **IHP Open Silicon MPW** | 2 | 1 | 1 | 2 | 2 | 2 | 1 | 2 | ? | 1 | **14/18** | **U(S)** | 59.2 mm² registered on one run |
+| **Cadence/SkyWater MPW** | 2 | — | 1 | 2 | — | 1 | — | — | — | — | **6/8** | **M** | not published |
+| **Europractice** | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 1 | 0 | 0 | **3/20** | **S** | 753–985 designs/yr |
+| **MOSIS 1.0** | 2 | 1 | 0 | 0 | ? | 0 | ? | 1 | ? | 0 | **4/14** | **U** | ~3,000 orders/yr at peak |
+| **TSMC Univ. FinFET** | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | ? | 0 | **3/18** | **S** | not published |
+| **MUSE Semiconductor** | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | ? | 0 | **1/18** | **P/M** | not published |
+| **TSMC cyberShuttle** | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | ? | 0 | **0/18** | **P/M** | not published |
+| **CMC Microsystems** | 0 | — | 0 | — | 0 | — | — | — | — | — | **0/6** | **U(S)** | 240 prototypes 2025-26 |
+| **CMP (defunct)** | — | — | — | — | — | — | — | — | — | — | **n/a** | **U(S)** | peaked 401 circuits/yr |
+| **AFRL design challenge** | — | — | — | 0 | 0 | — | 0 | — | — | — | **0/6** | **S** | 82 designs in 45 days |
+| MEMSCAP MUMPs | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
+| Silex, Teledyne DALSA, Tronics | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
+| X-FAB, imec, Fraunhofer, VTT | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
+| SkyWater direct, GF direct | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
+| EuroCDP, MOSIS 2.0 terms | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
+
+**Read the Europractice row against the others carefully.** 3/20 against Tiny Tapeout's 16/20 is a
+real difference in access rules. It is *not* a claim that Europractice is worse at its job:
+Europractice fabricates more designs a year than the entire Google Open MPW programme fabricated in
+its life, on more than twenty processes up to 12 nm, for a population it was built to serve.
+
+---
+
