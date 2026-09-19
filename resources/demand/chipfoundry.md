@@ -130,8 +130,9 @@ happens to be 53% above the price a dead company used to charge.
 - **Sources:**
   - Internet Archive captures of `https://chipfoundry.io/`: `20250904153017` (before) and
     `20250928020108` (after).
-  - Internet Archive CDX index for `efabless.com`, which shows the homepage returning **301** from
-    capture `20250910013043` onward and **404** from `20251204084757` onward.
+  - Internet Archive CDX index for `efabless.com`, which shows the last **200** at
+    `20250902120830` and **301** on every capture of `efabless.com/` from `20250910013043` onward
+    (the `www.efabless.com` host returns **404** from `20251204084757`).
   - The live redirect target, <https://chipfoundry.io/efabless> (which is where `https://efabless.com/`
     now lands).
   - GitHub REST API repository listing for the `chipfoundry` organisation.
@@ -322,7 +323,7 @@ happens to be 53% above the price a dead company used to charge.
   strip tags, and read the four consecutive numbers labelled `Interest`, `Planned`, `Reserved`,
   `Committed`. From roughly 2026-03 onward the counter is client-rendered and the captures are
   blank, so the series continues from the API and its archived copies.
-- **What it gives:**
+- **What it says**, as a dated series per shuttle:
 
   **CC2509 → CI2509** (tapeout 2025-09-12, shipped to customers 2026-05-19):
 
@@ -467,7 +468,7 @@ happens to be 53% above the price a dead company used to charge.
     late.
   - **Cycle time against the FAQ's "approximately 5 months".** CI2509: commit 2025-07-29 to customer
     shipped 2026-05-19 = **294 days ≈ 9.7 months**. CI2511: 2025-10-18 to 2026-06-26 = **251 days ≈
-    8.3 months**. Measured from tapeout instead: **250 days** and **193 days**. **The real figure is
+    8.3 months**. Measured from tapeout instead: **249 days** and **193 days**. **The real figure is
     roughly twice the published one**, and the FAQ has not been corrected.
   - **Cadence.** Efabless ran four chipIgnite shuttles in 2024 (`PAY-8`). ChipFoundry ran two in
     2025 and is running three in 2026. Against Efabless's peak year that is **75%** of the
@@ -816,7 +817,7 @@ happens to be 53% above the price a dead company used to charge.
     first ChipFoundry shuttle visibly at risk against its own published rule**, and it should be
     re-read.
   - **ChipFoundry is fully pre-paid roughly nine months before it delivers.** Final payment falls 14
-    days before the submission deadline; `CF-7` measures actual delivery at **193–250 days after
+    days before the submission deadline; `CF-7` measures actual delivery at **193–249 days after
     tapeout**. So the customer's money sits with the operator for **seven to eight months after the
     last payment**, and the operator carries no receivable at all. **This is the single most
     important structural fact about the business model**, and `PRINCIPLES.md` should state whether
@@ -1106,7 +1107,7 @@ being attempted, and that picture is neither an endorsement nor a refutation.**
    $14,950 = **$299,000** is the operator's own number for what a SKY130 MPW run must book to
    proceed.
 7. **It is paid in full about nine months before it delivers** (`CF-13`): final payment falls 14
-   days before the submission deadline, and delivery lands 193–250 days after tapeout. The operator
+   days before the submission deadline, and delivery lands 193–249 days after tapeout. The operator
    carries no receivable and needs no working capital for the run itself.
 8. **It does not rely on the shuttle alone, and its own price list says the shuttle is the cheap
    part.** A Tier-1 IP licence is **$42,900**, an individual block up to **$33,900**, SRAM
@@ -1220,7 +1221,7 @@ parts of `resources/`. Each item names the file, what it now says, and what the 
 | [`payment-growth.md`](payment-growth.md), `PAY-8`, caveats | Does not mention contest slots on the ChipFoundry side | **At least four of CI2511's 23 committed slots are design-contest prizes** — three Microwatt winners and at least one NVM winner (`CF-14`). They are not customer revenue at $14,950; they are paid for by a sponsor at an unpublished price. |
 | [`efabless-and-the-open-shuttles.md`](efabless-and-the-open-shuttles.md), §"Blocked sources" | "`chipfoundry.io/blog`, `/news`, `/shuttles` and `/pricing` are all 404 — **ChipFoundry has no blog**." | Still true, and it stays true. But it led the repository to conclude ChipFoundry publishes nothing. **It publishes a great deal; it just does not link to it.** `chipfoundry.io/sitemap.xml` lists 56 URLs against roughly twenty in the navigation, and the unlinked ones carry the minimum-participant rule, the payment schedule, the contest funnel and the production product (`CF-13`, `CF-14`, `CF-15`). |
 | [`efabless-and-the-open-shuttles.md`](efabless-and-the-open-shuttles.md), line ~112 | ChipFoundry's threshold is given as the 50% rule | ChipFoundry's own published number is "**a minimum of 20 confirmed participants**" (`CF-13`). The 50% figure comes from Tiny Tapeout reporting it second-hand. Both may hold; the primary number should lead. |
-| [`../analyses/industry-parallels.md`](../analyses/industry-parallels.md), `PAR-28` sources | "Successor: `efabless.com` and `chipfoundry.io` (**both live, 2026-09-18**)" | `efabless.com` is **not a live site**. It has returned HTTP 301 since 2025-09-10 and now redirects to `chipfoundry.io/efabless`, a one-paragraph notice. Its own pages 404ed from 2025-12-04 (`CF-3`). |
+| [`../analyses/industry-parallels.md`](../analyses/industry-parallels.md), `PAR-28` sources | "Successor: `efabless.com` and `chipfoundry.io` (**both live, 2026-09-18**)" | `efabless.com` is **not a live site**. Its last HTTP 200 is 2025-09-02; it has returned HTTP 301 on every capture since 2025-09-10 and now redirects to `chipfoundry.io/efabless`, a one-paragraph notice (`CF-3`). |
 | [`../analyses/industry-parallels.md`](../analyses/industry-parallels.md), `PAR-31` and the `OPEN-7` note | "ChipFoundry (**successor to Efabless**)" | Same correction as above (`CF-1`, `CF-2`, `CF-3`). |
 | [`../hypotheses.md`](../hypotheses.md), H5 and H6 | — | Updated in the same change as this file. |
 | `PRINCIPLES.md` | Proposes clearing undersubscription risk through an auction | It should engage with what the only unsubsidised operator actually built: a **$500 non-refundable option**, a **60-day commitment deadline**, a **hard floor of 20 participants**, and — for production — an **Anchor/Tenant underwriting model that sells "Schedule Sovereignty" and rebates the Anchor up to $75k as Tenants join** (`CF-13`, `CF-15`). Not this file's call to make, but it is the most consequential thing found. |
