@@ -13,10 +13,13 @@ make the sums work without a grant.
 So its record matters more than its size. This file collects every number about it we could find.
 
 **Read this before any number below.** ChipFoundry publishes **no** revenue, no headcount, no
-funding statement, no blog and no press releases. It has never filed with the SEC (`CF-5`). Every
-figure here is either (a) a field from its own public, unauthenticated API, (b) a number read off a
-dated Internet Archive capture of its own front page, or (c) an arithmetic derivation from those,
-labelled as such. The API fields are **mutable and have been revised downwards after the fact**
+funding statement, no blog and no press releases. It has never filed with the SEC (`CF-5`). It
+does, however, publish a great deal it does not link to — its sitemap lists 56 URLs against about
+twenty in its navigation, and the unlinked ones carry the terms, the thresholds and most of the
+price list (`CF-13`, `CF-14`, `CF-15`, `CF-16`). Every figure here is therefore either (a) a field
+from its own public, unauthenticated API, (b) a number read off one of its own live or archived
+pages, or (c) an arithmetic derivation from those, labelled as such. The API fields are **mutable
+and have been revised downwards after the fact**
 (`CF-6`), and ChipFoundry does not define them anywhere. Nothing in this file is an audited or
 self-reported financial figure, because no such figure exists.
 
