@@ -944,6 +944,20 @@ floor area, all audited.
 The closest independent parallel found to the Science/MEMSCAP transaction, five years earlier, in a
 different technology, by a company that had to disclose it.
 
+> **Correction note, 2026-09-19.** This entry previously took "$2.75 million in cash" from the
+> announcement press release as the price. The audited acquisition accounting says something
+> different and more interesting. **The cash actually paid at closing was $2.85 million**, and the
+> **GAAP purchase consideration was $4.6 million**, because Akoustis **assumed a contingent real-estate
+> liability of about $1.73 million** — an anti-flip penalty running with the property. Against that it
+> recorded **$6.3 million of net assets at fair value**, giving a **$1.7 million bargain purchase
+> gain** that the filing explains in unusually frank terms. The **$2.75 million contract price split
+> $1.0 million for all the wafer-manufacturing tools and $1.75 million for the 120,000 sq ft building
+> and the 57 acres.** And the acquired business was losing **$1.5–1.8 million a year** on
+> **$2.9 million** of fabrication revenue propped up by **$1.8 million of grant income**. The
+> transaction was not a bargain struck in an open market; it was a state university foundation
+> handing a loss-making facility to someone who would keep the jobs. Every figure below is now sourced
+> to the filings rather than the press release.
+
 - **Sources:**
   - Akoustis Technologies, Inc., press release filed as Exhibit 99.1 to a Form 8-K, 2017-03-24.
     <https://www.sec.gov/Archives/edgar/data/1584754/000161577417001221/s105654_ex99-1.htm>
@@ -955,14 +969,36 @@ different technology, by a company that had to disclose it.
   - ATech (Parent) Resolution Corp. (formerly Akoustis Technologies, Inc.), Form 8-K, 2025-05-15
     (completion of the Chapter 11 asset sales).
     <https://www.sec.gov/Archives/edgar/data/1584754/000121390025044032/ea0242256-8k_atech.htm>
+  - **Akoustis Technologies, Inc., Form 8-K, 2017-06-30 — completion of the acquisition on
+    2017-06-26.**
+    <https://www.sec.gov/Archives/edgar/data/0001584754/000161577417003437/s106729_8k.htm>
+  - **Akoustis Technologies, Inc., Form 8-K/A, 2017-09-12, Exhibit 99.1 — the *audited* Special
+    Purpose Statement of Assets Acquired and Liabilities Assumed as of 2017-06-26, and the audited
+    Combined Statements of Revenues and Direct Expenses of the acquired business for the years ended
+    30 June 2016 and 2015. This is the single most informative document on the transaction.**
+    <https://www.sec.gov/Archives/edgar/data/1584754/000161577417005012/s107454_ex99-1.htm>
+  - **Akoustis Technologies, Inc., Form 10-K for the fiscal year ended 2017-06-30, filed 2017-09-20 —
+    the business-combination note and the bargain purchase gain.**
+    <https://www.sec.gov/Archives/edgar/data/0001584754/000161577417005214/s107441_10k.htm>
+  - **Akoustis Technologies, Inc., Form 10-K for the fiscal year ended 2018-06-30, filed 2018-08-29 —
+    repeats the purchase accounting unchanged.**
+    <https://www.sec.gov/Archives/edgar/data/0001584754/000161577418008796/s112155_10k.htm>
   - EDGAR submissions API, CIK 0001584754 — the registrant's current name and its Form 25-NSE
     (delisting) of 2025-06-06.
-- **Verification:** Partial. The registrant identity, the filing dates, the current name "ATECH
-  (PARENT) RESOLUTION CORP." and the form types were read directly from the EDGAR submissions API on
-  2026-09-19. The quoted figures were read out of the filings themselves through `WebFetch`
-  (`www.sec.gov/Archives/...` returns HTTP 403 to `curl`, per `search-log.md` §1), but the full
-  documents were not read end to end, so the surrounding context of each quote is not independently
-  confirmed. **Upgrade to Verified by opening the four filings in a browser.**
+  - **EDGAR XBRL `companyconcept` API, CIK 0001584754 —
+    `us-gaap:PropertyPlantAndEquipmentNet` and `us-gaap:AssetImpairmentCharges`, as reported in the
+    company's own 10-K filings.**
+    <https://data.sec.gov/api/xbrl/companyconcept/CIK0001584754/us-gaap/PropertyPlantAndEquipmentNet.json>
+- **Verification:** Partial, and better than it was. The registrant identity, the filing dates, the
+  current name "ATECH (PARENT) RESOLUTION CORP.", the form types and the whole property, plant and
+  equipment and impairment series were read directly from the EDGAR submissions and XBRL
+  `companyconcept` APIs on 2026-09-19 with `curl` (`data.sec.gov` answers `curl`;
+  `www.sec.gov/Archives/...` returns **HTTP 403** to it, per `search-log.md` §1). The quoted figures
+  from the filings themselves were read through `WebFetch`, and the FY2017 and FY2018 10-Ks were
+  queried independently and returned the purchase-accounting sentence identically, which is a
+  cross-check. The audited statement of assets acquired **reconciles**: the five asset line items sum
+  to the reported $6,302,472 exactly (see DERIVED). One small discrepancy remains — see the caveat on
+  the $90. **Upgrade to Verified by opening Exhibit 99.1 and the FY2017 10-K in a browser.**
 - **What it says.**
 
   **The purchase, 2017.** Akoustis — then a small RF filter company with no fab — bought the former
@@ -984,6 +1020,93 @@ different technology, by a company that had to disclose it.
 
   > "A comparable manufacturing facility to build and qualify for production would take up to 2-years
   > and cost well over $50 million"
+
+  **What the accounts say the deal actually was.** The 8-K of 2017-06-30 records completion on
+  **2017-06-26** "pursuant to the previously announced Definitive Asset Purchase Agreement **and
+  Definitive Real Property Purchase Agreement**" — two agreements, one for the business and one for
+  the land and buildings — and adds that "the Company also assumed substantially all of the ongoing
+  ordinary course obligations of the Acquired Business". The FY2017 10-K then gives the accounting:
+
+  > "The Company recorded net assets acquired of $6.3 million for purchase consideration of $4.6
+  > million (includes $2.85 million of cash paid at closing plus $1.7m real estate contingent
+  > liability), which resulted in the recording of a bargain purchase gain of $1.7 million."
+
+  So the **announced** $2.75 million was neither the cash paid ($2.85 million, the announcement having
+  said the price was "subject to certain adjustments") nor the accounting consideration ($4.6
+  million). The FY2018 10-K repeats the same sentence word for word, with no measurement-period
+  adjustment.
+
+  **The audited statement of assets acquired** (8-K/A Exhibit 99.1, as of 2017-06-26) breaks it down —
+  fair values from "an independent appraisal company" using income and cost approaches for the real
+  estate and market and cost approaches for the fixed assets:
+
+  | Assets acquired | USD |
+  |---|---|
+  | Land and land improvements | 1,000,000 |
+  | Building | 3,000,000 |
+  | Equipment | 2,124,650 |
+  | Inventory | 96,049 |
+  | Customer relationships | 81,773 |
+  | **Total assets acquired** | **6,302,472** |
+  | Contingent real estate liability | (1,730,542) |
+  | **Total assets acquired less liabilities assumed** | **4,572,020** |
+
+  **And the same exhibit splits the headline price**: Akoustis "purchased semiconductor manufacturing
+  tools for **$1.0 million** and a 120,000-square foot facility with 57 acres for **$1.75 million**".
+  That is the most precise public figure this repository has for what the tool set of a working
+  150 mm fab changes hands for, and it is **a third** of the headline. The other two thirds bought
+  real estate.
+
+  **The contingent liability is an anti-flip penalty, not debt.** Per the same exhibit: "The penalty
+  imposed shall be equivalent to the amount that the sales price of the property exceeds $1,750,000 up
+  to the maximum penalty", with maximum penalties of **$5,960,000** in year one, **$3,973,333** in
+  year two and **$1,986,667** in year three. In other words the sellers gave Akoustis a building
+  appraised at $4.0 million for $1.75 million and took back a three-year clawback of any resale profit
+  — which is why the appraised value exceeded the price, and why a bargain purchase gain arose. The
+  liability was measured "at fair value … utilizing a present value calculation based on the
+  probability the Company sells".
+
+  **Why the price was below fair value, in the company's own words** — a franker explanation than
+  acquirers usually give:
+
+  > "The transaction was completed with a motivated seller who the Company believed was very hesitant
+  > to liquidate assets and lay-off employees in the current political environment. The cash burn of
+  > the facility (approximately $3.0 million annually) was an economic burden to the sellers. The
+  > Company, the County and State were motivated to approve the transaction without significant price
+  > negotiation, as they believed it would insure the employment of the headcount and provide the
+  > opportunity for increased headcount and increased investment in the facility that would add to the
+  > tax base."
+
+  **"Without significant price negotiation" is the sentence that disqualifies this as a market
+  price.** It is a public-sector disposal of a facility that was burning $3.0 million a year, priced
+  to preserve jobs.
+
+  **What the acquired business earned**, from the audited Combined Statements of Revenues and Direct
+  Expenses (8-K/A Exhibit 99.1), in US dollars:
+
+  | | FY ended 2016-06-30 | FY ended 2015-06-30 |
+  |---|---|---|
+  | Fabrication services revenue | 2,872,939 | 5,018,139 |
+  | Grant revenue | 1,847,912 | 200,680 |
+  | Rental revenue | 338,814 | 230,297 |
+  | **Total revenue** | **5,059,665** | **5,449,116** |
+  | Salaries and wages | 2,425,079 | 2,610,765 |
+  | Utilities | 1,132,403 | 1,248,154 |
+  | Fringe benefits | 1,032,409 | 1,075,071 |
+  | Repairs, maintenance and supplies | 890,596 | 836,114 |
+  | Lease and services equipment | 557,156 | 567,752 |
+  | General services | 273,274 | 617,253 |
+  | Other | 252,183 | 313,128 |
+  | **Total direct expenses** | **6,563,100** | **7,268,237** |
+  | **Net loss** | **(1,503,435)** | **(1,819,121)** |
+
+  Three things stand out. **Fabrication services revenue halved**, from $5.02 million to $2.87 million
+  in one year — the press release's "approximately $3M" is that halved figure, and the press release
+  does not say it had just halved. **Grant revenue was 36.5% of total revenue** in FY2016: this was a
+  publicly-subsidised facility, and the subsidy is why it looked like a $5 million business.
+  **Utilities alone cost $1.13 million a year** — $9.44 per square foot of facility, more than the
+  entire announced purchase price every two and a half years. A 120,000 sq ft fab is expensive to keep
+  switched on whatever it cost to buy.
 
   The stated motive is the same one Science gives: speed and control. The acquisition would "shorten
   time-to-market for its RF products, greatly enhancing the Company's ability to service customers",
@@ -1007,36 +1130,96 @@ different technology, by a company that had to disclose it.
   litigation failure, not a demonstration that owning a small fab does not work.
 - **DERIVED (arithmetic written out):** checked with a throwaway Python script, deleted after use.
   - Price per square foot of facility: $2,750,000 / 120,000 sq ft = **$22.92 per sq ft** — including
-    the tools, the 57 acres and an operating business.
+    the tools, the 57 acres and an operating business. On the contract's own split, the *real estate*
+    alone was $1,750,000 / 120,000 = **$14.58 per sq ft**, land included.
+  - **The audited asset table reconciles**: 1,000,000 + 3,000,000 + 2,124,650 + 96,049 + 81,773 =
+    **6,302,472**, exactly as reported.
+  - GAAP consideration: $2,850,000 cash + $1,730,542 contingent liability = **$4,580,542**, which the
+    10-K rounds to $4.6 million. Bargain purchase gain: 6,302,472 − 4,580,542 = **$1,721,930**, which
+    the 10-K rounds to $1.7 million.
+  - **The true consideration was 1.67× the announced headline**: 4,580,542 / 2,750,000.
+  - The tools were **36.4%** of the headline price (1,000,000 / 2,750,000); the real estate was
+    **63.6%**.
+  - The independent appraiser valued the equipment at **2.12×** what the contract allocated to it:
+    2,124,650 / 1,000,000.
+  - The acquired business's revenue mix, FY2016: fabrication services **56.8%**, grants **36.5%**,
+    rent **6.7%** of $5,059,665.
+  - Utilities per square foot of facility, FY2016: 1,132,403 / 120,000 = **$9.44/sq ft/yr**.
   - Buying used against the company's own build-new estimate: $50,000,000 (a *floor*; the source says
     "well over") / $2,750,000 = **at least 18.2× cheaper to buy than to build**.
-  - Price against the acquired business's revenue: $2,750,000 / $3,000,000 = **0.92× trailing
-    revenue**.
+  - Price against the acquired business's fabrication revenue: $2,750,000 / $2,872,939 = **0.96×**.
+  - **What it cost to make the fab do what Akoustis needed.** Net property, plant and equipment, from
+    the company's own 10-K XBRL: **$206,985** at 30 June 2016 (before the fab), **$7,853,814** at
+    30 June 2017 (four days after closing), then 12.82M, 15.18M, 23.61M, 30.73M, 51.16M and
+    **$57,826,000** at 30 June 2023. Growth from just after the acquisition to the peak:
+    **$49,972,186** — within $28 thousand of the "well over $50 million" Akoustis said it would cost
+    to build a comparable facility from scratch. The peak book value is **21.0×** the cash paid for
+    the fab. *Caveat below: this is group-wide PP&E, not the New York fab alone.*
+  - **And what it was worth on the way down.** Net PP&E fell to **$12,905,000** at 30 June 2024, a
+    fall of **$44,921,000**, alongside **$35,400,000** of `us-gaap:AssetImpairmentCharges` in FY2024
+    against **nil** in FY2023. The Chapter 11 price for substantially all the assets, $30.2 million,
+    is **0.52×** the peak net book value.
   - Chapter 11 sale against the 2017 fab price: $30,200,000 / $2,750,000 = **11.0×** — but for a
     different and much larger asset package (the whole company after seven years of investment, not
     the fab alone), so this is a scale marker, not a return.
-- **The cross-case observation, which is the point of this entry.** Two entirely independent
-  transactions, five years apart, on two different continents' terms, for two small MEMS wafer fabs
-  with roughly $3M of annual revenue each, cleared at **$2.75 million (2017)** and **$3.0 million
-  (2022)** — both at roughly **one times trailing revenue**. That is not a coincidence worth
-  over-reading from two points, but it is the beginning of a market price for this class of asset, and
-  this repository had none before.
-- **Bears on:** H6 (**supports, on the capital side** — a second, independent confirmation that a
-  working small MEMS fab is a ~$3M asset, and the first credible figure for the build-new alternative:
-  "well over $50 million" and two years, from a company with every incentive to justify its purchase);
-  H5 (context — the acquired fab had an existing third-party foundry business and Akoustis kept it);
+- **The cross-case observation, restated more carefully.** Two entirely independent transactions, five
+  years apart, on two different continents' terms, for two small MEMS wafer fabs, cleared at headline
+  prices of **$2.75 million (2017)** and **US$3.0 million (2022)**. Once the filings are read, the two
+  are **less alike than the headlines suggest**: Akoustis bought land and buildings (63.6% of its
+  price) and assumed a contingent liability, from a public-sector seller who priced to save jobs
+  "without significant price negotiation"; Science bought no property at all, took no liabilities, and
+  dealt with a listed commercial seller. What the two transactions **do** agree on, and it is the more
+  useful convergence, is the price of the *tools*: **$1.0 million** for the wafer-manufacturing tool
+  set of a 150 mm MEMS fab in 2017, against a **EUR 0.5 million** net book value for the equivalent
+  tool set in 2022 (IHF-8) and a $3.0 million package price that also carried a team and a customer
+  book. See **IHF-11**.
+- **Bears on:** H6 (**mixed, and weaker on the supporting side than this entry first said** — the
+  *tools* of a working 150 mm MEMS fab changed hands for $1.0 million, which supports H6's capital
+  premise strongly; but the facility around them cost $1.75 million to buy, $1.13 million a year to
+  keep powered, and came with a $1.73 million clawback, and the business inside it lost $1.5 million a
+  year on revenue that was **36.5% government grants** — which challenges H6 hard on whether a small
+  fab's customers can pay for it. The build-new alternative, "well over $50 million" and two years,
+  stands, and the company's own $50.0 million of subsequent net PP&E growth corroborates it);
+  H5 (**challenges** — the acquired fab's third-party fabrication revenue **halved** in the year
+  before the sale, from $5.02M to $2.87M, and needed $1.85M of grants to stay afloat);
   H1 (context — buying beats building by more than an order of magnitude, which is an argument for
   *consolidating onto existing assets*, not for new entry).
 - **Used in:** not yet.
 - **Caveats:**
+  - **The $2.75 million headline is not the consideration and should not be quoted alone.** Cash at
+    closing was $2.85 million; GAAP consideration was $4.6 million; the accounting recognised
+    $6.3 million of assets and a $1.7 million bargain purchase gain. Anywhere this repository or
+    `WHY.md` uses "$2.75 million for a 120,000 sq ft fab", it must carry the contingent liability and
+    the fact that two thirds of the price was real estate.
   - **"Well over $50 million" is an acquirer's justification for its own purchase**, published in the
     press release announcing that purchase. It is exactly the number a buyer would want to be large.
     It is nonetheless the only build-new estimate found from a company that then actually operated
-    the alternative, and it is consistent with the "up to $65 million" Science budgeted for an
-    expansion (IHF-2).
-  - **The seller was a state university foundation**, not a commercial owner, so $2.75M may be below
-    a commercial clearing price. Equally, that is the second time in this file that the party
-    disposing of a small MEMS fab was not maximising price.
+    the alternative — and the company's own subsequent net PP&E growth of **$49,972,186** over six
+    years is an eerily close match to it. It is also consistent with the "up to $65 million" Science
+    budgeted for an expansion (IHF-2).
+  - **The $50 million PP&E series is group-wide, not the New York fab alone.** Akoustis also operated
+    a Huntersville, North Carolina site and acquired RFMi and Grinding and Dicing Services during the
+    period, and the XBRL tag is the consolidated balance-sheet line. It is a ceiling on what went into
+    the fab, not a measurement of it. It is used here only for the order of magnitude, and the order
+    of magnitude is the point: **buying the fab was the small number**.
+  - **The seller was a state university foundation**, not a commercial owner, and the filing says so
+    explicitly — "without significant price negotiation", to preserve employment and the tax base. So
+    **$2.75 million is not a market-clearing price** and must not be used as one. Equally, that is the
+    second time in this file that the party disposing of a small MEMS fab was not maximising price,
+    which is itself a finding about how this class of asset changes hands.
+  - **The acquired fabrication business had just halved.** Fabrication services revenue fell from
+    $5,018,139 (FY2015) to $2,872,939 (FY2016). The "annual revenues of approximately $3M" in the
+    press release is the post-halving number presented without the trend.
+  - **A $90 discrepancy in the audited table.** The five asset line items as transcribed sum to
+    $6,302,472 exactly, but $6,302,472 − $1,730,542 = $4,571,930, whereas the statement's own net
+    total reads $4,572,020 — a difference of $90. The likeliest explanation is a digit transposition
+    in the contingent-liability figure ($1,730,452 rather than $1,730,542) somewhere in the reading
+    chain. It does not affect anything material: the liability is $1.73 million either way. **Resolve
+    it by opening Exhibit 99.1 in a browser.**
+  - **The facility's size is stated two ways.** The 2017 press release and the audited exhibit say
+    **120,000 sq ft**; the FY2024 10-K describes "our **125,000**-square foot wafer-manufacturing
+    facility located in Canandaigua, New York". The difference is probably later construction; the
+    2017 figure is used for all per-square-foot arithmetic here.
   - **Akoustis's bankruptcy is not evidence about small fabs.** It followed a $38.6M
     intellectual-property judgment. Recording it as a "fab failure" would be wrong, and it is recorded
     here as a failure of the *company*, with the cause stated.
