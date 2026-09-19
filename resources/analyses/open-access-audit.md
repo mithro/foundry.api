@@ -1,10 +1,10 @@
 # The open-access audit: which small-customer programmes were actually open, and which were actually businesses
 
-**Status: first pass, committed incomplete on purpose.** Seventeen programmes are scored below,
+**Status: first pass, committed incomplete on purpose.** Eighteen programmes are scored below,
 including one MEMS programme (MEMSCAP's MUMPs, §3.16). The other MEMS shuttles — Silex, Teledyne
 DALSA, Tronics, IMT — and X-FAB, imec, Fraunhofer, VTT, EuroCDP and SkyWater's and GlobalFoundries'
 own direct offerings are **not yet audited** and are marked as such in the matrix. A matrix with
-seventeen rows filled in and the rest marked honestly is more useful than a complete one that does not
+eighteen rows filled in and the rest marked honestly is more useful than a complete one that does not
 exist.
 
 **One of our own claims has already been withdrawn.** `ACC-4` originally read Europractice's 2026
@@ -527,6 +527,28 @@ Semiconductor. Covering technology nodes from 12 nm to 350 nm", plus "three DoW-
 Laboratories, Teledyne, and Northrop Grumman—to offer advanced group III/V MPW services". Breadth up,
 transparency down.
 
+### 3.18 X-FAB, prototyping services — **2/8 scored · P**
+
+A commercial foundry's own shuttle, audited only on what its prototyping page shows. **Partial**: the
+page was fetched during this session by a delegated agent that was terminated before reporting, and
+was read here from the saved file.
+
+| | Finding |
+|---|---|
+| A1 | **0.** No price anywhere on the page. For anything outside the published schedule: "If you cannot find a suitable MPW shuttle in the schedule below, please **contact your local sales manager** who will check the possibility of additional MPW runs that are available on request." And on lead times: "To find out the timescales of standard engineering lots please **contact your local sales and support office**." |
+| A2 | **0.** The route is a sales contact. The page's own contact form carries a reCAPTCHA field. |
+| A5 | **1.** No bar, but a routing: "**European Academic institutions are requested to apply via the EUROPRACTICE program.**" X-FAB "has joined in 2013" that programme, which "offers specialized customer support for academic participants and SMEs on a worldwide basis". So an academic in Europe inherits Europractice's three conditions (§3.4) rather than dealing with X-FAB. |
+| A8 | **1.** A published "MPW Schedule 2026" with columns "PROCESS / TAPE-IN / DATA RELEASE / SAMPLES OUT" — e.g. "XT011 3-Nov-2025 17-Nov-2025 22-May-2026" — across 1.0 µm, 350 nm, 180 nm, 130 nm and 110 nm. No fill rates, no participant counts. |
+| A3, A4, A6, A7, A9, A10 | **`?`.** Not established from the page read. The site navigation includes an "IP Portal", which suggests a login, but that was not checked. |
+
+**Axis 2: P — a commercial foundry, selling prototyping as a step toward volume.** The page frames it
+that way: both services carry the disadvantage "**No volume production with these masks**", and the
+MPW's benefit is "Development charges significantly reduced". X-FAB is also one of the companies
+Efabless's CEO thanked for support (`OPG-15`), so it appears on both sides of this audit.
+
+**What the row is worth.** It is the plain commercial baseline the open programmes are measured
+against: a real foundry, a real published schedule, and no price without a salesperson.
+
 ## 4. Where marketing and terms disagree
 
 Recorded prominently, as instructed, because each one is a finding in its own right.
@@ -564,13 +586,14 @@ audited. **Score = points ÷ points available on the criteria actually establish
 | **MOSIS 1.0** | 2 | 1 | 0 | 0 | ? | 0 | ? | 1 | ? | 0 | **4/14** | **U** | ~3,000 orders/yr at peak |
 | **MOSIS 2.0** | 0 | 0 | ? | ? | ? | ? | ? | 1 | ? | ? | **1/6** | **U(S)** | not published |
 | **TSMC Univ. FinFET** | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | ? | 0 | **3/18** | **S** | not published |
+| **X-FAB prototyping** | 0 | 0 | ? | ? | 1 | ? | ? | 1 | ? | ? | **2/8** | **P** | not published |
 | **MUSE Semiconductor** | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | ? | 0 | **1/18** | **P/M** | not published |
 | **TSMC cyberShuttle** | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | ? | 0 | **0/18** | **P/M** | not published |
 | **CMC Microsystems** | 0 | — | 0 | — | 0 | — | — | — | — | — | **0/6** | **U(S)** | 240 prototypes 2025-26 |
 | **CMP (defunct)** | — | — | — | — | — | — | — | — | — | — | **n/a** | **U(S)** | peaked 401 circuits/yr |
 | **AFRL design challenge** | — | — | — | 0 | 0 | — | 0 | — | — | — | **0/6** | **S** | 82 designs in 45 days |
 | Silex, Teledyne DALSA, Tronics, IMT | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
-| X-FAB, imec, Fraunhofer, VTT | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
+| imec, Fraunhofer, VTT | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
 | SkyWater direct, GF direct | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
 | EuroCDP | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
 
