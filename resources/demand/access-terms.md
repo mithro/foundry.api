@@ -166,3 +166,153 @@ PDK" or "contact us for a price", that sentence is the finding.** It was recorde
   - A page titled `chipfoundry.io/terms` returns **HTTP 404**; the site's footer links to "Terms",
     "Privacy" and "Commercial" but the terms themselves were not read.
 
+### ACC-4. Europractice's 2026 price list adds a third eligibility condition that its 2025 list did not have
+
+- **Sources:**
+  - EUROPRACTICE IC Service, "Schedules & Prices 2026": <https://europractice-ic.com/schedules-prices-2026/>
+  - The 2025 list, already recorded as `SMB-7`: <https://europractice-ic.com/schedules-prices-2025/>
+- **Verification:** **Verified 2026-09-18** for the 2026 page, fetched with `curl` and read. The 2025
+  wording is quoted from `SMB-7`, which was verified from the page on the same date.
+- **What it says.** The 2026 page states three conditions where the 2025 page stated the customer
+  type and country only:
+
+  > "What are Standard and Discounted prices? There are two prices in the Europractice lists:
+  > Discounted and Standard.
+  > **DISCOUNTED PRICE. Three conditions should be met for Discounted prices:**
+  > Customer is an academic institution or a research facility from one of the 27 EU countries
+  > together with Albania, Armenia, Azerbaijan, Bosnia-Herzegovina, Georgia, Iceland, Israel,
+  > Liechtenstein, North Macedonia, Moldova, Montenegro, Norway, Switzerland, Turkey, Serbia, the UK
+  > and Ukraine.
+  > Customer is a registered Europractice member who has paid the Full-IC annual membership fee.
+  > **The intended design will be done for educational purposes or for publicly funded research.**
+  > STANDARD PRICE. Standard prices apply to all other customers."
+
+  `SMB-7` records the 2025 page as saying only: "Customer is an academic institution or a research
+  facility from one of the 27 EU countries together with Albania, … and Ukraine." … "Standard prices
+  apply to all other customers."
+
+  Other terms read on the same 2026 page:
+  - **A per-foundry NDA, stated by the foundry rather than by Europractice.** Under Fraunhofer IISB:
+    "To participate in a process run, customers must have a valid NDA and register at least 4 weeks in
+    advance. Please consult the latest PDK release for complete specifications and guidelines. For
+    NDA, PDK download, and registration please contact" (an address follows, which is not reproduced
+    here and was not contacted).
+  - **Export control is a registration step.** The X-FAB and ams OSRAM blocks give "Registration and
+    Export Control information deadlines. Please download the Export Control file here." and under UMS:
+    "Please fill in the Export Control questionnaire when registering your design and return it to"
+    (again an address, not contacted). The downloadable file is
+    `https://europractice-ic.com/wp-content/uploads/2025/01/Export_Control_Fraunhofer_v1.docx`.
+  - **The open-PDK line is priced the same as in 2025:** "GLOBALFOUNDRIES 180 MCU (Open PDK) 913 /
+    830", with footnote 4: "Price = area (mm²) * price/mm² with min. fabrication cost equivalent to
+    6 mm²."
+  - **Being small costs more per mm².** The standard GlobalFoundries MPW list prices "GLOBALFOUNDRIES
+    130 nm BCDlite 1,760 / 1,600" per mm²; the mini@sic list — the option for customers too small for
+    a whole block — prices "GLOBALFOUNDRIES 130nm BCDlite – Gen2 3,080 / 2,800" per mm².
+  - **TSMC prices are still not tabulated:** "Prices for TSMC technologies can be calculated through
+    the online Price Request Form:", with the one exception noted in `ACC-5`.
+  - The €1,000 splitting charge survives, in dollars: "When 4 or more independent sub-designs are
+    registered in one MPW submission to optimise the minimum charged area, an additional verification
+    charge of 1,000 USD is applicable."
+- **DERIVED (arithmetic written out):** 3,080 ÷ 1,760 = **1.75**, so a mini@sic customer on GF 130 nm
+  BCDlite pays **75% more per mm²** than a customer who takes a standard MPW block. On the discounted
+  column, 2,800 ÷ 1,600 = 1.75 as well.
+- **Bears on:**
+  - **H8 (supports, and this is the sharpest single line in the file).** Europractice's eligibility
+    rules got **tighter** between 2025 and 2026, not looser. It is no longer enough to be an academic
+    institution in an eligible country and a paid-up member; the *use* must now also be "educational
+    purposes or … publicly funded research". A commercially motivated project at an eligible
+    university now pays standard prices.
+  - **H6 (challenges, extending `SMB-7`).** The mini@sic surcharge is the cost of serving a small
+    customer, published as a price, by the organisation that has served small customers longest: the
+    smaller your block, the more each square millimetre costs you.
+- **Used in:** [`../analyses/open-access-audit.md`](../analyses/open-access-audit.md).
+- **Caveats:**
+  - **We cannot date the change.** The 2026 list has three conditions and `SMB-7`'s reading of the 2025
+    list has two. We did not check archived captures of the 2025 page to see whether the third
+    condition was added to it later, so "added between the 2025 and 2026 lists" is the safe statement
+    and "added in 2026" is not.
+  - The membership fee, the country list and the NDA/DKLA routing are `OPG-17`'s findings, read from
+    Europractice's own access and membership pages; this entry adds only what the price list itself
+    says.
+  - Several addresses appear on the page as the route to an NDA, a PDK or an export-control form.
+    **None of them was contacted.** Their existence is the finding.
+
+### ACC-5. The one TSMC programme whose prices Europractice publishes is gated on TSMC's own approval and an NDA
+
+- **Source:** EUROPRACTICE, "TSMC University FinFET Program":
+  <https://europractice-ic.com/tsmc-university-finfet-program/>
+- **Verification:** **Verified 2026-09-18**, fetched with `curl` and read.
+- **What it says**, verbatim:
+  - Standfirst: "Lowering the Barrier to TSMC N16 and N7 FinFET for Europractice-Member Universities".
+  - Eligibility: "EUROPRACTICE-member universities can now gain access to TSMC FinFET technologies to
+    be leveraged for their research, education and teaching." And: "The TSMC FinFET program is also
+    open to universities in North America."
+  - **The access procedure, in one sentence:** "To access TSMC FinFET technologies, please fill in the
+    application form and return it to" (an address follows, which was not contacted). "**Applications
+    will be reviewed and approved by TSMC, after which an NDA will be shared. Access will be granted
+    through imec's secure data-sharing platform.**"
+  - The published prices, "Prices for University FinFET Program", EUR per minimum area and per extra
+    area:
+
+    | Technology | EUR / min area | EUR / extra area |
+    |---|---|---|
+    | TSMC 7nm Log FinFET (min area = 2 mm²) | 49,050 | 2,384 / 0.1 mm² |
+    | TSMC 7nm RF FinFET (min area = 2 mm²) | 51,000 | 2,479 / 0.1 mm² |
+    | TSMC 16nm Log FinFET Compact (min area = 4 mm²) | 59,550 | 1,448 / 0.1 mm² |
+    | TSMC 16nm RF FinFET Compact (min area = 4 mm²) | 61,850 | 1,504 / 0.1 mm² |
+    | TSMC 16nm RF FinFET Compact mini@sic (min area = 1 mm²) | 16,850 | 1,685 / 0.1 mm² |
+  - One of the two design kits is teaching-only: "N16ADFP (Academic Design Foster Package): For
+    Teaching Purpose Only".
+- **Bears on:**
+  - **H8, and this is why the audit separates its criteria.** Here is a programme with **fully
+    published prices** and **no open access at all**: you must be a university, you must be a
+    Europractice member (or a North American university), you must submit an application, TSMC must
+    approve it, you must then sign an NDA, and the design kit arrives through a "secure data-sharing
+    platform". Published prices are necessary for open access and nowhere near sufficient, and this is
+    the cleanest example of the two coming apart.
+  - **H5 (context).** €49,050 is the smallest ticket on the cheapest FinFET line, before any tooling.
+    `DEM-21`'s "some services require a minimum chip area of 2mm X 2mm, which comes at a cost close to
+    $100,000" is the same order and is corroborated here from a published price list.
+- **Used in:** [`../analyses/open-access-audit.md`](../analyses/open-access-audit.md).
+- **Caveats:**
+  - The prices are for universities only; no commercial price for these nodes is published anywhere we
+    could read.
+  - The application form was **not** downloaded, filled in or returned, and the address on the page was
+    not contacted.
+
+### ACC-6. All three open PDKs in the record carry the Apache License 2.0, verified from the repository metadata without logging in
+
+- **Source:** the GitHub REST API, unauthenticated:
+  - <https://api.github.com/repos/google/skywater-pdk>
+  - <https://api.github.com/repos/google/gf180mcu-pdk>
+  - <https://api.github.com/repos/IHP-GmbH/IHP-Open-PDK>
+  - <https://api.github.com/repos/efabless/caravel>
+- **Verification:** **Verified 2026-09-18**, all four fetched with `curl` with no credentials and the
+  JSON read.
+- **What it says:** every one of the four returns `"license": {"spdx_id": "Apache-2.0", "name":
+  "Apache License 2.0"}`, and none is archived. The descriptions as returned:
+  - `google/skywater-pdk` — "Open source process design kit for usage with SkyWater Technology
+    Foundry's 130nm node."
+  - `google/gf180mcu-pdk` — "PDK for GlobalFoundries' 180nm MCU bulk process technology (GF180MCU)."
+  - `IHP-GmbH/IHP-Open-PDK` — "130nm BiCMOS Open Source PDK, dedicated for Analog, Mixed Signal and RF
+    Design."
+  - `efabless/caravel` — "Caravel is a standard SoC template with on chip resources to control and
+    read/write operations from a user-dedicated space."
+- **Bears on:**
+  - **H4 and H8 (supports).** The audit's hardest openness criterion is not "free of charge" but
+    "redistributable" — may a third party copy the design kit, fork it, build a course or a tool on it
+    and publish the result? For SKY130, GF180MCU and IHP SG13G2 the answer is an OSI-approved yes, and
+    it can be established by an anonymous HTTP GET in one second. For every other process in this
+    audit the answer is no, and establishing that takes reading an access page.
+  - It is the mechanism behind `efabless-and-the-open-shuttles.md` §2.3(c): Tiny Tapeout, the Zero to
+    ASIC course, Wokwi's ASIC mode and the wafer.space, ChipFoundry, IHP and Cadence shuttles all exist
+    downstream of these four licences.
+- **Used in:** [`../analyses/open-access-audit.md`](../analyses/open-access-audit.md).
+- **Caveats:**
+  - A licence on a repository is not a statement that the process is production-qualified. `OPEN-2` and
+    `OPEN-3` record that the GF180MCU and IHP kits describe themselves as previews and as "not intended
+    to be used for production settings at this current time".
+  - The GitHub API reports the licence GitHub detected, not the text of every file in the tree. Some
+    parts of a PDK repository can carry different terms; the individual `LICENSE` files were not read
+    for this entry.
+
