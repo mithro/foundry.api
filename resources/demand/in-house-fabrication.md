@@ -424,3 +424,157 @@ directory.
 
 ---
 
+### IHF-6. What a MEMS multi-project wafer cost before Science: MUMPs at EUR 3,700 a block
+
+- **Sources:**
+  - EUROPRACTICE, "MUMPS BY MEMSCAP MULTI-PROJECT-WAFER PROTOTYPING SERVICES", technology flyer,
+    v2, 2020-01-07.
+    <https://europractice-ic.com/wp-content/uploads/2020/01/MEMSCAP-EUROPRACTICE-v2-2020-01-07.pdf>
+  - EUROPRACTICE, "GENERAL EUROPRACTICE MPW RUNS", price list v15, 2020-10-15.
+    <https://europractice-ic.com/wp-content/uploads/2020/10/General-MPW-EUROPRACTICE-201015-v15.pdf>
+  - CMC Microsystems, "Science Foundry Poly MEMS — Multi-User MEMS Process Technology".
+    <https://www.cmc.ca/polymumps-multi-user-mems/>
+- **Verification:** Verified, 2026-09-19. Both PDFs fetched from `europractice-ic.com` and the text
+  extracted with `pypdf`; the price line and the specification table were read directly. The CMC page
+  was fetched and read; **its price is not public** — the page says "Coming soon …" where the list
+  price should be, and subscriber pricing requires a login, which was not attempted.
+- **How it was counted:** the EUR/mm² and EUR/die figures under DERIVED are divisions of the quoted
+  block price by the fixed die area and the stated die count from the specification table in the
+  flyer. Nothing was inferred about what the price covers beyond what the two documents state.
+- **What it says.** From the 2020-10-15 price list, the MEMSCAP row reads:
+
+  > "PolyMUMPs (10mm x 10mm), SOIMUMPs (11 mm x 11mm), PiezoMUMPs (11mm x 11mm) | 3,700 | 3,500"
+
+  under the column headings "Standard EUR / block" and "Discounted EUR / block".
+
+  From the technology flyer, on how the service works:
+
+  > "MUMPs is a shared wafer or Multi-Project-Wafer service, meaning customers purchase one or more
+  > individual die locations(1cm x 1cm size) or tiles on any regularly scheduled run, then create and
+  > submit a design based on the process design rules. Eight to 12 weeks later, the customer receives
+  > 15 identical chips of their design."
+
+  and on who uses it:
+
+  > "PolyMUMPs is the industry's longest-running MEMS Multi-Project-Wafer service, with over a decade
+  > of history. Many universities use the service today as a way to teach beginning MEMS design at
+  > the undergraduate level, using PolyMUMPs as the 'example' process."
+
+  The specification table gives: fixed die size 10×10 mm (Poly) or 11×11 mm (SOI, Piezo); active area
+  9.8×9.8 mm or 9×9 mm; **15 dies delivered** in every case; minimum feature size 2 µm.
+
+  The run calendar in the same price list shows MEMSCAP offering, in that year, three PolyMUMPs runs,
+  four SOIMUMPs runs and three PiezoMUMPs runs.
+
+  **The MUMPs line has survived the change of owner and is being resold by a third-party
+  intermediary.** CMC Microsystems (Canada) now lists the identical process — "triple polysilicon,
+  single metal surface micromachining process with deposited oxide (PSG) as the sacrificial material,
+  and silicon nitride for electrical isolation from the substrate", "expected number of chips to be
+  delivered for this technology is 15" — under the name **"Science Foundry Poly MEMS"**, stating:
+  "CMC's multi-project wafer service delivers the MEMS technology, through a partnership with Science
+  Foundry."
+- **DERIVED (arithmetic written out):**
+  - PolyMUMPs: EUR 3,700 / (10 mm × 10 mm = 100 mm²) = **EUR 37.0 per mm²**.
+  - SOIMUMPs and PiezoMUMPs: EUR 3,700 / (11 mm × 11 mm = 121 mm²) = **EUR 30.6 per mm²**.
+  - Per delivered die: EUR 3,700 / 15 = **EUR 247 per chip**.
+  - Verified with `uv run python tmp/arith.py`.
+- **Bears on:** H6 (**supports** — EUR 3,700 for a fixed 1 cm² tile and 15 finished MEMS chips is a
+  genuinely small ticket, and the programme ran for "over a decade" at that kind of price); H5
+  (mixed — the flyer's own description of its customer base is "many universities … to teach
+  beginning MEMS design at the undergraduate level", which is the same academic skew that `DEM-16`
+  records for Europractice); H8 (supports — published price, published calendar, fixed tile).
+- **Used in:** not yet.
+- **Caveats:** The EUR 3,700 is a **2020** price, for a process that has since changed owner,
+  distributor and name; it is not a current price and must not be presented as one. The "discounted"
+  column is Europractice's academic rate (see `SMB-6` on the EU subsidy behind it), so neither figure
+  is a commercial arm's-length price. Europractice's **2026** schedule no longer lists MUMPs,
+  MEMSCAP, Science Foundry or Science Wafer Services at all (IHF-7) — the European distribution route
+  for this process appears to have lapsed, and the reason was not established. The per-mm² and
+  per-die derivations assume the block price is all-in, which the price list does not state.
+
+---
+
+### IHF-7. The current European MEMS MPW price, for comparison: X-FAB at EUR 1,253/mm²
+
+- **Source:** EUROPRACTICE, "2026 run schedules and prices".
+  <https://europractice-ic.com/schedules-prices-2026/>
+- **Verification:** Partial. The page was read through `WebFetch` on 2026-09-19 and the figures below
+  are as that read reported them; the underlying PDF price list was not separately fetched and the
+  numbers were not re-read by a second route. Treat the figures as Partial until the PDF is opened.
+- **What it says.** The 2026 Europractice schedule lists **one** MEMS technology, X-FAB XMB10 MEMS,
+  at **EUR 1,253/mm² standard and EUR 1,168/mm² discounted**, with a "minimum fabrication cost
+  equivalent to 10mm²", area "rounded upwards to next mm²", **50 dies** delivered, and additional
+  dies at "25 EUR/die (max 50 additional)".
+
+  Of equal importance: **MEMSCAP, MUMPs, Science Foundry and Science Wafer Services do not appear in
+  the 2026 schedule at all.** Six years earlier the same programme carried three MUMPs processes
+  across ten scheduled runs (IHF-6).
+- **DERIVED (arithmetic written out):**
+  - Minimum ticket, standard rate: EUR 1,253/mm² × 10 mm² = **EUR 12,530**.
+  - Minimum ticket, discounted rate: EUR 1,168/mm² × 10 mm² = **EUR 11,680**.
+  - Against PolyMUMPs' 2020 block rate: EUR 1,253 / EUR 37.0 per mm² = **33.9× more per mm²**.
+  - Verified with `uv run python tmp/arith.py`.
+- **Bears on:** H6 (**supports** — the minimum billable area is the fixed cost per small customer made
+  explicit, exactly as `SMB-7`/`SMB-8` found for silicon MPWs, and it is now EUR 12,530 before a
+  single mm² of useful design); H5 (challenges — Europe's flagship prototyping programme carries one
+  MEMS process in 2026, down from three, and lost the longest-running MEMS shuttle in the industry);
+  H8 (context).
+- **Used in:** not yet.
+- **Caveats:** Partial verification, as above. The 33.9× comparison is **not** a like-for-like price
+  increase: MUMPs sold a fixed 1 cm² tile with 15 dies and X-FAB sells by the mm² with 50 dies, so
+  the two are priced on different units and for different processes at different feature sizes; the
+  ratio says that *small* designs are much more expensive per mm² under the newer scheme, not that
+  MEMS fabrication got 34× dearer. The disappearance of MUMPs from the Europractice list is a fact;
+  the *reason* is not established, and a commercial distribution decision is at least as likely as
+  any demand signal.
+
+---
+
+## 3. Cost section: every hard number found on small-scale fabrication capability
+
+Collected in one place because the repository has almost nothing of this kind. **Read the caveats on
+each entry before using any of these.**
+
+### Capital cost to acquire or build capability
+
+| What | Figure | Date | What it actually covers | Source | Status |
+|---|---|---|---|---|---|
+| Complete operating MEMS foundry — all tools and equipment, associated technology, the plant lease, the entire team, and the foundry customer book | **US$3.0 million** | 2022-12-07 | Purchase price of assets; **excludes the building freehold** (a lease was transferred) and excludes MEMSCAP's VOA product IP | MEMSCAP regulatory release (IHF-3) | **Verified** |
+| Expansion of that same site: 57,000 sq ft for "MEMS and semiconductor manufacturing" | **"up to $65 million"** | 2024-07-09 | Building plus tools, not broken out; a ceiling stated in an incentives negotiation | Science Corporation (IHF-2) | Verified as a quote; the figure is a company claim |
+| Implied capex density of that expansion | **$1,140 per sq ft** | 2024 | DERIVED: $65,000,000 / 57,000 sq ft | DERIVED from IHF-2 | Derived, order-of-magnitude only |
+| The same North Carolina site, earlier | reported **"approximately $750M"** paid by JDS Uniphase for Cronos Integrated Microsystems, "shortly prior" to 2002 | c. 2000 | Acquisition of a *company*, not of the plant alone | Science Corporation blog (IHF-3) | **Lead** — not checked against a JDS Uniphase filing |
+| Public subsidy attached to the expansion | **$930,000** over ten years, performance-based, for 50+ jobs = **$18,600 per job** | 2024-07-09 | Durham County incentive award | Science Corporation (IHF-2); county minutes not reached | Partial |
+
+### Operating scale of a small MEMS line
+
+| What | Figure | Source | Status |
+|---|---|---|---|
+| Tool count at Science Foundry | "**80+ Tools**", "more than 80 advanced tools" | IHF-4, IHF-5 | Verified (company statement) |
+| Wafer size | "Currently tooled for **6 inch** wafer size" | IHF-4 | Verified (company statement) |
+| Production volume the line targets | "**10s to 1000s of wafers**" per job; "dozens to thousands of custom wafers per year" | IHF-4 | Verified (company statement) |
+| Headcount added by the expansion | "more than **50** new … jobs" | IHF-2 | Verified (company statement) |
+| Quality system | ISO 9001:2015, certified by Amtivo (USA) Inc.; MEMSCAP's facility was ISO 9001:2015 certified at the time of sale and Science stated a plan "to configure it to support FDA Good Manufacturing Practice (cGMP) production" | IHF-1, IHF-4 | Verified (company statement) |
+
+### Price to a small customer
+
+| What | Figure | Date | Unit | Source | Status |
+|---|---|---|---|---|---|
+| Science Foundry standard MEMS MPW run | **$13,520+** | 2026 | not stated | IHF-4 | Verified as published; contents unknown |
+| MEMSCAP MUMPs via Europractice | **EUR 3,700** standard / **EUR 3,500** discounted | 2020 | per block: 10×10 mm (Poly) or 11×11 mm (SOI, Piezo), **15 dies**, 8–12 weeks | IHF-6 | Verified |
+| — the same, per mm² | **EUR 37.0** (Poly) / **EUR 30.6** (SOI, Piezo) | 2020 | DERIVED | IHF-6 | Derived |
+| — the same, per delivered die | **EUR 247** | 2020 | DERIVED | IHF-6 | Derived |
+| X-FAB XMB10 MEMS via Europractice | **EUR 1,253/mm²** standard, **EUR 1,168/mm²** discounted | 2026 | minimum billable 10 mm²; 50 dies; extra dies EUR 25 each, max 50 | IHF-7 | Partial |
+| — minimum possible ticket | **EUR 12,530** standard / **EUR 11,680** discounted | 2026 | DERIVED | IHF-7 | Derived |
+
+### What is still missing, and would be worth more than any of the above
+
+- **A breakdown of the $65M into building versus tools.** Without it the figure cannot be turned into
+  a cost model.
+- **Refurbished-equipment prices.** Nothing was found. The $3.0M in IHF-3 is a whole-line price and
+  does not decompose.
+- **Cleanroom build cost per square foot by class.** Not found from any primary source.
+- **What Science Foundry's $13,520 buys.** Behind account registration.
+- **Annual operating cost of a 6-inch MEMS line.** Not found.
+
+---
+
