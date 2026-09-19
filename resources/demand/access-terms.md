@@ -166,7 +166,15 @@ PDK" or "contact us for a price", that sentence is the finding.** It was recorde
   - A page titled `chipfoundry.io/terms` returns **HTTP 404**; the site's footer links to "Terms",
     "Privacy" and "Commercial" but the terms themselves were not read.
 
-### ACC-4. Europractice's 2026 price list adds a third eligibility condition that its 2025 list did not have
+### ACC-4. Europractice's 2026 price list states a third eligibility condition that its 2025 list did not
+
+> **CORRECTED BY `ACC-12`. Do not cite this entry without it.** The third condition quoted below —
+> "for educational purposes or for publicly funded research" — was already in **CMP's** price list in
+> **October 2019**, applied to Europractice members. The fact that the 2026 page states it and the
+> 2025 page does not is accurate; the inference that **Europractice's eligibility got tighter between
+> 2025 and 2026 is not supported** and the "Bears on" section below overstates it. What *did* tighten
+> between 2019 and 2026 is the eligible-country list: Belarus and Russia were on CMP's and are on
+> neither of Europractice's. See `ACC-12`.
 
 - **Sources:**
   - EUROPRACTICE IC Service, "Schedules & Prices 2026": <https://europractice-ic.com/schedules-prices-2026/>
@@ -217,20 +225,24 @@ PDK" or "contact us for a price", that sentence is the finding.** It was recorde
   BCDlite pays **75% more per mm²** than a customer who takes a standard MPW block. On the discounted
   column, 2,800 ÷ 1,600 = 1.75 as well.
 - **Bears on:**
-  - **H8 (supports, and this is the sharpest single line in the file).** Europractice's eligibility
-    rules got **tighter** between 2025 and 2026, not looser. It is no longer enough to be an academic
-    institution in an eligible country and a paid-up member; the *use* must now also be "educational
-    purposes or … publicly funded research". A commercially motivated project at an eligible
-    university now pays standard prices.
+  - **H8 (supports), restated after `ACC-12`.** The 2026 page sets out **three cumulative
+    conditions**: institution type, country, **and** purpose. It is not enough to be an academic
+    institution in an eligible country and a paid-up member; the *use* must also be "educational
+    purposes or … publicly funded research", so a commercially motivated project at an eligible
+    university pays standard prices. **The claim this entry originally made — that the rules got
+    tighter between 2025 and 2026 — is withdrawn.** `ACC-12` shows the purpose condition was CMP's
+    published rule for Europractice members in October 2019. The three-condition gate is the finding;
+    its novelty is not.
   - **H6 (challenges, extending `SMB-7`).** The mini@sic surcharge is the cost of serving a small
     customer, published as a price, by the organisation that has served small customers longest: the
     smaller your block, the more each square millimetre costs you.
 - **Used in:** [`../analyses/open-access-audit.md`](../analyses/open-access-audit.md).
 - **Caveats:**
-  - **We cannot date the change.** The 2026 list has three conditions and `SMB-7`'s reading of the 2025
-    list has two. We did not check archived captures of the 2025 page to see whether the third
-    condition was added to it later, so "added between the 2025 and 2026 lists" is the safe statement
-    and "added in 2026" is not.
+  - **There may be no change to date.** The 2026 list has three conditions and `SMB-7`'s reading of
+    the 2025 list has two — but `ACC-12` finds the third condition in CMP's October 2019 list, applied
+    to the same Europractice members. The likeliest reading is that the condition was always in force
+    and the 2025 page did not restate it. We did not check archived captures of the 2025 page.
+    **Nothing here should be presented as a tightening.**
   - The membership fee, the country list and the NDA/DKLA routing are `OPG-17`'s findings, read from
     Europractice's own access and membership pages; this entry adds only what the price list itself
     says.
@@ -627,3 +639,97 @@ PDK" or "contact us for a price", that sentence is the finding.** It was recorde
     still buyable.
   - `memsrus.com` may have lapsed years before the MEMSCAP page went. The two dates are not linked by
     any evidence.
+
+### ACC-12. CMP's 2019 price list already carried the "educational or publicly funded research use only" condition — and its eligible-country list included Belarus and Russia
+
+**This entry corrects `ACC-4`.** Read it before citing `ACC-4`'s claim that Europractice's third
+eligibility condition is new.
+
+- **Source:** CMP (Circuits Multi-Projets), *MPW Prices*, dated on every page footer "Oct.-19", PDF,
+  4 pp. CMP's own site is gone (`DEM-19`); the file was downloaded during this session from a surviving
+  copy and its text layer extracted with `pypdf`. Header on page 1: "From layout to chips mycmp.fr MPW
+  Prices — CMP, 46 Avenue Félix Viallet, 38000 Grenoble, France".
+- **Verification:** **Partial.** The PDF itself was **Verified 2026-09-19** — opened here, its text
+  extracted and read, and every quote below matched character for character against that text. But the
+  file was fetched by a delegated agent that was terminated before it could report the URL it came
+  from, so **the retrieval URL is not recorded and the provenance cannot be re-checked by following a
+  link.** Anyone confirming this should search the Internet Archive for CMP's `mycmp.fr` price-list
+  PDFs. The document's own internal evidence — the Grenoble address, the `mycmp.fr` URLs, the
+  "Oct.-19" date stamp and the technology list — is consistent with CMP and with `DEM-19`.
+- **What it says**, verbatim from page 1:
+  - **The discount rule, in full:** "STANDARD price= normal price. DISCOUNTED price= only applies to
+    EUROPRACTICE MEMBERS registered (who paid their annual full membership fee) Academic and Research
+    Members from all 28 EU countries and Albania, Armenia, Azerbaijan, **Belarus**, Bosnia-Herzegovina,
+    Georgia, Iceland, Israel, Liechtenstein, Former Yugoslav Republic of Macedonia, Moldova,
+    Montenegro, Norway, **Russia**, Switzerland, Turkey, Serbia and Ukraine **who submit designs for
+    educational or publicly funded research use only**. Prices are given for the delivery of
+    unpackaged, untested prototypes. Packaging and testing will be charged separately." (The text
+    layer renders some words with stray spaces — "Mol dova", "Bosnia -Herzegovina" — which are
+    artefacts of the PDF and are closed up here.)
+  - **A minimum charge, stated as a principle:** "Minimum charge — For each design, depending on the
+    technology, a minimum surface, including seal-ring, is charged."
+  - **MEMS prices, and they are MUMPs**, from page 3 under the heading "Micro Electro Mechanical
+    Systems - MEMS":
+
+    | MEMSCAP | STANDARD €/project | DISCOUNTED price €/project |
+    |---|---|---|
+    | PolyMUMPs, SOIMUMPs, PiezoMUMPs | **3550** | **3350** |
+
+    with the note "1 Fixed size 10x10mm". The next MEMS line reads: "ams 0.35µm CMOS Bulk
+    Micromachining Front-side & Back-side for 10 prototypes **price under request** 500".
+  - **Per-project fixed fees are itemised**, page 3: "Bonding diagram preparation fees - A 100€ is
+    applied for each packaging project + 50€ for each similar additional bonding diagram. - **No fee
+    for EP members.**"; "100€ for packaging on a CMP circuit when requested outside the MPW run
+    progress. - 200€ for packaging of an IC not fabricated through CMP."; and "In all cases, a minimum
+    of five (5) packages per bonding diagram has to be ordered."
+  - **Silicon prices are per mm² with per-project minima**, e.g. "ST 130nm HCMOS9A 2500 / 12500+[(Area-5)
+    x 2200]" with the note "Price for Area ≤ 5mm² with minimum charge of 1.25mm² including seal-ring",
+    and "ams 0.35µm CMOS C35B4C3 … 640 / 580" with "Price = area (mm²) * price/mm² with min.
+    fabrication cost equivalent to 4 mm²".
+- **DERIVED (arithmetic written out):**
+  - CMP resold MUMPs at **€3,550** a project against MEMSCAP's own **$5,800** non-academic rate for
+    the same 10 × 10 mm die site (`ACC-10`). At the ECB euro reference rate already recorded in
+    `SMB-9` (EUR 1 = USD 1.1481 on 2026-09-17), €3,550 = **US$4,076** — about **30% below** the
+    foundry's own commercial price. The two figures are dated 2019 and 2017 respectively and the
+    exchange rate is from 2026, so this is an order-of-magnitude comparison and nothing more.
+  - The discounted MUMPs price, €3,350, is only **5.6% below** the standard one (3,350 ÷ 3,550 =
+    0.9437), against MEMSCAP's own academic discount of 27.6% (`ACC-10`).
+- **Bears on:**
+  - **`ACC-4` is corrected on its most striking point.** `ACC-4` records that Europractice's 2026
+    price list states three conditions for the discounted price where `SMB-7`'s reading of the 2025
+    list states two, and that the new one is "The intended design will be done for educational
+    purposes or for publicly funded research". **That wording was already in CMP's price list in
+    October 2019**, applied to Europractice members, seven years earlier. So:
+    - The statement "the 2026 Europractice price list states a condition its 2025 list did not" is
+      still accurate as a fact about those two pages.
+    - The inference **"Europractice's eligibility rules got tighter between 2025 and 2026"** is **not
+      supported** and should not be made. The condition is long-standing consortium practice that the
+      Europractice page appears to have restated, and CMP joined the Europractice consortium in
+      October 2022 (`DEM-19`).
+    - **Anyone citing `ACC-4` must cite this entry alongside it.**
+  - **H8 (context), and a different tightening that *is* documented.** The eligible-country list did
+    change, and in the direction of exclusion. CMP's 2019 list names **Belarus** and **Russia**;
+    Europractice's 2026 list (`ACC-4`, `OPG-17`) names neither. It also moves the United Kingdom from
+    "28 EU countries" to a separately named country, and renames "Former Yugoslav Republic of
+    Macedonia" to "North Macedonia". **Two countries were removed from the eligible list between 2019
+    and 2026.** Nothing in either document says why; the obvious explanation is sanctions, and that
+    is an inference, not a finding.
+  - **The audit's Axis 1, for MEMS.** MUMPs was buyable through a European broker at a published
+    price, in euros, on a public PDF price list, alongside CMOS. That is a second published price for
+    MUMPs from an independent party, and it corroborates `ACC-10` on the shape of the product: a fixed
+    10 × 10 mm die site sold per project.
+  - **H6 (supports `SMB-7` and `SMB-8`).** Every fixed cost of serving a small customer is itemised
+    here too: a minimum charged surface per technology, a €100 bonding-diagram fee per packaging
+    project, €200 for packaging a die CMP did not make, and a five-package minimum order.
+- **Used in:** [`../analyses/open-access-audit.md`](../analyses/open-access-audit.md).
+- **Caveats:**
+  - **Provenance, restated because it matters:** the PDF was read here in full, but the URL it was
+    fetched from was lost when the delegated agent that fetched it was terminated. Treat the entry as
+    **Partial** until someone re-finds the file.
+  - CMP no longer exists as an operating service (`DEM-19`), so this is a historical price list, not a
+    current offer.
+  - Whether MEMSCAP's own price or CMP's was the "real" one for a European buyer is not established;
+    brokers bundle and rebate.
+  - The companion document `cmp_mems_sept19.pdf` ("MEMS Prototyping / Teledyne DALSA TDSI MIDIS™"),
+    also recovered, **has almost no extractable text** — its content is images — so Teledyne DALSA's
+    MEMS MPW terms remain **not audited**.
