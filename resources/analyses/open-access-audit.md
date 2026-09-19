@@ -981,6 +981,46 @@ entrant is not evidence about the same phenomenon as one spending four.
 
 ---
 
+#### (f) The comparison read the right way round: what each programme actually bought
+
+Sections (a)–(e) establish that our original claim was wrong. But the corrected figures are not
+merely neutral — **read as a comparison of what the money bought, they run strongly the other way,
+and that is the finding worth keeping.**
+
+| | **Google Open MPW** | **AFRL challenge** |
+|---|---|---|
+| Money in | **≤ US$5,000,000** for the whole programme | **US$10,000,000 per licence**, claimed list value, per *selected* entrant |
+| Output | **400 manufactured chips** (40 slots × 10 shuttles) | **82 paper proposals** |
+| Of which silicon | 400 | **0** — phase 1 produced none |
+| Elapsed time for that output | 42–99 days per shuttle | **~18 months, six phases** |
+| Conversion to the next stage | 40/45 = **89%** | 10/82 = **12%** |
+| **Cost per manufactured design** | **≈ US$12,500** (at the $5M ceiling; ≈$9,750–$10,000 on the slot-price proxy) | **undefined — nothing was manufactured** |
+
+**Google's entire programme cost about half the claimed list value of a single AFRL licence, and
+produced four hundred manufactured chips against zero.** What AFRL's phase 1 bought for eighteen
+months of process was "effectively summary business plans including an architectural-level IC block
+diagram, a description of the targeted application … team bios" (`ACC-15`).
+
+Two cautions, so this is not itself a cherry-pick in the other direction:
+
+- **The $10M is a list value asserted by the giver**, not a price paid, and no actual AFRL budget
+  figure exists in any recovered page (§(d)). Discount it as heavily as you like: even at 90% off,
+  ten selected entrants at $1M of in-kind value each is $10M against Google's ≤$5M, for zero chips
+  against 400.
+- **The programmes wanted different things.** AFRL was selecting *companies* to develop over five
+  further phases; Google was manufacturing *designs*. A selection tournament is supposed to have a
+  low conversion rate. The comparison is fair on the question this project cares about — how much
+  silicon a given amount of money and time produces — and unfair as a judgement of whether AFRL met
+  its own goals.
+
+**What this does to the "somebody else pays" hypothesis.** It survives only in the weak form already
+stated in §(e): every programme that reached a large absolute number was subsidised. It does *not*
+support the stronger reading that subsidy is the operative variable and openness incidental — because
+here two subsidised programmes differ by orders of magnitude in output per dollar and per day, and
+what separates them is precisely that one shipped an open PDK, a fixed price per slot and a
+manufacturing slot at the end, while the other ran a multi-phase selection process. **How the money
+is spent dominates the fact that somebody else spent it.**
+
 ## 7. Blocked sources
 
 Everything below was attempted read-only. Being blocked is recorded, not worked around.
