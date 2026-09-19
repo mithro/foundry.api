@@ -120,6 +120,7 @@ The honest reading is that a long tail of *experiments* certainly exists and gro
   - OPEN-5: 174 submissions to one Tiny Tapeout round
   - DEM-16 (**corrected 2026-09-19**): Europractice's 2000–2017 series does not plateau. Regressing log(designs) on year over the verified portion gives **+2.14%/yr, t = +5.15** (480 → 614, endpoint CAGR +1.46%/yr). It is weak support, not a challenge.
   - IHF-1, IHF-5: Science Corporation, a funded commercial buyer, states that existing fabs were "simply inaccessible for this kind of low-volume work, often with uncommon materials and tool parameters", and bought a MEMS foundry rather than keep trying to buy the service
+  - PAY-6, PAY-8, PAY-9: **the growth is visible in money, not only in submissions.** Tiny Tapeout's derived gross revenue rises every year, ≈$12k → $42k → $167k → $195k → €342k (nine months of 2026), a +156%/yr CAGR over 2022–2025; chipIgnite's paid slots rose 32 → 52 → 93 → 160, +71%/yr; wafer.space took $55,500 then $175,000 then $125,000-and-open at published unsubsidised prices. **All three are derivations from published prices and published unit counts, not measurements**
 - **Challenges:**
   - DEM-16, *partly*: 69% of 2024's submissions came from universities against 9% from European industry. **The "eighteen flat years" half of this entry was wrong and has been moved to Supports** — see the Supports list and the correction note in DEM-16 itself.
   - DEM-9: 364 submissions worldwide across six shuttles when the whole thing was free
@@ -137,6 +138,10 @@ The honest reading is that a long tail of *experiments* certainly exists and gro
   - IHF-8: the one small-customer MEMS foundry with public audited accounts saw revenue fall **32% in its final year**
   - IHF-6, IHF-7: Europractice's MEMS offering fell from three MUMPs processes in 2020 to one X-FAB process in 2026
   - ACC-11: a third instance of the CMP/Efabless pattern — a long-running service vanishing from the public internet
+  - **PAY-8: revenue grew more slowly than submissions on the longest paid series there is.** Over 2021–2024 chipIgnite's submissions rose 7.39× (+94.8%/yr) and its paid slots rose 5.00× (+71.0%/yr), because a 40-slot shuttle caps money and nothing caps interest. On the successor the divergence is total: ChipFoundry's `interest` went 129 → 262 while `committed` went 44 → 45
+  - **PAY-8, PAY-6: the sector's money fell 46% in 2025, the year its unit counts set a record.** The three programmes together took $1,726,925 in 2024 and $931,158 in 2025, while `data-cuts-and-statistics.md` §3.2 records 2025 as Tiny Tapeout's largest year ever. The cause is Efabless's failure, not a demand collapse — but a submission series hides exactly that kind of risk and a revenue series shows it
+  - PAY-5: an unknown but large share of recent Tiny Tapeout tiles is sponsorship and institutional block booking rather than small-buyer money — "Half the area and PCBs have been reserved for [the IEEE]" on TTSKY26b, with only "40 non-subsidized PCBs" left
+  - PAY-9: wafer.space's whole worldwide response in thirteen months is **30 orders**
 - **Mixed:** DEM-21, whose one paragraph contains both the strongest statement that shuttles are overbooked and the strongest statement that a mature-node run can be "not desirable enough to make economic sense".
 - **Context:** CONC-2, CONC-11 (TSMC's customer counts — see DEM-15 before citing them for H5); SMB-5 (MOSIS's realised scale); SMB-6 (Europractice's subsidy).
 - **Needs:**
@@ -187,6 +192,9 @@ The cost-to-serve data asked for here turns out to be published, in the one plac
   - **FUND-7: CMC Microsystems is the only multi-project-wafer broker anywhere with audited accounts, and customers cover a minority of its cost.** In the year to 2008-03-31 customers paid **9.15%** of revenue (CAD 989,771 of 10,822,211) against an 89.63% government grant. In the year to 2026-03-31, stripping the FABrIC pass-through, it earned CAD 5.4m against CAD 7.3m of cost — **74.0% recovery**, i.e. **CAD 30,417 of cost per prototype and a CAD 7,917 subsidy per prototype** on 240 prototypes. This is a measurement, not an analogue
   - FUND-9: both organisations in this directory that publish a cost breakdown spend **more than 53% on payroll** (CMC 53.5% in FY2008, 54.8% in FY2026). H6 assumes per-customer engineering away; it does not assume away the payroll that a service of this kind actually runs on
   - FUND-2: Europractice's EU subsidy is **EUR 2,801 per design** over 2016-07 → 2025-09 (EUR 19,024,797.50 for 6,791 designs, stable at EUR 2,840 / 2,663 / 2,951 across three separate competitive grants), rising to **EUR 5,309 per design** at the grant rate now running — against SMB-7's EUR 5,478 cheapest commercial ticket
+- **PAY-4: Tiny Tapeout's best-documented shuttle earned $16,600.** TT04 ran ten weeks, drew 143 projects from over 30 countries, and sold 235 tiles and 97 boards — against a chipIgnite slot costing $9,750 at the time. **PAY-6** puts the whole programme at roughly $0.6m–$1.0m of gross revenue over five years
+  - **PAY-8: chipIgnite's best year was $1.56m gross, and the company died four months later.** **PAY-10** adds the last financing: $2.5m of *debt* from a single investor on 2024-09-27, with the Form D's revenue box marked "Decline to Disclose"
+  - **PAY-9, PAY-6: 71% of the sector's 2026 money comes from about fifty orders a year** at $7,000–$15,000 each; the remaining 29% comes from 1,358 Tiny Tapeout designs at €70–€400. The long tail is real in headcount and nearly absent in money — which is `CONC`-style concentration at the bottom of the market, as `OPG-11` also found at IHP
 - **Mixed:** SMB-2 (profitable, but the margin trend and the strategy both run away from the tail); SMB-5 (self-sustaining for forty years, but its successor's stated goal is to "achieve self-sustainability within the next few years").
 - **Needs:**
   - A fab's own margin by customer size. Still not public anywhere; SMB-1 to SMB-6 are analogues. **FUND-7 is a genuine measurement of customer cost-recovery, but of a broker rather than a fab.**
@@ -286,7 +294,7 @@ What the audit found actually predicts behaviour:
     **no prize** — "no guarantees, no prizes and no contracts". See the audit §6.5
   - ACC-1: even the most open programme retains a discretionary right of refusal and a full
     ITAR/OFAC regime
-  - §6.1 of the audit: the sector is smaller today than MOSIS was in 1995
+  - §6.1 of the audit: the sector is smaller today than MOSIS was in 1995 — **and `PAY-6` to `PAY-9` now confirm it bottom-up**: the three paying programmes together took $312k (2021), $519k (2022), $949k (2023), **$1.73m (2024)**, $931k (2025) and $1.37m in the first 8.6 months of 2026, or about **$1.9m annualised**, against `SMB-5`'s MOSIS at "up to $10 million annually at its peak" in 1990s money
 - **Openness is not a ratchet:** three closings to one opening. MOSIS 1.0 published a price formula
   to the dollar and MOSIS 2.0 publishes none; MUMPs went to zero when its page 404'd in 2023;
   Europractice's eligible-country list lost Belarus and Russia. Only IHP became more open.

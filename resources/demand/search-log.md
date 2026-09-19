@@ -567,3 +567,77 @@ than solved.
   2007/08 statement of revenue and expenditure — line by line, both years — came out of
   `web.archive.org` intact. Where a modern site publishes a glossy PDF, the 2000s site published a
   table.
+## 14. Payment growth — money paid, not designs submitted (`PAY`, 2026-09-19)
+
+Searched for the thing the rest of this directory does not have: **revenue**, over time, for the
+three programmes where customers genuinely pay — Tiny Tapeout, Efabless chipIgnite and its successor
+ChipFoundry.io, and wafer.space. Everything landed in
+[`payment-growth.md`](payment-growth.md), entries `PAY-1` … `PAY-11`.
+
+Read-only throughout: HTTP GET only, no forms, no accounts, no logins, no payments, no CAPTCHAs, no
+contact with any person by any channel, and no e-mail address in any header, URL or payload.
+
+### 8.1 Routes that worked and are worth reusing
+
+| Route | What it gave |
+|---|---|
+| **`https://app.tinytapeout.com/api/shuttles/submission-stats`** | The whole Tiny Tapeout unit base: per shuttle, `deadline`, `tiles_total`, `tiles_used`, `tiles_reserved`, plus 4,327 submission records with `tile_count` and `first_submission_time`. It is public, unauthenticated, and Tiny Tapeout's own published statistics tool (<https://github.com/TinyTapeout/tt-shuttle-stats>) reads it. **Nothing in `resources/` had used it.** Needs a browser `User-Agent`. |
+| **Reading the price list out of a client-side calculator's own JavaScript** | §1 of this log records `app.tinytapeout.com/calculator` as unsolvable ("returns a shell with no content"), and `SMB-10` says the headline price is "not published as a number anywhere we could read". **Both are now wrong.** Fetch the page, list the `/_build/assets/*.js` modules it preloads, fetch `invoice-*.js` — 2 kB — and the entire schedule is there as literals: `{pcb:300,pcbDiscount:100,tile:70,analogPin:100,…,shipping:15,currency:"EUR"}`, one profile per foundry. **This trick should be tried on every "client-side rendered, not solved" line in §1.** |
+| **Cloning a programme's own website source from GitHub** | `github.com/TinyTapeout/tinytapeout_www` is the live site. `content/chips/_index.md` is the authoritative shuttle table — launch date, close date, **and which commercial shuttle each run bought space on** (CI-2211Q, CI-2404, IHP-2504, **WS-2512**, **WS-2606** …), which is how `PAY-5` established that Tiny Tapeout's GF180 runs are wafer.space orders. `content/news/*/_index.en.md` carries dated operator statements including the only two published paid-unit counts (`PAY-4`). |
+| **`https://efts.sec.gov/LATEST/search-index?q=<term>`** | EDGAR full-text search *does* serve automated requests with a browser `User-Agent`. `q=efabless` returns 21 hits with full metadata; `&forms=D` narrows to the one Form D. This is the route around the `www.sec.gov` block for *finding* filings. |
+| **`WebFetch` on `www.sec.gov/Archives/...`** | Reaches the document where `curl` cannot. That is how `PAY-10` recovered Efabless's Form D. §1 already noted this; it is worth repeating because it is the only route. |
+| **Wayback `id_` with a fallback to the plain form** | Several 2021–2022 Efabless captures return an empty body in the `…/web/<ts>id_/<url>` form but a full page in `…/web/<ts>/<url>`. A fetcher should try both. `--compressed` is mandatory or the body arrives gzipped and silently decodes to mojibake — several captures had to be refetched for exactly this reason. |
+| **Solving a published bundle price backwards out of a pricing table** | `tinytapeout.com/teaching/` prices 5 tiles + 1 PCB at €565, 25 + 3 at €2,195 and 75 + 5 at €5,325. Three equations, two unknowns: €50 a tile and €315 a PCB kit. It disagrees with the live €70 tile, which is how `PAY-3` found that the teaching page is stale. |
+
+### 8.2 What was found, and where it went
+
+| Looked for | Found | Entry |
+|---|---|---|
+| Tiny Tapeout's price, dated | $0 (TT01, free Google MPW-7 slot) → $100 bundle / $25 design-only (2022-11) → $100 / $50 / $50 extra tile (2023-08) → $300 standard with a $150 Efabless early bird capped at "the first 80 orders from individuals" (2024-02 → 2025-02) → $300 unsponsored (2025-04) → €150 IHP bundle (2025-05) → **no price on the website at all from 2025-08** | `PAY-2` |
+| The current price, which nobody had been able to read | tile €70, DevKit PCB €300 (€100 discounted), shipping €15, analog pins €100 (ChipFoundry) / €200 (IHP) / €0 (GF180). €70 + €100 + €15 = **€185**, which reproduces Tiny Tapeout's own published "just €185 including shipping" exactly | `PAY-3` |
+| Any shuttle where Tiny Tapeout published paid units | **Two, out of twenty-eight.** TT04: "350 tiles total, **235 allocated and paid for** … 98 PCBs were allocated, **97 paid**". TT06: "We sold 100% of the Efabless-sponsored PCBs, plus another 60 at full price" | `PAY-4` |
+| What is not revenue | TT01 free; TT10 **cancelled** with refunds or roll-overs; nine bring-up/port runs holding 1,097 tiles; ttihp25a 77% re-ports; and named sponsors on every recent shuttle, including **"Half the area and PCBs have been reserved for [the IEEE]"** on TTSKY26b | `PAY-5` |
+| chipIgnite's price history | **It never changed.** $9,750 on the 2021-05-20 launch page and $9,750 on the last capture of the dead site. chipIgnite Mini $3,500 (from 2024-08), chipIgnite ML from $14,750, university pools $48,750 / $87,750. ChipFoundry then raised it to $14,950, and says so itself: "chipIgnite projects are priced at $14,950 compared to $9,750" | `PAY-7` |
+| Paying customers per chipIgnite shuttle | `OPG-1`'s `Slots` column is the source sheet's `Manufactured` field, and on a pay-to-be-fabricated programme a manufactured slot is a paid slot: 32 (2021), 52 (2022), 93 (2023), **160 (2024)**, then 44 and 45 under ChipFoundry | `PAY-8` |
+| wafer.space's takings | "$ 55,500 raised … 6 backers" (Run 1, closed 2025-11-28); "$ 175,000 raised … 18 backers" (Run 2, closed 2026-06-29); "$ 125,000 raised … 6 backers" (Run 3, open to 2026-12-19). **Run 3 has moved since `OPG-12`**, which recorded $121,500 and 5 backers | `PAY-9` |
+| Efabless's SEC filings | Exactly one: a Form D filed 2024-10-08, **$2,500,000 of debt sold to a single investor on 2024-09-27**, five months before the shutdown, revenue box marked **"Decline to Disclose"**, signed by Michael Wishart. Directors listed include Lucio Lanza, Jack Hughes and Jeremy Hitchcock | `PAY-10` |
+
+### 8.3 Searched for, and not found
+
+- **KvK annual accounts for Tiny Tapeout B.V.** The company is named in Tiny Tapeout's own terms
+  ("an agreement between you and Tiny Tapeout B.V.", jurisdiction Amsterdam) and a Dutch B.V. must
+  file. KvK's own page says so — "*Bv's en nv's zijn vrijwel altijd verplicht een jaarrekening te
+  deponeren*" (*translated: "B.V.s and N.V.s are almost always required to file annual accounts"*).
+  **Blocked three ways:** `kvk.nl/zoeken/handelsregister/?handelsnaam=…` returns **404**;
+  `kvk.nl/zoeken/?zoekwoord=…` returns 200 but renders results client-side and `WebFetch` reports it
+  as "a generic landing/help page … no trade register entries"; `api.kvk.nl/api/v2/zoeken` returns
+  **401** and its key needs an account. The accounts themselves are a paid product and we entered no
+  order flow. **No KvK number appears anywhere on tinytapeout.com.** This is the single
+  highest-value unreached document in `payment-growth.md`: it would replace the largest estimate in
+  that file with a measurement, and it is cheap for a human.
+- **Conference talks and slides with Tiny Tapeout revenue or unit numbers** (FOSSi Dial-Up, ORConf,
+  Hackaday Supercon, FOSDEM). **Not searched at all.** The session's web-search budget was exhausted
+  — 200 of 200 calls — before this task reached that step. The task asked for it explicitly and it
+  remains open. A human should start from Matt Venn's talk list and the IEEE Solid-State Circuits
+  Magazine paper (<https://ieeexplore.ieee.org/document/10584359>, preprint at
+  <https://www.techrxiv.org/users/799365/articles/1165896>), which was not read for this work
+  either.
+- **Whether Efabless's four 2024 chipIgnite shuttles really manufactured 40 slots each.** All four
+  show exactly 40, which is also the platform's nominal capacity for every shuttle. The archived
+  pages carry a separate "*N* of 40 project slots reserved" line, but it reads 19 / 13 / 16 / 14 for
+  four closed shuttles and **0** for three captured while open, and it is absent from the later page
+  layout. It behaves like a hand-maintained field and cannot check the 40s.
+- **The sponsored-versus-sold split on any Tiny Tapeout shuttle.** Never published. It is the
+  largest single uncertainty in the Tiny Tapeout revenue derivation and it pushes the figures
+  **down**, not up.
+- **Crowd Supply's platform fee.** Not printed on the wafer.space campaign pages, so wafer.space's
+  net receipts are lower than the "raised" figures by an unknown margin.
+- **Efabless's venture rounds before 2024.** EDGAR holds one filing for CIK 0002039822 and nothing
+  else. Either the earlier rounds were filed under a registrant we did not find, or they were never
+  filed on EDGAR.
+- **`app.tinytapeout.com/prepurchase`** (prepaid credits for universities). Another empty
+  single-page-application shell; we did not find a second price module to read it out of.
+- **Internet Archive availability.** For part of 2026-09-19 the CDX API returned
+  "Internet Archive services are temporarily offline", and `web.archive.org` rate-limits after
+  roughly twenty fetches, returning empty bodies rather than an error status. A fetcher must retry
+  with backoff or it will silently record the page as missing.
