@@ -150,6 +150,13 @@ happens to be 53% above the price a dead company used to charge.
     entire body is: "**Umbralogic Technologies LLC, doing business as ChipFoundry, has acquired the
     assets of Efabless Corporation.** We invite you to explore our new solutions and services:
     https://chipfoundry.io https://chipfoundry.io/chipignite".
+  - **The rebrand can be dated to a fortnight from a third source.** ChipFoundry's YouTube channel
+    feed (`https://www.youtube.com/feeds/videos.xml?channel_id=UCKBHanCVU1lDAEggUOYsBvg`) carries a
+    video "**ChipCreate: Custom Silicon for Everyone**" published **2025-09-03** and a video
+    "**chipIgnite - Custom Silicon for Everyone**" published **2025-09-18** — the same title, the
+    same length of description, two weeks apart, with the product name swapped. The channel is now
+    `@chipIgnite`; the handle it used until then, `@ChipCreate`, is the one linked from the
+    2025-09-28 homepage capture and now returns HTTP 404.
   - **What demonstrably moved**, from the GitHub organisation listing: three repositories under
     `chipfoundry` have creation dates that **predate the organisation itself** and are Efabless's
     former flagship tools — `volare` (created **2022-03-18**, the SKY130/GF180MCU PDK version
@@ -212,7 +219,7 @@ happens to be 53% above the price a dead company used to charge.
     revenue has to be judged is small — but so is the capacity to absorb a bad shuttle.
   - **Corporate history.** "Similar founders" in the owner's account is confirmed: the CTO of the
     new company was an executive officer and director of the old one.
-- **Used in:** `CF-13`.
+- **Used in:** `CF-16`.
 - **Caveats:**
   - The `community` API is an opt-in directory, not a staff list. Six records is the size of the
     *directory*, not of the company or its customer base.
@@ -271,7 +278,7 @@ happens to be 53% above the price a dead company used to charge.
     an early-stage EDA investor, sits on that board; we name him because the filing does, **not**
     because we have any evidence he is the investor in question, and the repository should not imply
     that he is.
-- **Used in:** `CF-13`.
+- **Used in:** `CF-16`.
 - **Caveats:**
   - Form D covers exempt *securities* offerings. Debt, founder capital, revenue-financing, a
     foreign-only placement or an intra-family transfer need not appear.
@@ -387,7 +394,7 @@ happens to be 53% above the price a dead company used to charge.
     shuttles are comparable: 21 → 23 → 29 on the three completed/fabricating runs. **Three points
     is not a trend**, and `PAY-8`'s "+2.3%" year-on-year for ChipFoundry compares part-years.
   - **H6 (context).** 21, 23 and 29 paying customers per shuttle is the size of this business.
-- **Used in:** `CF-7`, `CF-11`, `CF-13`; supersedes the numbers in `OPG-9` and the ChipFoundry rows
+- **Used in:** `CF-7`, `CF-11`, `CF-16`; supersedes the numbers in `OPG-9` and the ChipFoundry rows
   of `PAY-8` with a dated series.
 - **Caveats:**
   - **ChipFoundry defines none of these words.** "Committed" is read here, as in `OPG-9`, as "paid
@@ -470,7 +477,7 @@ happens to be 53% above the price a dead company used to charge.
     only unsubsidised open-shuttle operator in existence moves its dates by one to three months
     routinely and deletes announced runs. A market design that assumes a fixed calendar is
     designing for a world that does not exist yet.
-- **Used in:** `CF-13`.
+- **Used in:** `CF-16`.
 - **Caveats:**
   - "Customer shipped" is ChipFoundry's own milestone; we have not verified that any customer
     received anything on those dates. Tiny Tapeout's independent dates (`CF-9`) are the only
@@ -515,7 +522,7 @@ happens to be 53% above the price a dead company used to charge.
     for `PRINCIPLES.md`: it is an independent, market-tested estimate of how far below cost the
     subsidised-and-then-dead price was. It is **not proof** — the two companies' cost structures,
     volumes and suppliers differ, and SkyWater's own prices moved over four years.
-- **Used in:** `CF-11`, `CF-13`.
+- **Used in:** `CF-11`, `CF-16`.
 - **Caveats:**
   - $14,950 buys 100 QFN parts and an eval board; $9,750 bought 100 QFN or 300 WCSP and five eval
     boards (`PAY-7`). The bundles are **not identical**, and nobody has costed the difference.
@@ -582,7 +589,7 @@ happens to be 53% above the price a dead company used to charge.
   - **`PAY-8` needs amending.** It flags "at least five ChipFoundry-era slots are Tiny Tapeout's own
     purchases"; this entry identifies exactly which five, and adds that they are **partly
     subsidised**, so the double-count correction in `PAY-8`'s combined table understates the problem.
-- **Used in:** `CF-11`, `CF-13`.
+- **Used in:** `CF-11`, `CF-16`.
 - **Caveats:**
   - "One slot per TT run" is an inference from the table's one-shuttle-per-run mapping; a TT chip
     might occupy more or less than a nominal slot, and TTSKY26a and TTSKY26b sharing CI2605 is the
@@ -626,7 +633,7 @@ happens to be 53% above the price a dead company used to charge.
   - **The auction design (context).** A customer's exposure when the operator fails is the whole
     lead time, and the lead time is nine months to two years. `PRINCIPLES.md` treats the auction as
     allocating capacity; this is the counterparty risk that sits behind the allocation.
-- **Used in:** `CF-13`.
+- **Used in:** `CF-16`.
 - **Caveats:**
   - Whether ChipFoundry's asset purchase (`CF-3`) covered any obligation to these customers is not
     stated anywhere public. We do **not** know who paid for TT08's recovery, and it should not be
@@ -675,7 +682,7 @@ happens to be 53% above the price a dead company used to charge.
   - **Revenue per employee, on the four people we can name (`CF-4`):** $1,091,350 ÷ 4 = **about
     $273,000**. If the company is eight people it is about $136,000, which for a US
     semiconductor-services business is not a viable figure. **This single ratio is the crux of the
-    verdict in `CF-13`**, and it is a derivation from a floor headcount, not a measurement.
+    verdict in `CF-16`**, and it is a derivation from a floor headcount, not a measurement.
 - **Bears on:**
   - **H6 (context).** The visible business is small and the derived gross is about $1m a year. The
     knowledge base and the marketplace are the artefacts of a product organisation, not of a large
@@ -684,7 +691,7 @@ happens to be 53% above the price a dead company used to charge.
     slots, and an empty contests list. Efabless ran design contests with free fabrication as prizes
     (`OPG-6`); ChipFoundry's contest table is empty. Whatever community activity there is, it is not
     visible here.
-- **Used in:** `CF-13`.
+- **Used in:** `CF-16`.
 - **Caveats — and these matter more than the numbers:**
   - **Every revenue figure above is committed slots × list price. It is not a measurement**, it is
     the same derivation `PAY-8` makes, with the same three holes: committed may be a deposit, pool
@@ -746,7 +753,7 @@ happens to be 53% above the price a dead company used to charge.
     the thing three operators independently chose.**
   - **H6 (context).** MPW yield is a shared-fate problem between customers. A pooled run externalises
     one customer's design error onto their neighbours, and the operator absorbs the dispute.
-- **Used in:** `CF-13`.
+- **Used in:** `CF-16`.
 - **Caveats:**
   - The 50% rule is reported by Tiny Tapeout, not stated on ChipFoundry's own site; the FAQ's
     version is the vaguer "minimum customer commitment threshold". Treat the *number* 50% as
@@ -755,9 +762,240 @@ happens to be 53% above the price a dead company used to charge.
     is not an accounting statement, and the ≤7-slot bracket rests on the `CF-6` capture dates.
   - The knowledge-base article's closing sentence is truncated in the API payload as fetched.
 
+### CF-13. The terms: a minimum of **20 confirmed participants** per shuttle, full pre-payment two weeks before the submission deadline, and a deposit that went from $200 refundable-at-Efabless to $500 non-refundable
+
+- **Sources**, all fetched live on 2026-09-20 and all found from `https://chipfoundry.io/sitemap.xml`
+  (none of them is linked from the front page):
+  - <https://chipfoundry.io/reservations> — "chipIgnite Shuttle Reservation Deposit"
+  - <https://chipfoundry.io/commercial-terms> — "chipIgnite Commercial Terms", "**Last Updated:
+    November 13, 2025**"
+  - <https://chipfoundry.io/payment-terms> — "ChipFoundry.io Payment Terms", "**Last Updated: April
+    22, 2025**" (a stale page, still describing the launch terms)
+- **Verification:** **Verified 2026-09-20**, all three fetched with `curl --compressed` and read in
+  full.
+- **What it says**, verbatim:
+  - **The threshold, as a number.** The reservations page: "**A minimum of 20 confirmed participants
+    is required for a shuttle fabrication run to proceed.** ChipFoundry provides regular reservation
+    updates and will notify you once this threshold is met."
+  - **The payment schedule** (commercial terms, 2025-11-13): "Initial Deposit: **$500 USD** due at
+    reservation / First Milestone Payment: **50% of remaining balance due 60 days before** shuttle
+    submission deadline / Final Payment: Remaining balance due **14 days before** shuttle submission
+    deadline."
+  - **The launch schedule, for comparison** (payment terms, 2025-04-22): "A **non-refundable deposit
+    of $200 USD** is required to secure a reservation" / "Final Payment: Remaining balance due **30
+    days before** shuttle submission deadline."
+  - **The live reservation prices**: "Reservation for **CI2609** … **$500** per project" and
+    "Reservation for **CI2612** … **$500** per project."
+  - **Customer cancellation** (commercial terms): "The commitment deposit and final deposit are
+    refundable if cancellation is requested prior to the commitment deadline… After the commitment
+    deadline, the commitment deposit and final deposit are **non-refundable**. However, customers may
+    apply these deposits to a future shuttle, subject to availability, upon payment of a **$500 USD
+    change fee**." The April 2025 page had a softer ladder: 75% refund more than 60 days out, 50% at
+    30–60 days, none inside 30 days.
+  - **Delivery** (both pages): "Standard delivery is expected **approximately 5 months after the
+    submission deadline**."
+  - **Governing law and venue**: "binding arbitration in the **county of San Mateo, California**."
+    Efabless's SEC filing gives its address as **San Carlos, CA**, which is in San Mateo County
+    (`CF-5`).
+  - **IP**: "Customers retain all intellectual property rights to their design. ChipFoundry makes no
+    claim to ownership of Customer designs." / "Appropriate NDAs can be executed upon request."
+- **DERIVED (arithmetic written out), and this is the most useful set of numbers in the file:**
+  - **Every completed ChipFoundry shuttle has landed just above the stated minimum of 20.** CI2509
+    finished at **21** (minimum + 1), CI2511 at **23** (+3), CI2605 at **29** (+9). **Not one has
+    landed below it, and not one has landed far above it.** Read against `CF-6`'s finding that
+    `committed` climbs almost entirely in the last few weeks, the picture is of a business that
+    scrapes over its own viability line each time and then runs.
+  - **CI2609 is currently at 16 committed** (`CF-6`, read 2026-09-20), **four short of the stated
+    minimum**, with a projected tapeout of 2026-09-16 that has already passed. Either more
+    commitments have arrived and the API has not caught up, or the run is being held. **This is the
+    first ChipFoundry shuttle visibly at risk against its own published rule**, and it should be
+    re-read.
+  - **ChipFoundry is fully pre-paid roughly nine months before it delivers.** Final payment falls 14
+    days before the submission deadline; `CF-7` measures actual delivery at **193–250 days after
+    tapeout**. So the customer's money sits with the operator for **seven to eight months after the
+    last payment**, and the operator carries no receivable at all. **This is the single most
+    important structural fact about the business model**, and `PRINCIPLES.md` should state whether
+    the auction it proposes is pre-paid on the same terms. An MPW operator that is pre-paid does not
+    need working capital for the run; it needs only to survive between runs.
+  - **The deposit tripled, from $200 to $500, and Efabless's $200 was refundable** ("$200 reservation
+    fee (fully refundable if minimum projects not met)", `PAY-7`) **while ChipFoundry's has been
+    non-refundable from the start.** The final-payment date also moved *later*, from 30 days to 14
+    days before the deadline — a concession to customers, taken at the same time as the deposit was
+    tripled.
+  - **Reservation deposits are a revenue line nobody has counted.** `CF-6` gives `reserved` counts of
+    22, 24, 32, 21 and 3 across the five shuttles = **102 reservations**. At $500 non-refundable
+    that is **$51,000**, and at the earlier $200, proportionately less. It is small, but it is real
+    money that does not appear in `PAY-8` or in `CF-11`, and the ones that never convert to
+    `committed` are pure margin.
+- **Bears on:**
+  - **H6 (supports).** A published, numeric minimum of 20 customers is the clearest public statement
+    anyone in this sector has made about the size of a viable MPW run. **DERIVED:** 20 × $14,950 =
+    **$299,000** as the floor a SKY130 shuttle must book to proceed. That is a directly usable figure
+    for `PRINCIPLES.md` and it is the operator's own number, not ours.
+  - **The auction design (challenges, and it is the sharpest challenge in this file).**
+    ChipFoundry's mechanism is: a non-refundable option fee ($500), a commitment deadline 60 days
+    out at which half the money becomes non-refundable, full payment 14 days out, and a hard
+    quantity floor of 20 below which nothing happens. **That is not a price mechanism at all — it is
+    a quantity threshold with an option premium.** `PRINCIPLES.md` has to explain what an auction
+    does better than this, given that this is what the only unsubsidised operator actually built,
+    and given that the binding constraint it is designed around — you cannot run half a mask set —
+    does not go away under any pricing rule.
+  - **H5 (context).** "Customers retain all intellectual property rights" and "Appropriate NDAs can
+    be executed upon request" confirm `ACC-3`: this is a **private** shuttle with no open-source
+    requirement, so the visible design count (`CF-11`) will always understate the customer count.
+- **Used in:** `CF-16`.
+- **Caveats:**
+  - Three pages give three slightly different versions of the same terms, and the payment-terms page
+    is sixteen months stale and still names "ChipCreate" and the CC-era schedule. Which governs is
+    not stated. The commercial terms (2025-11-13) are the most recent and the most formal.
+  - "20 confirmed participants" is on the reservations page only; the FAQ and the commercial terms
+    both say only "minimum customer commitment threshold" without a number. Tiny Tapeout's
+    second-hand "50% of the MPW slots" (`CF-12`) is a *different* rule, and 50% of a 28–43 slot
+    shuttle is 14–22. The two are compatible but not identical; **it is possible the rule is "20 or
+    50%, whichever is greater"**, and we could not confirm it.
+  - Academic and volume discounts are "case-by-case"; none of the three pages gives a rate.
+
+### CF-14. The design contests are sponsor-funded, and ChipFoundry publishes their conversion: **234 proposals → 106 accepted → 3 fabricated**
+
+- **Sources**, fetched live 2026-09-20:
+  - <https://chipfoundry.io/challenges/microwatt> — "Microwatt Momentum Challenge 2025"
+  - <https://chipfoundry.io/challenges/bmlabs> — "The NVM Innovation Contest"
+  - <https://chipfoundry.io/sponsorship> — "Sponsor a Chipignite Design Challenge"
+  - <https://platform.chipfoundry.io/api/v1/showcase>
+  - The `chipIgnite` YouTube channel feed,
+    `https://www.youtube.com/feeds/videos.xml?channel_id=UCKBHanCVU1lDAEggUOYsBvg`
+- **Verification:** **Verified 2026-09-20.**
+- **What it says:**
+  - **The Microwatt Momentum Challenge 2025 publishes its own funnel as three headline figures:**
+    "**234** Submitted Proposals", "**106** Accepted Proposals", "**3** Winning Designs Fabricated".
+    Proposals were due 2025-09-22, final designs 2025-10-31. The three winners are named — MicroWatt-LX
+    SoC Generator, Minimal Hardware-Debugger with Microwatt, FPGA Fabric Integration with Microwatt —
+    and **they are exactly the three entries in ChipFoundry's public showcase API, all three tagged
+    `"shuttle_name":"CI2511"`** (`CF-11`).
+  - **The NVM Innovation Contest** (with BM Labs' ReRAM IP; proposals 2025-10-17, final designs
+    2025-11-03, winners announced 2025-11-08): "**The winning design will be submitted to the
+    November shuttle for free fabrication!** ChipFoundry will handle the tapeout and delivery of the
+    packaged silicon parts directly to the winning design teams." The November shuttle is CI2511.
+  - **Who pays.** ChipFoundry's sponsorship page sells exactly this: "Design Challenge Sponsorship
+    Package — **Fabrication of 1 winning project on an MPW Shuttle.** Hosting for 1 promotional
+    webinar…" and "Premium Design Challenge Sponsorship — **Fabrication of 3 winning projects on an
+    MPW Shuttle.** BEST VALUE. Hosting for 2 promotional webinars…". Both are priced "**Inquire for
+    Pricing**".
+  - The YouTube feed confirms the cadence of these programmes: "Webinar - OpenPOWER HW Design
+    Hackathon" (2025-09-11), "Webinar #2 - OpenPOWER HW Design Hackathon" (2025-09-25), "Webinar -
+    NVM Innovation Contest" (2025-10-12), "Webinar: Systems to Silicon Design Contest" (2026-03-05).
+    So there has been at least a third contest in 2026.
+- **DERIVED (arithmetic written out):**
+  - **The contest funnel is 234 → 106 → 3.** Acceptance 106 ÷ 234 = **45.3%**. Fabrication 3 ÷ 234 =
+    **1.28%**, or 3 ÷ 106 = **2.8%** of accepted proposals.
+  - **At least four of CI2511's 23 committed slots are contest prizes**, three from Microwatt and at
+    least one from the NVM contest — **17.4% of that shuttle** — plus the Tiny Tapeout slot (`CF-9`),
+    giving **at least five of 23, 21.7%, that no ordinary customer paid $14,950 for.**
+  - **But they are not free.** The sponsorship page shows ChipFoundry **selling** the prize slots to
+    a sponsor. So these slots are revenue — at an unpublished price, from a different kind of buyer.
+    **This cuts both ways for `CF-11`'s derivation and it is why that derivation cannot be tightened.**
+- **Bears on:**
+  - **H5 (challenges, and it is a direct hit on the repository's growth evidence).** 234 people
+    wrote a proposal; **three** got silicon. `PAY-8` already warns that Efabless's submission counts
+    included contest entries competing for a free slot (`OPG-6`). Here is the conversion rate for
+    that population, published by the operator: **1.3%**. **A contest proposal is not a customer, and
+    the ratio is two orders of magnitude.** Every submission-based growth figure in
+    `resources/demand/` should be read against this number.
+  - **H6 (supports, and this is a business-model finding worth more than it looks).** ChipFoundry has
+    found a **third party who will pay for a slot on behalf of somebody who would never have paid**:
+    an IP vendor or an ecosystem body buying a contest. That is the same economic move as Tiny
+    Tapeout's sponsors (`PAY-6`), SwissChips, and IEEE's TTSKY26b subsidy — **the long tail does not
+    pay for itself; somebody with a strategic interest pays for it.** For a project whose thesis is
+    that the tail can be served profitably, this is the most important pattern in the file after the
+    price.
+  - **H6 (context).** ChipFoundry's contest API (`/api/v1/showcase/contests`) returns `[]` while
+    three contests demonstrably ran. The platform's public surface understates the business.
+- **Used in:** `CF-11`, `CF-16`.
+- **Caveats:**
+  - "3 Winning Designs Fabricated" is ChipFoundry's own count and the showcase corroborates it, but
+    we did not verify that the three chips exist.
+  - Whether the NVM winner is inside or outside the 23 committed on CI2511 is unknown; we assume
+    inside.
+  - The sponsorship prices are not public, so the contest slots' contribution to revenue cannot be
+    estimated at all.
+  - 234 proposals for a *hackathon with free silicon as the prize* is not the same population as 234
+    people considering a $14,950 purchase. The 1.3% is a conversion rate for free-entry interest, not
+    for demand.
+
+### CF-15. ChipFoundry has built an "Anchor / Tenant" production-aggregation product — an operator independently reinventing the problem this project proposes to auction
+
+- **Source:** <https://chipfoundry.io/production> ("Production Aggregation — The Bridge Between
+  Prototyping and Mass Production"), fetched live 2026-09-20. The page is in the sitemap and in the
+  navigation, and the earliest Internet Archive capture of `/production` is **2026-02-11**.
+- **Verification:** **Verified 2026-09-20.**
+- **What it says**, verbatim:
+  - "chipIgnite is introducing a new fabrication model designed to lower the barrier to entry for
+    130nm volume production. **By aggregating multiple commercial projects onto a single production
+    mask set, we unlock economies of scale previously reserved for high-volume enterprise silicon.**
+    This **Anchor / Tenant** model serves two distinct customer needs: those who need control (The
+    Anchor) and those who need access (The Tenant)."
+  - "**The Anchor is the project that establishes the production schedule. By underwriting the
+    production tooling, the Anchor secures 'Schedule Sovereignty' — the right to determine the
+    tape-out date for a ChipFoundry-owned mask set that matches their product roadmap.**" Benefits:
+    "Schedule Control: You determine when the train leaves the station." / "Volume Economics: Access
+    high-volume unit pricing (**100k+ units**) immediately." / "**NRE Rebates: Receive financial
+    credits (up to $75k) as Tenants join the run, effectively subsidizing your initial
+    investment.**" Ideal for "Startups moving from MPW to their first commercial launch (**100k -
+    500k units**)."
+  - "**The Tenant is a 'rider' on an established Anchor run.** By utilizing the remaining capacity on
+    the Anchor's mask, Tenants gain access to production-grade manufacturing without the prohibitive
+    full-mask capital expenditure." Benefits: "**Reduced Capital Risk: Enter production for a 75%
+    lower NRE than a dedicated mask set.**" / "Low Volume Support: Economically viable production
+    runs starting as low as **10k units per year**." Ideal for "Niche industrial or IoT applications
+    (**10k - 50k units**)", "University spinoffs or 'Maker' products", "Secondary chips that do not
+    drive the primary system timeline."
+  - The specification table: Anchor "Mask Control: Primary (You set the date)", Tenant "Secondary
+    (**You match the date**)"; Anchor "NRE Investment: Standard Production Tooling", Tenant "**~25%
+    of Standard Tooling**"; Anchor "Volume Target: 100k+ Units / Year", Tenant "10k - 100k Units /
+    Year"; "Die Sizes: Full, 1/2, or 1/3 (Relative to Caravel Die)"; Tenant incentives "Volume Access
+    (**sub-$5.00 per unit**)".
+  - "Technical Baseline: Node: **SkyWater Technology 130nm CMOS**. Delivery: **Singulated, Untested
+    Die (Gross Die)**. Optional Services: Wafer Sort (Testing), QFN Packaging, Tape & Reel."
+  - The mechanism: "Anchor Commitment: The Anchor defines the tape-out date and underwrites the
+    reticle base. **Tenant Enrollment: ChipFoundry opens the 'Tenant Portal,' allowing compatible
+    designs to purchase slots on the Anchor's run.** Fabrication: the aggregation mask is generated
+    (**owned and managed by ChipFoundry**)… Delivery: Wafers are diced, and independent lots are
+    shipped to the Anchor and Tenants respectively."
+- **DERIVED:** Tenant NRE at "~25% of Standard Tooling" and "75% lower" are the same statement.
+  "Up to $75k" of Anchor rebate, if it is the whole of the Tenant NRE flowing back, implies a
+  standard production tooling NRE for which $75k is a plausible fraction — but ChipFoundry publishes
+  no absolute NRE figure, so **no dollar tooling cost can be derived from this page.**
+- **Bears on:**
+  - **The auction design (context, and this is the most directly relevant page ChipFoundry has
+    published for this project).** `PRINCIPLES.md` proposes that the right to schedule a run be sold,
+    and the repository owner's memory note records that "futures = someone wins the auction for you
+    at any cost". **ChipFoundry has shipped a named product that sells exactly that right**:
+    "Schedule Sovereignty — the right to determine the tape-out date". It sells it not by auction but
+    by **underwriting**: whoever pays the tooling sets the date, and everyone else matches it. And it
+    pays the Anchor a **rebate** as Tenants join — i.e. the Anchor is compensated, after the fact,
+    for the option value it created. That is a real, deployed, commercial answer to the same problem,
+    from the only unsubsidised operator there is, and `PRINCIPLES.md` must engage with it rather than
+    reason from first principles.
+  - **H5 (supports, cautiously).** The existence of the product implies ChipFoundry believes there is
+    a population of customers at 10k–100k units a year who cannot afford a mask set — the tail one
+    step up from prototyping. Whether any Anchor or Tenant has actually bought is **not stated
+    anywhere**, and the page has no customer names, no case study and no "sold out" marker.
+  - **H6 (context).** "Delivery: Singulated, Untested Die (Gross Die)" with sort, packaging and tape
+    & reel as options is the cost-to-serve discipline `SMB`-series entries keep finding: the
+    profitable version of a long-tail offer strips everything optional out of the base price.
+- **Used in:** `CF-16`.
+- **Caveats:**
+  - **This is a marketing page for a product that may have no customers.** First archived 2026-02-11;
+    nothing on the site, in the API or in the GitHub organisation shows an Anchor run existing. Treat
+    every number on it as a price list, not as trade.
+  - "sub-$5.00 per unit" and "up to $75k" are the only absolute figures and both are bounds, not
+    prices.
+  - The whole page is contingent on SkyWater accepting a ChipFoundry-owned production mask set; no
+    statement from SkyWater is public.
+
 ---
 
-## CF-13. Verdict: what ChipFoundry's record actually shows
+## CF-16. Verdict: what ChipFoundry's record actually shows
 
 **The honest headline: there is not enough public data to say whether an unsubsidised,
 investor-free open-shuttle business works. There is enough to say what it looks like while it is
@@ -781,6 +1019,17 @@ being attempted, and that picture is neither an endorsement nor a refutation.**
 5. **It has never once filled a shuttle** (`CF-6`). 21 of 28, 23 of 37, 29 of 43 planned; 21 of the
    40 it originally advertised. And its own `interest` figures, which run two to three times its
    slot count, get quietly revised down by 17–23% after the fact.
+6. **It publishes its own viability floor: 20 confirmed participants** (`CF-13`). **Every completed
+   shuttle has landed just above it** — 21, 23, 29 — and never far above it. **DERIVED:** 20 ×
+   $14,950 = **$299,000** is the operator's own number for what a SKY130 MPW run must book to
+   proceed.
+7. **It is paid in full about nine months before it delivers** (`CF-13`): final payment falls 14
+   days before the submission deadline, and delivery lands 193–250 days after tapeout. The operator
+   carries no receivable and needs no working capital for the run itself.
+8. **It does not rely on the shuttle alone.** It sells reservation options ($500 non-refundable,
+   `CF-13`), contest sponsorships (`CF-14`), IP, commercial SRAM, ReRAM, ML, support and design
+   review, and it has launched an "Anchor / Tenant" **production** aggregation product (`CF-15`).
+   None of that is visible in any number we can derive.
 
 **What that adds up to, stated carefully.**
 
@@ -795,7 +1044,14 @@ survivable on shuttle revenue alone — which is presumably why production volum
 ML and support packages are all on the price list behind "Request a Quote", and why none of them is
 visible to us.
 
-**Three findings that should change how this repository argues.**
+**And there is one live warning sign.** CI2609 stood at **16 committed on 2026-09-20** against the
+published minimum of 20, with a projected tapeout of 2026-09-16 that has already passed (`CF-6`,
+`CF-13`). If that number is current, it is **the first ChipFoundry shuttle to reach its tapeout
+date below its own stated threshold.** It should be re-read before anything is concluded from it —
+`committed` climbs late (`CF-6`) and the API may simply be stale — but it is the single most
+informative number anyone could check next.
+
+**Four findings that should change how this repository argues.**
 
 - **Interest is not demand, and the operator agrees.** `CF-6` is the first place in this repository
   where we can watch an operator mark its own funnel down. Every "oversubscribed" figure elsewhere
@@ -806,18 +1062,35 @@ visible to us.
   suddenly isn't. Any market design — including this project's auction — that needs a demand signal
   earlier than the deadline is asking for information that does not exist yet.
 - **Three independent unsubsidised operators all chose a threshold, not a price.** Efabless's $200
-  deposit and "minimum project capacity", ChipFoundry's 50% rule and two-month go/no-go, and
-  `DEM-10`'s 50% clause (`CF-12`, `PAY-7`). `PRINCIPLES.md` proposes clearing that risk through an
-  auction. **It now has to explain why an auction beats the mechanism every practitioner picked**,
-  and "they didn't think of it" is not the answer — the answer has to engage with the fact that
-  below a threshold there is no price at which a single-customer mask set makes sense.
+  refundable deposit and "minimum project capacity", ChipFoundry's **20-participant minimum** with a
+  $500 non-refundable option fee and a 60-day commitment deadline, and `DEM-10`'s 50% clause
+  (`CF-12`, `CF-13`, `PAY-7`). `PRINCIPLES.md` proposes clearing that risk through an auction. **It
+  now has to explain why an auction beats the mechanism every practitioner picked**, and "they
+  didn't think of it" is not the answer — the answer has to engage with the fact that below a
+  threshold there is no price at which a single-customer mask set makes sense.
+- **Somebody with a strategic interest pays for the tail; the tail does not pay for itself.**
+  ChipFoundry's contest slots are **sold to a sponsor** (`CF-14`), its Tiny Tapeout slots are partly
+  **subsidised by ChipFoundry itself** (`CF-9`), and Tiny Tapeout's own shuttles are in turn
+  sponsored by IEEE, SwissChips, Tillitis and ChipFoundry (`PAY-6`). Meanwhile the contest funnel is
+  **234 proposals → 3 chips, 1.3%**. For a project whose thesis is that a long tail of small
+  customers can be served profitably, this is the pattern to answer: **at the thin end, the person
+  who wants the chip is not the person who pays for it.**
+
+**And ChipFoundry has already shipped a product that does part of what this project proposes.** The
+"Anchor / Tenant" production model (`CF-15`) sells "**Schedule Sovereignty — the right to determine
+the tape-out date**" to whoever underwrites the tooling, lets others buy slots on that run at "~25%
+of Standard Tooling", and **rebates the Anchor up to $75k as Tenants join**. That is an
+underwriting-plus-rebate mechanism for exactly the scheduling right `PRINCIPLES.md` proposes to
+auction. Whether anyone has bought it is unknown. Either way, `PRINCIPLES.md` should say how an
+auction differs from it and why that difference matters.
 
 **What would settle it, and what we would need.** A single statement of revenue, headcount or
 profitability from ChipFoundry; the terms of the Efabless asset purchase; the realised average price
-per slot after pool discounts and Tiny Tapeout subsidies; and CI2609's and CI2612's final committed
+per slot after academic discounts, volume pools, contest sponsorships and Tiny Tapeout subsidies;
+whether any Anchor or Tenant has bought a production run; and CI2609's and CI2612's final committed
 counts, which will be the first data point on whether 21 → 23 → 29 is a trend. Until then this file
-records a company that is **surviving, small, priced to survive, and not yet demonstrably
-profitable** — and says no more than that.
+records a company that is **surviving, small, priced to survive, pre-paid, diversifying away from
+the shuttle, and not yet demonstrably profitable** — and says no more than that.
 
 ---
 
@@ -831,7 +1104,10 @@ profitable** — and says no more than that.
 | **Web search** | This session's web-search budget was exhausted before the search for a profitability statement could be run. `html.duckduckgo.com/html/?q=…` returns a results-free shell to `curl`. | **Blocked.** |
 | **Trade press** | No SemiEngineering, EE Times, Electronics Weekly or Hackaday article about ChipFoundry was reachable without search. The only contemporaneous third-party reporting we found is Tiny Tapeout's own news posts, which are a sponsee writing about a sponsor. | **Partial — one interested source only.** |
 | **Conference talks** | FOSSi Dial-Up, ORConf, FOSDEM, Hackaday Supercon and RISC-V Summit slides were not reachable without search, and video transcripts were not attempted. Given `CF-4`'s founders, a talk very probably exists and would be the likeliest place to find a funding or profitability statement. **This is the highest-value unexplored lead.** | **Not attempted.** |
-| **ChipFoundry's Spanish-language customer story** | The 2025-09-28 homepage capture carries a headline, "De la comunidad al silicio: una historia de chipIgnite con Silicluster" — in English, "**From the community to silicon: a chipIgnite story with Silicluster**". The linked article was not retrieved, and the headline is gone from later captures. | **Lead, not followed.** |
+| **ChipFoundry's Spanish-language customer story** | The 2025-09-28 homepage capture carries a headline, "De la comunidad al silicio: una historia de chipIgnite con Silicluster" — in English, "**From the community to silicon: a chipIgnite story with Silicluster**". It is a **webinar**, published to ChipFoundry's YouTube channel on **2025-10-07**; the video itself was not watched and no transcript was retrieved. It is the only named ChipFoundry customer story we found. | **Identified, not watched.** |
+| **ChipFoundry's webinars generally** | The channel feed lists sixteen videos from 2025-06-02 to 2026-03-18, including "Webinar - New CLI, OpenFrame, and Production" (2026-02-24) and "Webinar: Systems to Silicon Design Contest" (2026-03-05). **Any of these could contain the revenue, headcount or funding statement this task was looking for.** None was watched: no transcript API was used and video is out of reach of the tools here. **This is now the highest-value unexplored lead, ahead of the conference talks.** | **Not attempted.** |
+| **Contest sponsorship prices** | <https://chipfoundry.io/sponsorship> sells "Fabrication of 1 winning project" and "Fabrication of 3 winning projects" packages, both priced "Inquire for Pricing". | **Not published.** |
+| **Whether any Anchor or Tenant has bought a production run** (`CF-15`) | Nothing on the site, in the API or in the GitHub organisation names a production customer. | **Not found.** |
 | **`/api/v1/shuttles`, `/api/v1/users/me`, `/api/v1/organizations/*`, `/api/v1/support-tickets`** | Return `{"detail":"Not authenticated"}` or 404. No account was created. | **Blocked, by policy.** |
 | **The Efabless asset purchase terms** | One sentence exists publicly (`CF-3`). No price, no schedule of assets, no completion date, and no statement of what happened to customer obligations. | **Not found.** |
 | **What ChipFoundry charges Tiny Tapeout** | Neither party publishes it; ChipFoundry says only that it subsidises "a portion" (`CF-9`). | **Not found.** |
