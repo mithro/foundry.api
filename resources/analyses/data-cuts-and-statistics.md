@@ -5,8 +5,8 @@ is either quoted from a repository entry or computed by a script printed in plac
 the repository is derived, it has been recomputed from the quoted primary numbers and the answer is
 stated even when it disagrees with us.*
 
-**Status: in progress.** Sections are committed as they are finished. The verdict table and the
-arithmetic errata are at the end and are being filled in as the cuts complete.
+**Status: complete.** Sections 1-11 below. The verdict table and the
+arithmetic errata are at the end.
 
 ---
 
@@ -816,5 +816,293 @@ carried in the same sentence as the 97.6%.
 
 ---
 
-*Sections 7 (sensitivity), 8 (arithmetic errata), 9 (small-number statistics), 10 (verdict table)
-and 11 (the strongest argument against the project) follow.*
+## 7. Cut: sensitivity — how far must each input move before the conclusion flips?
+
+A conclusion that survives a 50% error in its inputs is worth more than one that needs them exact.
+Here is which is which.
+
+| # | Conclusion | What would have to be wrong | Verdict |
+|---|---|---|---|
+| A | **chipIgnite grew** (+94.8%/yr, 2021–2024) | Replace submissions with **slots**, a hard upper bound on paying customers: 32 → 60 → 93 → 160, **+71.0%/yr**. To flatten, 2024 must fall from 377 to 51 — an 86% overstatement. | **Very robust** |
+| B | **Tiny Tapeout grew** | To flatten, the final year must fall by 82–89% on every measure (first-time designs, tiles, active designers). | **Very robust** |
+| C | **Traditional demand is declining** | No datum need be wrong at all. Moving the Europractice window's start from 2021 to 2022 **flips the sign**, from −6.5%/yr to +1.0%/yr. | **Fails immediately** |
+| D | **JLC: the long tail generates almost all the gross profit** | For the long tail to fall below 90% of gross profit, the big-batch margin must reach 12.5%; below 80%, 28.0%; below 75%, **37.4% — higher than the long tail's own 36.24%**. | **Very robust** |
+| D′ | **JLC: 13.1× revenue per unit of gross profit** | A **1 pp** error in one printed number gives 9.6× or 20.6×. The same figure was 3.6× and 4.9× in the two prior years. | **Fragile** |
+| E | **Open-programme participation is far less concentrated than a foundry's revenue** | TT effective designers 378.5 (bootstrap CI 219–950) of 2,625 = 14.4% (CI 8.4–36.2%); TSMC 11.8 of 522 = 2.3%, or 1.3% on the correlated-tail variant. The gap is 4× at the very worst end and 28× at the point estimate. | **Robust** |
+| F | **Lifetime value is small** | For LTV to reach €500 at €70 a tile, mean designs per designer must be 7.1 against an observed 1.68 — a 4× error. €1,000 needs a 9× error. | **Robust** |
+
+**The pattern is stark.** Everything the project claims about the *open* side survives errors of 80%
+or more. Everything it claims about the *traditional* side fails on a one-year change of window.
+The asymmetry is not in the project's favour, because the two-population contrast needs both halves.
+
+### 7.1 The interest → committed discount, applied honestly
+
+ChipFoundry is the only operator publishing both sides. Pooled conversion **73/202 = 0.361**, 95% CI
+[0.298, 0.430] (beta, treating each expression of interest as a trial — which over-states precision,
+because the three shuttles are not exchangeable).
+
+| Count | As published | × 0.361 | 95% CI |
+|---|---:|---:|---|
+| Efabless submissions (`OPG-1`) | 1,584 | 572 | [472, 681] |
+| Google Open MPW (`OPG-1`) | 821 | 296 | [245, 353] |
+| chipIgnite submissions (`OPG-7`) | 763 | 275 | [227, 328] |
+
+**Where it must not be applied:** Tiny Tapeout tiles and Europractice fabricated designs are
+completed transactions, not expressions of interest, and discounting them would be wrong. `DEM-1`,
+`DEM-2` and `DEM-16` are safe. `OPG-1`, `OPG-2`, `OPG-7` and every "oversubscribed" percentage in
+the repository are not.
+
+Applied to `OPG-1`'s headline: **1,584 submissions is on the order of 570 paid projects**, and on
+the repository's own bound of 578–1,232 distinct people, that is roughly one paid project per person
+over the whole life of the Efabless programme.
+
+---
+
+## 8. Arithmetic errata
+
+**Every `DERIVED` figure in `resources/` was recomputed from its quoted primary numbers. About 120
+checks were run (`tmp/errata.py`). Not one arithmetic error was found.** That is an unusual result
+and it should be recorded as such: the repository's arithmetic is sound.
+
+What follows is therefore a list of **wording, framing and reconciliation errors**, not arithmetic
+ones. They are listed in descending order of how much they matter.
+
+| # | File / entry | What it says | What the arithmetic says |
+|---|---|---|---|
+| 1 | `demand/shuttle-programmes.md`, `DEM-16`; `hypotheses.md` H5 | Europractice "ran between 363 and 614 designs a year for the whole of 2000 to 2017 — eighteen years, essentially flat"; filed under H5 **Challenges** | The log-linear trend over those eighteen years is **+1.5%/yr, p = 0.0001** — a significant *rise* of 28% across the window. All three sub-series also rise (Research +8.1%/yr p = 0.0004; Academic +1.8%/yr p = 0.008; Industry +0.8%/yr p = 0.16). **It is weak support for H5, not a challenge.** |
+| 2 | `hypotheses.md` H5 | "every free or subsidised programme found has been oversubscribed — 45 submissions against 40 slots on Google's first Open MPW shuttle (DEM-4, DEM-6)" | `OPG-2` records Efabless's own platform labelling MPW-1 **`Undersubscribed`, 37/40 = 92%**, and `OPG-4` records the 45-vs-37 disagreement as unresolved. `OPG-2` and `OPG-3` further record CI 2106Q (57%), CI 2110C (70%) and CI 2204C (32%) as undersubscribed. **The sentence is contradicted inside the repository and should be struck.** |
+| 3 | `demand/open-programme-growth.md`, `OPG-15` | "submissions grew about 4× a year at the peak" | Google Open MPW went 37 → 147 across eight shuttles spanning 2020-11 to 2022-11: **about 4× over two years, i.e. ~2× a year.** chipIgnite grew 1.68–1.80× a year. Nothing in the repository grew 4× a year. Should read "about 4× over the series". |
+| 4 | `OPG-7` vs `OPG-1` | `OPG-7`: chipIgnite "grew roughly 1.7× a year for three consecutive years". `OPG-1`: "Roughly 1.7× a year, twice in a row" | The three steps are **2.45×, 1.80×, 1.68×**. `OPG-1` is right; `OPG-7` is not. The two entries contradict each other. |
+| 5 | `demand/efabless-and-the-open-shuttles.md` §2.2 | "Both programmes were free. The response differed by roughly eight-fold… This is the strongest single piece of evidence in the file" | 821 ÷ 98 = 8.4× is right, but it compares **821 submissions over ~3 years and 10 shuttles** with **98 applications to 6 programmes in one activity year**. Per year it is **2.8×**; per run, **5.0×**. The direction survives; the magnitude does not, and the document calls this its strongest evidence. |
+| 6 | `analyses/industry-parallels.md`, `PAR-5` vs `DEM-1` | `PAR-5`: "summing the Designs column across the 19 closed shuttles listed gives **4,049** designs". `DEM-1`: the same page, the same day, **4,268** across 23 rows | The difference is exactly the four bring-up shuttles TTGF0p3 (32), TTIHP0p4 (40), TTGF0p2 (52) and TTIHP0p2 (95) = 219. **Reconciled, but neither entry says so**, and a reader comparing the two will conclude one is wrong. |
+| 7 | `demand/design-starts-and-mature-nodes.md`, `TRAD-6` point 3 | "over the three unmeasured years 2013–2014" | 2013 and 2014 are **two** years. The arithmetic `(6,200/11,000)^(1/3)` is right for the 2012→2015 elapsed span; the wording is wrong. |
+| 8 | `hypotheses.md` H5 | "Tiny Tapeout has taken over 4,300 submissions in four years **at €70 a tile plus a devkit**" | `OPG-14` establishes that the price was **$100** all-in in 2023, **$150 sponsored / $300 standard** through 2024–25, and **€150 all-in (€70 per extra tile)** only from mid-2025. Quoting one price for a four-year series conflates populations facing a three-fold price range, and `OPG-14` says so explicitly. Also "over 4,300" is `DEM-2`'s API count, which excludes TT01–TT03; `DEM-1`'s page count of 4,268 includes them. The two are different populations. |
+| 9 | `demand/pricing-and-cost-to-serve.md`, `SMB-11` | "a small MPW customer pays roughly 300,000 times the silicon's share of a wafer's sale price… the ratio is about 40,000 times" | The arithmetic divides a **euro** price per mm² by a **dollar** price per mm². Converting at the entry's own ECB rate (`SMB-9`, EUR 1 = USD 1.1481) gives **349,000×** and **44,900×**. The orders of magnitude are unaffected, but the units are mixed. |
+| 10 | `demand/shuttle-programmes.md`, `DEM-2` | "4,314 submission records… 4,308 distinct `project_id`" | Re-fetched 2026-09-18/19: **4,318 records**. The entry's own caveat predicts this. Noted only to confirm the caveat is doing its job. |
+
+### 8.1 Two things that are right and look wrong
+
+- **`TRAD-19`'s reconstruction reproduces exactly.** Anchoring on 2005 = 3,623 and applying the
+  printed growth labels gives 2006 = 3,409 against the 3,408 that EE Times published independently.
+  All eight derived years were recomputed and match the entry.
+- **`big-customers-big-bets.md`'s effective-customer-count arithmetic reproduces exactly**, including
+  the 11.77, the 1.2332, the 1.52 and the "largest customer is 57% of the index".
+
+---
+
+## 9. Small-number statistics
+
+Poisson 95% confidence intervals on counts the repository quotes as trends:
+
+| Count | Value | 95% CI |
+|---|---:|---|
+| wafer.space Run 1 backers | 6 | [2.2, 13.1] |
+| wafer.space Run 2 backers | 18 | [10.7, 28.4] |
+| wafer.space Run 3 backers (live) | 5 | [1.6, 11.7] |
+| ChipFoundry CI2509 committed | 21 | [13.0, 32.1] |
+| ChipFoundry CI2511 committed | 23 | [14.6, 34.5] |
+| ChipFoundry CI2605 committed | 29 | [19.4, 41.6] |
+| IHP Dec-2023 designs | 2 | [0.2, 7.2] |
+| IHP Sep-2025 designs | 19 | [11.4, 29.7] |
+
+- **wafer.space 6 → 18** is a real rise (exact binomial p = 0.023) *if* the two runs are
+  exchangeable, which they are not — the goalpost moved during Run 1 (`OPG-12`) and Run 2 had a
+  placeholder goal. `OPG-12`'s "a 3× rise" should carry the CI.
+- **wafer.space 18 → 5** cannot be tested; Run 3 is still open.
+- **ChipFoundry 21, 23, 29** — OLS slope +4.0 per shuttle, **p = 0.179, n = 3. No trend can be
+  established.** `OPG-9`'s "the clearest picture available of the size of this business" is right;
+  any reading of direction from it is not.
+- **IHP's 2 → 68** is arithmetically +483%/yr and statistically meaningless off a base of 2.
+
+**The `DEM-10` survey (14% → 38% industrial) has no published base.** What sample size would make it
+significant:
+
+| n per wave | z | p |
+|---:|---:|---:|
+| 10 | 1.22 | 0.221 |
+| 20 | 1.73 | 0.084 |
+| **30** | **2.12** | **0.034** |
+| 50 | 2.74 | 0.006 |
+| 100 | 3.87 | 0.0001 |
+
+About **30 respondents per wave** would suffice. That is a plausible number for a programme of this
+size, so the finding is not implausible — but no CI can be computed and it must be quoted as a
+direction, never as "industrial customers are 38%".
+
+### 9.1 Base rates: who are these people?
+
+| Source | Academic | Commercial / industry | Hobbyist / other |
+|---|---|---|---|
+| Europractice 2024 (`DEM-16`) | 69% European universities and research institutes | 9% European industry | 22% non-European |
+| chipIgnite, per `OPG-8`'s footnote | 37 academic/yr (66%) | 19 commercial/yr (34%) | — |
+| Europractice, per `OPG-8` | 500 academic/yr (71%) | 200 commercial/yr (29%) | — |
+| Tiny Tapeout survey (`DEM-10`, **no base published**) | ~42% implied residual | 38% industrial | 20% hobbyist |
+| Google Open MPW MPW-1 (`DEM-4`) | — | — | "Approximately 60% … software, FPGA and hardware developers (non-IC experts)" |
+
+**Why this matters and why it cannot be resolved.** The four splits use four different taxonomies,
+one has no base, one is a 2022 internal document with no method, and the fifth counts a *skill*
+category rather than an *employer* category. `OPG-8`'s own caveat warns that its chipIgnite figures
+do not match `OPG-1`. Matt Venn's own year-in-review (quoted in the deep dive) attributes many Tiny
+Tapeout designs to "high schoolers and students — attendees of my … workshops".
+
+The honest statement: **a programme growing on student cohorts is different evidence from one
+growing on companies, and the repository cannot presently tell which it has.** The one series that
+could settle it — Tiny Tapeout's own survey — has no published sample. This is the single cheapest
+piece of missing evidence in the whole project.
+
+### 9.2 Survivorship
+
+The open-programme evidence is drawn from survivors. The denominator of programmes launched, as far
+as the repository records them:
+
+| Ran and continues | Ran and stopped | Never ran / failed |
+|---|---|---|
+| Tiny Tapeout, ChipFoundry, IHP, wafer.space, Cadence/SkyWater, Europractice, CMC, MUSE, MOSIS 2.0 | Google Open MPW (sponsor stopped), chipIgnite under Efabless (operator died), CMP (foundries withdrew), MOSIS free academic programme (funding ended), IHP free era (funding ended) | Open-V (11% of goal), Retro-uC (18%), Maverick-603 (funded then suspended), Libre RISC-V M-Class (abandoned) |
+
+That is **9 continuing, 5 stopped, 4 failed** — a survival rate of 9/18 = **50%** over the period,
+and every one of the five stoppages was a supply-side decision rather than a demand shortfall, which
+`efabless-and-the-open-shuttles.md` §3 establishes carefully and correctly.
+
+**How much does survivorship bias the growth rate?** It can be bounded. Two of the five stopped
+series are in the growth aggregate (Google Open MPW, chipIgnite) and both are included at their
+terminal values, which is the conservative treatment. The four failed crowdfunding campaigns were
+never in it. The honest statement is that **the bias is small for the shuttle series, because the
+repository already counts the dead ones**, and large for any inference from crowdfunding, where the
+repository counts four failures against one live campaign and `OPG-13` says so.
+
+The bias that *is* present, and is not acknowledged: **the repository has no record of programmes
+that were proposed and never launched, and no record of the five Crowd Supply open-silicon campaigns
+as a base rate.** `OPG-13` establishes that Crowd Supply's entire "Open Silicon" category contains
+four projects. A category with four entries after a decade is itself a finding.
+
+---
+
+## 10. Verdict table
+
+"Cannot address" is used freely and is not a criticism of the evidence-gathering; it means the data
+in `resources/` does not bear on the question in a way that survives a statistical test.
+
+| H | Claim | Hardest cut | Verdict |
+|---|---|---|---|
+| **H1** | The doom spiral: high NRE means only big customers can make chips, which pushes cost up again | §2.3 — the Gartner decline decomposed | **Supports, with a correction.** The decline is real and significant under every start year, but about **−5.2%/yr between the recessions** against −10%/yr with 2001 and 2009 in. `TRAD-15`'s point — that value, units and gate count *per design* rose while the count fell — means the count is partly measuring integration. The mechanism survives; the magnitude should be halved. |
+| **H2** | Customer concentration damages a foundry | §4.3 — concentration measured identically | **Cannot address from this data.** The repository's own Cirrus Logic counter-example (`ECON-20`) is a firm at the limit of the independent variable with margins moving the wrong way, and nothing in the demand data speaks to a foundry's margin by customer concentration. |
+| **H3** | Chasing scale is rational under the experience curve | — | **Cannot address.** No cut in this document bears on it. |
+| **H4** | Turning an idea into silicon can now be cheap | §5.3 — LTV and programme scale | **Supports on price, challenges on everything else.** €70 a tile is real and the price has fallen. But `PAR-3`/`PAR-4` give 1–5 attempts a year and 228–451 days, and §5.3 shows the whole worldwide line is €0.5–2.3m of gross revenue in four years. Cheap is established; consequential is not. |
+| **H5** | There is a long tail of demand for chips | §2.2 — the matched-window problem; §3.4 — retention | **Challenged, and the framing is wrong.** The open side's growth is robust to an 80% error and survives dropping any one programme (§2.5). The *contrast* does not survive, because the traditional decline is a 1994–2013 phenomenon and flips sign in the overlap window on a one-year change of start date (§7C). Separately, 74% of designers appear once and year-on-year retention outside port runs is 6–16% (§3.4), and 56% of the record 2025 was re-runs (§3.2). **The population is growing; it is a population of one-time experimenters.** |
+| **H6** | Small customers can each be profitable | §6 — the JLC attack; §5.3 — LTV | **Contested, and weaker than `long-tail-pays-for-the-capital.md` implies.** JLC's decomposition is arithmetically sound and robust (§7D), but it establishes that **small orders** carry the margin, not that **small customers** do (§6.4), and the big-batch segment may be the filler that makes the long-tail price sustainable (§6.5). On the open-silicon side, an LTV of €122–$521 with 85–90% never returning leaves no room for any cost to serve beyond a web form. |
+| **H7** | Many small customers reduce risk and remove buyer power | §4.3 — effective number of participants | **Supports, and this is the first real measurement.** Tiny Tapeout's effective number of designers is **14.4% of the nominal count** against TSMC's **2.3%**, bootstrap-robust (§7E). Against it: `OPG-11`'s IHP run where two intermediaries hold 71% of registered area, and `SMB-4`'s Shapeways with a million customers and one at 23% of revenue. **Concentration at the bottom of the market is real and must be watched.** |
+| **H8** | Openness is necessary to attract many small customers | §2.4 — free versus paid | **Cannot address.** The free/paid cut shows paid programmes growing *faster*, which is consistent with H8 and equally consistent with three other stories. No study of price transparency and small-buyer adoption exists (`PAR-6`, open question 5). |
+| **H9** | Many small, public experiments make a fab learn faster | §3.2 — the port runs | **Cannot address, with one relevant observation.** The IHP, GF and Cadence bring-up runs are precisely "many small public experiments used to qualify a new process", and they worked — 433 designs ported to IHP in one run. That is an existence proof of the *mechanism*, with no measurement of the learning. |
+| **H10** | Being paid for every attempt works in a world of skewed outcomes | §4.2 — the power-law test | **Challenges the framing.** The outcome distribution here is **not** a power law (CSN p = 0.000) and is only power-law-like above four designs (3–4% of designers). Gini 0.356 is mild. H10's premise of extreme skew is not what the one measurable distribution shows. The skew in `SW-3` and `SW-4` is much stronger; whether it transfers is untested. |
+| **H11** | Markets and insurance can replace foundry judgement | §6.5 — the filler question | **Cannot address, with one warning.** If JLC's near-zero-margin bulk segment is capacity filler that carries fixed cost, a fab that sells *only* to the long tail has no filler and no buyer of last resort for idle capacity. `PRINCIPLES.md` should say who buys the slack. |
+
+---
+
+## 11. The strongest argument against the project, built from our own evidence
+
+This is the most valuable section in the document and it is made as strong as it honestly can be.
+
+---
+
+**The project's case is a contrast between two populations. The contrast does not exist in the
+data, and what is left in its place is a hobby.**
+
+**First, half the contrast is missing.** The claim is that conventional chip demand is shrinking in
+number of customers while open-entry demand grows. The only evidence of a shrinking conventional
+population is Gartner's ASIC design-start series. It ends in 2013 and its final five points are a
+forecast made in March 2009 at the bottom of the financial crisis (`TRAD-19`). Every open-programme
+series begins in 2020. **There is not one year in which both halves of the contrast are measured.**
+In the six years where anything overlaps — 2020 to 2025 — the conventional side does not decline:
+Europractice's trend flips sign depending on whether you start in 2021 or 2022 and is significant in
+neither direction; CMC's fall has p = 0.80 on seven points; TSMC's product count is up 17.9% and its
+customer count is flat. The repository's own design-starts file already reaches this conclusion by a
+different route — "The broad 'design starts are collapsing' claim, as drawn on the owner's chart,
+does not survive." The statistics agree. **The doom spiral may be real; nothing we hold measures it
+after 2013.**
+
+**Second, the growth that does exist is the wrong shape.** The open side genuinely grows, robustly,
+at 70–95%/yr, and it survives dropping any one programme. But the per-designer data — which nobody
+had looked at until this document — says what is growing is a stream of one-time experimenters.
+**73.6% of designers make exactly one design. Outside the process-port runs, 85–90% of designers on
+any given shuttle have never used the programme before, and year-on-year retention is 6% to 16%.**
+Fifty-six per cent of the record 2025 was the same designs run again on a new process. A business
+whose customers never return is not compounding; it is refilling a leaking bucket, and it must
+acquire its entire customer base again every year, for ever.
+
+**Third, the money is not there, by two independent measures.** The whole worldwide output of the
+most successful open-silicon programme ever run is **7,728 tiles in four years** — between €540,960
+and $2.3 million of gross revenue depending on which of its own published prices you use.
+`SMB-5` records MOSIS at "up to $10 million annually at its peak", in 1990s money, and the
+repository correctly calls that "smaller than one mid-sized customer of a real fab". The open-PDK
+era is an order of magnitude *below* MOSIS. Lifetime value per acquired designer is **€122** at €70
+a tile and **$521** at the highest price the programme ever charged. And the one operator that
+publishes money committed rather than interest expressed — ChipFoundry — reports **21, 23 and 29
+paying customers per shuttle**, converting only **36%** of expressed interest, on shuttles planned
+for 28, 37 and 43. Nobody has ever published a count of paying open-shuttle customers above forty
+per run.
+
+**Fourth, the best profitability evidence is about the wrong variable.** `long-tail-pays-for-the-capital.md`
+is arithmetically impeccable — every figure reproduces, and its central finding survives a 1,200%
+error in its key input. But JLC's bands are defined by **order area** (<1 m², 1–20 m², >20 m²), not
+by customer size. What it establishes is that **small orders carry a high margin**. The step from
+there to "small customers are where the profit is" — which is what H6 needs — rests on an
+association asserted in the company's own business narrative, and JLC's disclosed top-five customers
+are Megmeet, Haier and Wasion. Worse, on any plausible revenue-per-m² ratio the near-zero-margin
+bulk segment is consuming **40% to 94% of the plant** for 2.4% of the gross profit. That is the
+signature of yield-management filler carrying fixed cost. If it is, the long tail's 36% margin is
+partly *enabled by* the bulk work — and a fab that sells only to the long tail, which is what the
+project proposes, has nobody to sell its idle capacity to.
+
+**Fifth, the distribution is not the one the argument assumes.** H10 rests on extreme skew: most
+attempts fail, a few produce most of the value, and the fab is paid either way. The one distribution
+in the repository that can actually be fitted is not a power law — Clauset–Shalizi–Newman rules it
+out with p = 0.000 over the body, and it survives only above four designs, which is 3–4% of
+participants. The Gini is 0.356, less unequal than household income in most countries. There is no
+fat tail of future giants visible in this data. There is a mild skew, a large one-time cohort, and
+about **1,250 recurring participants worldwide** after four years and three foundry processes.
+
+**Put together, the strongest hostile reading is this.** Open-PDK silicon has demonstrated,
+convincingly, that lowering the price of an attempt brings more people. It has not demonstrated that
+those people come back, that they pay enough, that there are enough of them, or that the population
+behind them is growing relative to anything. The conventional route it is supposed to be replacing
+has been flat-to-slightly-up for twenty-five years, not collapsing. And the one company built on
+exactly this thesis, at exactly these prices, growing at exactly these rates, could not raise a
+Series B — and the clearest public explanation of why remains a named observer's judgement that
+"people who use open source tools do it mainly due to cost and that is a tough customer base to
+profit from" (`OPG-16`). Nothing computed in this document contradicts him.
+
+---
+
+### 11.1 What survives, honestly
+
+The argument above is the strongest hostile case. It is not the whole truth, and three things
+survive it intact:
+
+1. **The growth is real and robust.** It survives an 80% error in the final year, survives dropping
+   any one programme, survives replacing submissions with slots (§7A), and is *faster* in the paid
+   programmes than the subsidised ones (§2.4). The project's claim that demand appears when price
+   falls is supported by demand people paid for.
+2. **The dispersion is real and now measured.** Effective participants are 14.4% of the nominal
+   count against 2.3% for TSMC's revenue, robust to bootstrap and to dropping the largest
+   participant. H7 has its first measurement.
+3. **The narrow version of the thesis is undamaged.** Not "fewer chips are wanted", but: *the number
+   of organisations for which a commercial custom chip is economically possible is small and stable,
+   the bar per design has risen, and the open route reaches a population the conventional route
+   structurally cannot.* Every cut in this document is consistent with that. It is the claim the
+   project should be making.
+
+---
+
+## Reproducing this
+
+Scripts, all run with `uv run python`, all removed after use per the repository's convention:
+`tmp/tt_dist.py` (per-designer distribution), `tmp/tt_reruns.py` (re-run share), `tmp/fitdist.py`
+(power-law fit and bootstrap), `tmp/conc.py` (concentration across datasets), `tmp/ltv.py` (cohorts,
+lifetime value, scale), `tmp/growth.py` (CAGRs, matched windows, free/paid, drop-one),
+`tmp/smalln.py` (Simpson, start-year sensitivity, Poisson CIs), `tmp/jlc.py` (the JLC attack),
+`tmp/sens.py` (sensitivity), `tmp/errata.py` (≈120 arithmetic checks).
+
+The only external data used are the public Tiny Tapeout endpoints, fetched 2026-09-18:
+`https://app.tinytapeout.com/api/shuttles/submission-stats` and
+`https://index.tinytapeout.com/<slug>.json` for 24 shuttles. Everything else is quoted from
+`resources/`.
