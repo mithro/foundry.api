@@ -316,3 +316,161 @@ PDK" or "contact us for a price", that sentence is the finding.** It was recorde
     parts of a PDK repository can carry different terms; the individual `LICENSE` files were not read
     for this entry.
 
+### ACC-7. wafer.space publishes a complete price card, sells four slot sizes through a public checkout, and does not require your design to be open
+
+- **Sources:**
+  - <https://wafer.space/> (price card and deadlines)
+  - <https://wafer.space/faq>
+  - <https://www.crowdsupply.com/wafer-space/gf180mcu-run-3>
+- **Verification:** **Verified 2026-09-18**, all three fetched with `curl` and read.
+  **Conflict of interest, stated plainly: wafer.space is the repository owner's own company.** Its
+  page footer reads "© 2025 Wafer Space PTE. LTD. All rights reserved." and gives a Singapore address.
+- **What it says:**
+  - **Published prices, four sizes, with the per-die price computed on the page:**
+
+    | Slot | Die size | Die area | Early Bird | Standard | Per die (early bird) |
+    |---|---|---|---|---|---|
+    | 1×1 | 3.93 × 5.12 mm | 20.12 mm² | $7,000 | $8,000 | $7.00 |
+    | 1×0.5 | 3.93 × 2.53 mm | 9.94 mm² | $4,000 | $5,000 | $4.00 |
+    | 0.5×1 | 1.94 × 5.12 mm | 9.93 mm² | $4,000 | $5,000 | $4.00 |
+    | 0.5×0.5 | 1.94 × 2.53 mm | 4.9 mm² | $2,000 | $3,000 | $2.00 |
+
+    Every slot is "1000 dies per slot". Add-ons: "Chip on Board Packaging $1,500 USD · $1.50 per die"
+    and "Full Undiced Wafer $2,000 USD".
+  - **No open-source requirement**, from the FAQ: "Do I have to open-source my design? No. The PDK is
+    open; your design can be open or closed."
+  - **No design service, by design**, from the same FAQ: "Can you help me with a pad ring? No, but the
+    community has created example pad-rings and review for common pitfalls." And: "Can I put multiple
+    test chips or multiple macros in one slot? Allowed. You own the full ~20 mm²."
+  - **A published, dated queue.** The home page prints "Campaign Opens 1 August 2026", "Early Bird
+    Deadline 30 September 2026 @ 11:59 PM AoE", "Purchase Deadline 9 December 2026 @ 11:59 PM AoE",
+    "Submission Deadline 16 December 2026 @ 11:59 PM AoE" and "Parts Shipped Q2 2027".
+  - **Published results.** "Run 1: Many Designs on a Single Reticle / 29 open-source designs from
+    universities, startups, and hobbyists worldwide", followed by a named list with the slot size, the
+    author and a source link for each.
+  - **The live campaign figures**, from Crowd Supply on 2026-09-18: "$121,500 raised", "of $1 goal",
+    "Funded!", "5 backers", "92 days left", "Funding ends on Dec 19, 2026 at 03:59 PM PST."
+- **Bears on:**
+  - **H8 (supports).** On the audit's criteria this is the most open commercial offer in the record:
+    prices published as numbers, a card checkout through Crowd Supply with no sales conversation, an
+    Apache-2.0 PDK, no eligibility rule published, no NDA, an open tool flow, a published schedule and
+    a published list of what was on the last run. It is also explicitly *not* an open-source
+    requirement, which separates "open access" from "open output".
+  - **H5 (challenges), unchanged from `OPG-12`.** 6 backers, then 18, then 5 so far. The most open
+    commercial offer in the record has sold fewer than thirty slots in a year.
+- **Used in:** [`../analyses/open-access-audit.md`](../analyses/open-access-audit.md).
+- **Caveats:**
+  - Self-interested: these are the repository owner's own pages.
+  - The "$1 goal" on Runs 2 and 3 makes the "Funded!" badge meaningless; `OPG-12` records this and the
+    moved goalpost on Run 1.
+  - No terms and conditions page was found on `wafer.space`; `wafer.space/faq/` (with the trailing
+    slash) returns **HTTP 404** while `wafer.space/faq` returns 200. Export-control terms, if any,
+    would be Crowd Supply's, and Crowd Supply's own terms were not read for this entry.
+  - "Backers" counts orders, not people.
+
+### ACC-8. Efabless's own account of who paid for what, and a subsidised closed-PDK competition that drew 82 designs in 45 days
+
+- **Source:** Team Efabless, "Efabless Year in Review 2020", published on the page "February 05, 2021",
+  read from the Internet Archive because `efabless.com` is gone:
+  <https://web.archive.org/web/20220629095422id_/https://efabless.com/news/efabless-year-in-review-2020>
+- **Verification:** **Verified 2026-09-18**, fetched with `curl` using the Wayback raw-content form and
+  read in full.
+- **What it says**, verbatim:
+  - **Who paid for the Open MPW programme.** "The Program is managed by Efabless, sponsored by Google
+    and championed by Google's Tim Ansell. SkyWater Technology played a key role by open sourcing its
+    130nm PDK, almost certainly an industry first. **The rules were simple; create a fully open source
+    design and Google would pay for your prototypes.**"
+  - **The result.** "In 30 days, the forty available slots were oversubscribed with submissions from a
+    global community of professionals and academics, ranging from IBM to a college freshman. The
+    majority were embedded software developers and hardware designers – not IC experts."
+  - **A second, closed programme with the same shape.** "The Open MPW Shuttle Project is similar in
+    many ways to AFRL's (Air Force Research Laboratory) design challenge for 14nm IC designs that
+    enable autonomous applications. In that case, **82 unique IC designs were submitted in 45 days –
+    80 percent from small enterprises and academics. Here the designs were proprietary, but the
+    entrants had to agree to publish their IC designs, the intended applications and other key
+    information in order to enter the challenge. If you were chosen, the cost of IP, EDA and foundry
+    would be covered.** Efabless served as a subject matter expert and kudo's to AFRL (led by Len
+    Orlando), AFWERX and Centauri (a KBR company) for their creativity and tireless efforts in this
+    groundbreaking initiative." And: "The project which commenced in late 2018, came to its successful
+    conclusion in 2020".
+  - **Who else was underwriting Efabless.** "We are collaborating with imec, to combine our low cast,
+    fast IC development with their world class supply chain solution – fab, assembly and test. Silicon
+    Catalyst, the leading incubator for ICs, added Efabless as an in-kind partner". And: "At Arm's
+    DevSummit 2020, Efabless co-presented with Arm and Mentor Graphics on delivering custom silicon
+    for sensor applications using the Tanner design flow, Arm-based templates, and foundry (XFAB) IP,
+    executed on the Efabless platform." (The typographical errors "low cast" and "kudo's" are in the
+    source.)
+  - On OpenLane's own funding: "Efabless delivered a complete chip development flow, called
+    OpenLane.io, incorporating the **DARPA-funded** no-human-in-the-loop OpenRoad project".
+- **Bears on:**
+  - **The audit's Axis 2 (who pays), directly.** `OPG-8`'s comparison table marks chipIgnite as the one
+    programme not requiring external funding. That is a claim about the *shuttle product*, not about
+    the *company*. By its own account in 2020, Efabless's platform was built on a Google-sponsored
+    shuttle, a DARPA-funded tool chain, an in-kind incubator partnership, a foundry that open-sourced
+    its PDK for it, and EDA and IP contributed by Mentor, Arm and X-FAB. `OPG-15` adds the CEO's own
+    list at the end: "Without the support of GlobalFoundries, SkyWater, Synopsys, Google, XFAB, AFRL,
+    Arm and many others, we would not have come this far." **The audit therefore cannot score
+    chipIgnite as an unsubsidised commercial programme without saying that the company running it was
+    substantially underwritten by others.**
+  - **H5 and H8 (challenges, and this is the best counter-example in the audit).** The AFRL design
+    challenge was a **closed**-PDK, invitation-by-competition, government-funded programme on a
+    leading-edge node where "the designs were proprietary" — the opposite of open access on every
+    criterion the audit scores except one (entrants had to agree to publish descriptions of their
+    designs). It drew **82 designs in 45 days**. Google's first open shuttle drew **45 designs in 30
+    days** (`DEM-6`, `DEM-7`, `OPG-5`; Efabless's own platform says 37, `OPG-2`). **DERIVED:** 82 ÷ 45
+    days = 1.82 designs a day, against 45 ÷ 30 = 1.50 a day. **A closed, subsidised, gate-kept
+    competition out-drew the open shuttle per day of window.** If openness were the dominant variable,
+    that should not happen.
+  - **H5 (context) on what the two have in common.** Both were free to the entrant, both were promoted,
+    and in both "the cost of IP, EDA and foundry would be covered" by someone else. What differs is
+    the PDK, the licence and the gate. **The AFRL number is the strongest available argument that the
+    variable which predicts response is "somebody else pays", not "the PDK is open".**
+- **Used in:** [`../analyses/open-access-audit.md`](../analyses/open-access-audit.md).
+- **Caveats, and they matter:**
+  - **This is Efabless's own newsletter describing a programme it was not running**, and the primary
+    AFRL/AFWERX source was **not found** — our web-search budget was exhausted before it could be
+    looked for properly. The 82 figure, the 45 days and the 80% are therefore **Partial**: read
+    verbatim from a page we opened, but at one remove from the body that ran the challenge.
+  - The two programmes are not comparable in several ways the derivation above ignores: the AFRL
+    challenge was at 14 nm with a prize of full IP/EDA/foundry cost, it ran inside a US defence
+    ecosystem with its own outreach, and it was a one-off competition rather than a standing service.
+    **The per-day derivation is an illustration, not a controlled comparison, and should never be
+    quoted as one.**
+  - "80 percent from small enterprises and academics" has no method behind it.
+  - The page is promotional and dated February 2021, before chipIgnite existed.
+
+### ACC-9. Efabless's own shuttle page said the programme was "open to anyone" — and listed six machine-checkable requirements
+
+- **Source:** Efabless Corporation, the MPW-7 shuttle page on `platform.efabless.com`, read from the
+  Internet Archive raw-content form:
+  <https://web.archive.org/web/20221204010751id_/https://platform.efabless.com/shuttles/MPW-7>
+- **Verification:** **Verified 2026-09-18** by fetching and reading the archived page directly. (The
+  same sentence is quoted in [`efabless-and-the-open-shuttles.md`](efabless-and-the-open-shuttles.md)
+  §2.3(a); this entry records an independent read of the source.)
+- **What it says**, verbatim:
+  - "The shuttle provides opportunities for designers to experiment and push the state-of-the-art
+    without having to reconcile the risk associated with the cost of fabrication. **The shuttle
+    program is open to anyone, provided that their project is fully open source and meets the other
+    program requirements. Costs for fabrication, packaging, evaluation boards and shipping are covered
+    by Google for this program.**"
+  - "Project Submission Requirements — The following project requirements must be met in order to
+    qualify for inclusion on the shuttle program: The project must be targeted on the
+    currently-supported Open PDK. The project must be posted on a git-compatible repo and be publicly
+    accessible. The top-level of the project must include a LICENSE file for an approved open-source
+    license agreement. Third-party source code must be identified and source code must contain proper
+    headers. … The repo must include project documentation and adhere to Google's inclusive language
+    guidelines."
+- **Bears on:**
+  - **H8 (supports).** Every requirement in that list is something a machine can check about a public
+    repository. None of them is a fact about who you are, where you live, what institution employs
+    you, or whom you know. That is what "open access" looks like when it is written down, and it is
+    the direct contrast with `OPG-17` (membership, country, institution type) and `ACC-5` (an
+    application TSMC approves, then an NDA).
+  - **H8 (challenges, in the same breath).** "open to anyone" was true of *applying*. `DEM-8` and
+    `DEM-21` establish that 40 projects were then selected per shuttle, by lottery; `OPG-2` records
+    MPW-8 finishing at 144 projects against 40 slots. **DERIVED:** 40 ÷ 144 = **28% accepted, so
+    roughly three applicants in four were turned away on the programme's last SkyWater run.** Open to
+    apply is not open to access, and this programme is the clearest case of the difference.
+- **Used in:** [`../analyses/open-access-audit.md`](../analyses/open-access-audit.md).
+- **Caveats:** the capture is dated 2022-12-04, during the MPW-8 era; earlier and later shuttles may
+  have worded their requirements differently. Efabless's live platform is gone.
