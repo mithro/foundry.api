@@ -1,11 +1,16 @@
 # The open-access audit: which small-customer programmes were actually open, and which were actually businesses
 
-**Status: first pass, committed incomplete on purpose.** Sixteen programmes are scored below,
+**Status: first pass, committed incomplete on purpose.** Seventeen programmes are scored below,
 including one MEMS programme (MEMSCAP's MUMPs, §3.16). The other MEMS shuttles — Silex, Teledyne
 DALSA, Tronics, IMT — and X-FAB, imec, Fraunhofer, VTT, EuroCDP and SkyWater's and GlobalFoundries'
 own direct offerings are **not yet audited** and are marked as such in the matrix. A matrix with
-sixteen rows filled in and the rest marked honestly is more useful than a complete one that does not
+seventeen rows filled in and the rest marked honestly is more useful than a complete one that does not
 exist.
+
+**One of our own claims has already been withdrawn.** `ACC-4` originally read Europractice's 2026
+price list as tightening its eligibility rules. `ACC-12` — CMP's October 2019 price list, recovered
+later in the same session — shows the condition was seven years old. The claim is corrected in place
+rather than quietly removed, and it is listed in §4 alongside everyone else's contradictions.
 
 ---
 
@@ -486,6 +491,42 @@ published prices and free documentation were sufficient, it should have grown. N
 year. **It is the audit's best single case that published prices and free documentation are not
 sufficient, and it sits directly against `ACC-8`'s case that an open PDK is not necessary.**
 
+### 3.17 MOSIS 2.0 (USC ISI, under CA DREAMS), 2024– — **1/6 scored · U(S)**
+
+The successor to §3.8, and it is a different organism. Audited from pages fetched during this session
+on 2026-09-18; **Partial**, because the pages were retrieved by a delegated agent that was terminated
+before reporting, and were read here from the saved files rather than re-fetched.
+
+| | Finding |
+|---|---|
+| A1 | **0.** **No price appears anywhere** on the MOSIS 2.0 home page, MPW-services page or IC-design page. A search of all three for a currency figure or the word "price" returns nothing. |
+| A2 | **0.** The route is a form and an account: "Don't miss out on any upcoming MOSIS 2.0 MPW runs. Click the button below to sign up and secure your spot!" under a button reading "MPW Run Sign Up", with "Login" in the site navigation. |
+| A8 | **1.** A public tapeout-schedule tool: "Please use the fields below to find a tapeout schedule for our available foundry services", with a "Foundry Service" selector listing GlobalFoundries, HRL, Intel, Northrop Grumman Corporation, RTX, Samsung, Sandia National Lab, SkyWater and Teledyne. The schedule carries a caveat: "Our DIB partners' MPW schedules are subject to change based on MOSIS 2.0 and Foundry internal schedules. Additional MPW tape-out opportunities may be available upon request for dedicated MPW services". |
+| A3, A4, A5, A6, A7, A9, A10 | **`?`.** Not established from the pages read. **No export-control, ITAR or citizenship text was found** on any of them — which is notable given the funder, and is an absence, not a finding. |
+
+**Axis 2: U(S) — a university institute inside a defence programme, and it says so.** From its own
+FAQ: "CA DREAMS, led by the University of Southern California Information Sciences Institute
+(USC/ISI), accelerates the development of onshore microelectronics hardware by uniting academic and
+industry institutions. As part of the **Department of War's Microelectronics Commons Program**, CA
+DREAMS focuses on three key objectives: advancing RF technologies for rapid prototyping, enabling
+seamless lab-to-fab transitions, and training the next generation of engineers and technicians in
+cutting-edge RF and microelectronics." And: "MOSIS 2.0 functions at the core of CA DREAMS by
+connecting innovators to a vast network of nanofabrication and foundry services". Page footer: "©2026
+University of Southern California". `SMB-5` already records that its goal is to "achieve
+self-sustainability within the next few years" — i.e. it is not self-sustaining.
+
+**The change that matters for this audit.** MOSIS 1.0 published its prices for decades — `SMB-8` has
+them down to the dollar, "$17,500 + ($4,000/mm² * area)". **MOSIS 2.0 publishes none.** The service
+that pioneered the published price list for small chip customers, and that was described by its own
+host as "a self-sustaining business for 40 years", has been rebuilt as a sign-up form inside a defence
+programme. **On the audit's first criterion it went backwards.**
+
+Its brokered portfolio is also far larger than 1.0's: "commercial silicon MPW services from leading
+foundries, including TSMC, Intel, Samsung, SkyWater Technology, GlobalFoundries, and Tower
+Semiconductor. Covering technology nodes from 12 nm to 350 nm", plus "three DoW-volume fabs—HRL
+Laboratories, Teledyne, and Northrop Grumman—to offer advanced group III/V MPW services". Breadth up,
+transparency down.
+
 ## 4. Where marketing and terms disagree
 
 Recorded prominently, as instructed, because each one is a finding in its own right.
@@ -499,6 +540,8 @@ Recorded prominently, as instructed, because each one is a finding in its own ri
 | **TSMC University FinFET** | Prices published to the euro | "Applications will be reviewed and approved by TSMC, after which an NDA will be shared" (`ACC-5`) | The sharpest case of the two criteria coming apart |
 | **chipIgnite / Efabless** | `OPG-8`: "Requires External Funding: **No**" | Its own newsletter and its CEO's letter name Google, DARPA, GF, SkyWater, Synopsys, X-FAB, Arm, AFRL and Silicon Catalyst (`ACC-8`, `OPG-15`); it died when a Series B failed | **The product was unsubsidised. The company was not.** |
 | **MOSIS** | "a self-sustaining business for 40 years" (`SMB-5`) | Its free academic arm was "supported by NSF and industry" and was discontinued in 2020 (`DEM-21`); MOSIS 2.0's goal is to "achieve self-sustainability within the next few years" | Two different things called MOSIS |
+| **MOSIS 1.0 → 2.0** | The service that pioneered published prices for small chip customers | MOSIS 2.0 publishes **no price at all**; the route is an "MPW Run Sign Up" form and a login (§3.17) | **It went backwards on the audit's first criterion** |
+| **Europractice eligibility** | We claimed the 2026 list tightened the rules (`ACC-4` as first written) | CMP's October 2019 list carries the same purpose condition for the same members (`ACC-12`) | **Our own overstatement, corrected.** What did change is that Belarus and Russia left the eligible-country list |
 
 ---
 
@@ -519,6 +562,7 @@ audited. **Score = points ÷ points available on the criteria actually establish
 | **Europractice** | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 1 | 0 | 0 | **3/20** | **S** | 753–985 designs/yr |
 | **MEMSCAP MUMPs** | 2 | 0 | 1 | 1 | 2 | 0 | 2 | 1 | ? | 1 | **10/18** | **P/M** | >80 runs in 31 yr; page gone 2023 |
 | **MOSIS 1.0** | 2 | 1 | 0 | 0 | ? | 0 | ? | 1 | ? | 0 | **4/14** | **U** | ~3,000 orders/yr at peak |
+| **MOSIS 2.0** | 0 | 0 | ? | ? | ? | ? | ? | 1 | ? | ? | **1/6** | **U(S)** | not published |
 | **TSMC Univ. FinFET** | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | ? | 0 | **3/18** | **S** | not published |
 | **MUSE Semiconductor** | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | ? | 0 | **1/18** | **P/M** | not published |
 | **TSMC cyberShuttle** | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | ? | 0 | **0/18** | **P/M** | not published |
@@ -528,7 +572,7 @@ audited. **Score = points ÷ points available on the criteria actually establish
 | Silex, Teledyne DALSA, Tronics, IMT | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
 | X-FAB, imec, Fraunhofer, VTT | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
 | SkyWater direct, GF direct | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
-| EuroCDP, MOSIS 2.0 terms | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
+| EuroCDP | — | — | — | — | — | — | — | — | — | — | **not audited** | — | — |
 
 **Read the Europractice row against the others carefully.** 3/20 against Tiny Tapeout's 16/20 is a
 real difference in access rules. It is *not* a claim that Europractice is worse at its job:
