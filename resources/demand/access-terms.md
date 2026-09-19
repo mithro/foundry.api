@@ -380,7 +380,35 @@ PDK" or "contact us for a price", that sentence is the finding.** It was recorde
     would be Crowd Supply's, and Crowd Supply's own terms were not read for this entry.
   - "Backers" counts orders, not people.
 
-### ACC-8. Efabless's own account of who paid for what, and a subsidised closed-PDK competition that drew 82 designs in 45 days
+### ACC-8. Efabless's own account of who paid for what — and a **retracted** comparison with the AFRL/AFWERX design challenge
+
+> **CORRECTION, 2026-09-19.** This entry used to be titled "…a subsidised closed-PDK competition that
+> drew 82 designs in 45 days", and it derived from that "82 ÷ 45 days = 1.82 designs a day, against
+> 45 ÷ 30 = 1.50 a day" for Google's first open shuttle, concluding that "**the variable which
+> predicts response is 'somebody else pays', not 'the PDK is open'**". **That derivation is withdrawn.
+> It was wrong on both denominators, wrong on the unit being counted, and it compared the AFRL
+> challenge against the weakest of Google's ten shuttles.** The primary sources are now in hand:
+> - **The window was 78 days, not 45.** The Air Force's own challenge page gives phase-1 submissions
+>   as "SUBMIT: 11/5/18 — 1/22/19" (`ACC-15`); Efabless's contemporaneous article calls it "just
+>   three months" (`ACC-13`). 82 ÷ 78 = **1.05 a day**, not 1.82. Nothing found in this search
+>   supports 45 days.
+> - **What was submitted was a proposal, not a design.** Phase 1 asked for "summary business plans
+>   including an architectural-level IC block diagram, a description of the targeted application …
+>   team bios" (`ACC-13`). A Google Open MPW submission was a GDSII that had to pass automated DRC,
+>   LVS and precheck (`ACC-9`). **The two units are not comparable and dividing either by days does
+>   not make them so.**
+> - **Google's MPW-1 window was 99 days, not 30.** Efabless's own platform page prints "November 12,
+>   2020: Project submission is OPEN" and "February 19, 2021: Project submission is CLOSED"
+>   (`OPG-20`). The "30 days" repeated in `DEM-4`, `DEM-6` and `DEM-7` is not the submission window.
+> - **MPW-1 was the cherry.** Against AFRL's 1.05 a day, **four of the six Google shuttles with a
+>   recoverable window are faster** — MPW-6 1.55, MPW-7 1.61, GF MPW-0 2.51, GF MPW-1 2.64, MPW-8
+>   **3.50** — and only MPW-1 (0.37–0.45) is slower (`OPG-20`).
+> - **There were no prizes.** "There is no charge to register, there is no charge to participate"
+>   (`ACC-15`); "no guarantees, no prizes and no contracts" (`ACC-13`).
+>
+> The **quotations below are unchanged and still Verified**; what changes is everything this entry
+> inferred from them. The corrected comparison is set out in
+> [`../analyses/open-access-audit.md`](../analyses/open-access-audit.md) §6.5.
 
 - **Source:** Team Efabless, "Efabless Year in Review 2020", published on the page "February 05, 2021",
   read from the Internet Archive because `efabless.com` is gone:
@@ -424,30 +452,35 @@ PDK" or "contact us for a price", that sentence is the finding.** It was recorde
     Arm and many others, we would not have come this far." **The audit therefore cannot score
     chipIgnite as an unsubsidised commercial programme without saying that the company running it was
     substantially underwritten by others.**
-  - **H5 and H8 (challenges, and this is the best counter-example in the audit).** The AFRL design
-    challenge was a **closed**-PDK, invitation-by-competition, government-funded programme on a
-    leading-edge node where "the designs were proprietary" — the opposite of open access on every
-    criterion the audit scores except one (entrants had to agree to publish descriptions of their
-    designs). It drew **82 designs in 45 days**. Google's first open shuttle drew **45 designs in 30
-    days** (`DEM-6`, `DEM-7`, `OPG-5`; Efabless's own platform says 37, `OPG-2`). **DERIVED:** 82 ÷ 45
-    days = 1.82 designs a day, against 45 ÷ 30 = 1.50 a day. **A closed, subsidised, gate-kept
-    competition out-drew the open shuttle per day of window.** If openness were the dominant variable,
-    that should not happen.
-  - **H5 (context) on what the two have in common.** Both were free to the entrant, both were promoted,
-    and in both "the cost of IP, EDA and foundry would be covered" by someone else. What differs is
-    the PDK, the licence and the gate. **The AFRL number is the strongest available argument that the
-    variable which predicts response is "somebody else pays", not "the PDK is open".**
+  - **H5 and H8 (the claim this entry used to make, now withdrawn).** ~~It drew 82 designs in 45 days
+    against Google's 45 in 30, so a closed, subsidised, gate-kept competition out-drew the open
+    shuttle per day of window.~~ **Retracted 2026-09-19.** See the correction note above, `ACC-13`,
+    `ACC-15` and `OPG-20`. What survives of the description is only this: the AFRL challenge was a
+    **closed**-PDK, entry-by-competition, government-funded programme at 14 nm where "the designs were
+    proprietary", and **82 proposals were submitted to its first phase.**
+  - **H5 (context) on what the two have in common — restated, and much weaker.** Both were free to
+    enter, both were promoted, and in both "the cost of IP, EDA and foundry would be covered" by
+    someone else *if you were selected*. That is a real similarity and it is worth keeping. But the
+    AFRL challenge converted **10 of 82** (`ACC-14`) while Google's first shuttle manufactured **40 of
+    45** (`DEM-4`), the AFRL number counts business plans and Google's counts GDSII, and the AFRL
+    response followed a hosted two-day boot camp that drew "more than 60" people in person seven weeks
+    before the deadline (`ACC-16`). **"Somebody else pays" remains a live hypothesis; this entry is no
+    longer evidence that it beats "the PDK is open", and it never was.**
 - **Used in:** [`../analyses/open-access-audit.md`](../analyses/open-access-audit.md).
 - **Caveats, and they matter:**
-  - **This is Efabless's own newsletter describing a programme it was not running**, and the primary
-    AFRL/AFWERX source was **not found** — our web-search budget was exhausted before it could be
-    looked for properly. The 82 figure, the 45 days and the 80% are therefore **Partial**: read
-    verbatim from a page we opened, but at one remove from the body that ran the challenge.
-  - The two programmes are not comparable in several ways the derivation above ignores: the AFRL
-    challenge was at 14 nm with a prize of full IP/EDA/foundry cost, it ran inside a US defence
-    ecosystem with its own outreach, and it was a one-off competition rather than a standing service.
-    **The per-day derivation is an illustration, not a controlled comparison, and should never be
-    quoted as one.**
+  - **This is Efabless's own newsletter describing a programme it was not running**, written in
+    February 2021 about a challenge whose first phase closed in January 2019. **The primary
+    AFRL/AFWERX source has since been found (`ACC-15`) and it contradicts this page on the window.**
+    Efabless's own contemporaneous article (`ACC-13`) also contradicts it, on the window and on the
+    unit. Where this page and the primary source disagree, **the primary source wins.**
+  - **The "45 days" is now believed to be simply wrong.** The Air Force's page gives 5 November 2018
+    to 22 January 2019. No document found in this search gives a 45-day window for anything in the
+    challenge.
+  - The two programmes were never comparable in the way the retracted derivation assumed: the AFRL
+    challenge was at 14 nm, ran inside a US defence ecosystem with its own outreach and a hosted boot
+    camp (`ACC-16`), gated everything after phase 1 on selection, and was a one-off six-phase
+    competition rather than a standing service. **The per-day derivation should not be quoted, by us
+    or by anyone reading this file.**
   - "80 percent from small enterprises and academics" has no method behind it.
   - The page is promotional and dated February 2021, before chipIgnite existed.
 
