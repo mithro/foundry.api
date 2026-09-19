@@ -418,3 +418,174 @@ programmes the arithmetic can be done to the euro. For the other it cannot be do
     record exists in the FP6 bulk export.**
   - `EUROCHIP` (1989–1995) is **not in CORDIS at all**, in any framework programme's export. The FP7
     hit on that acronym is an unrelated obesity-research consortium. See the blocked-sources list.
+
+### FUND-5. MOSIS's federal money arrived as *purchases*, not as a grant: a separate "DARPA/NSF" price list, and an educational programme paid for by NSF plus donated wafers
+
+- **Sources** (Internet Archive copies of `mosis.org` and `mosis.com`, both of which are gone from the
+  live web):
+  - "MOSIS DIRECT-FUNDING PRICE LIST (Valid July 1, 1996 through March 31, 1997)", archived
+    1997-01-16:
+    <https://web.archive.org/web/19970116072510id_/http://www.mosis.org/info/direct-funding-price-list.inf>
+  - "NSF-sponsored Educational Use of MOSIS — POLICIES AND PROCEDURES FOR EDUCATIONAL USE OF
+    DARPA/NSF SILICON BROKERAGE SERVICE (MOSIS)", archived 1997-04-18:
+    <https://web.archive.org/web/19970418072820id_/http://www.mosis.org/nsf-educational.html>
+  - "MOSIS FAQ: Educational Program", archived 2000-01-26:
+    <https://web.archive.org/web/20000126044247id_/http://www.mosis.org/Faqs/faq-education.html>
+  - "Budgets for Educational MOSIS Accounts", MOSIS announcement dated 1998-07-27, archived
+    1999-02-24:
+    <https://web.archive.org/web/19990224190349id_/http://www.mosis.org/New/Whatsnew/1998/980727-nsf-budgets.html>
+  - NSF award 9809025, "CARE: Advanced Semiconductor Technology Access for Educational Use",
+    University of Southern California: <https://www.nsf.gov/awardsearch/showAward?AWD_ID=9809025>
+    (read through the public NSF awards API, `https://api.nsf.gov/services/v1/awards.json`)
+- **Verification:** Verified 2026-09-19. The four archived pages were fetched with `curl` using the
+  Wayback `id_` raw-content form (as `search-log.md` §1 already records, `WebFetch` refuses
+  `web.archive.org`). The NSF award was read from NSF's public JSON API. **Wayback rate-limits
+  hard**: after four or five requests it returns `Failed to connect ... port 443`; an 8-second delay
+  between requests was enough.
+- **What it says:**
+  - **There were two price lists, and one of them was for the government.** The direct-funding list
+    opens, verbatim: "The MOSIS Direct-Funding Price List should only be used by a government
+    contractor whose sponsoring agency (**usually DARPA or NSF**) has sent fabrication funding
+    directly to MOSIS. If funding has been sent directly to MOSIS, the contractor's award will not
+    include any funds for fabrication. If your contract award DOES include funds for fabrication, you
+    should use the 'MOSIS Price List for Domestic (U.S.) Users.'" Its price column is headed
+    **"DARPA/NSF PRICE"**. On 2.0 µm CMOS, "Priced per project, price includes packaging":
+    2.30 × 2.30 mm TinyChip, lot of 4, **$510**; 4.6 × 6.8 mm, lot of 12, $2,490; 6.9 × 6.8 mm, lot
+    of 24, $5,690; 7.9 × 9.2 mm, lot of 32, $11,320.
+  - **The service's own name for itself, in an official policy document**, is
+    "**DARPA/NSF SILICON BROKERAGE SERVICE (MOSIS)**" (title of the 1997 educational policy page).
+    The same page: "NSF and DARPA will review proposals on a semiannual basis and will have final
+    authority on allocation of available funds to each project," and "Participants are expected to
+    test all designs and report their testing results to NSF and DARPA."
+  - **Who paid for the free academic programme.** The FAQ, verbatim: "**2. Who provides funding for
+    the MOSIS educational program?** Funding is currently provided by: National Science Foundation
+    (NSF) / American Microsystems, Inc. (AMI) / Hewlett Packard (HP) / The MOSIS Service". And, on
+    why research designs were excluded: "This is important, because **the fabricators providing free
+    wafers for this program** have only agreed to fabricate circuits designed by students in
+    regularly scheduled university classes." The programme's scope: "The MOSIS Educational Program
+    provides **free fabrication** of integrated circuits designed by students in organized classes at
+    accredited U.S. educational institutions." Universities paid nothing: "Universities are not
+    currently required to contribute any funding, however this may change in the future."
+  - **The subsidy was rationed by headcount, and it was over-allocated.** The 1997 policy: "Beginning
+    classes will receive budgets sufficient to fabricate one 2.0 micron CMOS TinyChip for **every two
+    students** enrolled"; advanced classes "one 2.0 micron CMOS TinyChip or one 1.2 micron CMOS Low
+    Noise Analog TinyChip **for each student**". The 1998 announcement: "On July 31, 1998, all
+    unspent funds in NSF-sponsored CLASS and ACLAS accounts will be removed from those accounts …
+    **In the past, budget allocations to educational accounts have significantly exceeded actual
+    requirements.**"
+  - **The one NSF award that can be found for MOSIS itself**: award 9809025 to the University of
+    Southern California, PI **Herbert Schorr** (ISI's executive director), 1998-10-01 → 1999-09-30,
+    **estimated total US$199,726, funds obligated US$199,726**. Abstract, verbatim: "The MOSIS
+    service, through this award, provides low-cost custom and semi-custom VLSI prototyping and
+    small-volume production quantities to educational institutions."
+- **DERIVED (arithmetic written out):**
+  - The DARPA/NSF TinyChip price of **$510** (1996-07 → 1997-03) against the domestic prices in
+    `SMB-8` for the same part a year or so later — **$620 standard, $590 discount** (valid through
+    1998-12-31) — is 510 ÷ 620 = 0.823, i.e. **17.7% below the standard price**, and 510 ÷ 590 =
+    0.864, i.e. **13.6% below the discount price**. The dates differ by about eighteen months, so
+    this is a rough comparison, but the direction is unambiguous: **the US government got a discount,
+    and it paid.**
+- **Bears on:**
+  - **H6 (supports, importantly).** This is the mechanism that makes `SMB-5`'s "self-sustaining"
+    claim and "receiving federal money" both true at once. DARPA and NSF did not write MOSIS an
+    operating grant covering a deficit; they **pre-purchased fabrication at a published rate**. A
+    service whose largest customer is a government buying at a price list is a business, and it is
+    exactly what foundry.api proposes to be, minus the government.
+  - **H6 (challenges).** The *free academic* half of it was a straightforward subsidy, and a large
+    part of that subsidy was not cash at all: **AMI and HP donated the wafers**. A model that assumes
+    a foundry sells machine time at a price has no room for a foundry giving the machine time away,
+    and MOSIS's education programme ran for decades on exactly that. It ended in 2020 (`DEM-22`).
+  - **H5 (context).** The rationing rule — one TinyChip per two beginning students — is a measurement
+    of how small the underlying demand was: the binding constraint on a free chip programme was the
+    class register, not anybody's willingness to pay.
+- **Used in:** not yet.
+- **Caveats:**
+  - **None of this is a budget.** The direct-funding price list shows that DARPA and NSF bought from
+    MOSIS; it does not show **how much** they bought. No annual total for DARPA or NSF purchases from
+    MOSIS was found anywhere.
+  - The $199,726 NSF award is a single year and is plainly a small slice of the educational
+    programme, not its cost. NSF's award database does not reach reliably back to 1981, and no
+    earlier MOSIS award is in it.
+  - The FAQ's funder list ("NSF, AMI, HP, The MOSIS Service") is undated beyond its 2000-01-26
+    capture, and "The MOSIS Service" appearing in its own funder list is unexplained: it may mean
+    cross-subsidy from commercial revenue, which would be the single most interesting fact in this
+    file if it could be confirmed. **It cannot be, from anything public.**
+  - Archived vendor pages are as MOSIS published them, not audited.
+
+### FUND-6. Testing "self-sustaining for 40 years" and "$10 million annually at its peak": the claims survive, the numbers behind them do not exist, and the decline is visible in MOSIS's own design counter
+
+- **Sources:**
+  - Stephanie Lee, USC ISI, "MOSIS 2.0's First Year: Bridging Research and Production", 2025-02-21:
+    <https://www.isi.edu/news/972800/mosis-2-0s-first-year-bridging-research-and-production/>
+    (the source already recorded as `SMB-5`)
+  - MOSIS announcement page header, archived 2002-04-01: "50,000 designs and more than 20 years of
+    experience":
+    <https://web.archive.org/web/20020401213036id_/http://www.mosis.com/about/news/2002/020306_mep.html>
+  - MOSIS, "About Us > What is MOSIS", archived 2012-02-03:
+    <https://web.archive.org/web/20120203055035id_/http://www.mosis.com/about-us>
+  - FPDS-NG public ATOM feed, <https://www.fpds.gov/ezsearch/FEEDS/ATOM?FEEDNAME=PUBLIC&q=…>
+- **Verification:** Verified 2026-09-19. The ISI page was re-read; the two archived pages were
+  fetched with `curl`; the FPDS query was run and its result counted.
+- **What it says:**
+  - The claims, as `SMB-5` records them: "Over four decades, MOSIS delivered more than 60,000
+    integrated circuit designs and generated up to $10 million annually at its peak"; "At its peak,
+    MOSIS fulfilled around 3,000 orders per year"; "Even though it was run by a university, it was a
+    self-sustaining business for 40 years."
+  - **Re-read on 2026-09-19, the 2025 ISI page still gives no year for the peak, no accounting basis,
+    and no staff number.** There is no second, independent source for either the $10 million or the
+    3,000 orders anywhere that this search reached.
+  - **MOSIS's own design counter, from its own site:**
+    - 2002-04-01 (page header): "50,000 designs and more than 20 years of experience"
+    - 2012-02-03: "Since 1981, MOSIS has fabricated more than 50,000 circuit designs for commercial
+      firms, government agencies, and research and educational institutions around the world."
+    - 2024/2025 (ISI): "more than 60,000 integrated circuit designs" over four decades.
+  - **FPDS-NG knows almost nothing about MOSIS.** A public ATOM query for
+    `DESCRIPTION_OF_REQUIREMENT:"MOSIS"` returns **10 contract actions in total**, of which only
+    **three** name the University of Southern California as vendor: NASA 2005 ($27,000, "MOSIS
+    ACCT#2841-COM-GOV/NASA-MI.PN 10636, IBM 0.35 MICRON SIGE BICMOS 5HPE PROCESS"), a 2013 action
+    ($6,500) and NASA 2015 ($20,800, "INTERGRATED CIRCUIT FABRICATION AT MOSIS OF TOF CHIP DESIGNS").
+    Total obligated across those three: **$54,300.** The other seven are unrelated or are other
+    agencies' purchases through third parties. These are **customers buying chips**, not anybody
+    funding MOSIS.
+- **DERIVED (arithmetic written out):**
+  - **The decline, from MOSIS's own counter.** 50,000 designs in the 21 years 1981→2002 is
+    50 000 ÷ 21 = **2,381 designs a year on average**. 60,000 designs in the 43 years 1981→2024 is
+    60 000 ÷ 43 = **1,395 a year on average**. The implied count for 2002→2024 is
+    60 000 − 50 000 = 10,000 designs over 22 years = **455 designs a year** — about **a fifth** of
+    the first-two-decades rate, and about **a seventh** of the stated peak of 3,000.
+  - At the stated peak, revenue per order was $10,000,000 ÷ 3,000 = **$3,333** (this is `SMB-5`'s
+    derivation, repeated here because the next line depends on it).
+  - Europractice today: **753 designs in 2025** (`FUND-3`). MOSIS at its peak did 3,000 ÷ 753 =
+    **4.0×** that, on a service that took no operating grant.
+- **Bears on:**
+  - **H6 (mixed, and this is the honest answer).** The "self-sustaining" claim is *not* refuted:
+    `FUND-5` shows a real mechanism by which MOSIS could cover its costs from sales while much of
+    its sales came from federal agencies. But it is also **not corroborated**: no budget, no accounts,
+    no revenue line, no staff count, and no year for the peak exists in any public source found. It
+    rests on one sentence, spoken by a deputy director of the successor programme, in a promotional
+    news item written by the host institution.
+  - **H5 (challenges, hard).** MOSIS's own counter says the service ran at roughly 2,400 designs a
+    year for its first two decades and roughly 455 a year for its last two. The American long tail
+    for prototype chips did not grow when the internet, cheap EDA and open PDKs arrived. **It
+    shrank by about 80%.**
+  - **H6 (challenges).** The successor is not self-sustaining and says so: "achieve
+    self-sustainability within the next few years and generate $20 million in annual revenue"
+    (`SMB-5`). A business that was genuinely self-sustaining for forty years does not need a
+    five-year federally funded programme to get back there.
+- **Used in:** not yet.
+- **Caveats:**
+  - **The 50,000 figure may be stale in both captures.** `DEM-22` already records that MOSIS's public
+    design counter did not move for a decade. If "more than 50,000" was already conservative in 2002,
+    the 2002→2024 rate derived above is too low; if it was still being quoted unchanged in 2012
+    because nobody updated the page, the true 2002 figure is unknown. **The derivation is an
+    indication of direction, not a measurement of level**, and it should be quoted that way.
+  - "more than 50,000" and "more than 60,000" are floors.
+  - The $10m figure carries no year, no currency basis and no definition of revenue (gross billings
+    including pass-through foundry cost, or net?). If it is gross billings, most of it was money
+    passing through to foundries and it says nothing about what MOSIS cost to run.
+  - FPDS-NG covers federal contract actions from roughly 2004 onward. **It cannot see the 1980s and
+    1990s**, which is exactly when MOSIS's DARPA funding mattered. Its silence is a limitation of the
+    source, not evidence about MOSIS.
+  - USAspending's award-search endpoints are POST-only and this session was GET-only, so the
+    assistance (grant) side of the federal record was not queried at all. See the blocked-sources
+    list.
