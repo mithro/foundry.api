@@ -21,6 +21,14 @@ Everything here was gathered read-only, HTTP GET only, between 2026-09-18 and 20
 was submitted, no account created, no person contacted by any channel. Sources that could not be
 reached are listed in [§ Blocked sources](#5-blocked-sources) rather than dropped.
 
+> **Read the correction notes before quoting any price from this file.** On 2026-09-19 the audited
+> filings behind both fab purchases recorded here were read for the first time, and **both headline
+> prices turned out to describe less than this file had claimed**. IHF-3 (MEMSCAP → Science, US$3.0
+> million) and IHF-9 (RF-SUNY → Akoustis, US$2.75 million) each open with a dated correction note
+> saying what changed. The short version: **the tools of a 150 mm MEMS fab are a one-to-two-million-
+> dollar asset (IHF-11); a fab is not**, and neither of these two transactions was an arm's-length
+> auction.
+
 ---
 
 ## 1. Identification: what `science.xyz` is
@@ -200,9 +208,25 @@ directory.
 
 ---
 
-### IHF-3. What a complete, operating, ISO-certified MEMS foundry sold for: US$3.0 million
+### IHF-3. What a complete, operating, ISO-certified MEMS foundry sold for: US$3.0 million — and what that price did not include
 
-**This is the single most valuable number in this file.**
+**This is the single most valuable number in this file — and it needs the whole structure beside it.**
+
+> **Correction note, 2026-09-19.** This entry previously presented US$3.0 million as, in effect, the
+> cost of acquiring a working MEMS foundry. The audited disposal note in MEMSCAP's 2022 annual
+> report has now been read, together with the 2021 annual report's description of the plant lease.
+> Three things change. **(1)** It was an **asset purchase**, and the US legal entity — carrying a
+> **US$5.87 million accumulated deficit** and **EUR 5.3 million** of parent funding, EUR 4.5 million
+> of it already written off — **stayed with MEMSCAP**. The liabilities were real and larger than the
+> price; the buyer did not take them. **(2)** There was no building and no land: the fab was a
+> **leased cleanroom inside somebody else's semiconductor plant**, at a rent of **EUR 655 thousand a
+> year** — so the purchase price is about **4.5 years of rent**, and rent is the larger number over
+> any realistic holding period. **(3)** The seller received **EUR 2,940 thousand** in cash but booked
+> **EUR 1,217 thousand** of disposal costs against it, netting **EUR 1,723 thousand**.
+> Anywhere this repository says or implies "a small MEMS fab costs $3M", it must instead say
+> *"US$3.0 million bought the tools, the team and the customer book of a small MEMS foundry, with no
+> building, no land, no facilities plant and no liabilities, and with about EUR 0.66 million a year
+> of rent to pay from day one."* The number itself survived every check. Its meaning did not.
 
 - **Sources:**
   - MEMSCAP S.A., "HEADING FOR 2023: MEMSCAP ANNOUNCES THE SALE OF ITS NORTH CAROLINA MANUFACTURING
@@ -212,13 +236,26 @@ directory.
     (linked from <https://memscap.com/en/2022/12/12/memscap-announces-the-sale-of-its-north-carolina-usa-manufacturing-plant-to-science-corporation-the-conclusion-of-a-strategic-supply-agreement-for-optical-communications-products/>)
   - Same release syndicated via Business Wire and reproduced by citybiz, 2022-12-07.
     <https://www.citybiz.co/article/356444/memscap-announces-the-sale-of-its-north-carolina-manufacturing-plant/>
+  - **MEMSCAP S.A., *Rapport annuel 2022*, filed 2023-04-28 (French) — note 4 "Activités abandonnées",
+    the audited disposal note, and the parent-company subsidiary table.**
+    <https://memscap.com/wp-content/uploads/2023/05/Rapport-annuel-Memscap-2022-28_04_2023.pdf>
+  - **MEMSCAP S.A., *Rapport annuel 2021*, filed 2022-04-29 (French) — note 10 "Contrats de location",
+    which gives the US plant lease term and rent, and §2.6 / the environmental section, which name the
+    landlord.**
+    <https://memscap.com/wp-content/uploads/2023/04/Rapport-annuel-Memscap-2021-29_04_2022.pdf>
+  - MEMSCAP S.A., *Rapport annuel 2023*, filed 2024-04-29 (French) — the post-deal fabless segment and
+    the off-balance-sheet commitments note.
+    <https://memscap.com/wp-content/uploads/2024/04/Rapport-annuel-Memscap-2023-29_04_2024.pdf>
   - Science Corporation's own account of the same transaction: IHF-1.
 - **Verification:** Verified, 2026-09-19. The MEMSCAP PDF was fetched directly from `memscap.com` and
   the text extracted with `pypdf`; the citybiz copy was fetched independently and the two agree word
   for word on the passages quoted. MEMSCAP is a listed company (Euronext Paris, ISIN FR0010298620,
   ticker MEMS) and this is a regulatory announcement, so it is a primary source. Business Wire's own
   copy of the release returns **HTTP 403** to automated fetches; the citybiz reproduction was used
-  instead and carries the "GRENOBLE, France–(BUSINESS WIRE)–Regulatory News:" dateline.
+  instead and carries the "GRENOBLE, France–(BUSINESS WIRE)–Regulatory News:" dateline. The three
+  annual reports were fetched from `memscap.com` and extracted with `pypdf` on 2026-09-19; the
+  disposal note reconciles exactly (see DERIVED), which is itself a check that the figures were read
+  correctly.
 - **What it says.** MEMSCAP sold, to Science Corporation:
 
   > "– The entire North Carolina teams.
@@ -252,41 +289,242 @@ directory.
   The buyer did not get everything: the Variable Optical Attenuator products, IP and business stayed
   with MEMSCAP, and Science agreed to keep making them — "a minimum of 3 years supply of chips and
   wafers".
+
+- **It was an asset purchase, and the word matters.** The press release is explicit about the legal
+  form:
+
+  > "MEMSCAP entered into a definitive **Asset Purchase Agreement** with Science Corporation … covering
+  > the sale and transfer of **certain assets of its US subsidiary (MEMSCAP Inc.)**"
+
+  (emphasis added). MEMSCAP Inc. itself was **not** sold. The 2022 annual report's consolidation scope
+  still lists "Etats-Unis — Memscap, Inc. — Février 1999 — 100% — Intégration globale" ("United States
+  — Memscap, Inc. — February 1999 — 100% — full consolidation") at 31 December 2022, and the 2023
+  report lists it again at 31 December 2023. The shell, and everything attached to it, stayed with the
+  seller.
+
+- **What stayed behind was not small.** The parent-company accounts' subsidiary table gives, for
+  Memscap Inc. (USA), a share capital of **$10** and reserves of **$(5,868,536)** — an accumulated
+  deficit of **US$5.87 million**. The parent's loans and advances to it stood at **EUR 5,319,815**,
+  "dépréciés à hauteur de … Memscap Inc. (USA) : 4 533 595 €" ("impaired to the extent of … Memscap
+  Inc. (USA): EUR 4,533,595"). On top of that:
+
+  > "Sur l'exercice 2022, la Société a accordé à sa filiale américaine Memscap Inc. un abandon de
+  > créance d'un montant de 1 000 000 euros (notes 4.3 et 4.17 – 2021 : 500 000 euros)."
+
+  In English: *"During the 2022 financial year, the Company granted its American subsidiary Memscap
+  Inc. a debt waiver of EUR 1,000,000 (notes 4.3 and 4.17 — 2021: EUR 500,000)."* So the fab's owner
+  had been forgiving its debts at EUR 0.5–1.0 million a year. **This is the direct answer to "unless
+  it came with massive debt obligations": the debt was there, it was several times the purchase price,
+  and the buyer did not take it.** The US$3.0M is the price of the assets *stripped of* the
+  liabilities, not a price that was low *because of* them.
+
+- **The audited disposal note, which the press release does not give.** From note 4 of the 2022
+  annual report, "L'impact de la cession de l'activité abandonnée sur la situation financière du
+  Groupe s'analyse comme suit" ("the effect of the disposal of the discontinued operation on the
+  Group's financial position breaks down as follows"), in thousands of euros:
+
+  > "Immobilisations corporelles … (498) / Immobilisations incorporelles … (1) / Stocks … (383) /
+  > Fournisseurs et autres créditeurs … 295 / Recyclage des écarts de change … 618 / **Actifs et
+  > passifs nets … 31** / **Contrepartie reçue en numéraire … 2 940** / **Frais nets afférents à la
+  > cession … (1 217)** / Trésorerie et équivalents de trésorerie cédés … -- / **Entrée nette de
+  > trésorerie … 1 723**"
+
+  In English: property, plant and equipment (498); intangibles (1); inventories (383); trade and
+  other payables 295; recycling of exchange differences 618; **net assets and liabilities 31**;
+  **consideration received in cash 2,940**; **net costs relating to the disposal (1,217)**; cash and
+  cash equivalents disposed of nil; **net cash inflow 1,723**. The note adds:
+
+  > "Il est précisé que la trésorerie afférente aux activités du site industriel américain du Groupe,
+  > gérée de manière centralisée (Cash pooling), est exclue du périmètre de cession."
+
+  *"It is specified that the cash relating to the activities of the Group's American industrial site,
+  managed centrally (cash pooling), is excluded from the scope of the disposal."*
+
+  Four things follow. **(a)** The consideration was **EUR 2,940 thousand, received in cash** — an
+  implied US$1.0204 per euro against the announced US$3.0 million, consistent with the euro/dollar
+  rate around the December 2022 closing. **(b)** It was **all cash at closing**: the note shows no
+  receivable, no deferred consideration and no contingent element, and none appears in the 2023
+  report either. **(c)** The seller's **net** proceeds were **EUR 1,723 thousand** — only **58.6%** of
+  the headline — because of EUR 1,217 thousand of disposal costs, which neither report breaks down.
+  **(d)** No lease liability, provision, pension or restoration obligation appears in the disposal
+  column at all, because there was none to transfer (see the lease, below).
+
+- **There was no building, and the lease is a 12-month rolling tenancy inside someone else's fab.**
+  The 2021 annual report, note 10:
+
+  > "Concernant le contrat de location de l'usine de la filiale américaine, d'une durée de 12 mois
+  > renouvelable soumis à l'accord conjoint du bailleur et du preneur, le Groupe a choisi de
+  > comptabiliser la charge locative afférente, soit **655 000 euros** au titre de l'exercice 2021
+  > (2020 : 658 000 euros) de façon linéaire, comme le permet IFRS 16 pour les contrats de location à
+  > court terme. Au 31 décembre 2021, l'engagement locatif du Groupe relatif à ce contrat s'établit à
+  > **684 000 euros**."
+
+  *"As regards the lease of the American subsidiary's plant, which has a renewable 12-month term
+  subject to the joint agreement of the lessor and the lessee, the Group elected to recognise the
+  related rental charge, i.e. **EUR 655,000** for the 2021 financial year (2020: EUR 658,000), on a
+  straight-line basis, as IFRS 16 permits for short-term leases. At 31 December 2021 the Group's lease
+  commitment under this contract stands at **EUR 684,000**."*
+
+  This is why no right-of-use asset or lease liability for the US plant appears anywhere: MEMSCAP took
+  the IFRS 16 short-term exemption. The EUR 5.1 million of lease obligations on the 2022 balance sheet
+  is the **Norwegian** Skoppum site on a 21-year lease, not North Carolina.
+
+  **And the landlord is another semiconductor company.** From the 2021 report:
+
+  > "L'unité de production américaine est louée à la société Micross Advanced Interconnect
+  > Technologies. De ce fait, les dispositifs de sécurité et de respect des normes environnementales
+  > associés à cette usine sont exclusivement gérés par Micross Advanced Interconnect Technologies,
+  > sous contrôle du gouvernement américain, conformément à la législation locale en vigueur."
+
+  *"The American production unit is leased from Micross Advanced Interconnect Technologies. As a
+  result, the safety systems and environmental-compliance arrangements associated with this plant are
+  managed exclusively by Micross Advanced Interconnect Technologies, under United States government
+  oversight, in accordance with the local legislation in force."*
+
+  The environmental section adds that Micross is "propriétaire du site" ("owner of the site"), that
+  hazardous waste "sont recueillis par le personnel de Micross Advanced Interconnect Technologies"
+  ("is collected by Micross Advanced Interconnect Technologies personnel"), and that the site operates
+  under a Durham County wastewater permit (# DC-015) and EPA hazardous-waste ID NCD018946590. The
+  subsidiary's registered address is **3021 Cornwallis Road, Durham, NC 27709** — Research Triangle
+  Park, the historic MCNC/Cronos site.
+
+  **So what Science bought was a tenancy, not a plant.** The shell, the chemical distribution, the
+  acid-waste neutralisation, the scrubbers, the utilities and the entire EHS function belong to the
+  landlord and are paid for in the rent. A buyer of this asset has **no** fab-shell capital cost and
+  **no** decommissioning or remediation exposure — and equally **no** security of tenure beyond twelve
+  months, terminable at the landlord's option on renewal.
+
+- **Why MEMSCAP sold: tested, and it was not distress.** At 31 December 2022 the group had
+  "une trésorerie nette, immédiatement disponible, de 4,2 millions d'euros (2021 : 3,6 millions)"
+  ("net cash, immediately available, of EUR 4.2 million (2021: EUR 3.6 million)"), equity of
+  EUR 15.6 million, and net cash of +EUR 0.2 million after four consecutive years of net debt. The
+  going-concern paragraph is clean and unqualified:
+
+  > "Les comptes consolidés du Groupe ont été arrêtés selon le principe de continuité d'exploitation.
+  > La direction du Groupe considère que ce principe est respecté au regard du plan de trésorerie
+  > prévisionnel pour l'exercice 2023 et des actifs financiers disponibles au 31 décembre 2022 soit
+  > 5,5 millions d'euros."
+
+  *"The Group's consolidated accounts have been prepared on a going-concern basis. Group management
+  considers that this basis is satisfied in the light of the forecast cash plan for the 2023 financial
+  year and the financial assets available at 31 December 2022, i.e. EUR 5.5 million."*
+
+  No *procédure de sauvegarde*, no covenant language, no auditor emphasis of matter. The seller was
+  **small** — market capitalisation EUR 10.4 million at end-2022, below its own book equity — and had
+  been subsidising the US division for years, but it was not selling under duress and it did not need
+  the cash: it had more cash after the sale than the sale produced. The disposal was, as MEMSCAP said,
+  the last step of a three-year plan.
+
+- **The supply agreement: looked for, and no hidden consideration found.** The theory that MEMSCAP
+  accepted a low price in exchange for committed supply (or that Science paid through above-market
+  purchase prices) is testable against the off-balance-sheet note, and it fails. Note 25.1 of both the
+  2022 and the 2023 annual report lists, under "Obligations contractuelles figurant en engagement hors
+  bilan", "**Obligations d'achat irrévocables … --**" ("irrevocable purchase obligations … nil") and
+  "Autres obligations à long terme … --" ("other long-term obligations … nil"), and concludes: "A la
+  connaissance de la Société, il n'y a pas d'autre engagement hors bilan significatif" ("to the
+  Company's knowledge there is no other material off-balance-sheet commitment"). The commitment in the
+  press release — "a minimum of 3 years supply of chips and wafers" — is therefore a commitment by
+  **Science to supply**, not by MEMSCAP to buy any minimum quantity. Nothing found puts a value,
+  volume or price on it.
+
+  What the agreement was worth to MEMSCAP can be seen indirectly: in FY2023, its first full year
+  fabless, the new Optical Communications segment reported revenue of **EUR 1,555 thousand** and a
+  segment result of **EUR 429 thousand** — a **27.6%** segment margin, buying its wafers from Science,
+  against a division that had lost money making them in-house. MEMSCAP's 2023 report describes
+  production as "intégralement sous-traitées à un fournisseur stratégique américain disposant d'un
+  site industriel aux Etats-Unis" ("entirely subcontracted to a strategic American supplier with an
+  industrial site in the United States") and rates dependence on it a "**Risque critique**" ("critical
+  risk"), but never names it and never quantifies the purchases. **This is the one leg of the
+  transaction that cannot be closed from public filings**, and it is recorded as an open question, not
+  as a finding either way.
+
 - **The history of the same site, for scale.** Science's own announcement (IHF-1) states:
 
   > "MEMSCAP acquired their US foundry business in 2002 from JDS Uniphase, which itself had acquired
   > the site for approximately $750M from Cronos Integrated Microsystems shortly prior."
 
-- **DERIVED (arithmetic written out):** $3,000,000 / $750,000,000 = **0.400%** of the price the site
-  reportedly changed hands for around 2000 — a factor of **250** lower. Verified with
-  a throwaway Python script, deleted after use.
+- **DERIVED (arithmetic written out):** all checked with a throwaway Python script, deleted after use.
+  - $3,000,000 / $750,000,000 = **0.400%** of the price the site reportedly changed hands for around
+    2000 — a factor of **250** lower.
+  - **The disposal note reconciles exactly, which is the strongest available check that these figures
+    were read correctly.** Gain on disposal = consideration 2,940 − disposal costs 1,217 − net book
+    value of net assets sold (498 + 1 + 383 − 295 = 587) + FX recycling 618 = **1,754** — the figure
+    the income statement reports as "Résultat de cession de l'activité abandonnée … 1 754".
+  - Net cash inflow = 2,940 − 1,217 − 0 = **1,723**, as reported.
+  - Discontinued-operation cash flow for FY2022 = −1,311 (operating) − 29 (capex) + 1,723 (disposal) =
+    **+383**, as reported.
+  - Disposal costs as a share of the headline: 1,217 / 2,940 = **41.4%**. The seller kept **58.6%**.
+  - **Strip out the FX recycling** — a reclassification of previously-parked translation differences,
+    not cash and not value — and the economic gain was 1,754 − 618 = **EUR 1,136 thousand**.
+  - Implied exchange rate: 3,000 / 2,940 = **US$1.0204 per euro**.
+  - **Rent against the price.** 2,940 / 655 = **4.49 years of rent** buys the assets outright. Put the
+    other way, five years' occupancy at the 2021 rent costs 5 × 655 = EUR 3,275 thousand — **more than
+    the purchase price**.
+  - Rent as a share of what the fab earned: 655 / 2,858 = **22.9%** of FY2021 divisional revenue.
+  - A crude first-year economic cost to the buyer: price 2,940 + one year's rent 655 + the operating
+    cash burn the business was running at (1,311) = **EUR 4,906 thousand**. Indicative only — the
+    buyer's cost base is not MEMSCAP's.
+  - FY2023 fabless optical segment margin: 429 / 1,555 = **27.6%**.
 - **Read this entry together with IHF-8**, which gives the audited accounts of the same fab. The price
   is only interpretable against them: $3.0M bought a business turning over about EUR 2.9 million a
   year and losing money on it. The low price is not a bargain so much as a valuation.
-- **Bears on:** H6 (**supports, on the capital question only** — the fixed asset base needed to run a
-  real MEMS foundry, including an ISO 9001:2015 quality system, a trained team and a live customer
-  book, was available on the open market for $3.0M, which is far below any figure this project had
-  for what a fab costs; **but see IHF-8, where the same fab's profitability challenges H6 hard**);
+- **Bears on:** H6 (**supports, on the capital question, but weaker than this entry first claimed** —
+  the *transferable* asset base of a real MEMS foundry, including an ISO 9001 quality system, a
+  trained team and a live customer book, was available on the open market for US$3.0 million in cash
+  with no assumed liabilities; but the **recurring** cost of occupancy, at EUR 0.66 million a year for
+  a cleanroom the operator does not own and cannot secure beyond twelve months, is the part a capital
+  figure hides, and **IHF-8 shows the same fab losing money against exactly that cost base**);
   H5 (mixed — see caveats); H1 (context — the same physical site went from a reported ~$750M to $3.0M
   in about twenty-two years).
 - **Used in:** not yet.
 - **Caveats and honest limits:**
-  - **$3.0M bought a lease, not a building.** "The North Carolina plant lease as well as all plant's
-    tools and equipment" — the real estate was not part of it. A fab's rent does not appear anywhere
-    in this number.
-  - **It bought used tools of unknown age.** The line was built by Cronos in the late 1990s. Nothing
-    found states the age or replacement value of the tool set. $3.0M is the *market clearing price of
-    a distressed-category asset*, not the cost of assembling the same capability new.
+  - **$3.0M bought a tenancy, not a building — and the rent is the bigger number.** "The North
+    Carolina plant lease as well as all plant's tools and equipment": the real estate was never part
+    of it, and it was never MEMSCAP's to sell. Rent ran at **EUR 655–658 thousand a year**, so the
+    purchase price is **4.5 years of rent**. Any statement of "what the fab cost" that omits the rent
+    understates the cost of occupancy by more than the purchase price itself within five years.
+  - **The tenure is twelve months, renewable by mutual agreement.** That cuts both ways. The buyer
+    assumed no multi-year lease liability — which is *why* no lease obligation appears in the disposal
+    note — but it also bought no security of tenure. A landlord who is itself a semiconductor company
+    on the same site holds a real option over the buyer's fab every year.
+  - **This is a price for assets with the liabilities removed, and the liabilities were larger than
+    the price.** US$5.87 million of accumulated deficit and EUR 5.3 million of parent funding stayed
+    inside MEMSCAP Inc., which MEMSCAP still owned at the end of 2023. Do not read US$3.0 million as
+    "the enterprise value of a MEMS foundry". It is the value of a clean set of assets, sold out of a
+    vehicle that was deeply under water.
+  - **The seller netted EUR 1.72 million, not EUR 2.94 million.** EUR 1,217 thousand of "frais nets
+    afférents à la cession" is 41% of the consideration and is **not broken down anywhere** in the
+    2022 report — not in the consolidated notes, not in the parent accounts, not in the management
+    report. Advisers, retention payments, transition services and a contribution to the buyer would
+    all sit in that line and cannot be distinguished. **This is the largest unresolved item in the
+    entry.** If some of it flowed to Science, the effective price was lower still; if it is all
+    third-party fees, it does not change what the buyer paid.
+  - **The supply agreement could not be priced.** No minimum purchase obligation is disclosed on
+    MEMSCAP's side in either 2022 or 2023 (note 25.1 shows nil irrevocable purchase obligations), and
+    no volumes or prices are published by either party. A below-market sale price recovered through
+    the supply contract remains **possible but unevidenced**; the absence of a disclosed purchase
+    commitment is evidence against the strongest form of that theory, not a refutation of it.
+  - **It bought used tools of unknown age.** The line was built by Cronos in the late 1990s and
+    converted to 150 mm wafers at the end of 2004 ("Ce site est passé fin 2004 en format de production
+    de tranches silicium de 6 pouces" — *"this site moved to 6-inch silicon wafer production format at
+    the end of 2004"*, 2021 annual report). Nothing found states the tool count or replacement value.
+    $3.0M is the *market clearing price of a depreciated-category asset* (see IHF-11), not the cost of
+    assembling the same capability new.
   - **The $750M comparison is not like-for-like and is only partly verified.** It is quoted from
     Science's blog, not from a JDS Uniphase filing, and it was the price for *Cronos Integrated
     Microsystems as a company* — a dot-com-era optical-components acquisition — not for the building
     and tools alone. The cross-check against JDS Uniphase's own disclosure was not completed. Do not
     quote "$750M → $3.0M" in `WHY.md` as a like-for-like depreciation until that is done.
-  - **The seller was pleased.** MEMSCAP framed the sale as the successful execution of a planned
-    "FABLITE" programme, and said it expected "significant improvement to MEMSCAP agility and
-    profitability". A public MEMS company concluded that *not* owning a MEMS fab was worth more than
+  - **The seller was pleased, and it was not distressed.** MEMSCAP framed the sale as the successful
+    execution of a planned "FABLITE" programme, and said it expected "significant improvement to
+    MEMSCAP agility and profitability". Its going-concern statement is clean, it held EUR 5.5 million
+    of available financial assets at the year end, and it ended 2022 in net cash for the first time in
+    five years. A public MEMS company concluded that *not* owning a MEMS fab was worth more than
     owning one. That is a real challenge to the premise that fab ownership is valuable, and it sits
     directly beside the H6 support above. Both readings are true at once, from the same document.
+    Against this: the seller was tiny (EUR 10.4 million market capitalisation) and had been writing
+    off the subsidiary's debts at EUR 0.5–1.0 million a year, so it had every reason to take a clean
+    exit at a modest price rather than hold out.
   - MEMSCAP kept a three-year supply agreement, so Science acquired a fab with a guaranteed anchor
     customer attached. A buyer without one would be buying a different asset.
 
@@ -638,6 +876,33 @@ floor area, all audited.
   million** off the balance sheet. That is the net book value of an entire working MEMS toolset —
   the same tools the Europractice MUMPs shuttles and the third-party foundry business ran on.
 
+  **Customer concentration in the foundry business, and it is genuinely low.** *Added 2026-09-19 from
+  the 2021 annual report, note 4.3 "Principaux clients", which the entry had not previously used.* The
+  note gives "Les principaux clients représentant plus de 10% du chiffre d'affaires total du Groupe"
+  ("the main customers representing more than 10% of the Group's total revenue"). For the
+  **Produits sur mesure** division — the foundry — the entries for both the first and the second
+  customer, in both 2021 and 2020, read "**--**": **no customer reached 10% of group revenue**. The
+  Produits standards division, by contrast, had a customer at **12.2%** (2021) and a second at
+  **11.6%**. This is a merchant fab whose customer base really was fragmented, which is what H5 and H6
+  describe. Note the bound is weaker than it looks: the threshold is a share of *group* revenue, and
+  the division was only a quarter of the group (DERIVED below).
+
+  **And a single tool going down cost it 7.3% of a year's revenue.** From the same report:
+
+  > "L'indisponibilité d'un équipement industriel du site américain sur le 1er semestre 2021 suite à
+  > un incident technique en fin d'exercice 2020, a pesé sur les volumes d'activité de la division
+  > Produits sur mesure en repli de -0,2 million d'euros / -7,3% comparé à l'exercice 2020."
+
+  *"The unavailability of an industrial tool at the American site during the first half of 2021,
+  following a technical incident at the end of the 2020 financial year, weighed on the activity
+  volumes of the Custom Products division, which fell by EUR 0.2 million / -7.3% compared with the
+  2020 financial year."*
+
+  One tool, out for roughly six months, took **EUR 225 thousand** off a EUR 3.1 million business. In a
+  fab with one of everything there is no redundancy, and this is the clearest illustration in the
+  repository of what that costs. It also fills a gap the file had flagged: **FY2020 divisional revenue
+  was EUR 3,083 thousand.**
+
   **What the seller said about it.** The FY2022 release describes the disposal as the completion of a
   plan, under the heading "Finalisation of the FABLITE program transforming the profitability profile
   of MEMSCAP", and the strategic section states the fab "includes the US production plant, teams,
@@ -659,6 +924,14 @@ floor area, all audited.
     currency caveat.
   - The fall in group production FTE (37 → 22 = 15) is consistent with the 14 US staff at
     31 December 2021.
+  - **Customer-concentration bound, FY2021.** Group revenue EUR 11,396 thousand, so the 10% disclosure
+    threshold is **EUR 1,139.6 thousand**. The foundry division was EUR 2,858 thousand, i.e. **25.08%**
+    of the group. Since no foundry customer crossed the threshold, the **largest foundry customer was
+    below 39.9% of divisional revenue** (1,139.6 / 2,858). That is a real upper bound, but a loose
+    one: it does not establish that the division had *many* customers, only that it had no one
+    customer above two fifths of it.
+  - **The 2021 tool outage**: 2,858 − 3,083 = **−EUR 225 thousand**, **−7.3%**, matching the report's
+    own figures.
 - **Bears on:**
   - **H6 (challenges, strongly).** This is a real merchant MEMS foundry, selling to many small
     customers through the industry's longest-running MEMS multi-project wafer shuttles (IHF-6), and
@@ -695,20 +968,57 @@ floor area, all audited.
   - **EUR 0.5 million is net book value after depreciation, not what the tools are worth or what they
     would cost to replace.** Late-1990s tools fully depreciated over twenty years will carry at close
     to nothing whatever they can still do. It is a floor, not a valuation.
-  - **The 475 m² / ISO 4 figures are from the 2022 report only** and were not found in a second
-    document. A secondary source (a MEMS-industry blog) describes the Science Foundry site as
-    "5,000 sq. ft. of Class 100 cleanroom" — which **agrees on area** (475 m² is 5,113 sq ft) but
-    **disagrees on class** (Class 100 is ISO 5, one class dirtier than ISO 4). The audited French
-    filing is preferred here and the disagreement is recorded rather than resolved.
+  - **The 475 m² figure is confirmed by a second filing; the cleanroom class is now resolved.**
+    *Erratum, 2026-09-19.* This caveat previously said the 475 m² / ISO 4 description came from the
+    2022 report alone. The **2021** annual report gives the same area and is more precise about the
+    class:
+
+    > "L'usine de Caroline du Nord (Etats-Unis d'Amérique) est dotée d'une salle blanche d'une surface
+    > de 475 m² en classe ISO 4 (Classe 10 selon FS 209) **et ISO 6 (Classe 1000 selon FS 209)**. Ce
+    > site est passé fin 2004 en format de production de tranches silicium de 6 pouces. Le système de
+    > management de la qualité est certifié ISO 9001."
+
+    *"The North Carolina plant (United States of America) has a 475 m² cleanroom of class ISO 4
+    (Class 10 under FS 209) **and ISO 6 (Class 1000 under FS 209)**. This site moved to 6-inch silicon
+    wafer production format at the end of 2004. The quality management system is ISO 9001 certified."*
+
+    So it is a **mixed-class** cleanroom, ISO 4 in part and ISO 6 in part, not uniformly ISO 4. The
+    secondary source's "Class 100" (ISO 5) sits between the two and is a reasonable rounding of a
+    mixed facility. The disagreement is largely explained, and the 2022 report's bare "classe ISO 4"
+    is the incomplete description, not the blog's.
+
+  - **The fab was a tenancy inside another semiconductor company's plant, and the rent was EUR 655
+    thousand a year.** *Added 2026-09-19; see IHF-3 for the sourcing.* The 2021 report's note 10
+    discloses a **12-month renewable** lease at **EUR 655 thousand (2021)** and **EUR 658 thousand
+    (2020)**, accounted for under the IFRS 16 short-term exemption, with the landlord named as
+    **Micross Advanced Interconnect Technologies**, which also owns the site and runs its EHS and
+    hazardous-waste systems. This materially changes how the audited loss should be read: rent was
+    **22.9%** of FY2021 divisional revenue, and it is a *facility* cost the division could not reduce
+    by owning less equipment. It also means the EUR 0.5 million equipment carrying value is not
+    understating a hidden building asset — there was no building asset to hide.
   - The French text is quoted in the original; the English renderings are this entry's, not the
     company's.
 
 ---
 
-### IHF-9. Akoustis bought a 120,000 sq ft MEMS fab for $2.75 million, and said building one would cost "well over $50 million" — then went bankrupt
+### IHF-9. Akoustis bought a 120,000 sq ft MEMS fab on an announced $2.75 million — the real consideration was $4.6 million — and said building one would cost "well over $50 million"
 
 The closest independent parallel found to the Science/MEMSCAP transaction, five years earlier, in a
 different technology, by a company that had to disclose it.
+
+> **Correction note, 2026-09-19.** This entry previously took "$2.75 million in cash" from the
+> announcement press release as the price. The audited acquisition accounting says something
+> different and more interesting. **The cash actually paid at closing was $2.85 million**, and the
+> **GAAP purchase consideration was $4.6 million**, because Akoustis **assumed a contingent real-estate
+> liability of about $1.73 million** — an anti-flip penalty running with the property. Against that it
+> recorded **$6.3 million of net assets at fair value**, giving a **$1.7 million bargain purchase
+> gain** that the filing explains in unusually frank terms. The **$2.75 million contract price split
+> $1.0 million for all the wafer-manufacturing tools and $1.75 million for the 120,000 sq ft building
+> and the 57 acres.** And the acquired business was losing **$1.5–1.8 million a year** on
+> **$2.9 million** of fabrication revenue propped up by **$1.8 million of grant income**. The
+> transaction was not a bargain struck in an open market; it was a state university foundation
+> handing a loss-making facility to someone who would keep the jobs. Every figure below is now sourced
+> to the filings rather than the press release.
 
 - **Sources:**
   - Akoustis Technologies, Inc., press release filed as Exhibit 99.1 to a Form 8-K, 2017-03-24.
@@ -721,14 +1031,36 @@ different technology, by a company that had to disclose it.
   - ATech (Parent) Resolution Corp. (formerly Akoustis Technologies, Inc.), Form 8-K, 2025-05-15
     (completion of the Chapter 11 asset sales).
     <https://www.sec.gov/Archives/edgar/data/1584754/000121390025044032/ea0242256-8k_atech.htm>
+  - **Akoustis Technologies, Inc., Form 8-K, 2017-06-30 — completion of the acquisition on
+    2017-06-26.**
+    <https://www.sec.gov/Archives/edgar/data/0001584754/000161577417003437/s106729_8k.htm>
+  - **Akoustis Technologies, Inc., Form 8-K/A, 2017-09-12, Exhibit 99.1 — the *audited* Special
+    Purpose Statement of Assets Acquired and Liabilities Assumed as of 2017-06-26, and the audited
+    Combined Statements of Revenues and Direct Expenses of the acquired business for the years ended
+    30 June 2016 and 2015. This is the single most informative document on the transaction.**
+    <https://www.sec.gov/Archives/edgar/data/1584754/000161577417005012/s107454_ex99-1.htm>
+  - **Akoustis Technologies, Inc., Form 10-K for the fiscal year ended 2017-06-30, filed 2017-09-20 —
+    the business-combination note and the bargain purchase gain.**
+    <https://www.sec.gov/Archives/edgar/data/0001584754/000161577417005214/s107441_10k.htm>
+  - **Akoustis Technologies, Inc., Form 10-K for the fiscal year ended 2018-06-30, filed 2018-08-29 —
+    repeats the purchase accounting unchanged.**
+    <https://www.sec.gov/Archives/edgar/data/0001584754/000161577418008796/s112155_10k.htm>
   - EDGAR submissions API, CIK 0001584754 — the registrant's current name and its Form 25-NSE
     (delisting) of 2025-06-06.
-- **Verification:** Partial. The registrant identity, the filing dates, the current name "ATECH
-  (PARENT) RESOLUTION CORP." and the form types were read directly from the EDGAR submissions API on
-  2026-09-19. The quoted figures were read out of the filings themselves through `WebFetch`
-  (`www.sec.gov/Archives/...` returns HTTP 403 to `curl`, per `search-log.md` §1), but the full
-  documents were not read end to end, so the surrounding context of each quote is not independently
-  confirmed. **Upgrade to Verified by opening the four filings in a browser.**
+  - **EDGAR XBRL `companyconcept` API, CIK 0001584754 —
+    `us-gaap:PropertyPlantAndEquipmentNet` and `us-gaap:AssetImpairmentCharges`, as reported in the
+    company's own 10-K filings.**
+    <https://data.sec.gov/api/xbrl/companyconcept/CIK0001584754/us-gaap/PropertyPlantAndEquipmentNet.json>
+- **Verification:** Partial, and better than it was. The registrant identity, the filing dates, the
+  current name "ATECH (PARENT) RESOLUTION CORP.", the form types and the whole property, plant and
+  equipment and impairment series were read directly from the EDGAR submissions and XBRL
+  `companyconcept` APIs on 2026-09-19 with `curl` (`data.sec.gov` answers `curl`;
+  `www.sec.gov/Archives/...` returns **HTTP 403** to it, per `search-log.md` §1). The quoted figures
+  from the filings themselves were read through `WebFetch`, and the FY2017 and FY2018 10-Ks were
+  queried independently and returned the purchase-accounting sentence identically, which is a
+  cross-check. The audited statement of assets acquired **reconciles**: the five asset line items sum
+  to the reported $6,302,472 exactly (see DERIVED). One small discrepancy remains — see the caveat on
+  the $90. **Upgrade to Verified by opening Exhibit 99.1 and the FY2017 10-K in a browser.**
 - **What it says.**
 
   **The purchase, 2017.** Akoustis — then a small RF filter company with no fab — bought the former
@@ -750,6 +1082,93 @@ different technology, by a company that had to disclose it.
 
   > "A comparable manufacturing facility to build and qualify for production would take up to 2-years
   > and cost well over $50 million"
+
+  **What the accounts say the deal actually was.** The 8-K of 2017-06-30 records completion on
+  **2017-06-26** "pursuant to the previously announced Definitive Asset Purchase Agreement **and
+  Definitive Real Property Purchase Agreement**" — two agreements, one for the business and one for
+  the land and buildings — and adds that "the Company also assumed substantially all of the ongoing
+  ordinary course obligations of the Acquired Business". The FY2017 10-K then gives the accounting:
+
+  > "The Company recorded net assets acquired of $6.3 million for purchase consideration of $4.6
+  > million (includes $2.85 million of cash paid at closing plus $1.7m real estate contingent
+  > liability), which resulted in the recording of a bargain purchase gain of $1.7 million."
+
+  So the **announced** $2.75 million was neither the cash paid ($2.85 million, the announcement having
+  said the price was "subject to certain adjustments") nor the accounting consideration ($4.6
+  million). The FY2018 10-K repeats the same sentence word for word, with no measurement-period
+  adjustment.
+
+  **The audited statement of assets acquired** (8-K/A Exhibit 99.1, as of 2017-06-26) breaks it down —
+  fair values from "an independent appraisal company" using income and cost approaches for the real
+  estate and market and cost approaches for the fixed assets:
+
+  | Assets acquired | USD |
+  |---|---|
+  | Land and land improvements | 1,000,000 |
+  | Building | 3,000,000 |
+  | Equipment | 2,124,650 |
+  | Inventory | 96,049 |
+  | Customer relationships | 81,773 |
+  | **Total assets acquired** | **6,302,472** |
+  | Contingent real estate liability | (1,730,542) |
+  | **Total assets acquired less liabilities assumed** | **4,572,020** |
+
+  **And the same exhibit splits the headline price**: Akoustis "purchased semiconductor manufacturing
+  tools for **$1.0 million** and a 120,000-square foot facility with 57 acres for **$1.75 million**".
+  That is the most precise public figure this repository has for what the tool set of a working
+  150 mm fab changes hands for, and it is **a third** of the headline. The other two thirds bought
+  real estate.
+
+  **The contingent liability is an anti-flip penalty, not debt.** Per the same exhibit: "The penalty
+  imposed shall be equivalent to the amount that the sales price of the property exceeds $1,750,000 up
+  to the maximum penalty", with maximum penalties of **$5,960,000** in year one, **$3,973,333** in
+  year two and **$1,986,667** in year three. In other words the sellers gave Akoustis a building
+  appraised at $4.0 million for $1.75 million and took back a three-year clawback of any resale profit
+  — which is why the appraised value exceeded the price, and why a bargain purchase gain arose. The
+  liability was measured "at fair value … utilizing a present value calculation based on the
+  probability the Company sells".
+
+  **Why the price was below fair value, in the company's own words** — a franker explanation than
+  acquirers usually give:
+
+  > "The transaction was completed with a motivated seller who the Company believed was very hesitant
+  > to liquidate assets and lay-off employees in the current political environment. The cash burn of
+  > the facility (approximately $3.0 million annually) was an economic burden to the sellers. The
+  > Company, the County and State were motivated to approve the transaction without significant price
+  > negotiation, as they believed it would insure the employment of the headcount and provide the
+  > opportunity for increased headcount and increased investment in the facility that would add to the
+  > tax base."
+
+  **"Without significant price negotiation" is the sentence that disqualifies this as a market
+  price.** It is a public-sector disposal of a facility that was burning $3.0 million a year, priced
+  to preserve jobs.
+
+  **What the acquired business earned**, from the audited Combined Statements of Revenues and Direct
+  Expenses (8-K/A Exhibit 99.1), in US dollars:
+
+  | | FY ended 2016-06-30 | FY ended 2015-06-30 |
+  |---|---|---|
+  | Fabrication services revenue | 2,872,939 | 5,018,139 |
+  | Grant revenue | 1,847,912 | 200,680 |
+  | Rental revenue | 338,814 | 230,297 |
+  | **Total revenue** | **5,059,665** | **5,449,116** |
+  | Salaries and wages | 2,425,079 | 2,610,765 |
+  | Utilities | 1,132,403 | 1,248,154 |
+  | Fringe benefits | 1,032,409 | 1,075,071 |
+  | Repairs, maintenance and supplies | 890,596 | 836,114 |
+  | Lease and services equipment | 557,156 | 567,752 |
+  | General services | 273,274 | 617,253 |
+  | Other | 252,183 | 313,128 |
+  | **Total direct expenses** | **6,563,100** | **7,268,237** |
+  | **Net loss** | **(1,503,435)** | **(1,819,121)** |
+
+  Three things stand out. **Fabrication services revenue halved**, from $5.02 million to $2.87 million
+  in one year — the press release's "approximately $3M" is that halved figure, and the press release
+  does not say it had just halved. **Grant revenue was 36.5% of total revenue** in FY2016: this was a
+  publicly-subsidised facility, and the subsidy is why it looked like a $5 million business.
+  **Utilities alone cost $1.13 million a year** — $9.44 per square foot of facility, more than the
+  entire announced purchase price every two and a half years. A 120,000 sq ft fab is expensive to keep
+  switched on whatever it cost to buy.
 
   The stated motive is the same one Science gives: speed and control. The acquisition would "shorten
   time-to-market for its RF products, greatly enhancing the Company's ability to service customers",
@@ -773,36 +1192,96 @@ different technology, by a company that had to disclose it.
   litigation failure, not a demonstration that owning a small fab does not work.
 - **DERIVED (arithmetic written out):** checked with a throwaway Python script, deleted after use.
   - Price per square foot of facility: $2,750,000 / 120,000 sq ft = **$22.92 per sq ft** — including
-    the tools, the 57 acres and an operating business.
+    the tools, the 57 acres and an operating business. On the contract's own split, the *real estate*
+    alone was $1,750,000 / 120,000 = **$14.58 per sq ft**, land included.
+  - **The audited asset table reconciles**: 1,000,000 + 3,000,000 + 2,124,650 + 96,049 + 81,773 =
+    **6,302,472**, exactly as reported.
+  - GAAP consideration: $2,850,000 cash + $1,730,542 contingent liability = **$4,580,542**, which the
+    10-K rounds to $4.6 million. Bargain purchase gain: 6,302,472 − 4,580,542 = **$1,721,930**, which
+    the 10-K rounds to $1.7 million.
+  - **The true consideration was 1.67× the announced headline**: 4,580,542 / 2,750,000.
+  - The tools were **36.4%** of the headline price (1,000,000 / 2,750,000); the real estate was
+    **63.6%**.
+  - The independent appraiser valued the equipment at **2.12×** what the contract allocated to it:
+    2,124,650 / 1,000,000.
+  - The acquired business's revenue mix, FY2016: fabrication services **56.8%**, grants **36.5%**,
+    rent **6.7%** of $5,059,665.
+  - Utilities per square foot of facility, FY2016: 1,132,403 / 120,000 = **$9.44/sq ft/yr**.
   - Buying used against the company's own build-new estimate: $50,000,000 (a *floor*; the source says
     "well over") / $2,750,000 = **at least 18.2× cheaper to buy than to build**.
-  - Price against the acquired business's revenue: $2,750,000 / $3,000,000 = **0.92× trailing
-    revenue**.
+  - Price against the acquired business's fabrication revenue: $2,750,000 / $2,872,939 = **0.96×**.
+  - **What it cost to make the fab do what Akoustis needed.** Net property, plant and equipment, from
+    the company's own 10-K XBRL: **$206,985** at 30 June 2016 (before the fab), **$7,853,814** at
+    30 June 2017 (four days after closing), then 12.82M, 15.18M, 23.61M, 30.73M, 51.16M and
+    **$57,826,000** at 30 June 2023. Growth from just after the acquisition to the peak:
+    **$49,972,186** — within $28 thousand of the "well over $50 million" Akoustis said it would cost
+    to build a comparable facility from scratch. The peak book value is **21.0×** the cash paid for
+    the fab. *Caveat below: this is group-wide PP&E, not the New York fab alone.*
+  - **And what it was worth on the way down.** Net PP&E fell to **$12,905,000** at 30 June 2024, a
+    fall of **$44,921,000**, alongside **$35,400,000** of `us-gaap:AssetImpairmentCharges` in FY2024
+    against **nil** in FY2023. The Chapter 11 price for substantially all the assets, $30.2 million,
+    is **0.52×** the peak net book value.
   - Chapter 11 sale against the 2017 fab price: $30,200,000 / $2,750,000 = **11.0×** — but for a
     different and much larger asset package (the whole company after seven years of investment, not
     the fab alone), so this is a scale marker, not a return.
-- **The cross-case observation, which is the point of this entry.** Two entirely independent
-  transactions, five years apart, on two different continents' terms, for two small MEMS wafer fabs
-  with roughly $3M of annual revenue each, cleared at **$2.75 million (2017)** and **$3.0 million
-  (2022)** — both at roughly **one times trailing revenue**. That is not a coincidence worth
-  over-reading from two points, but it is the beginning of a market price for this class of asset, and
-  this repository had none before.
-- **Bears on:** H6 (**supports, on the capital side** — a second, independent confirmation that a
-  working small MEMS fab is a ~$3M asset, and the first credible figure for the build-new alternative:
-  "well over $50 million" and two years, from a company with every incentive to justify its purchase);
-  H5 (context — the acquired fab had an existing third-party foundry business and Akoustis kept it);
+- **The cross-case observation, restated more carefully.** Two entirely independent transactions, five
+  years apart, on two different continents' terms, for two small MEMS wafer fabs, cleared at headline
+  prices of **$2.75 million (2017)** and **US$3.0 million (2022)**. Once the filings are read, the two
+  are **less alike than the headlines suggest**: Akoustis bought land and buildings (63.6% of its
+  price) and assumed a contingent liability, from a public-sector seller who priced to save jobs
+  "without significant price negotiation"; Science bought no property at all, took no liabilities, and
+  dealt with a listed commercial seller. What the two transactions **do** agree on, and it is the more
+  useful convergence, is the price of the *tools*: **$1.0 million** for the wafer-manufacturing tool
+  set of a 150 mm MEMS fab in 2017, against a **EUR 0.5 million** net book value for the equivalent
+  tool set in 2022 (IHF-8) and a $3.0 million package price that also carried a team and a customer
+  book. See **IHF-11**.
+- **Bears on:** H6 (**mixed, and weaker on the supporting side than this entry first said** — the
+  *tools* of a working 150 mm MEMS fab changed hands for $1.0 million, which supports H6's capital
+  premise strongly; but the facility around them cost $1.75 million to buy, $1.13 million a year to
+  keep powered, and came with a $1.73 million clawback, and the business inside it lost $1.5 million a
+  year on revenue that was **36.5% government grants** — which challenges H6 hard on whether a small
+  fab's customers can pay for it. The build-new alternative, "well over $50 million" and two years,
+  stands, and the company's own $50.0 million of subsequent net PP&E growth corroborates it);
+  H5 (**challenges** — the acquired fab's third-party fabrication revenue **halved** in the year
+  before the sale, from $5.02M to $2.87M, and needed $1.85M of grants to stay afloat);
   H1 (context — buying beats building by more than an order of magnitude, which is an argument for
   *consolidating onto existing assets*, not for new entry).
 - **Used in:** not yet.
 - **Caveats:**
+  - **The $2.75 million headline is not the consideration and should not be quoted alone.** Cash at
+    closing was $2.85 million; GAAP consideration was $4.6 million; the accounting recognised
+    $6.3 million of assets and a $1.7 million bargain purchase gain. Anywhere this repository or
+    `WHY.md` uses "$2.75 million for a 120,000 sq ft fab", it must carry the contingent liability and
+    the fact that two thirds of the price was real estate.
   - **"Well over $50 million" is an acquirer's justification for its own purchase**, published in the
     press release announcing that purchase. It is exactly the number a buyer would want to be large.
     It is nonetheless the only build-new estimate found from a company that then actually operated
-    the alternative, and it is consistent with the "up to $65 million" Science budgeted for an
-    expansion (IHF-2).
-  - **The seller was a state university foundation**, not a commercial owner, so $2.75M may be below
-    a commercial clearing price. Equally, that is the second time in this file that the party
-    disposing of a small MEMS fab was not maximising price.
+    the alternative — and the company's own subsequent net PP&E growth of **$49,972,186** over six
+    years is an eerily close match to it. It is also consistent with the "up to $65 million" Science
+    budgeted for an expansion (IHF-2).
+  - **The $50 million PP&E series is group-wide, not the New York fab alone.** Akoustis also operated
+    a Huntersville, North Carolina site and acquired RFMi and Grinding and Dicing Services during the
+    period, and the XBRL tag is the consolidated balance-sheet line. It is a ceiling on what went into
+    the fab, not a measurement of it. It is used here only for the order of magnitude, and the order
+    of magnitude is the point: **buying the fab was the small number**.
+  - **The seller was a state university foundation**, not a commercial owner, and the filing says so
+    explicitly — "without significant price negotiation", to preserve employment and the tax base. So
+    **$2.75 million is not a market-clearing price** and must not be used as one. Equally, that is the
+    second time in this file that the party disposing of a small MEMS fab was not maximising price,
+    which is itself a finding about how this class of asset changes hands.
+  - **The acquired fabrication business had just halved.** Fabrication services revenue fell from
+    $5,018,139 (FY2015) to $2,872,939 (FY2016). The "annual revenues of approximately $3M" in the
+    press release is the post-halving number presented without the trend.
+  - **A $90 discrepancy in the audited table.** The five asset line items as transcribed sum to
+    $6,302,472 exactly, but $6,302,472 − $1,730,542 = $4,571,930, whereas the statement's own net
+    total reads $4,572,020 — a difference of $90. The likeliest explanation is a digit transposition
+    in the contingent-liability figure ($1,730,452 rather than $1,730,542) somewhere in the reading
+    chain. It does not affect anything material: the liability is $1.73 million either way. **Resolve
+    it by opening Exhibit 99.1 in a browser.**
+  - **The facility's size is stated two ways.** The 2017 press release and the audited exhibit say
+    **120,000 sq ft**; the FY2024 10-K describes "our **125,000**-square foot wafer-manufacturing
+    facility located in Canandaigua, New York". The difference is probably later construction; the
+    2017 figure is used for all per-square-foot arithmetic here.
   - **Akoustis's bankruptcy is not evidence about small fabs.** It followed a $38.6M
     intellectual-property judgment. Recording it as a "fab failure" would be wrong, and it is recorded
     here as a failure of the *company*, with the cause stated.
@@ -865,6 +1344,125 @@ different technology, by a company that had to disclose it.
 
 ---
 
+### IHF-11. What the *tools* of a 150 mm fab are worth, separately from the fab: about US$1 million, and the market does not publish prices
+
+This file has repeatedly wanted a figure for the tool set alone, because every whole-fab price it
+holds mixes tools with buildings, teams and customer books. The Akoustis filings turn out to contain
+one, and the MEMSCAP filings contain a second of a different kind. Both are audited. Neither is a
+market price in the ordinary sense, and that is itself the finding.
+
+- **Sources:**
+  - Akoustis Technologies, Inc., Form 8-K/A, 2017-09-12, Exhibit 99.1 — audited Special Purpose
+    Statement of Assets Acquired and Liabilities Assumed as of 2017-06-26, and its notes.
+    <https://www.sec.gov/Archives/edgar/data/1584754/000161577417005012/s107454_ex99-1.htm>
+  - Akoustis Technologies, Inc., Form 10-K, FY ended 2017-06-30, business-combination note.
+    <https://www.sec.gov/Archives/edgar/data/0001584754/000161577417005214/s107441_10k.htm>
+  - MEMSCAP S.A., *Rapport annuel 2022*, note 4 (disposal) and the balance-sheet movements section.
+    <https://memscap.com/wp-content/uploads/2023/05/Rapport-annuel-Memscap-2022-28_04_2023.pdf>
+  - EDGAR XBRL `companyconcept` API, CIK 0001584754, `us-gaap:PropertyPlantAndEquipmentNet` and
+    `us-gaap:AssetImpairmentCharges`.
+  - SDI / Fabsurplus, the largest openly-browsable used semiconductor equipment catalogue.
+    <https://www.fabsurplus.com/> and its wafer-fab category listings
+    (`https://www.fabsurplus.com/sdicatalog/salesItemList.do?listTypeId=3`).
+- **Verification:** Partial. The Akoustis figures were read through `WebFetch` from the filings named
+  above and the asset table reconciles exactly (IHF-9, DERIVED). The MEMSCAP figures were read from
+  the annual report PDF fetched from `memscap.com` and extracted with `pypdf`, and the disposal note
+  reconciles exactly (IHF-3, DERIVED). The Fabsurplus catalogue was fetched with `curl` on 2026-09-19
+  and the pages checked for price fields; **there are none**. **This entry has no independent
+  price-discovery source and should not be upgraded to Verified until one is found.**
+- **How it was counted:** no counting. The two figures are line items in audited statements. The
+  per-tool divisions under DERIVED use the "80+ Tools" count Science publishes for the same fab today
+  (IHF-4, IHF-5), which is an *upper* bound on what MEMSCAP owned, so the per-tool figures are
+  *lower* bounds.
+- **What it says.**
+
+  **1. Contract price for the tools of a working 150 mm MEMS fab: US$1.0 million (2017).** Akoustis'
+  audited Exhibit 99.1 states that the company "purchased semiconductor manufacturing tools for
+  **$1.0 million** and a 120,000-square foot facility with 57 acres for **$1.75 million**". That is
+  the whole tool set of a Trusted-Foundry-accredited 150 mm silicon MEMS fab that had been running
+  commercial fabrication services the year before. **The tools were 36.4% of a $2.75 million
+  headline.**
+
+  **2. Independent appraised value of the same tools: US$2,124,650.** The same exhibit's fair-value
+  table carries "Equipment 2,124,650", valued by "an independent appraisal company" using "market and
+  cost approaches". So a professional appraiser, applying market comparables, put the tool set at
+  **2.12× what the contract charged for it** — and even the appraiser's figure is barely $2 million
+  for an entire fab's worth of tools.
+
+  **3. Net book value of the equivalent tool set five years later: EUR 498 thousand (2022).**
+  MEMSCAP's audited disposal note takes "Immobilisations corporelles … (498)" — property, plant and
+  equipment, EUR 498 thousand — off the balance sheet for the *entire* industrial tool set of its
+  475 m² ISO 4 / ISO 6, 150 mm MEMS fab. The surrounding text confirms the scope: "La cession des
+  équipements industriels des activités abandonnées, soit un impact net de -0,5 million d'euros en
+  date de cession (Décembre 2022)" — *"the disposal of the industrial equipment of the discontinued
+  operations, i.e. a net impact of EUR -0.5 million at the disposal date (December 2022)"*. This is a
+  depreciated carrying value, not a price, and is a floor.
+
+  **4. What the market will not tell you.** The brief for this work assumed used-equipment dealers
+  publish asking prices. **They do not.** SDI/Fabsurplus, which runs the largest openly-browsable
+  catalogue of used fab equipment, lists tools by category, maker and model with no price field at
+  all; the 135 kB wafer-fab category page fetched on 2026-09-19 contains no currency amounts. Prices
+  are quoted on request. **There is no public price index for this market**, which is why two audited
+  transactions are worth more here than any number of listings would be.
+
+  **5. And the reason the tools are cheap is not that fabs are cheap.** The same Akoustis filings show
+  what happened next. Net property, plant and equipment went from **$7,853,814** four days after the
+  acquisition to **$57,826,000** six years later — **$49,972,186** of growth, against the "well over
+  $50 million" the company had said it would cost to build a comparable facility from scratch. Then
+  **$35.4 million** of impairment charges in FY2024 took net PP&E down to **$12,905,000**, and the
+  Chapter 11 sale of substantially all assets fetched **$30.2 million**. The tools are the cheapest
+  part of a fab on the way in, and book value is a poor guide to what they fetch on the way out.
+- **DERIVED (arithmetic written out):** checked with a throwaway Python script, deleted after use.
+  - Appraised equipment / contract tool price: 2,124,650 / 1,000,000 = **2.12×**.
+  - Tools as a share of the Akoustis headline: 1,000,000 / 2,750,000 = **36.4%**.
+  - **Per tool, using Science's published "80+ Tools" for the MEMSCAP/Science fab** (an upper bound on
+    the tool count, so these are lower bounds on price per tool):
+    - MEMSCAP net book value: EUR 498,000 / 80 = **EUR 6,225 per tool**.
+    - Whole MEMSCAP package price: US$3,000,000 / 80 = **US$37,500 per tool** — and that package also
+      included fourteen staff, the technology and the customer book, so the tools are worth less than
+      this.
+    - Akoustis contract tool price, if its fab held a similar number of tools: $1,000,000 / 80 =
+      **$12,500 per tool**. *The Akoustis tool count is not disclosed anywhere; this is offered only
+      as a scale check and must not be quoted as a fact about that fab.*
+  - Akoustis net PP&E growth 2017→2023: 57,826,000 − 7,853,814 = **$49,972,186**, i.e. **18.2×** the
+    cash paid for the fab and **50.0×** the contract price of its tools.
+  - FY2024 impairment as a share of the prior year's net PP&E: 35,400,000 / 57,826,000 = **61.2%**.
+  - Chapter 11 proceeds / peak net PP&E: 30,200,000 / 57,826,000 = **0.52×**.
+- **Bears on:**
+  - **H6 (supports, on the capital question, and this is the cleanest version of that support in the
+    file).** The tool set — the thing people mean when they say "a fab is expensive" — is a
+    **one-to-two-million-dollar** asset at 150 mm. Two independent audited sources, five years and an
+    ocean apart, agree on the order of magnitude. If the capital cost of tooling a 150 mm line is the
+    obstacle to serving a long tail of small customers, it is a smaller obstacle than this project had
+    assumed.
+  - **H6 (challenges, in the same breath).** The tools being cheap is exactly *why* the whole-fab
+    prices are low, and both fabs whose tools these were **lost money**. The binding constraint is
+    plainly not the tool set. It is the facility around it (EUR 655 thousand a year of rent at one;
+    $1.13 million a year of utilities at the other), the people, and the revenue.
+  - **H1 (context).** 150 mm tools are cheap because demand for them is weak and they are fully
+    depreciated. That is a fact about a *declining* installed base, not about a cheap frontier, and it
+    should not be generalised to any other node.
+- **Used in:** not yet.
+- **Caveats:**
+  - **Neither figure is a market-clearing price.** The Akoustis $1.0 million was set by a public-sector
+    seller "without significant price negotiation" (IHF-9); the MEMSCAP EUR 498 thousand is
+    depreciated book value, not a price at all. The only genuinely market-derived number here is the
+    appraiser's $2,124,650, and appraisals of fab tools are notoriously wide.
+  - **No tool count is available for either fab at the time of sale.** "80+ Tools" is Science's
+    description of the fab *today*, after it took ownership and began investing. Every per-tool figure
+    above is therefore soft and is presented as a bound, not an estimate.
+  - **MEMS tools are not general-purpose CMOS tools.** Both fabs ran MEMS processes. Lithography,
+    deposition and etch tools for MEMS at 150 mm are a much older and cheaper class than anything used
+    for logic, and nothing here says what a 150 mm *CMOS* line would cost.
+  - **"Tools" in both cases excludes the facilitisation** — the gas and chemical distribution, the
+    abatement, the water and power plant — which in the MEMSCAP case belonged to the landlord and in
+    the Akoustis case came with the building. Moving a tool set to a new building would cost a large
+    and unquantified multiple of the tool price.
+  - **The $50 million of subsequent Akoustis PP&E is group-wide**, not the New York fab alone (see
+    IHF-9). It is used here only for its order of magnitude.
+
+---
+
 ## 3. Cost section: every hard number found on small-scale fabrication capability
 
 Collected in one place because the repository has almost nothing of this kind. **Read the caveats on
@@ -874,18 +1472,27 @@ each entry before using any of these.**
 
 | What | Figure | Date | What it actually covers | Source | Status |
 |---|---|---|---|---|---|
-| Complete operating MEMS foundry — all tools and equipment, associated technology, the plant lease, the entire team, and the foundry customer book | **US$3.0 million** | 2022-12-07 | Purchase price of assets; **excludes the building freehold** (a lease was transferred) and excludes MEMSCAP's VOA product IP | MEMSCAP regulatory release (IHF-3) | **Verified** |
+| Complete operating MEMS foundry — all tools and equipment, associated technology, the plant lease, the entire team, and the foundry customer book | **US$3.0 million** (audited: **EUR 2,940 thousand cash**) | 2022-12-07 | Purchase price of **assets** in an Asset Purchase Agreement. **No building, no land, no liabilities** — the legal entity, its US$5.87M accumulated deficit and EUR 5.3M of parent funding all stayed with MEMSCAP. Excludes MEMSCAP's VOA product IP | MEMSCAP regulatory release + 2022 annual report note 4 (IHF-3) | **Verified** (audited; the note reconciles) |
+| — **the rent that goes with it, which the price does not include** | **EUR 655 thousand a year** (2021; EUR 658k in 2020) | 2021–22 | A **12-month renewable** lease of the cleanroom from Micross Advanced Interconnect Technologies, which owns the site and runs its EHS. **4.5 years of rent equals the purchase price** | MEMSCAP 2021 annual report note 10 (IHF-3) | **Verified** (audited filing) |
+| — what the seller actually netted | **EUR 1,723 thousand** | 2022-12 | EUR 2,940k cash less EUR 1,217k of disposal costs that are **nowhere broken down** | MEMSCAP 2022 annual report note 4 (IHF-3) | **Verified** (audited filing) |
 | Expansion of that same site: 57,000 sq ft for "MEMS and semiconductor manufacturing" | **"up to $65 million"** | 2024-07-09 | Building plus tools, not broken out; a ceiling stated in an incentives negotiation | Science Corporation (IHF-2) | Verified as a quote; the figure is a company claim |
 | Implied capex density of that expansion | **$1,140 per sq ft** | 2024 | DERIVED: $65,000,000 / 57,000 sq ft | DERIVED from IHF-2 | Derived, order-of-magnitude only |
 | The same North Carolina site, earlier | reported **"approximately $750M"** paid by JDS Uniphase for Cronos Integrated Microsystems, "shortly prior" to 2002 | c. 2000 | Acquisition of a *company*, not of the plant alone | Science Corporation blog (IHF-3) | **Lead** — not checked against a JDS Uniphase filing |
 | Public subsidy attached to the expansion | **$930,000** over ten years, performance-based, for 50+ jobs = **$18,600 per job** | 2024-07-09 | Durham County incentive award | Science Corporation (IHF-2); county minutes not reached | Partial |
 | **Net book value of the entire industrial tool set of that same fab**, on disposal | **EUR 0.5 million** | 2022-12 | Carrying value after depreciation of *all* the industrial equipment of the discontinued business — not a replacement cost | MEMSCAP 2022 annual report (IHF-8) | **Verified** (audited filing) |
-| **A second, independent small MEMS fab:** 120,000 sq ft facility, 57 acres of land, Class 100/Class 1000 cleanrooms, 150-mm silicon MEMS fab "including all semiconductor manufacturing tools", Trusted Foundry accreditation, and an operating business with ~$3M of annual revenue | **US$2.75 million** | 2017-03 | Purchase price in cash at closing; **includes the land and buildings** (unlike IHF-3, which was a lease) | Akoustis 8-K exhibit (IHF-9) | Partial — read via `WebFetch`, filing not read end to end |
-| — the same, per square foot | **$22.92 per sq ft** | 2017 | DERIVED: $2,750,000 / 120,000 sq ft, tools and land included | DERIVED from IHF-9 | Derived |
+| **A second, independent small MEMS fab:** 120,000 sq ft facility, 57 acres of land, Class 100/Class 1000 cleanrooms, 150-mm silicon MEMS fab "including all semiconductor manufacturing tools", Trusted Foundry accreditation, and an operating business with ~$3M of annual revenue | announced **US$2.75 million**; **cash at closing $2.85M**; **GAAP consideration $4.58M** | 2017-06-26 | **Includes the land and buildings** (unlike IHF-3). The gap is a **$1.73M contingent real-estate liability** — a 3-year clawback of up to $5.96M of any resale profit above $1.75M. Net assets acquired at appraised fair value **$6.30M**, giving a **$1.72M bargain purchase gain**. Priced "without significant price negotiation" by a public-sector seller to preserve jobs, so **not a market price** | Akoustis 8-K/A Exhibit 99.1 (audited) and FY2017 10-K (IHF-9) | Partial — read via `WebFetch`; the asset table reconciles |
+| — **the split of that price** | **$1.0 million for all the wafer-manufacturing tools**; **$1.75 million for the 120,000 sq ft building and 57 acres** | 2017 | The contract's own allocation, from the audited exhibit. The tools were **36.4%** of the headline | Akoustis 8-K/A Exhibit 99.1 (IHF-9, IHF-11) | Partial (audited exhibit) |
+| — **independent appraisal of the same tools** | **$2,124,650** | 2017-06-26 | Fair value from "an independent appraisal company" using market and cost approaches — **2.12×** the contract price for them | Akoustis 8-K/A Exhibit 99.1 (IHF-11) | Partial (audited exhibit) |
+| — the same, per square foot | **$22.92 per sq ft** all-in; **$14.58 per sq ft** for the real estate alone | 2017 | DERIVED: $2,750,000 / 120,000 sq ft, and $1,750,000 / 120,000 sq ft | DERIVED from IHF-9 | Derived |
+| **What the acquired business was actually earning** | total revenue **$5,059,665** (FY2016), of which fabrication services only **$2,872,939** and **grants $1,847,912**; net loss **$(1,503,435)**; utilities alone **$1,132,403** | FY2016 | Fabrication revenue had just **halved** from $5,018,139 in FY2015. 36.5% of revenue was government grants | Akoustis 8-K/A Exhibit 99.1 (IHF-9) | Partial (audited exhibit) |
 | **Cost of building an equivalent fab new, as estimated by a company that then bought the alternative** | **"well over $50 million"** and "up to 2-years" | 2017-03 | A "comparable manufacturing facility to build and qualify for production" | Akoustis 8-K exhibit (IHF-9) | Partial; and it is an acquirer justifying its own purchase |
 | — buying used against building new | **at least 18.2× cheaper to buy** | 2017 | DERIVED: $50,000,000 (a floor) / $2,750,000 | DERIVED from IHF-9 | Derived |
-| **What a small MEMS fab is worth, across two independent transactions** | **~$3 million, at roughly 1× trailing revenue** | 2017 and 2022 | $2.75M for a ~$3M-revenue business (IHF-9); $3.0M for a ~EUR 2.9M-revenue business (IHF-3, IHF-8). No FX rate asserted | IHF-3, IHF-8, IHF-9 | Derived from two Verified/Partial prices |
-| Whole-company resale of one of them in Chapter 11 | **$30.2 million** for "substantially all of the assets" | 2025 | Seven years of BAW filter development on top of the fab, **not** the fab alone | ATech 8-K (IHF-9) | Partial |
+| — **and what the buyer then actually spent** | net property, plant and equipment grew **$49,972,186**, from $7,853,814 (30-06-2017) to $57,826,000 (30-06-2023) | 2017–2023 | Within $28 thousand of the company's own "well over $50 million" build-new estimate. **Group-wide PP&E, not the NY fab alone** — a ceiling, not a measurement | Akoustis 10-K XBRL (IHF-9, IHF-11) | **Verified** (company's own XBRL) |
+| — and then its collapse | **$35.4 million** of impairment charges in FY2024; net PP&E fell to **$12,905,000** | FY2024 | 61.2% of the prior year's net PP&E written off in one year | Akoustis 10-K XBRL (IHF-11) | **Verified** (company's own XBRL) |
+| **What a small MEMS fab is worth, across two independent transactions** | **~$3 million headline** — but see the caveat | 2017 and 2022 | **The two are less alike than the headlines.** Akoustis' was 63.6% real estate, came with a $1.73M clawback, and was not market-priced; MEMSCAP's carried no property and no liabilities. The convergence that does hold is on the **tools**: $1.0M (2017, contract) against EUR 0.5M net book value (2022) | IHF-3, IHF-8, IHF-9, IHF-11 | Derived — **read IHF-11 before using this row** |
+| **Tools alone, of a working 150 mm MEMS fab** | **US$1.0 million** contracted; **US$2,124,650** independently appraised; **EUR 498 thousand** net book value at the other fab | 2017 and 2022 | The cleanest capital figure in this file. Excludes facilitisation entirely | IHF-11 | Partial (two audited sources) |
+| Whole-company resale of one of them in Chapter 11 | **$30.2 million** for "substantially all of the assets" | 2025 | Seven years of BAW filter development on top of the fab, **not** the fab alone. **0.52×** the peak net book value | ATech 8-K (IHF-9) | Partial |
+| **Published prices for used 150 mm fab tools** | **none exist** | 2026-09-19 | SDI/Fabsurplus, the largest openly-browsable used-equipment catalogue, lists tools with **no price field**. Prices are quoted on request only. There is no public price index for this market | IHF-11 | **Verified as a negative** |
 
 ### Operating scale of a small MEMS line
 
@@ -895,7 +1502,8 @@ operating numbers in this file. The rest are company statements about how Scienc
 | What | Figure | Source | Status |
 |---|---|---|---|
 | **Cleanroom area** | **475 m² = 5,113 sq ft** (DERIVED conversion) | MEMSCAP 2022 annual report (IHF-8) | **Verified** (audited filing) |
-| **Cleanroom class** | **ISO 4** (≈ FS 209 Class 10) | MEMSCAP 2022 annual report (IHF-8) | **Verified** — but a secondary source says "Class 100", see IHF-8 caveats |
+| **Cleanroom class** | **ISO 4 *and* ISO 6** (FS 209 Class 10 and Class 1000) | MEMSCAP **2021** annual report (IHF-8) | **Verified** — the 2021 report gives both classes; the 2022 report's bare "ISO 4" is the incomplete description |
+| **Rent for that cleanroom** | **EUR 655 thousand a year**, on a 12-month renewable lease from Micross Advanced Interconnect Technologies, which owns the site | MEMSCAP 2021 annual report note 10 (IHF-3, IHF-8) | **Verified** (audited filing) |
 | **Wafer size** | **6 inch** | MEMSCAP 2022 annual report (IHF-8); Science says the same today | **Verified** |
 | **Headcount running the whole foundry** | **14 people** (MEMSCAP's US employees at 31-12-2021) | MEMSCAP 2022 annual report (IHF-8) | **Verified** (audited filing) |
 | Annual revenue of that foundry | **EUR 2,858 thousand** (FY2021), **EUR 1,935 thousand** (FY2022) | MEMSCAP FY2022 earnings release (IHF-8) | **Verified** (audited) |
@@ -920,27 +1528,52 @@ operating numbers in this file. The rest are company statements about how Scienc
 
 ### The one-paragraph version, for anyone who reads nothing else here
 
-**A working commercial MEMS foundry — 475 m² of ISO 4 cleanroom, 6-inch wafers, fourteen people, an
-ISO 9001:2015 quality system, a live customer book and the industry's longest-running MEMS
-multi-project wafer shuttles — turned over about EUR 2.9 million a year, lost money doing it, carried
-its entire tool set at EUR 0.5 million, and sold for US$3.0 million.** The company that bought it
-then budgeted "up to $65 million" to make it about eleven times larger. Five years earlier and
-independently, **a 120,000 sq ft MEMS fab with all its tools and 57 acres of land sold for US$2.75
-million, and the buyer said in the same announcement that building the equivalent would "take up to
-2-years and cost well over $50 million".** So: **a small MEMS fab costs roughly $3 million to buy and
-somewhere north of $50 million to build**, and the two purchases found were each at about one times
-the acquired business's trailing revenue. Every one of those numbers comes from an audited filing or
-a regulatory announcement rather than from marketing.
+*Rewritten 2026-09-19 after the audited filings behind both transactions were read. The previous
+version of this paragraph said "a small MEMS fab costs roughly $3 million to buy". That is the
+headline, not the cost, and the difference is the whole point.*
+
+**A working commercial MEMS foundry — 475 m² of ISO 4 and ISO 6 cleanroom, 6-inch wafers, fourteen
+people, an ISO 9001:2015 quality system, a live customer book and the industry's longest-running MEMS
+multi-project wafer shuttles — turned over about EUR 2.9 million a year, lost about EUR 0.8 million a
+year doing it, carried its entire tool set at EUR 0.5 million, and sold for US$3.0 million in cash.**
+But **that price bought no building and no land**: the cleanroom is rented, on a twelve-month rolling
+lease, from another semiconductor company that owns the site, at **EUR 655 thousand a year**. Four and
+a half years of that rent costs more than the fab did. And the price bought **no liabilities**: it
+was an asset purchase, and the legal entity — with a **US$5.87 million accumulated deficit** and
+**EUR 5.3 million** of parent funding behind it — stayed with the seller, who netted **EUR 1.7
+million** after **EUR 1.2 million** of disposal costs. The company that bought it then budgeted "up to
+$65 million" to make it about eleven times larger.
+
+Five years earlier and independently, **a 120,000 sq ft MEMS fab with all its tools and 57 acres of
+land changed hands on an announced US$2.75 million** — of which, per the audited exhibit, **$1.0
+million was the entire tool set and $1.75 million was the real estate**. The true consideration was
+**$4.58 million** once a $1.73 million anti-flip clawback is counted, against **$6.30 million** of
+appraised assets, and the filing says plainly that the price was set "without significant price
+negotiation" by a public-sector seller trying to save jobs at a facility burning $3.0 million a year.
+The acquired business had just seen its fabrication revenue **halve**, and **36.5%** of its revenue
+was government grants. The buyer said building the equivalent would "take up to 2-years and cost well
+over $50 million" — and then grew its own net property, plant and equipment by **$49,972,186** over
+the next six years before writing **$35.4 million** of it off and filing for Chapter 11.
+
+**So, honestly:** the *tools* of a 150 mm MEMS fab are a **one-to-two-million-dollar** asset, and that
+is the surprising and encouraging finding. A *fab* is not. What a small working fab costs depends
+almost entirely on whether you must also provide the shell — and in the one case where the buyer did
+not have to, occupancy still cost two thirds of the purchase price every year. **Neither transaction
+was an arm's-length auction**: one seller was a state university foundation preserving jobs, the other
+a listed micro-cap exiting a business it had been subsidising. Both fabs lost money. Every figure
+above comes from an audited filing rather than from marketing, and none of them supports the sentence
+"a small MEMS fab costs $3 million".
 
 ### What is still missing, and would be worth more than any of the above
 
 - **A breakdown of the $65M into building versus tools.** Without it the figure cannot be turned into
   a cost model.
-- **Refurbished-equipment prices, tool by tool.** Nothing was found. The $3.0M in IHF-3 and the
-  $2.75M in IHF-9 are whole-line prices and neither decomposes; the EUR 0.5M in IHF-8 is a
-  depreciated book value, not a market price. A third transaction would turn "about $3 million, about
-  1× revenue" from a coincidence into a rule, and is the single cheapest piece of further research
-  available: EDGAR full-text search on the phrases fabs are sold with.
+- **Refurbished-equipment prices, tool by tool.** Still nothing, and now known to be *unavailable
+  publicly*: SDI/Fabsurplus lists tools with no price field at all (IHF-11). What was found instead is
+  the **whole-tool-set** price — $1.0 million contracted, $2,124,650 appraised (IHF-11) — which
+  decomposes the Akoustis headline even though no per-tool data exists. A third transaction would
+  still help; EDGAR full-text search (`efts.sec.gov`, which serves `curl`) is the cheapest route and
+  both the Akoustis documents used here were found that way.
 - **Cleanroom build cost per square foot by class.** Not found from any primary source. The nearest
   thing is the $1,140/sq ft implied by IHF-2, which mixes building and tools.
 - **What Science Foundry's $13,520 buys.** Behind account registration.
@@ -1055,7 +1688,9 @@ Recorded so nobody repeats the attempt. Being blocked is an expected outcome, no
 | Science Foundry full price list and ordering platform | behind "Start your order" on `https://science.xyz/services/foundry/mems/standard-technologies/` | Requires creating an account. **Deliberately not attempted** — account creation is forbidden under this project's read-only rule | A human willing to register. This is where the decomposition of the "$13,520+" price lives |
 | CMC Microsystems list price for "Science Foundry Poly MEMS" | `https://www.cmc.ca/polymumps-multi-user-mems/` | Page loads; the list price field reads "Coming soon …" and subscriber pricing requires a login | Nothing — CMC has not published it. (`search-log.md` already records CMC's `FabPricing.aspx` returning 403) |
 | MEMSCAP FY2022 annual report / FY2022 earnings release | `memscap.com` | **Not blocked, and now retrieved — see IHF-8.** Recorded here because the route is non-obvious: the investor page's PDF list does not contain them. They are reachable through the WordPress REST API at `https://memscap.com/en/wp-json/wp/v2/posts?search=…`, which returns the post URLs; each post then links a single PDF | Nothing. The route above works and needs no browser |
-| MEMSCAP 2021 annual report PDF | `https://memscap.com/en/2022/04/29/memscap-2021-annual-report/` | Page loads, but the only PDF it links is an *availability notice*, not the report | Following MEMSCAP's investor pagination or the AMF/Euronext filing archive. It would give the fab's FY2020 revenue and a second description of the 475 m² plant |
+| MEMSCAP 2021 annual report PDF | `https://memscap.com/en/2022/04/29/memscap-2021-annual-report/` | **Unblocked, 2026-09-19.** That page links only an availability notice, but `https://memscap.com/en/memscap_an_rep/` lists every annual report PDF directly, 2021 to 2025. The 2021 report is at `https://memscap.com/wp-content/uploads/2023/04/Rapport-annuel-Memscap-2021-29_04_2022.pdf` | Nothing. It gave the FY2020 revenue, the plant lease term and rent, the landlord's name, the mixed ISO 4/ISO 6 cleanroom class and the customer-concentration note — see IHF-3 and IHF-8 |
+| Published asking or realised prices for used 150 mm fab tools | SDI/Fabsurplus (`https://www.fabsurplus.com/`), the largest openly-browsable catalogue | Loads fine to `curl`; the category listings have **no price field at all**. Prices are quoted on request only | Nothing automated will work — there is no public price index. The audited transaction figures in IHF-11 are the substitute. A human could request quotes, but that means contacting a company, which is out of scope here |
+| Further web searching, 2026-09-19 | `WebSearch` | **Session budget exhausted (200 of 200 calls) before this pass began.** All sources below were therefore reached by direct `curl`/`WebFetch` of URLs derived from filings and site indexes | Raising `CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION`, or starting a fresh session. Some of what is still missing may simply be one search away |
 | Rigetti Computing foundry page | `https://www.rigetti.com/foundry` | **HTTP 404** — the page has moved or gone | A site search, or the Wayback Machine |
 | `web.archive.org` via `WebFetch` | — | Refuses outright (already recorded in `search-log.md` §1) | Use `curl` with the `…/web/<timestamp>id_/<url>` raw-content form |
 
@@ -1065,12 +1700,20 @@ Recorded so nobody repeats the attempt. Being blocked is an expected outcome, no
 
 Listed so the next person does not have to rediscover it.
 
-In rough order of how much each would add.
+**Cleared on 2026-09-19, so do not redo it.** The audited accounting behind *both* transactions has
+now been read, and both headline prices were found to mean less than this file had claimed. See the
+correction notes at the head of IHF-3 and IHF-9, and the new IHF-11. In particular: the MEMSCAP deal
+was an asset purchase with the liabilities left behind and a EUR 655k/year rent attached; the Akoustis
+headline of $2.75M was $2.85M of cash plus a $1.73M contingent liability against $6.3M of appraised
+assets, and was set "without significant price negotiation" by a public-sector seller.
 
-1. **A third small-fab transaction price.** Two points ($2.75M in 2017, $3.0M in 2022, both at about
-   1× trailing revenue) are the beginning of a market price for a small MEMS fab, and this is the
-   cheapest remaining research in this file: EDGAR full-text search (`efts.sec.gov`) serves automated
-   requests and the two found here were located that way in minutes.
+What remains, in rough order of how much each would add.
+
+1. **A third small-fab transaction price — still wanted, and now for a different reason.** Neither of
+   the two found was an arm's-length auction, so there is still *no* market-clearing price for a small
+   MEMS fab in this file. EDGAR full-text search (`efts.sec.gov`) serves automated requests with
+   `curl` and everything new here was found that way; so does `data.sec.gov` (submissions, companyfacts
+   and companyconcept). `www.sec.gov/Archives/...` still refuses `curl` and needs `WebFetch`.
 2. **Upgrade IHF-9 and IHF-10 from Partial to Verified** by opening the Akoustis and Rigetti filings
    in a browser. `www.sec.gov/Archives/...` returns 403 to `curl` but `WebFetch` reaches it; only the
    targeted excerpts were read, not the documents.
@@ -1081,15 +1724,25 @@ In rough order of how much each would add.
    Commissioners' own minutes or the NC Department of Commerce. All three trade-press reports of it
    refuse automated fetches.
 5. **Verify the "approximately $750M" JDS Uniphase / Cronos figure** against a JDS Uniphase filing. It
-   is currently a Lead quoted from the buyer's own blog.
-6. **The split of MEMSCAP's EUR 2.9M foundry revenue** between MUMPs shuttle customers and contract
+   is currently a Lead quoted from the buyer's own blog. Not attempted in the 2026-09-19 pass.
+6. **What the MEMSCAP supply agreement with Science was worth.** The single open leg of IHF-3. No
+   minimum purchase obligation is disclosed on MEMSCAP's side in 2022 or 2023 (note 25.1 shows nil),
+   and neither party publishes volumes or prices, so a below-market sale price recovered through the
+   supply contract remains possible but unevidenced. MEMSCAP's 2024 and 2025 annual reports were not
+   read and might quantify purchases from "un fournisseur stratégique américain".
+7. **What the EUR 1,217 thousand of "frais nets afférents à la cession" was spent on.** 41% of the
+   MEMSCAP consideration, broken down nowhere in the 2022 report. If any of it flowed to Science, the
+   effective price was lower than US$3.0 million.
+8. **The split of MEMSCAP's EUR 2.9M foundry revenue** between MUMPs shuttle customers and contract
    manufacturing, and the group overhead allocated to the division. Both are the difference between
-   IHF-8 being a fatal result for H6 and being an artefact of transfer pricing. Neither is in the
-   2022 annual report; the 2021 and 2020 reports were not read.
-7. **Comparable cases not yet worked at all:** **Neuralink** (in-house thin-film fabrication,
+   IHF-8 being a fatal result for H6 and being an artefact of transfer pricing. **The 2021 annual
+   report has now been read and does not give either split** — but it does give FY2020 divisional
+   revenue (EUR 3,083 thousand), the customer-concentration bound and the tool-outage figure, all now
+   in IHF-8. The 2020 and earlier reports remain unread and are the only remaining route.
+9. **Comparable cases not yet worked at all:** **Neuralink** (in-house thin-film fabrication,
    private, so expect little), **Paradromics**, **Precision Neuroscience**, and the photonics and
    lab-on-chip fields, which were not reached. Failures matter as much as successes — the only
    failure written up here is Akoustis, and its cause was litigation rather than the fab.
-8. **What happened to the Canandaigua fab in Akoustis's bankruptcy.** The 8-K does not name it. The
+10. **What happened to the Canandaigua fab in Akoustis's bankruptcy.** The 8-K does not name it. The
    Chapter 11 docket would say, and would give a second resale price for a small MEMS fab.
 

@@ -240,11 +240,11 @@ shadow libraries, no contact with any person.
 | What `science.xyz` actually is | **Science Corporation** — SEC registrant "Science Corp", CIK 0001873836, Delaware, incorporated 2021, 300 Wind River Way, Alameda CA. Max Hodak's neural-engineering company | § 1 |
 | Whether it runs its own microfabrication | Yes, and more than that: it **bought a commercial MEMS foundry and sells fabrication to outsiders** as Science Foundry / Science Wafer Services | IHF-1, IHF-4 |
 | Why it built or bought a fab | Its own words: outside fabs were "simply inaccessible for this kind of low-volume work"; "There is a gap in the market at the low-volume, high-complexity, rapid-iteration end" | IHF-1, IHF-5 |
-| What the capability cost | Acquisition **US$3.0 million**; expansion budgeted at **"up to $65 million"** for 57,000 sq ft | IHF-2, IHF-3 |
-| What the fab actually is, physically | **475 m², ISO 4 cleanroom, 6-inch wafers, 14 people** — from MEMSCAP's *audited* 2022 annual report, which is the only primary description found anywhere | IHF-8 |
+| What the capability cost | Acquisition **US$3.0 million** (audited: **EUR 2,940 thousand** cash, all at closing, in an **asset purchase** with no building, no land and no liabilities, on a cleanroom rented for **EUR 655 thousand a year**); expansion budgeted at **"up to $65 million"** for 57,000 sq ft | IHF-2, IHF-3 |
+| What the fab actually is, physically | **475 m², ISO 4 *and* ISO 6 cleanroom, 6-inch wafers, 14 people**, **leased** from Micross Advanced Interconnect Technologies at 3021 Cornwallis Road, Research Triangle Park — from MEMSCAP's *audited* 2021 and 2022 annual reports | IHF-3, IHF-8 |
 | Whether that business made money | **No.** After-tax operating losses of EUR 805k (FY2021) and EUR 857k (FY2022) on revenue of EUR 2,858k then EUR 1,935k | IHF-8 |
 | What it charges small customers | Science Foundry's published **"Standard MPW Run $13,520+"**; MEMSCAP MUMPs at **EUR 3,700 a block** (2020); X-FAB XMB10 at **EUR 1,253/mm²** with a 10 mm² minimum (2026) | IHF-4, IHF-6, IHF-7 |
-| Comparable cases | **Akoustis** bought a 120,000 sq ft MEMS fab for **$2.75M** and said building one would cost **"well over $50 million"**; **Rigetti** owns Fab-1 and sells Rigetti Foundry Services | IHF-9, IHF-10 |
+| Comparable cases | **Akoustis** bought a 120,000 sq ft MEMS fab on an announced **$2.75M** (audited: $2.85M cash, **$4.58M GAAP consideration** including a $1.73M clawback, of which **$1.0M was the tools** and $1.75M the real estate) and said building one would cost **"well over $50 million"**; **Rigetti** owns Fab-1 and sells Rigetti Foundry Services | IHF-9, IHF-10, IHF-11 |
 | A failure | Akoustis: Chapter 11 on 2024-12-16, delisted, assets sold for $30.2M, shareholders wiped out — **but the cause was a $38.6M patent judgment, not the fab** | IHF-9 |
 
 ### 7.2. Tool and access notes, additional to § 1
@@ -304,7 +304,7 @@ shadow libraries, no contact with any person.
 
 | Question | Source A | Source B | Status |
 |---|---|---|---|
-| Science Foundry's cleanroom class | MEMSCAP's audited 2022 annual report: "475 m², classe ISO 4" | A MEMS-industry blog: "5,000 sq. ft. of Class 100 cleanroom" (= ISO 5) | Unresolved. **The areas agree** (475 m² is 5,113 sq ft); the classes differ by one. The audited filing is preferred and both are recorded (IHF-8) |
+| Science Foundry's cleanroom class | MEMSCAP's audited 2022 annual report: "475 m², classe ISO 4" | A MEMS-industry blog: "5,000 sq. ft. of Class 100 cleanroom" (= ISO 5) | **Largely resolved, 2026-09-19.** MEMSCAP's **2021** annual report says the room is "classe ISO 4 (Classe 10 selon FS 209) **et ISO 6 (Classe 1000 selon FS 209)**" — a mixed-class room. Class 100 sits between the two and is a fair rounding. The 2022 report's bare "ISO 4" is the incomplete description (IHF-8) |
 | The company's own name | SEC registrant: "Science Corp" | Website and `schema.org` metadata: "Science Corporation"; the MEMS unit is "Science Foundry" and "officially known as Science Wafer Services" | Unresolved and probably unresolvable without corporate filings. All refer to one company; whether Science Wafer Services is separately incorporated is not established |
 | Date of the MEMSCAP sale announcement | Press release dateline: "Grenoble (France) – December 7, 2022 – 06:30 PM"; Science's blog post: 2022-12-07 | MEMSCAP's own website post: 2022-12-12 | Not a real disagreement — the website post-dates the release. Both recorded |
 
