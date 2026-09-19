@@ -148,7 +148,9 @@ figures were written down.
     deep cultivation in PCB sample boards and small-batch boards, has cumulatively served more than
     ten thousand enterprises"; Sihui Fushi's "customer count grew from 143 in 2017 to 595 in 2022";
     Qiangda "served nearly 3,000 active customers in 2025".
-- **DERIVED (arithmetic written out):** computed by `tmp/pcb_arith.py`, run with `uv run python`.
+- **DERIVED (arithmetic written out):** every figure below was computed and checked by a
+  throwaway Python script (`uv run python`) before being written down, and the arithmetic is
+  reproduced here in full so a reader can redo it without the script.
   - **Transcription check.** Mean of the five transcribed peer figures, 2023:
     (28.72 + 28.42 + 15.14 + 24.55 + 28.63) ÷ 5 = 25.0920% against the printed **25.09%**.
     2024: (26.96 + 23.97 + 14.33 + 19.03 + 27.58) ÷ 5 = 22.3740% against printed **22.37%**.
@@ -310,7 +312,8 @@ figures were written down.
     By contrast, the offline model: "业务员先与客户就产品的价格、数量、工艺等关键的合同要素初步沟通达成一致" — "the salesperson first
     communicates with the customer and reaches agreement on key contract terms such as price,
     quantity and process."
-- **DERIVED (arithmetic written out):** from `tmp/pcb_arith.py`.
+- **DERIVED (arithmetic written out):** computed and checked by script before being written
+  down; the arithmetic is reproduced in full below.
   - **Utilisation reproduces.** 717.38 ÷ 936.90 = 76.57%; 801.16 ÷ 1,049.53 = 76.34%;
     885.61 ÷ 1,153.46 = 76.78%. Exactly the printed figures.
   - **Average PCB price reproduces.** 292,745.25万元 ÷ 717.12万 m² = CNY 408.22/m²;
@@ -472,7 +475,8 @@ figures were written down.
     as pursuing "通过多个订单合拼生产的样板批量化生产新模式" — "a new model of batched sample-board
     production, combining multiple orders into one production run" — which is panelisation, the
     same mechanism OSH Park and Dirty PCBs used.
-- **DERIVED (arithmetic written out):** from `tmp/pcb_arith.py`.
+- **DERIVED (arithmetic written out):** computed and checked by script before being written
+  down; the arithmetic is reproduced in full below.
   - **Margins reproduce from the printed revenue and cost, and match JLC's prospectus exactly.**
     (445,662,776.81 − 378,200,246.35) ÷ 445,662,776.81 = **15.14%**;
     (452,462,851.68 − 387,604,201.66) ÷ 452,462,851.68 = **14.33%**;
@@ -605,7 +609,8 @@ figures were written down.
     **852,683,193.60** in 2025 and 1,127,871,170.01 in 2024. No PCB capacity-utilisation figure is
     printed for the PCB business in any of the three reports; utilisation is discussed only
     qualitatively and only for the CSP substrate line ("产能利用率逐季提升").
-- **DERIVED (arithmetic written out):** from `tmp/pcb_arith.py`.
+- **DERIVED (arithmetic written out):** computed and checked by script before being written
+  down; the arithmetic is reproduced in full below.
   - **Margins reproduce, and two more of PCB-1's five peer columns are now verified against the
     peer's own filing.** (4,090,502,302.37 − 2,915,691,055.62) ÷ 4,090,502,302.37 = **28.72%**;
     (4,897,079,816.57 − 3,660,050,280.12) ÷ 4,897,079,816.57 = **25.26%**; and 25.26 + 1.70 =
@@ -714,7 +719,8 @@ figures were written down.
     is a third set of thresholds, agreeing with Xunjiexing on the sample cutoff (5 m²) and with JLC
     on the small-batch ceiling (20 m²), and matching neither in full. **There is no industry-standard
     definition of "small batch".**
-- **DERIVED (arithmetic written out):** from `tmp/pcb_arith.py`.
+- **DERIVED (arithmetic written out):** computed and checked by script before being written
+  down; the arithmetic is reproduced in full below.
   - **All fifteen of PCB-1's peer figures now check out.** Recomputed from each company's own
     printed revenue and cost:
 
@@ -847,7 +853,8 @@ labelled accordingly — this entry is **Partial** as a whole, with the OSH Park
     Technology Limited, to provide reliable manufacturing and secure global payment services for
     creators, engineers, and businesses." **No revenue, order count, customer count, margin or
     capacity figure is published anywhere on the site we read.**
-- **DERIVED (arithmetic written out):** from `tmp/pcb_arith.py`.
+- **DERIVED (arithmetic written out):** computed and checked by script before being written
+  down; the arithmetic is reproduced in full below.
   - **OSH Park's own price list contains the small-order premium, and it is the same at both layer
     counts.** Prototype price per *board* per square inch is the quoted price divided by the set of
     three:
@@ -906,7 +913,7 @@ could reach, and that absence is itself part of the finding.
 
 | | JLC (嘉立创) | Xunjiexing (迅捷兴) | Fastprint (兴森科技) | Jinbaize (金百泽) | Sihui Fushi (四会富仕) | Qiangda (强达电路) |
 |---|---|---|---|---|---|---|
-| Listing | SZSE, IPO filed Apr 2026 | STAR 688655 | SZSE 002436 | — (to confirm) | SZSE 300852 | SZSE (to confirm) |
+| Listing | SZSE, IPO filed Apr 2026 | SSE STAR 688655 | SZSE 002436 | SZSE 301041 | SZSE 300852 | SZSE 301628 |
 | Core gross margin 2023 / 2024 / 2025 | **28.73 / 30.05 / 28.06%** (PCB) | 15.14 / 14.33 / **8.52%** | 28.72 / 26.96 / **25.26%** (PCB line) | 28.42 / 23.97 / 21.17% | 24.55 / 19.03 / 16.45% | 28.63 / 27.58 / 26.10% |
 | Verified against the company's own filing? | n/a (is the source) | **Yes, all 3 years** | **Yes, 2023 and 2024; 2025 added by us** | **Yes, 2024 and 2025** | **Yes, 2023, 2024 and 2025** | **Yes, 2024 and 2025** |
 | Margin split by batch size | **Yes** — 36.24% sample+small-batch vs 2.76% medium/large-batch, 2025 (SMB-1) | No numeric split; qualitative table only | **No** — splits by industry, product, region, channel, never by batch | **No** — splits PCB vs EMS only | **No** | **No** |
@@ -921,6 +928,16 @@ could reach, and that absence is itself part of the finding.
 | Pricing model | Online self-service, auto reference quote, **payment before goods**; offline = negotiated | Direct sales + traders, negotiated; online mall launched 2026-01-04 | Direct sales 94.21%, traders 5.79%; receivables **30.80% of revenue** | Negotiated | **直销 100.00%** — all direct, negotiated | **直销 100.00%** — all direct, negotiated |
 | CPCA rank (domestic PCB makers) | ~16th / 17th (estimated) | 78th / 83rd | 7th / 8th | 62nd / 59th | 25th / 23rd | 53rd / 53rd |
 | Bottom line | Net margin 12.65% (2025) | **Net loss CNY 22.4M (2025)** | Net profit up 168% (2025), semiconductor arm at −9.28% gross | PCB 21.17%, EMS 24.11% | — | 26.10%, the best of the five peers |
+
+### The companies that file nothing (PCB-6)
+
+| | OSH Park | DirtyPCBs | PCBWay | Seeed Fusion |
+|---|---|---|---|---|
+| Files audited accounts? | No | No | No | No — and whether it ever did on NEEQ was not checked |
+| Owns plant? | **No** — "manufactured in the United States", i.e. it brokers | Not established | Claims "PCBWay factories" on its own site; uncorroborated | Not checked |
+| Published price list? | **Yes, complete** — $5/in² per set of 3, no minimum, no setup fee; Medium Run $1/in², 100 in² minimum | Yes, but computed client-side and unreadable from the served HTML | Yes, via an online quoter | Not checked |
+| Small-order premium in its own price list | **1.667×** per board-in², identical at 2 and 4 layers | — | — | — |
+| Any revenue, order, customer, margin or capacity figure? | **None** | **None** | **None** | **None** |
 
 ## Verdict: does the JLC pattern generalise?
 
