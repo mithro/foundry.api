@@ -468,3 +468,102 @@ questionnaire. Those sentences were quoted as findings. None of the addresses wa
 - **Europractice's yearly price pages are a diff.** `schedules-prices-2025/` and
   `schedules-prices-2026/` are both live and plain HTML. Comparing them found the new eligibility
   condition in `ACC-4`. The same trick should work for earlier years.
+
+---
+
+## 13. Programme funding: what Europractice and MOSIS cost to run, 2026-09-19
+
+Searching done for [`programme-funding.md`](programme-funding.md) (`FUND-1` … `FUND-9`). Same rules
+as everything above: HTTP GET only, no forms submitted, no accounts created, no quote requests, no
+CAPTCHA solved, nobody contacted by any channel. One page returned a CAPTCHA and was abandoned rather
+than solved.
+
+### 13.1 New obstacles
+
+| Obstacle | Detail | Workaround |
+|---|---|---|
+| **`lite.duckduckgo.com` serves a CAPTCHA to `curl`** | Returns **HTTP 202** with "Unfortunately, bots use DuckDuckGo too. Please complete the following challenge to confirm this search was made by a human. Select all squares containing a duck". | **Not solved, by rule.** Abandoned. Everything in `programme-funding.md` was found without any search engine, by walking CORDIS's own API, the CORDIS bulk exports, the NSF awards API, the FPDS-NG ATOM feed, the Wayback CDX index and each organisation's own sitemap. |
+| **`WebSearch` budget already exhausted** | The session had spent all 200 calls before this task began, exactly as § 12 records for the previous one. | See above. It cost nothing in the end. |
+| **`web.archive.org` rate-limits aggressively** | After four or five `curl` requests in quick succession it stops answering: `Failed to connect to web.archive.org port 443 after 148 ms: Could not connect to server`. It is not a 429; it looks like a network failure. | **An 8-second `sleep` between requests is enough.** Six seconds was not. Batch archived fetches into a shell script with a sleep, and re-run only the ones that failed. |
+| **`unzip` is not installed** on this machine | Needed for the CORDIS bulk exports. | A three-line Python script using `zipfile`. |
+| **`europractice-ic.com/about/annual-reports/` and `/services/design-tools/` are 404** | The paths in the site navigation are not the paths in the sitemap. | `https://europractice-ic.com/wp-sitemap-posts-page-1.xml` lists **every** page. The real paths are `/about/reports-and-flyers/` and `/design-tools/`. **Read the WordPress sitemap first; it is faster than guessing and faster than crawling.** |
+| **`cmc.ca/wp-sitemap.xml` is an empty `<urlset>`** | It returns 200 and contains no URLs at all. Guessing `wp-content/uploads/<year>/<month>/CMCMicrosystemsAnnualReport_<year>_EN.pdf` for earlier years found nothing. | The Wayback CDX index for `cmc.ca` has the old ASP.NET site, including the financial-statement pages. That is where the 2007/08 accounts came from. |
+| **CMC's 2009–2015 annual reports are partly Flash** | `AnnualReport/performance/five-year-highlights` renders only "In order to see this content, you must have the Adobe Flash player." | Not solved. Those years' outcome charts are unrecoverable. The *financial* pages of the same reports are plain HTML tables and were readable. |
+| **FPDS-NG quoted-phrase search is not exact** | `DESCRIPTION_OF_REQUIREMENT:"CALIFORNIA DREAMS"` returns rows about fire audits in California. | Treat FPDS phrase queries as bags of words and filter the results locally. |
+
+### 13.2 What was found, and where it went
+
+| Looked for | Found | Entry |
+|---|---|---|
+| Europractice's EU funding | **Four post-2016 grants in CORDIS** — 688226, 825121, 101096239, 101252350 — totalling **€31,017,980**, each with total cost equal to the EU contribution and each participant's net contribution reconciling to the cent | `FUND-1` |
+| What the EU got for it | The **periodic reporting** pages, which carry the coordinator's own design counts: 1,356 / ">3,000" / 2,435 across the three completed grants, i.e. **6,791 designs and €2,801 of EU money each** | `FUND-2` |
+| Europractice's revenue | STFC's **fee schedule** (€1,100 / €600 / €600 / €200) and its **live list of every active member with its category**. Counted 2026-09-19: 632 rows, 630 with a category, **€557,500 a year** | `FUND-3` |
+| Why the fee exists | The activity report says it outright: "Membership Fees pay for extra staff supporting this requested stimulation activity for academic institutions (**not fully paid by the EC**)" | `FUND-3` |
+| Europractice's funding before 2016 | **Seven more grants**, none of them in the CORDIS web search index, all of them in the bulk CSV exports: FP4 EUROPRACTICE (€35m EC), FP5 EUROPRACTICE IC and IC 2, FP7 IC4, IC5, 2012 and 2013. **€87,023,980 of EU money over 33 years** | `FUND-4` |
+| What it costs to run | The **FP7 grants' `totalCost` minus `ecMaxContribution`** — the only place in the whole record where a cost of operation is visible, because FP7 reimbursed a fraction. ≈ €1.5–1.7m a year, of which the EC paid **63.8%** | `FUND-4` |
+| MOSIS's federal funding | A **separate "MOSIS DIRECT-FUNDING PRICE LIST"** with a column headed "DARPA/NSF PRICE", for agencies that "sent fabrication funding directly to MOSIS"; and the educational programme's funder list: "National Science Foundation (NSF) / American Microsystems, Inc. (AMI) / Hewlett Packard (HP) / The MOSIS Service", with "**the fabricators providing free wafers**" | `FUND-5` |
+| A MOSIS NSF award | Exactly one: 9809025, USC, PI Herbert Schorr, **$199,726**, FY1999 | `FUND-5` |
+| Corroboration for "$10M at peak" | **None.** One institutional news article, re-read, still the only source, still with no year and no accounting basis | `FUND-6` |
+| CMC Microsystems' finances | **A published Statement of Revenue and Expenditure, for two years eighteen years apart.** FY2008: customers paid **9.15%** of revenue, NSERC **89.63%**. FY2026: earned lines cover **74.0%** of the non-FABrIC cost base; **CAD $30,417** of cost per prototype | `FUND-7` |
+| CMP's funding | Its Europractice share only: **€4,291,441** across NEXTS, RETICLES and Europractice 2.0 | `FUND-8` |
+| Staff numbers | Nobody publishes one. Europractice's contact page yields a floor of **23 named people**; CMC shows payroll at **53.5%** (2008) and **54.8%** (2026) of spending | `FUND-9` |
+
+### 13.3 Searched for, and not found
+
+- **Europractice's turnover.** Not in any activity report 2014–2025, not in CORDIS, not on the site.
+  This is the number the file most needed and it does not exist publicly. The document that would
+  settle it is imec's Certificate on the Financial Statements for one of the grants, or an imec
+  segment note.
+- **"EUROPRACTICE IC 3", or any FP6 grant for the IC service, 2006–2007.** Two independent searches
+  of the FP6 bulk export — full text, and every imec-coordinated FP6 project — found nothing. The
+  only FP6 records mentioning Europractice are ACCORD, INTEGRAMPLUS, RF-PLATFORM and BRIDGE, all
+  microsystems or packaging. BRIDGE's objective says the "65 EUROPRACTICE partners … have agreed to
+  continue with EUROPRACTICE for a further year at no additional funding", which is the closest thing
+  to an answer.
+- **EUROCHIP (1989–1995).** Not in CORDIS in any framework programme's export. The FP7 acronym match
+  is an unrelated obesity consortium. It predates CORDIS's project coverage.
+- **DARPA's payments to MOSIS.** FPDS-NG does not reach before ~2004; `DESCRIPTION_OF_REQUIREMENT:"MOSIS"`
+  returns **10 actions in total**, three to USC, **$54,300** obligated, and all three are agencies
+  *buying chips*. USAspending's award search is POST-only and this session was GET-only.
+- **The Microelectronics Commons / CA DREAMS award to USC.** Not in FPDS: the hubs are funded through
+  an OTA consortium, not ordinary contracts.
+- **Europractice's design-tool prices.** Behind a member login at `europractice.stfc.ac.uk`. Only the
+  membership fee is public, and tool licences are almost certainly the larger revenue line.
+- **CMC's annual reports between 2008 and 2025**, and its signed audited statements. The 2014-15
+  statements PDF 404s in the archive.
+- **Any staff headcount**, for any of the four programmes.
+
+### 13.4 Routes that worked and are worth reusing
+
+- **CORDIS has a public JSON API and it needs no key.**
+  `https://cordis.europa.eu/search?q=<query>&p=1&num=50&format=json`. The query language takes
+  `contenttype='project' AND <terms>`. Note that the hits come back under a **top-level `hits.hit`**
+  key, not under `result.hits` — an easy hour to lose.
+- **CORDIS project fact sheets are server-side rendered.** `curl https://cordis.europa.eu/project/id/<id>`
+  returns the whole page including **every participant's "Net EU contribution" and "Total cost"**. No
+  browser needed. `…/reporting` gives the periodic-report public summaries, which is where the design
+  counts live.
+- **The CORDIS web search index only covers H2020 and later. The bulk exports cover FP1 onwards.**
+  `https://cordis.europa.eu/data/cordis-fp{4,5,6,7}projects-csv.zip` — 12–33 MB each, `csv/project.csv`
+  and `csv/organization.csv`. **This is the only way to see a project older than about 2014.** It is
+  how seven of Europractice's eleven grants were found.
+- **In the FP7 export, `totalCost` ≠ `ecMaxContribution`, and the difference is real information.**
+  FP7 reimbursed a fraction of declared cost, so the gap is what the partners funded themselves. From
+  H2020 on, non-profit beneficiaries are reimbursed at 100% and the two columns collapse, taking the
+  cost information with them. **If you want an operating cost out of CORDIS, look at FP7 or earlier.**
+- **NSF has a public awards API.** `https://api.nsf.gov/services/v1/awards.json?keyword=…&printFields=…&rpp=25&offset=N`.
+  `offset` is a **record** offset, not a page number — off-by-25 errors produce duplicate pages that
+  look like real results.
+- **The FPDS-NG ATOM feed works with no key and `totalResults` is absent when there is only one page.**
+  The `rel="last"` link pointing back at `start=0` is the reliable end-of-results signal.
+- **A WordPress site's `wp-sitemap-posts-page-1.xml` is the fastest way to find a page whose
+  navigation link 404s.** It found `/about/reports-and-flyers/` and `/design-tools/` on
+  `europractice-ic.com` in one request.
+- **A membership list is a revenue statement in disguise.** STFC publishes every active Europractice
+  member *with its membership category*, and the fee for each category is published on the adjacent
+  page. Multiplying one by the other gives an exact subscription income. Look for this pattern
+  wherever a programme publishes both a price list and a member directory.
+- **Old annual reports on the Internet Archive often have the accounts as plain HTML tables.** CMC's
+  2007/08 statement of revenue and expenditure — line by line, both years — came out of
+  `web.archive.org` intact. Where a modern site publishes a glossy PDF, the 2000s site published a
+  table.
