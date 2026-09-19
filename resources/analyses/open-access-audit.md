@@ -494,3 +494,179 @@ its life, on more than twenty processes up to 12 nm, for a population it was bui
 
 ---
 
+## 6. Verdict: does openness or profit-motive predict growth?
+
+### 6.1 The quadrants, and which are empty
+
+Cross the two axes. Take "open" as **≥ 12/18-equivalent** (two-thirds of available points) and
+"commercial" as **P or P(S)**.
+
+| | **Subsidised / academic (U, S, M)** | **Commercial (P)** |
+|---|---|---|
+| **Open (≥ ⅔)** | Google Open MPW (S/M), IHP Open Silicon (U(S)), Cadence/SkyWater (M) | **wafer.space, ChipFoundry.io, Tiny Tapeout, Efabless chipIgnite** |
+| **Closed (< ⅔)** | Europractice (S), MOSIS (U), CMC (U(S)), CMP (U(S)), TSMC Univ. FinFET (S), AFRL (S) | MUSE (P/M), TSMC cyberShuttle (P/M) |
+
+**So the "genuinely open AND genuinely commercial" quadrant is not empty. It has four members. That
+is the good news, and it is the only good news in this section.**
+
+Now look at what is in it:
+
+- **Efabless chipIgnite** — dead. Failed to close a Series B (`OPG-15`).
+- **ChipFoundry.io** — 21, 23 and 29 paying customers per shuttle; **not one completed shuttle has
+  filled its planned slots** (`OPG-9`). **DERIVED:** ~$314k–434k gross per shuttle, at 2–3 shuttles a
+  year, is roughly **$1M a year of gross revenue**.
+- **wafer.space** — 6, 18 and 5 backers. **Our own company**, scored by us.
+- **Tiny Tapeout** — thousands of designs, but at €70–€300 each, and it buys its wafer space from the
+  other three. It is a reseller sitting on top of this quadrant, not an independent occupant of it:
+  `OPG-11` shows Tiny Tapeout B.V. as an 18 mm² line in IHP's book, and `OPG-5` shows it as one slot
+  on Google's MPW-7 containing 152 projects.
+
+**DERIVED, and this is the number that matters:** the entire genuinely-open-and-genuinely-commercial
+sector, worldwide, in 2026, is **plausibly one to three million dollars of annual revenue**. MOSIS —
+a university service, on closed PDKs, thirty years ago — "generated up to $10 million annually at its
+peak" (`SMB-5`). **The open commercial sector today is several times smaller than a single university
+brokerage was at its peak in the 1990s.**
+
+**Therefore the honest statement is:** the quadrant is populated but has never been tested at scale.
+H8 says openness is *necessary* to attract many small customers. Nothing here refutes that. But
+nothing here demonstrates the other half either — that an open programme can attract *enough* paying
+customers to sustain a fab — because **no genuinely open, genuinely commercial programme has ever got
+above about $1M a year, and the one that grew fastest died.**
+
+There is a second empty cell worth naming: **open AND commercial AND independent of a subsidised
+PDK.** It has **no members at all**. Every one of the four occupants runs on SKY130, GF180MCU or
+SG13G2 — three design kits that exist because Google paid SkyWater and GlobalFoundries, and because a
+German federal project paid IHP (`ACC-6`, `OPG-10`, `ACC-8`). **The commercial open sector is a
+downstream of a subsidy.** That is not an argument against it; it is an argument that the causal
+story runs through the PDK, and that no private actor has yet paid to open one.
+
+### 6.2 Being adversarial: four ways our thesis could be wrong
+
+The task asked for these to be tested, not listed. Each is tested against the matrix.
+
+**(a) "The growing programmes are the subsidised ones and openness is incidental — we have the
+causation backwards."**
+
+**Partly true, and this is the strongest challenge in the audit.** Every programme in the record that
+ever reached a large absolute number was subsidised: Europractice (753–985 designs a year, EU-funded),
+MOSIS (~3,000 orders a year at peak, and its free arm NSF-funded), CMC (13,495 designs in 42 years,
+publicly funded), Google Open MPW (821 submissions, Google-funded). The unsubsidised ones are the
+small ones.
+
+And the **AFRL design challenge is a direct counter-example on the growth question**: a closed-PDK,
+proprietary-design, competition-gated, government-funded programme drew **82 designs in 45 days** —
+**DERIVED** 1.82 a day against Google's 1.50 a day on MPW-1 (`ACC-8`). Whatever drew those people, it
+was not an open PDK, because there was not one. It was that somebody else paid for IP, EDA and
+foundry.
+
+**What survives the challenge.** Subsidy explains the *level* but not the *slope*. Europractice ran
+between 363 and 614 designs a year for eighteen consecutive years while subsidised throughout
+(`DEM-16`); CMP peaked and died while subsidised; CMC is falling while subsidised. Subsidy without
+open access produces a plateau. The open programmes grew — Google 37 → 147 a shuttle, chipIgnite 1.7×
+a year for two years, Tiny Tapeout 317 → 970 → 1,632 submissions a year (`OPG-1`, `OPG-7`, `DEM-2`).
+**The defensible claim is the weaker one: subsidy sets the level, openness is associated with the
+slope, and no evidence here isolates either as a cause.**
+
+**(b) "No genuinely open *and* genuinely commercial programme has ever existed at scale, so our
+thesis is untested rather than supported."**
+
+**This one is true, and §6.1 says so.** Four occupants, combined revenue plausibly under $3M a year,
+one dead, one ours. The repository should stop treating chipIgnite's growth as evidence that the model
+works commercially: the company that ran it never covered its costs, was underwritten by at least
+eight named organisations (`ACC-8`, `OPG-15`), and failed to raise. **H8's status should read "argued,
+with a populated but untested quadrant", not "supported".**
+
+**(c) "The university programmes serve small customers perfectly well and we are inventing a
+problem."**
+
+**Half true.** Europractice fabricates more designs a year (753–985) than the whole Google Open MPW
+programme managed in its life (821) and offers twenty-plus processes to 12 nm. If you are a European
+academic, you are well served and have been since 1989.
+
+**But the rules define the population, and the audit quantifies it.** To use the discounted service
+in 2026 you must be an academic institution or publicly funded lab, in one of ~44 countries, a
+fee-paying member, **and** — new this year — doing the design "for educational purposes or for
+publicly funded research" (`ACC-4`). `DEM-16`: in 2024, **69% of submissions came from European
+universities and research institutes and 9% from European industry**. That is not a market being
+served badly; it is a different market. The person foundry.api is designed for — an individual, a
+two-person company, someone outside the EMEA list — is not in it, pays standard prices, signs NDAs per
+foundry, and buys bare die with no packaging.
+
+**(d) "'Growth' is an artefact of counting submissions (free, low commitment) rather than paid
+orders."**
+
+**Largely true for the free programmes, and the audit should not soften it.** `OPG-5`: a single course
+packed 8–16 projects into one slot, and Tiny Tapeout packed 152 into one. The deep dive's §1.3 puts
+the entire Efabless story at **580–1,230 distinct people**. ChipFoundry publishes both sides of the gap
+and it is large: `interest` of 76, 53 and 73 against `committed` of 21, 23 and 29 (`OPG-9`).
+
+**What survives.** chipIgnite's series is **paid** orders at $9,750–$14,950 and it grew 1.7× a year
+twice running (`OPG-7`). ChipFoundry's `committed` is paid and rose 21 → 23 → 29 across three shuttles
+(`OPG-9`). wafer.space's backers are paid and went 6 → 18 (`OPG-12`). These are small numbers but they
+are not submission counts. **The growth is real and the scale is tiny; both must be said in the same
+sentence.**
+
+### 6.3 What the audit actually establishes about openness
+
+Taking the two axes separately, as the whole point of this document:
+
+1. **Eligibility openness (A5) predicts *who shows up*, and the evidence is strong.** Europractice's
+   rules define its population as institutions of a given type in a given list of countries, and its
+   composition matches exactly (69% universities, 9% industry). Google's rules were facts about a
+   repository, and its composition matched that instead ("Approximately 60% of the designs were
+   submitted by software, FPGA and hardware developers (non-IC experts)", `DEM-4`). **This is the best
+   supported finding in the audit.**
+2. **PDK redistributability (A4) predicts *what third parties can build*, and the evidence is good.**
+   Tiny Tapeout, the Zero to ASIC course, Wokwi's ASIC mode, ChipFoundry, wafer.space, Cadence's
+   aggregation service and IHP's open route all exist downstream of four Apache-2.0 repositories
+   (`ACC-6`). None of them could exist on a PDK you sign for. This is the only mechanism in the record
+   that predicts a *rate* rather than a *level*.
+3. **Published prices (A1) predict almost nothing on their own.** The TSMC University FinFET Program
+   publishes prices to the euro and is closed on six other criteria (`ACC-5`); Tiny Tapeout, the most
+   open programme in the audit, does *not* publish a headline price (`ACC-2`). H8's phrasing —
+   "published prices, visible queues and public results" — bundles three things of which the first is
+   the weakest.
+4. **Commercial profit-motive predicts nothing good, and possibly something bad.** The only programme
+   in the record that died was the commercial one. The only entity described as self-sustaining is a
+   university. The four commercial occupants of the open quadrant are collectively smaller than MOSIS
+   was in 1995. Daniel Nenni's verdict remains the sharpest public statement against us and remains
+   unrefuted: "the revenue model just did not work. People who use open source tools do it mainly due
+   to cost and that is a tough customer base to profit from" (`OPG-16`, his stated opinion).
+
+### 6.4 The experiment that will settle it, running now
+
+**IHP.** The same institute, the same process, the same open PDK, moving from a free German-funded
+programme restricted to "non-commercial activities" (`OPG-10`) to a paid programme at €2,800/mm² open
+to anyone who signs a participation agreement (`OPG-11`). It publishes every registered customer and
+their area, live. One of its two current runs has **44.5 of the 90 mm² it needs** and says so on its
+own page in bold.
+
+That is a genuinely open, genuinely priced programme whose demand is visible to outsiders in real
+time — which is exactly what this repository has never had. **The CMOS5L registration bar is the
+single number most worth watching**, and it is in the one place where the operator gains nothing by
+publishing it.
+
+---
+
+## 7. Blocked sources
+
+Everything below was attempted read-only. Being blocked is recorded, not worked around.
+
+| What | Blocker | What would unblock a human |
+|---|---|---|
+| **Web search, from part-way through** | The session's web-search budget was exhausted (200/200 calls). Later evidence had to come from `curl` against URLs already known | A raised search budget; nothing about the sources themselves is blocked |
+| **The MEMS programmes entirely** (MEMSCAP MUMPs, Silex, Teledyne DALSA, Tronics, IMT) | Not audited. The delegated agent gathering them was terminated by a session-wide API rate limit before reporting. Its last partial line suggested MEMSCAP's current site may no longer carry a MUMPs section — **that is unverified and must not be cited** | A fresh pass over `memscap.com`, `memsrus.com`, the CMC and Europractice MEMS catalogues, and the Wayback Machine for the MUMPs design handbooks |
+| **X-FAB, imec, Fraunhofer, VTT, EuroCDP, CIME-P** | Same cause — not audited | As above. Europractice's per-foundry access pages are the fastest route; its 2026 price list already shows Fraunhofer IISB requires "a valid NDA" (`ACC-4`) |
+| **MOSIS's domestic/foreign eligibility text** | Its price lists are titled "domestic", implying an export or nationality distinction; the eligibility page behind it was not recovered. `mosis.com` became a JavaScript application in late 2020 and the archived HTML has no readable body | Working back through pre-2000 Wayback captures of `mosis.com/Orders/`, which are plain HTML and did serve to `curl` for `SMB-8` |
+| **MUSE Semiconductor prices and schedule** | `musesemi.com/shared-block-tapeout-pricing` returns HTTP 200 but is a Wix application with no price in the ~494 KB body; the recent Wayback captures are the same shell | Opening the page in an ordinary browser, or working back through the 2019–2021 captures which may predate the rewrite |
+| **CMC Microsystems prices** | `cmc.ca/en/WhatWeOffer/Make/FabPricing.aspx` returns **HTTP 403** to an automated fetch | A browser. CMC's annual-report PDFs on the same domain fetch fine |
+| **ChipFoundry's terms of service** | `chipfoundry.io/terms` returns **HTTP 404**, although the site footer links to "Terms", "Privacy" and "Commercial" | Following the footer link from a rendered page; the link target was not resolvable from the fetched HTML |
+| **Efabless's terms of service and technology licence agreement** | The Wayback CDX API returns a single capture of `efabless.com/info_terms_of_services`, status **302**, i.e. a redirect and no content. The Internet Archive was also **"Temporarily Offline"** for part of this session | Retrying the CDX search for `efabless.com/page/terms/`, `efabless.com/privacy/` and the `marketplace/?q=content/technology-license-agreement` forms, all of which appear in the URL index |
+| **The primary AFRL / AFWERX design-challenge source** | Not found before the search budget ran out. Everything in `ACC-8` is at one remove, through Efabless's newsletter | A search of AFRL, AFWERX or Centauri/KBR press releases from 2018–2020, or a SAM.gov / DoD contract record |
+| **Tiny Tapeout's all-in headline price** | `app.tinytapeout.com/calculator` is a client-side application returning no price text to a fetch | A browser, in seconds. Already recorded in `search-log.md` |
+| **wafer.space's own terms and export-control position** | No terms page found; `wafer.space/faq/` (trailing slash) is **404** while `/faq` is 200. Crowd Supply's terms were not read | Crowd Supply's site-wide terms of service, and a browser pass over `wafer.space` |
+| **SEC EDGAR, for Efabless's funding rounds** | Returns **HTTP 403** — "Your Request Originates from an Undeclared Automated Tool" — and requires a declared identifying User-Agent, which we will not send | EDGAR full-text search in a browser, looking for Efabless Corporation Form D filings. This is the most likely public record of who funded chipIgnite and how much |
+
+**Nothing in this audit was obtained by registering, logging in, requesting a quote, submitting a
+form, or contacting any person.** Several pages name an address as the route to an NDA, a PDK or an
+export-control questionnaire. Those sentences are quoted as findings. None of the addresses was used.
