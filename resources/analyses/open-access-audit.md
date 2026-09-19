@@ -7,10 +7,13 @@ own direct offerings are **not yet audited** and are marked as such in the matri
 eighteen rows filled in and the rest marked honestly is more useful than a complete one that does not
 exist.
 
-**One of our own claims has already been withdrawn.** `ACC-4` originally read Europractice's 2026
+**Two of our own claims have now been withdrawn.** `ACC-4` originally read Europractice's 2026
 price list as tightening its eligibility rules. `ACC-12` — CMP's October 2019 price list, recovered
-later in the same session — shows the condition was seven years old. The claim is corrected in place
-rather than quietly removed, and it is listed in §4 alongside everyone else's contradictions.
+later in the same session — shows the condition was seven years old. And the AFRL/AFWERX comparison
+this audit called "the audit's best counter-example" **does not survive contact with the primary
+sources**: see the corrections at §3.15 and §6.2(a) and the whole of **§6.5**, added 2026-09-19 after
+the repository owner challenged it. Both claims are corrected in place rather than quietly removed,
+and the first is listed in §4 alongside everyone else's contradictions.
 
 ---
 
@@ -956,7 +959,7 @@ entrant is not evidence about the same phenomenon as one spending four.
   evidence without AFRL.
 - **What the AFRL row is now good for:** it is a **context row**, and a useful one. It shows that a
   government body offering a 14 nm tape-out through a competitive gate, with a hosted boot camp and a
-  $2bn programme of record behind it, could get **82 paper proposals and 10 finished designs**. Google
+  $2bn programme of record behind it, could get **82 paper proposals, of which 10 were selected to go forward**. Google
   offering a 130 nm tape-out to anyone who could produce a clean GDSII got **821 submissions**.
   Whatever else that shows, it is not that openness is incidental.
 
