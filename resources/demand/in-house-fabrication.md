@@ -857,6 +857,12 @@ each entry before using any of these.**
 | The same North Carolina site, earlier | reported **"approximately $750M"** paid by JDS Uniphase for Cronos Integrated Microsystems, "shortly prior" to 2002 | c. 2000 | Acquisition of a *company*, not of the plant alone | Science Corporation blog (IHF-3) | **Lead** — not checked against a JDS Uniphase filing |
 | Public subsidy attached to the expansion | **$930,000** over ten years, performance-based, for 50+ jobs = **$18,600 per job** | 2024-07-09 | Durham County incentive award | Science Corporation (IHF-2); county minutes not reached | Partial |
 | **Net book value of the entire industrial tool set of that same fab**, on disposal | **EUR 0.5 million** | 2022-12 | Carrying value after depreciation of *all* the industrial equipment of the discontinued business — not a replacement cost | MEMSCAP 2022 annual report (IHF-8) | **Verified** (audited filing) |
+| **A second, independent small MEMS fab:** 120,000 sq ft facility, 57 acres of land, Class 100/Class 1000 cleanrooms, 150-mm silicon MEMS fab "including all semiconductor manufacturing tools", Trusted Foundry accreditation, and an operating business with ~$3M of annual revenue | **US$2.75 million** | 2017-03 | Purchase price in cash at closing; **includes the land and buildings** (unlike IHF-3, which was a lease) | Akoustis 8-K exhibit (IHF-9) | Partial — read via `WebFetch`, filing not read end to end |
+| — the same, per square foot | **$22.92 per sq ft** | 2017 | DERIVED: $2,750,000 / 120,000 sq ft, tools and land included | DERIVED from IHF-9 | Derived |
+| **Cost of building an equivalent fab new, as estimated by a company that then bought the alternative** | **"well over $50 million"** and "up to 2-years" | 2017-03 | A "comparable manufacturing facility to build and qualify for production" | Akoustis 8-K exhibit (IHF-9) | Partial; and it is an acquirer justifying its own purchase |
+| — buying used against building new | **at least 18.2× cheaper to buy** | 2017 | DERIVED: $50,000,000 (a floor) / $2,750,000 | DERIVED from IHF-9 | Derived |
+| **What a small MEMS fab is worth, across two independent transactions** | **~$3 million, at roughly 1× trailing revenue** | 2017 and 2022 | $2.75M for a ~$3M-revenue business (IHF-9); $3.0M for a ~EUR 2.9M-revenue business (IHF-3, IHF-8). No FX rate asserted | IHF-3, IHF-8, IHF-9 | Derived from two Verified/Partial prices |
+| Whole-company resale of one of them in Chapter 11 | **$30.2 million** for "substantially all of the assets" | 2025 | Seven years of BAW filter development on top of the fab, **not** the fab alone | ATech 8-K (IHF-9) | Partial |
 
 ### Operating scale of a small MEMS line
 
@@ -895,16 +901,23 @@ operating numbers in this file. The rest are company statements about how Scienc
 ISO 9001:2015 quality system, a live customer book and the industry's longest-running MEMS
 multi-project wafer shuttles — turned over about EUR 2.9 million a year, lost money doing it, carried
 its entire tool set at EUR 0.5 million, and sold for US$3.0 million.** The company that bought it
-then budgeted "up to $65 million" to make it about eleven times larger. Those five numbers are the
-useful output of this file, and every one of them comes from an audited filing or a regulatory
-announcement rather than from marketing.
+then budgeted "up to $65 million" to make it about eleven times larger. Five years earlier and
+independently, **a 120,000 sq ft MEMS fab with all its tools and 57 acres of land sold for US$2.75
+million, and the buyer said in the same announcement that building the equivalent would "take up to
+2-years and cost well over $50 million".** So: **a small MEMS fab costs roughly $3 million to buy and
+somewhere north of $50 million to build**, and the two purchases found were each at about one times
+the acquired business's trailing revenue. Every one of those numbers comes from an audited filing or
+a regulatory announcement rather than from marketing.
 
 ### What is still missing, and would be worth more than any of the above
 
 - **A breakdown of the $65M into building versus tools.** Without it the figure cannot be turned into
   a cost model.
-- **Refurbished-equipment prices.** Nothing was found. The $3.0M in IHF-3 is a whole-line price and
-  does not decompose, and the EUR 0.5M in IHF-8 is a depreciated book value, not a market price.
+- **Refurbished-equipment prices, tool by tool.** Nothing was found. The $3.0M in IHF-3 and the
+  $2.75M in IHF-9 are whole-line prices and neither decomposes; the EUR 0.5M in IHF-8 is a
+  depreciated book value, not a market price. A third transaction would turn "about $3 million, about
+  1× revenue" from a coincidence into a rule, and is the single cheapest piece of further research
+  available: EDGAR full-text search on the phrases fabs are sold with.
 - **Cleanroom build cost per square foot by class.** Not found from any primary source. The nearest
   thing is the $1,140/sq ft implied by IHF-2, which mixes building and tools.
 - **What Science Foundry's $13,520 buys.** Behind account registration.
@@ -956,9 +969,10 @@ disclosed, it is about EUR 2.9 million a year and shrinking.
 than this repository had assumed. A complete, certified, staffed, customer-carrying MEMS foundry
 cleared the market at **US$3.0 million** (IHF-3); its **entire tool set was carried at EUR 0.5
 million** after depreciation; it occupied **475 m²** of ISO 4 cleanroom and was run by **fourteen
-people** (IHF-8). If those are the numbers a fab has to recover, the revenue required is on a scale a
-few thousand small customers could plausibly reach. That is the arithmetic H6 depends on and it has
-never before had a real figure to put in it.
+people** (IHF-8). An independent transaction five years earlier put a 120,000 sq ft MEMS fab, its
+tools and 57 acres of land at **US$2.75 million** (IHF-9). If those are the numbers a fab has to
+recover, the revenue required is on a scale a few thousand small customers could plausibly reach.
+That is the arithmetic H6 depends on and it has never before had a real figure to put in it.
 
 **The bad news is that we now know what happened when someone actually tried, and it did not work.**
 The same fab, doing exactly the business H6 describes — many small customers, shared multi-project
