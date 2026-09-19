@@ -735,3 +735,167 @@ programmes the arithmetic can be done to the euro. For the other it cannot be do
     the money reached the same team is an assumption, though both are the documented institutional
     hosts of CMP.
   - The per-circuit figure uses an invented denominator. Do not cite it.
+
+### FUND-9. Staff: nobody publishes a headcount, but Europractice publishes 23 named customer-facing contacts, and payroll is half of what CMC spends
+
+- **Sources:**
+  - EUROPRACTICE, "Contact Us": <https://europractice-ic.com/contact-us/>
+  - EUROPRACTICE, "Team": <https://europractice-ic.com/team/>
+  - CMC Microsystems, *Annual Report 2025-26* and *Annual Report 2007/08* (as `FUND-7`)
+- **Verification:** Verified 2026-09-19. The contact page was fetched and the named people counted by
+  script. **No staff number is published by Europractice, MOSIS, CMP or CMC.** This entry records a
+  floor and a proxy, and says so.
+- **How it was counted:** the contact page is structured as "Contacts at <partner>" followed by
+  service-by-service blocks, each a person's name then a `Tel:` line then an email. A script took the
+  line immediately above every `Tel:` as a name and de-duplicated (several people cover more than one
+  foundry).
+- **What it says:**
+  - **23 distinct named people** across the five partners: **imec 10, Fraunhofer IIS 4, CMP 4,
+    STFC 3, Tyndall 2** — 32 name-and-role slots, 23 individuals.
+  - **Europractice's own "Team" page is unfinished placeholder content.** `europractice-ic.com/team/`
+    returns HTTP 200 and renders theme demo text: "Meet our cofounders", "Sir Alex Robertson /
+    PRESIDENT", "Harold Simpson / ECONOMIST", "Kathy Fernandez / ANALYST", "Robert Sullivan /
+    LAWYER", and the placeholder sentence "Blade is a smooth and charming, visually stunning and very
+    malleable and flexible." None of these are real. Anybody searching for Europractice's staff will
+    hit this page; it contains no information.
+  - **CMC, which publishes accounts, shows payroll as the dominant cost.** "Salaries and benefits"
+    was **CAD $5,285,705 of $9,882,500 total expenditure** in the year ended 2008-03-31, and
+    "Salaries and Benefits **$4.0M**" of $20.0M total (or of the $7.3M non-FABrIC cost base) in the
+    year ended 2026-03-31.
+- **DERIVED (arithmetic written out):**
+  - CMC 2007/08: 5,285,705 ÷ 9,882,500 = **53.5% of all spending was payroll**.
+  - CMC 2025/26: 4.0 ÷ 7.3 = **54.8% of non-FABrIC spending was payroll**. Eighteen years apart, the
+    same answer.
+  - Europractice, as a sanity check on the grant: the current EU rate is € 3 997 727,50 a year
+    (`FUND-1`) and 23 named contacts, i.e. **€ 173 814 per named person per year**. That is a
+    plausible fully-loaded annual cost for a technical staff member at a Western European research
+    institute, which is consistent with — though it does not prove — the reading that **the
+    Europractice grant is essentially a payroll for twenty to twenty-five people.**
+- **Bears on:**
+  - **H6 (context, and it matters for the design of foundry.api).** Both organisations for which
+    anything can be said spend over half their money on people. A service that promises "no
+    per-customer engineering" is promising to remove the single largest cost line that every existing
+    MPW broker actually carries.
+- **Used in:** not yet.
+- **Caveats:**
+  - **23 is a floor, not a headcount.** It counts only people published as a contact for a named
+    foundry or service. Accounts, IT, management, training delivery, legal and the design-tools
+    operation at STFC are all invisible to this count.
+  - The €173,814 figure divides the whole grant by the floor, so it is an **upper** bound on cost per
+    person and it assumes the grant pays for nothing but people. It does not: it also pays for
+    technology incubation, subsidised tapeouts and training.
+  - Counting names off a contact page is a method of last resort. It is recorded here because the
+    alternative — no number at all — is worse, and because it is reproducible.
+
+---
+
+## The comparison table
+
+Every figure below appears with its derivation in the entry named in the last column. Currencies are
+**not** converted: euro, US dollar and Canadian dollar figures stand as their sources give them.
+
+| Programme, period | Public money per year | Revenue from customers per year | Designs per year | Cost or subsidy per design | Staff | Entry |
+|---|---|---|---|---|---|---|
+| **Europractice**, FP4, 1995-10 → 1999-09 | € 8 750 000 (EU) | not public | not recovered | — | 23 partner organisations | `FUND-4` |
+| **Europractice**, FP5, 2000-01 → 2005-12 | € 1 250 000 (EU) | not public | 363–614 (`DEM-16`) | — | not public | `FUND-4` |
+| **Europractice**, 2006 → 2007 | **no grant found** | not public | not recovered | — | not public | `FUND-4` |
+| **Europractice**, FP7, 2008-01 → 2016-06 | € 1 588 941 (EU), against a **declared cost of ≈ € 1.5–1.7 m/yr**; partners found **36.2%** themselves | not public | ≈ 400–600 (`DEM-16`) | ≈ € 2 500–4 000 of declared cost | 3 partner organisations | `FUND-4` |
+| **Europractice**, EUROPRACTICE 2016, 2016-07 → 2018-12 | € 1 540 160 (EU, = 100% of declared cost) | 612 paid members; fee income not stated | 542 | **€ 2 840** of EU money | not public | `FUND-1`, `FUND-2` |
+| **Europractice**, NEXTS, 2019-01 → 2022-09 | € 2 130 415 (EU, = 100%) | not public | ≥ 800 | **≤ € 2 663** of EU money | not public | `FUND-1`, `FUND-2` |
+| **Europractice**, RETICLES, 2022-10 → 2025-09 | € 2 395 115 (EU, = 100%) | not public | 812 submitted; "> 600" fabricated | **€ 2 951** (submitted) / € 3 992 (fabricated) of EU money | not public | `FUND-1`, `FUND-2` |
+| **Europractice**, Europractice 2.0, 2025-10 → 2028-09 | € 3 997 728 (EU, = 100%) | **€ 557 500** of membership fees (630 members, counted 2026-09-19) | 753 (calendar 2025) | **€ 5 309** of EU money; € 740 of membership income | **≥ 23 named contacts** | `FUND-1`, `FUND-3`, `FUND-9` |
+| **MOSIS**, at its stated peak (year unknown) | **not computable** — DARPA and NSF bought at a published "DARPA/NSF price", they did not fund operations | "up to $10 million" (unaudited institutional statement) | ≈ 3 000 orders | ≈ **$3 333** of revenue per order | not public | `SMB-5`, `FUND-5`, `FUND-6` |
+| **MOSIS**, 1981 → 2024 whole life | not computable | not public | 1 395 (60 000 ÷ 43) | not computable | not public | `FUND-6` |
+| **MOSIS**, implied 2002 → 2024 | not computable | not public | ≈ 455 | not computable | not public | `FUND-6` |
+| **MOSIS Educational Program**, to 2020 | NSF cash + **free wafers donated by AMI and HP** + "The MOSIS Service" itself | zero — the programme was free to universities | rationed at ~1 TinyChip per 1–2 students | not computable | not public | `FUND-5`, `DEM-22` |
+| **CMC Microsystems**, FY ended 2008-03-31 | CAD **$9 700 060** (NSERC/ICP), = **89.63%** of revenue | CAD **$989 771**, = **9.15%** of revenue | not recovered | not computable for that year | payroll CAD $5 285 705 = **53.5%** of spend | `FUND-7` |
+| **CMC Microsystems**, FY ended 2026-03-31 | CAD $16.1 m from ISED, of which CAD $12.8 m is the FABrIC pass-through | CAD **$5.4 m** (user fees 1.3 + subscriptions 1.0 + commercial fabrication 3.1) | **240** prototypes | **CAD $30 417** of non-FABrIC cost; customers cover **74.0%** | payroll CAD $4.0 m = **54.8%** of the non-FABrIC base | `FUND-7`, `DEM-20` |
+| **CMP (Grenoble)**, 2019-01 → 2028-09 | € 440 148 a year of **EU money only**; French funding not public | not public | not currently public (peak 401 in 2007, `DEM-19`) | not computable | not public | `FUND-8` |
+
+---
+
+## The verdict
+
+**The question was: what does a multi-project-wafer service cost to run per design, and how much of
+that is covered by what customers pay?**
+
+**For Europractice the subsidy per design is now known exactly, and the total cost is not.** The EU
+contribution to the three completed grants covering 2016-07-01 → 2025-09-30 was **€19,024,797.50**
+for **6,791 designs**, i.e. **€2,801 of EU money per design**, and the figure is stable across three
+separate competitive grants (€2,840, €2,663, €2,951). The grant now running is 2.6× the 2016 rate,
+which on 2025's 753 designs is **€5,309 per design**. What is *not* known is the other side: what
+Europractice bills its customers for fabrication. The published price list (`SMB-7`) and the design
+count bound it only to somewhere between about €2.3m and €14.5m a year (`FUND-3`), a factor of six,
+and Europractice publishes no turnover. **So for Europractice the honest answer is: the subsidy per
+design is €2,800–5,300; the total cost per design cannot be computed from the public record.**
+
+**For CMC Microsystems both sides can be computed, and this is the one real answer in the file.** In
+the year ended 2026-03-31 CMC spent **CAD $7.3 million** outside the FABrIC pass-through and earned
+**CAD $5.4 million** from users, subscriptions and commercial fabrication, against **240 prototypes
+fabricated**. That is **CAD $30,417 of cost per prototype, of which customers covered 74.0%,**
+leaving a public subsidy of about **CAD $7,917 per prototype**. Eighteen years earlier, in the year
+ended 2008-03-31, the same organisation recovered **9.15% of its revenue** from its users and 89.63%
+from an NSERC grant. The trajectory is real and it runs towards self-financing — but the way CMC got
+there was by **building a commercial arm selling abroad at about CAD $32,600 a transaction**, not by
+charging its domestic academic users more.
+
+**For MOSIS it cannot be computed at all, and the reason is worth stating plainly.** There is no
+budget, no revenue line, no cost line, no staff count and no year for the peak in any public source
+this search could reach. "Up to $10 million annually at its peak" and "a self-sustaining business for
+40 years" rest on a single institutional news article (`SMB-5`), re-read on 2026-09-19 and still
+unsupported. What *was* established is the mechanism that makes both halves of the story compatible:
+MOSIS published a **separate "DARPA/NSF" price list** for agencies that "sent fabrication funding
+directly to MOSIS" (`FUND-5`). Federal money reached MOSIS as **purchases at a discount**, not as an
+operating grant. A service can be self-sustaining and federally sustained at the same time, and
+MOSIS was.
+
+**The two computable answers differ by an order of magnitude, and the difference is the denominator,
+not the physics.** €2,800 (Europractice, EU money per design) and CAD $30,400 (CMC, all non-passthrough
+cost per prototype) are not measuring the same thing: the CMC figure carries tool subscriptions,
+training, a startup incubator and support for 11,000 researchers; the Europractice figure carries the
+grant-funded part of a similar bundle but is divided by three times as many designs. **Nobody, in any
+of the four programmes, publishes a cost per design.** What every one of them does publish, directly
+or by implication, is that **the customers do not cover it**: 9.15% at CMC in 2008, 74% at CMC in
+2026, about 14% of the subsidy in Europractice membership fees, and an unknown but certainly
+incomplete share of Europractice's fabrication billings.
+
+**The documents that would settle it.** Each of these exists; none of them is public:
+
+1. **The Certificate on the Financial Statements ("Form C" / CFS) filed by imec for EUROPRACTICE 2016,
+   NEXTS or RETICLES**, or the grant's final cost statement broken down by work package. This would
+   give the actual cost of running Europractice by activity, and separate brokerage from training and
+   tool licensing. It is filed with the Commission and it is not published. An access-to-documents
+   request under Regulation 1049/2001 is the route a human could take; **this session must not, and
+   did not, make any request of any kind.**
+2. **imec's statutory accounts with a segment note for the Europractice activity**, or any statement
+   of Europractice's annual turnover. imec files accounts with the Belgian National Bank; whether any
+   Europractice segment appears in them was **not checked** (see the blocked list).
+3. **For MOSIS: USC ISI's annual reports, or the DARPA and NSF contract files for MOSIS, 1981–2005.**
+   FPDS-NG does not reach before ~2004 and returns ten actions in total for "MOSIS"; NSF's award
+   database yields one award of $199,726. The DARPA contract history would have to come from DTIC,
+   from ISI's own technical reports, or from the agencies' budget justification books.
+
+---
+
+## Blocked sources, and what was not reached
+
+| Source | What happened | What it would have answered |
+|---|---|---|
+| **DuckDuckGo (`lite.duckduckgo.com`)** | Returned **HTTP 202** with a CAPTCHA: "Unfortunately, bots use DuckDuckGo too. Please complete the following challenge". **Not solved, by rule.** | General discovery. Everything in this file was found without a search engine. |
+| **`WebSearch`** | The session's web-search budget (200 calls) was already spent before this task began. | Same. |
+| **`web.archive.org` rate limiting** | After four to five requests in quick succession, `curl` gets `Failed to connect ... port 443`. | Worked around with an 8-second delay between requests. Not a real blocker, but it costs time. |
+| **`WebFetch` on `web.archive.org`** | Refuses outright, as `search-log.md` §1 already records. | Worked around with `curl` and the `id_` raw-content form. |
+| **USAspending award search** | Its search endpoints are **POST-only** and this session was GET-only. Not queried. | Federal *assistance* (grants) to USC for MOSIS, and the Microelectronics Commons / CA DREAMS award to USC. |
+| **FPDS-NG for pre-2004 contracts** | FPDS-NG does not hold them. `DESCRIPTION_OF_REQUIREMENT:"MOSIS"` returns **10 actions in total**, three of them to USC, $54,300 obligated — all of them agencies *buying* chips. | DARPA's actual payments to MOSIS in the 1980s and 1990s. |
+| **Microelectronics Commons / CA DREAMS award value** | Not in FPDS: the hubs are funded through an OTA consortium (NSTXL), not through ordinary contracts. Queries for `"MICROELECTRONICS COMMONS"` and `"CALIFORNIA DREAMS"` return nothing relevant. | What MOSIS 2.0 is currently being paid. |
+| **A "EUROPRACTICE IC 3" grant for 2006–2007** | **Does not exist in the FP6 bulk export.** Two independent searches (full-text, and every imec-coordinated FP6 project) found nothing. | Whether the IC service ran two years with no dedicated EC grant. BRIDGE's objective text says the partners agreed "to continue with EUROPRACTICE for a further year at no additional funding", which is suggestive but is about the microsystems side. |
+| **EUROCHIP (1989–1995)** | **Not in CORDIS at all**, in any framework programme's bulk export. The only FP7 hit on the acronym is an unrelated obesity-research consortium. | The size of the EU's original 1989 commitment, before EUROPRACTICE. It would have to come from ESPRIT programme documents or the *Official Journal*. |
+| **Europractice's turnover** | Not published in any activity report 2014–2025, not in CORDIS, not on the website. The activity reports state membership fees and design counts and nothing else financial. | The single most important missing number in this file. |
+| **Europractice's staff number** | Not published. `europractice-ic.com/team/` is **unfinished placeholder content** from the site's theme ("Sir Alex Robertson / PRESIDENT", "Blade is a smooth and charming…"). | Headcount. `FUND-9` gives a floor of 23 from the contact page instead. |
+| **imec's statutory accounts** | **Not checked.** imec files with the Belgian National Bank's Central Balance Sheet Office. Whether any Europractice segment is disclosed is unknown. | Europractice turnover, if it is segmented — which it probably is not. |
+| **Europractice design-tool prices** | Behind a member login on `europractice.stfc.ac.uk`. Only the membership fee is public. | The size of the tool-licensing revenue line, which is probably the largest one. |
+| **CMC's audited financial statements as filed** | The 2014-15 statements PDF (`/~/media/AboutCMC/AnnualReport201415/CMC_201415_Financial_Statements-EN.pdf`) returns **404** from the Internet Archive. The 2007/08 figures used here are the archived *web rendering* of the accounts, not the signed statements. | A longer CMC time series. The 2007/08 and 2025/26 snapshots are what survived. |
+| **CMC's annual reports between 2008 and 2025** | URL-pattern guessing on `cmc.ca/wp-content/uploads/` found none, and `cmc.ca/wp-sitemap.xml` is **empty**. The Internet Archive holds the 2009–2015 ASP.NET site, much of it Flash-dependent (the "Five-year Highlights" page is a Flash object with no data in the HTML). | CMC's revenue mix year by year, and its design counts before 2017. |
+| **CMC staff numbers** | Not published in either annual report read. | Headcount. Payroll totals are published instead. |
+| **CMP (`mycmp.fr`, `cmp.imag.fr`)** | Both dead, as `search-log.md` §1 already records: expired certificate, then a domain-parking page. | Any CMP financials or current circuit counts. Only its EU line, via CORDIS, is recoverable (`FUND-8`). |
+| **The EU Financial Transparency System** | **Not queried.** CORDIS turned out to carry per-participant contributions directly, which is what FTS would have been used for. | Nothing further, probably. Recorded so nobody repeats it expecting more. |
