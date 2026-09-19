@@ -299,3 +299,122 @@ programmes the arithmetic can be done to the euro. For the other it cannot be do
   - Full-IC, Software-only and FPGA-only members can also be paying for tool bundles at rates that
     are behind a member login and were not read.
   - The count of 632 is ours, not Europractice's; Europractice says "more than 600".
+
+### FUND-4. The whole chain, 1995–2028: eleven EC grants, €87.0 million of EU money, and a declared cost of running the service that the partners part-funded themselves
+
+- **Sources:** CORDIS open data, the European Commission's bulk project exports, downloaded 2026-09-19:
+  - `https://cordis.europa.eu/data/cordis-fp4projects-csv.zip`
+  - `https://cordis.europa.eu/data/cordis-fp5projects-csv.zip`
+  - `https://cordis.europa.eu/data/cordis-fp6projects-csv.zip`
+  - `https://cordis.europa.eu/data/cordis-fp7projects-csv.zip`
+  plus the four post-2016 fact sheets already cited in `FUND-1`.
+- **Verification:** Verified 2026-09-19. Each archive's `csv/project.csv` and `csv/organization.csv`
+  were read directly. Every figure below is a field from those files. **The pre-2016 grants are not
+  in the CORDIS web search index** — a full-text search for "EUROPRACTICE" or "EUROCHIP" on
+  `cordis.europa.eu` returns only the H2020-and-later projects. They are only in the bulk exports.
+  That is the single most useful thing learned here for anyone repeating this work.
+- **How it was counted:** a script scanned each framework programme's `project.csv` for
+  `europractice|eurochip` in any field, and a second script listed every project in each programme
+  whose `organization.csv` row for imec carries `role == "coordinator"`, to catch grants that do not
+  name Europractice in their title.
+- **What it says:**
+
+  | Grant ID | Acronym | Dates | Legal basis | Declared total cost | EU contribution | Partners' own share |
+  |---|---|---|---:|---:|---:|---:|
+  | 21101 | EUROPRACTICE | 1995-10-01 → 1999-09-30 | FP4-ESPRIT 4 | € 46 914 000 | **€ 35 000 000** | € 11 914 000 (25.4%) |
+  | IST-1999-12057 | EUROPRACTICE IC | 2000-01-01 → 2003-02-28 | FP5-IST | € 4 500 000 | € 4 500 000 | € 0 |
+  | IST-2001-37510 | EUROPRACTICE IC 2 | 2002-12-01 → 2005-12-31 | FP5-IST | € 5 565 196 | € 3 000 000 | € 2 565 196 (46.1%) |
+  | *(none found)* | — | 2006-01-01 → 2007-12-31 | — | — | — | — |
+  | 214157 | EUROPRACTICE IC4 | 2008-01-01 → 2010-12-31 | FP7-ICT | € 4 821 082 | € 3 150 000 | € 1 671 082 (34.7%) |
+  | 257098 | EUROPRACTICE IC5 | 2010-04-01 → 2011-12-31 | FP7-ICT | € 2 927 421 | € 1 850 000 | € 1 077 421 (36.8%) |
+  | 315961 | EUROPRACTICE 2012 | 2012-01-01 → 2014-12-31 | FP7-ICT | € 4 069 225 | € 2 541 000 | € 1 528 225 (37.6%) |
+  | 610018 | EUROPRACTICE 2013 | 2013-07-01 → 2016-06-30 | FP7-ICT | € 5 965 000 | € 5 965 000 | € 0 |
+  | 688226 | EUROPRACTICE 2016 | 2016-07-01 → 2018-12-31 | H2020-ICT | € 3 850 398,75 | € 3 850 398,75 | € 0 |
+  | 825121 | NEXTS | 2019-01-01 → 2022-09-30 | H2020-ICT | € 7 989 055,00 | € 7 989 055,00 | € 0 |
+  | 101096239 | RETICLES | 2022-10-01 → 2025-09-30 | HORIZON, KDT JU | € 7 185 343,75 | € 7 185 343,75 | € 0 |
+  | 101252350 | Europractice 2.0 | 2025-10-01 → 2028-09-30 | HORIZON, Chips JU | € 11 993 182,50 | € 11 993 182,50 | € 0 |
+  | **Total** | | 1995-10-01 → 2028-09-30 | | **€ 105 779 904** | **€ 87 023 980** | **€ 18 755 924 (17.7%)** |
+
+  - **The 1995 grant is in a different league.** EUROPRACTICE (FP4, ESPRIT 4) had **23 participants**
+    listed in `organization.csv` and was coordinated **not by imec but by the UK's Council for the
+    Central Laboratory of the Research Councils (CCLRC)**, the predecessor of STFC, with Rutherford
+    Appleton Laboratory also listed separately. Participants included imec, Fraunhofer (twice: the
+    Gesellschaft and the Institut für Siliziumtechnologie), CEA-LETI, CSEM, SINTEF, CNM Barcelona,
+    Robert Bosch, GEC Marconi, Sagem, Sextant Avionique, DELTA, DTU and others. The stated objective:
+    "The overall objective is to stimulate wider exploitation of state-of-the-art microelectronics
+    technologies by European industry. Basic Services (EUROPRACTICE) offers a cost-effective and
+    flexible means of accessing ASICs, MCMs and Microsystems technologies through the provision of
+    consultancy, training, software tools, design support, low-volume production runs and access to
+    normally internal volume production facilities."
+  - **From FP7 on it is three organisations.** `organization.csv` gives exactly three participants for
+    each of EUROPRACTICE IC4, IC5 and 2012: imec (coordinator), STFC and Fraunhofer. The per-partner
+    EU contributions:
+    - IC4: imec € 1 428 715; STFC € 1 237 390; Fraunhofer € 483 895 (sums to € 3 150 000 ✓)
+    - IC5: imec € 997 382; STFC € 599 618; Fraunhofer € 253 000 (sums to € 1 850 000 ✓)
+    - 2012: imec € 1 261 001; STFC € 899 999; Fraunhofer € 380 000 (sums to € 2 541 000 ✓)
+  - **There is a hole in the record for 2006 and 2007.** No FP6 grant for the Europractice IC service
+    was found, by either search. The four FP6 records that mention Europractice at all are
+    ACCORD (034041, € 997 676 EC), INTEGRAMPLUS (027540, € 3 799 459 EC), RF-PLATFORM (027468,
+    € 2 899 460 EC) and BRIDGE (507307, € 580 000 EC) — all microsystems/packaging projects, none of
+    them the CAD-and-MPW service. BRIDGE's own objective text says something worth quoting exactly:
+    it will "coordinate the activities of the **65 EUROPRACTICE partners, who have agreed to continue
+    with EUROPRACTICE for a further year at no additional funding**".
+  - **The FP7 grants are the only ones that reveal an operating cost.** FP7 reimbursed a *fraction* of
+    declared eligible cost, so `totalCost` and `ecMaxContribution` differ and the difference is what
+    the partners paid themselves. From H2020 onwards the beneficiaries are non-profit research
+    organisations reimbursed at 100%, so the two columns collapse and the cost information
+    disappears.
+- **DERIVED (arithmetic written out):**
+  - **EU money per year, by era** (EU contribution ÷ years spanned):
+    - FP4, 1995-10 → 1999-09: € 35 000 000 ÷ 4.0 = **€ 8 750 000 / yr**
+    - FP5, 2000-01 → 2005-12: € 7 500 000 ÷ 6.0 = **€ 1 250 000 / yr**
+    - FP7, 2008-01 → 2016-06: € 13 506 000 ÷ 8.5 = **€ 1 588 941 / yr**
+    - H2020 + Horizon Europe, 2016-07 → 2028-09: € 31 017 980 ÷ 12.25 = **€ 2 532 080 / yr**
+    - Whole period 1995-10 → 2028-09 (33.0 years): € 87 023 980 ÷ 33.0 = **€ 2 637 090 / yr**
+  - **The declared cost of running the service, FP7 era** (total cost ÷ years), which is the closest
+    thing to an operating budget anywhere in the public record:
+    - IC4: € 4 821 082 ÷ 3 = **€ 1 607 027 / yr**, of which € 1 050 000 / yr from the EC
+    - IC5: € 2 927 421 ÷ 1.75 = **€ 1 672 812 / yr**, of which € 1 057 143 / yr from the EC
+    - EUROPRACTICE 2012: € 4 069 225 ÷ 3 = **€ 1 356 408 / yr**, of which € 847 000 / yr from the EC
+    Across those three grants the EC covered **63.8%** of the declared cost and the partners found
+    the other **36.2%** themselves: EC 3 150 000 + 1 850 000 + 2 541 000 = € 7 541 000 against
+    declared cost 4 821 082 + 2 927 421 + 4 069 225 = € 11 817 728, and
+    7 541 000 ÷ 11 817 728 = 0.6381.
+  - Set against `DEM-16`'s design counts, the FP7 era ran at roughly 400–600 designs a year on about
+    **€1.5m/yr of declared cost**, i.e. of the order of **€2 500–4 000 of declared cost per design**
+    — the same band as `FUND-2` finds for the later grants from a completely different calculation.
+- **Bears on:**
+  - **H6 (challenges).** Thirty-three years and **€87 million** of EU money, for a service that has
+    never in that time exceeded about a thousand designs a year. Nobody has ever run this thing
+    without a subsidy, and the subsidy per year is now the highest it has been since the 1990s.
+  - **H6 (supports, genuinely).** The FP7 numbers are the strongest pro-H6 evidence in this file:
+    when the EC paid only part of the bill, **the partners paid the other third or so out of their
+    own resources and kept the service running**, including through 2006–2007 when no dedicated
+    grant is on record and BRIDGE says the partners agreed "to continue with EUROPRACTICE for a
+    further year at no additional funding". A service that survives a funding gap is not a service
+    with no revenue.
+  - **H5 (challenges).** The 1995 grant funded 23 organisations to build a pan-European access
+    service for "European industry". Thirty years on, the service is three or five organisations,
+    630 mostly-academic paying members, and about 800 designs a year. The tail did not arrive.
+- **Used in:** not yet.
+- **Caveats:**
+  - **The FP4 figure is not comparable to the rest.** €46.9m / €35m covered ASICs *and* multi-chip
+    modules *and* microsystems across 23 partners with their own competence centres. Treating
+    €8.75m/yr as "what Europractice cost in the 1990s" would be wrong. What it does establish is the
+    order of the EU's original commitment.
+  - **Currency.** The FP4 grant was signed in 1995, when the unit of account was the ECU, not the
+    euro. CORDIS reports it in euro without stating a conversion. ECU and euro were set at 1:1 on
+    1999-01-01, so the figure is arithmetically unchanged, but it is **1995 money** and is not
+    inflation-adjusted anywhere in this entry.
+  - **The grants overlap.** IC4 (to 2010-12) and IC5 (from 2010-04) run concurrently for nine months;
+    EUROPRACTICE 2012 (to 2014-12) and 2013 (from 2013-07) overlap for eighteen. Per-year figures are
+    therefore *era averages*, not the rate in any named year.
+  - **"Total cost" is the cost declared under the grant, not the cost of the business.** It excludes
+    the trading side entirely: buying wafer area from foundries and reselling it, and buying and
+    reselling EDA licences, are not grant-eligible costs. What Europractice turns over is still not
+    public.
+  - **2006–2007 is unresolved.** Either the IC service ran with no dedicated EC grant, or a grant
+    exists that neither search found. A "EUROPRACTICE IC 3" would be the obvious name; **no such
+    record exists in the FP6 bulk export.**
+  - `EUROCHIP` (1989–1995) is **not in CORDIS at all**, in any framework programme's export. The FP7
+    hit on that acronym is an unrelated obesity-research consortium. See the blocked-sources list.
