@@ -163,6 +163,7 @@ The cost-to-serve data asked for here turns out to be published, in the one plac
   - SMB-9: chipIgnite's flat published price survived the collapse of the company that invented it and was restarted by its founders at $14,950
   - SMB-12: mature-node mask sets are now well under $100,000, so the fixed cost to recover per project is tens of thousands, not millions
   - SW-5: on AWS, small on-demand buyers pay more per unit than committed buyers, so small customers can pay a premium for flexibility
+  - **FUND-4: when the European Commission funded only part of Europractice, the partners covered the rest themselves and kept the service running.** FP7 reimbursed a fraction of declared cost, so the operating cost is visible there and nowhere else: about EUR 1.5–1.7m/yr to run the service, of which the EC paid **63.8%** and the partners found **36.2%**. They also continued through 2006–2007 with **no dedicated grant on record** — FP6 BRIDGE says the partners "agreed to continue with EUROPRACTICE for a further year at no additional funding". From H2020 onward, non-profits are reimbursed at 100%, total cost equals EU contribution, and the cost information disappears
   - PCB-1: JLC's PCB gross margin beats the mean of the five peers its own prospectus names by **+8.56 pp** in 2025 (corrected from the printed +10.00 pp, which omitted Fastprint's later-published 25.26%), and the prospectus attributes the gap to "销售模式和客户结构差异" — "differences in sales model and customer structure"
   - PCB-2: JLC **owns its plants** — net fixed assets CNY 3,257,464,600 including CNY 952,981,900 of buildings, CNY 1.395bn of capex in 2025, registered land titles. It also took a **CNY 131,365,100 fixed-asset impairment** because "PCB 中大批量订单相对不饱和" ("medium- and large-batch PCB orders are relatively under-full") left big-batch equipment idle, while the long-tail plant ran at 76.78% utilisation
   - PCB-3: a second audited company, 迅捷兴 (Xunjiexing), attributes a 5.62-point margin fall to a shift toward batch work — volume **+30.02%**, margin down
@@ -183,9 +184,14 @@ The cost-to-serve data asked for here turns out to be published, in the one plac
   - PCB-5: 强达电路 (Qiangda) has about 3,000 customers, sells 100% direct on negotiated terms, and earns **26.10%** — within two points of JLC. 迅捷兴 (Xunjiexing) has "over ten thousand" customers, calls itself a sample-board specialist, and earns **8.52% with a net loss**. Customer count predicts neither margin nor concentration
   - ACC-4: Europractice's mini@sic surcharge — **3,080 ÷ 1,760 = 1.75, a 75% premium for being small**
   - ACC-12: CMP's itemised per-project fixed fees, published
+  - **FUND-7: CMC Microsystems is the only multi-project-wafer broker anywhere with audited accounts, and customers cover a minority of its cost.** In the year to 2008-03-31 customers paid **9.15%** of revenue (CAD 989,771 of 10,822,211) against an 89.63% government grant. In the year to 2026-03-31, stripping the FABrIC pass-through, it earned CAD 5.4m against CAD 7.3m of cost — **74.0% recovery**, i.e. **CAD 30,417 of cost per prototype and a CAD 7,917 subsidy per prototype** on 240 prototypes. This is a measurement, not an analogue
+  - FUND-9: both organisations in this directory that publish a cost breakdown spend **more than 53% on payroll** (CMC 53.5% in FY2008, 54.8% in FY2026). H6 assumes per-customer engineering away; it does not assume away the payroll that a service of this kind actually runs on
+  - FUND-2: Europractice's EU subsidy is **EUR 2,801 per design** over 2016-07 → 2025-09 (EUR 19,024,797.50 for 6,791 designs, stable at EUR 2,840 / 2,663 / 2,951 across three separate competitive grants), rising to **EUR 5,309 per design** at the grant rate now running — against SMB-7's EUR 5,478 cheapest commercial ticket
 - **Mixed:** SMB-2 (profitable, but the margin trend and the strategy both run away from the tail); SMB-5 (self-sustaining for forty years, but its successor's stated goal is to "achieve self-sustainability within the next few years").
 - **Needs:**
-  - A fab's own margin by customer size. Still not public anywhere; SMB-1 to SMB-6 are analogues, not measurements.
+  - A fab's own margin by customer size. Still not public anywhere; SMB-1 to SMB-6 are analogues. **FUND-7 is a genuine measurement of customer cost-recovery, but of a broker rather than a fab.**
+  - Europractice's **turnover**. The subsidy is now exact but the total cost is not computable, because turnover is unpublished: the public price list and design count bound fabrication billings only to EUR 2.3m–14.5m/yr, a factor of six. The document that would settle it is imec's Certificate on the Financial Statements (Form C) for a Europractice grant, or its accounts with a Europractice segment note (FUND-2).
+  - For MOSIS, **nothing is computable**: no budget, no revenue line, no staff count and no year for the claimed "$10M at peak" exists anywhere public (FUND-5, FUND-6).
   - What share of Xometry's revenue comes from its 1,760 accounts spending over $50,000 — not disclosed, and without it nobody can say how much of its revenue is long tail (SMB-3).
   - The academic cost-to-serve literature. Kaplan and Narayanan (2001) could not be obtained legally; **the widely repeated "20% of customers generate 150–300% of profits" figures must not be quoted in this project until someone with library access checks them.** See [`demand/search-log.md`](demand/search-log.md).
 
@@ -261,6 +267,7 @@ What the audit found actually predicts behaviour:
   - ACC-6: Apache-2.0 on all four open kits
   - ACC-9: machine-checkable requirements, as against facts about who you are
   - ACC-7, ACC-3: self-serve routes in the open-and-commercial quadrant
+  - FUND-3: a completely public, flat, four-tier membership fee schedule with no negotiation has existed for decades — **but it raises EUR 557,500/yr against a EUR 3,997,727.50/yr subsidy, about one seventh.** Europractice's own *Activity Report 2025* says the fees "pay for extra staff supporting this requested stimulation activity for academic institutions (not fully paid by the EC)" 
 - **Challenges:**
   - ACC-5: the TSMC University FinFET Program publishes prices to the euro and is closed on six
     other criteria — "Applications will be reviewed and approved by TSMC, after which an NDA will be
