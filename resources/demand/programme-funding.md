@@ -203,3 +203,99 @@ programmes the arithmetic can be done to the euro. For the other it cannot be do
     activity reports in `DEM-16` line for line, and no reconciliation is offered by either source.
   - "more than 3000" and "more than 600" are floors quoted as if they were counts.
 
+
+### FUND-3. Europractice's revenue side: a published fee schedule, a live list of every paying member, and about €557,500 a year of membership income against a €4.0m subsidy
+
+- **Sources:**
+  - UKRI-STFC, "EUROPRACTICE Membership" (the fee schedule):
+    <https://www.europractice.stfc.ac.uk/membership/membership.html>
+  - UKRI-STFC, "Active EUROPRACTICE Members" (the live member list, with each member's category):
+    <https://www.europractice.stfc.ac.uk/membership/membership_list.cfml>
+  - EUROPRACTICE, *Activity Report 2025*, section "EUROPRACTICE MEMBERSHIP":
+    <https://europractice-ic.com/wp-content/uploads/2026/03/Europractice_AR2025_web.pdf>
+  - EUROPRACTICE, *Activity Report 2024*, same section:
+    <https://europractice-ic.com/wp-content/uploads/2025/10/Europractice_ActivityReport2024_webversion.pdf>
+- **Verification:** Verified 2026-09-19. All four fetched and read; the two PDFs were converted with
+  `pdftotext` and the quoted passages read out of the text layer. The member list page carries its own
+  date stamp, "EUROPRACTICE Membership Summary / 19 September, 2026" — i.e. it was current on the day
+  it was read.
+- **How it was counted:** the member list is a plain HTML table, one row per member, with columns
+  Site Number / Site Name / Country / Membership Category. A script parsed every row whose site
+  number matches `^[A-Z]\d{5}$` and tallied the categories. 632 rows parsed; 630 carry a recognised
+  category and 2 read "Unknown".
+- **What it says:**
+  - **The fee schedule** (STFC page, verbatim headings): "Full-IC annual membership, 1100 EURO";
+    "Software-only annual membership, 600 EURO"; "FPGA-only annual membership, 200 EURO";
+    "MPW-only annual membership, 600 EURO". "The annual membership fee year runs from 1 October to
+    30 September." Eligibility: "Eligible Institutes must become a Member of EUROPRACTICE and pay the
+    annual membership fee before they can make use of EUROPRACTICE services."
+  - **What the fee is for**, *Activity Report 2025*, verbatim: "Together with the funding provided by
+    the European Commission, Europractice needs additional support to provide high quality service to
+    more than 600 European universities and research institutes. **Membership Fees pay for extra
+    staff supporting this requested stimulation activity for academic institutions (not fully paid by
+    the EC).** The annual Membership Fee is collected by STFC on behalf of the Europractice project
+    partners." (Identical wording in the 2024 report.)
+  - **How the fee splits**, *Activity Report 2024* and *2025*, verbatim: "Full-IC annual membership:
+    1.100 € … **This membership fee is split 600 € for the CAD part (including 100 € to administer
+    the membership) and 500 € for the prototyping part.**"
+  - **The live membership**, counted from the list on 2026-09-19:
+
+    | Category | Academic | Research lab | Total | Annual fee |
+    |---|---:|---:|---:|---:|
+    | Full-IC | 299 | 116 | 415 | € 1 100 |
+    | Software-only | 85 | 50 | 135 | € 600 |
+    | FPGA-only | 43 | 27 | 70 | € 200 |
+    | MPW-only | 2 | 8 | 10 | € 600 |
+    | *Unknown* | — | — | 2 | — |
+    | **Total rows** | **430** | **202** | **632** | |
+
+    42 distinct countries. The largest are Germany 140, Italy 74, France 61, Spain 60, UK 51,
+    Turkey 21, Switzerland 18, Poland 17, Netherlands 16, Austria 16, Greece 15, Sweden 13. This
+    matches the reports' standing claim of "more than 600 institutes in more than 40 countries from
+    the EMEA zone".
+  - For comparison, the EUROPRACTICE 2016 periodic report (`FUND-2`) gave "612 paid members" for
+    October 2017 to September 2018. The paying membership has therefore been flat at ~610–630 for
+    **eight years**.
+- **DERIVED (arithmetic written out):**
+  - Membership income at the published rates, from the counted list:
+    299 × €1 100 = €328 900; 116 × €1 100 = €127 600; 85 × €600 = €51 000; 50 × €600 = €30 000;
+    43 × €200 = €8 600; 27 × €200 = €5 400; 2 × €600 = €1 200; 8 × €600 = €4 800.
+    **Total = €557 500 a year** from 630 members.
+  - Split by the reports' own rule: the prototyping part is 415 Full-IC × €500 + 10 MPW-only × €600 =
+    **€213 500**; the CAD part is 415 × €600 + 135 × €600 + 70 × €200 = **€344 000**;
+    €213 500 + €344 000 = €557 500 ✓.
+  - Against the EU money now running (Europractice 2.0, €3 997 727,50 a year, `FUND-1`):
+    membership fees are **13.9%** of the subsidy, and the *prototyping-attributable* membership fees
+    are **5.3%** of it.
+  - Per design, on the 753 designs Europractice reports for 2025 (*Activity Report 2025*: "Our users
+    submitted 753 designs across 14 foundries"): membership income is €557 500 ÷ 753 =
+    **€740 per design**, against an EU subsidy of €3 997 727,50 ÷ 753 = **€5 309 per design** at the
+    current grant rate.
+- **Bears on:**
+  - **H6 (challenges, hard).** The one recurring fee Europractice charges every customer covers
+    about a seventh of the public money it receives, and the part of that fee earmarked for
+    prototyping covers about a twentieth. The service's own annual report states the reason in
+    plain language: the fee exists because the EC does **not** fully pay for the support staff.
+  - **H8 (context).** The fee schedule is completely public, flat, and has four tiers, with no
+    negotiation and no quote. As a piece of pricing design it is exactly the kind of thing
+    foundry.api proposes. It just does not come close to covering the cost.
+  - **H5 (challenges).** 630 paying members today against 612 in 2017/18. Eight years, a 2.6× rise
+    in EU funding, a worldwide semiconductor boom, and the paying membership moved by about 3%.
+- **Used in:** not yet.
+- **Caveats:**
+  - **The membership fee is not Europractice's revenue.** Tool licences are charged on top of it, and
+    MPW fabrication is charged separately at the prices in `SMB-7`. What €557 500 measures is the
+    *subscription* line, which is the only recurring charge whose rate and whose customer count are
+    both public. **Total turnover is not published anywhere we could find.**
+  - **A crude bound on the fabrication line, offered only as an order of magnitude.** If all 753 of
+    2025's designs paid the cheapest discounted minimum ticket in `SMB-7` — IHP SG13C at 0.8 mm² ×
+    €3 825 = €3 060 — fabrication billings would be 753 × €3 060 = **€2.30m**; at GF 180 MCU
+    (6 mm² × €830 = €4 980), **€3.75m**; at GF 130 nm BCDlite (12 mm² × €1 600 = €19 200),
+    **€14.5m**. The real figure is unknown and the spread is a factor of six. This is *not* a
+    measurement, and it must not be quoted as one. What it does establish is that fabrication
+    billings are of the same order as the subsidy, not obviously above or below it.
+  - The member list is a snapshot of *active* members, not of members who paid in any given year, and
+    STFC does not say whether a member in arrears is removed.
+  - Full-IC, Software-only and FPGA-only members can also be paying for tool bundles at rates that
+    are behind a member login and were not read.
+  - The count of 632 is ours, not Europractice's; Europractice says "more than 600".
