@@ -21,6 +21,14 @@ Everything here was gathered read-only, HTTP GET only, between 2026-09-18 and 20
 was submitted, no account created, no person contacted by any channel. Sources that could not be
 reached are listed in [§ Blocked sources](#5-blocked-sources) rather than dropped.
 
+> **Read the correction notes before quoting any price from this file.** On 2026-09-19 the audited
+> filings behind both fab purchases recorded here were read for the first time, and **both headline
+> prices turned out to describe less than this file had claimed**. IHF-3 (MEMSCAP → Science, US$3.0
+> million) and IHF-9 (RF-SUNY → Akoustis, US$2.75 million) each open with a dated correction note
+> saying what changed. The short version: **the tools of a 150 mm MEMS fab are a one-to-two-million-
+> dollar asset (IHF-11); a fab is not**, and neither of these two transactions was an arm's-length
+> auction.
+
 ---
 
 ## 1. Identification: what `science.xyz` is
@@ -200,7 +208,7 @@ directory.
 
 ---
 
-### IHF-3. What a complete, operating, ISO-certified MEMS foundry sold for: US$3.0 million
+### IHF-3. What a complete, operating, ISO-certified MEMS foundry sold for: US$3.0 million — and what that price did not include
 
 **This is the single most valuable number in this file — and it needs the whole structure beside it.**
 
@@ -974,7 +982,7 @@ floor area, all audited.
 
 ---
 
-### IHF-9. Akoustis bought a 120,000 sq ft MEMS fab for $2.75 million, and said building one would cost "well over $50 million" — then went bankrupt
+### IHF-9. Akoustis bought a 120,000 sq ft MEMS fab on an announced $2.75 million — the real consideration was $4.6 million — and said building one would cost "well over $50 million"
 
 The closest independent parallel found to the Science/MEMSCAP transaction, five years earlier, in a
 different technology, by a company that had to disclose it.
@@ -1673,14 +1681,15 @@ Recorded so nobody repeats the attempt. Being blocked is an expected outcome, no
 
 Listed so the next person does not have to rediscover it.
 
-In rough order of how much each would add.
+**Cleared on 2026-09-19, so do not redo it.** The audited accounting behind *both* transactions has
+now been read, and both headline prices were found to mean less than this file had claimed. See the
+correction notes at the head of IHF-3 and IHF-9, and the new IHF-11. In particular: the MEMSCAP deal
+was an asset purchase with the liabilities left behind and a EUR 655k/year rent attached; the Akoustis
+headline of $2.75M was $2.85M of cash plus a $1.73M contingent liability against $6.3M of appraised
+assets, and was set "without significant price negotiation" by a public-sector seller.
 
-0. **Done, 2026-09-19 — read this first.** The audited accounting behind *both* transactions has now
-   been read and both headline prices were found to mean less than this file claimed. See the
-   correction notes at the head of IHF-3 and IHF-9, and the new IHF-11. In particular: the MEMSCAP
-   deal was an asset purchase with the liabilities left behind and a EUR 655k/year rent attached; the
-   Akoustis headline of $2.75M was $2.85M of cash plus a $1.73M contingent liability against $6.3M of
-   appraised assets, and was set "without significant price negotiation" by a public-sector seller.
+What remains, in rough order of how much each would add.
+
 1. **A third small-fab transaction price — still wanted, and now for a different reason.** Neither of
    the two found was an arm's-length auction, so there is still *no* market-clearing price for a small
    MEMS fab in this file. EDGAR full-text search (`efts.sec.gov`) serves automated requests with
@@ -1697,24 +1706,24 @@ In rough order of how much each would add.
    refuse automated fetches.
 5. **Verify the "approximately $750M" JDS Uniphase / Cronos figure** against a JDS Uniphase filing. It
    is currently a Lead quoted from the buyer's own blog. Not attempted in the 2026-09-19 pass.
-5a. **What the MEMSCAP supply agreement with Science was worth.** The single open leg of IHF-3. No
+6. **What the MEMSCAP supply agreement with Science was worth.** The single open leg of IHF-3. No
    minimum purchase obligation is disclosed on MEMSCAP's side in 2022 or 2023 (note 25.1 shows nil),
    and neither party publishes volumes or prices, so a below-market sale price recovered through the
    supply contract remains possible but unevidenced. MEMSCAP's 2024 and 2025 annual reports were not
    read and might quantify purchases from "un fournisseur stratégique américain".
-5b. **What the EUR 1,217 thousand of "frais nets afférents à la cession" was spent on.** 41% of the
+7. **What the EUR 1,217 thousand of "frais nets afférents à la cession" was spent on.** 41% of the
    MEMSCAP consideration, broken down nowhere in the 2022 report. If any of it flowed to Science, the
    effective price was lower than US$3.0 million.
-6. **The split of MEMSCAP's EUR 2.9M foundry revenue** between MUMPs shuttle customers and contract
+8. **The split of MEMSCAP's EUR 2.9M foundry revenue** between MUMPs shuttle customers and contract
    manufacturing, and the group overhead allocated to the division. Both are the difference between
    IHF-8 being a fatal result for H6 and being an artefact of transfer pricing. **The 2021 annual
    report has now been read and does not give either split** — but it does give FY2020 divisional
    revenue (EUR 3,083 thousand), the customer-concentration bound and the tool-outage figure, all now
    in IHF-8. The 2020 and earlier reports remain unread and are the only remaining route.
-7. **Comparable cases not yet worked at all:** **Neuralink** (in-house thin-film fabrication,
+9. **Comparable cases not yet worked at all:** **Neuralink** (in-house thin-film fabrication,
    private, so expect little), **Paradromics**, **Precision Neuroscience**, and the photonics and
    lab-on-chip fields, which were not reached. Failures matter as much as successes — the only
    failure written up here is Akoustis, and its cause was litigation rather than the fab.
-8. **What happened to the Canandaigua fab in Akoustis's bankruptcy.** The 8-K does not name it. The
+10. **What happened to the Canandaigua fab in Akoustis's bankruptcy.** The 8-K does not name it. The
    Chapter 11 docket would say, and would give a second resale price for a small MEMS fab.
 
