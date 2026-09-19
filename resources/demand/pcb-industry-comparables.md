@@ -542,6 +542,128 @@ figures were written down.
   - The "top five customers" disclosure is of *total annual sales*; the segment table is of
     *main-business revenue*. The two denominators differ slightly (40.07% vs our 40.08%).
 
+### PCB-4. Fastprint, the seventh-largest domestic PCB maker and a declared sample/small-batch leader, publishes no batch split — and its 28.72% PCB margin is falling while its customer concentration nearly doubled in two years
+
+- **Sources:** 深圳市兴森快捷电路科技股份有限公司 (Shenzhen Fastprint Circuit Tech Co., Ltd.),
+  Shenzhen Stock Exchange code **002436**, annual reports (年度报告), from cninfo's own document
+  server:
+  - FY2025, published 2026-04-25: <http://static.cninfo.com.cn/finalpage/2026-04-25/1225184929.PDF>
+  - FY2024, published 2025-04-25: <http://static.cninfo.com.cn/finalpage/2025-04-25/1223267526.PDF>
+  - FY2023, published 2024-04-25: <http://static.cninfo.com.cn/finalpage/2024-04-25/1219790493.PDF>
+- **Verification:** Verified 2026-09-19. All three PDFs downloaded (HTTP 200; 1,495,341 /
+  7,024,938 / 6,889,110 bytes; 234 / 251 / 241 pages), text extracted with `pypdf`, figures located
+  and read in place and the margins recomputed from the printed revenue and cost.
+- **What it says:**
+  - **It is the closest thing in the peer set to a company that ought to publish the split, and it
+    does not.** FY2025 report §一、报告期内公司从事的主要业务, p.14: "传统 PCB 业务聚焦于样板快件及批量板的研发、设计、生产、销售和表面贴装"
+    — "The traditional PCB business focuses on the R&D, design, production, sale and surface mount
+    of **quick-turn sample boards and batch boards**." (Our translation.) And in the risk section,
+    p.29: "虽然公司在 PCB样板、小批量板和 IC封装基板、半导体测试板等细分行业具有相对领先优势，但仍面临较为严峻的竞争形势。"
+    — "although the Company has a relatively leading advantage in the PCB sample-board, small-batch
+    board, IC packaging substrate and semiconductor test board sub-sectors, it still faces a fairly
+    severe competitive situation." (Our translation.)
+    **But its segment tables split revenue and margin by 行业 (PCB / semiconductor / other), by
+    产品, by 地区 and by 销售模式 (direct / through traders) — never by batch size.** Searching all
+    three annual reports for 样板毛利率, 小批量 with 毛利率, or any batch-size margin split returns
+    nothing.
+  - **The PCB margin, three years.** FY2023 report, "占公司营业收入或营业利润 10%以上的行业…的情况":
+    PCB revenue 4,090,502,302.37, cost 2,915,691,055.62, **毛利率 28.72%**, "同比下降 1.57 个百分点".
+    FY2025 report, same table: PCB revenue 4,897,079,816.57, cost 3,660,050,280.12, **毛利率
+    25.26%**, "毛利率比上年同期增减 −1.70%". The FY2025 narrative, p.14: "报告期内，公司 PCB业务实现收入 489,707.98万元、同比增长 13.89%，毛利率25.26%、同比下降 1.70个百分点。"
+    — "in the reporting period the Company's PCB business achieved revenue of CNY 4,897,079,800, up
+    13.89% year on year, with a gross margin of 25.26%, down 1.70 percentage points year on year."
+    (Our translation.)
+  - **Its semiconductor arm is loss-making at the gross line, and the stated reason is that it is
+    not yet in volume.** FY2025, p.14: "公司半导体业务（包括 IC封装基板和半导体测试板业务）实现收入 190,960.55万元、同比增长 48.62%，毛利率-9.28%…毛利率为负主要系 FCBGA封装基板项目尚未实现大批量生产，人工、折旧、能源和材料等费用投入较大。"
+    — "the semiconductor business … achieved revenue of CNY 1,909,605,500, up 48.62%, with a gross
+    margin of **−9.28%** … the negative gross margin is mainly because the FCBGA packaging substrate
+    project **has not yet achieved large-batch production**, and the inputs of labour, depreciation,
+    energy and materials are large." (Our translation.) The printed segment table gives IC封装基板
+    at **−16.06%** and 半导体测试板 at **+38.03%** for 2025.
+  - **Customer concentration, rising fast.** FY2025 report, 公司主要客户情况:
+    "前五名客户合计销售金额（元）1,963,516,796.09 / 前五名客户合计销售金额占年度销售总额比例 27.29%",
+    with 客户一 939,456,588.09 = **13.06%**, 客户二 552,598,629.41 = 7.68%, 客户三 210,422,079.94 =
+    2.92%, 客户四 145,696,735.54 = 2.03%, 客户五 115,342,763.11 = 1.60%. The customers are
+    anonymised ("客户一" … "客户五"). The same line in the two earlier reports:
+    FY2024 "1,490,025,281.33 … 25.62%"; FY2023 "849,983,989.64 … 15.85%".
+  - **It states the cost of serving many customers, and it is the opposite of JLC's arrangement.**
+    FY2025 report, risk factor 3, p.29: "报告期内，公司应收账款净额 221,617.12 万元，占公司总资产的 14.69%，占营业收入的 30.80%，公司应收账款的账龄符合行业特点，但由于公司客户数量庞大，一定程度上增加了应收账款管理的成本与发生坏账的风险。"
+    — "In the reporting period the Company's net accounts receivable were CNY 2,216,171,200, 14.69%
+    of total assets and 30.80% of revenue; the ageing of the receivables is in line with industry
+    characteristics, but **because the Company's customer count is enormous, this to some degree
+    increases the cost of managing receivables and the risk of bad debts**." (Our translation;
+    emphasis ours.) JLC, by contrast, sells its online long tail on 先款后货 — payment before goods
+    (PCB-2) — and its prospectus says "报告期内，公司应收账款周转率远高于同行业可比公司" ("the
+    Company's accounts-receivable turnover during the reporting period was far higher than that of
+    comparable companies in the same industry").
+  - **Capital.** Fixed assets at 31 December 2025 **CNY 6,069,980,640.55** (40.25% of total assets),
+    down 4.88% on 6,168,287,598.69 a year earlier; of which CNY 2,115,111,962.52 is pledged as
+    security for borrowings ("抵押借款"). Capex (购建固定资产、无形资产和其他长期资产支付的现金)
+    **852,683,193.60** in 2025 and 1,127,871,170.01 in 2024. No PCB capacity-utilisation figure is
+    printed for the PCB business in any of the three reports; utilisation is discussed only
+    qualitatively and only for the CSP substrate line ("产能利用率逐季提升").
+- **DERIVED (arithmetic written out):** from `tmp/pcb_arith.py`.
+  - **Margins reproduce, and two more of PCB-1's five peer columns are now verified against the
+    peer's own filing.** (4,090,502,302.37 − 2,915,691,055.62) ÷ 4,090,502,302.37 = **28.72%**;
+    (4,897,079,816.57 − 3,660,050,280.12) ÷ 4,897,079,816.57 = **25.26%**; and 25.26 + 1.70 =
+    **26.96%** for 2024. The JLC prospectus attributes 28.72% (2023) and 26.96% (2024) to 兴森科技.
+    **Both agree exactly.**
+  - **The prospectus's "未披露" for 2025 is a timing artefact, and this entry fills it.** JLC's
+    prospectus was filed in April 2026; Fastprint's FY2025 annual report was published on
+    **2026-04-25**. Fastprint's 2025 PCB gross margin is **25.26%**. Substituting it into PCB-1's
+    2025 peer set gives a mean of (25.26 + 21.17 + 8.52 + 16.45 + 26.10) ÷ 5 = **19.50%**, against
+    the printed four-company mean of 18.06%. JLC's 2025 gap over the peer mean therefore narrows
+    from +10.00 pp to **+8.56 pp** once Fastprint's now-published figure is included. That is our
+    computation, not the prospectus's, and it is a correction *against* our own thesis.
+  - **Capital intensity, against JLC.** Revenue ÷ fixed assets: 7,194,624,804.67 ÷ 6,069,980,640.55
+    = **1.19×**, against JLC's 3.16× (PCB-2). Capex ÷ revenue: 852,683,193.60 ÷ 7,194,624,804.67 =
+    **11.85%**, against JLC's 13.56%. Fastprint turns its fixed assets **2.66× more slowly** than
+    JLC while spending a similar share of revenue on capex.
+  - **Receivables check.** 2,216,171,200 ÷ 7,194,624,804.67 = **30.80%**, reproducing the printed
+    figure exactly.
+  - **Effective number of customers.** H from the 2025 top five = 0.1306² + 0.0768² + 0.0292² +
+    0.0203² + 0.0160² = 0.02447533, so 1/H ≤ **40.9**; with the 72.71% remainder as a single block,
+    1/H ≥ 1.8. Same caveat as PCB-3: an upper bound, not a point estimate.
+- **Bears on:**
+  - **H6 (context, and a hole in the evidence).** The single best candidate for a second
+    batch-split disclosure — a listed company that says in its own risk factors that it leads in
+    sample and small-batch PCB, and that runs volume production alongside it — publishes revenue and
+    margin split four different ways and **never by batch size**. This is the strongest available
+    evidence that JLC's p.245 table is close to unique. Chinese listing rules require segment
+    disclosure by 行业, 产品, 地区 and 销售模式; they do not require it by order size, so nobody
+    does it unless, like JLC, they have to explain to a listing committee where their profit comes
+    from.
+  - **H6 (supports, indirectly, and by a different route).** Fastprint's own semiconductor segment
+    is a natural experiment inside one company: the IC substrate line runs at **−16.06%** gross
+    margin explicitly *because* it "has not yet achieved large-batch production" and is carrying
+    undiluted labour, depreciation and energy. That is the *opposite* sign to the PCB long-tail
+    story, and it is the conventional capital-intensity argument stated plainly by a company living
+    it. Recorded here because it cuts against us: in a genuinely capital-heavy process, being off
+    volume destroys the margin. Whatever makes small-batch PCB profitable does not transfer
+    automatically to a process with substrate-like economics — and silicon is far closer to the
+    substrate end.
+  - **H7 (challenges).** Top-five concentration went 15.85% → 25.62% → **27.29%** in two years, with
+    one customer at 13.06%. That is the third company here (with Xunjiexing and Shapeways) where a
+    large customer *list* sits alongside a concentrated *revenue* distribution.
+  - **H6 (context).** Fastprint's receivables risk factor is a rare explicit statement of the
+    cost-to-serve of a long tail: an enormous customer count raises receivables-management cost and
+    bad-debt risk. JLC removes that cost entirely by taking payment before goods. That is a design
+    choice foundry.api could copy and a reason JLC's margin is not simply "more customers".
+- **Used in:** not yet.
+- **Caveats:**
+  - Fastprint's blended margin is dominated by things that are not the PCB long tail: an IC
+    substrate business in pre-volume ramp, an overseas distribution arm (Fineline), and an SSD
+    business. Its 25.26% PCB line is the only comparable number, and even that mixes quick-turn
+    sample work with volume boards, HDI and SLP.
+  - **The top-five customers are anonymised** ("客户一" … "客户五"), so the concentration cannot be
+    cross-checked against the customers' own filings, and the concentration is likely driven by the
+    memory-chip substrate customers rather than by the PCB business.
+  - The 2025 PCB margin (25.26%) is **our** substitution into PCB-1's peer mean. The prospectus's
+    18.06% remains what the prospectus prints, and both numbers are recorded above.
+  - Capacity and utilisation for the PCB business are not disclosed in any of the three reports, so
+    the capital-intensity comparison with JLC rests on revenue ÷ fixed assets, a cruder measure that
+    is distorted by Fastprint's pre-revenue substrate plant.
+
 ---
 
 ## Comparison table
@@ -552,19 +674,20 @@ could reach, and that absence is itself part of the finding.
 | | JLC (嘉立创) | Xunjiexing (迅捷兴) | Fastprint (兴森科技) | Jinbaize (金百泽) | Sihui Fushi (四会富仕) | Qiangda (强达电路) |
 |---|---|---|---|---|---|---|
 | Listing | SZSE, IPO filed Apr 2026 | STAR 688655 | SZSE 002436 | — (to confirm) | SZSE 300852 | SZSE (to confirm) |
-| Core gross margin 2023 / 2024 / 2025 | **28.73 / 30.05 / 28.06%** (PCB) | 15.14 / 14.33 / **8.52%** | 28.72 / 26.96 / n.d. | 28.42 / 23.97 / 21.17% | 24.55 / 19.03 / 16.45% | 28.63 / 27.58 / 26.10% |
-| Margin split by batch size | **Yes** — 36.24% sample+small-batch vs 2.76% medium/large-batch, 2025 (SMB-1) | No numeric split; qualitative table only | Not yet checked | Not yet checked | Not yet checked | Not yet checked |
+| Core gross margin 2023 / 2024 / 2025 | **28.73 / 30.05 / 28.06%** (PCB) | 15.14 / 14.33 / **8.52%** | 28.72 / 26.96 / **25.26%** (PCB line) | 28.42 / 23.97 / 21.17% | 24.55 / 19.03 / 16.45% | 28.63 / 27.58 / 26.10% |
+| Verified against the company's own filing? | n/a (is the source) | **Yes, all 3 years** | **Yes, 2023 and 2024; 2025 added by us** | No — Partial | No — Partial | No — Partial |
+| Margin split by batch size | **Yes** — 36.24% sample+small-batch vs 2.76% medium/large-batch, 2025 (SMB-1) | No numeric split; qualitative table only | **No** — splits by industry, product, region, channel, never by batch | Not checked | Not checked | Not checked |
 | Customers | **1,358,700 paying users (2025)**; 9.59M registered | "over 10,000" cumulative | "over 4,000" worldwide | "over 20,000" worldwide | 143 (2017) → 595 (2022) | ~3,000 active (2025) |
 | Orders / year | **21,290,800 (2025)** | — | — | — | — | — |
-| Top-5 customer share | **1.16% (2025)** | **40.07% (2025)**; top-1 12.58% | — | — | — | — |
-| Effective customers (1/H, upper bound) | ≤ ~36,400 | ≤ ~27 | — | — | — | — |
-| Capacity | 11.53M m²/yr PCB, 76.78% utilised | 0.74M m² sold 2025; 0.60M m²/yr batch + 0.72M m²/yr sample planned | — | — | — | — |
-| Average price per m² | CNY 441.48 (2025) | CNY 866.47 (2025) | — | — | — | — |
-| Capital intensity | Fixed assets CNY 3.26bn; capex CNY 1.40bn (2025); PCB machinery CNY 1.79bn gross | Fixed assets CNY 753M (2025), up 134% | — | — | — | — |
-| Owns plant? | **Yes** — five owned bases, ~1M m² of site, title deeds, land-use rights | Yes — Shenzhen, Xinfeng, Zhuhai | Yes | Yes | Yes | Yes |
-| Pricing model | Online self-service, auto reference quote, **payment before goods**; offline = negotiated | Direct sales + traders, negotiated; online mall launched 2026-01-04 | — | — | — | — |
+| Top-5 customer share | **1.16% (2025)** | **40.07% (2025)**; top-1 12.58% | 15.85 → 25.62 → **27.29%**; top-1 13.06% | — | — | — |
+| Effective customers (1/H, upper bound) | ≤ ~36,400 | ≤ ~27 | ≤ ~41 | — | — | — |
+| Capacity | 11.53M m²/yr PCB, 76.78% utilised | 0.74M m² sold 2025; 0.60M m²/yr batch + 0.72M m²/yr sample planned | Not disclosed | — | — | — |
+| Average price per m² | CNY 441.48 (2025) | CNY 866.47 (2025) | Not computable (no area disclosed) | — | — | — |
+| Capital intensity | Fixed assets CNY 3.26bn; capex CNY 1.40bn (2025); revenue/FA **3.16×**; capex/revenue 13.56% | Fixed assets CNY 753M (2025), up 134% | Fixed assets CNY 6.07bn; capex CNY 853M; revenue/FA **1.19×**; capex/revenue 11.85% | — | — | — |
+| Owns plant? | **Yes** — five owned bases, ~1M m² of site, title deeds, land-use rights | Yes — Shenzhen, Xinfeng, Zhuhai | Yes — CNY 2.12bn of it pledged for borrowings | Yes | Yes | Yes |
+| Pricing model | Online self-service, auto reference quote, **payment before goods**; offline = negotiated | Direct sales + traders, negotiated; online mall launched 2026-01-04 | Direct sales 94.21%, traders 5.79%; receivables **30.80% of revenue** | — | — | — |
 | CPCA rank (domestic PCB makers) | ~16th / 17th (estimated) | 78th / 83rd | 7th / 8th | 62nd / 59th | 25th / 23rd | 53rd / 53rd |
-| Bottom line | Net margin 12.65% (2025) | **Net loss CNY 22.4M (2025)** | — | — | — | — |
+| Bottom line | Net margin 12.65% (2025) | **Net loss CNY 22.4M (2025)** | Net profit up 168% (2025), semiconductor arm at −9.28% gross | — | — | — |
 
 ## Verdict: does the JLC pattern generalise?
 
@@ -583,11 +706,16 @@ also uses the mechanism as an explanation for a *third party's* results — that
 margin was low "受批量订单占比逐步提升…影响".
 
 **2. "The online long-tail seller earns a higher blended margin than conventional PCB makers." —
-Supported, with a caveat about who chose the comparison.** JLC's PCB margin beat the mean of its
-five named comparables by +3.64, +7.68 and +10.00 percentage points in 2023, 2024 and 2025, and
-the gap widened every year as the peer mean fell from 25.09% to 18.06%. The issuer attributes the
-gap to "销售模式和客户结构差异" — sales model and customer structure. The caveat is real: JLC chose
-the comparables, and it conspicuously did not choose the large listed Chinese PCB makers.
+Supported, with two caveats, one of which we found against ourselves.** JLC's PCB margin beat the
+mean of its five named comparables by +3.64, +7.68 and +10.00 percentage points in 2023, 2024 and
+2025, and the gap widened every year as the peer mean fell from 25.09% to 18.06%. The issuer
+attributes the gap to "销售模式和客户结构差异" — sales model and customer structure. First caveat:
+JLC chose the comparables, and it conspicuously did not choose the large listed Chinese PCB makers.
+Second caveat, and it is ours, not the prospectus's: the 2025 peer mean of 18.06% excludes Fastprint
+because its FY2025 report had not yet been published when the prospectus was filed. It has been
+published since, on 2026-04-25, at 25.26% (PCB-4). Putting it back gives a five-company 2025 mean of
+19.50% and cuts JLC's gap from +10.00 to **+8.56 pp**. The direction and the widening survive; the
+headline number does not.
 
 **3. "Serving a long tail is what produces the margin." — NOT supported. The evidence actively
 contradicts the simple version.** Within the five-company peer set, customer count does not
@@ -611,23 +739,30 @@ not publish.
 
 **On what can be known at all.** The industry is far more disclosed than expected, because China's
 listing rules force it: five PCB companies' margins printed in one table, each traceable to an
-audited annual report on a public document server. But **only JLC publishes a margin split by batch
-size.** The single most valuable datum in this whole exercise exists, so far as we could establish,
-in exactly one document in the world — and it exists there only because an IPO prospectus has to
-explain where the profit comes from. If JLC lists and stops filing prospectuses, this evidence
-stops being renewed.
+audited annual report on a public document server, and three of those fifteen company-years now
+verified directly against the company's own filing (Xunjiexing 2023–2025, Fastprint 2023–2024,
+plus Fastprint 2025 which the prospectus could not yet have). But **only JLC publishes a margin
+split by batch size, and we now have direct evidence that the best-placed peer chooses not to.**
+Fastprint calls itself a leader in sample and small-batch PCB, runs volume production alongside it,
+and splits its segment disclosure four different ways — by industry, product, region and sales
+channel — and never by order size (PCB-4). Chinese listing rules require those four cuts; they do
+not require batch size. JLC's p.245 table exists because a listing committee made it explain where
+its profit comes from, not because anyone in this industry routinely publishes it. If JLC lists and
+stops filing prospectuses, this evidence stops being renewed.
 
-**What would settle it.** A second company publishing gross margin split by order size. We have not
-found one. Fastprint (兴森科技) is the best remaining candidate, because it runs both a sample/
-small-batch business and a volume business inside one listed company — see the open items below.
+**What would settle it.** A second company publishing gross margin split by order size. **We
+looked at the best candidate and it does not exist there.** The remaining candidates are
+prospectuses and review-enquiry replies (问询函回复) of other PCB companies, where the exchange can
+compel an issuer to break out a margin the annual report does not — Qiangda and Sihui Fushi both
+have such documents on cninfo and neither has been read; see the open items below.
 
 ## Blocked and incomplete sources
 
 | Source | URL | What happened | What would unblock a human |
 |---|---|---|---|
 | cninfo document server | `http://static.cninfo.com.cn/finalpage/...` | **HTTP 403** to a plain `curl` | Solved: a browser User-Agent plus `-H "Referer: http://www.cninfo.com.cn/"` returns HTTP 200. Recorded here so nobody loses the time again. |
-| 兴森科技 (Fastprint, SZ 002436) annual reports | cninfo | **Not read.** Work on this company was lost when the session hit an API rate limit. The prospectus records its margin as 未披露 (not disclosed) for 2025. | Nothing external; it needs the time to download and read three annual reports. This is the highest-value remaining item in the file. |
-| 金百泽 (Jinbaize), 四会富仕 (Sihui Fushi, SZ 300852), 强达电路 (Qiangda) annual reports | cninfo | **Not read.** Same cause. Their margins are recorded here only as the JLC prospectus renders them, and are therefore **Partial**, not Verified. | Same. |
+| 金百泽 (Jinbaize), 四会富仕 (Sihui Fushi, SZ 300852), 强达电路 (Qiangda) annual reports | cninfo | **Not read.** Their margins are recorded here only as the JLC prospectus renders them, and are therefore **Partial**, not Verified. | Nothing external — the documents are free on cninfo and download fine with the header trick above. It needs the time. |
+| Exchange review-enquiry replies (问询函回复) for Qiangda and Sihui Fushi | cninfo | **Not read.** These are where an exchange can compel a margin breakdown the annual report omits — the JLC prospectus already cites one of Sihui Fushi's for its customer count. Most likely place a second batch-split disclosure exists. | Nothing external. |
 | Western small-batch specialists (Eurocircuits, Aisler, Beta LAYOUT/Multi-CB, Advanced Circuits/4PCB, Sierra Circuits) | various | **Not reached.** Same cause. | Belgian NBB Central Balance Sheet Office and the German Bundesanzeiger both publish small-company accounts free; a human with a browser can retrieve Eurocircuits' and Beta LAYOUT's filed accounts directly. |
 | OSH Park, Dirty PCBs (Dangerous Prototypes), PCBWay, Seeed Fusion | various | **Not reached.** Same cause. None of them files accounts; their evidence is blog posts, pricing pages and Wayback captures. | Nothing external. |
 
