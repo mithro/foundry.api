@@ -682,6 +682,166 @@ floor area, all audited.
 
 ---
 
+### IHF-9. Akoustis bought a 120,000 sq ft MEMS fab for $2.75 million, and said building one would cost "well over $50 million" — then went bankrupt
+
+The closest independent parallel found to the Science/MEMSCAP transaction, five years earlier, in a
+different technology, by a company that had to disclose it.
+
+- **Sources:**
+  - Akoustis Technologies, Inc., press release filed as Exhibit 99.1 to a Form 8-K, 2017-03-24.
+    <https://www.sec.gov/Archives/edgar/data/1584754/000161577417001221/s105654_ex99-1.htm>
+  - Akoustis Technologies, Inc., Form 8-K, 2024-12-02 (Qorvo judgment and the statement that the
+    company "will be required to seek protection under applicable bankruptcy laws").
+    <https://www.sec.gov/Archives/edgar/data/1584754/000121390024104185/ea0222962-8k_akoustis.htm>
+  - Akoustis Technologies, Inc., Form 8-K, 2024-12-17 (Nasdaq delisting determination).
+    <https://www.sec.gov/Archives/edgar/data/1584754/000121390024109749/ea0225118-8k_akoustis.htm>
+  - ATech (Parent) Resolution Corp. (formerly Akoustis Technologies, Inc.), Form 8-K, 2025-05-15
+    (completion of the Chapter 11 asset sales).
+    <https://www.sec.gov/Archives/edgar/data/1584754/000121390025044032/ea0242256-8k_atech.htm>
+  - EDGAR submissions API, CIK 0001584754 — the registrant's current name and its Form 25-NSE
+    (delisting) of 2025-06-06.
+- **Verification:** Partial. The registrant identity, the filing dates, the current name "ATECH
+  (PARENT) RESOLUTION CORP." and the form types were read directly from the EDGAR submissions API on
+  2026-09-19. The quoted figures were read out of the filings themselves through `WebFetch`
+  (`www.sec.gov/Archives/...` returns HTTP 403 to `curl`, per `search-log.md` §1), but the full
+  documents were not read end to end, so the surrounding context of each quote is not independently
+  confirmed. **Upgrade to Verified by opening the four filings in a browser.**
+- **What it says.**
+
+  **The purchase, 2017.** Akoustis — then a small RF filter company with no fab — bought the former
+  STC-MEMS facility in Canandaigua, New York, from the Research Foundation for SUNY (RF-SUNY) and
+  FRMC. From the announcement:
+
+  > "Akoustis will pay $2.75 million in cash at closing to RF-SUNY and FRMC"
+
+  For that it got a "**120,000 sq. ft. commercial wafer manufacturing facility located in
+  Canandaigua, NY**", the "**57-acres of real property associated with the NY Facility**" — note that
+  unlike the MEMSCAP deal this one included the land and buildings, not a lease — "**Class 100/Class
+  1000 cleanroom space**", "**150-mm silicon MEMS wafer fab operations, including all semiconductor
+  manufacturing tools**", an "**existing silicon-based MEMS business with annual revenues of
+  approximately $3M**", "**Trusted Foundry accreditation for MEMS processing, packaging and
+  assembly**", and "two existing tenants with multi-year leases".
+
+  **And the sentence that makes this entry worth having**, the company's own estimate of the
+  alternative:
+
+  > "A comparable manufacturing facility to build and qualify for production would take up to 2-years
+  > and cost well over $50 million"
+
+  The stated motive is the same one Science gives: speed and control. The acquisition would "shorten
+  time-to-market for its RF products, greatly enhancing the Company's ability to service customers",
+  and Akoustis "plans to maintain the existing customer engagements which are transferred" — i.e. it
+  kept the acquired fab's outside foundry customers, exactly as Science did.
+
+  **The failure, 2024–2025.** Akoustis filed for Chapter 11 on **2024-12-16**. Nasdaq's hearings
+  panel "determined to delist the Company's shares from Nasdaq" (8-K of 2024-12-17), the Form 25-NSE
+  followed on 2025-06-06, and the registrant now files as **ATech (Parent) Resolution Corp.** In the
+  Chapter 11 sales completed by May 2025, **Tune Holdings Corp.**, "a Texas corporation", was "named
+  as the successful bidder for substantially all of the assets" at "**a purchase price of $30.2
+  million**", with "Space Exploration Technologies Corp." — SpaceX — guaranteeing certain
+  obligations; a second lot, the assets of Grinding and Dicing Services, Inc., went to Silitronics
+  Solutions Inc. for "approximately $6 million". Shareholders were told: "The Company currently does
+  not expect that holders of the Company's common stock will receive any payment or other
+  distribution in the Cases."
+
+  **Why it failed matters, and it was not the fab.** The 8-K of 2024-12-02 concerns an appeal against
+  a **$38.6 million judgment** in litigation brought by Qorvo, and states that without relief "the
+  Company will be required to seek protection under applicable bankruptcy laws". This was a
+  litigation failure, not a demonstration that owning a small fab does not work.
+- **DERIVED (arithmetic written out):** checked with `uv run python tmp/arith3.py`.
+  - Price per square foot of facility: $2,750,000 / 120,000 sq ft = **$22.92 per sq ft** — including
+    the tools, the 57 acres and an operating business.
+  - Buying used against the company's own build-new estimate: $50,000,000 (a *floor*; the source says
+    "well over") / $2,750,000 = **at least 18.2× cheaper to buy than to build**.
+  - Price against the acquired business's revenue: $2,750,000 / $3,000,000 = **0.92× trailing
+    revenue**.
+  - Chapter 11 sale against the 2017 fab price: $30,200,000 / $2,750,000 = **11.0×** — but for a
+    different and much larger asset package (the whole company after seven years of investment, not
+    the fab alone), so this is a scale marker, not a return.
+- **The cross-case observation, which is the point of this entry.** Two entirely independent
+  transactions, five years apart, on two different continents' terms, for two small MEMS wafer fabs
+  with roughly $3M of annual revenue each, cleared at **$2.75 million (2017)** and **$3.0 million
+  (2022)** — both at roughly **one times trailing revenue**. That is not a coincidence worth
+  over-reading from two points, but it is the beginning of a market price for this class of asset, and
+  this repository had none before.
+- **Bears on:** H6 (**supports, on the capital side** — a second, independent confirmation that a
+  working small MEMS fab is a ~$3M asset, and the first credible figure for the build-new alternative:
+  "well over $50 million" and two years, from a company with every incentive to justify its purchase);
+  H5 (context — the acquired fab had an existing third-party foundry business and Akoustis kept it);
+  H1 (context — buying beats building by more than an order of magnitude, which is an argument for
+  *consolidating onto existing assets*, not for new entry).
+- **Used in:** not yet.
+- **Caveats:**
+  - **"Well over $50 million" is an acquirer's justification for its own purchase**, published in the
+    press release announcing that purchase. It is exactly the number a buyer would want to be large.
+    It is nonetheless the only build-new estimate found from a company that then actually operated
+    the alternative, and it is consistent with the "up to $65 million" Science budgeted for an
+    expansion (IHF-2).
+  - **The seller was a state university foundation**, not a commercial owner, so $2.75M may be below
+    a commercial clearing price. Equally, that is the second time in this file that the party
+    disposing of a small MEMS fab was not maximising price.
+  - **Akoustis's bankruptcy is not evidence about small fabs.** It followed a $38.6M
+    intellectual-property judgment. Recording it as a "fab failure" would be wrong, and it is recorded
+    here as a failure of the *company*, with the cause stated.
+  - The **$30.2 million** Chapter 11 price is for "substantially all of the assets" of a company that
+    had spent seven years building BAW filter technology on top of the fab. It is not the resale value
+    of the fab.
+  - Whether the Canandaigua fab specifically was inside the Tune Holdings lot is **not stated in the
+    8-K read**; the filing "does not mention a New York wafer fabrication facility" by name. Do not
+    assert that SpaceX now owns that fab without checking the bankruptcy docket.
+
+---
+
+### IHF-10. Rigetti built its own quantum chip fab and then sold fabrication to outsiders — same pattern, thinner disclosure
+
+- **Sources:**
+  - Rigetti Computing, Inc., Form 10-K for FY2025, filed 2026-03-04.
+    <https://www.sec.gov/Archives/edgar/data/1838359/000110465926023454/rgti-20251231x10k.htm>
+  - Rigetti Computing, Inc., Form 10-K for FY2024, filed 2025-03-07.
+    <https://www.sec.gov/Archives/edgar/data/1838359/000155837025002499/rgti-20241231x10k.htm>
+- **Verification:** Partial. Both 10-Ks were read through `WebFetch` on 2026-09-19 with targeted
+  prompts; the quotes below were returned from the filings. Neither document was read end to end, and
+  the financial statements were not opened.
+- **What it says.** Rigetti — a listed quantum-computing company (Nasdaq: RGTI) — owns and runs a
+  wafer fab for superconducting quantum processors:
+
+  > "We own and operate Fab-1, a wafer fabrication facility dedicated to prototyping and producing our
+  > quantum processors."
+
+  > "Through Fab-1, we own the means of production of our breakthrough multi-chip quantum processor
+  > technology."
+
+  And, as with Science, it sells that capability to outsiders:
+
+  > "Rigetti Foundry Services leverages the company's U.S. based in-house wafer fabrication facility
+  > ('Fab-1') to deliver superconducting quantum chips to advance and accelerate quantum information
+  > science and technology research and development efforts. Customers include researchers spanning
+  > academia, defense laboratories, and national laboratories."
+
+  The strategic claim is vertical integration: owning production "from chip manufacturing through
+  sales of QPUs and cloud delivery, unlocks the fastest and lowest risk path to broad
+  commercialization."
+- **What it does *not* say, which is most of what we wanted.** Neither 10-K read states Fab-1's
+  square footage, cleanroom class, wafer size, headcount, construction cost, or any capital
+  expenditure attributable to it, and **neither gives an explicit statement that outside foundries
+  would not or could not serve superconducting quantum chips.** The absence matters: the
+  "no-one-would-serve-us" motive that IHF-1 and IHF-5 state plainly is, for Rigetti, only inferable
+  from its emphasis on proprietary processes ("superconducting multi-chip bonding technology",
+  "superconducting through-silicon via process technology", "interchip coupling technology"). This
+  entry therefore establishes the *pattern* — build in-house, then externalise — and not the cost.
+- **Bears on:** H5 (context — a third company in a third field concluding it must own fabrication, and
+  then finding outside customers for it); H8 (context — "Rigetti Foundry Services" is another
+  build-then-open-to-others case); H6 (nothing — no figures).
+- **Used in:** not yet.
+- **Caveats:** Partial verification; no numbers. The build-then-externalise pattern may simply be how
+  a capital-hungry company monetises spare capacity rather than evidence of unserved demand. Rigetti's
+  `https://www.rigetti.com/foundry` page returns **HTTP 404**, so the customer-facing description
+  could not be read. **What would unblock a human:** Rigetti's property, plant and equipment note and
+  its capital-expenditure line in the 10-K financial statements, which were not opened here, and the
+  Wayback Machine for the foundry page.
+
+---
+
 ## 3. Cost section: every hard number found on small-scale fabrication capability
 
 Collected in one place because the repository has almost nothing of this kind. **Read the caveats on
