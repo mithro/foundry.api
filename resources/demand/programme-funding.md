@@ -179,11 +179,12 @@ programmes the arithmetic can be done to the euro. For the other it cannot be do
     price. `SMB-7` gives Europractice's cheapest commercial ticket as 6 mm² × €913/mm² =
     **€5,478** on the open-PDK 180 nm node, and its cheapest node is the exception: 12 mm² of GF
     130 nm BCDlite is €21,120. The EU is putting in about **€2,800 per design on top**. Against the
-    cheap line that is **more than half as much again as the customer pays**; against a
-    mid-portfolio ticket it is perhaps a tenth. Either way it is not small, and it is money nobody
-    charges anybody.
+    cheap line the subsidy is **about half as much as the customer pays** (2 800 ÷ 5 478 = 0.51);
+    against the 130 nm ticket it is about an eighth (2 800 ÷ 21 120 = 0.13). Either way it is not
+    small, and it is money nobody charges anybody.
   - **H5 (challenges).** Europe's entire subsidised long tail, over 9.25 years, bought **6,791
-    designs** from **410-ish organisations**. That is the same order as MOSIS's realised scale in
+    designs**, and in the one period for which the customer count is stated — NEXTS, 3.75 years —
+    from **410 organisations**. That is the same order as MOSIS's realised scale in
     `SMB-5`, and it has not grown: 542/yr in 2016–18, 800/yr in 2019–22, 812/yr in 2022–25, against
     a subsidy that rose 2.6× over the same period.
   - **H6 (context).** The subsidy per design is *stable*: €2,840, €2,663, €2,951 across three
