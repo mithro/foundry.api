@@ -659,7 +659,7 @@ blend_leaf = sum(share*margin for the four channel rows)
 blend_sub  = share_ss*margin_ss + share_big*margin_big
 ```
 
-| Year | Leaf-level Σ(share × margin) | Subtotal-level | Printed 合计 | Largest discrepancy |
+| Year | Leaf-level Σ(share × margin) | Subtotal-level | Printed 合计 (total) | Largest discrepancy |
 |---|---:|---:|---:|---:|
 | 2023 | 0.28735 | 0.28729 | 0.2873 | +0.0049 pp |
 | 2024 | 0.30046 | 0.30048 | 0.3005 | −0.0042 pp |
@@ -738,19 +738,21 @@ group cost structure, not as implied net margins.
 
 ### 6.4 Fragility 3 — **order size is not customer size**, and this is the real problem
 
-`SMB-1`'s own glossary, quoted in the entry: 样板 is an order **under 1 m²**, 小批量 is **1–20 m²**,
-中大批量 is **over 20 m²**. These are **order-area bands**. They are not customer segments.
+`SMB-1`'s own glossary, quoted in the entry: 样板 (sample boards) is an order **under 1 m²**,
+小批量 (small batch) is **1–20 m²**, 中大批量 (medium and large batch) is **over 20 m²**. These are
+**order-area bands**. They are not customer segments.
 
 The analysis reads them as customer segments throughout — "long-tail customers", "the segment with
 concentrated, price-negotiating customers", "small customers are not merely each profitable; they
 are where essentially all the profit is". **Nothing in the filing links an order-area band to a
-customer size.** A large industrial buyer ordering five prototype boards sits in the 样板 band. JLC's
-own disclosed top-five customers are Megmeet, Haier, Wasion, 华立科技 and 尚研 — large industrial
-firms — and the filing does not say which band their orders fall in.
+customer size.** A large industrial buyer ordering five prototype boards sits in the 样板
+(sample-board) band. JLC's own disclosed top-five customers are Megmeet, Haier, Wasion, 华立科技
+(Huali Technology) and 尚研 (Shangyan) — large industrial firms — and the filing does not say which
+band their orders fall in.
 
 The prose `SMB-1` quotes does associate the bands with channels and with customer character (the
-online 嘉立创 block serves "highly dispersed" customers; the offline 中信华 block serves customers who
-"negotiate prices"). That is real support for the reading, and it is why the conclusion is probably
+online 嘉立创 (JLC) block serves "highly dispersed" customers; the offline 中信华 (Zhongxinhua)
+block serves customers who "negotiate prices"). That is real support for the reading, and it is why the conclusion is probably
 directionally right. But it is an association stated by the company in its business narrative, not a
 measurement, and the entry's bearing on **H6** — "*small customers* can each be profitable" — is
 carried entirely by that association.

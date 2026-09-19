@@ -163,9 +163,9 @@ The cost-to-serve data asked for here turns out to be published, in the one plac
   - SMB-9: chipIgnite's flat published price survived the collapse of the company that invented it and was restarted by its founders at $14,950
   - SMB-12: mature-node mask sets are now well under $100,000, so the fixed cost to recover per project is tens of thousands, not millions
   - SW-5: on AWS, small on-demand buyers pay more per unit than committed buyers, so small customers can pay a premium for flexibility
-  - PCB-1: JLC's PCB gross margin beats the mean of the five peers its own prospectus names by **+8.56 pp** in 2025 (corrected from the printed +10.00 pp, which omitted Fastprint's later-published 25.26%), and the prospectus attributes the gap to "销售模式和客户结构差异" — differences in sales model and customer structure
-  - PCB-2: JLC **owns its plants** — net fixed assets CNY 3,257,464,600 including CNY 952,981,900 of buildings, CNY 1.395bn of capex in 2025, registered land titles. It also took a **CNY 131,365,100 fixed-asset impairment** because "PCB 中大批量订单相对不饱和" left big-batch equipment idle, while the long-tail plant ran at 76.78% utilisation
-  - PCB-3: a second audited company, 迅捷兴, attributes a 5.62-point margin fall to a shift toward batch work — volume **+30.02%**, margin down
+  - PCB-1: JLC's PCB gross margin beats the mean of the five peers its own prospectus names by **+8.56 pp** in 2025 (corrected from the printed +10.00 pp, which omitted Fastprint's later-published 25.26%), and the prospectus attributes the gap to "销售模式和客户结构差异" — "differences in sales model and customer structure"
+  - PCB-2: JLC **owns its plants** — net fixed assets CNY 3,257,464,600 including CNY 952,981,900 of buildings, CNY 1.395bn of capex in 2025, registered land titles. It also took a **CNY 131,365,100 fixed-asset impairment** because "PCB 中大批量订单相对不饱和" ("medium- and large-batch PCB orders are relatively under-full") left big-batch equipment idle, while the long-tail plant ran at 76.78% utilisation
+  - PCB-3: a second audited company, 迅捷兴 (Xunjiexing), attributes a 5.62-point margin fall to a shift toward batch work — volume **+30.02%**, margin down
   - IHF-3, IHF-9: a complete working small MEMS fab is a **~US$3M** asset at roughly **1× trailing revenue** (MEMSCAP 2022; Akoustis 2017 at $2.75M), against "well over $50 million" to build new — so the capital to recover is far smaller than this project assumed
 - **Challenges:**
   - SMB-3: Xometry, no operating profit in any filed year, 34.7% marketplace gross margin, and an explicit pivot to "large enterprise customers"
@@ -177,8 +177,8 @@ The cost-to-serve data asked for here turns out to be published, in the one plac
   - DEM-14: Daniel Nenni — open-source tool users "do it mainly due to cost and that is a tough customer base to profit from" (his stated opinion, not data)
   - OPEN-7: Efabless's failure, though it was an intermediary and not a fab
   - **IHF-8: audited losses of 28.2% then 44.3% of revenue at a merchant MEMS foundry serving small customers through shuttle runs — the strongest challenge in this directory, because it is a wafer fab and not an intermediary**
-  - PCB-4: Fastprint's IC-substrate line runs at **−16.06%** gross margin explicitly because it "尚未实现大批量生产" and carries undiluted labour and depreciation — the capital-intensity argument stated by a company living it, and silicon sits far closer to the substrate end than to bare board
-  - PCB-5: 强达电路 has about 3,000 customers, sells 100% direct on negotiated terms, and earns **26.10%** — within two points of JLC. 迅捷兴 has "over ten thousand" customers, calls itself a sample-board specialist, and earns **8.52% with a net loss**. Customer count predicts neither margin nor concentration
+  - PCB-4: Fastprint's IC-substrate line runs at **−16.06%** gross margin explicitly because it "尚未实现大批量生产" ("has not yet achieved large-batch production") and carries undiluted labour and depreciation — the capital-intensity argument stated by a company living it, and silicon sits far closer to the substrate end than to bare board
+  - PCB-5: 强达电路 (Qiangda) has about 3,000 customers, sells 100% direct on negotiated terms, and earns **26.10%** — within two points of JLC. 迅捷兴 (Xunjiexing) has "over ten thousand" customers, calls itself a sample-board specialist, and earns **8.52% with a net loss**. Customer count predicts neither margin nor concentration
   - ACC-4: Europractice's mini@sic surcharge — **3,080 ÷ 1,760 = 1.75, a 75% premium for being small**
   - ACC-12: CMP's itemised per-project fixed fees, published
 - **Mixed:** SMB-2 (profitable, but the margin trend and the strategy both run away from the tail); SMB-5 (self-sustaining for forty years, but its successor's stated goal is to "achieve self-sustainability within the next few years").
@@ -196,8 +196,9 @@ The previous status line — "well supported as the reverse of H2" — was wrong
 is what corrected it. A long customer *list* does not produce a long-tailed *revenue* distribution.
 
 Among audited PCB makers, customer count and revenue concentration are close to unrelated below
-about a million customers: 四会富仕 with **595** customers has 19.36% of revenue in its top five,
-while 迅捷兴 with **over ten thousand** has **40.07%**, Hikvision alone at 12.58%. Five companies
+about a million customers: 四会富仕 (Sihui Fushi) with **595** customers has 19.36% of revenue in
+its top five, while 迅捷兴 (Xunjiexing) with **over ten thousand** has **40.07%**, Hikvision alone
+at 12.58%. Five companies
 spanning 595 to 20,000 customers all sit between 13.8% and 40.1%. Only JLC, at **1,358,700** paying
 users, reaches 1.16% (PCB-1, PCB-5, SMB-1).
 
