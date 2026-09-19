@@ -87,7 +87,7 @@ company.** `PAY-9` is our own numbers, and `PAY-5` shows that Tiny Tapeout buys 
   - **H5 (context).** This is the unit base for every Tiny Tapeout revenue figure in this file. It
     is the operator's own count of *tiles allocated*, which is much closer to a billable quantity
     than a count of designs.
-  - **H6 (context).** `tiles_used` reaches `tiles_total` exactly on six shuttles (tt06, ttihp0p2,
+  - **H6 (context).** `tiles_used` reaches `tiles_total` exactly on seven shuttles (tt06, ttihp0p2,
     ttihp25a, ttsky26a, ttsky26b, ttgf26a, ttgf0p2). Those are sell-outs. It falls well short on
     others — tt04 at 227/350, tt08 at 236/512, tt10 at 240/512.
 - **Used in:** the derivation in `PAY-6`.
