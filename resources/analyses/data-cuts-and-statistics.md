@@ -276,7 +276,200 @@ favour that the repository currently records as a point against it.
 
 ---
 
-*Sections 2 (growth rates and the two-population claim), 4 (fitting the distribution), 5 (repeat
-behaviour and lifetime value), 6 (attacking the JLC decomposition), 7 (sensitivity), 8 (arithmetic
-errata), 9 (small-number statistics), 10 (verdict table) and 11 (the strongest argument against the
-project) follow.*
+## 4. Cut: is it actually a power law? (No.)
+
+### 4.1 The question
+
+`TAIL-1` asserts a long tail. `ECON-17` (Clauset, Shalizi & Newman) warns that most published
+power-law claims fail a proper test. Nobody has run the test on anything in this repository. With
+2,625 designers and 4,409 designs, it can be run.
+
+### 4.2 The procedure and the result
+
+Discrete power law `p(k) ∝ k^−α` for `k ≥ k_min`; α by MLE on the discrete likelihood with a
+Hurwitz-zeta normalisation; `k_min` chosen to minimise the discrete KS distance
+`D = max_v |F_emp(v) − F_fit(v)|`; goodness of fit by the CSN synthetic-data bootstrap.
+
+```python
+# tmp/fitdist.py  (abridged)
+def nll(alpha, d, kmin):  return len(d)*np.log(zeta(alpha, kmin)) + alpha*np.sum(np.log(d))
+def ks(d, alpha, kmin):
+    v, c = np.unique(np.sort(d), return_counts=True)
+    return np.max(np.abs(np.cumsum(c)/len(d) - (1 - zeta(alpha, v+1)/zeta(alpha, kmin))))
+# kmin chosen by minimising ks; GOF p = share of synthetic power-law datasets with D >= D_obs
+```
+
+| `k_min` | n in tail | α̂ | KS `D` | CSN GOF `p` | Verdict (CSN rule: p < 0.1 rules it out) |
+|---|---:|---:|---:|---:|---|
+| 1 | 2,625 | 2.605 | 0.0306 | **0.000** | **ruled out** |
+| 2 | 692 | 3.066 | 0.0462 | **0.000** | **ruled out** |
+| 3 | 224 | 2.684 | 0.0484 | 0.085 | ruled out (marginally) |
+| 4 | 118 | 2.504 | 0.0445 | 0.476 | not ruled out |
+| 5 | 76 | 2.389 | 0.0495 | 0.673 | not ruled out |
+
+**The distribution of designs per designer is not a power law.** It is ruled out over the whole
+range and over the body. A power law cannot be rejected only on the extreme tail — the 76 to 118
+designers with four or more designs, which is 3–4% of the population. A Vuong likelihood-ratio test
+against a discrete lognormal on the full range is inconclusive (R = −6.33, z = −1.31, p = 0.192): the
+data do not distinguish the two.
+
+**What to do with this.** The honest statement is: *designs per designer are moderately skewed, with
+a heavy-ish upper tail consistent with a power law of exponent ≈ 2.5 above four designs, and nothing
+resembling a power law below that.* Any sentence in `WHY.md` or `PRINCIPLES.md` of the form "the
+distribution is a power law" should be struck. The useful properties — that a few participants do a
+lot and most do one thing — survive without the label, and they are better measured by the Gini and
+the Herfindahl than by an exponent.
+
+### 4.3 Concentration, measured the same way everywhere
+
+Every dataset in the repository with per-unit counts, put through the same three measures. Gini and
+`1/H` are dimensionless shape measures, so comparing them across populations does **not** violate
+the trends-not-levels rule — it compares the *shape* of two distributions, not their size.
+
+| Dataset | n | Gini | `H` | `1/H` | Top-decile share |
+|---|---:|---:|---:|---:|---:|
+| Tiny Tapeout: designs per designer | 2,625 | 0.356 | 0.00264 | **378.5** | 0.367 |
+| Efabless: submissions per shuttle | 23 | 0.291 | 0.0550 | 18.2 | 0.168 |
+| TSMC 2024: revenue per customer | 522 | 0.745 | 0.0850 | **11.8** | 0.780 |
+| TSMC 2025: revenue per customer | 534 | 0.765 | 0.0871 | 11.5 | 0.798 |
+| JLC 2025: revenue per paying user | 1,358,700 | — | 2.82 × 10⁻⁵ | 35,487 | — |
+| IHP SG13G2: mm² per customer | 8 | 0.571 | 0.285 | 3.5 | 0.405 |
+| IHP CMOS5L: mm² per customer | 3 | 0.307 | 0.465 | 2.1 | 0.629 |
+| wafer.space: backers per run | 3 | 0.299 | 0.458 | 2.2 | 0.621 |
+| ChipFoundry: committed per shuttle | 3 | 0.073 | 0.340 | 2.9 | 0.397 |
+
+Bootstrap 95% CIs on the Tiny Tapeout figures (3,000 resamples of designers):
+
+| | Point | 95% CI |
+|---|---:|---|
+| Gini | 0.356 | [0.300, 0.413] |
+| `H` | 0.00264 | [0.0011, 0.0046] |
+| `1/H` | 378.5 | [219, 950] |
+| Top-decile share | 0.367 | [0.312, 0.422] |
+
+Dropping the single largest designer string (150 designs — a programme-side account) moves Gini to
+0.334 and `1/H` to 628. **The concentration result is not driven by one participant**, which is the
+drop-one test for §4.
+
+**The comparison that matters, and it favours the project.** The effective number of participants as
+a share of the nominal number is 14.4% for Tiny Tapeout's designers against **2.3% for TSMC's
+customers**. Whatever else is true, the open programme's activity really is spread across a far
+larger effective base than a foundry's revenue is. This is the cleanest quantitative support H7 has
+ever had, and it was not in the repository.
+
+**Four cautions that must travel with it.**
+
+1. TSMC's number is revenue; Tiny Tapeout's is design count. Money and activity are different
+   things, and the money version of the Tiny Tapeout number would be more concentrated (larger
+   designs cost more tiles).
+2. The TSMC figures rest on an even-split assumption inside two undisclosed blocks; the repository
+   already shows the answer moves from 11.8 to 7.0 if the tail is correlated.
+3. The JLC row is **not usable**. An even split below the disclosed top five is an upper bound on
+   the effective number, and the true value is unknowable from the filing. It is printed only so the
+   assumption is visible.
+4. Four of the nine rows have n ≤ 8. `1/H` on three points is arithmetic, not evidence. **The IHP,
+   wafer.space and ChipFoundry rows should never be quoted.** They are in the table to show how
+   little per-customer data exists, not to support a conclusion.
+
+---
+
+## 5. Cut: repeat behaviour, and what a 26% repeat rate is worth
+
+### 5.1 The cohort table, with censoring stated
+
+Designers are assigned to the cohort of the year they first appear; "lifetime designs" counts every
+design they have made up to 2026-09.
+
+| Cohort | Designers | Mean lifetime designs | Share who ever repeat | Years observed |
+|---|---:|---:|---:|---:|
+| 2022 | 122 | 4.02 | 0.934 | 4 |
+| 2023 | 316 | 2.55 | 0.203 | 3 |
+| 2024 | 613 | 2.30 | 0.659 | 2 |
+| 2025 | 553 | 1.31 | 0.204 | 1 |
+| 2026 | 1,021 | 1.11 | 0.066 | 0 |
+| **All** | **2,625** | **1.74** | **0.290** | — |
+
+(These use the full index including TT03's carried-over re-runs; with those removed the overall mean
+is 1.68 and the repeat rate 0.264. The difference does not change any conclusion.)
+
+The 2022 and 2024 cohorts look anomalous for the reason in §3.2 — they were swept up in the 2025
+port runs, which re-ran their designs. **The only clean cohorts are 2023 and 2025**, and their
+"ever repeat" rates are 0.203 and 0.204.
+
+**A realistic estimate of eventual lifetime purchases per acquired designer is therefore 2.5 with
+three years to run, and about 1.7 on the full censored population.**
+
+### 5.2 The repeat data rule out a homogeneous customer base
+
+```python
+P1 = mean(v == 1) = 0.7097       # share of designers with exactly one design
+mean = 1.7379                    # mean designs per designer
+# homogeneous geometric: after each purchase you return with probability p
+p = 1 - P1 = 0.2903  ->  implied mean = 1/(1-p) = 1.4090
+```
+
+The homogeneous model **under-predicts the observed mean by 23%**. Fitting a two-segment mixture
+(share *q* buy once and never return; the rest return with probability *p₂* each time) to the same
+two moments:
+
+| Segment | Share of designers | Repeat probability | Expected lifetime designs |
+|---|---:|---:|---:|
+| One-and-done | 52.1% | 0 | 1.00 |
+| Core | 47.9% | 0.607 | 2.54 |
+
+**The core is about 1,256 designers producing roughly 70% of all designs.** This is the real shape
+of the customer base: half the people who ever arrive buy once, and a persistent minority of about
+1,250 people worldwide account for most of the activity.
+
+That number — **roughly 1,250 recurring participants, worldwide, after four years, at a price
+between €70 and $300** — is the single most important quantity in this document, and it should be
+the number the project argues against, not 4,268.
+
+### 5.3 Lifetime value, and the size of the line in money
+
+Tiles sold per year, from `tiles_used` in the submission-stats API:
+
+| Year | Tiles |
+|---|---:|
+| 2023 | 510 |
+| 2024 | 1,769 |
+| 2025 | 2,661 |
+| 2026 (to September) | 2,788 |
+| **Total** | **7,728** |
+
+| Price basis | Lifetime gross revenue | 2025 gross revenue |
+|---|---:|---:|
+| €70 per tile (`SMB-10`, shuttle inclusion only) | **€540,960** | €186,270 |
+| €150 all-in tile + ASIC + board (2025 IHP price, `OPG-14`) | €1,159,200 | €399,150 |
+| $300 all-in standard price (TT06 era, `OPG-14`) | $2,318,400 | $798,300 |
+
+Lifetime value per acquired designer, at the observed mean of 1.74 designs:
+
+| Price per design | LTV, for ever |
+|---|---:|
+| €70 | **€122** |
+| €150 | €261 |
+| $300 | $521 |
+
+**What this means.** The entire worldwide output of the most successful open-silicon programme ever
+run is, on its own published prices, between half a million and two and a third million dollars of
+gross revenue across four years. `SMB-5` records MOSIS at "up to $10 million annually at its peak" —
+in 1990s money. Set beside `SMB-1`'s JLC at CNY 10.29 bn, or against the $14,950 cost of the single
+chipIgnite slot each Tiny Tapeout shuttle occupies, the scale is the finding.
+
+A full 512-tile SKY130 shuttle sells €35,840 of tile inclusion against a $14,950 slot. That is a
+real gross margin on the shuttle purchase, and it says nothing about PCBs, packaging, shipping, the
+devkit bill of materials, or anybody's time — none of which is published anywhere.
+
+**The honest reading for H6.** A lifetime value of €122–$521 per customer, with 85–90% of customers
+never returning, is a business that must be almost entirely self-serve and almost entirely
+word-of-mouth, because there is no room in that number for a sales motion, a support call, or a
+customer-acquisition spend of more than a few tens of euros. That is *consistent* with what
+`PRINCIPLES.md` proposes. It is also exactly what `OPG-16` means by "a tough customer base to profit
+from", and this is the first time the repository has been able to put a figure on it.
+
+---
+
+*Sections 2 (growth rates, free versus paid, drop-one), 6 (attacking the JLC decomposition),
+7 (sensitivity), 8 (arithmetic errata), 9 (small-number statistics), 10 (verdict table) and 11 (the
+strongest argument against the project) follow.*
