@@ -42,6 +42,7 @@ ID prefixes:
 | [`demand/pcb-industry-comparables.md`](demand/pcb-industry-comparables.md) | `PCB` | Audited PCB makers' margin by order size — the closest industry parallel |
 | [`demand/in-house-fabrication.md`](demand/in-house-fabrication.md) | `IHF` | Companies that built or bought their own fab, and what it cost |
 | [`demand/access-terms.md`](demand/access-terms.md) | `ACC` | What a programme requires before it will make your chip, and who pays |
+| [`demand/programme-funding.md`](demand/programme-funding.md) | `FUND` | What a multi-project-wafer service costs to run: the EU grants behind Europractice, the federal money behind MOSIS, CMC's published accounts, and the subsidy per design |
 | [`demand/shuttle-programmes.md`](demand/shuttle-programmes.md) | `DEM` | Multi-project wafer and shuttle programmes: designs submitted, accepted, and how full the runs were |
 | [`demand/latent-demand-challenges.md`](demand/latent-demand-challenges.md) | `DEM` | Evidence that the latent demand for chips is not there, or that cost is not the binding constraint |
 | [`demand/long-tail-businesses.md`](demand/long-tail-businesses.md) | `SMB` | Public financials of businesses serving a long tail of small manufacturing customers, and the ones that failed |
