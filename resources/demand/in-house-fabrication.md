@@ -530,6 +530,158 @@ directory.
 
 ---
 
+### IHF-8. The audited economics of a small MEMS foundry: 475 m², 14 people, EUR 2.9M of revenue, and a loss every year
+
+**This is the most important entry in this file for H6, and it goes the wrong way for us.**
+
+MEMSCAP is a listed company, so the MEMS foundry Science bought comes with audited financial
+statements attached — for the fab itself, separated out, because IFRS 5 required the US business to
+be reported as a discontinued operation in the year it was sold. Almost nothing else in this
+repository offers that: a merchant fabrication business serving many small customers through
+multi-project wafer runs, with its own revenue line, its own result, its own headcount and its own
+floor area, all audited.
+
+- **Sources:**
+  - MEMSCAP S.A., "EARNINGS FOR THE 2022 FINANCIAL YEAR — FINANCIAL YEAR 2022: A MAJOR STEP IN THE
+    DEVELOPMENT OF THE MEMSCAP GROUP", press release, Grenoble, 2023-03-28, 06:30 PM.
+    <https://memscap.com/wp-content/uploads/2023/04/PR-FY22-GB_28032023.pdf>
+    (linked from <https://memscap.com/en/2023/03/28/memscap-earnings-for-fy22/>)
+  - MEMSCAP S.A., *Rapport annuel 2022*, filed 2023-04-28 (in French).
+    <https://memscap.com/wp-content/uploads/2023/05/Rapport-annuel-Memscap-2022-28_04_2023.pdf>
+    (linked from <https://memscap.com/en/2023/04/28/memscap-2022-annual-report/>)
+- **Verification:** Verified, 2026-09-19. Both PDFs were fetched directly from `memscap.com` and the
+  text extracted with `pypdf`; every figure below was read in the extracted text. The two documents
+  agree with each other throughout (the annual report states in millions what the press release
+  states in thousands). The press release carries the note that the figures "were subject to an audit
+  by the Group's statutory auditors"; the annual report is the audited filing.
+- **How it was counted:** no counting was needed — the figures are line items. The derivations under
+  DERIVED are divisions of those line items, written out below and checked with
+  `uv run python tmp/arith2.py`.
+- **What it says.**
+
+  **The plant.** From the annual report's description of the subsidiaries (§ on MEMSCAP Inc.), the
+  only physical description of the fab found anywhere from a primary source:
+
+  > "MEMSCAP Inc., basée aux Etats-Unis, a assuré jusqu'au mois de décembre 2022 l'activité Produits
+  > sur mesure de MEMSCAP via des opérations basées en Caroline du Nord et intégrant une usine de
+  > production de silicium en location (475 m², classe ISO 4), en format de production de tranches
+  > silicium de 6 pouces."
+
+  In English: a leased silicon production plant of **475 m², cleanroom class ISO 4**, running **6-inch
+  wafers**. (The same report elsewhere gives ISO/FS 209 equivalences for the Norwegian site — "200 m²,
+  classe ISO 8 ou classe 100 000 selon FS 209" — so the "classe ISO 4" is deliberate and means
+  FS 209 Class 10, not Class 100.) The same paragraph confirms what was sold:
+
+  > "le Groupe a procédé à la cession de l'ensemble des équipes de Caroline du Nord, du bail afférent
+  > à l'usine de fabrication ainsi que la totalité des équipements industriels et technologies
+  > associés, et des activités de fabrication pour compte de tiers (« Foundry Business »)."
+
+  **The headcount.** The annual report's workforce table gives the group's total employees by
+  geography. At 31 December 2021, before the sale:
+
+  > "Etats-Unis ........................................................................ 14"
+
+  out of a group total of 60. At 31 December 2022, after the sale, the United States line is gone
+  entirely and the total is 48 (France 4, Norway 44). The group's average full-time-equivalent
+  headcount in **production** fell from 37 to 22 across the same period.
+
+  **The revenue.** From the FY2022 press release, the segment table:
+
+  > "Revenue from discontinued operations – IFRS 5 (US operations – Custom products) 2,858 -- 1,935 --"
+
+  i.e. **EUR 2,858 thousand in FY2021 and EUR 1,935 thousand in FY2022**, in thousands of euros. The
+  prose confirms it: "Revenue from discontinued operations (US Custom products division dedicated to
+  foundry business) amounted to EUR 1,935 thousand compared to EUR 2,858 thousand for FY 2021."
+
+  **The result. It lost money in both years.** From the press release:
+
+  > "For FY 2002 [*sic* — the release says 2002; the figures are FY 2022], the profit after tax from
+  > discontinued operations amounted to EUR 897 thousand and included:
+  > - The loss after tax relating to the division's operating activities, i.e. EUR 857 thousand for
+  > FY 2022 compared to a loss of EUR 805 thousand for FY 2021 (Restated).
+  > - The net income from the disposal of this discontinued business, i.e. a profit of EUR 1,754
+  > thousand."
+
+  So the foundry's *operations* lost EUR 805 thousand in 2021 and EUR 857 thousand in 2022. The only
+  reason the discontinued-operations line was positive at all is the EUR 1,754 thousand gain on
+  selling it. The annual report repeats both figures in millions.
+
+  **What the tools were carried at.** From the annual report's walk of the balance sheet movements:
+
+  > "La cession des équipements industriels des activités abandonnées, soit un impact net de -0,5
+  > million d'euros en date de cession (Décembre 2022)."
+
+  The disposal of **all** the industrial equipment of the discontinued business took **EUR 0.5
+  million** off the balance sheet. That is the net book value of an entire working MEMS toolset —
+  the same tools the Europractice MUMPs shuttles and the third-party foundry business ran on.
+
+  **What the seller said about it.** The FY2022 release describes the disposal as the completion of a
+  plan, under the heading "Finalisation of the FABLITE program transforming the profitability profile
+  of MEMSCAP", and the strategic section states the fab "includes the US production plant, teams,
+  equipment, technologies and related customers". The group swung from a EUR 328 thousand net loss in
+  FY2021 to a EUR 1,048 thousand net profit in FY2022.
+- **DERIVED (arithmetic written out):** all checked with `uv run python tmp/arith2.py`.
+  - Cleanroom area in US units: 475 m² × 10.7639 = **5,113 sq ft**.
+  - Science's planned expansion against it: 57,000 sq ft (IHF-2) / 5,113 sq ft = **11.1×** the
+    existing plant area.
+  - Foundry revenue change: (1,935 − 2,858) / 2,858 = **−32.3%** in one year.
+  - Loss as a share of its own revenue: 805 / 2,858 = **28.2%** (FY2021); 857 / 1,935 = **44.3%**
+    (FY2022).
+  - Revenue per US employee, FY2021: EUR 2,858k / 14 = **EUR 204 thousand**.
+  - Operating loss per US employee, FY2021: EUR 805k / 14 = **EUR 58 thousand**.
+  - Sale price against trailing revenue: US$3.0M against EUR 2,858 thousand — **roughly one times
+    trailing revenue**. No FX rate is asserted; the two figures are in different currencies and are
+    only being placed side by side.
+  - Sale price against the equipment's carrying value: US$3.0M against EUR 0.5M — **about 6×**. Same
+    currency caveat.
+  - The fall in group production FTE (37 → 22 = 15) is consistent with the 14 US staff at
+    31 December 2021.
+- **Bears on:**
+  - **H6 (challenges, strongly).** This is a real merchant MEMS foundry, selling to many small
+    customers through the industry's longest-running MEMS multi-project wafer shuttles (IHF-6), and
+    it lost 28% and then 44% of its revenue at the after-tax operating line in consecutive years, on
+    revenue that fell by a third. It is a closer analogue to foundry.api than Shapeways, Xometry or
+    Protolabs are, because it is actually a wafer fab selling shared runs — and it lands on the same
+    side as they do. H6's "Needs" list asks for "a fab's own margin by customer size"; this is not
+    that, but it is the closest thing in the repository: a fab whose *entire* business was small
+    customers, losing money.
+  - **H6 (supports, on the capital side).** The asset base really is small. A working ISO 4 cleanroom
+    of 475 m² running 6-inch wafers, with all its tools, was carried at EUR 0.5 million and staffed
+    by 14 people. If foundry.api's question is "how much capital must a small fab recover", the
+    answer here is: far less than the industry's headline fab costs suggest. The problem in this case
+    was not the capital. It was that EUR 2.9 million of revenue from small customers did not cover
+    fourteen people and a leased cleanroom.
+  - **H5 (challenges).** Revenue from the small-customer foundry business fell 32% in the last year
+    it was owned. A long tail that was growing would not do that. Against this: 2022 was a year of
+    disposal and the business was being wound down for sale, which would itself depress revenue.
+  - **H1 (context).** A well-run, listed, specialist MEMS company concluded that the profitable move
+    was to stop owning a fab.
+- **Used in:** not yet.
+- **Caveats, and they matter:**
+  - **The loss is a divisional loss under IFRS 5, with an allocation of group costs that is not
+    disclosed.** How much group overhead MEMSCAP charged to the US division is not stated anywhere in
+    either document. A buyer who removes those charges — which is exactly what Science did, folding
+    the fab into a company that needed it anyway — faces different economics. This is the single
+    biggest reason not to read "the MEMS foundry business loses money" as a general law.
+  - **The business was being sold.** FY2022 revenue covers a year in which the division was held for
+    sale; customers leave, investment stops, and the number is not a steady-state one. FY2021's
+    EUR 2,858 thousand with a EUR 805 thousand loss is the cleaner year, and it is still a loss.
+  - **This was not only a shuttle business.** "Custom products" included contract manufacturing —
+    notably the optical-attenuator chips MEMSCAP kept buying afterwards — so the MUMPs shuttle
+    revenue is some unknown fraction of the EUR 2,858 thousand. Nothing found splits it.
+  - **EUR 0.5 million is net book value after depreciation, not what the tools are worth or what they
+    would cost to replace.** Late-1990s tools fully depreciated over twenty years will carry at close
+    to nothing whatever they can still do. It is a floor, not a valuation.
+  - **The 475 m² / ISO 4 figures are from the 2022 report only** and were not found in a second
+    document. A secondary source (a MEMS-industry blog) describes the Science Foundry site as
+    "5,000 sq. ft. of Class 100 cleanroom" — which **agrees on area** (475 m² is 5,113 sq ft) but
+    **disagrees on class** (Class 100 is ISO 5, one class dirtier than ISO 4). The audited French
+    filing is preferred here and the disagreement is recorded rather than resolved.
+  - The French text is quoted in the original; the English renderings are this entry's, not the
+    company's.
+
+---
+
 ## 3. Cost section: every hard number found on small-scale fabrication capability
 
 Collected in one place because the repository has almost nothing of this kind. **Read the caveats on
