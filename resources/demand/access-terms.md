@@ -847,3 +847,142 @@ eligibility condition is new.
   - Efabless again, and Efabless was a paid consultant to phases 1 and 2 (`ACC-13`).
   - "ten of which have been selected to go through final design and ultimate demonstration" does not
     say ten *taped out*. Whether any of the ten reached silicon is **not established** — see `ACC-15`.
+
+### ACC-15. The AFWERX challenge page itself — the primary source `ACC-8` said could not be found. Phase 1 ran **5 Nov 2018 → 22 Jan 2019 (78 days)**, entry was free, there was no prize, and the reward was an EDA/IP licence "valued at $10M per license" given **to selected participants**
+
+- **Source:** AFWERX, "Advanced Microelectronics Design & Prototype challenge",
+  `www.afwerxchallenge.com/microdesign`, read from the Internet Archive:
+  <https://web.archive.org/web/20190723163848id_/https://www.afwerxchallenge.com/microdesign>
+  A second capture, <https://web.archive.org/web/20190922003056id_/https://www.afwerxchallenge.com/microdesign>,
+  carries the same body text.
+- **Verification:** **Verified 2026-09-19.** Both captures fetched with `curl` and read in full. This
+  is the **US Air Force's own challenge page**, not a vendor describing it.
+- **How it was found** (reproducible, and worth recording because `ACC-8` and
+  [`search-log.md`](search-log.md) both record this source as unfindable): every web search engine
+  reachable from this session was refusing automated queries, so the page was found through the
+  Wayback CDX API instead. A domain-wide CDX listing of `afwerxchallenge.com` for 2018–2020, with
+  media and script URLs filtered out, returns 910 archived URLs, of which seven match
+  `microelectronic|chip`; `/microdesign` is the challenge's own page. **No search engine was needed
+  and none was used.**
+- **What it says**, verbatim:
+  - **Who ran it.** "**Air Force Research Labs (AFRL), in partnership with AFWERX Vegas**, is
+    launching the Advanced Microelectronics Prototype and Design Challenge."
+  - **The challenge statement.** "What is your solution for a **14nm** advanced Application Specific
+    Integrated Circuit (ASIC) or System on a Chip (SoC) that can operate and improve the features of
+    an **autonomous product of your choosing** while maintaining the integrity (provenance,
+    traceability) and security needs (information protection, mathematical algorithms) of critical
+    systems?"
+  - **The timeline, in full, as printed** (the page uses US month-first dates):
+    "PHASE 1: Submit Proposals SUBMIT: **11/5/18 — 1/22/19** SHOWCASE: 2/20/19 — 2/21/19";
+    "PHASE 2: Design & Simulation SUBMIT: 3/1/19 — 6/28/19 SHOWCASE: 7/30/19 — 7/31/19";
+    "PHASE 3: Physical Design SUBMIT: 8/6/19 — 10/4/19 SHOWCASE: 10/15/19 — 10/16/19";
+    "PHASE 4: Physical Prototype SUBMIT: 10/22/19 — 4/18/20 SHOWCASE: 5/5/20 — 5/6/20";
+    "PHASE 5: Prototype Testing SUBMIT: TBD SHOWCASE: TBD";
+    "PHASE 6: Full Production SUBMIT: TBD SHOWCASE: TBD".
+    In ISO form: **phase-1 submissions 2018-11-05 to 2019-01-22**. The page also carries a countdown
+    script whose deadline constant is `new Date("January 23, 2019 02:00:00 EST")` — 23:00 on
+    22 January, Pacific.
+  - **Price of entry.** "**There is no charge to register, there is no charge to participate**".
+  - **The reward, and there is no cash in it.** "What's in it for you: By participating in this
+    challenge, you have the opportunity to: **Receive resources and support** to develop cutting-edge
+    SoC while **maintaining the design IP that is yours to retain** / **Access** a state of the art
+    SoC development platform that includes design tools and critical IP functions, **a value of up to
+    $10M** / **Partner** with the United States Air Force (USAF) to fabricate your SoC / **Leverage**
+    AFWERX to augment your areas of expertise through peer and government partnerships / **Attend**
+    the Challenge Showcase event/s in Las Vegas, **if your solution is selected** … / **Receive
+    official recognition** for you, your team, and your company / **Help the USAF** and improve the
+    security of the United States / **Gain access** to a top Department of Defense initiative with an
+    initial approved budget of **$2 billion**". **No prize money, no purse and no guaranteed contract
+    appears anywhere on the page.**
+  - **What the in-kind reward was worth, and who got it.** "Access to the EDA tools and IP libraries
+    is **valued at $10M per license**, but the USAF is offering it **FREE to selected participants**."
+  - **Where the money did appear — downstream, and hedged.** Under the heading "Funding Support":
+    "The US Air Force has invested heavily in supporting teams throughout this challenge to provide
+    platforms and funding to you and your team. **In Phase 2 we are providing the design platform and
+    the IP required to complete your design, in addition to this we will likely be offering some
+    financial support to teams to assist in the design process with labor requirements. In Phase 3 we
+    have funding available to support the detailed design drawings and in Phases 4&5 we have funding
+    available to build your prototype and test it.**" **No amount is stated anywhere on the page.**
+  - **Tooling.** "Cadence Design Systems is making available their online training materials, rapid
+    adoption kits, and generic process design kits (PDKs) to the participants during the challenge."
+    A "Microelectronic Design Software Solutions Bootcamp" is offered, including "a demo on the DoD
+    Trusted Silicon Stratus secure cloud based microelectronics design environment".
+  - **The result banner, on the archived page.** "Selections have been made for the AFWERX Showcase
+    February 20-21 in Las Vegas."
+- **DERIVED (arithmetic written out, computed in `tmp/afrl_arith.py` under `uv run python`):**
+  - **Phase-1 window: 2018-11-05 → 2019-01-22 = 78 days.** 82 ÷ 78 = **1.05 proposals a day**.
+  - On `ACC-13`'s start date instead (2 November 2018): 81 days, 82 ÷ 81 = **1.01 a day**.
+  - `ACC-8` used 45 days and got 1.82 a day. **The window is 73–80% longer than `ACC-8` assumed, and
+    the true rate is 42–45% lower.** No source found in this search supports 45 days.
+- **Bears on:**
+  - **`ACC-8`, which it corrects on the date, the unit and the incentive.** See the dated correction
+    note at the head of `ACC-8`.
+  - **The owner's question "were there prizes?" — answered.** There was no prize pool, no cash award,
+    no purse and no contract on offer for entering. Entry was free. What was on offer, *conditional on
+    being selected*, was a tool and IP licence the Air Force valued at $10M, fabrication access, and
+    unquantified "funding available" in phases 3, 4 and 5. **It was not "somebody pays you to enter".
+    It was "somebody may pay for your chip if you win" — which is the same shape as `ACC-8` claimed,
+    but reached through a five- or six-phase, 18-month competitive gate rather than a 40-slot
+    shuttle.**
+  - **H5 (context, and it cuts against reading 82 as a pure demand signal).** The $2 billion figure is
+    the size of the **DoD microelectronics initiative** the challenge sat inside, not the challenge's
+    budget. It is on the page because it is the recruiting pitch: entrants were being told they were
+    queueing for a $2bn programme of record. Google's shuttle offered no programme of record at all.
+- **Used in:** [`../analyses/open-access-audit.md`](../analyses/open-access-audit.md) §3.15, §6.2, §6.5.
+- **Caveats:**
+  - **No dollar figure for what AFRL actually spent** appears on this page or on any page reached in
+    this search. "$10M per license" is a **claimed list value of an in-kind EDA/IP licence**, made by
+    the party giving it away, and EDA list prices are notoriously unlike what anyone pays. Treat it as
+    an order-of-magnitude marker, not a cost.
+  - The page was captured in July and September 2019, after phase 1 closed, so the "Selections have
+    been made" banner is later than the text around it. The timeline block is the original.
+  - The page lists **six** phases; `ACC-13` says five. The page is the better authority on its own
+    programme.
+  - How many of the 82 got the $10M licence is not stated here. `ACC-14` gives ten selected.
+
+### ACC-16. AFWERX's own newsroom: a two-day in-person boot camp for "more than 60 small-business innovators" ran seven weeks before the deadline
+
+- **Source:** Randy Brown, "Microelectronics 'Boot Camp' Educates Makers on Advanced Design Tools",
+  AFWERX Challenge blog, page metadata `"datePublished":"2019-01-04T08:14:00-0800"` (the URL slug
+  reads `2018/12/20/boot-camp-gives-silicon-chip-makers-a-leg-up-with-design-tools`), read from the
+  Internet Archive:
+  <https://web.archive.org/web/20190723163801id_/https://www.afwerxchallenge.com/blog/2018/12/20/boot-camp-gives-silicon-chip-makers-a-leg-up-with-design-tools>
+- **Verification:** **Verified 2026-09-19**, fetched with `curl --compressed` and read in full.
+- **What it says**, verbatim:
+  - "**More than 60 small-business innovators and technologists** recently participated in a **2-day
+    microelectronics-chip design 'Boot Camp'** at the dedicated AFWERX Vegas Innovation Hub, Las Vegas
+    earlier this month." The photo caption dates it: "the Advanced Microelectronics 'Boot Camp'
+    **Dec. 4-5, 2018** at the dedicated AFWERX Vegas Innovations Hub, Las Vegas."
+  - "The purpose of the event was to provide unprecedented training and design resources to potential
+    manufacturers of a next-generation of smart hardware, toward an on-going Advanced Microelectronics
+    Prototype and Design Challenge that AFWERX is conducting on behalf of the U.S. Air Force."
+  - "Ultimately, participants could potentially **partner with the Air Force toward the fabrication of
+    a microchip, and gain access to a program requirement from the Department of Defense**."
+  - Who ran it: "technologists at the **Air Force Research Laboratory (AFRL), Wright-Patterson Air
+    Force Base, Ohio** are seeking solutions".
+  - "As part of the challenge, the Air Force is providing access **to selected participants** to an
+    Electronic Design Automation (EDA) platform license."
+  - Efabless's role, in AFWERX's words: "'It's been a very good experience,' says **Mohamed Kassem**.
+    As a **subject-matter expert**, Kassem helped shepherd discussions during the AFWERX Vegas design
+    workshop… Kassem is Chief Technology Officer (CTO) for a San Jose, Calif.-based **Efabless**, a
+    crowdsourcing platform for custom chip design."
+  - The deadline, confirmed independently of Efabless: "**Deadline for initial proposals is Jan. 22,
+    2019.** Selected innovators will then be invited to a February 2019 showcase event".
+- **Bears on:**
+  - **The 82 was not a cold open call, and this matters for "somebody else pays".** Seven weeks before
+    the deadline the Air Force ran a free two-day training event in Las Vegas and **more than 60
+    people came**. If 82 proposals arrived and 60-plus people had already been trained in person by
+    the organisers, the response is substantially a measure of *recruitment effort*, not of latent
+    demand discovered by an open call.
+  - **H5 (challenges the audit's use of the AFRL number).** The audit presented AFRL as evidence that
+    openness is not what draws people. This source shows the third variable the audit ignored:
+    **outreach spend**. Google's MPW-1 was announced in a blog post; AFRL's phase 1 was preceded by a
+    hosted boot camp, a showcase event in Las Vegas, and the promise of access to "a program
+    requirement from the Department of Defense".
+  - Confirms `ACC-15`'s deadline from a second, independent Air Force page.
+- **Used in:** [`../analyses/open-access-audit.md`](../analyses/open-access-audit.md) §3.15, §6.5.
+- **Caveats:**
+  - AFWERX's own newsroom, so promotional, and written by an Air Force public-affairs author.
+  - "More than 60" has no method and no roster.
+  - The page's slug says 20 December 2018 and its metadata says 4 January 2019. The boot-camp date
+    (4–5 December 2018) comes from the photo caption and is the date that matters here.
