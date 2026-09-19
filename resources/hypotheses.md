@@ -100,7 +100,7 @@ Status of each hypothesis:
 
 **Status: Contested, and weaker than we thought.** The chip-specific data asked for here has now been gathered ([`demand/`](demand/)), and it does not support the strong form of the claim.
 
-The demand is real and it is *price-elastic*: every time the price of a tape-out has fallen sharply, more people have come. Tiny Tapeout has taken over 4,300 submissions in four years at €70 a tile plus a devkit (DEM-1, DEM-2, DEM-10, SMB-10), and every free or subsidised programme found has been oversubscribed — 45 submissions against 40 slots on Google's first Open MPW shuttle (DEM-4, DEM-6), 98 applications for 50 Europractice places (DEM-17).
+The demand is real and it is *price-elastic*: every time the price of a tape-out has fallen sharply, more people have come. Tiny Tapeout has taken 4,268 designs on its own table, or 4,314 submission records counted from its API — two different populations that must not be added or rounded together — over four years at prices that ran $100, then $150, then $300 before the €70-a-tile-plus-devkit structure quoted here (DEM-1, DEM-2, DEM-10, SMB-10, OPG-14), and some free or subsidised programmes have been oversubscribed — 98 applications for 50 Europractice places (DEM-17). **Not all of them, and the claim that they all were is contradicted inside this directory:** Efabless's own platform labelled MPW-1 *Undersubscribed* at 37 of 40, and chipIgnite runs CI 2106Q, CI 2110C and CI 2204C filled 57%, 70% and 32% (OPG-2).
 
 But the *level* is small and the trend is not upward. When Google made fabrication, the design kit and the tools free and promoted it worldwide, the total global response over six shuttles was 364 submissions (DEM-9). Europractice ran between 363 and 614 designs a year for the whole of 2000 to 2017 and is now back to 753 after a peak of 985 (DEM-16). CMP peaked at 401 circuits in 2007 (DEM-19); CMC Microsystems fell in each of the three years for which figures were read, to 240, from a five-year total of 1,803 that implies a higher, unread 2022-23 (DEM-20); MOSIS managed about 60,000 designs and up to $10M of revenue a year in four decades (SMB-5). The count of ASIC design starts was falling through the 2000s on both analyst houses' numbers, and no current count is public (DEM-11). And the existing citation of TSMC's "tail" turns out not to support H5 at all: those customers average about US$41 million a year each (DEM-15).
 
@@ -118,8 +118,10 @@ The honest reading is that a long tail of *experiments* certainly exists and gro
   - TAIL-1: Anderson's long tail
   - TAIL-2: the value of wider choice in books
   - OPEN-5: 174 submissions to one Tiny Tapeout round
+  - DEM-16 (**corrected 2026-09-19**): Europractice's 2000–2017 series does not plateau. Regressing log(designs) on year over the verified portion gives **+2.14%/yr, t = +5.15** (480 → 614, endpoint CAGR +1.46%/yr). It is weak support, not a challenge.
+  - IHF-1, IHF-5: Science Corporation, a funded commercial buyer, states that existing fabs were "simply inaccessible for this kind of low-volume work, often with uncommon materials and tool parameters", and bought a MEMS foundry rather than keep trying to buy the service
 - **Challenges:**
-  - DEM-16: Europractice ran 363–614 designs a year for eighteen straight years, and 69% of 2024's submissions came from universities against 9% from European industry
+  - DEM-16, *partly*: 69% of 2024's submissions came from universities against 9% from European industry. **The "eighteen flat years" half of this entry was wrong and has been moved to Supports** — see the Supports list and the correction note in DEM-16 itself.
   - DEM-9: 364 submissions worldwide across six shuttles when the whole thing was free
   - DEM-2: 9 of Tiny Tapeout's 24 runs with submissions came in below 75% of capacity, including TT07 at 58.8%, TT08 at 46.1% and TT10 at 46.9% after capacity rose to 512 tiles
   - DEM-10: ChipFoundry reserves "the right to delay a shuttle if it's less than 50% full"
@@ -130,6 +132,11 @@ The honest reading is that a long tail of *experiments* certainly exists and gro
   - DEM-19, DEM-20, DEM-22: CMP peaked at 401 circuits and its domain is now parked; CMC has fallen to 240; MOSIS's free academic programme ended in 2020
   - SMB-4: Shapeways had "over one million customers" and one of them was 17–23% of revenue
   - TAIL-3: Elberse finds hits still dominate and consumers in the tail rate niche titles lower
+  - **Re-runs (data-cuts analysis):** 56% of Tiny Tapeout's record 2025 was designs already run before, on process bring-up shuttles (`ttihp25a`: 433 re-runs of 564). Stripping them halves the growth rate — 2023→2025 CAGR falls from **+64.6%/yr to +32.2%/yr**, still positive but far less than the headline
+  - **Retention (data-cuts analysis):** 73.6% of Tiny Tapeout designers make exactly one design ever; year-on-year designer retention is 6–16%; a two-segment fit gives a recurring core of about **1,250 people worldwide**. That, not 4,268, is the size of the repeat population
+  - IHF-8: the one small-customer MEMS foundry with public audited accounts saw revenue fall **32% in its final year**
+  - IHF-6, IHF-7: Europractice's MEMS offering fell from three MUMPs processes in 2020 to one X-FAB process in 2026
+  - ACC-11: a third instance of the CMP/Efabless pattern — a long-running service vanishing from the public internet
 - **Mixed:** DEM-21, whose one paragraph contains both the strongest statement that shuttles are overbooked and the strongest statement that a mature-node run can be "not desirable enough to make economic sense".
 - **Context:** CONC-2, CONC-11 (TSMC's customer counts — see DEM-15 before citing them for H5); SMB-5 (MOSIS's realised scale); SMB-6 (Europractice's subsidy).
 - **Needs:**
@@ -142,9 +149,11 @@ The honest reading is that a long tail of *experiments* certainly exists and gro
 
 **Claim.** If the fab does no per-customer engineering and sells machine time at published prices, each small customer is profitable.
 
-**Status: Contested.** There is now one strong, audited example on each side, and the variable that separates them is not customer size.
+**Status: Contested, and the strongest evidence on each side is now a real fab.** There is an audited example on each side, and the variable that separates them is not customer size.
 
-For: JLC earns a 12.65% net margin from 1,358,700 paying users on an average order of about US$67, and its own risk factors say its gross margin is about 28% on the small-batch long tail against 2.76% on high-volume work — i.e. the long tail is the profitable part (SMB-1). MOSIS is described by its host institution as "a self-sustaining business for 40 years" (SMB-5). Against: Xometry has never made an operating profit in any year it has filed, on a 34.7% marketplace gross margin (SMB-3); Shapeways assembled over a million customers and went into Chapter 7 liquidation (SMB-4); Protolabs is profitable but its gross margin fell 14 points in a decade while revenue per customer went nowhere, and it is now deliberately chasing "larger orders" (SMB-2). Europractice says publicly that EU funding is what keeps it affordable (SMB-6).
+The decisive new evidence is IHF-8: MEMSCAP's North Carolina MEMS foundry — a merchant wafer fab selling to many small customers through MUMPs multi-project runs, 475 m² of ISO 4 cleanroom, 6-inch wafers, fourteen people — **lost EUR 805k then EUR 857k, being 28.2% then 44.3% of its own revenue**, in the two years visible before it was sold. Unlike Xometry or Shapeways it *is* a wafer fab, which makes it the closest analogue this directory holds, and it lands against H6. The counter-argument is recorded with it: the loss is a divisional IFRS 5 figure with an undisclosed group-overhead allocation, in a business being wound down for sale, and a buyer that is its own anchor customer faces different economics.
+
+For: JLC earns a 12.65% net margin from 1,358,700 paying users on an average order of about US$67, and its own margin-by-order-size table puts gross margin at **36.24%** on sample and small-batch work against **2.76%** on medium and large batches, with the offline big-batch channel outright loss-making at **−6.71%** (SMB-1). **28.06% is the blended whole-PCB figure and must not be quoted as the small-batch margin** — it already contains the 2.76% segment. Decomposed, the long tail is 75.57% of PCB revenue but **97.60% of gross profit** ([`analyses/long-tail-pays-for-the-capital.md`](analyses/long-tail-pays-for-the-capital.md)). MOSIS is described by its host institution as "a self-sustaining business for 40 years" (SMB-5). Against: Xometry has never made an operating profit in any year it has filed, on a 34.7% marketplace gross margin (SMB-3); Shapeways assembled over a million customers and went into Chapter 7 liquidation (SMB-4); Protolabs is profitable but its gross margin fell 14 points in a decade while revenue per customer went nowhere, and it is now deliberately chasing "larger orders" (SMB-2). Europractice says publicly that EU funding is what keeps it affordable (SMB-6).
 
 The cost-to-serve data asked for here turns out to be published, in the one place nobody thinks to look: the MPW price lists themselves. Every one of them prices the fixed cost per project explicitly — a minimum billable area, a flat per-project fee, an annual membership, a surcharge for splitting a block among several small customers (SMB-7, SMB-8). MOSIS's 0.13 µm price was "$17,500 + ($4,000/mm² * area)" with a 10 mm² minimum: 30% of the cheapest possible ticket was fixed cost before any silicon (SMB-8). That fixed cost is exactly what H6 assumes away, and it does not go away because the fab stops doing engineering.
 
@@ -154,6 +163,10 @@ The cost-to-serve data asked for here turns out to be published, in the one plac
   - SMB-9: chipIgnite's flat published price survived the collapse of the company that invented it and was restarted by its founders at $14,950
   - SMB-12: mature-node mask sets are now well under $100,000, so the fixed cost to recover per project is tens of thousands, not millions
   - SW-5: on AWS, small on-demand buyers pay more per unit than committed buyers, so small customers can pay a premium for flexibility
+  - PCB-1: JLC's PCB gross margin beats the mean of the five peers its own prospectus names by **+8.56 pp** in 2025 (corrected from the printed +10.00 pp, which omitted Fastprint's later-published 25.26%), and the prospectus attributes the gap to "销售模式和客户结构差异" — differences in sales model and customer structure
+  - PCB-2: JLC **owns its plants** — net fixed assets CNY 3,257,464,600 including CNY 952,981,900 of buildings, CNY 1.395bn of capex in 2025, registered land titles. It also took a **CNY 131,365,100 fixed-asset impairment** because "PCB 中大批量订单相对不饱和" left big-batch equipment idle, while the long-tail plant ran at 76.78% utilisation
+  - PCB-3: a second audited company, 迅捷兴, attributes a 5.62-point margin fall to a shift toward batch work — volume **+30.02%**, margin down
+  - IHF-3, IHF-9: a complete working small MEMS fab is a **~US$3M** asset at roughly **1× trailing revenue** (MEMSCAP 2022; Akoustis 2017 at $2.75M), against "well over $50 million" to build new — so the capital to recover is far smaller than this project assumed
 - **Challenges:**
   - SMB-3: Xometry, no operating profit in any filed year, 34.7% marketplace gross margin, and an explicit pivot to "large enterprise customers"
   - SMB-4: Shapeways, over a million customers, Chapter 7 liquidation on 2024-07-02, $176.9M accumulated deficit
@@ -163,6 +176,11 @@ The cost-to-serve data asked for here turns out to be published, in the one plac
   - SMB-11: almost none of what a small customer pays is silicon, so "silicon is cheap" does not imply the price can fall
   - DEM-14: Daniel Nenni — open-source tool users "do it mainly due to cost and that is a tough customer base to profit from" (his stated opinion, not data)
   - OPEN-7: Efabless's failure, though it was an intermediary and not a fab
+  - **IHF-8: audited losses of 28.2% then 44.3% of revenue at a merchant MEMS foundry serving small customers through shuttle runs — the strongest challenge in this directory, because it is a wafer fab and not an intermediary**
+  - PCB-4: Fastprint's IC-substrate line runs at **−16.06%** gross margin explicitly because it "尚未实现大批量生产" and carries undiluted labour and depreciation — the capital-intensity argument stated by a company living it, and silicon sits far closer to the substrate end than to bare board
+  - PCB-5: 强达电路 has about 3,000 customers, sells 100% direct on negotiated terms, and earns **26.10%** — within two points of JLC. 迅捷兴 has "over ten thousand" customers, calls itself a sample-board specialist, and earns **8.52% with a net loss**. Customer count predicts neither margin nor concentration
+  - ACC-4: Europractice's mini@sic surcharge — **3,080 ÷ 1,760 = 1.75, a 75% premium for being small**
+  - ACC-12: CMP's itemised per-project fixed fees, published
 - **Mixed:** SMB-2 (profitable, but the margin trend and the strategy both run away from the tail); SMB-5 (self-sustaining for forty years, but its successor's stated goal is to "achieve self-sustainability within the next few years").
 - **Needs:**
   - A fab's own margin by customer size. Still not public anywhere; SMB-1 to SMB-6 are analogues, not measurements.
@@ -173,20 +191,81 @@ The cost-to-serve data asked for here turns out to be published, in the one plac
 
 **Claim.** With thousands of small customers, none has leverage, and losing any one of them is noise.
 
-**Status:** Argued from theory. Well supported as the reverse of H2.
+**Status: Supported where it has been measured, but it needs far more customers than assumed.**
+The previous status line — "well supported as the reverse of H2" — was wrong, and the PCB evidence
+is what corrected it. A long customer *list* does not produce a long-tailed *revenue* distribution.
 
-- **Supports:** FIN-1 (Porter: buyers are powerful when few, or when large relative to the seller).
+Among audited PCB makers, customer count and revenue concentration are close to unrelated below
+about a million customers: 四会富仕 with **595** customers has 19.36% of revenue in its top five,
+while 迅捷兴 with **over ten thousand** has **40.07%**, Hikvision alone at 12.58%. Five companies
+spanning 595 to 20,000 customers all sit between 13.8% and 40.1%. Only JLC, at **1,358,700** paying
+users, reaches 1.16% (PCB-1, PCB-5, SMB-1). **The dispersion H7 wants appears at a million
+customers, not at ten thousand** — a threshold nothing in this project had previously identified.
+
+Where it has been measured directly, though, it holds well.
+
+- **Supports:**
+  - FIN-1 (Porter: buyers are powerful when few, or when large relative to the seller)
+  - **Effective number of participants** (reciprocal Herfindahl, as a share of nominal count), computed for the first time: **14.4% for Tiny Tapeout designers against 2.3% for TSMC customers** — 1.3% on the correlated-tail variant. Bootstrap CI [8.4%, 36.2%], robust to dropping the largest participant ([`analyses/data-cuts-and-statistics.md`](analyses/data-cuts-and-statistics.md))
+  - SMB-1: JLC's top five customers are **1.16%** of revenue, and its largest is 0.28%
 - **Leads:** FIN-7 (countervailing-power theory), FIN-9 (diversification theory).
-- **Challenges (Partial):** FIN-5, enterprise concentration can bring efficiencies and stickiness.
+- **Challenges:**
+  - PCB-5, PCB-3: customer count does not predict concentration below ~1M customers (above)
+  - FIN-5 (Partial): enterprise concentration can bring efficiencies and stickiness
 
 ## H8. Openness is necessary to attract many small customers
 
 **Claim.** Published prices, visible queues and public results let people try without asking permission, which is what grows the customer base.
 
-**Status:** Argued from analogy.
+**Status: Argued; the open-and-commercial quadrant is populated but untested at scale.**
+The audit in [`analyses/open-access-audit.md`](analyses/open-access-audit.md) scored every programme
+on two separate axes — *is access genuinely open*, and *is this a commercial entity trying to profit* —
+because conflating them had been hiding the finding.
 
-- **Supports:** SW-2 (AWS S3 launched with published, pay-as-you-go pricing and no minimum fee).
-- **Needs:** evidence on how price transparency affects adoption by small buyers.
+**The "genuinely open AND genuinely commercial" quadrant is not empty. It has four members:
+wafer.space, Tiny Tapeout, Efabless chipIgnite and ChipFoundry.io.** But the whole quadrant is
+plausibly **US$1–3M of annual revenue worldwide**, against MOSIS — a *university* brokerage on
+*closed* PDKs — at "up to $10 million annually at its peak" thirty years ago. It is populated and
+has never been tested at scale.
+
+**A different cell is empty: open, commercial, AND independent of a subsidised PDK has no members
+at all.** All four run on SKY130, GF180MCU or SG13G2 — kits that exist because Google paid SkyWater
+and GlobalFoundries, and a German federal project paid IHP. **No private actor has ever paid to open
+a PDK.**
+
+What the audit found actually predicts behaviour:
+- **Eligibility rules predict who shows up.** Europractice's rules define its population and its
+  composition matches exactly (69% universities, 9% industry); Google's rules were facts about a
+  repository, and 60% of its designs came from non-IC experts.
+- **PDK redistributability predicts what third parties can build** — the only criterion that
+  predicts a rate rather than a composition.
+- **Published prices predict almost nothing.** See the challenges below.
+
+- **Supports:**
+  - SW-2: AWS S3 launched with published, pay-as-you-go pricing and no minimum fee
+  - ACC-6: Apache-2.0 on all four open kits
+  - ACC-9: machine-checkable requirements, as against facts about who you are
+  - ACC-7, ACC-3: self-serve routes in the open-and-commercial quadrant
+- **Challenges:**
+  - ACC-5: the TSMC University FinFET Program publishes prices to the euro and is closed on six
+    other criteria — "Applications will be reviewed and approved by TSMC, after which an NDA will be
+    shared"
+  - ACC-10: MEMSCAP published MUMPs prices, a run schedule and redistributable design rules,
+    commercially, for **thirty-one years** on a closed process, and reached "Over 80 full process
+    runs" at 3–4 a year. Transparency without an open PDK bought longevity, not scale
+  - ACC-8: **the AFRL/AFWERX design challenge (2018–20) was closed-PDK, proprietary-designs,
+    competition-gated and government-funded — and drew 82 designs in 45 days, or 1.82/day against
+    Google's first open shuttle at 1.50/day.** A closed, gate-kept programme out-drew the open one
+    per day of window. What the two share is that somebody else paid, which suggests **"somebody
+    else pays" may be the operative variable rather than "the PDK is open"** (Partial: it comes
+    through Efabless's newsletter; the primary AFRL source was not found)
+  - ACC-1: even the most open programme retains a discretionary right of refusal and a full
+    ITAR/OFAC regime
+  - §6.1 of the audit: the sector is smaller today than MOSIS was in 1995
+- **Openness is not a ratchet:** three closings to one opening. MOSIS 1.0 published a price formula
+  to the dollar and MOSIS 2.0 publishes none; MUMPs went to zero when its page 404'd in 2023;
+  Europractice's eligible-country list lost Belarus and Russia. Only IHP became more open.
+- **Needs:** any case of an open-and-commercial programme operating above roughly $10M/yr.
 
 ## H9. Many small, public experiments make a fab learn faster
 
@@ -204,12 +283,23 @@ The cost-to-serve data asked for here turns out to be published, in the one plac
 
 **Claim.** Most attempts fail, but the fab is paid for all of them, and a few attempts produce most of the value.
 
-**Status:** Well supported for outcomes being skewed. Argued for the fab capturing enough of that value.
+**Status: Contested. The one distribution we can actually measure is not extreme.**
+Fitting the Tiny Tapeout per-designer distribution — the only per-designer data in this project —
+a Clauset–Shalizi–Newman test **rules out a power law** at k_min = 1 and 2 (goodness-of-fit
+p = 0.000); it survives only above four designs, which is 3–4% of designers, and a Vuong test
+against a lognormal is inconclusive. **Gini is 0.356**, milder than household income. The skew H10
+assumes is real in venture returns and open-source contribution (SW-3, SW-4), but it is *not* what
+the one measurable chip-design population shows. Any claim in this project that the distribution is
+a power law should be struck.
 
 - **Supports:**
   - SW-3: 96% of open-source value created by 5% of developers
   - SW-4: 55% of venture-backed start-ups terminated at a loss, while 6% produced about half the gross return
-- **Challenges:** none recorded yet.
+- **Challenges:**
+  - The Tiny Tapeout distribution is not a power law, and Gini is 0.356 (above; see
+    [`analyses/data-cuts-and-statistics.md`](analyses/data-cuts-and-statistics.md))
+  - 73.6% of designers make exactly one design ever, so most "attempts" have no second attempt
+    behind them to be paid for
 
 ## H11. Markets and insurance can replace foundry judgement
 
@@ -220,5 +310,12 @@ The cost-to-serve data asked for here turns out to be published, in the one plac
 - **Analyses:**
   - [`analyses/critical-review-of-principles-v0.10.md`](analyses/critical-review-of-principles-v0.10.md): incentive and mechanism flaws found
   - `AUCTIONS.md` at the repository root: worked comparison of auction styles
+- **Challenges:**
+  - **IHF-5: the only operator found of a real many-small-jobs fab does the opposite of P3.** Science
+    Foundry schedules with a central optimiser and fab-assigned priority — "If it appears like a job
+    might be off track, it is given a higher priority" — not prices, bids or a market, and describes
+    the problem as "practically unsolvable" by inspection, with "more than 80 advanced tools,
+    hundreds of distinct protocols, and a mix of development and production jobs each made up of
+    hundreds of separate steps"
 - **Context (Lead):** FIN-8, hold-up theory. General machine time sold on a market reduces relationship-specific investment.
 - **Needs:** literature on electricity markets, spectrum auctions, reinsurance and catastrophe bonds, and exchange clearing houses.

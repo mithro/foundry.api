@@ -58,6 +58,9 @@ Read the Status lines in [`../hypotheses.md`](../hypotheses.md) before you cite 
 | [`latent-demand-challenges.md`](latent-demand-challenges.md) | `DEM-11` … `DEM-15`, `DEM-20` … `DEM-22` | Evidence that the latent demand is not there, or that cost is not the binding constraint |
 | [`long-tail-businesses.md`](long-tail-businesses.md) | `SMB-1` … `SMB-6` | Public financials of businesses built on a long tail of small manufacturing customers, and the ones that failed |
 | [`pricing-and-cost-to-serve.md`](pricing-and-cost-to-serve.md) | `SMB-7` … `SMB-13` | Published prices for small-volume fabrication, mask and NRE costs, and what it costs to serve a small customer |
+| [`in-house-fabrication.md`](in-house-fabrication.md) | `IHF-1` … `IHF-10` | Companies that built or bought their own silicon or MEMS fabrication rather than buy the service, why, and what it cost. Runs its own number sequence |
+| [`pcb-industry-comparables.md`](pcb-industry-comparables.md) | `PCB-1` … `PCB-6` | Audited PCB makers' gross margin by order size, customer counts, concentration and capital intensity — the closest industry parallel to selling fabrication online to a long tail |
+| [`access-terms.md`](access-terms.md) | `ACC-1` … `ACC-12` | What a programme requires before it will make your chip: prices, NDAs, PDK licences, eligibility, tooling, gatekeepers, export control — and who pays |
 | [`search-log.md`](search-log.md) | — | What was searched, what came back, and every dead end, so nobody repeats the search |
 
 Each prefix uses a single running number **across** its files, so `DEM-9` and `SMB-9` are each unique

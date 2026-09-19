@@ -52,6 +52,10 @@ throw off one unit of gross profit:
 **A big-batch factory must turn over 13.1× the revenue of a long-tail factory to service the same
 capital investment.** Same machines, same building, same depreciation schedule.
 
+**Quote that ratio as a range, not a point.** It was **3.6× in 2023 and 4.9× in 2024**; it reached
+13.1× only because the big-batch margin collapsed, and because the denominator is small a 1 pp error
+in it gives 9.6× or 20.6×. The *direction* is robust; the magnitude is not.
+
 Push it further. JLC's group net margin in 2025 was 12.65% on a blended gross margin of 28.15%, so
 everything below the gross line — SG&A, R&D, tax, the lot — costs 15.50 pp of revenue. Holding that
 cost structure fixed and swapping only the revenue mix:
@@ -106,12 +110,38 @@ to slightly up over the same three years, and the long tail's *share* of gross p
   wafer — is not derivable from the disclosure. Expect it to favour the long tail by *more* than
   13.1×, since small orders carry far higher revenue per m², but that is an expectation, not a
   finding.
-- **What JLC owns.** That the 嘉立创 and 中信华 blocks are described as manufacturing segments with
-  their own gross margins strongly implies owned plant, and the filing contrasts the company with
-  *"传统工厂"* (traditional factories). But no quote establishing plant ownership has been located
-  yet. **Open item:** read the property, plant and equipment / production capacity sections of the
-  prospectus. Note that the argument above does not actually depend on the answer — it is about
-  which segment generates gross profit, whoever owns the machine.
+- ~~**What JLC owns.**~~ **Settled 2026-09-19 — see PCB-2 in
+  [`../demand/pcb-industry-comparables.md`](../demand/pcb-industry-comparables.md).** JLC owns its
+  plants outright: *"自有的生产仓储基地"*, *"五大数字化自营生产基地"*, net fixed assets
+  **CNY 3,257,464,600** of which **CNY 952,981,900** is buildings, capex **CNY 1,395,139,797.89** in
+  2025, land-use rights of CNY 469m with registered title numbers. It is not a broker. The
+  Xometry-versus-Protolabs framing this document opens with is therefore refuted directly by the
+  balance sheet of the company it analyses.
+- **Capital intensity, for comparison:** JLC turns its fixed assets **3.16× a year**; Fastprint,
+  its largest named peer, turns them **1.19×**.
+
+## The idle-plant test, and what it settles
+
+The strongest objection to this analysis is that the big-batch segment might be **yield-management
+filler** — work taken at 2.76% to keep an otherwise idle plant busy, in which case the long tail's
+36% margin is partly *enabled* by having somewhere to dump spare capacity, and a long-tail-only fab
+would have nobody to sell its slack to. On any plausible revenue-per-m² ratio the big-batch segment
+consumes 40–94% of the plant for 2.4% of the gross profit, which is exactly what filler would look
+like.
+
+**The prospectus answers it, and the answer goes the other way.** JLC recorded an audited
+fixed-asset impairment of **CNY 131,365,100** at end-2025:
+
+> 因 **PCB 中大批量订单相对不饱和**等原因导致公司部分机器设备出现闲置的情形…计提了固定资产减值准备
+
+— "because medium- and large-batch PCB orders were relatively unsaturated, some of the Company's
+machinery and equipment became idle … a provision for impairment of fixed assets was recognised."
+The provision is *"主要为对江西中信华、江苏中信华固定资产所计提"*, and the subsidiary schedule
+identifies 江苏中信华 as the *"中大批量PCB生产基地"* — the big-batch production base.
+
+So the big-batch plant is not absorbing slack from the long tail. **It is idle enough to be written
+down**, while the long-tail plant runs at 76.78% utilisation and 99.33% sell-through. The filler
+hypothesis is not supported in the one case where it can be tested.
 
 ## Bears on
 

@@ -25,6 +25,23 @@ It is a working notebook, not a finished document. `WHY.md` and `PRINCIPLES.md` 
 | [`references/learning-curves.md`](references/learning-curves.md) | `LEARN` | Wright's law, the experience curve, learning spillovers, and granular technologies |
 | [`references/long-tail.md`](references/long-tail.md) | `TAIL` | The long tail, and the evidence against it |
 | [`references/open-silicon-and-ai.md`](references/open-silicon-and-ai.md) | `OPEN` | Open design kits, open tools, cheap shuttles, AI-assisted design, and failures |
+| [`references/economics-of-concentration.md`](references/economics-of-concentration.md) | `ECON` | Economics literature on customer concentration, harvested from other reports' reference lists |
+
+### Evidence gathered for specific questions
+
+`resources/demand/` holds evidence gathered to test H5 and H6 directly, rather than reference
+entries harvested from the literature. It has its own [`README.md`](demand/README.md) and its own
+ID prefixes:
+
+| File | ID prefix | Covers |
+|---|---|---|
+| [`demand/shuttle-programmes.md`](demand/shuttle-programmes.md), [`demand/latent-demand-challenges.md`](demand/latent-demand-challenges.md) | `DEM` | Multi-project wafer and shuttle programmes, and the evidence against latent demand |
+| [`demand/long-tail-businesses.md`](demand/long-tail-businesses.md), [`demand/pricing-and-cost-to-serve.md`](demand/pricing-and-cost-to-serve.md) | `SMB` | Public financials of long-tail manufacturing businesses, and what small-volume fabrication costs |
+| [`demand/open-programme-growth.md`](demand/open-programme-growth.md) | `OPG` | Growth of the open-entry programmes |
+| [`demand/design-starts-and-mature-nodes.md`](demand/design-starts-and-mature-nodes.md) | `TRAD` | Design starts and mature-node demand in the traditional industry |
+| [`demand/pcb-industry-comparables.md`](demand/pcb-industry-comparables.md) | `PCB` | Audited PCB makers' margin by order size — the closest industry parallel |
+| [`demand/in-house-fabrication.md`](demand/in-house-fabrication.md) | `IHF` | Companies that built or bought their own fab, and what it cost |
+| [`demand/access-terms.md`](demand/access-terms.md) | `ACC` | What a programme requires before it will make your chip, and who pays |
 | [`demand/shuttle-programmes.md`](demand/shuttle-programmes.md) | `DEM` | Multi-project wafer and shuttle programmes: designs submitted, accepted, and how full the runs were |
 | [`demand/latent-demand-challenges.md`](demand/latent-demand-challenges.md) | `DEM` | Evidence that the latent demand for chips is not there, or that cost is not the binding constraint |
 | [`demand/long-tail-businesses.md`](demand/long-tail-businesses.md) | `SMB` | Public financials of businesses serving a long tail of small manufacturing customers, and the ones that failed |
