@@ -61,6 +61,8 @@ Read the Status lines in [`../hypotheses.md`](../hypotheses.md) before you cite 
 | [`in-house-fabrication.md`](in-house-fabrication.md) | `IHF-1` … `IHF-11` | Companies that built or bought their own silicon or MEMS fabrication rather than buy the service, why, and what it cost. Runs its own number sequence |
 | [`pcb-industry-comparables.md`](pcb-industry-comparables.md) | `PCB-1` … `PCB-6` | Audited PCB makers' gross margin by order size, customer counts, concentration and capital intensity — the closest industry parallel to selling fabrication online to a long tail |
 | [`access-terms.md`](access-terms.md) | `ACC-1` … `ACC-16` | What a programme requires before it will make your chip: prices, NDAs, PDK licences, eligibility, tooling, gatekeepers, export control — and who pays |
+| [`open-programme-growth.md`](open-programme-growth.md) | `OPG-1` … `OPG-20` | How many people submitted to an open-PDK shuttle, per run, over time, and at what price. Runs its own number sequence |
+| [`payment-growth.md`](payment-growth.md) | `PAY-1` … `PAY-11` | **Money paid**, over time, for the three programmes where customers genuinely pay — Tiny Tapeout, chipIgnite/ChipFoundry and wafer.space. Every figure is a derivation from a dated published price and a published unit count, never a measurement. Runs its own number sequence |
 | [`search-log.md`](search-log.md) | — | What was searched, what came back, and every dead end, so nobody repeats the search |
 
 Each prefix uses a single running number **across** its files, so `DEM-9` and `SMB-9` are each unique
