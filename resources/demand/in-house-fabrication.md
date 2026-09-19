@@ -696,15 +696,26 @@ each entry before using any of these.**
 | Implied capex density of that expansion | **$1,140 per sq ft** | 2024 | DERIVED: $65,000,000 / 57,000 sq ft | DERIVED from IHF-2 | Derived, order-of-magnitude only |
 | The same North Carolina site, earlier | reported **"approximately $750M"** paid by JDS Uniphase for Cronos Integrated Microsystems, "shortly prior" to 2002 | c. 2000 | Acquisition of a *company*, not of the plant alone | Science Corporation blog (IHF-3) | **Lead** — not checked against a JDS Uniphase filing |
 | Public subsidy attached to the expansion | **$930,000** over ten years, performance-based, for 50+ jobs = **$18,600 per job** | 2024-07-09 | Durham County incentive award | Science Corporation (IHF-2); county minutes not reached | Partial |
+| **Net book value of the entire industrial tool set of that same fab**, on disposal | **EUR 0.5 million** | 2022-12 | Carrying value after depreciation of *all* the industrial equipment of the discontinued business — not a replacement cost | MEMSCAP 2022 annual report (IHF-8) | **Verified** (audited filing) |
 
 ### Operating scale of a small MEMS line
 
+The first four rows are **audited figures for the fab as MEMSCAP ran it** and are the most reliable
+operating numbers in this file. The rest are company statements about how Science runs it now.
+
 | What | Figure | Source | Status |
 |---|---|---|---|
+| **Cleanroom area** | **475 m² = 5,113 sq ft** (DERIVED conversion) | MEMSCAP 2022 annual report (IHF-8) | **Verified** (audited filing) |
+| **Cleanroom class** | **ISO 4** (≈ FS 209 Class 10) | MEMSCAP 2022 annual report (IHF-8) | **Verified** — but a secondary source says "Class 100", see IHF-8 caveats |
+| **Wafer size** | **6 inch** | MEMSCAP 2022 annual report (IHF-8); Science says the same today | **Verified** |
+| **Headcount running the whole foundry** | **14 people** (MEMSCAP's US employees at 31-12-2021) | MEMSCAP 2022 annual report (IHF-8) | **Verified** (audited filing) |
+| Annual revenue of that foundry | **EUR 2,858 thousand** (FY2021), **EUR 1,935 thousand** (FY2022) | MEMSCAP FY2022 earnings release (IHF-8) | **Verified** (audited) |
+| Its after-tax operating result | **loss of EUR 805 thousand** (FY2021), **loss of EUR 857 thousand** (FY2022) | MEMSCAP FY2022 earnings release (IHF-8) | **Verified** (audited) |
+| Revenue and loss per head, FY2021 | **EUR 204 thousand** revenue and **EUR 58 thousand** loss per employee | DERIVED from IHF-8 | Derived |
 | Tool count at Science Foundry | "**80+ Tools**", "more than 80 advanced tools" | IHF-4, IHF-5 | Verified (company statement) |
-| Wafer size | "Currently tooled for **6 inch** wafer size" | IHF-4 | Verified (company statement) |
 | Production volume the line targets | "**10s to 1000s of wafers**" per job; "dozens to thousands of custom wafers per year" | IHF-4 | Verified (company statement) |
 | Headcount added by the expansion | "more than **50** new … jobs" | IHF-2 | Verified (company statement) |
+| Scale of the planned expansion against the existing plant | **11.1×** the existing cleanroom area (57,000 sq ft against 5,113 sq ft) | DERIVED from IHF-2 and IHF-8 | Derived |
 | Quality system | ISO 9001:2015, certified by Amtivo (USA) Inc.; MEMSCAP's facility was ISO 9001:2015 certified at the time of sale and Science stated a plan "to configure it to support FDA Good Manufacturing Practice (cGMP) production" | IHF-1, IHF-4 | Verified (company statement) |
 
 ### Price to a small customer
@@ -718,15 +729,29 @@ each entry before using any of these.**
 | X-FAB XMB10 MEMS via Europractice | **EUR 1,253/mm²** standard, **EUR 1,168/mm²** discounted | 2026 | minimum billable 10 mm²; 50 dies; extra dies EUR 25 each, max 50 | IHF-7 | Partial |
 | — minimum possible ticket | **EUR 12,530** standard / **EUR 11,680** discounted | 2026 | DERIVED | IHF-7 | Derived |
 
+### The one-paragraph version, for anyone who reads nothing else here
+
+**A working commercial MEMS foundry — 475 m² of ISO 4 cleanroom, 6-inch wafers, fourteen people, an
+ISO 9001:2015 quality system, a live customer book and the industry's longest-running MEMS
+multi-project wafer shuttles — turned over about EUR 2.9 million a year, lost money doing it, carried
+its entire tool set at EUR 0.5 million, and sold for US$3.0 million.** The company that bought it
+then budgeted "up to $65 million" to make it about eleven times larger. Those five numbers are the
+useful output of this file, and every one of them comes from an audited filing or a regulatory
+announcement rather than from marketing.
+
 ### What is still missing, and would be worth more than any of the above
 
 - **A breakdown of the $65M into building versus tools.** Without it the figure cannot be turned into
   a cost model.
 - **Refurbished-equipment prices.** Nothing was found. The $3.0M in IHF-3 is a whole-line price and
-  does not decompose.
-- **Cleanroom build cost per square foot by class.** Not found from any primary source.
+  does not decompose, and the EUR 0.5M in IHF-8 is a depreciated book value, not a market price.
+- **Cleanroom build cost per square foot by class.** Not found from any primary source. The nearest
+  thing is the $1,140/sq ft implied by IHF-2, which mixes building and tools.
 - **What Science Foundry's $13,520 buys.** Behind account registration.
-- **Annual operating cost of a 6-inch MEMS line.** Not found.
+- **The split of the fab's EUR 2.9 million revenue between MPW shuttle customers and contract
+  manufacturing**, and the group overhead allocated to it. Both would change how IHF-8's loss should
+  be read, and neither is disclosed.
+- **Annual operating cost of a 6-inch MEMS line**, separately from revenue. Not found.
 
 ---
 
@@ -750,47 +775,72 @@ be said is that at least one well-capitalised buyer, with $47M raised at the tim
 (and $230M by 2026), found the merchant market closed to it. H5 needs *many* such buyers, and this
 file has evidence of one, with the rest of the demand asserted rather than counted.
 
-**And there is a direct challenge in the same body of evidence.** MEMSCAP ran the industry's
-longest-standing MEMS multi-project wafer service for over a decade (IHF-6) and then deliberately
-exited fab ownership, calling it the successful completion of a planned "FABLITE Program" expected to
-deliver "significant improvement to MEMSCAP agility and profitability" (IHF-3). Meanwhile
-Europractice's MEMS offering fell from three MUMPs processes in 2020 to a single X-FAB process in
-2026 (IHF-6, IHF-7). If the long tail of MEMS demand were large and growing, a public company that
-already owned the assets and the customer book would be an odd party to walk away, and the shop
-window would be getting fuller, not emptier.
+**And there is a direct challenge in the same body of evidence, now with numbers on it.** MEMSCAP ran
+the industry's longest-standing MEMS multi-project wafer service for over a decade (IHF-6) and then
+deliberately exited fab ownership, calling it the successful completion of a planned "FABLITE
+Program" expected to deliver "significant improvement to MEMSCAP agility and profitability" (IHF-3).
+Its audited accounts say why: the whole small-customer foundry business turned over **EUR 2,858
+thousand in FY2021 and EUR 1,935 thousand in FY2022, a fall of 32%** (IHF-8). Meanwhile Europractice's
+MEMS offering fell from three MUMPs processes in 2020 to a single X-FAB process in 2026 (IHF-6,
+IHF-7). If the long tail of MEMS demand were large and growing, a public company that already owned
+the assets and the customer book would be an odd party to walk away, the revenue line would not be
+falling by a third, and the shop window would be getting fuller, not emptier.
 
-**Net:** H5's mechanism is now evidenced by a named, credible, paying buyer. H5's *scale* is not, and
-one of the two sides of the transaction studied here concluded the opposite.
+**Net:** H5's mechanism is now evidenced by a named, credible, paying buyer. H5's *scale* is not —
+and on the one occasion where the scale of a small-customer MEMS foundry's revenue is actually
+disclosed, it is about EUR 2.9 million a year and shrinking.
 
-### On H6 (small customers can each be profitable): the capex number helps more than the demand story
+### On H6 (small customers can each be profitable): the capital side helps, the profit side hurts, and the second one is better evidenced
 
-The $3.0M in IHF-3 is the most useful thing in this file for H6, and it cuts against the assumption
-that a fab's fixed costs are necessarily enormous. A complete, certified, staffed, customer-carrying
-MEMS foundry cleared the market at three million dollars. If that is the asset base, then the
-revenue needed to cover it is on a scale a few thousand small customers could plausibly reach — which
-is the arithmetic H6 depends on and has never had a real number for.
+**The good news first, and it is genuine.** The fixed capital a small MEMS fab needs is far smaller
+than this repository had assumed. A complete, certified, staffed, customer-carrying MEMS foundry
+cleared the market at **US$3.0 million** (IHF-3); its **entire tool set was carried at EUR 0.5
+million** after depreciation; it occupied **475 m²** of ISO 4 cleanroom and was run by **fourteen
+people** (IHF-8). If those are the numbers a fab has to recover, the revenue required is on a scale a
+few thousand small customers could plausibly reach. That is the arithmetic H6 depends on and it has
+never before had a real figure to put in it.
 
-Three things pull the other way, and they are not small:
+**The bad news is that we now know what happened when someone actually tried, and it did not work.**
+The same fab, doing exactly the business H6 describes — many small customers, shared multi-project
+wafer runs, published prices, no bespoke engineering per customer — **lost EUR 805 thousand in FY2021
+and EUR 857 thousand in FY2022**, which is **28.2% and then 44.3% of its own revenue** (IHF-8). Its
+owner sold it and booked a gain. This is not an analogue like Shapeways or Xometry; it is a MEMS
+wafer fab selling shared shuttle runs to small customers, which is closer to foundry.api than
+anything else in this directory, and it lands on the challenge side.
 
-1. **The $3.0M is the price of a *depressed* asset, not the cost of capability.** The same company
-   then budgeted "up to $65 million" to expand it (IHF-2). The acquisition price is what it cost to
-   *buy a fab nobody else wanted*; the expansion figure is closer to what it costs to *have* one.
+Three further things pull the same way:
+
+1. **The $3.0M is the price of a *depressed* asset, not the cost of capability.** The same buyer then
+   budgeted "up to $65 million" to make the site about eleven times bigger (IHF-2, IHF-8). The
+   acquisition price is what it cost to *buy a fab that was losing money*; the expansion figure is
+   closer to what it costs to *have* one that works.
 2. **The fixed cost per small customer shows up in the price list, exactly as `SMB-7` and `SMB-8`
    found for silicon.** X-FAB's MEMS MPW charges a "minimum fabrication cost equivalent to 10mm²" —
    EUR 12,530 before any useful area (IHF-7). MUMPs sold a fixed 1 cm² block whether you needed it or
    not (IHF-6). Science publishes a floor, "$13,520+" (IHF-4). Every MEMS price list found behaves
-   the same way as every silicon one: the first millimetre costs thousands. H6 assumes that fixed cost
-   away and the MEMS evidence says it is still there.
-3. **Nobody has shown this is a profitable business.** Science Foundry is a unit of a
+   the same way as every silicon one: the first millimetre costs thousands. H6 assumes that fixed
+   cost away and the MEMS evidence says it is still there.
+3. **Nobody has shown the current version is profitable either.** Science Foundry is a unit of a
    venture-funded medical-device company with $230M of fresh capital (2026 Form D) whose actual
    product is a retinal implant. Its foundry may be cross-subsidised by that, exactly as Europractice
-   is by EU funding (`SMB-6`). The one participant here whose foundry economics *are* public —
-   MEMSCAP — sold the fab and told its shareholders it expected to be more profitable without it.
+   is by EU funding (`SMB-6`). Science Corp is private and discloses no revenue at all.
 
-**Net, stated honestly: this tells us less than hoped on H6.** It gives us one excellent capex number
-and one worked example of the business model, and it confirms — with fresh evidence from a different
-technology — the finding that already damages H6 most: the fixed cost per project is real, published,
-and does not go away.
+**And the honest counter-argument, which must not be suppressed.** MEMSCAP's loss is a *divisional*
+figure under IFRS 5 with an undisclosed allocation of group overhead, in a business that was being
+wound down for sale in the second year, and mixing shuttle work with contract manufacturing in
+proportions nobody has published. A buyer who already needs the fab for its own products — which is
+precisely Science's position — removes the overhead problem and the utilisation problem at a stroke.
+IHF-1's own framing says so: tools "require high utilization to justify owning", and Science's answer
+was to be its own anchor customer and sell the spare capacity. That is a materially different
+business model from MEMSCAP's, and this file cannot say whether it works, because Science does not
+publish.
+
+**Net, stated honestly.** On H6 this research delivers more than was hoped on the *capital* question
+and worse news than was hoped on the *profit* question. The strongest single finding is not the one
+that helps us: **the one small-customer MEMS foundry whose accounts are public lost money every year
+they are visible.** H6 should stay Contested, and this evidence should be added to its challenges,
+not its supports — with the overhead-allocation caveat attached, because that caveat is real and it
+is the most plausible route by which the same assets could be profitable in different hands.
 
 ---
 
