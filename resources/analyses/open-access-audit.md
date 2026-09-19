@@ -614,7 +614,7 @@ Cross the two axes. Take "open" as **≥ 12/18-equivalent** (two-thirds of avail
 | | **Subsidised / academic (U, S, M)** | **Commercial (P)** |
 |---|---|---|
 | **Open (≥ ⅔)** | Google Open MPW (S/M), IHP Open Silicon (U(S)), Cadence/SkyWater (M) | **wafer.space, ChipFoundry.io, Tiny Tapeout, Efabless chipIgnite** |
-| **Closed (< ⅔)** | Europractice (S), MOSIS (U), CMC (U(S)), CMP (U(S)), TSMC Univ. FinFET (S), AFRL (S) | **MEMSCAP MUMPs (P/M, 10/18 — the near miss)**, MUSE (P/M), TSMC cyberShuttle (P/M) |
+| **Closed (< ⅔)** | Europractice (S), MOSIS 1.0 (U), MOSIS 2.0 (U(S)), CMC (U(S)), CMP (U(S)), TSMC Univ. FinFET (S), AFRL (S) | **MEMSCAP MUMPs (P/M, 10/18 — the near miss)**, X-FAB (P), MUSE (P/M), TSMC cyberShuttle (P/M) |
 
 **MEMSCAP's MUMPs is the row to look at hardest**, because at 10/18 it is the only entry that sits
 near the line from the *closed* side while being commercial. It published its prices for thirty-one
@@ -726,7 +726,9 @@ sentence.**
 
 ### 6.3 What the audit actually establishes about openness
 
-Taking the two axes separately, as the whole point of this document:
+Taking the two axes separately, as the whole point of this document. **A fifth point was added after
+the rest of this section was written, because the evidence arrived late and cuts against us: see
+item 5.**
 
 1. **Eligibility openness (A5) predicts *who shows up*, and the evidence is strong.** Europractice's
    rules define its population as institutions of a given type in a given list of countries, and its
@@ -753,6 +755,16 @@ Taking the two axes separately, as the whole point of this document:
    was in 1995. Daniel Nenni's verdict remains the sharpest public statement against us and remains
    unrefuted: "the revenue model just did not work. People who use open source tools do it mainly due
    to cost and that is a tough customer base to profit from" (`OPG-16`, his stated opinion).
+5. **Openness is not a ratchet, and we were wrong to assume it was.** Two of the corrections in this
+   audit run the same way. **MOSIS went backwards**: 1.0 published a price formula to the dollar for
+   decades; 2.0 publishes no price at all and asks you to sign up (§3.17). **MEMSCAP's MUMPs went to
+   zero**: thirty-one years of published prices and a published schedule, and then the page 404s and
+   the domain becomes a spam blog (`ACC-11`). **Europractice's country list contracted**: Belarus and
+   Russia were eligible in 2019 and are not in 2026 (`ACC-12`). Against that, the only programme that
+   became *more* open in the period is IHP, which moved from a free, non-commercial-only, German-funded
+   run to a paid one open to anyone who signs a participation agreement (§3.6). **Three closings to one
+   opening.** Anyone arguing that the industry is trending open has to explain that ratio, and this
+   audit cannot.
 
 ### 6.4 The experiment that will settle it, running now
 
