@@ -589,3 +589,149 @@ programmes the arithmetic can be done to the euro. For the other it cannot be do
   - USAspending's award-search endpoints are POST-only and this session was GET-only, so the
     assistance (grant) side of the federal record was not queried at all. See the blocked-sources
     list.
+
+### FUND-7. CMC Microsystems publishes actual accounts — and in 2007/08 customers paid 9.15% of its revenue
+
+- **Sources:**
+  - CMC Microsystems, *Annual Report 2007/08*, "Statement of Revenue and Expenditure", archived
+    2009-12-17:
+    <https://web.archive.org/web/20091217114015id_/http://www2.cmc.ca/AnnualReport/financials/statement-of-revenue-and-expenditure>
+  - CMC Microsystems, *Annual Report 2025-26*, "Statement of Revenue and Expenditure for the year
+    ended March 31, 2026", pp. 35–36:
+    <https://www.cmc.ca/wp-content/uploads/2026/09/CMCMicrosystemsAnnualReport_2025-26_EN.pdf>
+    (the same PDF as `DEM-20`)
+- **Verification:** Verified 2026-09-19. The 2025-26 PDF was downloaded and converted with
+  `pdftotext`; the 2007/08 statement was fetched from the Internet Archive with `curl`. **CMC is the
+  only one of the four programmes in this file that publishes a revenue-and-expenditure statement at
+  all.** All figures are Canadian dollars.
+- **What it says:**
+  - **Year ended 2008-03-31** (the columns are "NSERC Funded Portion of the National Design Network",
+    "Other", "ICP", "Total" 2008, "Total" 2007). Revenue lines, Total 2008:
+    - "Grant from Natural Sciences and Engineering Research Council of Canada/ICP" **$9,700,060**
+    - "Engineering fees" $522,088
+    - "Cost sharing for fabrication" $268,425
+    - "Interest" $132,380
+    - "Donations for courses and annual symposium" $55,930
+    - "Other - cost sharing" $143,328
+    - **Total revenue $10,822,211** (2007: $10,812,493)
+
+    Expenditure lines, Total 2008: "Salaries and benefits" **$5,285,705**; "Equipment purchases and
+    development contracts" $1,965,613; "Travel" $477,329; "Professional fees" $460,261; "Training"
+    $377,356; "Rent overhead" $331,751; "Amortization" $311,058; "Office and miscellaneous"
+    $174,494; "Contract services" $123,849; "Printing" $96,195; "Telephone" $90,973; "Employee
+    search and outplacement costs" $58,598; "Foreign exchange loss" $55,024; "Small equipment,
+    supplies and equipment maintenance" $41,504; "Insurance" $30,251; "Repairs and alterations to
+    premises" $2,539. **Total expenditure $9,882,500** (2007: $11,510,275).
+  - **Year ended 2026-03-31.** "Operations": Revenues **21,535,763** (2025: 13,419,183);
+    Expenditures **20,012,740** (2025: 17,066,020); the difference line reads **$1,523,023** for 2026
+    and **-$3,646,837** for 2025. Balance sheet: total assets $9,120,399 (2025: $6,898,903);
+    liabilities 9,684,682 (2025: 8,986,209); **Net Assets -564,283** (2025: -2,087,306).
+    - Revenue pie, as labelled: "ISED **$16.1M**"; "Commercial Fabrication **$3.1M**"; "User Fees
+      **$1.3M**"; "Subscriptions **$1.0M**"; "2025-26 Total Revenues $21.5M".
+    - Expenditure pie: "FABrIC **$12.8M**"; "Salaries and Benefits **$4.0M**"; "Commercial
+      Fabrication and CAD tools **$2.6M**"; "Other **$0.7M**"; "2025-26 Total Expenditures $20.0M".
+    - The note beside it, verbatim: "FABrIC is funded by the Innovation, Science and Economic
+      Development Canada's Strategic Response Fund and a variant of user fees. The funding agreement
+      for this program was amended in 2025, resulting in $2.4M retroactive revenue, all of which was
+      recognized in the 2025-26 fiscal year. The current year increase in expenditures correlates
+      with the FABriC Challenge grants issued."
+    - On the commercial arm: "In the past year, world-wide customers included **95 transactions from
+      65 unique organizations** (companies, not-for-profit research organizations, and
+      post-secondary) across 8 countries. Canadian customers were 19% of CMC's commercial business
+      while the United States accounted for 71%." And: "CMC's increase in services to commercial and
+      global customers generates revenue that accelerates innovative R&D in Canada by supporting the
+      cost-effective delivery of advanced technologies and services to Canadian researchers."
+- **DERIVED (arithmetic written out):**
+  - **2007/08 — the cleanest single measurement in this whole file.**
+    - Earned from customers = engineering fees 522,088 + cost sharing for fabrication 268,425 +
+      donations 55,930 + other cost sharing 143,328 = **$989,771**.
+    - As a share of revenue: 989,771 ÷ 10,822,211 = **9.15%**.
+    - The NSERC/ICP grant: 9,700,060 ÷ 10,822,211 = **89.63%**. Interest is the remaining 1.22%.
+    - Surplus: 10,822,211 − 9,882,500 = **+$939,711**. The prior year: 10,812,493 − 11,510,275 =
+      **−$697,782**.
+    - Salaries and benefits were 5,285,705 ÷ 9,882,500 = **53.5% of all spending**. A brokerage is
+      a payroll.
+  - **2025/26.**
+    - Earned from customers = user fees 1.3 + subscriptions 1.0 + commercial fabrication 3.1 =
+      **$5.4M**.
+    - Spending other than the FABrIC pass-through = salaries 4.0 + commercial fabrication and CAD
+      tools 2.6 + other 0.7 = **$7.3M**.
+    - So the brokerage-and-services operation earned **$5.4M against $7.3M of cost — 74.0% —**
+      leaving a **$1.9M gap** filled from public money.
+    - Against `DEM-20`'s **240 prototypes fabricated in 2025/26**: non-FABrIC spending per prototype
+      = $7.3M ÷ 240 = **CAD $30,417**; earned revenue per prototype = $5.4M ÷ 240 = **CAD $22,500**;
+      the gap = **CAD $7,917 per prototype**.
+    - Commercial arm: $3.1M ÷ 95 transactions = **CAD $32,632 per transaction**.
+  - **The two years together, for scale.** In 2007/08 CMC recovered 9.15% of revenue from customers.
+    In 2025/26 the earned lines are 5.4 ÷ 21.5 = **25.1%** of revenue, or **74.0%** of the
+    non-FABrIC cost base. On either reading, **the direction over eighteen years is strongly towards
+    paying its own way** — but it has not got there, and the gap is still about CAD $1.9m a year.
+- **Bears on:**
+  - **H6 (challenges, and this is the most precise evidence in the file).** A national
+    multi-project-wafer brokerage, audited and published, recovered **nine per cent** of its revenue
+    from the people it served. Not nine per cent of its costs — nine per cent of its revenue.
+    Everything else was a grant.
+  - **H6 (supports).** Eighteen years later the same organisation recovers about three quarters of
+    its non-pass-through costs from customers, and its fastest-growing line is a commercial arm
+    selling to foreigners at about CAD $32,600 a transaction. If any of the four programmes here is
+    converging on self-financing, it is this one, and it is doing it by **selling to commercial
+    customers abroad**, not by serving the domestic academic tail.
+  - **H5 (challenges).** CAD $30,417 of cost per prototype, and 240 prototypes in a year, for a
+    whole country.
+- **Used in:** not yet.
+- **Caveats:**
+  - **The $30,417 per prototype is not the cost of a prototype.** The same $7.3M also buys CAD tool
+    subscriptions, training, a startup incubator, cloud services and technical support for "over
+    11,000 researchers and more than 1,200 companies". Dividing all of it by prototypes overstates
+    what a prototype costs, exactly as in `FUND-2`. It is a *cost per unit of the thing the programme
+    is famous for*, not a unit cost.
+  - The 2025-26 figures are read off **pie-chart labels rounded to $0.1M**; the labelled slices sum
+    to $20.1M against a stated $20.0M total, which is rounding, not error. The two audited totals
+    (21,535,763 and 20,012,740) are exact.
+  - **FABrIC is a pass-through and must be excluded from any unit-cost calculation.** It is a
+    Government of Canada programme CMC *manages*: "20 Challenge projects valued at $35.6M were funded
+    with a total FABrIC investment of $13.4M."
+  - **No design count was recovered for 2007/08.** The per-design arithmetic above is done only for
+    2025/26, where `DEM-20` supplies a count from the same document. For scale only, and **not to be
+    quoted as a finding**: if 2007/08 ran at CMC's lifetime average of 13,495 ÷ 42 = 321 designs a
+    year, $9,882,500 ÷ 321 = about CAD $30,800 per design — which lands in the same place as the
+    2025/26 figure by a completely independent route.
+  - The 2007/08 statement is an archived web rendering of the accounts, not the signed audited
+    statements; the auditors' report page exists in the same archive but was not opened.
+  - Currency: all CAD, unconverted.
+
+### FUND-8. CMP (Grenoble): no accounts at all, but its EU line is now visible — €4.29m across three grants
+
+- **Sources:** the CORDIS records in `FUND-1` and `FUND-4`, read for the Grenoble beneficiary only;
+  plus `search-log.md` §1, which records that `mycmp.fr` and `cmp.imag.fr` are both dead.
+- **Verification:** Verified 2026-09-19 (the CORDIS side). The CMP side is **not verifiable**: CMP
+  publishes no accounts and its own website no longer exists.
+- **What it says:**
+  - CMP's institutional hosts appear as Europractice beneficiaries in three consecutive grants:
+    - NEXTS (2019-01-01 → 2022-09-30): "ASSOCIATION POUR LE DEVELOPPEMENT DES RECHERCHES AUPRES DES
+      UNIVERSITES DE L ACADEMIE DE GRENOBL", **€ 1 228 025,00**
+    - RETICLES (2022-10-01 → 2025-09-30): "INSTITUT POLYTECHNIQUE DE GRENOBLE", **€ 1 455 625,00**
+    - Europractice 2.0 (2025-10-01 → 2028-09-30): INSTITUT POLYTECHNIQUE DE GRENOBLE,
+      **€ 1 607 791,25**
+  - CMP is absent from the two H2020-and-earlier grants in which imec, STFC and Fraunhofer are the
+    only beneficiaries; it joined the consortium with NEXTS, which the NEXTS periodic report confirms:
+    "The consortium has been extended with CMP and TYNDALL, who provide access to complementary
+    foundry services".
+- **DERIVED (arithmetic written out):**
+  - € 1 228 025,00 + € 1 455 625,00 + € 1 607 791,25 = **€ 4 291 441,25** of EU money to the Grenoble
+    partner across 2019-01-01 → 2028-09-30, a span of 9.75 years: **€ 440 148 a year**.
+  - Against `DEM-19`, which has CMP peaking at 401 circuits in 2007 and running 100–400 a year for
+    thirty years: if CMP still runs at, say, 200 circuits a year, the EU line alone is about
+    **€2,200 per circuit** — the same order as `FUND-2`'s €2,800. **This is an illustration, not a
+    measurement**: no current CMP circuit count exists (see `DEM-19`).
+- **Bears on:**
+  - **H6 (context).** The French national MPW service takes about €440,000 a year of EU money on top
+    of whatever CNRS, Grenoble INP and its customers provide. None of the rest is public.
+- **Used in:** not yet.
+- **Caveats:**
+  - **This is CMP's EU line only**, and it is the *Europractice* EU line at that. CMP's French
+    funding — CNRS, Grenoble INP, the Région — is not public and was not found.
+  - The Grenoble beneficiary's legal name changes between grants (ADRUAG → INP Grenoble). Whether
+    the money reached the same team is an assumption, though both are the documented institutional
+    hosts of CMP.
+  - The per-circuit figure uses an invented denominator. Do not cite it.
