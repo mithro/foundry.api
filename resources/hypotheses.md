@@ -199,8 +199,20 @@ Among audited PCB makers, customer count and revenue concentration are close to 
 about a million customers: 四会富仕 with **595** customers has 19.36% of revenue in its top five,
 while 迅捷兴 with **over ten thousand** has **40.07%**, Hikvision alone at 12.58%. Five companies
 spanning 595 to 20,000 customers all sit between 13.8% and 40.1%. Only JLC, at **1,358,700** paying
-users, reaches 1.16% (PCB-1, PCB-5, SMB-1). **The dispersion H7 wants appears at a million
-customers, not at ten thousand** — a threshold nothing in this project had previously identified.
+users, reaches 1.16% (PCB-1, PCB-5, SMB-1).
+
+**But that threshold is a PCB artefact and does not transfer to a fab** (corrected 2026-09-19; see
+[`analyses/customers-needed-to-fill-a-fab.md`](analyses/customers-needed-to-fill-a-fab.md)). It was
+derived from a business whose long-tail customer buys about five boards. A customer buying 100
+wafers a year is worth roughly **285×** a JLC long-tail customer, so **7,000 such customers fill
+about 700,000 wafers a year — 58,333 wafer starts per month, roughly GlobalFoundries Fab 8 scale** —
+and 7,000 similarly-sized customers give a top-five share of **0.07%**. What drives the PCB
+threshold is *inequality of order size*, not customer count.
+
+**The real open question is therefore whether a fab's customers would be similarly sized.** If
+annual wafer demand is itself long-tailed, concentration returns at once and H7 is back in
+difficulty. The distribution of annual wafer volume across a real mature-node fab's customer book
+is now the single most valuable piece of evidence this project could obtain.
 
 Where it has been measured directly, though, it holds well.
 

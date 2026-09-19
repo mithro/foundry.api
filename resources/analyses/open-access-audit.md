@@ -173,20 +173,36 @@ example of the gap.
 | A9 | **`?`.** Efabless's terms of service could not be recovered — see §7. | — |
 | A10 | **1.** $9,750, later $14,950. | `SMB-9` |
 
-**Axis 2: P(S) — a company trying to profit, materially underwritten by others.** `OPG-8`'s comparison
-table marks chipIgnite as the **only** one of six programmes with "Requires External Funding: **No**",
-and that has been read in this repository as "chipIgnite was a business rather than a subsidy". That
-is right about the *product* and wrong about the *company*. By Efabless's own account (`ACC-8`) its
-platform was built on a Google-sponsored shuttle, the "**DARPA-funded** no-human-in-the-loop OpenRoad
-project", an in-kind partnership with Silicon Catalyst, a foundry that open-sourced its PDK, and EDA
-and IP from Mentor, Arm and X-FAB. Its CEO's closing letter lists the same: "Without the support of
-GlobalFoundries, SkyWater, Synopsys, Google, XFAB, AFRL, Arm and many others, we would not have come
-this far" (`OPG-15`). And it died when a Series B did not close (`OPG-15`) — a venture-funded company
-is by definition not yet covering its costs.
+**Axis 2: P — a commercial programme sold at a price the customer pays.**
 
-**This is the single most important correction the audit makes.** chipIgnite is the repository's only
-example of demand at a price that might cover costs, and the price it charged was set by a company
-whose tool chain, PDK and first three years of demand were paid for by others.
+> ### ⚠️ Correction, 2026-09-19
+>
+> **An earlier version of this section scored chipIgnite `P(S)` — "a company trying to profit,
+> materially underwritten by others" — and called that "the single most important correction the
+> audit makes". That scoring was wrong and has been withdrawn.** It rested on three mistakes:
+>
+> 1. **It conflated the company with the product.** Efabless ran *two distinct programmes*: the
+>    **Google-sponsored Open MPW**, which was subsidised, and **chipIgnite**, which customers paid
+>    for. Operating a subsidised programme alongside a paid one does not make the paid one
+>    subsidised. `OPG-8`'s "Requires External Funding: **No**" for chipIgnite was correct.
+> 2. **It treated equity investment as subsidy.** GlobalFoundries was an **investor in Efabless**,
+>    not a provider of subsidies. An investor buying equity expects a return; that is the ordinary
+>    financing of any company and is categorically different from a grant or a sponsorship. Naming
+>    supporters and partners in a farewell letter is not evidence that a product was sold below
+>    cost.
+> 3. **It reasoned that "a venture-funded company is by definition not yet covering its costs".**
+>    That is a non-sequitur. Venture funding says nothing about the unit economics of a particular
+>    product line, and nothing found says chipIgnite was sold below its marginal cost.
+>
+> **The corrected position:** chipIgnite belongs in the open-and-commercial quadrant as a genuine
+> `P`. It remains true that Efabless died when a Series B did not close (`OPG-15`), and true that
+> the *PDK* chipIgnite ran on was opened by Google's money — that second point is real, it is
+> recorded under §6.2, and it applies to every member of the quadrant. Neither fact makes the
+> product a subsidy.
+
+chipIgnite is the repository's clearest example of demand at a price the customer actually paid:
+$9,750, later $14,950 (`SMB-9`), on a private shuttle with "no open-source requirement" (`OPG-7`).
+What the open PDK underneath it was paid for by others is a separate question, treated in §6.2.
 
 ### 3.3 Tiny Tapeout — **16/20 open · P(S)**
 
@@ -560,7 +576,7 @@ Recorded prominently, as instructed, because each one is a finding in its own ri
 | **ChipFoundry** | "$14,950 per project", published, flat | "reserve your spot … by submitting a request to us through this form"; discounts "request a custom quote … contact us" (`ACC-3`) | **A published price you cannot buy without a form.** Self-service scores 1, not 2 |
 | **Europractice** | A public price list, thirty years old, no login | Membership fee before use; institution type, country and — new in 2026 — *purpose* (`ACC-4`, `OPG-17`) | The price list is open; the service is not |
 | **TSMC University FinFET** | Prices published to the euro | "Applications will be reviewed and approved by TSMC, after which an NDA will be shared" (`ACC-5`) | The sharpest case of the two criteria coming apart |
-| **chipIgnite / Efabless** | `OPG-8`: "Requires External Funding: **No**" | Its own newsletter and its CEO's letter name Google, DARPA, GF, SkyWater, Synopsys, X-FAB, Arm, AFRL and Silicon Catalyst (`ACC-8`, `OPG-15`); it died when a Series B failed | **The product was unsubsidised. The company was not.** |
+| **chipIgnite / Efabless** | `OPG-8`: "Requires External Funding: **No**" | *(the apparent contradiction was withdrawn 2026-09-19 — see the correction box in §3.2)* | **No contradiction. `OPG-8` was right: chipIgnite was paid for by its customers.** Efabless separately ran the subsidised Google Open MPW; GlobalFoundries was an investor, not a subsidiser |
 | **MOSIS** | "a self-sustaining business for 40 years" (`SMB-5`) | Its free academic arm was "supported by NSF and industry" and was discontinued in 2020 (`DEM-21`); MOSIS 2.0's goal is to "achieve self-sustainability within the next few years" | Two different things called MOSIS |
 | **MOSIS 1.0 → 2.0** | The service that pioneered published prices for small chip customers | MOSIS 2.0 publishes **no price at all**; the route is an "MPW Run Sign Up" form and a login (§3.17) | **It went backwards on the audit's first criterion** |
 | **Europractice eligibility** | We claimed the 2026 list tightened the rules (`ACC-4` as first written) | CMP's October 2019 list carries the same purpose condition for the same members (`ACC-12`) | **Our own overstatement, corrected.** What did change is that Belarus and Russia left the eligible-country list |
@@ -575,8 +591,8 @@ audited. **Score = points ÷ points available on the criteria actually establish
 | Programme | A1 price | A2 self-serve | A3 no NDA | A4 redistributable | A5 no eligibility | A6 open tools | A7 no gatekeeper | A8 queue visible | A9 no export gate | A10 low floor | **Open score** | **Axis 2** | Scale |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | **wafer.space** | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | ? | 1 | **17/18** | **P** | 6, 18, 5 backers |
-| **Tiny Tapeout** | 1 | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 0 | 2 | **16/20** | **P(S)** | ~4,300 designs in 4 yr |
-| **Efabless chipIgnite** | 2 | 1 | 2 | 2 | 2 | 2 | 2 | 2 | ? | 1 | **16/18** | **P(S)** | 763 subs / 13 shuttles; dead |
+| **Tiny Tapeout** | 1 | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 0 | 2 | **16/20** | **P** | ~4,300 designs in 4 yr |
+| **Efabless chipIgnite** | 2 | 1 | 2 | 2 | 2 | 2 | 2 | 2 | ? | 1 | **16/18** | **P** | 763 subs / 13 shuttles; dead |
 | **ChipFoundry.io** | 2 | 1 | 2 | 2 | 2 | 2 | 2 | 2 | ? | 1 | **16/18** | **P** | 21–29 paying per shuttle |
 | **Google Open MPW** | 2 | 1 | 2 | 2 | 2 | 2 | 0 | 2 | ? | 2 | **15/18** | **S/M** | 821 subs / 10 shuttles; ended |
 | **IHP Open Silicon MPW** | 2 | 1 | 1 | 2 | 2 | 2 | 1 | 2 | ? | 1 | **14/18** | **U(S)** | 59.2 mm² registered on one run |
