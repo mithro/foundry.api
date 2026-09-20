@@ -1,2 +1,5 @@
 # Agent worktrees live here; never commit them.
 .claude/worktrees/
+
+# Scratch space for analysis scripts and fetched data; never commit.
+tmp/

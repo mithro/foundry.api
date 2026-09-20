@@ -61,8 +61,18 @@ These are notes, and they are our interpretation.
   - each small customer is profitable (H6)
   - many small customers spread risk (H7)
   - the tail keeps producing experiments, a few of which grow large (H10)
-- **Evidence that would help:**
-  - growth in multi-project wafer (MPW) and shuttle programmes over time
-  - waiting lists and oversubscription on free shuttles such as Google Open MPW (OPEN-1)
-  - university and start-up tape-out counts
-  - cases where a small customer became a large one
+- **Evidence that would help** — most of this has now been gathered into
+  [`../demand/`](../demand/), and the answers are mixed at best:
+  - growth in multi-project wafer (MPW) and shuttle programmes over time → **found, and it is
+    mostly flat.** Europractice ran 363–614 designs a year from 2000 to 2017 (DEM-16); CMP peaked at
+    401 in 2007 (DEM-19); CMC has fallen to 240 (DEM-20). Tiny Tapeout is the exception and is
+    growing fast (DEM-1, DEM-2).
+  - waiting lists and oversubscription on free shuttles such as Google Open MPW (OPEN-1) → **found.**
+    Every free or subsidised programme traced was oversubscribed (DEM-4 to DEM-9, DEM-17, DEM-18),
+    but so was the total response modest: 364 submissions worldwide over six free shuttles (DEM-9).
+  - university and start-up tape-out counts → **partly found** (DEM-16, DEM-19, DEM-20, DEM-22).
+  - cases where a small customer became a large one → **still not found.** See
+    [`../demand/search-log.md`](../demand/search-log.md).
+- **Also worth reading before citing TAIL-3:** DEM-13 records the parts of the same Elberse article
+  that bear hardest on this project — the tail becoming "much longer and flatter", and her own
+  extension of the conclusion to physical goods.
