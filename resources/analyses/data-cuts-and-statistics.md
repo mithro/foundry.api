@@ -249,7 +249,8 @@ which is precisely the evidence the repository says it is weakest on.
 > | **wafer.space** | **Actual sales.** Crowd Supply backers have paid. There is no reservation concept. |
 > | **Tiny Tapeout** | **Actual sales.** Reservations are at **full price, non-transferable and non-refundable** — they are purchases, not options. |
 > | **Google Open MPW** | No reservation concept. Submissions were free applications to a subsidised programme; the manufactured count is real fabrication. The gap here is *selection*, not payment. |
-> | **ChipFoundry / Efabless** | **The only ones with a $500 reservation tier**, hence the only ones where `reserved` and `committed` differ. |
+> | **ChipFoundry / Efabless** | **The only ones known to have a $500 reservation tier**, hence the only ones where `reserved` and `committed` differ. |
+> | **Europractice, CMP, CMC, MOSIS** | **Not established.** How these price and reserve, and whether any deposit or cancellable booking sits between application and fabrication, has not been checked. Do not assume either way. |
 >
 > So ChipFoundry's `interest → committed` conversion is a measurement of **ChipFoundry's own
 > funnel**, not a universal discount factor. It must never be applied to wafer.space backer counts
@@ -870,9 +871,12 @@ because the three shuttles are not exchangeable).
 | Google Open MPW (`OPG-1`) | 821 | 296 | [245, 353] |
 | chipIgnite submissions (`OPG-7`) | 763 | 275 | [227, 328] |
 
-**Where it must not be applied:** Tiny Tapeout tiles, **wafer.space Crowd Supply backers** and
-Europractice fabricated designs are **completed transactions**, not expressions of interest, and
-discounting them would be wrong. Tiny Tapeout reservations in particular are **full price,
+**Where it must not be applied:** Tiny Tapeout tiles and **wafer.space Crowd Supply backers** are
+**completed transactions**, not expressions of interest, and discounting them would be wrong.
+Europractice's counts are of designs actually *fabricated*, so the discount is equally wrong there,
+but note that **how Europractice prices and reserves has not been checked** — whether any deposit or
+cancellable booking sits between application and fabrication is simply unknown, and should not be
+assumed either way. Tiny Tapeout reservations in particular are **full price,
 non-transferable and non-refundable**, so they are purchases. `DEM-1`, `DEM-2`, `DEM-16`, `OPG-12`
 and `PAY-9` are safe. `OPG-1`, `OPG-2`, `OPG-7` and every "oversubscribed" percentage in the
 repository are not. **Google Open MPW is a third case**: its submissions were free applications and

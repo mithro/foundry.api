@@ -597,9 +597,9 @@ while the older subsidised programmes did not — is
     <https://github.com/IHP-GmbH/IHP-Open-FMD_QNC-Tapeouts>
   - Krzysztof Herman, "One year of experience with IHP OpenMPW shuttles: a review", Free Silicon
     Conference 2025: <https://wiki.f-si.org/images/5/50/FSiC2025_TapeOut.pdf>
-- **Verification:** **Partial.** Every item below was fetched and read by a delegated agent in this
-  session, which reported the URLs, the commands and the extracted text; the author of this entry did
-  **not** re-fetch them. The FSiC PDF in particular could not be read with the tools to hand
+- **Verification:** **Partial**, 2026-09-18. Every item below was fetched and read by a delegated
+  agent in this session, which reported the URLs, the commands and the extracted text; the author of
+  this entry did **not** re-fetch them. The FSiC PDF in particular could not be read with the tools to hand
   (`WebFetch` returns raw PDF, poppler is not installed) and was recovered by inflating its
   FlateDecode streams, so its quotes are a **de-spaced reconstruction and are not character-exact**.
   Treat the counts as good and the wording as approximate. `OPEN-3` already covers the IHP PDK

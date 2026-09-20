@@ -126,6 +126,11 @@ almost the entire price a small customer pays is fixed cost per project, not sil
     <https://www.globenewswire.com/news-release/2021/05/20/2233541/0/en/Efabless-Launches-chipIgnite-with-SkyWater-to-Bring-Chip-Creation-to-the-Masses.html>
   - ChipFoundry (operated by UmbraLogic Technologies LLC), "chipIgnite" product page:
     <https://chipfoundry.io/chipignite>
+- **Verification:** **Verified 2026-09-20.** Both prices were read on the pages cited, and the
+  $14,950 figure was independently confirmed against ChipFoundry's own live metrics API and its
+  April-2025 launch page (`CF-1`, `CF-11`). Note the correction below: **$9,750 → $14,950 is not one
+  price rising.** ChipFoundry launched at $14,950 in April 2025, five months before it acquired
+  Efabless's assets, so these are two flat prices set by two different companies.
 - **Verification:**
   - The ChipFoundry page: **Verified 2026-09-18**, fetched and read directly.
   - The 2021 press release: **Verified 2026-09-18** by fetching the page itself, but through

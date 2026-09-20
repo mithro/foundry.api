@@ -1077,7 +1077,7 @@ happens to be 53% above the price a dead company used to charge.
 
 ---
 
-## CF-17. Verdict: what ChipFoundry's record actually shows
+### CF-17. Verdict: what ChipFoundry's record actually shows
 
 **The honest headline: there is not enough public data to say whether an unsubsidised,
 investor-free open-shuttle business works. There is enough to say what it looks like while it is
