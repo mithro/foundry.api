@@ -107,7 +107,7 @@ PDK" or "contact us for a price", that sentence is the finding.** It was recorde
   between *a number a machine can read* and *a number a human can obtain without asking anyone*. Tiny
   Tapeout passes the second test and fails the first.
 
-### ACC-3. ChipFoundry's chipIgnite FAQ: a published flat price, no open-source requirement, NDA-protected designs supported — and a reservation made by submitting a request form, not a checkout
+### ACC-3. ChipFoundry's chipIgnite FAQ: a published flat price, no open-source requirement, NDA-protected designs supported — and, since at least 2026, a $500 slot reservation payable by card
 
 - **Source:** ChipFoundry (UmbraLogic Technologies LLC), "chipIgnite FAQ":
   <https://chipfoundry.io/faqs>. Page footer: "© 2026 UmbraLogic Technologies LLC".
@@ -147,7 +147,20 @@ PDK" or "contact us for a price", that sentence is the finding.** It was recorde
     2026, compared to quarterly shuttles with chipIgnite".
 - **Bears on:**
   - **H8 (mixed).** Price published, no eligibility rule, no NDA to see the PDK, an open flow
-    supported, and a public live metrics API (`OPG-9`) — but **you cannot buy it with a card**. The
+    supported, and a public live metrics API (`OPG-9`).
+
+    > **Correction, 2026-09-20.** This entry previously said "you cannot buy it with a card" and
+    > titled itself "a reservation made by submitting a request form, not a checkout". **That is now
+    > false.** `chipfoundry.io/reservations` sells a **$500 reservation per shuttle** through
+    > `platform.chipfoundry.io/reserve/<shuttle>`, card accepted, and `/terms-of-service`,
+    > `/commercial-terms` and `/payment-terms` all exist and have been read (`CF-12`). **The
+    > open-access audit's self-service score for ChipFoundry needs revisiting on this basis.**
+    >
+    > Note also that this **$500 reservation tier is peculiar to ChipFoundry and Efabless.** It does
+    > not exist at wafer.space, Google Open MPW or Tiny Tapeout — see the note on reservations
+    > versus sales in [`../analyses/data-cuts-and-statistics.md`](../analyses/data-cuts-and-statistics.md) §2.4.
+
+    The
     purchase route is "submitting a request to us through this form", and any discount is "request a
     custom quote … please contact us". On the audit's self-service criterion ChipFoundry scores
     *partly*, not *open*.

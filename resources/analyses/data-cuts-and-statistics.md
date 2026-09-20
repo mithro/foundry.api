@@ -232,11 +232,32 @@ but chipIgnite and Tiny Tapeout are the two longest paid series and both are nea
 project's "demand appears when the price falls" story is supported by demand that people *paid for*,
 which is precisely the evidence the repository says it is weakest on.
 
-**The one place it bites.** The only series in the entire evidence base that counts **money
-committed** rather than interest expressed is ChipFoundry's `committed` field, and it is
-**+2.3%/yr**, against +103%/yr for `interest` on the same shuttles. Two points is not a trend and
-this must not be presented as one. But it is the only measurement of the gap, and the gap is the
-whole question.
+**The one place it bites — and it bites in exactly one place.**
+
+> ### ⚠️ Correction, 2026-09-20 — reservations are not a general feature
+>
+> This paragraph previously said ChipFoundry's `committed` field was "the only series in the entire
+> evidence base that counts money committed rather than interest expressed". **That is wrong, and
+> the error matters because it licensed a discount that was then applied too widely.**
+>
+> **The $500 reservation tier is peculiar to ChipFoundry and Efabless.** Only those two operate a
+> funnel with an intermediate, cheap, non-binding state between "interested" and "paid". Everywhere
+> else there is no such state:
+>
+> | Programme | What its numbers are |
+> |---|---|
+> | **wafer.space** | **Actual sales.** Crowd Supply backers have paid. There is no reservation concept. |
+> | **Tiny Tapeout** | **Actual sales.** Reservations are at **full price, non-transferable and non-refundable** — they are purchases, not options. |
+> | **Google Open MPW** | No reservation concept. Submissions were free applications to a subsidised programme; the manufactured count is real fabrication. The gap here is *selection*, not payment. |
+> | **ChipFoundry / Efabless** | **The only ones with a $500 reservation tier**, hence the only ones where `reserved` and `committed` differ. |
+>
+> So ChipFoundry's `interest → committed` conversion is a measurement of **ChipFoundry's own
+> funnel**, not a universal discount factor. It must never be applied to wafer.space backer counts
+> or Tiny Tapeout tile counts, which are money already paid.
+
+ChipFoundry's `committed` field is **+2.3%/yr** against +103%/yr for `interest` on the same
+shuttles. Two points is not a trend and this must not be presented as one. It remains the only
+direct measurement of the interest-to-payment gap *in a programme that has such a gap*.
 
 ### 2.5 Drop-one-programme robustness
 
@@ -849,10 +870,14 @@ because the three shuttles are not exchangeable).
 | Google Open MPW (`OPG-1`) | 821 | 296 | [245, 353] |
 | chipIgnite submissions (`OPG-7`) | 763 | 275 | [227, 328] |
 
-**Where it must not be applied:** Tiny Tapeout tiles and Europractice fabricated designs are
-completed transactions, not expressions of interest, and discounting them would be wrong. `DEM-1`,
-`DEM-2` and `DEM-16` are safe. `OPG-1`, `OPG-2`, `OPG-7` and every "oversubscribed" percentage in
-the repository are not.
+**Where it must not be applied:** Tiny Tapeout tiles, **wafer.space Crowd Supply backers** and
+Europractice fabricated designs are **completed transactions**, not expressions of interest, and
+discounting them would be wrong. Tiny Tapeout reservations in particular are **full price,
+non-transferable and non-refundable**, so they are purchases. `DEM-1`, `DEM-2`, `DEM-16`, `OPG-12`
+and `PAY-9` are safe. `OPG-1`, `OPG-2`, `OPG-7` and every "oversubscribed" percentage in the
+repository are not. **Google Open MPW is a third case**: its submissions were free applications and
+the gap between submitting and being made is *selection*, not payment, so a payment-derived discount
+is the wrong instrument there too.
 
 Applied to `OPG-1`'s headline: **1,584 submissions is on the order of 570 paid projects**, and on
 the repository's own bound of 578–1,232 distinct people, that is roughly one paid project per person

@@ -169,7 +169,12 @@ almost the entire price a small customer pays is fixed cost per project, not sil
     price covered the cost.
   - "Up to 15mm²" is the ceiling, not the billed quantity; the per-mm² derivation is therefore a
     *best case* for the buyer.
-  - ChipFoundry's other prices are behind "Request a Quote"; only the chipIgnite headline is public.
+  - **Corrected 2026-09-20.** This previously read "ChipFoundry's other prices are behind 'Request a
+    Quote'; only the chipIgnite headline is public." That is wrong. ChipFoundry publishes a **36-block
+    IP catalogue at $6,200–$33,900** (group tiers to $42,900), **SRAM at $2,500**, ML packages at
+    **$22,250 / $45,000**, support at **$1,000 per 5 hours** and training at **$450 a seat**. See
+    `CF-11` in [`chipfoundry.md`](chipfoundry.md). A Tier-1 IP licence is **2.9× a tapeout**, so any
+    revenue estimate built on shuttle slots alone counts the razor and none of the blades.
 
 ### SMB-10. Tiny Tapeout publishes a per-tile price of €70, and charges per analog pin per customer
 

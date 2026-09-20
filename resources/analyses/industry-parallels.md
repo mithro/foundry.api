@@ -634,7 +634,11 @@ This is the section the brief asked for specifically, and it is the most useful 
 #### PAR-28. The recurring failure mode is the storefront, not the factory
 
 - **Sources:**
-  - Efabless shutdown notice, read via the Internet Archive capture of 2025-03-01: <https://web.archive.org/web/20250301210729/https://efabless.com/notice>. Successor: <https://efabless.com/> and <https://chipfoundry.io/> (both live, 2026-09-18).
+  - Efabless shutdown notice, read via the Internet Archive capture of 2025-03-01: <https://web.archive.org/web/20250301210729/https://efabless.com/notice>. Successor: <https://chipfoundry.io/>. **Corrected 2026-09-20:** this previously said
+    "<https://efabless.com/> and <https://chipfoundry.io/> (both live)". `efabless.com` last served
+    HTTP 200 on **2025-09-02** and has redirected (301) to `chipfoundry.io/efabless` ever since.
+    ChipFoundry is also **not** simply Efabless's successor — it is a separate company founded
+    2025-04, which acquired Efabless's assets and the chipIgnite name later that year (`CF-1`).
   - Stratasys Ltd. Form 20-F for FY2015: <https://www.sec.gov/Archives/edgar/data/0001517396/000120677416005045/stratasys_20f.htm>. Acquisition announcement, Exhibit 99.1 to a Form 6-K: <https://www.sec.gov/Archives/edgar/data/0001517396/000110465913050451/a13-15347_1ex99d1.htm>
   - MOSIS: <https://www.mosis.org/about-us> (live, 2026-09-18), and the archived self-description at <https://web.archive.org/web/20020711010856/http://www.mosis.com/about/whatis.html>
   - BASF news release P-19-398, "BASF Acquires 3D Printing Service Provider Sculpteo", 2019-11-18: <https://www.basf.com/global/en/media/news-releases/2019/11/p-19-398>
