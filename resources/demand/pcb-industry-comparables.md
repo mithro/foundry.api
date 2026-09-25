@@ -1022,6 +1022,12 @@ could reach, and that absence is itself part of the finding.
 
 ## Verdict: does the JLC pattern generalise?
 
+> **SUPERSEDED, 2026-09-25.** This verdict is kept as a record of what was believed on the evidence
+> then available. Its claim that "only JLC publishes a margin split by batch size" is **wrong**:
+> four more companies do (PCB-7, PCB-8, PCB-11, PCB-13), two of them because an exchange ordered
+> it. Read the [second-pass verdict](#second-pass-verdict-2026-09-25) instead. Claims 1, 3 and 4
+> below still stand.
+
 **Partly, and the part that generalises is not the part that would have been most useful.**
 
 Three separate claims have to be kept apart.
@@ -2449,3 +2455,195 @@ recipe already recorded in [`search-log.md`](search-log.md).
     **unverified against Benchuan's own filings**; its IPO prospectus was not retrieved (see the
     blocked list).
   - All translations are ours; the Chinese is quoted exactly so a reader can check them.
+
+---
+
+## Second-pass consolidated table: every company found that splits margin by order or batch size
+
+"Tail" is the smallest-order tier or tiers the filing distinguishes; "big" is its largest-order
+tier. Every cell is computed by `tmp/consolidated.py` from the figures transcribed in the entry
+cited, and each entry separately records that those figures reproduce the filing's own printed
+blended margin. Thresholds differ between companies and are given, because **the levels are not
+comparable across rows; only the direction is.**
+
+| Company | Exchange / code | Document, and why it exists | Period | Tier definition | Tail % of revenue | Tail gross margin | Big-batch gross margin | **Tail % of gross profit** | Ratio, smallest tier ÷ largest | Entry |
+|---|---|---|---|---|---|---|---|---|---|---|
+| **嘉立创 JLC** | SZSE, IPO filed Apr 2026 | IPO prospectus, listing review | FY2025 | sample + small batch vs medium/large batch (threshold not published) | 75.57% | 36.24% | 2.76% | **97.60%** | 13.13× | SMB-1 |
+| **强达电路 Qiangda** | SZSE ChiNext 301628 | IPO prospectus, listing review | 2024 H1 | <5 m² / 5–50 m² / >50 m² per order | 85.79% | 32.37% | 3.17% | **98.40%** | 14.06× | PCB-7 |
+| **强达电路 Qiangda** | " | " | FY2023 | " | 83.06% | 33.05% | 7.00% | **95.86%** | 6.41× | PCB-7 |
+| **迅捷兴 Xunjiexing** | SSE STAR 688655 | **Reply to an exchange enquiry letter on the FY2025 annual report** | FY2025 | sample / small batch / large batch (thresholds not published in this document) | 62.22% | 13.08% | 1.00% | **95.55%** | 30.3× | PCB-11 |
+| **迅捷兴 Xunjiexing** | " | " | FY2024 | " | 69.75% | 19.16% | 3.20% | **93.24%** | 11.6× | PCB-11 |
+| **金百泽 Jinbaize** | SZSE ChiNext 301041 | IPO prospectus, listing review | FY2020 | <5 m² / 5–20 m² / >20 m² per order | 80.44% | 33.31% | 18.21% | **88.26%** | 2.17× | PCB-8 |
+| **金百泽 Jinbaize** | " | " | FY2018 | " | 75.15% | 31.15% | 18.42% | **83.65%** | 1.86× | PCB-8 |
+| **中富电路 Zhongfu** (multilayer only) | SZSE ChiNext 300814 | **Reply to an exchange enquiry letter on a convertible-bond application** | 2023 Q1 | <50 m² vs >50 m² per order, *within* one product family | 35.45% | 21.74% | 8.18% | **59.34%** | 2.66× | PCB-13 |
+| **中富电路 Zhongfu** (multilayer only) | " | " | FY2022 | " | 28.59% | 22.81% | 9.40% | **49.28%** | 2.43× | PCB-13 |
+| **中富电路 Zhongfu** (single/double-sided only) | " | " | 2023 Q1 | " | 56.37% | 38.63% | 26.35% | **65.45%** | 1.47× | PCB-13 |
+| **中富电路 Zhongfu** (single/double-sided only) | " | " | FY2022 | " | 40.78% | 34.89% | 23.66% | **50.38%** | 1.47× | PCB-13 |
+
+Two notes on reading it. **Xunjiexing's "tail gross margin" of 13.08% is low because its middle
+tier collapsed to 2.64%**; its sample tier alone earns 30.42% and is 83.50% of gross profit on
+23.37% of revenue, which is the comparable figure. **Zhongfu's rows are not comparable to the
+others** — they have no sample tier at all and the cut is applied inside a product family, which
+is what makes them the tightest control and also the smallest ratios.
+
+### Companies that publish revenue by order size but not margin
+
+| Company | What it publishes | Most recent year published | Entry |
+|---|---|---|---|
+| 崇达技术 Chongda (SZSE 002815) | revenue split ≤50 m² / >50 m²; order count by area band; average order area, order count, delivery days, average order value, customer count. Plus the industry-level statement that sample > small batch > large batch on margin, and the "must leave equipment idle" mechanism | 2021 (per PCB-10); read here for 2013–2016 Q1 | PCB-9 |
+| 明阳电路 Mingyang (SZSE 300739) | revenue share of orders ≤50 m²; average order area; a price-sensitivity comparison table; "capacity redundancy" statement | 2017 H1 | PCB-10 |
+| 兴森科技 Fastprint (SZSE 002436) | order-area revenue split | **2015** | PCB-4, PCB-10 |
+| 本川智能 Benchuan (SZSE 300964) | margin by product family and by layer count; the statement that its 53.98% HDI line is "mainly small-batch boards or sample boards" | order-area split: 2020 (per PCB-10), unverified | PCB-14 |
+| 四会富仕 Sihui Fushi (SZSE 300852) | nothing by order size — 未披露 ("not disclosed") in Qiangda's table | — | PCB-5, PCB-10 |
+
+### Non-Chinese
+
+| Company | What it publishes | Entry |
+|---|---|---|
+| **TTM Technologies** (Nasdaq TTMI) | In 29 Form 10-K filings over 25 years: that quick-turn "generally receive[s] a premium… as compared to standard lead time prices", that quick-turn plants are "schedule[d]… at less than full capacity" on purpose, order sizes by board count, and — until 2003 only — the quick-turn share of gross sales (35% / 45% / 27% for 2000 / 2002 / 2003). **No margin split, ever.** | PCB-12 |
+| OSH Park, DirtyPCBs, PCBWay, Seeed | nothing; OSH Park's price list implies a 1.667× small-order premium | PCB-6 |
+
+<a id="second-pass-verdict-2026-09-25"></a>
+
+## Second-pass verdict, 2026-09-25: does the JLC pattern generalise?
+
+**Yes, on the direction, and with far more evidence than this file had a week ago. No, on the
+magnitude, which varies by more than an order of magnitude between companies. And the reason the
+evidence exists at all is narrower than it looks.**
+
+**1. The headline correction. The earlier verdict said "only JLC publishes a margin split by batch
+size". That was wrong.** Four more companies do: 强达电路 Qiangda (PCB-7, four periods, three
+tiers), 金百泽 Jinbaize (PCB-8, three years, three tiers), 迅捷兴 Xunjiexing (PCB-11, two years,
+three tiers, with cost printed) and 中富电路 Zhongfu (PCB-13, four periods, two tiers, inside two
+product families). With JLC that is **five companies and eighteen company-periods**, every one of
+which puts the smaller order at the higher margin. Two of the five did it because a stock exchange
+told them to, in writing, against a document they had already filed.
+
+**2. The direction is unanimous and the mechanism is stated the same way by everyone.** Across
+five companies, eighteen periods and two exchanges, there is **not one period in which a
+larger-order tier out-earned a smaller-order tier**. Five separate issuers, writing under
+prospectus or continuing-disclosure liability, give the same explanation in almost the same words:
+the small-order customer is price-insensitive and dispersed, the large-order customer is
+cost-sensitive and concentrated, and the maker's bargaining power runs the other way from order
+size. Qiangda: "客户对单价的敏感性相对较低…样板生产企业对客户的议价能力相对较强". Jinbaize:
+"公司议价能力较高，故毛利率显著高于小批量板和中批量板". Chongda: "样板的议价能力较强，报价远高于批量板".
+Zhongfu: "小批量产品生产企业对客户的议价能力较强，毛利率相对较高". Mingyang: small-batch customers
+"对价格较为不敏感", large-batch customers "对价格更为敏感". (Translations in the entries.)
+
+**3. The magnitude does not generalise, and the file must stop treating 97.6% as a number about
+the industry.** The ratio of smallest-tier to largest-tier margin runs from **1.47× to 30.3×**.
+The tail's share of gross profit runs from **49.28% to 98.40%**. Both extremes are real, audited
+and correctly computed. What drives the spread is where the company cuts its tiers and how bad
+its bottom tier is: a company whose large-batch tier is dying (Xunjiexing at 1.00%, Qiangda at
+3.17%) mechanically shows the tail taking almost everything, while a company with a healthier
+bottom tier (Jinbaize at 18.21%) shows a modest gap. **97.6% is a fact about JLC in 2025, and
+98.40% is a fact about Qiangda in the first half of 2024. Neither is a fact about PCB
+manufacturing.** The defensible general claim is the direction and the ordering, not the size.
+
+**4. The strongest new evidence is the least flattering-looking.** Two findings should carry more
+weight than the big percentages:
+
+- **Zhongfu (PCB-13) is the controlled comparison.** It is a *large-batch* house — 61.79% of its
+  revenue is orders over 50 m² — with no incentive to talk up small batch, and it splits its margin
+  by order size *within* each product family, which holds layer count roughly constant. Small batch
+  wins in 8 of 8 cells. This is the closest thing in the file to a clean test, and it survives.
+- **Xunjiexing (PCB-11) ran the experiment forwards and lost.** It grew main-business revenue
+  42.47% by selling large batch, and its gross profit *fell* 15.37%. Large-batch revenue nearly
+  doubled and large-batch gross profit fell 44%. Four customers at 32.03% of revenue were sold at
+  a combined **−11.26% gross margin**. This is not a cross-section; it is one company moving from
+  the tail towards volume, in consecutive audited years, and being made worse off. It is the most
+  direct evidence in this repository for the proposition the project is built on.
+
+**5. But a long tail is not sufficient, and Xunjiexing also proves that.** The same company that
+demonstrates point 4 **lost CNY 22.4 million** in FY2025, runs at 41.55% capacity utilisation, and
+has a blended margin of 8.52%. It has served "over ten thousand enterprises" and calls itself a
+sample-board specialist. Having a profitable tail did not save it, because it funded a big-batch
+business out of the tail's profits. The earlier verdict's point 3 — "serving a long tail is what
+produces the margin: NOT supported" — still stands, and this pass strengthens it. **What the
+evidence supports is that small orders earn more per unit of revenue. It does not support the
+claim that a business made of small orders is necessarily a good business.**
+
+**6. The order-size effect is probably not just the layer-count effect, but it is not cleanly
+separated either.** Three pieces bear on the confound. Against it: Xunjiexing's reply prints both
+cuts for the same two years, and they give materially different answers in FY2024 (8+ layers =
+45.25% of gross profit; sample boards = 74.33%), so they are not the same variable (PCB-11).
+Zhongfu's cut is applied *inside* a product family and survives (PCB-13). For it: Benchuan shows
+margin rising from 18.26% to 38.69% on layer count alone, with no order-size cut at all, and says
+its highest-margin family is *both* small-batch and high-layer (PCB-14); Qiangda's own explanation
+credits "样板产品中层数较高的高附加值产品收入占比提升" — a rising share of high-layer product inside
+the sample tier. **No filing found anywhere publishes a cross-tabulation of order size against
+layer count. Until one does, the two effects are entangled, and the honest statement is that
+Zhongfu's within-family result is the best available evidence that order size matters on its own.**
+
+**7. Capital: three independent issuers say the small-order business requires holding spare
+capacity, and charges for it.** This is the most transferable finding of the pass and it was not
+in the file before.
+- 崇达技术 Chongda, 2016: "样板企业需要空置部分设备满足客户交货要求，因此样板企业在报价时会额外加收制板费、工程费等费用" — a sample-board
+  company **needs to leave part of its equipment idle** to meet delivery requirements, and so adds
+  board-making and engineering fees when it quotes.
+- 明阳电路 Mingyang, 2018: "作为小批量板制造企业，保持适当的产能冗余有利于加快交货速度" —
+  maintaining **appropriate capacity redundancy** speeds up delivery.
+- **TTM Technologies**, in every 10-K from FY2000 to FY2025: "we generally schedule our quick-turn
+  production facilities at less than full capacity to retain our ability to respond to unexpected
+  additional quick-turn orders."
+
+  Two of the three file in Chinese, one in English; they span 2016 to 2026 and two continents.
+  And the converse is documented three times too: JLC took a CNY 131,365,100 impairment on idle
+  *big-batch* equipment (PCB-2); Xunjiexing's new Zhuhai plant, built for and filled with
+  security-market batch work, earned **−44.45%** (PCB-11); Zhongfu's Heshan plant, built for
+  large-batch orders, added CNY 17.8m of cost and pushed the large-batch margin down (PCB-13).
+  **Idle capacity held for quick-turn is priced; capacity built for volume and filled with volume
+  is not.**
+
+**8. The honest counterweight, which this file previously lacked: small orders cost more to sell.**
+Chongda states it and prints the ratios — selling expense at 7.09–7.25% of revenue for the sample
+house (Fastprint) and 4.09–4.20% for the small-batch house, against 3.07–3.37% for the large-batch
+peers (PCB-9). **Everything in the consolidated table is a *gross* margin.** Nobody in this file
+allocates SG&A by order size, and a business of 140,000 or 21 million small orders plainly costs
+more to sell, plan and support than one of 1,200 large ones. On Chongda's figures the penalty is
+around 4 pp of revenue against a gross advantage of over 10 pp, so the advantage survives — but
+that is a rough cross-company comparison, not a measurement, and **the 97.6% / 98.40% figures must
+never be described as shares of profit.**
+
+**9. Why this evidence exists, and why it is not being renewed.** Every single one of the five
+margin tables comes from a listing-review document: four IPO or convertible-bond prospectuses and
+two exchange enquiry replies. **Not one comes from an ordinary annual report.** PCB-4's finding —
+that Chinese listing rules mandate margin splits by industry, product, region and sales channel
+but not by order size — survives intact; what has changed is that we now know exchanges *ask* for
+the order-size cut often enough that five companies have printed it. And Qiangda's own footnote
+(PCB-10) records the decay: the most recent order-area disclosure available to it in 2024 was 2021
+for three companies, 2020 for three more and **2015 for Fastprint**, and "同行业可比公司未披露 2022 年按订单面积分类的收入占比"
+— *no comparable company disclosed the order-area revenue split for 2022*. TTM disclosed its
+quick-turn revenue share until 2003 and then stopped. **The series is not running; it is a set of
+snapshots taken whenever a regulator happened to look.**
+
+**10. Outside China, there is one sentence.** TTM has said for twenty-five years that quick-turn
+earns a premium and that its quick-turn plants are deliberately under-loaded. It has never
+published a margin by lead time, and it stopped publishing even the revenue share. No European,
+Japanese, Korean or Taiwanese maker was reached in this pass (see below). **On the evidence so
+far, the order-size margin split is a Chinese-listing-review artefact and nothing else in the world
+publishes it.** That is a statement about disclosure regimes, not about economics — but it means
+that if China's listing rules change, or if these five companies finish listing, this line of
+evidence closes.
+
+## Second-pass blocked, unreached and incomplete sources
+
+Nothing in this pass was blocked by a paywall, a login, a form or a bot check. **No CAPTCHA was
+encountered and none would have been solved.** Everything below is either an access quirk with a
+recorded workaround or a source that was simply not reached.
+
+| Source | What happened | What would unblock it |
+|---|---|---|
+| `www.sec.gov/Archives/...` | **HTTP 403 to `curl` on every User-Agent tried** — a plain Chrome UA, a Chrome UA plus `Referer: https://www.sec.gov/`, and a bare tool name. SEC's own guidance asks for a contact e-mail in the User-Agent, which this session will not send. | `data.sec.gov` (the submissions JSON) serves `curl` normally with a browser UA — that is how the filing index was obtained. The documents themselves load instantly in an ordinary browser, which is how PCB-12 was read. A human hits no obstacle at all. |
+| `efts.sec.gov/LATEST/search-index` (EDGAR full-text search) | Works in a browser and returns clean JSON; not tried with `curl`. Covers 2001 onwards only. | Nothing. |
+| 兴森科技 Fastprint's 2015 order-area revenue split | **Not located.** Qiangda's peer table (PCB-10) cites it as Fastprint's most recent such disclosure, so it exists in a Fastprint filing from about 2016. Fastprint's own 2010 IPO prospectus was not retrieved. | Nothing external. A cninfo `category_sf_szsh` search on 兴森科技, and a scan of its 2015 and 2016 annual reports and any rights-issue or convertible-bond prospectus, should find it. |
+| 中富电路 Zhongfu and 本川智能 Benchuan IPO prospectuses | **Not retrieved.** A cninfo `category_sf_szsh` search returned zero rows for both (Zhongfu listed 2020, Benchuan 2021); the plain full-text search caps out before reaching their listing dates. Their 2020 order-area revenue splits, which PCB-10 quotes from Qiangda's table, therefore remain **Partial**. | Nothing external. Either page the cninfo full-text search further back (Zhongfu has 710 records), or use the SZSE listing-review site (`listing.szse.cn`) which keeps ChiNext application files. |
+| 迅捷兴 Xunjiexing IPO prospectus (STAR Market, 2021) | **Not retrieved.** A cninfo `column=sse` + `category_sf_szsh` search returned nothing. Its order-area *thresholds* are therefore unknown, which is a stated caveat on PCB-11. | Nothing external. The STAR-market review file is on `kcb.sse.com.cn` / `static.sse.com.cn`; a `column=sse` search without a category, paged deeper than 6 pages, would also reach it. |
+| 立信 (BDO China Shu Lun Pan) verification opinion on Xunjiexing's FY2025 enquiry reply | **Not downloaded** — 37 MB, and nothing in PCB-11 depends on it. It may contain the auditor's own view of the segment margins. | Nothing. `finalpage/2026-05-12/1225292253.PDF`. |
+| 四会富仕 Sihui Fushi review-enquiry replies | **Still not read.** The first pass listed these as the most likely place for a second batch split; they were deprioritised once four new splits were found elsewhere. Sihui Fushi is recorded as 未披露 in Qiangda's table, so the expected value is now low. | Nothing external. |
+| The large listed Chinese makers — 深南电路 Shennan, 沪电股份 WUS, 景旺电子 Kinwong, 胜宏科技 Victory Giant, 世运电路 Suntak, 博敏电子 Bomin, 奥士康 Aoshikang, 依顿电子 Ellington, 东山精密 DSBJ | **Not searched individually.** Zhongfu's peer table (PCB-13, PDF p.22) classifies every one of them as "大批量…为主" ("mainly large batch"), so none is likely to carry a small-order tier worth breaking out. That is an inference from a peer's description, not a check. | Nothing external. Each has IPO and/or convertible-bond prospectuses on cninfo, reachable with the recipe in [`search-log.md`](search-log.md). |
+| **Taiwan (MOPS, `mops.twse.com.tw`)** — Unimicron, Nan Ya PCB, Tripod, Gold Circuit, Compeq | **Not reached.** Ran out of budget before starting. | Nothing known to be blocking. MOPS serves annual reports as free PDFs; a human or a browser session can retrieve them. Taiwanese annual reports segment by product and by customer, and (on the Chongda/Zhongfu evidence) these are all volume producers, so expectations should be low. |
+| **Japan and Korea** — Ibiden, Shinko, Meiko, Daeduck | **Not reached.** | Nothing known to be blocking; EDINET (Japan) and DART (Korea) are free. |
+| **Europe** — Eurocircuits NV (Belgian NBB), Beta LAYOUT GmbH (Bundesanzeiger), Schweizer Electronic, AT&S | **Not reached**, as in the first pass. Eurocircuits and Beta LAYOUT remain the two most likely Western sources of a small-batch margin figure, because both are pure small-batch online sellers that file accounts. | `consult.cbso.nbb.be` and `bundesanzeiger.de` both publish small-company accounts free. Filed accounts for a GmbH or NV give a gross result, not a segment split, so the realistic best case is a company-level margin, not a table. |
+| **Earnings-call transcripts** (TTM and others) | **Not searched.** The brief flagged these as a likely place for executives to say things about segment margin that never reach a filing. Most transcript sites require a login or are paywalled, and none was attempted. | A human with a subscription, or the companies' own investor-relations pages where they post transcripts. |
+| A cross-tabulation of order size against layer count, at any company | **Does not appear to exist** in anything read in either pass. This is the single disclosure that would settle whether the order-size effect is distinct from the product-mix effect. | An exchange would have to ask for it. |

@@ -747,3 +747,96 @@ number about whether this business model holds:
 ```
 curl -s --compressed 'https://platform.chipfoundry.io/api/v1/shuttles/ci2609/metrics'
 ```
+
+---
+
+## 16. PCB comparables, second pass — hunting for more margin-by-order-size tables (`PCB-7`…`PCB-14`, 2026-09-25)
+
+The brief for this pass was narrow: the first pass had concluded that **only JLC publishes a gross
+margin split by order size**, and that the best remaining hope was an exchange review-enquiry reply
+(问询函回复). Find more tables like JLC's, or establish that they do not exist.
+
+**They exist. Four more were found in one session, and two of them are exactly the
+review-enquiry replies the first pass guessed at.** The conclusion that the disclosure was
+near-unique is now recorded as superseded in
+[`pcb-industry-comparables.md`](pcb-industry-comparables.md).
+
+### 16.1 Routes that worked, and are worth reusing
+
+**The single most productive move was to search Chinese filings for the phrase 按订单面积 ("by order
+area"), not for 批量 ("batch").** "Order area in square metres per order" is the *industry-standard*
+way Chinese PCB makers define order size, with thresholds of 5 m² and 50 m² used by at least four
+different issuers with four different sponsors. Searching for it directly, rather than reading each
+filing for a batch discussion, is what turned a one-company finding into a five-company one.
+
+| Route | Detail |
+|---|---|
+| **cninfo document search, with a category filter** | The first pass recorded `POST http://www.cninfo.com.cn/new/hisAnnouncement/query` with `searchkey=<Chinese name>`. Adding **`category=category_sf_szsh`** narrows it to first-public-offering documents and finds an IPO prospectus in one page instead of twenty-four. It returned results for 金百泽, 明阳电路 and 崇达技术 — and, unhelpfully, **zero rows** for 中富电路 and 本川智能, whose IPO documents are presumably filed under another category. Without the category filter, paging is capped and does not reach a 2020 listing. |
+| **`static.cninfo.com.cn` still needs both headers** | Browser User-Agent **plus** `-H "Referer: http://www.cninfo.com.cn/"`. Unchanged, and it worked on every one of the eight PDFs downloaded (2.6 MB to 10.7 MB, all HTTP 200). |
+| **Title-filtering the announcement list** | Grepping the returned titles for 招股说明书 (prospectus), 问询函 (enquiry letter), 募集说明书 (bond offering document) and 专项说明 (accountant's special note) is how both enquiry replies were found. **审核问询函的回复 is the string that matters** — it is the exchange compelling a disclosure. |
+| **`pypdf` plus a page-tagged text dump** | Extracting each PDF to a text file with a `<<<PAGE n>>>` marker before each page, then (a) counting a fixed vocabulary of Chinese terms across the whole file and (b) listing pages where two terms co-occur, located the target table in every document in under a minute. A 426-page prospectus reduces to one page number. |
+| **EDGAR full-text search through a browser** | `https://efts.sec.gov/LATEST/search-index?q=%22quick-turn%22&forms=10-K&ciks=0001116942` returns clean JSON listing all 29 TTM 10-Ks that contain the phrase, with dates and accession numbers. Coverage starts in 2001. |
+| **`data.sec.gov` submissions JSON** | `https://data.sec.gov/submissions/CIK0001116942.json` serves to plain `curl` with a browser UA and gives every filing's form type, date, accession number and primary document name. This is the reliable way to enumerate SEC filings. |
+
+### 16.2 New obstacles
+
+| Obstacle | Detail |
+|---|---|
+| **`www.sec.gov` returns HTTP 403 to `curl`** | Tried with a plain Chrome UA; a Chrome UA plus `Accept`, `Accept-Language` and `Referer: https://www.sec.gov/`; and a bare tool-name UA. All three returned 403 with a ~2 KB body. SEC's own guidance asks for a contact e-mail address in the User-Agent, **which this session will not send**. `data.sec.gov` is unaffected. **Workaround: read the documents in a real browser** — they load instantly, no login, no bot check. |
+| **A modern 10-K exceeds a single page-text extraction** | TTM's FY2025 10-K is 324,537 characters of extracted text against a 50,000-character cap, so the risk-factor section could not be read in full. The business section fits. One sentence in PCB-12 is therefore quoted as a fragment and flagged as such. |
+| **cninfo's category filter is not uniform** | `category_sf_szsh` returns rows for some ChiNext companies and nothing for others listed in the same years. Do not conclude a prospectus does not exist because the category search is empty. |
+| **The plain full-text search is depth-capped** | 中富电路 has 710 announcements; paging 24 deep reached only 2023. Its 2020 IPO documents were never reached. |
+
+### 16.3 What was found, and where it went
+
+| Finding | Entry |
+|---|---|
+| **强达电路 Qiangda** (SZSE 301628) IPO prospectus, PDF p.289: gross margin by order area (<5 / 5–50 / >50 m²), four periods, both including and excluding freight, plus revenue, volume, price, order count and average order area for each tier. Sample boards are 52.54% of revenue and **98.40% of gross profit** in 2024 H1. | `PCB-7` |
+| **金百泽 Jinbaize** (SZSE 301041) IPO prospectus, PDF p.482: gross margin by order area (<5 / 5–20 / >20 m²) for 2018–2020 — **and, on p.182, top-20 customer concentration computed separately inside each order-size tier**, 28.50% for sample boards against 52.25% for medium batch, monotonic in all three years. Also three named customers dropped for low margin, one of them a bitcoin hash-board buyer at **2.94%**. | `PCB-8` |
+| **崇达技术 Chongda** (SZSE 002815) IPO prospectus, PDF p.305: the margin ranking sample > small batch > large batch stated as a property of the industry, with the mechanism — a sample house **must leave equipment idle** to hold its delivery promise and charges for it. Plus the counterweight: small orders cost more to sell (7.1% of revenue against 3.1% at the large-batch peers). | `PCB-9` |
+| A **census** of who discloses what, built from Qiangda's peer table (PDF pp.157–159) and 明阳电路 Mingyang's prospectus: seven listed Chinese PCB makers have printed revenue by order area; **nobody printed it for FY2022**; the most recent for Fastprint is **2015**. | `PCB-10` |
+| **迅捷兴 Xunjiexing** (SSE STAR 688655) reply to an SSE enquiry letter on its FY2025 annual report: the exchange ordered "区分样板、小批量板和大批量板，补充说明相关收入、成本、毛利率、营收占比及变动情况" and got it, **with cost printed**. Sample boards 23.37% of revenue, **83.50% of gross profit**. Revenue +42.47%, gross profit **−15.37%**. Four customers at a third of revenue at **−11.26%**. | `PCB-11` |
+| **TTM Technologies** (Nasdaq TTMI): 25 years of 10-Ks asserting a quick-turn price premium and deliberate under-loading of quick-turn plants; quick-turn share of gross sales 35% / 45% / 27% for 2000 / 2002 / 2003 and **not published since**; no margin split ever. | `PCB-12` |
+| **中富电路 Zhongfu** (SZSE 300814) reply to an SZSE convertible-bond enquiry letter, PDF p.15: margin by order batch (<50 vs >50 m²) **inside each product family**, four periods. Small batch wins **8 of 8 cells**. The cleanest control in the file, from a company that is 61.79% large batch. | `PCB-13` |
+| **本川智能 Benchuan** (SZSE 300964): a negative result — a declared small-batch specialist that splits by product family and layer count and **not** by order size. Says its 53.98%-margin HDI line is "mainly small-batch boards or sample boards" and that the margin "may revert" once made in volume. | `PCB-14` |
+
+Every derived figure in all eight entries was computed by a throwaway script under project-local
+`tmp/` (`qiangda_check.py`, `jinbaize_check.py`, `xjx_check.py`, `zhongfu_check.py`,
+`consolidated.py`), run before the numbers were written down, with the arithmetic reproduced in the
+entry. In every case the transcription was validated by reconstructing the filing's **own printed
+blended margin** from the transcribed segment figures; all four reconstruct to within 0.006
+percentage points, and Zhongfu's reconstruction additionally reproduces four summary statistics the
+filing computes for itself.
+
+### 16.4 Searched for, and not found
+
+- **A cross-tabulation of order size against layer count.** Nothing read in either pass contains
+  one. This is the disclosure that would settle whether the order-size margin effect is distinct
+  from the product-mix effect. Xunjiexing prints both cuts separately for the same two years, which
+  shows they are not the same variable, and Zhongfu cuts by order size inside a product family,
+  which is the closest available control — but no filing crosses them.
+- **兴森科技 Fastprint's 2015 order-area revenue split.** Qiangda's footnote says it exists.
+  It was not located; Fastprint's own IPO prospectus (2010) was not retrieved.
+- **中富电路 and 本川智能 IPO prospectuses**, so their 2020 order-area splits remain second-hand.
+- **迅捷兴's order-area thresholds.** Its FY2025 reply uses the three tier names without defining
+  them; its STAR-market IPO prospectus was not retrieved.
+- **Anything outside China with a margin split by order size or lead time.** TTM is the only
+  non-Chinese company that discusses the distinction at all, and it publishes no margin. Taiwan
+  (MOPS), Japan (EDINET), Korea (DART) and Europe (Belgian NBB, German Bundesanzeiger) were **not
+  reached** — budget, not blocking.
+- **Earnings-call transcripts.** Flagged in the brief as a likely source of unfiled segment-margin
+  remarks; not searched, because the transcript sites generally require an account and **no account
+  was created**.
+
+### 16.5 One correction to the first pass, and one caution
+
+**Correction.** The first pass's verdict said the JLC table "is close to unique" and that
+"only JLC publishes a margin split by batch size". Both are wrong, and the second-pass verdict says
+so in the file. What is true is the narrower claim underneath it: **Chinese listing rules mandate
+margin splits by industry, product, region and sales channel, and not by order size**, so every one
+of the five tables comes from a listing-review document rather than from an ordinary annual report.
+
+**Caution.** The five companies' margin ratios between the smallest and largest order tiers span
+1.47× to 30.3×, and the tail's share of gross profit spans 49.28% to 98.40%. **The direction
+generalises; the magnitude does not.** JLC's 97.6% is a fact about JLC in 2025 and should never be
+quoted as a fact about the industry.
