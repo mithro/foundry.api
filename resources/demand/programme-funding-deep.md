@@ -585,6 +585,18 @@ give them.
     837 ÷ 21 = **39.9** (2024); 753 ÷ 19 = **39.6** (2025). The named establishment grew 46%
     (13 → 19) while the design count grew 23% (614 → 753), so **output per named person fell 16%**
     over eight years.
+  - **CORRECTED 2026-09-25 by `PRD-5`: three of the nineteen are not on the fabrication service.**
+    The 2025 contact page prints its own functional split — three imec coordination (general /
+    operational / legal), **three UKRI-STFC listed as design tools, training courses and academic
+    membership**, one Tyndall, twelve foundry-specific. Excluding the three STFC roles,
+    **753 ÷ 16 = 47.1 designs per fabrication-facing named person**, and *that* is the figure
+    comparable with MOSIS's 49.8 (`PRD-2`). The gap between the two services is **1.06×, not 3.7×**.
+  - **Europractice has CMC's denominator problem too, one level smaller** (`PRD-5`): AR2025 states
+    it "currently distributes around **65,000 design-tool license bundles every year**" and that
+    "**More than 100 lecturers** attend Europractice training activities annually" — **86 licence
+    bundles per fabricated design**. Its staff are not all on fabrication either.
+  - **The 753 is described two ways in one report** (`PRD-5`): "fabricated" on p.15 and
+    "submitted" on p.3. Which it is changes nothing here but is not established.
   - **EU money per named person per year.** 2017, at the EUROPRACTICE 2016 rate:
     € 1 540 159,50 ÷ 13 = **€ 118 474**. 2024, at the RETICLES rate: € 2 395 114,58 ÷ 21 =
     **€ 114 053**. 2025, at the RETICLES rate that actually funded most of that calendar year:
@@ -694,10 +706,24 @@ give them.
     **58 people**. Holding the 2018 headcount of 48 flat instead gives $7 859 646 ÷ 48 = **CAD
     $163 743 per head**, a 21% rise over eight years before any inflation adjustment. **The truth is
     somewhere in that box: roughly 48–65 people.**
-  - **Designs per employee.** `DEM-20` gives 240 prototypes in FY2025/26. At 48 employees that is
-    **5.0 prototypes per employee per year**; at 58, **4.1**. Against Europractice's 39.6 designs per
-    *named contact* (`FUNDX-5`) the two are not comparable — one is a real headcount, the other a
-    published-contacts floor — and most of the gap between 4 and 40 is that difference.
+  - **Designs per employee. WITHDRAWN AS ORIGINALLY STATED — corrected 2026-09-25 by `PRD-6`.**
+    The original reading was: `DEM-20` gives 240 prototypes in FY2025/26, so at 48 employees that
+    is 5.0 per employee per year and at 58, 4.1. **Both the numerator and the denominator are
+    wrong.**
+    - **Denominator.** 48–65 is a whole-organisation count, and CMC is not only a broker. Its own
+      audited statements put fabrication-and-packaging at **19.1% (FY2026), 28.9% (FY2025) and
+      34.0% (FY2023)** of expenditure. Re-based pro-rata: 48 × 19% = 9.1 → 240 ÷ 9.1 = **26.3**;
+      58 × 29% = 16.8 → **14.3**; 65 × 34% = 22.1 → **10.9**. **The range is 10.9–26.3, two to
+      five times the published 5.0.**
+    - **Numerator.** Only **1,369 of 1,803** five-year "designs prototyped" were MPW manufacturing;
+      434 were custom micro-and-nanotechnology lab work. 240 × (1,369 ÷ 1,803) = **~182 MPW designs**
+      in FY2026.
+    - **The corrected gap to MOSIS is 3.5×, not 29.7×** — 49.8 (MOSIS's own last measured year,
+      `PRD-2`) ÷ 14.3 (CMC's middle estimate). Against MOSIS's *peak* year it is 10.4×. **The 29.7×
+      figure must not be used.**
+    - Still missing: **any CMC headcount after 2018, and any staff split by function.**
+      `cmc.ca/wp-json/wp/v2/awsm_team_member?per_page=100` returns `x-wp-total: 20`, but those are
+      board and leadership, not an establishment count (`PRD-6`).
 - **Bears on:**
   - **H6 (challenges, and this is the most direct statement of the problem found anywhere).** A
     national research council looked at a subsidised MPW broker and concluded it **did not want to

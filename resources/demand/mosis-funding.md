@@ -155,7 +155,25 @@ Format and conventions: [`../README.md`](../README.md). Searches and dead ends:
     dated July 1990. It does not establish what replaced it. `MOS-1` puts the end of DARPA money at
     1994, five years later, so at least one further instrument existed and was not found.
 
-### MOS-3. How many people ran MOSIS: 12 named staff in 1983, 11 in 1984, 20 in 1985, 27 in 1987 — from ISI's own reports to DARPA
+### MOS-3. How many people ran MOSIS: 13 named staff in 1982, 12 in 1983, 11 in 1984, 20 in 1985, 27 in 1985/86 — from ISI's own reports to DARPA
+
+> **CORRECTED 2026-09-25 by `PRD-1` and `PRD-2`, which recovered the five missing reports.**
+> Three things below are wrong as originally written:
+>
+> 1. **The roster of 27 is mis-dated.** It is first printed in the **1986** ATR (AD-A221184,
+>    period 1985-07-01 → 1986-06-30) and repeated verbatim in the 1987 ATR. It belongs to
+>    **1985/86**, not 1987. The arithmetic "1,683 ÷ 27 = 62" is correct but mislabelled: 1,683 is
+>    calendar **1986**, and so is the roster. **MOSIS's own last measured year is 49.8 per head**
+>    (`PRD-2`).
+> 2. **Two roster years were missing and are now recovered:** **1982 = 13** and **1986 = 27**. The
+>    full series is **62.2 → 127.7 → 148.5 → 89.5 → 62.3 → 49.8**. **1984 is the single highest
+>    point of a violently noisy series**, and quoting it as "MOSIS's productivity" overstates the
+>    service by 2.4× against its own average.
+> 3. **This is a project-chapter roster, not a service headcount.** The same reports carry a
+>    separate 37-person "Computer Research Support" chapter that ran MOSIS's machines, and
+>    Christine Tomovich is printed in both chapters of the same report (`PRD-3`). The denominator
+>    is therefore too small, in an unknown degree.
+
 
 - **Sources:** the 1983, 1984, 1985 and 1987 ISI Annual Technical Reports (DTIC AD-A145776,
   AD-A157991, AD-A178085 and AD-A224924), cited in `MOS-2`.
@@ -199,9 +217,15 @@ Format and conventions: [`../README.md`](../README.md). Searches and dead ends:
     **1985: 12 + 8 = 20 named people.** **1987: 12 + 8 + 7 = 27 named people.**
   - Against `MOS-8`'s project series — 1,532 in 1983, 1,634 in 1984, 1,790 in 1985 and about 1,683
     in 1986/87: **1,532 ÷ 12 = 128 designs per person in 1983**, **1,634 ÷ 11 = 149 in 1984**,
-    **1,790 ÷ 20 = 90 in 1985**, and **1,683 ÷ 27 = 62 in 1987** (or **1,683 ÷ 19 = 89** counting
-    only employees, not the eight graduate research assistants).
-  - **Productivity per head fell by more than half between 1984 and 1987 while throughput was flat.**
+    **1,790 ÷ 20 = 90 in 1985**, and **1,683 ÷ 27 = 62 in calendar 1986** (or **1,683 ÷ 19 = 89**
+    counting only employees, not the eight graduate research assistants). **Corrected dating: the
+    27 roster is the 1986 ATR's, so 62 is 1985/86, not 1987.** `PRD-1` adds **809 ÷ 13 = 62.2 in
+    1982** at the start of the series and `PRD-2` adds **1,345 ÷ 27 = 49.8 in 1986/87** at the end,
+    from MOSIS's own contemporaneous run table.
+  - **Productivity per head rose then fell by two-thirds, and 1984 is the peak of a noisy series.**
+    The complete series is **62.2 (1982) → 127.7 (1983) → 148.5 (1984) → 89.5 (1985) → 62.3 (1986)
+    → 49.8 (1986/87)** (`PRD-1`, `PRD-2`). **Do not quote 148.5 as "MOSIS" without saying it is the
+    maximum.** The mean of the six points is 90.0 and the last measured year is 49.8.
     Headcount went 11 → 20 → 27 (2.5×) for a project count that went 1,634 → 1,790 → 1,683 (1.03×).
     What the extra sixteen people bought was **not volume — it was technology**: from 1985 the
     roster is split across "VLSI" and a new "Advanced VLSI" chapter opened to chase CMOS, 1.2 µm,
@@ -236,10 +260,14 @@ Format and conventions: [`../README.md`](../README.md). Searches and dead ends:
     and not a payroll. Several names (Danny Cohen, Bing Sheu) are senior ISI figures who almost
     certainly split time across projects, and the eight "Research Assistants" in 1987 are graduate
     students.
-  - Only two years were recovered. Fourteen ISI Annual Technical Reports exist in the DTIC series
-    (1975 through 1987); the OCR text of seven of the twelve requested came down on the first
-    attempt and the rest failed silently (see [`search-log.md`](search-log.md) §16.2). **If those
-    are read, this becomes a time series rather than two points**, and it is cheap to do.
+  - **CLOSED 2026-09-25 by `PRD-1`. All fourteen reports are now fetchable and all five that had
+    failed have been read.** The series is complete and it changed the conclusion. What is
+    actually in the collection: exactly **fourteen** items with that title; only **six** (the 1982
+    to 1987 ATRs) carry a MOSIS chapter; **there is no 1981 ATR**; AD-A121182 is **Stanford's**,
+    not ISI's, and was in the request list by mistake; AD-A231025 is a 1981–1989 *Final Technical
+    Report* with **zero occurrences of "MOSIS" or "VLSI"**. The working route is
+    `archive.org/metadata/<id>` → `d1` + `dir` → `https://<d1><dir>/<id>_djvu.txt`, which serves
+    clean OCR with no redirect at all.
   - The 1987 chapters 4 and 5 sharing one roster could mean one team served both, or could be an
     editing shortcut in the report. The reading here is the conservative one — count once.
 
@@ -1033,7 +1061,7 @@ same answer: **a multi-project-wafer brokerage is a payroll with a website attac
 | **A year-by-year DARPA figure for MOSIS, 1981–1994** | Only a decade total exists (`MOS-8`), labelled by IDA as an "initial estimate". Nothing for 1990–1994 at all. | The end date of DARPA funding rests on `MOS-1` alone. |
 | **The IDA study's underlying data** | IDA Paper P-2429 says its project counts came from ISI; those submissions are not published, and IDA's own two series disagree (`MOS-8`). | The 258 → 1,880 series is as good as it gets. |
 | **Volumes 1 and 3 of the IDA study, and *IEEE Spectrum*, September 1984** | Volume 3 (DTIC AD-A241680) was not downloaded; Volume 1 (AD-A239925) failed with repeated HTTP 302s. IEEE Xplore was not attempted. | `MOS-10`'s Synmos quotes are **Partial** — quoted through IDA, not read in the original. |
-| **Five of twelve ISI Annual Technical Reports** (AD-A231025, AD-A127288, AD-A221184, AD-A115915, AD-A121182) | `archive.org/download/.../<id>_djvu.txt` 302s to a storage node; following the redirect with `curl -L` sometimes yields an empty body. **Resolving the `Location:` header and fetching the node URL directly works** — that is how AD-A178085 (the 1985 report) was recovered. The remaining five still failed. | **`MOS-3`'s headcount series has four points instead of nine.** Each additional report is one `curl` away and would turn it into a near-continuous 1975–1987 series — the cheapest remaining improvement to this file. |
+| ~~**Five of twelve ISI Annual Technical Reports**~~ (AD-A231025, AD-A127288, AD-A221184, AD-A115915, AD-A121182) | **RESOLVED 2026-09-25 (`PRD-1`).** They were never blocked. The redirect-following workaround recorded here is unnecessary: `https://archive.org/metadata/<id>` returns `d1` and `dir`, and `https://<d1><dir>/<id>_djvu.txt` then serves clean OCR directly. | **Done, and it changed the conclusion** — see the correction banner on `MOS-3`. Two roster years were added (1982 = 13, 1986 = 27), the 27 roster was re-dated from 1987 to 1985/86, and **1984 turned out to be the maximum of a noisy series**, not a representative value. |
 | **MOSIS 2.0's actual headcount, revenue or order book** | The site publishes four named staff and one upcoming tapeout date (`MOS-12`) and nothing financial. `ca-dreams.org` was not crawled. | The successor's scale is known only from its own marketing. |
 | **What share of MOSIS's revenue came from federal customers** | Not published anywhere found. | Without it, "self-sustaining" cannot be distinguished from "sustained by government purchasing". |
 | **How much of the $17.96 m ATMI award USC kept** | Not published. | `MOS-5`'s bearing on H6 is weaker than it looks if most of it passed to Intel. |

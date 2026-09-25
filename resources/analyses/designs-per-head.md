@@ -1,164 +1,175 @@
-# Designs per head: traditional brokers against the new providers
+# Designs per head, and the batch size underneath it
 
-*Our own arithmetic, 2026-09-25. Every input is an existing entry; nothing here is a new
-measurement. This file exists because the claim "modern brokers are dramatically less productive
-per head than a 1984 service running on 1984 computers" was asserted in conversation before it was
-written down, sourced or tested. It is written down here so it can be attacked.*
+*Our own arithmetic. First written 2026-09-25; **substantially rewritten the same day** after
+`PRD-1`…`PRD-13` tested the comparison and broke most of it.*
 
-**Status: the arithmetic is solid; the comparability is not yet established.** Read §4 before
-quoting any figure from §2. A research task (`research/productivity-drop`, output
-`demand/broker-productivity.md`, entries `PRD-*`) is open specifically to test whether the four
-traditional-provider numbers measure the same thing. **Until it reports, the 29.7× figure must not
-be cited in `WHY.md` or `PRINCIPLES.md`.**
+**The headline claim in the first version of this file is withdrawn.** "Modern brokers are
+dramatically less productive per head than a 1984 service running on 1984 computers" was asserted
+in conversation, written up, and then tested. It did not survive. What replaced it is narrower,
+better sourced, and more useful: **the gap is not in people, it is in batch size.**
 
 ---
 
-## 1. The two populations
+## 1. What was withdrawn, and why
 
-The split that matters is **not** old-versus-new. It is what the service does with a person's time.
+Three errors, all pushing the same way.
 
-| | Provider | What it is |
-|---|---|---|
-| **Traditional** | MOSIS (1981–1994, DARPA-funded) | Government-funded broker, ISI/USC |
-| | Europractice (2000–) | EU-grant-funded consortium: imec, Fraunhofer, CMP, STFC, Tyndall |
-| | CMC Microsystems (1984–) | Canadian federally-funded national service |
-| **New** | ChipFoundry (2025–) | Commercial, no external investors |
-| | Tiny Tapeout (2022–) | Commercial, no external investors |
-| | wafer.space (2025–) | Commercial, no external investors |
+**(a) 1984 was the maximum of a noisy series, and the series was four points long only because five
+documents had not been recovered.** All five are now recovered (`PRD-1`). MOSIS's complete
+designs-per-named-person series:
 
-## 2. The numbers
+| ISI report (period) | Named staff | Projects | Per head |
+|---|---:|---:|---:|
+| 1982 ATR (Jul 1981 → Jun 1982) | **13** *(new)* | 809 | **62.2** |
+| 1983 ATR | 12 | 1,532 | 127.7 |
+| 1984 ATR | 11 | 1,634 | **148.5** ← the number that was quoted |
+| 1985 ATR | 20 | 1,790 | 89.5 |
+| 1986 ATR (Jul 1985 → Jun 1986) | **27** *(new, and re-dated)* | 1,683 | 62.3 |
+| 1987 ATR (Jul 1986 → Nov 1987) | 27 | 1,345/yr | **49.8** |
 
-Designs shipped per staff-member per year. **Sources are entry IDs; follow each one before using
-the number.**
+62 → 128 → 149 → 90 → 62 → 50. **1984 is the single highest point**; the mean is 90.0 and MOSIS's
+own last measured year is **49.8**. The roster of 27 was also mis-dated: it is first printed in the
+**1986** report and repeated verbatim in 1987, so it belongs to 1985/86.
 
-### Traditional
+**(b) The denominators were not the same kind of object** (`PRD-5`, `PRD-6`, `PRD-3`).
 
-| Provider | Period | Designs | Staff | **Per head** | Source |
-|---|---|---|---|---|---|
-| MOSIS | Jul 1982 → Jun 1983 | 1,532 | 12 | **127.7** | `MOS-3` |
-| MOSIS | Jul 1983 → Jun 1984 | 1,634 | 11 | **148.5** | `MOS-3` |
-| MOSIS | Jul 1984 → Jun 1985 | 1,790 | 20 | **89.5** | `MOS-3` |
-| MOSIS | Jul 1986 → Nov 1987 | ~1,683 | 27 | **62.3** (88.6 excl. 8 students) | `MOS-3` |
-| Europractice | 2017 | 614 | 13 named | **47.2** | `DEM-16`, `FUNDX-5` |
-| Europractice | 2024 | 837 | 21 named | **39.9** | `DEM-16`, `FUNDX-5` |
-| Europractice | 2025 | 753 | 19 named | **39.6** | `DEM-16`, `FUNDX-5` |
-| CMC Microsystems | FY2025/26 | 240 prototypes | 48 / 58 / 65 | **5.0 / 4.1 / 3.7** | `DEM-20`, `FUNDX-6` |
-| MOSIS 2.0 | 2026 | one advertised MPW date | 4 named | *not computable* | `MOS-12` |
+- **Europractice.** Three of the nineteen named contacts are printed on the contact page as *design
+  tools*, *training courses* and *academic membership* — not fabrication. **753 ÷ 16 = 47.1.**
+- **CMC.** 48–65 is a whole-organisation count, and CMC's audited statements put
+  fabrication-and-packaging at **19.1% / 28.9% / 34.0%** of expenditure in FY2026 / FY2025 / FY2023.
+  Re-based pro-rata the range is **10.9 – 26.3**, not 5.0. The numerator is too big as well: only
+  **1,369 of 1,803** five-year "designs prototyped" were MPW.
+- **MOSIS.** Its 11 is a *project-chapter roster* that excluded ISI's separate **37-person computer
+  centre**, which ran MOSIS's machines. One person is printed in both chapters of the same report.
 
-### New
+**(c) The unit survived, and that part was sound.** MOSIS "projects", Europractice "designs" and
+CMC "prototypes" are all designs placed on a shared reticle and delivered as packaged parts
+(`PRD-4`). This was the defect I expected to be fatal and it was not.
 
-| Provider | Period | Designs | Staff | **Per head** | Source |
-|---|---|---|---|---|---|
-| ChipFoundry | 2025-05-01 → 2026-09-20 | 89 committed slots | 4 named (a **floor**) | **16.0 – 22.2** | `CF-4`, `CF-6`, `CF-11` |
-| Tiny Tapeout | 2025 | 1,492 designs | **not published** | *see §3* | `PAY-6`, `doubling-time-and-timelines.md` |
-| wafer.space | 2026 to date | 24 customers (Run 2: 18, Run 3: 6 so far) | **zero full-time employees** | *undefined* | operator statement; `OPG-12` |
+### The corrected comparison
 
-**ChipFoundry's arithmetic, both ways.** 89 committed slots ÷ 4 named staff = **22.2** if the whole
-89 is taken as one year's work. Dating from the first shuttle opening (2025-05-01) to the reading
-(2026-09-20) is 507 days = 1.388 years, so 89 ÷ 1.388 = 64.1/yr ÷ 4 = **16.0**. Both are
-**ceilings**, because four is a floor on the headcount (`CF-4`: four named individuals is the
-largest headcount evidenceable from public sources, not a company statement), and two of the five
-shuttles are still filling.
+| | Per head | vs MOSIS's last measured year (49.8) |
+|---|---:|---:|
+| MOSIS 1986/87 | **49.8** | — |
+| Europractice 2025, fabrication-facing | **47.1** | **1.06×** |
+| CMC FY2026, re-based, middle estimate | **14.3** | **3.5×** |
 
-## 3. Tiny Tapeout, without needing its headcount
+**Against MOSIS's peak instead of its last year**, the ratios are 3.2× and 10.4×. **The 29.7×
+figure quoted earlier is dead and must not be used anywhere.**
 
-Tiny Tapeout publishes no employee count, so the ratio cannot be computed. **It does not need to
-be.** Invert it instead: *how many people could Tiny Tapeout employ and still match each
-benchmark?*
+**Europractice is within 6% of MOSIS on people.** The "traditional brokers got worse at using
+people" story is, as regards Europractice, false.
 
-| To match | Tiny Tapeout could employ |
+## 2. What the evidence actually supports: batch size
+
+`PRD-8`. MOSIS put **32.8 designs on every run**. Europractice's 2026 schedule — parsed from its own
+HTML grid — offers **124 technology lines, 307 filled month-cells, 248 distinct
+technology-and-date submission slots on 154 calendar dates**, for 753 designs:
+**753 ÷ 248 = 3.04 designs per slot.**
+
+**And the decomposition is exact.** Designs per head = (designs per run) × (runs per head):
+
+| | Designs per run | × runs per head | = per head |
+|---|---:|---:|---:|
+| MOSIS 1986/87 | 32.8 | 1.52 | **49.8** ✓ |
+| Europractice 2025 | 3.04 | 15.5 | **47.1** ✓ |
+
+**The modern service runs ten times as many shuttle events per person and puts eleven times fewer
+designs on each. They cancel exactly.** The headcount story was the residue of two effects that
+offset; the real difference is portfolio fragmentation — ~90 technologies from 20+ foundries, at
+**8.4 designs per technology per year**, against MOSIS's 635.
+
+### Where the new providers sit on the axis that matters
+
+| Provider | Designs per run | Source |
+|---|---:|---|
+| **Tiny Tapeout 2025** | **124.3** (1,492 ÷ 12 shuttles) | `PAY-6`, `doubling-time-and-timelines.md` |
+| MOSIS 1986/87 | 32.8 | `PRD-2`, `PRD-8` |
+| wafer.space Run 2 | 18 | `OPG-12` |
+| ChipFoundry | 17.8 (89 ÷ 5 shuttles) | `CF-6`, `CF-11` |
+| **Europractice 2026** | **3.04** | `PRD-8` |
+
+**Tiny Tapeout's batch is 40.9× Europractice's and 3.8× MOSIS's best.** *This* is the real and
+defensible version of the claim, and it is a much better one for this project than the
+productivity claim was, because **batch size is the thing an auction-scheduled foundry directly
+controls.** Aggregating demand onto fewer, fuller reticles is not a side effect of the design; it
+is the design.
+
+## 3. Designs per head, with the new providers
+
+| Provider | Period | Designs | Staff | Per head | Source |
+|---|---|---:|---|---:|---|
+| MOSIS | 1986/87 | 1,345/yr | 27 | **49.8** | `PRD-2` |
+| Europractice | 2025 | 753 | 16 fab-facing | **47.1** | `PRD-5` |
+| ChipFoundry | 2025-05 → 2026-09 | 89 slots | 4 named (a floor) | **16.0 – 22.2** | `CF-4`, `CF-6` |
+| CMC | FY2026 | 240 | re-based 9.1–22.1 | **10.9 – 26.3** | `PRD-6` |
+| Tiny Tapeout | 2025 | 1,492 | **not published** | *see below* | `PAY-6` |
+| wafer.space | 2026 | 24 customers | **zero FTE** | *undefined* | operator |
+
+**Tiny Tapeout, without needing its headcount.** Invert it — how many people could it employ and
+still match each benchmark?
+
+| To match | TT could employ |
+|---|---:|
+| MOSIS's peak, 148.5 | **10.0** |
+| MOSIS's last year, 49.8 | **30.0** |
+| Europractice corrected, 47.1 | **31.7** |
+| CMC corrected middle, 14.3 | **104.3** |
+
+The inversion is still the robust form, and it still holds on the corrected benchmarks: Tiny
+Tapeout would have to be a **thirty-two-person** company to be as unproductive per head as
+Europractice. But note the honest consequence of §1 — **against Europractice the bar is now 47.1,
+not 39.6, and against MOSIS it is 49.8, not 148.5.** The claim is weaker than it was this morning.
+
+**ChipFoundry remains the awkward case**: a new provider, no external investors, at 16.0–22.2 —
+*below* Europractice. Vintage is not the variable.
+
+## 4. The other candidate causes, tested
+
+From `PRD-7` through `PRD-13`. Each was tested rather than assumed.
+
+| Candidate | Verdict |
 |---|---|
-| MOSIS 1983/84, 148.5 per head | **10.0 people** |
-| MOSIS 1986/87, 62.3 per head | **23.9 people** |
-| Europractice 2025, 39.6 per head | **37.6 people** |
-| CMC FY2025/26 at 48 staff, 5.0 per head | **298.4 people** |
+| **Batch size / portfolio fragmentation** | **Supported, and it is the mechanism.** The decomposition closes exactly on both services (`PRD-8`) |
+| **Scope creep** | **Supported, qualitatively and cleanly.** MOSIS 1986: *"it is the sole responsibility of the user to see that the submitted patterns yield working designs"* — comparing itself to *"a publisher of conference proceedings"*. Europractice 2025: *"extensive Design Rule and Electrical Rule Checkings are performed on all designs submitted to the Service."* **Per-design checking is the one cost that cannot be amortised over a run** (`PRD-7`) |
+| **Design complexity** | **Third, and measured in period.** One node step, 3 µm → 2 µm, cost MOSIS 1.9–3.0× of batch size and 1.89× of turnaround, *in 1987*. **The complexity penalty is a property of chasing the edge, not of the edge being at 3 nm** (`PRD-9`) |
+| **"It's all mature nodes anyway"** *(our own counter-argument)* | **One third true.** Europractice 2025 is one third mature (0.11–0.35 µm); 65 nm is 172 designs (22.8%); named 22 nm is 134 (17.8%); four universities at 7 nm FinFET (`PRD-10`) |
+| **NDA / PDK legal gating (H8)** | **Supported but thin.** MOSIS 1987: *"a set of non-proprietary design rules applicable to a multiple vendor base"*, and **zero legal or contracts roles across 110 name-years of roster**. Europractice 2025 names one legal role among nineteen. **No broker publishes a count of agreements processed, so the cost is not sized anywhere** (`PRD-11`) |
+| **Fundraising overhead** *(the first hypothesis raised)* | **Real, visible, and too small.** MOSIS: one instrument for nine years. CMC: six public instruments in five years with the base turning over completely. Professional fees +79.6% and outreach +59.8% in one year — but together **6.7% of spending**. Cannot explain a 2–10× gap (`PRD-13`) |
+| **Volume collapse alone** | **No.** Throughput fell 1,345 → 753 → 240, but the corrected denominators fell with it |
+| **Fewer foundries means less work** | **False.** MOSIS 1982 named 4 wafer vendors and 3 mask houses; Europractice has *"nearly 90 technologies from more than 20 foundries"* — 5.6–7.8 technologies per fabrication-facing person against MOSIS's 0.15 (`PRD-12`) |
 
-1,492 ÷ 148.5 = 10.0; 1,492 ÷ 39.6 = 37.6; 1,492 ÷ 5.0 = 298.4.
+**One finding here bears directly on H8 and is worth separating out.** MOSIS could refuse to check
+designs — *"not to address the spelling, grammar, syntax, ideas, or concepts"* — **because its rules
+were public**. A broker distributing an NDA'd PDK cannot let the customer own correctness in the
+same way. Openness and the ability to run a hands-off, high-batch service are linked, and that link
+is a mechanism rather than a correlation. It is not yet quantified.
 
-**This is the robust form of the claim.** It survives not knowing the headcount, because any
-plausible value falls on the same side of the line. Tiny Tapeout would have to be a
-thirty-eight-person company to be *as unproductive per head as Europractice*, and a
-three-hundred-person company to be as unproductive as CMC.
+## 5. What is still not established
 
-wafer.space's ratio is **undefined, and that is the observation** — the denominator is zero. Two
-completed runs and a live third, with no full-time employees at all.
+- **No Europractice FTE count exists in public.** The 16 is a named-contacts floor. If the real
+  establishment is 30, the figure drops to 25.1 and MOSIS beats it 2×. The Chips JU Annex 1
+  person-months would settle it and are unpublished.
+- **No CMC headcount since 2018, and no staff split by function anywhere.** The 19.1–34.0%
+  re-basing is by *expenditure share*, not by people. Ontario's public-sector salary disclosure is
+  the untried next step.
+- **No broker publishes a count of NDAs, PDK licences or export declarations.** This is what H8 most
+  needs, and it appears not to exist.
+- **Tiny Tapeout's headcount** (route: KvK accounts, `PAY-11`, behind a paid account we will not
+  create) and **ChipFoundry's** (no careers page, no statement, `CF-4`).
+- **CMC's node mix** is not published at all; Europractice's per-node counts for 2025 are unlabelled
+  raster bar charts.
+- **MOSIS 1988–89 has no roster and never will** — the Final Technical Report has no MOSIS chapter.
 
-## 4. What this does NOT establish — read before quoting §2
+## 6. What may be cited where
 
-**These four traditional numbers may not measure the same thing.** Four specific problems, in
-descending order of how much damage each does:
-
-1. **CMC's 5.0 is the most suspect number in the table.** CMC is not only an MPW broker: it
-   distributes CAD tool licences to Canadian universities, runs training, and operates labs. If most
-   of its 48–65 people are not on the fabrication service, the denominator is wrong and **5.0 is an
-   artefact**. `FUNDX-6` already says so in terms: against Europractice's figure "the two are not
-   comparable — one is a real headcount, the other a published-contacts floor". **The 29.7× MOSIS/CMC
-   ratio is therefore the weakest cell in this file, not the headline.**
-2. **Europractice's 19 is a count of named website contacts, not FTEs.** `FUNDX-5` derives that the
-   grant money per named person looks like "roughly half to two-thirds of a full-time equivalent
-   each". If the real FTE count is ~11, Europractice's true figure is ~68, not 39.6, and the gap to
-   MOSIS closes almost entirely.
-3. **"Designs" is not defined identically.** MOSIS counted *projects*; Europractice counts *designs*;
-   CMC counts *prototypes*; ChipFoundry counts *committed slots*, which `CF-6` warns may be deposits
-   rather than sales; Tiny Tapeout counts *designs* of which many are student exercises on a shared
-   die. A Tiny Tapeout tile and a CMC prototype are not the same unit of work.
-4. **Node mix is uncontrolled.** MOSIS 1984 shipped 3 µm and 1.2 µm nMOS/CMOS. Europractice and CMC
-   ship a spread including 65 nm and below. If the work per design has genuinely exploded, part of
-   the decline is real complexity rather than lost efficiency.
-
-**Two further gaps on the new-provider side:** ChipFoundry's 4 is a floor, so its ratio is a
-ceiling; and Tiny Tapeout's headcount is absent entirely, which is why §3 is written as an
-inversion rather than a ratio.
-
-## 5. The correction this file makes to an earlier claim
-
-An earlier conversational summary said the MOSIS head-count series "cuts against the automation
-reading" — that because MOSIS was automated for its era and still needed subsidy, automation is not
-what makes a broker cheap.
-
-**That was a category error and it is withdrawn.** It conflated two different questions:
-
-- **Productivity per head** — how many designs one person can ship. Automation drives this. MOSIS
-  1983/84 got 148.5, and its own reports to DARPA describe automated vendor templates, computerised
-  geometry processing and automated wafer-space allocation, with users perceiving MOSIS as "a black
-  box that accepts artwork files electronically and responds with packaged IC devices"
-  (`MOS-4`, `MOS-8`).
-- **Cost recovery** — whether the price covers the cost. MOSIS failed this by charging $400 against
-  $1,765/design of operating cost (`MOS-8`). That is a pricing and subsidy decision, not a
-  productivity failure.
-
-MOSIS 1984 is therefore **consistent with** the automation thesis, not against it: the automated
-traditional provider got 148.5 per head, and the staff-intensive modern ones get 39.6 and 5.0. What
-MOSIS shows is that *automation alone does not produce cost recovery if you price at a fifth of
-cost.*
-
-## 6. What the evidence actually supports
-
-**Not** "new beats traditional". ChipFoundry is a new provider, has no external investors, and at
-**16.0–22.2** sits *below* Europractice's 39.6. Vintage is not the variable.
-
-The variable that separates the table is **whether a human is in the loop per design**:
-
-| | Human per design? | Per head |
-|---|---|---|
-| wafer.space | no — self-service campaign | undefined (0 FTE) |
-| Tiny Tapeout | no — self-service submission, automated harness | ≥148.5 at any headcount ≤ 10 |
-| MOSIS 1983/84 | no — "a black box that accepts artwork files electronically" | 148.5 |
-| Europractice | partly — a named human contact per foundry per partner (`FUNDX-5`) | 39.6 |
-| ChipFoundry | yes — consultative, deposit-and-milestone (`CF-6`, `CF-9`) | 16.0–22.2 |
-| CMC | yes — licences, training, labs, staffed support | 5.0 *(suspect, §4)* |
-
-**The 1984 result is the load-bearing one**, because it removes the escape hatch that this only
-became possible with modern software. An electronically-submitted, automatically-processed service
-reached 148.5 designs per person **on 1984 computers**. The traditional providers have not got
-closer to it since; they have moved away from it.
-
-## 7. Open questions, assigned
-
-| Question | Where it is being worked |
+| Claim | Status |
 |---|---|
-| Do the four traditional numbers measure the same thing? | `research/productivity-drop` → `PRD-*` |
-| Extend MOSIS's 4-point head-count series (5 ISI reports still unrecovered) | same |
-| Is the cause fundraising overhead, design complexity, NDA/PDK legal gating, foundry count, or volume collapse? | same |
-| Tiny Tapeout's actual headcount | **unassigned.** KvK accounts for Tiny Tapeout B.V. are the route (`PAY-11`) and are behind a paid account we will not create |
-| ChipFoundry's actual headcount | **unassigned.** No careers page, no statement (`CF-4`) |
+| Batch size 32.8 vs 3.04, and the exact decomposition | **Citable.** `PRD-8` |
+| Tiny Tapeout's 124.3 designs per shuttle | **Citable.** `PAY-6` |
+| MOSIS's full six-point series, 62.2 → 49.8 | **Citable.** `PRD-1`, `PRD-2` |
+| The scope-creep quotes | **Citable.** `PRD-7` |
+| "Europractice is within 6% of MOSIS per head" | **Citable with its caveat** — 16 is a floor |
+| Anything per-head about CMC | **Range only, 10.9–26.3.** Never the single figure |
+| **"29.7× more productive than CMC"** | **WITHDRAWN. Do not use.** |
+| **"148.5 designs per head" as *MOSIS's* productivity** | **Only as the series maximum**, never unqualified |

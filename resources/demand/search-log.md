@@ -1202,6 +1202,20 @@ text through archive.org's Solr index**, which no search engine blocks:
 https://archive.org/advancedsearch.php?q=collection:dticarchive+AND+<term>&fl[]=identifier&fl[]=title&fl[]=year&rows=80&output=json
 ```
 
+**Updated 2026-09-25 (`PRD-1`): `advancedsearch.php` now returns HTTP 502 intermittently. The
+working replacement returns the whole collection in one call:**
+
+```
+https://archive.org/services/search/v1/scrape?q=<query>&fields=identifier,title,year&count=1000
+```
+
+**And full text does not need the `download/` redirect dance at all.** `https://archive.org/download/<id>/<id>_djvu.txt`
+302s to a storage node and `curl -L` sometimes returns an empty body, which is why five reports
+were recorded as "failed silently". They were not blocked. Fetch
+`https://archive.org/metadata/<id>`, read `d1` and `dir` from the JSON, and request
+`https://<d1><dir>/<id>_djvu.txt` directly — clean OCR, no redirect. **All five came down this way
+and the MOSIS head-count series is now complete.**
+
 `collection:dticarchive AND MOSIS` returns 48 items. `collection:dticarchive AND
 title:("Research Program in Computer Technology")` returns the fourteen USC/ISI Annual Technical
 Reports to DARPA, 1975–1987, which carry the contract number, the project rosters and the run
