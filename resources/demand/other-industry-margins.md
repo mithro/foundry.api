@@ -629,6 +629,254 @@ the only find that is an actual semiconductor foundry
   - The disclosure has stopped. As with `OIM-3`, a reader looking at only the latest annual report
     would not find this split.
 
+### OIM-6. Catalent's clinical-scale segment out-earns two of its three commercial-manufacturing
+segments — grade 3, and the qualifier that stops `OIM-3` and `OIM-4` from being read too widely
+
+- **Source:** Catalent, Inc. (NYSE: CTLT), CIK 0001596783, Form 8-K exhibit 99.1, "Catalent, Inc.
+  Reports Fourth Quarter Fiscal 2021 Results", furnished 2021-08-30, accession
+  0001193125-21-259892:
+  <https://www.sec.gov/Archives/edgar/data/1596783/000119312521259892/d217561dex991.htm>
+- **Verification:** Verified 2026-09-25. Read in an ordinary browser (`curl` gets HTTP 403 from
+  `www.sec.gov/Archives`); the "Selected Segment Financial Data" table for the fiscal year ended
+  2021-06-30 was read in place and the margins recomputed from it.
+- **What it says:**
+  - **Segment net revenue and Segment EBITDA, fiscal year ended 2021-06-30** ($ millions, as
+    printed):
+
+    | Segment | FY2021 net revenue | FY2021 Segment EBITDA | Segment EBITDA margin |
+    |---|---|---|---|
+    | Biologics | 1,928 | 608 | **31.5%** (company-stated) |
+    | Softgel and Oral Technologies | 1,012 | 237 | **23.4%** (company-stated) |
+    | Oral and Specialty Delivery | 686 | 160 | **23.3%** (company-stated) |
+    | **Clinical Supply Services** | **391** | **108** | **27.6%** (company-stated) |
+
+    The FY2020 column gives Clinical Supply Services 345 / 91 = **26.4%** against Softgel 1,062 /
+    257 = 24.2% and Oral and Specialty Delivery 676 / 201 = 29.7%.
+  - **What Clinical Supply Services is**, from the company's FY2022 10-K: "Our Clinical Supply
+    Services segment provides manufacturing, packaging, storage, distribution, and inventory
+    management for small-molecule drugs, protein-based biologics, and cell and gene therapies in
+    clinical trials." It is the small-batch, many-programmes, low-volume end of Catalent.
+  - Catalent is capital-heavy: net property, plant and equipment of **$2,524 million** at
+    2021-06-30, and "Acquisition of property, equipment, and other productive assets" of **$686
+    million** in FY2021.
+- **DERIVED (arithmetic written out):** 108 ÷ 391 = **27.62%**; 237 ÷ 1,012 = **23.42%**; 160 ÷ 686
+  = **23.32%**; 608 ÷ 1,928 = **31.54%**. All four reproduce the company's stated margins.
+  Clinical Supply Services was **9.73%** of segment revenue (391 ÷ 4,017 before eliminations) and
+  **9.70%** of Segment EBITDA (108 ÷ 1,113). Revenue per $1 of segment EBITDA: Clinical Supply
+  Services **$3.62**, Softgel **$4.27**, Oral and Specialty Delivery **$4.29**, Biologics **$3.17**.
+- **Bears on:**
+  - **H6 (mixed, and it is the important qualifier).** Catalent's small-scale clinical business is
+    *more* profitable than two of its three commercial-manufacturing segments, which cuts against
+    the flat reading of `OIM-3` and `OIM-4` that "small-batch pharma is a bad business". The
+    distinction that survives both findings is between **small-batch chemical synthesis** — where
+    process development is consumed by a few kilograms and the margin is poor (Asymchem, Porton) —
+    and **small-batch packaging, labelling and distribution**, which is repetitive work done many
+    times over and earns a normal margin (Catalent). That is the same distinction `OIM-5` draws
+    inside a fab, and the same one JLC embodies: **repeatable small work pays; novel small work
+    does not.**
+- **Used in:** not yet.
+- **Caveats:**
+  - **Segment EBITDA is not gross margin**, so this is not comparable line-for-line with `OIM-1`,
+    `OIM-3`, `OIM-4` or `SMB-1`. Catalent does not publish gross margin by segment.
+  - **Clinical Supply Services is largely a services and logistics business**, not manufacturing. It
+    does not own the kind of plant the other segments do, so a higher margin on it is partly a
+    statement about asset intensity.
+  - FY2021 was distorted throughout Catalent by COVID-19 vaccine manufacturing, which sits in
+    Biologics.
+  - One year is quoted here, with FY2020 as the comparison the same table provides. The
+    later years were not read.
+
+### OIM-7. Knight-Swift runs a small-shipment network and a full-trailer network side by side and
+reports the operating ratio of each: LTL 93.2% against Truckload 94.8% — grade 3, logistics
+
+- **Source:** Knight-Swift Transportation Holdings Inc. (NYSE: KNX), CIK 0001492691, Form 8-K
+  exhibit 99.1, fourth-quarter and full-year 2025 results, furnished 2026-01-21, accession
+  0001492691-26-000007:
+  <https://www.sec.gov/Archives/edgar/data/1492691/000149269126000007/exhibit99112312025.htm>
+- **Verification:** Verified 2026-09-25 for the operating ratios, which were read in a browser
+  directly from the two "Non-GAAP Reconciliation … Segment Adjusted Operating Ratio" tables. The
+  revenue, operating income and operating-statistics figures were returned by `WebFetch` against
+  the same document and are consistent with them; the two routes agree.
+- **What it says** (year to date, 31 December):
+
+  | | LTL segment (small shipments) | Truckload segment (full trailers) |
+  |---|---|---|
+  | 2025 total revenue | $1,478,508 thousand | $4,865,034 thousand |
+  | 2025 operating income | $38,994 thousand | $147,232 thousand |
+  | 2025 GAAP operating ratio | 97.4% | 97.0% |
+  | **2025 adjusted operating ratio** | **93.2%** | **94.8%** |
+  | **2024 adjusted operating ratio** | **90.1%** | **95.6%** |
+  | 2025 shipments per day / revenue per shipment | 23,923 / $213.61 | — |
+  | 2025 weight per shipment | 993 pounds | — |
+  | 2025 average revenue per tractor | — | $199,897 |
+
+- **DERIVED (arithmetic written out):** an operating ratio is operating expense ÷ revenue, so the
+  operating margin is 100 − OR. On the adjusted basis the **small-shipment network earned 6.8%
+  against the full-trailer network's 5.2% in 2025 (a 1.6-point advantage), and 9.9% against 4.4% in
+  2024 (a 5.5-point advantage)**. A 993-pound LTL shipment is about **2.5%** of a 40,000-pound
+  truckload, so the two segments differ in consignment size by roughly forty times. Annualised LTL
+  shipments: 23,923 × 365 ≈ **8.73 million** (the company gives shipments *per day*, and does not
+  say how many operating days it assumes, so this is an upper bound).
+- **Bears on:**
+  - **H6 (supports, weakly).** One company, two networks, both asset-owning, both reported with the
+    same measure: the one that carries a very large number of very small consignments earns more
+    than the one that carries whole trailers, in both years. This is the JLC direction in a third
+    industry.
+  - It is **grade 3 and weak**: an operating ratio is not a gross margin, the two networks are
+    physically separate, Knight-Swift's LTL arm is subscale and mid-acquisition (its OR worsened
+    3.1 points in 2025 on integration), and the margin gap of 1.6 points is nothing like JLC's
+    33.5-point gross-margin gap.
+- **Used in:** not yet.
+- **Caveats:**
+  - **Operating ratio includes overhead**, so it is closer to an operating margin than to a gross
+    margin, and the comparison to JLC's gross-margin split is loose.
+  - **A small shipment is not a small customer.** LTL freight is tendered by large shippers as well
+    as small ones; the disclosure is about consignment size, not customer size, and Knight-Swift
+    publishes no customer count or concentration by segment.
+  - The wider industry comparison — dedicated LTL carriers running at operating ratios in the low
+    70s against truckload carriers in the low-to-mid 90s — is a comparison *between* companies with
+    different cost structures and was not pursued here. Within one company the gap is much smaller.
+
 ---
 
-*(Continued below: further entries, the comparison table, the verdict and the blocked-sources list.)*
+## Comparison table
+
+Every cell is sourced in the entry above it. `SMB-1` (JLC) is included as the benchmark the whole
+file is measured against. "Small end" and "bulk end" are this file's labels, not the issuers'.
+
+| Industry | Company | Split by | Small end | Bulk end | Gap | Measure | Year | Source |
+|---|---|---|---|---|---|---|---|---|
+| **PCB** (benchmark) | JLC 嘉立创 (unlisted, SZSE IPO filing) | Order area: ≤20 m² vs >20 m² | **36.24%** | **2.76%** | **+33.48 pp** | Gross margin | 2025 | IPO prospectus (`SMB-1`) |
+| **MEMS wafer foundry** | 赛微电子 / Silex (SZSE 300456) | Bespoke process development vs batch wafer manufacturing | **39.90%** | 33.19% | **+6.71 pp** | Gross margin | 2024 | Annual report (`OIM-5`) |
+| **MEMS wafer foundry** | 赛微电子 / Silex | same | **49.19%** | 18.18% | **+31.01 pp** | Gross margin | 2022 | Annual report (`OIM-5`) |
+| **Commercial printing** | Cimpress plc (Nasdaq CMPR) | Micro-business retail vs graphic-professional wholesale | **55%** | 32% | **+23 pp** | Gross margin | FY2025 | 10-K, 8-K (`OIM-1`) |
+| **Commercial printing** | Cimpress plc | same, at segment EBITDA | 19.06% | 18.80% (Print Group) | **+0.26 pp** | Segment EBITDA margin | FY2025 | 8-K (`OIM-1`) |
+| **Metals processing** | Reliance, Inc. (NYSE RS) | Small orders vs mill minimums | *not printed* | *not printed* | — | Stated only | 2025 | 10-K (`OIM-2`) |
+| **Pharma CDMO** | 凯莱英 Asymchem (SZSE 002821) | Clinical stage vs commercial stage | 39.42% | **53.32%** | **−13.90 pp** | Gross margin | 2024 | Annual report (`OIM-3`) |
+| **Pharma CDMO** | 凯莱英 Asymchem | same | 40.74% | **60.07%** | **−19.33 pp** | Gross margin | 2023 | Annual report (`OIM-3`) |
+| **Pharma CDMO** | 博腾股份 Porton (SZSE 300363) | Early clinical vs late clinical + commercial | 19.69% | **44.70%** | **−25.01 pp** | Gross margin | 2025 | Annual report (`OIM-4`) |
+| **Pharma CDMO** | 博腾股份 Porton | same | 6.84% | **53.48%** | **−46.63 pp** | Gross margin | 2023 (restated) | Annual report (`OIM-4`) |
+| **Pharma services** | Catalent (NYSE CTLT) | Clinical supply vs commercial manufacture | **27.6%** | 23.4% / 23.3% | **+4.2 / +4.3 pp** | Segment EBITDA margin | FY2021 | 8-K (`OIM-6`) |
+| **Freight** | Knight-Swift (NYSE KNX) | 993-lb shipments vs full trailers | **6.8%** | 5.2% | **+1.6 pp** | 100 − adjusted operating ratio | 2025 | 8-K (`OIM-7`) |
+
+Restated as the calculation `../analyses/long-tail-pays-for-the-capital.md` makes — revenue that
+must be turned over to produce one unit of gross profit, which is what services capital:
+
+| Company, year | Small end | Bulk end | Which end services capital better |
+|---|---|---|---|
+| JLC 2025 | 2.76 | 36.23 | **small, by 13.1×** |
+| Silex 2022 | 2.03 | 5.50 | **small, by 2.71×** |
+| Cimpress FY2025 | 1.81 | 3.12 | **small, by 1.72×** |
+| Silex 2024 | 2.51 | 3.01 | **small, by 1.20×** |
+| Asymchem 2024 | 2.54 | 1.88 | bulk, by 1.35× |
+| Porton 2025 | 5.08 | 2.24 | **bulk, by 2.27×** |
+
+## Verdict: does the JLC pattern generalise beyond PCBs?
+
+**Yes, the disclosure exists elsewhere — that was the surprise. No, the finding does not generalise
+as a rule. It generalises as a rule with a condition attached, and the condition is whether the
+small orders are repetitions or first-of-a-kind.**
+
+Four claims, kept apart.
+
+**1. "Companies outside PCBs do publish margin split by order size or batch size." — Confirmed,
+and more easily than expected.** `pcb-industry-comparables.md` concluded that JLC's table exists
+only because a listing committee compelled it, and that no PCB peer publishes one. That is true of
+the PCB industry and false of industry in general. **Four** companies were found printing a
+gross-margin split, in three industries, in about a day of searching — Cimpress publishes segment
+gross margin annually for seven years in an ordinary investor letter, and Asymchem, Porton and
+Silex all print the split in the standard 分产品 ("by product") margin table that Chinese listing
+rules require — plus **two more** (Catalent, Knight-Swift) publishing segment profitability that
+maps onto the distinction, and one (Reliance) stating the comparison without numbers.
+**The claim in `pcb-industry-comparables.md` that "only JLC publishes a margin split by batch size"
+should be narrowed to the PCB industry.** Outside it, the disclosure is not rare — you simply have
+to accept a proxy for order size (customer type, project stage, activity) instead of a printed
+square-metre threshold.
+
+**2. "Where the split is published, the small end earns the higher margin." — False as a general
+claim. It is true in four cases out of seven and false in two, and the two are not marginal.**
+Asymchem and Porton, two independent Chinese CDMOs, print the same shape of table as JLC — one
+company, its own GMP plants, revenue and cost side by side — for seven company-years between them,
+and in **every single one** the large-batch end wins, by 6.8 to 46.6 percentage points. Porton's
+2023 is JLC's 2025 photographed in a mirror: the small-batch line was 17.39% of revenue and 2.62%
+of gross profit, where JLC's bulk line was 24.43% of revenue and 2.40% of gross profit. Anyone
+citing `SMB-1` as evidence that small orders are where the gross profit is must also cite `OIM-3`
+and `OIM-4`, or they are quoting selectively.
+
+**3. "There is a rule underneath that survives both." — Tentatively yes, and this is the most
+useful thing in this file.** The cases sort cleanly on one question: **is a small order a
+repetition of something the plant already knows how to do, or a first-of-a-kind?**
+
+- Where small orders are *repetitions* — a five-board PCB run through the same panelised process as
+  twenty million other orders (JLC); a business card order that takes "less than 14 seconds of
+  labor" (Cimpress); a 993-pound pallet through a hub-and-spoke network (Knight-Swift); a clinical
+  kit packed and shipped (Catalent) — the small end earns the higher margin, because the setup cost
+  has been engineered to nearly zero and small orders are simply priced less keenly than bulk
+  buyers can negotiate.
+- Where each small order is a *first-of-a-kind* that consumes process development, validation and
+  documentation — a clinical molecule synthesised once (Asymchem, Porton) — the small end earns
+  the lower margin, because the non-recurring work is amortised over a few kilograms.
+
+`OIM-5` is the case that ties the knot, because it contains both. A MEMS foundry's bespoke
+"process development" business is first-of-a-kind work, and it earned **more** than volume wafer
+manufacturing in every year disclosed — but it is sold as a separate, separately-priced engineering
+service, not bundled into the price of a small wafer order. The lesson is that the NRE has to be
+charged for, not absorbed.
+
+**This is the sharpest thing the search found and it bears directly on foundry.api.** A shuttle
+where every customer's design is novel looks structurally like a CDMO's clinical line, not like
+JLC. A shuttle where the process is frozen and the only variable is which reticle field a customer
+occupies looks like JLC. Which of those foundry.api is depends on design choices that
+`PRINCIPLES.md` and `DESIGN.md` make, and the evidence says the answer determines whether the long
+tail pays.
+
+**4. "The long-tail premium is durable." — Not supported. In every case where a time series
+exists, the gap is narrowing.** Cimpress: 29.56 pp (FY2019) → 22.91 pp (FY2025), because the
+long-tail margin fell three points and the wholesale margin rose 3.6. Silex: +53.50 pp (2021) →
++6.71 pp (2024). JLC is the only one moving the other way, and there the movement comes from the
+bulk margin *collapsing* rather than the long-tail margin rising. Two of the five companies —
+Asymchem and Silex — **stopped publishing the split entirely** in their most recent annual report,
+so both series are now closed.
+
+**And a fifth point, about gross margin as a measure.** Cimpress is the only company in this file
+that publishes both gross margin and a profitability measure below it for the same segments, and
+the two tell different stories: a 23-point gross-margin advantage for the long tail becomes a
+0.26-point EBITDA advantage, because acquiring a long tail costs 15% of revenue in advertising
+against 5% for the wholesale channel. **JLC's 97.6%-of-gross-profit figure is a gross-profit
+figure, and nothing in `SMB-1` establishes what it costs JLC to acquire 1.36 million customers.**
+Cimpress is the only direct evidence on that question found anywhere, and it says the cost is
+roughly the size of the prize. That belongs in any use of `../analyses/long-tail-pays-for-the-capital.md`.
+
+### What would settle it
+
+- **A fab.** `OIM-5` is a MEMS foundry and the closest thing that exists. A CMOS foundry splitting
+  MPW/shuttle revenue from volume revenue with margins would settle the question directly; none was
+  found, and TSMC, UMC, SMIC, X-FAB and Tower were not searched for one (see below).
+- **A second printing company.** Cimpress is one company. RR Donnelley, Quad/Graphics,
+  Onlineprinters and Flyeralarm were not read.
+- **Catalent's and Lonza's gross margin by segment**, which would test point 3 against a Western
+  CDMO rather than two Chinese ones.
+- **An order-size split with a printed threshold**, the way JLC prints 1 m² and 20 m². Every find
+  in this file uses a proxy — customer type, trial phase, activity, consignment weight. None prints
+  a threshold.
+
+## Blocked and incomplete sources
+
+| Source | URL | What happened | What would unblock it |
+|---|---|---|---|
+| `www.sec.gov/Archives/...` | any filing | **HTTP 403** to `curl` under every User-Agent tried, including a declared non-browser one with a project URL and no email; the body is SEC's "Your Request Originates from an Undeclared Automated Tool" page. This confirms and extends the note in [`search-log.md`](search-log.md) §1. | **Solved two ways.** `WebFetch` reaches it, but summarises through a small model and truncates long documents at roughly the end of Item 1A, so it cannot reach MD&A or the financial statements of a large 10-K. An ordinary browser reaches it and returns the full text; that is how the load-bearing quotes in `OIM-1`, `OIM-6` and `OIM-7` were read. **`efts.sec.gov/LATEST/search-index?q=...` serves automated full-text search requests happily** and is the way to find documents; `www.sec.gov` is only a problem for retrieving them. |
+| Reliance, Inc. consolidated gross profit margin, 2023–2025 | the FY2025 10-K, Item 7 | **Not retrieved.** `WebFetch` truncates before MD&A and the browser route was not spent on it. `OIM-2` therefore asserts no margin figure. | Nothing external. Open the 10-K in a browser and read Item 7, or take gross profit and net sales from the XBRL company-concept API on `data.sec.gov`, which does serve automated requests. |
+| Sigma-Aldrich research-chemical versus SAFC bulk margins | FY2011 10-K, <https://www.sec.gov/Archives/edgar/data/90185/000119312512056253/d263565d10k.htm> | **Searched and does not exist.** Sigma-Aldrich publishes sales by business unit (Research Essentials $478M, Research Specialties $924M, Research Biotech $375M, SAFC $728M in 2011) but states "The Company operates in one segment" and discloses **no profitability by unit**. It does disclose that "Orders in laboratory quantities averaging approximately $400 accounted for 71 percent … of the Company's net sales in 2011" from "over 97,000 accounts representing over 1.3 million individual customers" — a long tail as large as JLC's, with no margin attached to it. Recorded as a negative result, not a blockage. | Nothing. The disclosure is not there. Merck KGaA, which bought Sigma-Aldrich in 2015, discloses less. |
+| Photronics prototype-versus-production photomask margins | EDGAR full-text search across all Photronics filings | **Searched and not found.** A full-text search of every Photronics filing for "prototype" together with "gross margin" returns **zero** hits. Photronics splits its disclosure by IC versus flat-panel display and by high-end versus mainstream, never by order size or quick-turn. | Nothing external; the pre-2001 filings are outside EDGAR full-text search and were not read. Photronics' 1990s 10-Ks discussed quick-turn pricing and would have to be read by hand. |
+| MOD-PAC Corp, the printer that made Vistaprint's product | <https://www.sec.gov/Archives/edgar/data/1191857/000089979703000141/exhibit13.htm> | **A stated comparison with no numbers.** Its FY2002 annual report says "the short-run commercial print business, because of tile [*sic*, as printed] nature of our arrangement with our key customer for this market, has a higher gross margin than the average gross margin we realize with the custom folding carton product line", and gives only a company-wide "Gross margin improved to 24.9% of sales in 2002". No segment margin anywhere. | The later MOD-PAC 10-Ks (FY2005–FY2012), which report three segments, were not read and may carry segment gross profit. Free on EDGAR. |
+| Exchange review-enquiry replies (问询函回复) for the CDMOs and for 赛微电子 | cninfo | **Not read.** This is where a Chinese exchange can compel a breakdown an annual report omits, and it is where JLC's own table came from. None was searched for these five companies. | Nothing external. The cninfo query endpoint in [`search-log.md`](search-log.md) §8 works; the category parameter for enquiry replies was not worked out. |
+| Lonza, Siegfried, Recipharm, WuXi AppTec — Western and larger Chinese CDMOs | various | **Not searched.** Budget went to the two Chinese CDMOs that were already known to print the split. Testing whether `OIM-3` and `OIM-4` hold outside China is the single most valuable unfinished item in this file. | Nothing external. Lonza and Siegfried publish segment reporting in their annual reports as free PDFs. |
+| RR Donnelley, Quad/Graphics, Onlineprinters, Flyeralarm, printing.com | various | **Not searched.** Cimpress was pursued to the exclusion of the other printers because it was the strongest lead and it paid. | Nothing external. RRD (until it went private in 2022) and Quad file with the SEC. Onlineprinters and Flyeralarm are German and file in the Bundesanzeiger. |
+| Materialise, Stratasys Direct, Xometry's supplier side, sheet-metal and injection-moulding prototype shops | various | **Not searched.** | Nothing external. Materialise files a 20-F with the SEC. |
+| A CMOS foundry splitting MPW/shuttle revenue from volume revenue | TSMC, UMC, SMIC, X-FAB, Tower, GlobalFoundries | **Not searched at all.** This is the search that would matter most and it was not run. `investor.tsmc.com` is recorded in [`search-log.md`](search-log.md) §1 as returning HTTP 403 to `curl`. | X-FAB (Euronext) and Tower (Nasdaq) are the likeliest to disclose something, being specialty foundries with many small customers. Neither was opened. |
+| Laboratory and analytical testing, calibration, industrial gases (packaged versus tonnage), specialty steel, glass, textiles, extrusion | various | **Not searched.** The industries listed in the brief that were not reached. Industrial gases is the most promising of them: cylinder/packaged gas serves tens of thousands of small customers off the same plants that supply on-site tonnage customers under take-or-pay contracts, which is the `PAR-7`/`PAR-8` cloud pattern in physical form. | Nothing external. Air Products, Linde and Air Liquide all publish segment reporting. |
+
+**Nothing on this list was blocked by a paywall, a login, a bot check or a CAPTCHA.** The one
+genuine technical obstacle was `www.sec.gov/Archives` refusing automated fetches, and a browser
+solved it. Everything else is unfinished rather than blocked, and the reason in each case is that
+the budget went to the leads that were already producing printed tables.
