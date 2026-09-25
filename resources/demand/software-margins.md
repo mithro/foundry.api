@@ -29,17 +29,19 @@ of the entire listed prepackaged-software industry taken in aggregate (11.33%). 
 aggregate, a fab with Silex's balance sheet would need an operating margin of 18.38%. It has 22.67%.**
 
 **On operating margin alone Silex is at the 89.1st percentile of SIC 7372** (91.0th on the group
-figure) — better than Salesforce, ServiceNow, Shopify, Workday, Twilio, HubSpot, Datadog, Atlassian,
-MongoDB and Snowflake, and worse than Microsoft, Adobe, Oracle, Intuit, SAP and Zoom.
+figure) — better than Salesforce, ServiceNow, Shopify, Amazon, Workday, Twilio, HubSpot, Datadog,
+Atlassian, MongoDB and Snowflake, and worse than Microsoft, Adobe, Oracle, Intuit, SAP and Zoom.
+Eleven of the seventeen named comparators in `SWM-4` are below it; six are above.
 
 **Software's famous margins are three things stacked on top of each other, and only one of them is
 real.** (1) The quoted number is usually **non-GAAP**: across eight companies' own full-year
 reconciliations the gap between GAAP and non-GAAP operating margin runs from 9.6 to 41 points, median
 **22.6 points** (`SWM-5`). (2) The quoted number is usually the **revenue-weighted aggregate**
 (27.22% for SIC 7372), not a typical company: the **median** listed prepackaged-software filer has an
-operating margin of **−4.5%** (`SWM-2`). (3) What is left — a genuinely better business at the top of
-the industry — is real, and Adobe, Microsoft and AWS beat Silex on every measure including return on
-assets.
+operating margin of **−4.5%** (`SWM-2`). (3) What is left — a genuinely better business at the top
+of the industry — is real: Adobe, Microsoft and AWS beat Silex on operating margin *and* on return on
+assets, which is the combination that matters. They do not beat it on asset turnover (Microsoft's is
+0.455 against Silex's 0.617) or on capital intensity; they beat it on margin by enough to win anyway.
 
 **The finding that cuts hardest against this project's own framing is `SWM-7`.** The argument for an
 API-first foundry leans on the cloud analogy, and the cloud analogy assumes software needs no
