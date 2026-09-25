@@ -66,11 +66,14 @@ the same size as the whole capital cost per job of the deal that worked.
    The fab existed already; someone else paid for it.
 2. **$56,000,000 of capex was expected to "increase overall output by at least 40%"** at a 200 mm
    fab (`LN-2`). A capital cost per unit of incremental capacity, stated by the operator.
-3. **Capital cost per job splits by verb, not by company size** (`LN-14`). Across ten US sites the
-   range is **54.5×**, from $98,214 to $5,357,143 a job. The two cheapest are both *purchases of an
-   operating fab from a seller who wanted out* — Canandaigua at $98,214 a job in 2017 and Fab 25 at
-   $101,884 a job in 2025, **agreeing to within 4% across eight years and two wafer sizes**.
-   Everything that *builds or tools new capacity* averages **$1,300,816 a job**, 13.0× as much.
+3. **Capital cost per job splits by verb, not by company size** (`LN-14`). Across eleven US sites
+   the range is **67×**, from $80,000 to $5,357,143 a job. The three cheapest are all *purchases of
+   an operating fab from a seller who wanted out* — San Antonio at **$80,000** a job in 2016,
+   Canandaigua at **$98,214** in 2017 and Fab 25 at **$101,884** in 2025, a 27% band across ten
+   years, three states and two wafer sizes. Everything that *builds or tools new capacity* averages
+   **$1,300,816 a job**, 13.9× as much. The same split appears in capital per unit of capacity:
+   Tower bought 28,000 wafer starts a month for **$1,429 per wspm**; Polar built 20,000 for
+   **$26,250 per wspm** — **18.4×** (`LN-17`, `LN-11`).
 
 And on the public money: it is a third to a half of a small fab's capital, not a rounding error.
 Rogue Valley Palm Bay took $6,700,000 of CHIPS against $25,000,000 of project (26.8%, or 39.6%
@@ -938,6 +941,7 @@ quantum-computing company.
 
   | Site | What happened | Capital | Jobs | **Capital per job** | Entry |
   |---|---|---:|---:|---:|---|
+  | San Antonio TX | **bought** an operating 200 mm analog fab, paid in shares | $40,000,000 | ~500 | **$80,000** | `LN-17` |
   | Canandaigua NY | **bought** an operating 150 mm MEMS fab | $2,750,000 | 28 | **$98,214** | `LN-10` |
   | Austin TX (Fab 25) | **bought** an operating 200 mm fab, net cash | $86,500,000 | ~849 | **$101,884** | `LN-3` |
   | Odon IN (Reliable) | small expansion into a shared campus | $7,300,000 | 61 | **$119,672** | `LN-13` |
@@ -950,21 +954,26 @@ quantum-computing company.
   | Bloomington MN | **doubled** an operating 200 mm fab | $525,000,000 | 98 permanent | **$5,357,143** | `LN-11` |
 
 - **DERIVED (arithmetic written out):**
-  - **The range is 55-fold**: 5,357,143 ÷ 98,214 = **54.5×** between the cheapest and dearest job
+  - **The range is 67-fold**: 5,357,143 ÷ 80,000 = **67.0×** between the cheapest and dearest job
     in the table.
-  - **The split is not by company size or by state. It is by verb.** The two rows under $110,000 a
-    job are both *purchases of an existing fab from a seller who wanted out*. Everything that
-    involves *building or tooling new capacity* is $333,000 a job or more, and the two rows over
-    $2,000,000 a job are both *new capacity at a fab that was already running*.
+  - **The split is not by company size or by state. It is by verb.** The three rows under $110,000
+    a job are all *purchases of an existing fab from a seller who wanted out*. Everything that
+    involves *building or tooling new capacity* is $119,000 a job or more, and the two rows over
+    $2,000,000 a job are both *new capacity at a site that was already running*.
   - **Mean of the eight "build/expand" rows** (119,672 + 152,727 + 333,333 + 571,429 + 800,000 +
     850,000 + 2,222,222 + 5,357,143) ÷ 8 = 10,406,526 ÷ 8 = **$1,300,816 per job**. **Mean of the
-    two "buy" rows** = (98,214 + 101,884) ÷ 2 = **$100,049 per job**. The ratio is **13.0×**.
+    three "buy" rows** = (80,000 + 98,214 + 101,884) ÷ 3 = **$93,366 per job**. The ratio is
+    **13.9×**.
   - **What this means for the project, stated plainly.** If foundry.api intends to *build*
-    capacity, the planning number is on the order of **$0.3m–$5m of capital per job**, and the long
+    capacity, the planning number is on the order of **$0.1m–$5m of capital per job**, and the long
     tail has to pay for that. If it intends to *buy* a fab somebody else is exiting, the planning
-    number is on the order of **$100,000 per job** — and the two independent observations of that,
-    eight years and two wafer sizes apart, agree to within 4% (98,214 against 101,884). **That
-    agreement is the most useful number in this file.**
+    number is **about $93,000 per job** — and the three independent observations of that, spanning
+    **2016 to 2025, three states and two wafer sizes**, fall in a 27% band ($80,000, $98,214,
+    $101,884). **That convergence is the most useful number in this file.**
+  - **The same split shows up in capital per unit of capacity, and at almost the same ratio.**
+    Tower bought 28,000 wspm for **$1,428.57 per wspm** (`LN-17`); Polar built 20,000 wspm for
+    **$26,250 per wspm** (`LN-11`). 26,250 ÷ 1,428.57 = **18.4×**, against the 13.9× found on the
+    per-job measure. Two independent metrics, two independent sets of sites, the same conclusion.
 - **Caveats:** Nominal dollars across 2017–2025; no inflation adjustment. Job counts mix realised
   head count (Canandaigua, Fab 25, Kissimmee) with announced targets (everywhere else), and targets
   are systematically optimistic, which pushes the announced rows' cost per job *down* relative to
@@ -1158,6 +1167,70 @@ quantum-computing company.
   - The customer counts ("50+", "800+", "100+") are cumulative over MOSIS's whole history and are
     the service's own marketing figures; no register of them was found.
 
+### LN-17. Tower/Maxim, San Antonio: 28,000 wafers a month and nearly 500 employees for $40 million — paid in shares, no cash
+
+- **Sources:**
+  - "TowerJazz to Expand its Worldwide Manufacturing Capabilities with Proposed Acquisition of Maxim
+    Integrated's Wafer Manufacturing Plant in Texas, US", press release of 2015-11-18, furnished as
+    Tower Semiconductor Ltd. Form 6-K, SEC CIK 0000928876.
+    <https://www.sec.gov/Archives/edgar/data/928876/000117891315003493/zk1517623.htm>
+  - Tower Semiconductor Ltd. Form 6-K of 2016-02-02 announcing completion.
+    <https://www.sec.gov/Archives/edgar/data/928876/000117891316004110/zk1617923.htm>
+- **Verification:** Verified for the 2015 release, every quote read in the filed document;
+  **Partial** for the fifteen-year term of the supply agreement, which appears in the completion
+  release on Tower's investor site rather than in the 6-K read here.
+- **Date checked:** 2026-09-25
+- **Bearing:** **Supports** the project's premise on capital cost, and gives the **third
+  independent observation of what buying a fab costs per job**. Also **Context** for H2: this is
+  the same trade as Fab 25 — an IDM sells its fab to a foundry and becomes its anchor customer.
+- **What it says:**
+
+  > "TowerJazz, (NASDAQ/TASE:TSEM) the global specialty foundry leader, announced today it has signed an agreement with Maxim Integrated Products, Inc. (NASDAQ:MXIM) to purchase Maxim’s 8-inch fabrication facility in San Antonio, Texas, United States."
+
+  > "The proposed purchase will expand TowerJazz’s current worldwide manufacturing capacity, cost-effectively increasing production by approximately 28,000 wafers per month."
+
+  > "As part of the transaction, the companies have also signed a long-term supply agreement for TowerJazz to manufacture products for Maxim in the San Antonio facility. The transaction is to be paid with TSEM ordinary shares with a total value of approximately 40 million US dollars."
+
+  > "All of the site’s nearly 500 employees will be retained. The headcount consists of production operators, highly experienced production support personnel and process and integration engineers, the majority of which possess graduate degrees."
+
+  > "The facility can support the advanced analog platforms using geometries down to 130nm and can be used also to manufacture third party products using TowerJazz specialty process technologies."
+
+  The buyer's own framing of *why* it is cheap:
+
+  > "We are very excited about this fab purchase. It will provide a quick solution for our significantly growing customer demand, while gaining additional high quality manufacturing capabilities and global flexibility with the incremental capacity,"
+  > — Dr. Itzhak Edrei, TowerJazz's President
+
+  And the seller's, which is the same trade Infineon made nine years later (`LN-3`):
+
+  > "We needed a trusted partner to manage our proprietary process technology who also shared our commitment to the employees in San Antonio. Tower Jazz has a proven track record with Maxim and similar beliefs about employees, so this is a natural fit. I look forward to our continued partnership over the coming years,"
+  > — Vivek Jain, Senior Vice President of Maxim Integrated's Technology and Manufacturing Group
+
+  > "With this arrangement, we will continue to support our customers for years to come, improve utilization in our Oregon fab, and advance our manufacturing flexibility."
+
+- **DERIVED (arithmetic written out):**
+  - **Capital per job.** $40,000,000 ÷ 500 = **$80,000 per job**. Against the two other purchases
+    in `LN-14`, $98,214 (Canandaigua 2017) and $101,884 (Fab 25 2025), the three land at
+    **$80,000, $98,214 and $101,884** — a spread of 27% across **ten years, three states and three
+    wafer sizes (200 mm, 150 mm, 200 mm)**. Mean: (80,000 + 98,214 + 101,884) ÷ 3 = **$93,366 per
+    job**.
+  - **Capital per unit of capacity — and the comparison that matters.**
+    $40,000,000 ÷ 28,000 wspm = **$1,428.57 per wafer-start-per-month**. Polar's new capacity in
+    `LN-11` cost $26,250 per wspm. **Buying capacity cost 1/18th of building it**
+    (26,250 ÷ 1,428.57 = 18.4×).
+    Annualised: 28,000 × 12 = 336,000 wafers a year, so $40,000,000 ÷ 336,000 = **$119.05 of
+    capital per wafer of annual capacity**, against Polar's $2,187.50 — the same 18.4× ratio,
+    computed two different ways.
+  - **Cash cost: zero.** The consideration was TSEM ordinary shares. A specialty foundry acquired a
+    130 nm-capable 200 mm fab with 500 staff **without spending a dollar of cash**, in exchange for
+    about 3% dilution and a long-term supply commitment to the seller.
+- **Caveats:** Paying in stock is not free — it is dilution, and the $40,000,000 is the share value
+  at announcement, not a cash price. The purchase came bundled with a long-term supply agreement
+  under which Maxim keeps buying from the fab, which is what made the price low; a buyer without an
+  anchor customer attached would not get this price. Tower is an Israeli company, so this is not a
+  US small fab's own capital decision, but the fab and its 500 jobs are in San Antonio. "Nearly 500
+  employees" is the seller's figure at announcement. No local San Antonio coverage with a county or
+  city incentive figure was found (see "What I could not get").
+
 ---
 
 ## What I could not get, and why
@@ -1222,8 +1295,10 @@ lack of trying, and none was worked around by defeating a bot check.
     ($33,400,000 of named projects). No reconciling document was found, and the discrepancy is
     flagged in `LN-16` rather than resolved.
 12. **Nothing was found for several named targets.** No capital-cost-per-job or capacity figure was
-    located for Tower Semiconductor's San Antonio fab, Micross, Teledyne's Thousand Oaks operation,
-    Global Circuit Innovations, Silicon Valley Microelectronics, Norcada, MEMSIC, Qorvo Richardson
-    or Coherent/II-VI within the time available. These are absences of searching, not verified
-    absences of data.
+    located for Micross, Teledyne's Thousand Oaks operation, Global Circuit Innovations, Silicon
+    Valley Microelectronics, Norcada, MEMSIC, Qorvo Richardson or Coherent/II-VI within the time
+    available. These are absences of searching, not verified absences of data. Tower's San Antonio
+    fab *was* found (`LN-17`) but **no local San Antonio coverage** — no city or Bexar County
+    incentive, abatement or Chapter 380/381 agreement — was located for it; the numbers in `LN-17`
+    are all from the company's SEC filings.
 
