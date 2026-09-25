@@ -747,3 +747,117 @@ number about whether this business model holds:
 ```
 curl -s --compressed 'https://platform.chipfoundry.io/api/v1/shuttles/ci2609/metrics'
 ```
+
+---
+
+## 16. Margin split by order size outside PCBs (`OIM`, 2026-09-25)
+
+One question: **does any capital-owning manufacturer outside PCBs publish the JLC table — margin,
+or revenue and cost, split by order size, batch size, customer size or channel?** It produced
+[`other-industry-margins.md`](other-industry-margins.md), `OIM-1` … `OIM-7`. Everything was
+GET-only. No form was submitted, no account created, no login used, no paywall approached, no
+CAPTCHA seen, and no human contacted by any channel.
+
+### 16.1 Tool and access notes (new ones only)
+
+| Obstacle | Detail | Workaround |
+|---|---|---|
+| **`efts.sec.gov` full-text search is open to automated requests** | Not an obstacle — the opposite, and it is the most useful new fact in this section. `https://efts.sec.gov/LATEST/search-index?q=<url-encoded query>&forms=10-K&ciks=<zero-padded CIK>&dateRange=custom&startdt=…&enddt=…` returns JSON to a plain `curl` with any User-Agent. Phrases go in `%22…%22`; several phrases in one `q` are ANDed. It covers **2001 onwards only**. | None needed. This is how every US company in this file was found. The `_id` field is `<accession-with-dashes>:<filename>`, from which the Archives URL is `https://www.sec.gov/Archives/edgar/data/<CIK-unpadded>/<accession-without-dashes>/<filename>`. |
+| `www.sec.gov/Archives/...` still refuses automated fetches | **HTTP 403** under every User-Agent tried, including a *declared* non-browser string carrying a project URL and no email, and a full browser header set with `Referer` and `Accept-Language`. The body is SEC's "Your Request Originates from an Undeclared Automated Tool" page. This extends §1 of this log: the problem is not the User-Agent. | **Two routes, and the choice matters.** `WebFetch` reaches `www.sec.gov` but passes the page through a small summarising model and **truncates a large 10-K at roughly the end of Item 1A** — it could not reach Item 7 of the Reliance or Knight-Swift 10-Ks, and reported the segment tables as absent when they were merely past the cut. An ordinary browser reaches the same URL and returns the full text; that is how `OIM-1`, `OIM-6` and `OIM-7` were verified. **Use a browser for anything past Item 1A, or fetch the smaller 8-K earnings exhibit instead, which usually carries the segment tables in a tenth of the bytes.** |
+| A 10-K's segment tables are in the 8-K, too | Corollary worth stating separately: for segment revenue, segment gross profit and segment EBITDA, the quarterly earnings exhibit (`8-K` EX-99.1) is a far smaller document than the 10-K and often carries **more** history. Cimpress's Q4 FY2025 investor letter prints seven years of gross margin per segment; its 10-K prints one. | — |
+| `static.cninfo.com.cn` | Behaves exactly as §8 of this log records: a browser User-Agent **plus** `-H "Referer: http://www.cninfo.com.cn/"` is needed, and both are needed. | The §8 note is correct and saved a lot of time. The `POST http://www.cninfo.com.cn/new/hisAnnouncement/query` recipe with `searchkey=<Chinese company name>` and `category=category_ndbg_szsh` also still works unchanged. |
+| `pdftotext -layout` on Chinese annual reports | Two of the four Porton/Silex PDFs emit `Syntax Error: Expected the optional content group list…` and font warnings on stderr, and still extract cleanly. | Ignore the warnings; check the extracted numbers against a printed total instead. Every margin in `OIM-3`, `OIM-4` and `OIM-5` was re-derived from the printed revenue and cost, or recombined against the printed blended margin, precisely because of this. |
+| Repository hooks | `python -c` is blocked (write a script file); `2>/dev/null` is blocked (never redirect stderr); and a worktree-isolation hook refuses any compound shell command containing a runtime variable, or the substring `git` in a form it cannot verify — which also catches a heredoc that merely *mentions* a `github.com` URL. | Split loops into separate plain commands. Write long text to a file with an editor tool and `cat` it into place rather than using a heredoc. Put the commit message in a file and run `add` and `commit -F` as two separate commands. |
+
+### 16.2 Techniques worth reusing
+
+| Technique | What it produced |
+|---|---|
+| **Search EDGAR full text for the *sentence*, not the company.** `"short-run" "long-run" "gross margin"`, `"small quantities" "higher gross profit margins"`, `"average order size" "gross profit"`. | Reliance (`OIM-2`) and MOD-PAC came straight out of the second and third of those. Searching for companies you have already thought of finds only what you already knew. |
+| **The Chinese 分产品 ("by product") margin table is a standing disclosure, not a one-off.** Every SZSE/SSE annual report prints, under "占公司营业收入或营业利润 10%以上的…情况" ("industries, products, regions and sales models accounting for more than 10% of operating revenue or operating profit"), a table of 营业收入 / 营业成本 / 毛利率 ("operating revenue / operating cost / gross margin") broken down by industry, product, region and sales model. If a company's *product* categories happen to be batch-size bands, the JLC table exists for free, every year, without a listing committee having to demand it. | `OIM-3` (Asymchem) and `OIM-4` (Porton) are both this table. It is the reason the reverse finding could be established at all. **This is the cheapest place in the world to look for a margin split.** |
+| **Recombine the two disclosed margins against the disclosed blended margin.** | `OIM-5`'s figures sit in MD&A prose rather than in the audited table, so they could have been anything. Recombining them against the printed blended MEMS margin reproduces 32.64% / 35.99% / 35.49% exactly in all three years. This is the same internal-consistency test [`../analyses/long-tail-pays-for-the-capital.md`](../analyses/long-tail-pays-for-the-capital.md) applies to JLC, and it is what makes prose figures usable. |
+| **A margin quoted with its year-on-year change in percentage points gives you the previous year free.** Chinese reports print "较上年上升 1.23%（绝对数值变动）" — "up 1.23% against the previous year (change in absolute value)". | Extended `OIM-3` back to 2021 and `OIM-5` back to 2021 — and, better, the FY2023 report's changes reproduce the FY2022 report's printed figures, which **cross-checks the method** before it is relied on. |
+| **Check whether the disclosure still exists before citing it as a live fact.** | Two of the five companies stopped publishing the split in their most recent annual report: Asymchem merged clinical and commercial into one "小分子 CDMO 解决方案" ("small-molecule CDMO solutions") line in FY2025, and 赛微电子 merged development and manufacturing into "MEMS 纯代工" ("MEMS pure foundry"). Both series are closed. A reader checking only the latest report would conclude the disclosure never existed. |
+
+### 16.3 What was found, and where it went
+
+| Looked for | Found | Entry |
+|---|---|---|
+| Any printing company publishing margin by order or customer size | **Cimpress plc.** Vista (≈11m micro-businesses, AOV >$90) about **55%** gross margin against Upload & Print (graphic professionals, "wholesale-like pricing") about **32%**, printed per segment for seven years | `OIM-1` |
+| Whether the long-tail gross-margin premium survives below the gross line | **No.** Cimpress spends 15% of revenue on advertising in Vista against 5% in Upload & Print, so a 23-point gross-margin gap becomes a **0.26-point** segment-EBITDA gap against The Print Group | `OIM-1` |
+| A metals or materials processor with a stated small-order premium | **Reliance, Inc.** 125,000 customers, 4.6 million orders, **$3,120** average order, largest customer **0.6%** of sales, and "small orders with quick turnaround … generates higher gross profit margins". No numeric split | `OIM-2` |
+| A CDMO splitting clinical from commercial with margins | **Asymchem**, four consecutive years, and **Porton**, three — both printing revenue, cost and gross margin for each | `OIM-3`, `OIM-4` |
+| **The reverse finding the brief asked to be recorded with equal care** | **Found, twice, independently.** In all seven CDMO company-years the *large*-batch end earns more, by 6.8 to 46.6 pp. Porton 2023: the small-batch line was **17.39% of revenue and 2.62% of gross profit** — JLC's 2025 picture with the two segments exchanged | `OIM-3`, `OIM-4` |
+| A semiconductor foundry publishing the split | **赛微电子 / Silex Microsystems**, a MEMS pure-play foundry: bespoke process development **39.90%** against volume wafer manufacturing **33.19%** in 2024, and 49.19% against 18.18% in 2022. It also states that its Swedish site is "中试线+小批量生产线" (a pilot line plus small-batch production line) and Beijing "规模量产线" (a scale volume-production line) | `OIM-5` |
+| Independent evidence on the idle-plant question | **Silex's Beijing volume fab ran at a −50.00% gross margin while ramping** in 2022 — the same result as JLC's audited impairment against its big-batch plant, from a different company in a different country | `OIM-5` |
+| Whether small-scale pharma is uniformly bad | **No.** Catalent's Clinical Supply Services segment earns **27.6%** EBITDA margin against 23.4% and 23.3% for two of its three commercial-manufacturing segments. The distinction that survives is small-batch *synthesis* (bad) versus small-batch *packaging and distribution* (fine) | `OIM-6` |
+| A logistics company running both shapes | **Knight-Swift.** 993-pound LTL shipments at a 93.2% adjusted operating ratio against full trailers at 94.8% (2025), and 90.1% against 95.6% (2024) | `OIM-7` |
+
+### 16.4 Searched for, and not found
+
+- **Sigma-Aldrich research chemicals versus SAFC bulk.** The strongest-looking lead of the lot — the
+  same molecules sold in grams to 1.3 million scientists and in tonnes to a few hundred buyers — and
+  **the disclosure does not exist.** The FY2011 10-K states "The Company operates in one segment",
+  publishes sales by business unit with **no profitability attached**, and gives the long-tail
+  statistic without a margin: "Orders in laboratory quantities averaging approximately $400
+  accounted for 71 percent, 72 percent and 72 percent of the Company's net sales in 2011, 2010 and
+  2009", from "over 97,000 accounts representing over 1.3 million individual customers".
+- **Photronics prototype versus production photomasks.** An EDGAR full-text search of every
+  Photronics filing for `"prototype" "gross margin"` returns **zero** hits. Photronics splits by IC
+  versus flat-panel display and by high-end versus mainstream, never by order size. (Full-text
+  search starts at 2001; the 1990s filings were not read by hand.)
+- **MOD-PAC Corp**, the printer that made VistaPrint's product and ran short-run commercial print
+  and long-run folding cartons in the same plant. Its FY2002 report states the comparison —
+  "the short-run commercial print business … has a higher gross margin than the average gross margin
+  we realize with the custom folding carton product line" — and prints **no number for either
+  side**, only a company-wide "Gross margin improved to 24.9% of sales in 2002". Its later 10-Ks,
+  which report three segments, were not read.
+- **A numeric margin-by-order-size table in a Western filing.** Not one was found. Every printed
+  split in this file is either a Chinese 分产品 table or a Cimpress segment chart. The Western
+  companies that describe the effect — Reliance, MOD-PAC, Protolabs (`SMB-2`) — all decline to
+  quantify it.
+- **强一半导体 (Qiangyi Semiconductor)**, whose STAR-market second-round enquiry reply surfaced in a
+  search for 订单批量 ("order batch size") and gross margin. It discusses **purchase** prices of
+  semiconductor test boards from related and unrelated suppliers, and notes that pricing is affected
+  by "交期、数量、客户关系" ("delivery time, quantity, customer relationship"), but contains **no
+  margin split by order size**. A dead end, recorded so nobody follows it again.
+  <https://static.sse.com.cn/stock/disclosure/announcement/c/202510/002051_20251031_6GDH.pdf>
+- **Generic EDGAR phrase searches that produced nothing usable:** `"smaller orders" "higher gross
+  margin"` (70 hits, all distributors and resellers), `"gross margin by order"` (0 hits),
+  `"short-run gross margin"` (0 hits), `"clinical" "commercial" "gross margin" "batch size"`
+  (421 hits, none of them a split).
+
+### 16.5 Not searched at all, and it should have been
+
+Listed in the brief and not reached, in rough order of expected value:
+
+1. **A CMOS foundry.** X-FAB (Euronext) and Tower (Nasdaq) are specialty foundries with many small
+   customers and are the likeliest to disclose an MPW-versus-volume split. Neither was opened.
+   `investor.tsmc.com` is recorded in §1 as returning HTTP 403 to `curl`.
+2. **Lonza, Siegfried, Recipharm, WuXi AppTec.** Whether `OIM-3` and `OIM-4` hold for a Western
+   CDMO is the most valuable single unfinished question in this file.
+3. **RR Donnelley, Quad/Graphics, Onlineprinters, Flyeralarm.** A second printing company, to test
+   whether `OIM-1` is Cimpress or is printing.
+4. **Industrial gases** — packaged and cylinder gas sold to tens of thousands of small customers off
+   the same plants that supply on-site tonnage customers on take-or-pay terms. This is `PAR-7` and
+   `PAR-8`'s cloud pattern in physical form and nobody has looked at it.
+5. Materialise, Stratasys Direct, Xometry's supplier side; laboratory, calibration and testing
+   services; specialty steel, glass, textiles and extrusion.
+6. **Exchange review-enquiry replies (问询函回复)** for the five companies in this file. JLC's table
+   exists because a regulator demanded one; the same lever was not pulled here.
+
+### 16.6 Disagreements, and things that turned out to be wrong
+
+- **"Only JLC publishes a margin split by batch size."**
+  [`pcb-industry-comparables.md`](pcb-industry-comparables.md)'s verdict says this, and it is right
+  about the PCB industry and wrong about industry in general. Four companies outside PCBs print a
+  gross-margin split, and three of them print it in a table that Chinese listing rules require every
+  year from every issuer. The claim needs the words "in the PCB industry" added to it.
+- **The expectation going in was that the long tail would win wherever the split was published.** It
+  won in four cases and lost in two, and the two losses are the better-documented ones — seven
+  company-years of audited revenue and cost, against JLC's three.
+- **Gross margin was treated as the target measure throughout, following `SMB-1`.** Cimpress shows
+  why that is incomplete: it is the only company here that publishes both gross margin and a measure
+  below it for the same segments, and the long tail's advantage almost vanishes between the two
+  lines. No conclusion in this file about a gross-margin gap should be read as a conclusion about an
+  operating-margin gap.
