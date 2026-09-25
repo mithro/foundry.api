@@ -42,6 +42,7 @@ ID prefixes:
 | [`demand/chipfoundry.md`](demand/chipfoundry.md) | `CF` | ChipFoundry (UmbraLogic Technologies LLC): the corrected corporate history, every published per-shuttle number, the whole price list, and a verdict on whether an unsubsidised, investor-free open-shuttle business works |
 | [`demand/design-starts-and-mature-nodes.md`](demand/design-starts-and-mature-nodes.md) | `TRAD` | Design starts and mature-node demand in the traditional industry |
 | [`demand/pcb-industry-comparables.md`](demand/pcb-industry-comparables.md) | `PCB` | Audited PCB makers' margin by order size — the closest industry parallel |
+| [`demand/fab-local-news-intl.md`](demand/fab-local-news-intl.md) | `LNI` | What a small, specialty, MEMS or mature-node fab outside the US costs per square metre of cleanroom and per job, from local papers, municipal planning files, regional development agencies and filed accounts — with every non-English quote translated |
 | [`demand/other-industry-margins.md`](demand/other-industry-margins.md) | `OIM` | The same disclosure hunted outside PCBs: margin split by order size, batch size or channel in printing, pharmaceutical contract manufacturing, a MEMS wafer foundry, metals processing and freight — including the cases where the *bulk* end carries the margin |
 | [`demand/in-house-fabrication.md`](demand/in-house-fabrication.md) | `IHF` | Companies that built or bought their own fab, and what it cost |
 | [`demand/access-terms.md`](demand/access-terms.md) | `ACC` | What a programme requires before it will make your chip, and who pays |
