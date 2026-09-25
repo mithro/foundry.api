@@ -54,26 +54,45 @@ a third independent instance of the failure mode already recorded at MEMSCAP (`I
 things.** In July 2022 SkyWater announced a $1,800,000,000, 600,000 sq ft fab at Purdue with 750
 jobs and $71,500,000 of Indiana state incentives — **$2,400,000 of capital per job**. It cancelled
 it in April 2024. In June 2025 it spent **$86,500,000 of net cash** buying an operating 200 mm fab
-in Austin and got **about 849 employees** — **$101,884 of capital per job**. More jobs, for **4.81%
-of the announced capital**; the state incentive per job on the plan that failed ($95,333) is about
-the same size as the whole capital cost per job of the deal that worked.
+in Austin and got **approximately 1,000 employees** and **400,000 wafer starts a year** —
+**$86,500 of capital per job**. More jobs, for **4.81% of the announced capital**; the state
+incentive per job on the plan that failed ($95,333) is **larger than the whole capital cost per job
+of the deal that worked**.
 
 **The three most useful capital numbers:**
 
-1. **$86,500,000 of net cash bought a working 200 mm fab with about 849 employees, 1,223,000 sq ft
-   of building and 375,000 sq ft of cleanroom** (`LN-3`). That is **$101,884 of capital per job** and
-   **$231 per square foot of cleanroom** — one to two orders of magnitude below a greenfield build.
-   The fab existed already; someone else paid for it.
+1. **$86,500,000 of net cash bought a working 200 mm fab with approximately 1,000 employees,
+   1,223,000 sq ft of building and 400,000 wafer starts a year of capacity** (`LN-3`). That is
+   **$86,500 of capital per job**, **$2,595 per wafer-start-per-month** and **$216 per wafer of
+   annual capacity** — one to two orders of magnitude below a greenfield build. The fab existed
+   already; someone else paid for it.
 2. **$56,000,000 of capex was expected to "increase overall output by at least 40%"** at a 200 mm
    fab (`LN-2`). A capital cost per unit of incremental capacity, stated by the operator.
 3. **Capital cost per job splits by verb, not by company size** (`LN-14`). Across eleven US sites
-   the range is **67×**, from $80,000 to $5,357,143 a job. The three cheapest are all *purchases of
-   an operating fab from a seller who wanted out* — San Antonio at **$80,000** a job in 2016,
-   Canandaigua at **$98,214** in 2017 and Fab 25 at **$101,884** in 2025, a 27% band across ten
-   years, three states and two wafer sizes. Everything that *builds or tools new capacity* averages
-   **$1,300,816 a job**, 13.9× as much. The same split appears in capital per unit of capacity:
-   Tower bought 28,000 wafer starts a month for **$1,429 per wspm**; Polar built 20,000 for
-   **$26,250 per wspm** — **18.4×** (`LN-17`, `LN-11`).
+   the range is **71×**, from $75,000 to $5,357,143 a job. The four cheapest are all *purchases of
+   an operating fab from a seller who wanted out* — Bloomington **$75,000** (2017), San Antonio
+   **$80,000** (2016), Fab 25 **$86,500** (2025), Canandaigua **$98,214** (2017): a 31% band across
+   nine years, four states and two wafer sizes, mean **$84,929**. Everything that *builds or tools
+   new capacity* averages **$1,300,816 a job**, **15.3×** as much.
+4. **The same split, measured in capacity instead of jobs, gives 8.8×** (§ "Capital per wafer
+   start"). Buying averages **$2,110 per wafer-start-per-month** across three transactions that
+   agree to within 1.8× ($1,429 Tower, $2,308 Bloomington, $2,595 Fab 25); building or expanding
+   averages **$18,510 per wspm** ($10,769 SkyWater debottleneck, $26,250 Polar). Two independent
+   metrics on two overlapping sets of sites bracket the buy-versus-build gap at **roughly an order
+   of magnitude**.
+
+**And the answer to "can a long tail pay for it" is now computable, and it is a qualified no**
+(§ "Capital per wafer start", part 4). The whole worldwide unsubsidised open-shuttle sector took
+$931,158 in 2025 (`PAY-8`). That is **564 years** of revenue to fund Polar's $525,000,000 build and
+**32 years** to fund the $30,000,000 purchase of the cheapest fab here. The reason is not price —
+the long tail pays **$9,333 per 200 mm wafer equivalent** through wafer.space and on the order of
+**€65,000** through a Tiny Tapeout shuttle, against the **$1,200 per wafer** SkyWater's Bloomington
+fab actually earned. The reason is volume: the entire recorded die area of that sector, over its
+whole existence, is **about two hours of one small fab's capacity**. What pays for a fab is
+**1,560 customers buying 100 wafers a year** — at which size the capital is only **$19,231 per
+customer if bought** and **$218,750 if built**, 6.4% and 72.9% of one year of that customer's
+spend. **The capital is not the obstacle. Finding customers who buy wafers rather than tape-outs
+is.**
 
 And on the public money: it is a third to a half of a small fab's capital, not a rounding error.
 Rogue Valley Palm Bay took $6,700,000 of CHIPS against $25,000,000 of project (26.8%, or 39.6%
@@ -199,22 +218,29 @@ quantum-computing company.
   (Note 1 is stated in thousands, so $13,800 thousand = $13,800,000.)
 
 - **DERIVED (arithmetic written out):**
-  - **Capital cost per unit of incremental capacity.** The 356,000 sq ft Bloomington fab produced
-    FY2021 revenue of $162,848,000. If "$56 million … increase overall output by at least 40%" is
-    taken at face value and the *majority* of the $56,000,000 is the capacity part, then the fab's
-    output can be raised by 40% for **well under $56,000,000** — call it $56,000,000 ÷ 0.40 =
-    **$140,000,000 per 100% of this fab's output**, as an upper bound on the capacity portion.
-    Against the $10bn–$20bn a leading-edge fab now costs, that is the whole mature-node argument in
-    one line.
+  - **Capital cost per unit of incremental capacity — now computable.** The same FY2021 10-K states
+    the fab's capacity (`LN-18`): *"Our fab's throughput capacity is up to 156,000 wafers per year
+    (device mix dependent)."* 156,000 ÷ 12 = **13,000 wafer starts per month**. A 40% increase is
+    13,000 × 0.40 = **5,200 wspm**, or 156,000 × 0.40 = **62,400 wafers a year**. Therefore:
+    - $56,000,000 ÷ 5,200 wspm = **$10,769.23 per wafer-start-per-month**.
+    - $56,000,000 ÷ 62,400 = **$897.44 of capital per wafer of annual capacity**.
+    Against Polar's $26,250/wspm for doubling a neighbouring fab (`LN-11`), debottlenecking is
+    **2.4× cheaper** per unit of capacity than a doubling (26,250 ÷ 10,769 = 2.44); against the
+    $2,110/wspm mean for *buying* a fab (§ "Capital per wafer start" below) it is **5.1× dearer**.
+  - **Upper bound on the whole-fab cost, for scale.** $56,000,000 ÷ 0.40 = **$140,000,000 per 100%
+    of this fab's output**. Against the $10bn–$20bn a leading-edge fab now costs, that is the whole
+    mature-node argument in one line.
   - **It did raise output.** Revenue went $162,848,000 (FY2021) → $212,941,000 (FY2022) →
     $286,682,000 (FY2023), i.e. **+76.0% over two years** (286,682 ÷ 162,848 = 1.760), against a
     promised "at least 40%" output increase. Revenue is not output, and price and mix moved too.
-- **Caveats:** "Output" is undefined in the filing — it is not wafer starts per month and no wspm
-  figure is published anywhere in the five 10-Ks. The $56,000,000 covers both capacity and a GaN
-  technology entry, and the filing does not split them. The upper bound above is therefore a
-  bound, not a measurement.
+- **Caveats:** "Output" is undefined in the filing and is not explicitly wafer starts — the 40% is
+  converted above by applying it to the throughput figure printed elsewhere in the same document,
+  which is an assumption, not a statement. The $56,000,000 covers both capacity *and* a GaN
+  technology entry, and the filing does not split them, so the true capacity spend is below
+  $56,000,000 and **$10,769/wspm is therefore an upper bound**. The whole-fab bound is a bound, not
+  a measurement.
 
-### LN-3. A working 200 mm fab with ~849 employees cost $86.5 million of net cash — $101,884 of capital per job
+### LN-3. A working 200 mm fab with ~1,000 employees and 400,000 wafer starts a year cost $86.5 million of net cash — $86,500 of capital per job
 
 - **Source:** SkyWater Technology, Inc., FY2025 Form 10-K, filed 2026-03-11, Note 3 (Business
   Combination) and Item 1.
@@ -243,27 +269,55 @@ quantum-computing company.
 
   ($111,746 thousand = $111,746,000.)
 
+  **CORRECTION, added 2026-09-25 on a second pass.** The head count and the capacity are both
+  published, in SkyWater's own completion press release of 2025-06-30, which was not read when this
+  entry was first written:
+
+  > "By adding approximately 400,000 wafer starts per year in capacity, Fab 25 brings meaningful scale to SkyWater's exclusively U.S.-based, pure-play foundry operation"
+
+  > "Approximately 1,000 Fab 25 employees have now joined SkyWater."
+
+  > "SkyWater’s acquisition of Fab 25 consists of a $73 million payment at close plus an additional approximately $20 million payment at close for working capital"
+
+  (<https://www.skywatertechnology.com/skywater-completes-acquisition-of-fab-25/>, verified
+  2026-09-25.) **The 849 originally derived here was an undercount; use 1,000.** Every figure below
+  has been recomputed on 1,000, and the superseded 849-based figures are shown struck through in
+  words so the correction is traceable.
+
 - **DERIVED (arithmetic written out):**
-  - **Head count acquired.** SkyWater had 702 employees at 2024-12-29 and 1,551 at 2025-12-28, and
-    the filing says Fab 25 came with "substantially all of the … employees". 1,551 − 702 = **849
-    employees**, treating Legacy SkyWater head count as flat across the year. This is an inference,
-    not a disclosure; SkyWater also ran "workforce reorganizations" in the same year, so the true
-    Fab 25 head count is probably a little above 849.
-  - **Capital cost per job.**
-    - Net cash: $86,500,000 ÷ 849 = **$101,884 per job**.
-    - Base purchase price only: $73,000,000 ÷ 849 = **$85,983 per job**.
-    - Total accounting consideration: $206,466,000 ÷ 849 = **$243,187 per job**.
+  - **Head count acquired: ~1,000, stated by the buyer.** The derivation that produced 849
+    (1,551 at 2025-12-28 minus 702 at 2024-12-29) was an inference that assumed Legacy SkyWater head
+    count was flat; it was not — SkyWater ran "workforce reorganizations" in the same year, so
+    Legacy shrank and the difference understated the acquisition. **The figures previously published
+    in this entry on a base of 849 — $101,884, $85,983 and $243,187 per job — are superseded.**
+  - **Capital cost per job (on ~1,000).**
+    - Net cash: $86,500,000 ÷ 1,000 = **$86,500 per job**.
+    - Base purchase price only: $73,000,000 ÷ 1,000 = **$73,000 per job**.
+    - Total accounting consideration: $206,466,000 ÷ 1,000 = **$206,466 per job**.
+  - **Capital cost per unit of capacity.** 400,000 wafer starts a year ÷ 12 = **33,333 wafer starts
+    per month**.
+    - $86,500,000 ÷ 33,333 wspm = **$2,595.03 per wafer-start-per-month**.
+    - $86,500,000 ÷ 400,000 = **$216.25 of capital per wafer of annual capacity**.
   - **Capital cost per square foot.**
-    - Net cash per square foot of cleanroom: $86,500,000 ÷ 375,000 = **$230.67/sq ft**.
+    - Net cash per square foot of cleanroom, on SkyWater's 375,000: $86,500,000 ÷ 375,000 =
+      **$230.67/sq ft**. On Spansion's own long-standing 114,000 (see caveats):
+      $86,500,000 ÷ 114,000 = **$758.77/sq ft**.
     - Net cash per square foot of building: $86,500,000 ÷ 1,223,000 = **$70.73/sq ft**.
+  - **Against the seller's book value.** The abbreviated financial statements of the Fab 25 business
+    filed as Exhibit 99.2 to SkyWater's Form 8-K of 2025-11-05 show **property, plant and equipment
+    of $148,019 thousand** at 2025-06-30 (and $154,658 thousand a year earlier)
+    (<https://www.sec.gov/Archives/edgar/data/1819974/000181997425000037/skyt-20250912xex9902.htm>,
+    verified 2026-09-25). SkyWater paid $86,500,000 of cash for PP&E carried at **$148,019,000** —
+    **58.4%** of the seller's own book value (86,500 ÷ 148,019).
   - **Against fair value.** The bargain purchase gain of $111,746,000 on $206,466,000 of
     consideration means the assets were appraised at 206,466 + 111,746 = **$318,212,000**, so
     SkyWater paid **64.9%** of appraised fair value (206,466 ÷ 318,212), or **27.2%** of it in cash
     (86,500 ÷ 318,212).
-  - **Revenue per employee at the acquired fab.** Six months of SkyWater Texas revenue was
-    $175,292,000 (`LN-7`), so annualised: 175,292,000 × 2 ÷ 849 = **$412,900 per employee** — and
-    the fab was bought for **$101,884 per employee of net cash**. The purchase price was about
-    **0.25 years of that fab's revenue** (86,500 ÷ 350,584).
+  - **Revenue per employee, and revenue per wafer.** Six months of SkyWater Texas revenue was
+    $175,292,000 (`LN-7`), so annualised $350,584,000: ÷ 1,000 employees = **$350,584 per
+    employee**, and ÷ 400,000 wafers of capacity = **$876.46 of revenue per wafer of capacity** (at
+    whatever utilisation ran in those six months, so this is a lower bound on price per wafer
+    shipped). The purchase price was **0.25 years of that fab's revenue** (86,500 ÷ 350,584).
 - **Caveats:** **This is not the cost of building a fab.** It is the cost of buying one that
   already exists from an owner who wanted to exit, and the accountants said so by recognising a
   bargain purchase gain. The $120,000,000 "off-market component of the Supply Agreement" means part
@@ -273,6 +327,18 @@ quantum-computing company.
   favorable wafer production pricing included in the Supply Agreement and its ability to maintain
   security of supply for semiconductors used in its products from a trusted partner." A greenfield
   200 mm fab is a $1bn-scale project; none of these numbers say otherwise.
+
+  **The cleanroom area is disputed between two filings and both are quoted above.** SkyWater's
+  FY2025 10-K says "approximately 375,000 of the square footage being specific to cleanroom space".
+  Spansion's FY2014 Form 10-K, written by the people who ran the fab, says: *"We own and operate one
+  wafer fabrication facility, Fab 25, which is located in Austin, Texas and has approximately
+  114,000 square feet of clean room space."*
+  (<https://www.sec.gov/Archives/edgar/data/1322705/000143774915002287/code20141231_10k.htm>,
+  verified 2026-09-25.) The two differ by **3.3×**. The most likely reconciliation is that
+  SkyWater's figure counts sub-fab, chase and support space and Spansion's counts only classed
+  production cleanroom, but neither filing says so. **Any per-square-foot-of-cleanroom comparison in
+  this file that uses Fab 25 should be read with that 3.3× uncertainty attached**, and the
+  per-square-foot-of-*building* and per-wafer-start figures preferred, since those are unambiguous.
 
 ### LN-4. The CHIPS money attached to a small fab: up to $16 million federal plus $19 million from Minnesota's Forward Fund, and a $10.23 million refundable tax credit
 
@@ -941,9 +1007,10 @@ quantum-computing company.
 
   | Site | What happened | Capital | Jobs | **Capital per job** | Entry |
   |---|---|---:|---:|---:|---|
+  | Bloomington MN | **bought** an operating 200 mm fab from Cypress | $30,000,000 | 400 | **$75,000** | `LN-18` |
   | San Antonio TX | **bought** an operating 200 mm analog fab, paid in shares | $40,000,000 | ~500 | **$80,000** | `LN-17` |
+  | Austin TX (Fab 25) | **bought** an operating 200 mm fab, net cash | $86,500,000 | ~1,000 | **$86,500** | `LN-3` |
   | Canandaigua NY | **bought** an operating 150 mm MEMS fab | $2,750,000 | 28 | **$98,214** | `LN-10` |
-  | Austin TX (Fab 25) | **bought** an operating 200 mm fab, net cash | $86,500,000 | ~849 | **$101,884** | `LN-3` |
   | Odon IN (Reliable) | small expansion into a shared campus | $7,300,000 | 61 | **$119,672** | `LN-13` |
   | Odon IN (campus shell) | buildings only, four tenants | $84,000,000 | ~550 | **$152,727** | `LN-13` |
   | Palm Bay FL | **retrofitted** a commercial shell into a MEMS fab | $25,000,000 | 75 | **$333,333** | `LN-12` |
@@ -953,27 +1020,33 @@ quantum-computing company.
   | Kissimmee FL | **built** a new fab + campus (county money only) | $200,000,000 | ~90 realised | **$2,222,222** | `LN-9` |
   | Bloomington MN | **doubled** an operating 200 mm fab | $525,000,000 | 98 permanent | **$5,357,143** | `LN-11` |
 
+  *(Updated 2026-09-25: Fab 25's head count corrected from the derived 849 to the ~1,000 SkyWater
+  states in its own completion release, and Bloomington added from `LN-18`. The table now has
+  eleven sites plus the Odon campus shell.)*
+
 - **DERIVED (arithmetic written out):**
-  - **The range is 67-fold**: 5,357,143 ÷ 80,000 = **67.0×** between the cheapest and dearest job
+  - **The range is 71-fold**: 5,357,143 ÷ 75,000 = **71.4×** between the cheapest and dearest job
     in the table.
-  - **The split is not by company size or by state. It is by verb.** The three rows under $110,000
-    a job are all *purchases of an existing fab from a seller who wanted out*. Everything that
+  - **The split is not by company size or by state. It is by verb.** The four rows under $100,000 a
+    job are all *purchases of an existing fab from a seller who wanted out*. Everything that
     involves *building or tooling new capacity* is $119,000 a job or more, and the two rows over
     $2,000,000 a job are both *new capacity at a site that was already running*.
   - **Mean of the eight "build/expand" rows** (119,672 + 152,727 + 333,333 + 571,429 + 800,000 +
     850,000 + 2,222,222 + 5,357,143) ÷ 8 = 10,406,526 ÷ 8 = **$1,300,816 per job**. **Mean of the
-    three "buy" rows** = (80,000 + 98,214 + 101,884) ÷ 3 = **$93,366 per job**. The ratio is
-    **13.9×**.
+    four "buy" rows** = (75,000 + 80,000 + 86,500 + 98,214) ÷ 4 = 339,714 ÷ 4 = **$84,929 per
+    job**. The ratio is **15.3×** (1,300,816 ÷ 84,929).
   - **What this means for the project, stated plainly.** If foundry.api intends to *build*
     capacity, the planning number is on the order of **$0.1m–$5m of capital per job**, and the long
     tail has to pay for that. If it intends to *buy* a fab somebody else is exiting, the planning
-    number is **about $93,000 per job** — and the three independent observations of that, spanning
-    **2016 to 2025, three states and two wafer sizes**, fall in a 27% band ($80,000, $98,214,
-    $101,884). **That convergence is the most useful number in this file.**
-  - **The same split shows up in capital per unit of capacity, and at almost the same ratio.**
-    Tower bought 28,000 wspm for **$1,428.57 per wspm** (`LN-17`); Polar built 20,000 wspm for
-    **$26,250 per wspm** (`LN-11`). 26,250 ÷ 1,428.57 = **18.4×**, against the 13.9× found on the
-    per-job measure. Two independent metrics, two independent sets of sites, the same conclusion.
+    number is **about $85,000 per job** — and the four independent observations of that, spanning
+    **2016 to 2025, four states and two wafer sizes**, fall in a 31% band ($75,000, $80,000,
+    $86,500, $98,214). **That convergence is the most useful number in this file.**
+  - **The same split shows up in capital per unit of capacity, and at a similar ratio.** Three
+    "buy" transactions average **$2,110.43 per wafer-start-per-month** against **$18,509.62** for
+    two "build/expand" projects — **8.77×**, against the 15.3× found on the per-job measure. The
+    two measures bracket the answer at roughly an order of magnitude. See the section "Capital per
+    wafer start, and how many customers it takes to pay for it" below for the full table and for
+    what it means for customer counts.
 - **Caveats:** Nominal dollars across 2017–2025; no inflation adjustment. Job counts mix realised
   head count (Canandaigua, Fab 25, Kissimmee) with announced targets (everywhere else), and targets
   are systematically optimistic, which pushes the announced rows' cost per job *down* relative to
@@ -981,7 +1054,7 @@ quantum-computing company.
   including public money. The two "buy" rows are both distressed or strategic exits and are not a
   market price for a fab; there is no liquid market for fabs.
 
-### LN-15. The same company, two routes: $1.8 billion and 750 jobs announced in Indiana and cancelled, then $86.5 million and 849 jobs bought in Texas
+### LN-15. The same company, two routes: $1.8 billion and 750 jobs announced in Indiana and cancelled, then $86.5 million and ~1,000 jobs bought in Texas
 
 - **Sources:**
   - "Indiana's Economic Development Momentum Continues with State's First Microelectronics Fab,
@@ -1047,17 +1120,19 @@ quantum-computing company.
   - **The state's share.** 29,000,000 + 1,000,000 + 20,000,000 + 20,000,000 + 500,000 + 1,000,000 =
     **$71,500,000** of state incentives, which is 71.5 ÷ 1,800 = **3.97%** of the project and
     $71,500,000 ÷ 750 = **$95,333 per job**. **The state incentive per job is about the same size as
-    the entire capital cost per job of buying a fab** ($98,214 and $101,884 in `LN-14`).
+    the entire capital cost per job of buying a fab** ($75,000 to $98,214 in `LN-14`) — and
+    **larger than all four of them**.
   - **How far beyond the company the plan was.** SkyWater's FY2022 revenue was $212,941,000
     (`LN-1`), so the Indiana plan was 1,800 ÷ 212.941 = **8.45× one year's revenue**. Its whole
     five-year organic capex was $104,900,000, so the plan was 1,800 ÷ 104.9 = **17.2× everything it
     actually spent on capital in five years**. It had 600 associates and proposed to add 750.
   - **What it did instead.** In June 2025 it bought an operating 200 mm fab for **$86,500,000 of
-    net cash** and got **about 849 employees** (`LN-3`). Against the Indiana plan:
+    net cash** and got **approximately 1,000 employees** and 400,000 wafer starts a year of
+    capacity (`LN-3`). Against the Indiana plan:
     - Cash: 86.5 ÷ 1,800 = **4.81%** of the announced capital.
-    - Jobs: 849 ÷ 750 = **113%** of the announced jobs.
-    - Capital per job: $101,884 against $2,400,000 = **23.6× cheaper**
-      (2,400,000 ÷ 101,884 = 23.56).
+    - Jobs: 1,000 ÷ 750 = **133%** of the announced jobs.
+    - Capital per job: $86,500 against $2,400,000 = **27.7× cheaper**
+      (2,400,000 ÷ 86,500 = 27.75).
   - **The whole finding in one line:** the same company got **more jobs for one twenty-third of the
     capital** by buying an existing fab instead of building one, and the difference was not
     marginal — it was the difference between a project that happened and a project that did not.
@@ -1209,10 +1284,10 @@ quantum-computing company.
 
 - **DERIVED (arithmetic written out):**
   - **Capital per job.** $40,000,000 ÷ 500 = **$80,000 per job**. Against the two other purchases
-    in `LN-14`, $98,214 (Canandaigua 2017) and $101,884 (Fab 25 2025), the three land at
-    **$80,000, $98,214 and $101,884** — a spread of 27% across **ten years, three states and three
-    wafer sizes (200 mm, 150 mm, 200 mm)**. Mean: (80,000 + 98,214 + 101,884) ÷ 3 = **$93,366 per
-    job**.
+    in `LN-14` — $75,000 (Bloomington 2017, `LN-18`), $86,500 (Fab 25 2025) and $98,214
+    (Canandaigua 2017) — the four land at **$75,000, $80,000, $86,500 and $98,214**, a spread of
+    **31%** across **nine years, four states and two wafer sizes**. Mean:
+    (75,000 + 80,000 + 86,500 + 98,214) ÷ 4 = **$84,929 per job**.
   - **Capital per unit of capacity — and the comparison that matters.**
     $40,000,000 ÷ 28,000 wspm = **$1,428.57 per wafer-start-per-month**. Polar's new capacity in
     `LN-11` cost $26,250 per wspm. **Buying capacity cost 1/18th of building it**
@@ -1230,6 +1305,305 @@ quantum-computing company.
   US small fab's own capital decision, but the fab and its 500 jobs are in San Antonio. "Nearly 500
   employees" is the seller's figure at announcement. No local San Antonio coverage with a county or
   city incentive figure was found (see "What I could not get").
+
+### LN-18. Cypress sold the Bloomington fab for $30 million with 400 jobs and 156,000 wafers a year of capacity — and the capacity figure was printed once and then withdrawn
+
+- **Sources:**
+  - "Cypress Closes Sale of Minnesota Wafer Fabrication Facility", Cypress Semiconductor
+    Corporation, PR Newswire, 2017-03-01.
+    <https://www.prnewswire.com/news-releases/cypress-closes-sale-of-minnesota-wafer-fabrication-facility-300416287.html>
+  - "SkyWater Technology Foundry Acquires Twin-Cities Semiconductor Manufacturing Facility from
+    Cypress Semiconductor Corporation", SkyWater Technology Foundry, 2017-03-27 (PDF on the
+    company's own site).
+    <https://www.skywatertechnology.com/wp-content/uploads/2017/03/SkyWater_Acquisition_3_27_17.pdf>
+  - SkyWater Technology, Inc., FY2021 Form 10-K, filed 2022-03-10, Item 1.
+    <https://www.sec.gov/Archives/edgar/data/1819974/000181997422000013/skyt-20220102.htm>
+  - "SkyWater Technology (Minnesota)", NIST CHIPS Program Office project page.
+    <https://www.nist.gov/chips/skywater-technology-minnesota-bloomington>
+- **Verification:** Verified
+- **Date checked:** 2026-09-25
+- **Bearing:** **Supports** the project's premise on capital cost — a **fourth** independent
+  observation of what buying an operating fab costs per job, and the **first** one where capacity,
+  jobs and price are all published for the same fab.
+- **What it says:**
+
+  Cypress, on the price:
+
+  > "sold the subsidiary...to SkyWater Technology Foundry for $30 million"
+
+  > "The sale of Fab 4 in Minnesota allows us to reduce our manufacturing costs as we exit the fab while using the proceeds to pay down debt."
+  > — Hassane El-Khoury, President and CEO
+
+  The same statement contains the sentence that closes the circle on `LN-3`, eight years early:
+
+  > "We will also be able to improve the utilization and efficiency of Fab 25 in Texas, into which we have been transitioning products over the last 18 months."
+
+  SkyWater, on the jobs, four weeks later:
+
+  > "Carrying forward Minnesota’s high-tech legacy, SkyWater Technology Foundry keeps 400 manufacturing jobs in the Twin Cities"
+
+  > "With funding from Oxbow Industries, a Minnesota-based private equity firm and diversified holding company, the acquisition ensures the manufacturing facilities’ future and keeps 400 high-tech manufacturing jobs in Minnesota."
+
+  > "Originally commissioned by Control Data Corporation in the 1980s, the facility has been a cornerstone of Minnesota’s high-tech community"
+
+  And the capacity, from the FY2021 10-K — **the only SkyWater annual report that prints it**:
+
+  > "Our Bloomington, Minnesota-based fab can produce up to 156,000 wafers per year (depending on the product mix) and has at least 517 well-maintained fab and sort tools, enabling high volume production for highly customized products. Our utilization rate for the year ended January 2, 2022 was approximately 87%."
+
+  > "Our fab’s throughput capacity is up to 156,000 wafers per year (device mix dependent)."
+
+  **That sentence does not appear in the FY2022, FY2023, FY2024 or FY2025 10-K.** All four were
+  searched for "156,000", "throughput capacity", "wafers per year" and "wafer starts"; the only
+  hits are unrelated uses of "utilization rate". The disclosure was made once, at IPO, and
+  withdrawn.
+
+  What the CHIPS money would have added, from NIST:
+
+  > "increasing the production capacity of 90nm and 130nm wafers by approximately 30%"
+
+  > "This proposed CHIPS Investment is expected to create approximately 70 jobs"
+
+  > "the State of Minnesota’s Forward Fund would provide $19 million in dedicated funding to support this proposed project"
+
+- **DERIVED (arithmetic written out):**
+  - **Capital cost per job.** $30,000,000 ÷ 400 = **$75,000 per job** — the cheapest job in this
+    file, and the fourth "buy" observation. With Tower ($80,000), Fab 25 ($86,500) and Canandaigua
+    ($98,214) the four run **$75,000 / $80,000 / $86,500 / $98,214**, a **31% spread across nine
+    years, four states and two wafer sizes**. Mean: (75,000 + 80,000 + 86,500 + 98,214) ÷ 4 =
+    339,714 ÷ 4 = **$84,929 per job**.
+  - **Capital cost per unit of capacity.** 156,000 ÷ 12 = **13,000 wafer starts per month**.
+    - $30,000,000 ÷ 13,000 wspm = **$2,307.69 per wafer-start-per-month**.
+    - $30,000,000 ÷ 156,000 = **$192.31 of capital per wafer of annual capacity**.
+  - **Capital per tool.** $30,000,000 ÷ 517 tools = **$58,027 per fab or sort tool**, buildings and
+    land included. A single new 200 mm process tool lists well into seven figures.
+  - **Realised revenue per wafer — the number the customer arithmetic needs.** At 87% utilisation
+    the fab ran 156,000 × 0.87 = **135,720 wafers** in FY2021, against total revenue of
+    $162,848,000 (`LN-1`). $162,848,000 ÷ 135,720 = **$1,199.88 of revenue per wafer produced**,
+    call it **$1,200**. This is a *blended* figure: it divides all revenue, including $111,691,000
+    of Advanced Technology Services, by all wafers, so it is what a wafer of this fab's capacity
+    earned, not a wafer price. Splitting it the other way, Wafer Services revenue alone was
+    $51,157,000, so 51,157,000 ÷ 135,720 = **$376.92** — which is far too low for a 200 mm wafer
+    and shows that most of the fab's wafer starts were consumed by development work billed as
+    services, not by wafers sold by the wafer.
+  - **Payback, as a sanity check on the purchase price.** $30,000,000 of purchase price against
+    $162,848,000 of FY2021 revenue is **0.18 years of revenue** (30 ÷ 162.848) — the same order as
+    Fab 25's 0.25 years.
+  - **The CHIPS modernisation, in the same units.** +30% of 13,000 wspm = **+3,900 wspm**, or
+    +46,800 wafers a year. The announced public money is $16,000,000 + $19,000,000 =
+    **$35,000,000**, so $35,000,000 ÷ 3,900 = **$8,974.36 of public money per added
+    wafer-start-per-month**, and $35,000,000 ÷ 70 jobs = **$500,000 of public money per job**.
+    **That is public money only** — SkyWater's own share is not disclosed, so the true cost per
+    wspm is higher and this is a lower bound.
+- **Caveats:** The $30,000,000 is Cypress's figure for the sale of the capital stock of a
+  subsidiary, so it is an equity price and may sit over undisclosed debt or working capital; the
+  SkyWater release names no price at all. "400 manufacturing jobs" is SkyWater's number in a
+  jobs-focused release and may exclude staff. "156,000 wafers per year" is explicitly
+  "device mix dependent" and is a *capability*, not a run rate; the 87% utilisation is for one year.
+  The 13,000 wspm conversion assumes twelve equal months. This fab is a 90–350 nm 200 mm line, so
+  its wafers are not comparable to a 300 mm wafer or to a MEMS thin-film wafer without adjusting
+  for mask count. The CHIPS award was a **preliminary memorandum of terms**, not an award, and is
+  labelled as such in `LN-4`.
+
+---
+
+## Capital per wafer start, and how many customers it takes to pay for it
+
+*Added 2026-09-25 on a second pass, after the capacity figures that `LN-14` was missing were found.
+No new entry IDs: everything here is arithmetic on figures verified in `LN-1` … `LN-18` and on
+entries elsewhere in this directory. Where an input comes from outside this file it is cited.*
+
+### 1. Dollars of capital per wafer-start-per-month
+
+| Site | Verb | Capital | wspm | **$ / wspm** | **$ / wafer-yr** | Source |
+|---|---|---:|---:|---:|---:|---|
+| Tower / Maxim, San Antonio TX, 2016 | **buy** | $40,000,000 | 28,000 | **$1,428.57** | **$119.05** | `LN-17` |
+| SkyWater / Cypress, Bloomington MN, 2017 | **buy** | $30,000,000 | 13,000 | **$2,307.69** | **$192.31** | `LN-18` |
+| SkyWater / Infineon, Fab 25 Austin TX, 2025 | **buy** | $86,500,000 | 33,333 | **$2,595.03** | **$216.25** | `LN-3` |
+| SkyWater Bloomington 2021 debottleneck | **expand** | $56,000,000 | +5,200 | **$10,769.23** | **$897.44** | `LN-2` |
+| SkyWater Bloomington CHIPS modernisation | **expand** | $35,000,000 *(public only)* | +3,900 | **$8,974.36** *(lower bound)* | **$747.86** | `LN-18` |
+| Polar Semiconductor, Bloomington MN, 2024 | **build** | $525,000,000 | +20,000 | **$26,250.00** | **$2,187.50** | `LN-11` |
+| Rogue Valley, Palm Bay FL, 2023–25 | **retrofit** | $25,000,000 – $30,000,000 | 21,000 | **$1,190 – $1,429** | **$99 – $119** | `LN-12`, below |
+| X-FAB Texas, Lubbock, existing site | *(base, for scale)* | — | >19,000 | — | — | below |
+
+**Two new primary sources support the last two rows.**
+
+X-FAB publishes its Lubbock throughput on its own careers site
+(<https://www.xfabulous.com/our-locations/lubbock-usa/>, verified 2026-09-25):
+
+> "Currently the site is averaging over 19,000 wafer starts/month (Production and Engineering)."
+
+> "The focus is on the production of 6-inch wafers in the CMOS area as well as SiC technologies."
+
+> "X-FAB Texas has a total of 400 employees."
+
+Peter Clarke reported Rogue Valley's Palm Bay capacity twice for *eeNews Europe*, on 2023-06-29 and
+again on 2024-07-02:
+
+> "21,000 wafer starts per month"
+
+> "US$30 million capex"
+
+> "equipped to run wafers of 200mm and 300mm diameter"
+
+> "expected to employ about 75 people and begin production in 2025"
+
+(<https://www.eenewseurope.com/en/rogue-valley-selects-florida-for-mems-wafer-fab/> and
+<https://www.eenewseurope.com/en/rogue-valley-set-to-receive-chips-funding-for-300mm-mems-fab/>,
+both verified 2026-09-25.) Note that eeNews says **US$30 million capex** where the Space Coast EDC
+said "a capital investment of $25 million" (`LN-12`); both are shown, and the range is carried
+through.
+
+**DERIVED:**
+- **Mean of the three "buy" rows:** (1,428.57 + 2,307.69 + 2,595.03) ÷ 3 = 6,331.29 ÷ 3 =
+  **$2,110.43 per wspm**, i.e. **$175.87 per wafer of annual capacity** (2,110.43 ÷ 12).
+- **Mean of the two clean "expand/build" rows** (excluding the public-only CHIPS row and the
+  non-comparable MEMS row): (10,769.23 + 26,250.00) ÷ 2 = **$18,509.62 per wspm**, i.e.
+  **$1,542.47 per wafer of annual capacity**.
+- **Ratio: 18,509.62 ÷ 2,110.43 = 8.77×.** Buying capacity costs about **one ninth** of building
+  it. On the per-job measure in `LN-14` the same split was 13.9×; the two measures bracket the
+  answer at **roughly an order of magnitude**, which is the honest way to state it.
+- **The three "buy" rows agree far better than they have any right to.** $1,428.57, $2,307.69 and
+  $2,595.03 — a 1.82× spread across nine years, three states, three sellers and two wafer sizes,
+  with no two transactions sharing a buyer except SkyWater's own two.
+
+**Caveat, and it is a large one: the Rogue Valley row is not comparable and must not be averaged
+in.** A MEMS thin-film wafer start is a handful of deposition and etch steps; a 200 mm BCD or CMOS
+wafer start at Polar or SkyWater is tens of masks and hundreds of steps. SkyWater's own historical
+framing of its Bloomington capacity is "12,000 wafer starts a month, assuming 200-mm diameter
+wafers and 30 mask layers". Comparing $1,190/wspm of MEMS capacity with $26,250/wspm of CMOS
+capacity compares two different things, and the apparent result that a MEMS retrofit is cheaper per
+wafer start than *buying* a CMOS fab is an artefact of that. **Mask-layer-normalised capacity is the
+right unit and nobody publishes it.**
+
+### 2. What a wafer of that capacity earns
+
+One fab publishes both capacity and utilisation, so one realised figure exists (`LN-18`):
+
+- SkyWater Bloomington, FY2021: 156,000 × 0.87 utilisation = **135,720 wafers**;
+  $162,848,000 of revenue ÷ 135,720 = **$1,199.88 of revenue per wafer produced**.
+
+Against the capital numbers above:
+
+| | $ capital per wafer of annual capacity | Years of revenue at $1,200/wafer to repay the capital |
+|---|---:|---:|
+| **Buy** (mean of three) | $175.87 | **0.15 years** |
+| **Expand/build** (mean of two) | $1,542.47 | **1.29 years** |
+
+Capital is not what makes a fab hard. Even a built fab repays its *capital* out of about fifteen
+months of revenue at full utilisation. What kills small fabs in this directory is operating cost and
+utilisation — `LN-7`'s −12.93% operating margin, `LN-9`'s $25,000,000-a-year running cost against
+$27,500,000 of total contracts, `IHF-8`'s audited losses. **Nothing in this section contradicts
+that; it narrows where the difficulty is.**
+
+### 3. How many customers does it take?
+
+Take the cheapest real fab in the file, Bloomington at **156,000 wafers a year for $30,000,000**,
+and the dearest capacity, Polar at **$2,187.50 per wafer of annual capacity**. Then price the
+customers from this directory's own evidence.
+
+| Customer type | What they pay | Source |
+|---|---|---|
+| Tiny Tapeout design | **$199.62 lifetime average** — $0.85m central dollar-equivalent lifetime revenue ÷ 4,258 designs | `PAY-6` |
+| wafer.space slot | **$7,000 – $8,500**, for "1,000 bare dies" of 19.67 mm² | `PAY-9` |
+| ChipFoundry shuttle slot | **$14,950** | `CF-8`, `SMB-9` |
+| "Real" production customer | **100 wafers a year**, ≈ $300,000 a year at $3,000/wafer | `customers-needed-to-fill-a-fab.md` |
+
+**(a) Filling the fab, in customers.**
+156,000 wafers a year ÷ 100 wafers per customer = **1,560 customers**. For Fab 25:
+400,000 ÷ 100 = **4,000 customers**. Both are numbers the repository's own long-tail evidence can
+imagine; neither is a million.
+
+**(b) Capital per such customer.**
+- Bought: $30,000,000 ÷ 1,560 = **$19,231 of capital per customer**, which is
+  19,231 ÷ 300,000 = **6.4% of one year of that customer's spend**.
+- Built at Polar's rate: 156,000 × $2,187.50 = $341,250,000; ÷ 1,560 = **$218,750 per customer**,
+  which is **72.9% of one year of that customer's spend**.
+
+**Both are financeable.** A business whose capital cost is 6% — or even 73% — of one year of
+customer revenue is an ordinary business. **If the tail contains 1,560 customers who each buy 100
+wafers a year, the capital is not the problem, and buying rather than building makes it eleven times
+less of a problem.**
+
+**(c) But the tail this directory has actually measured does not buy wafers.** Price the same
+capital against what the observed long tail actually pays:
+
+- **Tiny Tapeout, at $199.62 a design.** $30,000,000 ÷ 199.62 = **150,285 designs** to cover the
+  purchase price of the cheapest fab here, before a dollar of operating cost. Tiny Tapeout has done
+  **4,258 designs in five years** (`PAY-6`) and its record year was **1,455 designs** (2025). At the
+  record rate: 150,285 ÷ 1,455 = **103 years**. For Fab 25: $86,500,000 ÷ 199.62 = 433,323 designs
+  = **298 years**. For Polar's $525,000,000: 2,629,997 designs = **1,807 years**.
+- **ChipFoundry shuttle slots, at $14,950.** $30,000,000 ÷ 14,950 = **2,007 slots**. ChipFoundry's
+  completed runs committed 21, 23 and 29 slots at two to three runs a year (`CF-6`, `CF-7`) — call
+  it 75 slots a year at its best. 2,007 ÷ 75 = **27 years** for the cheapest fab, **77 years** for
+  Fab 25, **468 years** for Polar.
+- **The whole unsubsidised sector's money at once.** Tiny Tapeout, chipIgnite/ChipFoundry and
+  wafer.space together took **$931,158 in 2025** (`PAY-8`). $30,000,000 ÷ 931,158 = **32.2 years**
+  of the entire worldwide unsubsidised open-shuttle sector's revenue, spent on nothing but the
+  purchase price, to buy the cheapest fab in this file. Against Polar's $525,000,000:
+  **563.8 years**.
+
+**(d) The reason is a unit mismatch of four orders of magnitude, and it cuts the project's way on
+price.** A wafer.space slot is "1,000 bare dies" of 19.67 mm² = **19,670 mm² of die area**. A
+200 mm wafer is π × 100² = **31,415.9 mm²** gross, of which perhaps 28,000 mm² is usable die area
+after edge exclusion, so **one wafer.space slot is roughly three-quarters of one 200 mm wafer**. At
+$7,000 a slot that is about **$9,333 of revenue per 200 mm wafer equivalent** — against the
+**$1,200 per wafer** SkyWater's whole Bloomington fab earned in FY2021. A Tiny Tapeout shuttle is
+one purchased slot resold up to 512 ways: `CF-9` records Tiny Tapeout putting **1,357 designs onto
+ChipFoundry silicon in five runs while buying five slots**, and `PAY-6`'s per-shuttle revenue runs
+€63,750–€73,420 on a single slot — i.e. **on the order of €65,000 of revenue per wafer
+equivalent**, fifty times what the fab earns per wafer from everybody else.
+
+**So the long tail does not pay too little per wafer. It pays 8× to 54× too much per wafer, and
+consumes almost no wafers.** The binding constraint is volume, and it is not close:
+
+- 6,218 Tiny Tapeout tiles over five years, at 512 tiles to a slot, is **12.1 slot-equivalents**
+  (6,218 ÷ 512) ≈ **about a dozen wafers of die area in five years**.
+- wafer.space's thirty orders across three runs is **30 slots** ≈ **23 wafers of die area**
+  (30 × 0.75).
+- Together: **≈ 35 wafers of die area** for the whole recorded output of both programmes.
+- Bloomington's capacity is **156,000 wafers a year**, or 156,000 ÷ 365 = **427 wafers a day**.
+- 35 ÷ 427 = **0.08 days — about two hours.**
+
+**The entire recorded die area of the unsubsidised open-shuttle sector, over its whole existence, is
+about two hours of one small fab's capacity.** The *actual* wafers consumed are more than that,
+because a multi-project run is a minimum lot — typically about 25 wafers — whether you use a
+512th of the reticle or all of it: wafer.space's three runs alone would be ~75 wafers on that
+basis, and the two programmes together plausibly a few hundred wafers, i.e. **of the order of one
+day** of the fab. Either way the conclusion is the same and is not sensitive to the assumption.
+
+### 4. The answer, plainly
+
+> **No plausible number of tape-out customers pays for a built fab, and none pays for a bought one
+> either — but the gap is 18× narrower, and the shape of the gap is volume, not price.**
+
+Stated as the three findings the coordinator asked for:
+
+1. **Built fab: unreachable.** Polar's $525,000,000 is **563.8 years** of the current worldwide
+   unsubsidised open-shuttle sector's annual revenue (525,000,000 ÷ 931,158), or **1,807 years** of
+   Tiny Tapeout at its record rate. The fastest series in this directory is Tiny Tapeout's
+   **+156%/yr** over 2022–2025 (`PAY-6`), i.e. ×2.56 a year. Growing $931,158 to $525,000,000 at
+   that rate takes ln(563.8) ÷ ln(2.56) = 6.3346 ÷ 0.9400 = **6.7 years of unbroken ×2.56 growth**
+   — and the same entry records that the sector's money **fell 46% in 2025**. Treat 6.7 years as
+   the arithmetic floor under the most favourable assumption in the directory, not as a forecast.
+2. **Bought fab: not reachable today, but arguably reachable.** $30,000,000 is **32.2 years** of the
+   sector's current revenue — or, the more useful framing, **about nineteen months** of the revenue
+   of a sector 20× its present size (20 × 931,158 = $18,623,160/yr; 30,000,000 ÷ 18,623,160 = 1.61
+   years). Twenty times wafer.space's thirty orders is 600 orders. That is a number this directory
+   can imagine; 150,285 Tiny Tapeout designs is not.
+3. **What actually pays for either is wafer customers, and the capital per wafer customer is
+   small.** 1,560 customers at 100 wafers a year fills the Bloomington fab, and the capital works
+   out at **$19,231 per customer bought** or **$218,750 per customer built** — 6.4% and 72.9% of one
+   year of that customer's spend. **The capital is not the obstacle. Finding 1,560 customers who buy
+   wafers rather than tape-outs is the obstacle**, and `DEM-15` (TSMC's non-top-ten customers
+   average US$41m a year each), `PAY-9` (thirty orders worldwide in thirteen months) and the
+   retention analysis (a recurring core of about 1,250 Tiny Tapeout designers, of whom 73.6% make
+   exactly one design ever) are the evidence on whether they exist. **They say: not yet.**
+
+**A correction to an assumption used in commissioning this section.** The tiles-per-design ratio is
+**1.46**, not 1.76: `PAY-6` gives 6,218 tiles and 4,258 designs, and 6,218 ÷ 4,258 = **1.4603**. The
+figure 1.76 in `PAY-6` is the 2025→2026 revenue growth ratio (341,710 ÷ 194,670), not a tile count.
+Nothing above depends on it — the arithmetic here uses revenue per design, not tiles — but it should
+not propagate.
 
 ---
 
@@ -1260,10 +1634,27 @@ lack of trying, and none was worked around by defeating a bot check.
    Board of County Commissioners agenda item, a bond issue or a CAFR line. The county's
    **revenue-bond issues** for NeoCity, which would give the exact principal, par value and pledged
    revenue, were not located.
-4. **No wafer-start capacity (wspm) is published anywhere in SkyWater's five 10-Ks.** `LN-2`'s "at
-   least 40%" output increase therefore cannot be converted into a dollars-per-wspm figure
-   comparable to Polar's $26,250 in `LN-11`. This is the biggest single gap in the file: two of the
-   ten sites give a capacity number and eight do not.
+4. ~~**No wafer-start capacity (wspm) is published anywhere in SkyWater's five 10-Ks.**~~
+   **WRONG, corrected 2026-09-25.** It is published, in the FY2021 10-K: *"Our fab's throughput
+   capacity is up to 156,000 wafers per year (device mix dependent)"*, with an 87% utilisation rate
+   alongside it. The first pass searched for "wafer starts" and "wspm" and missed "wafers per
+   year". The sentence was then **dropped from the FY2022, FY2023, FY2024 and FY2025 10-Ks** —
+   which is itself recorded in `LN-18`. With it, `LN-2`'s "$56 million … at least 40%" converts to
+   **$10,769/wspm**, and Fab 25's capacity turned out to be in SkyWater's own completion press
+   release ("approximately 400,000 wafer starts per year"), which also corrected the Fab 25 head
+   count from a derived 849 to a stated ~1,000. **What remains missing is mask-layer-normalised
+   capacity**: a MEMS thin-film wafer start and a 30-mask CMOS wafer start are not the same unit,
+   nobody publishes the normalisation, and that is why the Rogue Valley row is excluded from the
+   averages in the capacity section.
+4b. **Still no capacity figure at all for six of the eleven sites** — Kissimmee (CfN), Canandaigua,
+   the four Odon tenants, or the Indiana plan that was cancelled. Akoustis published a *filter*
+   capacity ("approximately 500 million XBAW filters per year" at the New York fab, as of 2022,
+   found but not verified against a primary document) and never, so far as could be found, a wafer
+   capacity.
+4c. **No published utilisation for any site except SkyWater Bloomington in FY2021 (87%).** Every
+   $/wspm figure in this file is therefore capital per unit of *nameplate* capacity. Polar's
+   neighbour SkyWater ran at 87% in a good year; `PCB-2` records a Chinese PCB plant at 41.55%.
+   Nameplate is the optimistic end.
 5. **The Lubbock tax-abatement file could not be opened.** The City of Lubbock's Laserfiche
    WebLink instance has a "Notice Of Intent To Enter Tax Abatement Agreement - X-Fab TX"
    (<https://weblink.ci.lubbock.tx.us/WebLink/DocView.aspx?id=226922&dbid=5&repo=Lubbock&cr=1>) but
