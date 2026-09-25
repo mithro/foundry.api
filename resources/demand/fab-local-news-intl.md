@@ -901,3 +901,262 @@ conversion.
     it is flat.** Whatever the case for a small fab is, "cheaper per job" is not it.
 - **Caveats.** A 300 mm automotive fab is not comparable in product or process to anything else in
   this file. Included only to bound the range.
+
+### LNI-12. CORNERSTONE, Southampton: the UK's academic silicon-photonics MPW said in 2020 that it "will be self-sustaining, with users paying for the service" — and has taken £17.1 million of EPSRC money since
+
+- **Source:** UK Research and Innovation, Gateway to Research API,
+  <https://gtr.ukri.org/gtr/api/projects> — the four project records and their linked `FUND` objects,
+  queried on 2026-09-25:
+  - `EP/L021129/1` "CORNERSTONE: Capability for OptoelectRoNics, mEtamateRialS, nanoTechnOlogy aNd
+    sEnsing" — <https://gtr.ukri.org/gtr/api/projects/4DF2803A-836A-4CCC-8B3F-0BD3562E15A6>
+  - `EP/T019697/1` "CORNERSTONE 2" —
+    <https://gtr.ukri.org/gtr/api/projects/687D6AB3-28C6-41A3-8F47-1C44764A2F9A>
+  - `EP/W035995/1` "CORNERSTONE 2.5" —
+    <https://gtr.ukri.org/gtr/api/projects/13D55263-F076-4B41-A5C8-48FC636BB52B>
+  - `EP/Z531066/1` "CORNERSTONE Photonics Innovation Centre (C-PIC)" —
+    <https://gtr.ukri.org/gtr/api/projects/827B6825-2A3D-4F3E-9CC1-57029B5D6C75>
+- **Verification:** Verified
+- **Date checked:** 2026-09-25
+- **How it was counted:** The GtR project search endpoint returns `null` for grant value; the amount
+  lives on the linked `FUND` object. For each project the `links.link` array was filtered to
+  `rel == "FUND"`, that URL fetched, and `valuePounds.amount` and the start/end epoch-millisecond
+  timestamps read off. Category is `INCOME_ACTUAL` in every case, i.e. money actually received, not
+  awarded-and-unspent. The script is four HTTP GETs and is reproducible from the URLs above.
+- **Bearing:** **Challenges** H8 and, by extension, the "self-sustaining MPW" story the directory has
+  been unpicking for MOSIS (`MOS-*`). This is the same claim, made in writing, in a grant application,
+  and then contradicted by the same funder's own records.
+- **What it says — the money:**
+
+  | Grant | Reference | Funder | Value (INCOME_ACTUAL) | Period |
+  |---|---|---|---:|---|
+  | CORNERSTONE | `EP/L021129/1` | EPSRC | **£2,267,121** | 2014-09-14 – 2020-06-29 |
+  | CORNERSTONE 2 | `EP/T019697/1` | EPSRC | **£1,494,157** | 2020-03-01 – 2023-02-28 |
+  | CORNERSTONE 2.5 | `EP/W035995/1` | EPSRC | **£1,553,164** | 2022-12-02 – 2025-06-01 |
+  | C-PIC | `EP/Z531066/1` | EPSRC | **£11,782,397** | 2024-05-31 – 2029-05-30 |
+  | **Total** | | | **£17,096,839** | 2014 – 2029 |
+
+- **What it says — the claim.** From the abstract of `EP/T019697/1` (CORNERSTONE 2), written in
+  2019/2020, with our emphasis on the clause that matters:
+
+  > "Southampton and Glasgow Universities currently contribute to a project entitled CORNERSTONE which
+  > has established a new Silicon Photonics fabrication capability, based on the Silicon-On-Insulator
+  > (SOI) platform, for academic researchers in the UK. **The project is due to end in December 2019,
+  > after which time the CORNERSTONE fabrication capability will be self-sustaining, with users paying
+  > for the service.**"
+
+  The same abstract then asks for the opposite:
+
+  > "Southampton, and Glasgow universities will work together to bring the new platforms to a state of
+  > readiness to deliver the new functionality via a multi-project-wafer (MPW) mechanism to satisfy
+  > significantly increasing demand, and deliver them to UK academic users **free of charge (to the
+  > user)** for the final six months of the project, in order to establish credibility."
+
+  > "We currently have 50 partners/users providing in-kind support to a value of to £1,705,000 and
+  > cash to the value of £173,450."
+
+  And `EP/Z531066/1` (C-PIC, 2024, £11.8m) states the problem as unsolved:
+
+  > "However, access to silicon prototyping facilities remains a challenge in the UK due to the high
+  > cost of both equipment and the cleanroom facilities that are required to house the equipment."
+
+  with the ambition:
+
+  > "Deliver the world's only open source, fully flexible silicon photonics prototyping foundry based
+  > on industry-like technology, facilitating straightforward scale-up to commercial viability."
+
+  The first grant, `EP/L021129/1`, is worth quoting for what it says about the underlying capital and
+  about the sustainability arithmetic:
+
+  > "The stepper will be located at Southampton University in the recent £120m cleanroom complex."
+
+  > "The Southampton users alone need only generate a tiny fraction (0.2%) of their research portfolio
+  > to cover running costs and dep[reciation]"
+
+  and about *why* an academic MPW is needed at all — a direct statement of the H1 doom spiral from
+  inside a research council application:
+
+  > "The Capability is extremely timely, as silicon foundry services around the world are moving
+  > towards a model in which standard platforms and devices will be offered, making it more difficult
+  > for researchers to carry out innovative work at the device level, or in non-standard platforms."
+
+- **DERIVED (arithmetic written out):**
+  - **Total EPSRC money, 2014–2029:** £2,267,121 + £1,494,157 + £1,553,164 + £11,782,397 =
+    **£17,096,839**.
+  - **Money since the "self-sustaining" date:** the three grants after CORNERSTONE 1 total
+    £1,494,157 + £1,553,164 + £11,782,397 = **£14,829,718**, all of it awarded *after* the statement
+    that the capability would be self-sustaining from December 2019.
+  - **Average annual public funding:** £17,096,839 over the 14.7 years from 2014-09-14 to 2029-05-30
+    = **£1,163,000 per year**. The rate is accelerating: C-PIC alone is £11,782,397 over five years =
+    **£2,356,000 per year**, about **2.9×** the 2014–2023 average.
+  - **Cash from users, as declared in 2020:** £173,450, against £1,494,157 of grant in the same
+    project — **10.4 pence of user cash per pound of grant.** In-kind support of £1,705,000 is not
+    cash and cannot pay a technician.
+- **Caveats.** "Self-sustaining" in the 2020 abstract refers to the *first* capability (SOI) and the
+  later grants fund *new* platforms, training and an innovation centre, not a re-funding of the same
+  thing. That is a real distinction and it is the defence the programme would offer. It does not
+  change the fact that a service declared self-sustaining in 2019 has drawn £14.8m of public money
+  since. The `INCOME_ACTUAL` category means received; for C-PIC, which runs to 2029, part of that is
+  necessarily profiled rather than banked.
+
+### LNI-13. CORNERSTONE's published price list, its 900 designs, and the subsidy per design
+
+- **Sources:**
+  - CORNERSTONE, "MPW Schedule & Costs".
+    <https://cornerstone.sotonfab.co.uk/mpw/mpw-schedule-costs/>
+  - CORNERSTONE Photonics Innovation Centre, "The silicon photonics crossroad: CORNERSTONE market
+    research uncovers scale-up challenges as global momentum builds", press release, 2026-06-17, as
+    carried by the National Law Review.
+    <https://natlawreview.com/press-releases/silicon-photonics-crossroad-cornerstone-market-research-uncovers-scale>
+  - CORNERSTONE, "About Us". <https://cornerstone.sotonfab.co.uk/about-us/>
+- **Verification:** Verified for the price list and the 50% subsidies, read directly off the live
+  page. Partial for the "over 900 unique SiPh designs" count, which was read through a summarising
+  fetch of the press release rather than from a CORNERSTONE-hosted page.
+- **Date checked:** 2026-09-25
+- **Bearing:** **Supports** H5 on volume (900 designs, 130 organisations, 26 countries is a real long
+  tail), **Challenges** H6 and H8 on whether it pays for itself.
+- **What it says — the prices, as printed** (per design area, per MPW run):
+
+  | Design area | SOI active devices | SOI passive with heaters | SOI passive devices | SiN (inc. visible) passive with heaters | SiN (inc. visible) passive | Ge-on-Si |
+  |---|---:|---:|---:|---:|---:|---:|
+  | 11.47 mm × 4.9 mm | £57,420 | £19,980 | £12,790 | | | |
+  | 5.5 mm × 4.9 mm | £34,500 | £14,700 | £8,875 | | | |
+  | 15.45 mm × 11.47 mm | | | | £19,980 | £9,470 | £15,550 |
+
+  and the discounts:
+
+  > "UK University 50% off"
+  > "UK SME 1st time users 50% off"
+
+  > "If you're based at a UK University then access to all MPW runs until May 2029 will be 50%
+  > subsidised by the CORNERSTONE Photonics Innovation Centre. You will automatically receive this
+  > subsidy when you sign-up to an MPW call."
+
+  Delivery times, as printed: SOI active 36 weeks; SOI passive with heaters 14 weeks; SOI passive
+  only 14 weeks; SiN with heaters 12 weeks; SiN passive only 12 weeks; Ge-on-Si 10 weeks.
+
+  The service describes itself:
+
+  > "CORNERSTONE is an open-source, licence-free silicon photonics prototyping foundry. Our
+  > open-source model lowers the barriers to innovation in photonic integrated circuits (PICs), giving
+  > researchers and innovators the freedom to design, fabricate, and test new ideas."
+
+  The volume, from the June 2026 market-research release:
+
+  > "Since 2017, CORNERSTONE has fabricated over 900 unique SiPh designs for over 130 organisations in
+  > 26 countries."
+
+- **DERIVED (arithmetic written out):**
+  - **Public subsidy per design:** £17,096,839 of EPSRC money (`LNI-12`) ÷ 900 designs =
+    **£18,996 per design.** Note that this is the same order as the *price* of a passive SOI design
+    (£12,790) and about a third of an active SOI design (£57,420). **The taxpayer is paying roughly as
+    much per design as the customer is.**
+  - **A tighter version, matching the periods:** designs are counted "since 2017"; the grants running
+    over 2014–2026 total £17,096,839 but C-PIC runs to 2029, so only part is spent. Taking the three
+    completed grants (£2,267,121 + £1,494,157 + £1,553,164 = £5,314,442) against 900 designs gives
+    **£5,905 per design** as a floor, and the full-programme figure of £18,996 as a ceiling. **The
+    honest range is £5,900 to £19,000 of public money per design.**
+  - **Designs per organisation:** 900 ÷ 130 = **6.9 designs per organisation.** This is a long tail of
+    *organisations* with repeat business, not one-shot hobbyists — the shape H5 wants.
+  - **Designs per year:** 900 designs over 2017–2026, nine years, = **100 designs a year.** Compare
+    Europractice at 363–985 a year (`DEM-16`) and CMP's 401 peak (`DEM-19`): CORNERSTONE is an order of
+    magnitude smaller, in one technology.
+  - **Price per square millimetre:** SOI active, 11.47 × 4.9 = 56.20 mm² for £57,420 =
+    **£1,022/mm²**. SOI passive, same area for £12,790 = **£228/mm²**. SiN passive,
+    15.45 × 11.47 = 177.21 mm² for £9,470 = **£53/mm²**.
+  - **Half-size is not half-price:** the 5.5 × 4.9 mm cell is 26.95 mm², 48.0% of the 56.20 mm² cell,
+    but costs £34,500 ÷ £57,420 = **60.1%** as much for SOI active and £8,875 ÷ £12,790 = **69.4%** as
+    much for SOI passive. **The fixed cost of serving one customer is visible directly in the price
+    list** — roughly 20–40% of the smaller cell's price is the cost of having a customer at all,
+    rather than the cost of their silicon. This is H6's problem, published as a tariff.
+- **Caveats.** The prices are list prices before the 50% academic and first-time-SME discounts, so
+  realised revenue per design is lower than the table suggests, probably much lower given that the
+  user base is dominated by universities. The 900 designs is a marketing claim in a press release,
+  not an audited count. Design-area categories differ between SOI and SiN, so the £/mm² figures are
+  not strictly comparable across platforms.
+
+### LNI-14. Vishay at Newport Wafer Fab: £51 million with £5 million of Welsh Government money, and no job number at all
+
+- **Source:** Welsh Government, "£51 million Newport investment latest chapter in Wales' compound
+  semiconductor success story", 2024-11-27.
+  <https://www.gov.wales/51-million-newport-investment-latest-chapter-wales-compound-semiconductor-success-story>
+- **Verification:** Verified
+- **Date checked:** 2026-09-25
+- **Bearing:** **Challenges** H5. The UK's largest semiconductor facility announced a £51m investment
+  and the government press release describing it does not contain a single job figure for that
+  investment.
+- **What it says:**
+
+  > "Vishay Intertechnology, one of the world's largest manufacturers of discrete semiconductors and
+  > passive electronic components, has announced that it is investing £51 million in Newport Wafer
+  > Fab, the UK's largest semiconductor facility - bringing new product range capabilities and skilled
+  > job opportunities to Newport."
+
+  > "The investment has been supported by £5 million of Welsh Government funding…"
+
+  The release's job numbers all belong to other projects on the same site:
+
+  > "a second US owned company, KLA, constructing its new European headquarters at Imperial Park,
+  > Newport. With Welsh Government investment in the grid infrastructure at the site, the 215,000
+  > square foot, $100 million development is creating a state-of-the-art innovation centre and
+  > manufacturing facility and will include cleanrooms for R&D and manufacturing. Recruitment of up to
+  > 750 employees is already underway."
+
+  > "Centre 7, a world-class facility supported by Welsh Government as part of its International
+  > Strategy, is already attracting inward investors recognising Wales as a semi-conductor hotspot,
+  > with Microlink Devices, and CS Connected the first tenants at the 51,000 square foot Cardiff Gate
+  > site."
+
+- **DERIVED (arithmetic written out):**
+  - **Public share of the Vishay investment:** £5m ÷ £51m = **9.8%**.
+  - **KLA, for a per-job comparison:** US$100,000,000 ÷ 750 = **US$133,333 per job** for a 215,000
+    sq ft (19,974 m²) headquarters-and-innovation-centre with some cleanroom. That is an order of
+    magnitude below every *fab* number in this file (`LNI-5` through `LNI-11`), which is the point:
+    **buildings full of engineers are cheap per job; buildings full of process tools are not.**
+    US$100m ÷ 215,000 sq ft = **US$465 per square foot**, or US$5,007/m².
+  - **Vishay's spend per job cannot be computed**, because no job figure is published. Recording the
+    absence is the finding.
+- **Caveats.** "Skilled job opportunities" is not a number and should not be treated as one. KLA's
+  Newport site is a headquarters and innovation centre, not a production fab, so its per-job figure is
+  not a fab figure. The $100m is US dollars in a Welsh Government release that otherwise uses pounds.
+
+### LNI-15. Tyndall National Institute, Cork: over €100 million to roughly double an institute that already has 580 people
+
+- **Source:** Department of Further and Higher Education, Research, Innovation and Science (Ireland),
+  "Government Approves Major Expansion of Tyndall National Institute", press release.
+  <https://www.gov.ie/en/department-of-further-and-higher-education-research-innovation-and-science/press-releases/government-approves-major-expansion-of-tyndall-national-institute/>
+- **Verification:** Partial. The €100m figure and the 580-staff figure are quoted verbatim from the
+  release; the release carries no visible date in the fetched text, and no job-creation number is
+  given, so no capital-per-job figure can be derived.
+- **Date checked:** 2026-09-25
+- **Bearing:** Context on H5 and H8. Tyndall is one of the institutes behind Europractice-style access
+  in Europe; this is what its next building costs.
+- **What it says.** Minister James Lawless:
+
+  > "This investment of over €100 million under the National Development Plan will significantly
+  > strengthen Ireland's global position in cutting‑edge semiconductor research and innovation, and it
+  > will be central to driving forward our ambition to become a true Silicon Ireland."
+
+  The institute's size:
+
+  > "Tyndall National Institute (TNI) is Ireland's largest dedicated research institute and is one of
+  > Europe's leading ICT research centres, with over 580 staff, postgraduate students and industrial
+  > researchers-in-residence, including 158 PhD students, actively registered in 2024."
+
+  Tyndall's CEO, William Scanlon:
+
+  > "The Government's support for the Tyndall North Mall Expansion is transformative for Ireland's
+  > research and innovation ecosystem. … This new world-class research facility will enable Tyndall's
+  > growth for the future and deliver greater economic impact, an expanded talent pipeline, and
+  > strengthen Europe's strategic resilience in this critical sector."
+
+- **DERIVED (arithmetic written out):**
+  - **Capital per existing person:** €100,000,000 ÷ 580 = **€172,414 per head already there.** If the
+    expansion roughly doubles the institute, as the project has been described, the implied capital
+    per *new* person is of the same order — close to Fraunhofer ISIT's €225,000 per job (`LNI-9`) and
+    an order of magnitude below the production-fab figures in this file.
+  - **The pattern across `LNI-9`, `LNI-14` and `LNI-15`:** institute and office jobs cost
+    **€130k–€230k** of capital each; production-fab jobs cost **€650k–€2.35m**. The difference is
+    process equipment.
+- **Caveats.** "Over €100 million" and "almost double the footprint" are the only quantities; no
+  cleanroom area, no head count target, no date on the page as fetched. This entry is a marker, not a
+  measurement.
