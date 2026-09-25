@@ -305,6 +305,26 @@ This is the analogue the project leans on hardest, and the one that most rewards
 - **Used in:** not yet.
 - **Caveats:** a marketing page. It says nothing about how many startups receive credits, the cost of the programme, or its return.
 
+#### PAR-40. The cloud is no longer asset-light: AWS spends 75% of revenue on plant, and Oracle carries more property per revenue dollar than TSMC
+
+- **Source:** `SWM-7` in [`../demand/software-margins.md`](../demand/software-margins.md), from Amazon's FY2025 Form 10-K (accession 0001018724-26-000004) segment note, and SEC XBRL company facts for Oracle, Microsoft and CoreWeave.
+- **Verification:** Verified 2026-09-25. Figures read from the filings; arithmetic reproduced in [`../../tools/sec_margins/`](../../tools/sec_margins/).
+- **What it says:** AWS in 2025 — net sales **$128,725m**, operating income **$45,606m** (**35.43%**), segment assets **$252,588m**, **property and equipment additions $96,496m** and **net PP&E $190,055m**.
+- **DERIVED (arithmetic written out):**
+  - **Capex intensity:** 96,496 ÷ 128,725 = **74.96% of revenue**.
+  - **Net PP&E intensity:** 190,055 ÷ 128,725 = **147.64% of revenue**.
+  - Against Silex Microsystems, a real MEMS wafer foundry, at **14.08%** capex intensity (`SEM-1`): **74.96 ÷ 14.08 = 5.32×**. Against TSMC: **2.27×**.
+  - **Oracle's** net PP&E is **148.40% of revenue** — higher than TSMC, UMC, GlobalFoundries or Tower. **Microsoft's** FY2026 capex is **34.94%** of revenue. **CoreWeave**, which the SEC classifies under *Services-Prepackaged Software*, spent **200.92% of revenue** on plant.
+  - AWS's asset turnover is 128,725 ÷ 252,588 = **0.510×**, against Silex's **0.617×**. **The fab turns its assets over faster than the cloud.**
+- **Bears on:**
+  - **H2 (context), and it is the useful reading.** §2.1 above concludes that the cloud's *access model* transferred and its *customer mix* did not. This adds a third dimension the section did not have: **the balance sheet.** The cloud analogue is often invoked as a business that escaped capital intensity through software. In 2026 it has not. If the project's pitch is "the AWS of silicon", that now describes a capital structure like a fab's at ten times the scale — which is a **fairer** comparison than the analogy used to imply, not a worse one.
+  - **H6 (context).** A reader who assumes an API-first, self-service business is inherently capital-light is reasoning from a version of AWS that stopped existing. Nothing in the access model makes the plant cheaper.
+- **Used in:** [`margins-across-industries.md`](margins-across-industries.md) §5.
+- **Caveats:**
+  - **AWS's share of Amazon's $247.8bn of unallocated corporate assets is undisclosed**, so segment ROA is computed on disclosed segment assets and is an **upper bound**.
+  - Capex intensity in 2025 is inflated across all of these by the AI datacentre build, which is a cycle, not a steady state. AWS's segment ROA fell from **25.54%** to **18.06%** in one year, which is the build showing up.
+  - This says nothing about whether the cloud's *customers* resemble a fab's. `PAR-7` through `PAR-11` remain the load-bearing entries on that, and they are unaffected.
+
 ### 2.2 Open source software
 
 SW-3 already records the Hoffmann, Nagle and Zhou demand-side value estimate. The entries here go to the parts of the open-source story the essay does not tell: who actually does the work, who pays for it, and what it did not fix. The mechanism that matters for our question is that **open source lowered the cost of *copying* work that had already been done**. Silicon has no copy operation, which is why this analogue transfers to chip *design* and not to chip *manufacturing*.
@@ -953,7 +973,7 @@ The four analogues the essay uses are all software. The analogue that actually t
 
 | Analogue | Verdict | The one-line reason |
 |---|---|---|
-| Cloud computing | **Load-bearing for the access model, misleading for the customer mix** | Published self-service pricing brought the customers in; the money went to multi-year take-or-pay commitments, and the purest version of the model is 67% one customer (PAR-7, PAR-9) |
+| Cloud computing | **Load-bearing for the access model, misleading for the customer mix — and no longer an argument against capital intensity** | Published self-service pricing brought the customers in; the money went to multi-year take-or-pay commitments, and the purest version of the model is 67% one customer (PAR-7, PAR-9). **AWS now spends 74.96% of revenue on plant and turns its assets over more slowly than a MEMS foundry (PAR-40)** |
 | Open source | **Load-bearing for design, misleading for manufacturing** | Its mechanism is the copy operation, and silicon has none (PAR-12, PAR-33) |
 | Machine learning / AI | **Misleading — it is evidence for the doom spiral, not against it** | Training cost growing 2.4× a year; two academic models in 2025 against 93 from industry (PAR-16, PAR-17) |
 | The internet / the web | **Illustrative only** | The cost collapse is real and entirely non-physical; the same mechanism produced an 80% advertising duopoly (PAR-20, PAR-22) |

@@ -113,11 +113,16 @@ revenue — higher than TSMC, UMC, GlobalFoundries or Tower. Microsoft's FY2026 
 revenue. CoreWeave, which the SEC classifies as *Services-Prepackaged Software*, spent **200.92% of
 revenue** on plant.
 
-**[`analyses/industry-parallels.md`](industry-parallels.md) leans on cloud as the model for
-API-first, self-service, utility-priced infrastructure. That parallel is still sound on the demand
-side and is now dead on the balance sheet.** "The AWS of silicon" in 2026 means a business with a
-fab's capital structure at ten times the scale. Anyone using the analogy must stop implying it
-escapes capital intensity.
+**Recorded in [`industry-parallels.md`](industry-parallels.md) as `PAR-40`.** Note what that file
+actually said before this was added: its cloud verdict was already *"the access model transferred and
+the customer mix did not"*, and `PAR-7`–`PAR-11` are about commitments and concentration. **It made no
+asset-light claim, so there was nothing to correct — the capital dimension was simply absent.** This
+adds it as a third dimension, and those entries are unaffected.
+
+The reading is context, not damage. "The AWS of silicon" in 2026 describes a capital structure like a
+fab's at ten times the scale — which makes it a **fairer** comparison than the analogy used to imply,
+not a worse one. What must stop is any use of it that assumes an API-first, self-service business is
+inherently capital-light.
 
 ## 6. And the finding that most damages the fab side
 
