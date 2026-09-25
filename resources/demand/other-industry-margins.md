@@ -880,3 +880,56 @@ roughly the size of the prize. That belongs in any use of `../analyses/long-tail
 genuine technical obstacle was `www.sec.gov/Archives` refusing automated fetches, and a browser
 solved it. Everything else is unfinished rather than blocked, and the reason in each case is that
 the budget went to the leads that were already producing printed tables.
+
+## Changes needed in other files
+
+These are reported, not made. `resources/README.md` and `demand/README.md` were given an index row
+for the `OIM` prefix, because check C4 in `tools/check_resources.py` fails without it; nothing else
+was touched.
+
+### `resources/hypotheses.md`
+
+- **H6 needs the reverse finding attached to it.** Its evidence currently runs one way. `OIM-3` and
+  `OIM-4` are seven audited company-years, from two independent companies, in which the *large*-batch
+  end of the same plant earns the higher gross margin, by 6.8 to 46.6 percentage points. They belong
+  in H6's "challenges" list with the same prominence `SMB-1` has in its "supports" list.
+- **H6's status line should carry the condition**, not just the count of entries: the evidence now
+  says the long tail earns the higher margin **where its orders are repetitions of a frozen process**
+  and the lower margin **where each order is a first-of-a-kind that consumes its own process
+  development**. Which of those foundry.api is, is a design question, not an empirical one.
+- **H7 gains a second audited data point.** Reliance's largest customer is **0.6% of net sales**
+  across 125,000 customers (`OIM-2`), next to JLC's 0.28% (`SMB-1`).
+
+### `resources/demand/pcb-industry-comparables.md`
+
+- Its verdict says **"only JLC publishes a margin split by batch size"**. That is true of the PCB
+  industry and false of industry in general — four companies outside PCBs print one, three of them in
+  a table Chinese listing rules require annually. The sentence needs the words "in the PCB industry"
+  and a pointer to `other-industry-margins.md`.
+- Its closing passage — "China's listing rules are the only reason any of this evidence exists" —
+  is *strengthened*, not weakened, by this file: three of the four printed splits found outside PCBs
+  are also Chinese, and no Western filing anywhere in the search printed a number for both sides.
+
+### `resources/analyses/long-tail-pays-for-the-capital.md`
+
+- Its "Does not establish" list should gain two items.
+  - **That the pattern is general.** `OIM-3` and `OIM-4` are the same disclosure shape pointing the
+    other way. The document currently reads as though JLC's decomposition is a discovery about
+    long tails; it is a discovery about JLC's kind of long tail.
+  - **That the gross-profit share survives customer-acquisition cost.** `OIM-1` is the only case
+    found anywhere in which a company publishes both a segment gross margin and a measure below it
+    for the same segments, and there a 23-point long-tail gross-margin advantage becomes a
+    0.26-point EBITDA advantage once advertising is paid for (15% of revenue against 5%). Nothing in
+    `SMB-1` establishes what it costs JLC to acquire 1.36 million paying users, and this is now a
+    known gap rather than an unexamined one.
+- Its **idle-plant test** gains independent corroboration worth citing: `OIM-5` records a MEMS
+  foundry's new *volume* line running at a **−50.00%** gross margin while ramping, which is the same
+  result as JLC's audited impairment against its medium/large-batch plant, in a different company,
+  country and industry.
+
+### `resources/analyses/industry-parallels.md`
+
+- Its Part 3.3 contrasts Protolabs (owns machines, losing margin) with Xometry (owns nothing). `OIM-1`
+  and `OIM-5` are two more owned-plant cases and they cut the other way, which is worth a
+  cross-reference. `OIM-5` in particular is a *fab* that says in an audited annual report that its
+  pilot-and-small-batch line out-earns its volume line.
