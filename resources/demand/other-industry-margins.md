@@ -30,9 +30,7 @@ Entries are graded by what they actually contain:
 
 ---
 
-### OIM-1. Cimpress publishes gross margin by reportable segment for seven years, and its
-micro-business segment earns 55% against 32% in its wholesale segment — grade 3, and the closest
-thing to JLC found outside PCBs
+### OIM-1. Cimpress publishes gross margin by reportable segment for seven years, and its micro-business segment earns 55% against 32% in its wholesale segment — grade 3, and the closest thing to JLC found outside PCBs
 
 - **Sources:**
   - Cimpress plc (Nasdaq: CMPR), CIK 0001262976, Annual Report on Form 10-K for the fiscal year
@@ -213,8 +211,7 @@ thing to JLC found outside PCBs
   - Cimpress restated its segment results in Q1 FY2025 for a change in inter-segment transfer
     pricing, recast back to Q1 FY2023. Figures before FY2023 are on the old basis.
 
-### OIM-2. Reliance: 4.6 million orders a year at an average of $3,120, a largest customer worth
-0.6% of sales, and a printed statement that the small orders are what earns the margin — grade 2
+### OIM-2. Reliance: 4.6 million orders a year at an average of $3,120, a largest customer worth 0.6% of sales, and a printed statement that the small orders are what earns the margin — grade 2
 
 - **Source:** Reliance, Inc. (NYSE: RS), CIK 0000861884, Annual Report on Form 10-K for the year
   ended 2025-12-31, filed 2026-02-26, accession 0001104659-26-020651:
@@ -270,9 +267,7 @@ thing to JLC found outside PCBs
   - The consolidated gross margin for 2025 is not in this entry. Until it is, the size of the
     premium is unknown.
 
-### OIM-3. Asymchem prints exactly the JLC table for pharmaceutical contract manufacturing — and
-it points the other way: small clinical batches 39.42%, large commercial batches 53.32% — grade 1,
-grade 4
+### OIM-3. Asymchem prints exactly the JLC table for pharmaceutical contract manufacturing — and it points the other way: small clinical batches 39.42%, large commercial batches 53.32% — grade 1, grade 4
 
 - **Sources:** 凯莱英医药集团（天津）股份有限公司 (Asymchem Laboratories (Tianjin) Co., Ltd.,
   SZSE: 002821), annual reports, all fetched from the exchange's own document server at
@@ -404,8 +399,7 @@ grade 4
     report. They are one decimal place of precision and should be re-read before being cited.
   - The disclosure no longer exists. See the FY2025 note above.
 
-### OIM-4. Porton, a second and independent CDMO, prints the same split and the same direction —
-early-clinical 19.69% against 44.70% for late-clinical and commercial — grade 1, grade 4
+### OIM-4. Porton, a second and independent CDMO, prints the same split and the same direction — early-clinical 19.69% against 44.70% for late-clinical and commercial — grade 1, grade 4
 
 - **Sources:** 重庆博腾制药科技股份有限公司 (Porton Pharma Solutions Ltd., SZSE: 300363), annual
   reports from `static.cninfo.com.cn`:
@@ -496,9 +490,7 @@ early-clinical 19.69% against 44.70% for late-clinical and commercial — grade 
   - Two Chinese CDMOs are not the world CDMO industry. Lonza, Siegfried, Recipharm and Catalent
     were not read for a comparable split; see the blocked-sources list.
 
-### OIM-5. A MEMS pure-play wafer foundry prints the split, and the bespoke low-volume half wins
-every year: process development 39.90% against volume wafer manufacturing 33.19% — grade 1, and
-the only find that is an actual semiconductor foundry
+### OIM-5. A MEMS pure-play wafer foundry prints the split, and the bespoke low-volume half wins every year: process development 39.90% against volume wafer manufacturing 33.19% — grade 1, and the only find that is an actual semiconductor foundry
 
 - **Sources:** 北京赛微电子股份有限公司 (Beijing SWAYSURE / Saiwei Electronics Co., Ltd., SZSE:
   300456 — the owner of Sweden's Silex Microsystems, the world's largest MEMS pure-play foundry),
@@ -629,8 +621,7 @@ the only find that is an actual semiconductor foundry
   - The disclosure has stopped. As with `OIM-3`, a reader looking at only the latest annual report
     would not find this split.
 
-### OIM-6. Catalent's clinical-scale segment out-earns two of its three commercial-manufacturing
-segments — grade 3, and the qualifier that stops `OIM-3` and `OIM-4` from being read too widely
+### OIM-6. Catalent's clinical-scale segment out-earns two of its three commercial-manufacturing segments — grade 3, and the qualifier that stops `OIM-3` and `OIM-4` from being read too widely
 
 - **Source:** Catalent, Inc. (NYSE: CTLT), CIK 0001596783, Form 8-K exhibit 99.1, "Catalent, Inc.
   Reports Fourth Quarter Fiscal 2021 Results", furnished 2021-08-30, accession
@@ -686,8 +677,7 @@ segments — grade 3, and the qualifier that stops `OIM-3` and `OIM-4` from bein
   - One year is quoted here, with FY2020 as the comparison the same table provides. The
     later years were not read.
 
-### OIM-7. Knight-Swift runs a small-shipment network and a full-trailer network side by side and
-reports the operating ratio of each: LTL 93.2% against Truckload 94.8% — grade 3, logistics
+### OIM-7. Knight-Swift runs a small-shipment network and a full-trailer network side by side and reports the operating ratio of each: LTL 93.2% against Truckload 94.8% — grade 3, logistics
 
 - **Source:** Knight-Swift Transportation Holdings Inc. (NYSE: KNX), CIK 0001492691, Form 8-K
   exhibit 99.1, fourth-quarter and full-year 2025 results, furnished 2026-01-21, accession
