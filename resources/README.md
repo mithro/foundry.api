@@ -47,6 +47,7 @@ ID prefixes:
 | [`demand/access-terms.md`](demand/access-terms.md) | `ACC` | What a programme requires before it will make your chip, and who pays |
 | [`demand/chipfoundry.md`](demand/chipfoundry.md) | `CF` | ChipFoundry: corporate history, shuttle commitment curves, prices and terms |
 | [`demand/programme-funding.md`](demand/programme-funding.md) | `FUND` | What a multi-project-wafer service costs to run, against what it charges |
+| [`demand/programme-funding-deep.md`](demand/programme-funding-deep.md) | `FUNDX` | What the money buys, and how much of it is people: CMC's audited accounts, the FP7 grant reports, the Chips JU portfolio, head-count and payroll |
 | [`demand/payment-growth.md`](demand/payment-growth.md) | `PAY` | Money actually paid, over time, by the unsubsidised programmes |
 | [`demand/in-house-fabrication.md`](demand/in-house-fabrication.md) | `IHF` | Companies that built or bought their own fab, and what it cost |
 | [`demand/pcb-industry-comparables.md`](demand/pcb-industry-comparables.md) | `PCB` | Audited PCB makers' margin by order size |
