@@ -282,6 +282,43 @@ def main() -> None:
         print(f"  {roa*100:7.2f}%  = margin {m*100:6.2f}% x turnover {t:.3f}x"
               f"   {p['name']}")
 
+    # Medians of the ten-company group, excluding the duplicate Silex view and
+    # using the annualised Powerchip figures so the ratio is dimensionally right.
+    group = [(m, t, roa) for m, t, roa, p in pool
+             if not p["name"].startswith("Silex, single-company")]
+    group = [
+        (m, t, roa) if "Powerchip" not in "" else (m, t, roa)
+        for m, t, roa in group
+    ]
+    # Replace the as-printed Powerchip row with its annualised equivalent.
+    group = [g for g in group if abs(g[0] + 0.15311) > 1e-4]
+    pm = -5_240_729 * 4 / 3 / (34_234_871 * 4 / 3)
+    pt = 34_234_871 * 4 / 3 / 178_685_624
+    group.append((pm, pt, pm * pt))
+
+    def med(vs: list[float]) -> float:
+        s = sorted(vs)
+        n = len(s)
+        return s[n // 2] if n % 2 else (s[n // 2 - 1] + s[n // 2]) / 2
+
+    ms = [g[0] for g in group]
+    ts = [g[1] for g in group]
+    rs = [g[2] for g in group]
+    print(f"\nMedians of the {len(group)}-company foundry group"
+          f" (Powerchip annualised, Silex counted once, group view):")
+    print(f"  operating margin: sorted ="
+          f" {', '.join(f'{v*100:.2f}%' for v in sorted(ms))}")
+    print(f"    median = {med(ms)*100:.2f}%")
+    print(f"  asset turnover:   median = {med(ts):.3f}x")
+    print(f"  EBIT / assets:    sorted ="
+          f" {', '.join(f'{v*100:.2f}%' for v in sorted(rs))}")
+    print(f"    median = {med(rs)*100:.2f}%")
+    print(f"  Silex group 26.57% is {26.57 - med(ms)*100:.2f} pp above the median"
+          f" margin; the single-company 22.67% is {22.67 - med(ms)*100:.2f} pp above.")
+    print(f"  Silex group ROA 16.38% is {16.38 / (med(rs)*100):.2f}x the median"
+          f" return on assets; the single-company 13.98% is"
+          f" {13.98 / (med(rs)*100):.2f}x.")
+
 
 if __name__ == "__main__":
     main()
