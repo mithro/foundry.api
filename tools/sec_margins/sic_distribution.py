@@ -48,20 +48,22 @@ INSTANT_PERIODS = [f"CY{y}Q{q}I" for y in (2022, 2023, 2024, 2025, 2026) for q i
 
 # The SIC groups the write-up reports.  "Software and computer services" is the
 # union that the question is really about.
+# Labels are the SEC's own sicDescription strings, from the submissions API.
 GROUPS: dict[str, list[str]] = {
-    "7372 prepackaged software": ["7372"],
-    "7370 computer services (n.e.c.)": ["7370"],
-    "7371 computer programming services": ["7371"],
-    "7373 computer integrated systems design": ["7373"],
-    "7374 data processing & preparation": ["7374"],
-    "7375 information retrieval services": ["7375"],
-    "7379 computer rental / services": ["7379"],
-    "7389 services-computer programming*": ["7389"],
+    "7372 Services-Prepackaged Software": ["7372"],
+    "7370 Services-Computer Programming, Data Processing, Etc.": ["7370"],
+    "7371 Services-Computer Programming Services": ["7371"],
+    "7373 Services-Computer Integrated Systems Design": ["7373"],
+    "7374 Services-Computer Processing & Data Preparation": ["7374"],
+    "7375 Services-Computer Facilities Management": ["7375"],
+    "7377 Services-Computer Rental & Leasing": ["7377"],
+    "7379 Services-Computer Related Services, NEC": ["7379"],
+    "7389 Services-Business Services, NEC (catch-all)": ["7389"],
     "ALL software & computer services (737x)": [
         "7370", "7371", "7372", "7373", "7374", "7375", "7377", "7379",
     ],
-    "3674 semiconductors & related devices": ["3674"],
-    "3559 special industry machinery (fab tools)": ["3559"],
+    "3674 Semiconductors & Related Devices": ["3674"],
+    "3559 Special Industry Machinery, NEC": ["3559"],
     "ALL filers with the tags": ["*"],
 }
 
