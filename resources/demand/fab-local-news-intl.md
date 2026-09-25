@@ -682,6 +682,10 @@ conversion.
   - Teledyne Technologies, "Teledyne MEMS Expands Edmonton Operations with Support from Government of
     Alberta", Business Wire, June 2026, as carried by StockTitan.
     <https://www.stocktitan.net/news/TDY/teledyne-mems-expands-edmonton-operations-with-support-from-f6q27uv3j579.html>
+    (This URL served the full release to a scripted fetch on 2026-09-25 and then returned **403** to
+    the same fetch an hour later, so it is rate-limiting rather than paywalled. Every figure taken
+    from it also appears in the Edmonton Global release above; the Teledyne release is cited only for
+    the "pure-play MEMS foundries … design, prototyping, and high-volume manufacturing" wording.)
 - **Verification:** Verified
 - **Date checked:** 2026-09-25
 - **Bearing:** **Challenges** H5 and H6. This is a small MEMS foundry — the closest analogue in
