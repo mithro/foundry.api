@@ -464,3 +464,440 @@ conversion.
   years. Three quarters of a million pounds of equity per employee, and it still cannot cover cost of
   sales. Any claim that a long tail of small customers pays for real capital has to explain this
   company.
+
+### LNI-6. X-FAB Dresden: US$43.5m buys 1,000 more wafer starts a month — and **92% of that money is equipment, not building**
+
+- **Source:** Heiko Weckbrodt, "X-Fab baut seine Dresdner Chipfabrik aus", *Oiger* (Dresden), 2023-12-06.
+  <https://oiger.de/2023/12/06/x-fab-baut-seine-dresdner-chipfabrik-aus/189256>
+  (Weckbrodt was for sixteen years an editor at the *Dresdner Neueste Nachrichten*, covering the
+  region's semiconductor industry; *Oiger* is his own Dresden news platform.)
+- **Verification:** Verified
+- **Date checked:** 2026-09-25
+- **Bearing:** **Challenges** H5 and H6, and is the most useful single entry in this file for costing
+  a small fab. It puts a price on a wafer start per month, and it shows where the money goes.
+- **What it says.** Original German:
+
+  > "Der europäische Halbleiter-Auftragsfertiger (Foundry) investiert dafür bis Anfang 2025 rund rund
+  > 43,5 Millionen Dollar (40,3 Millionen Euro) in neue Fertigungsanlagen und einen Erweiterungsbau,
+  > kündigte Frank-Michael Schulze vom Projektstab an."
+
+  **English translation (ours):**
+
+  > "The European semiconductor contract manufacturer (foundry) is investing for this purpose, by
+  > early 2025, around US$43.5 million (€40.3 million) in new production equipment and an extension
+  > building, announced Frank-Michael Schulze of the project team."
+
+  > "Insgesamt sollen durch den Ausbau die Produktionskapazitäten in Dresden um zehn Prozent auf dann
+  > rund 11.500 Chipscheiben-Starts (Wafer) pro Monat steigen, informiert Schulze. Mit dem neuen
+  > Brückenbau erweitere sich zugleich die verfügbare Reinraum-Produktionsfläche um 280 auf dann 3680
+  > Quadratmeter."
+
+  **English translation (ours):**
+
+  > "In total, the expansion is intended to raise production capacity in Dresden by ten percent, to
+  > around 11,500 wafer starts per month, Schulze reports. With the new bridge building the available
+  > cleanroom production area is at the same time extended by 280 to 3,680 square metres."
+
+  **The split between building and tools, which is the point of this entry:**
+
+  > "Der Rohbau selbst wird etwa 3,5 Millionen Dollar kosten. Mit rund 40 Millionen Dollar wird der
+  > Löwenanteil der aktuellen Investition auf die Chipfabrik-Ausrüstungen entfallen."
+
+  **English translation (ours):**
+
+  > "The shell construction itself will cost about US$3.5 million. With around US$40 million, the
+  > lion's share of the current investment will fall on the chip-factory equipment."
+
+  The fab as it stood before the work:
+
+  > "Die Fabrik in Dresden gehört mit bisher 3400 Quadratmetern Reinraumfläche und reichlich 10.000
+  > Wafer-Starts pro Monat zu den kleineren und älteren Fabs im X-Fab-Verbund … Beispielsweise
+  > stellten die Eigentümer die Dresdner Fab zwischen 2009 und 2014 auf 200-Millimeter-Wafer um."
+
+  **English translation (ours):**
+
+  > "With 3,400 square metres of cleanroom area so far and a good 10,000 wafer starts per month, the
+  > Dresden factory is among the smaller and older fabs in the X-Fab group … For example, the owners
+  > converted the Dresden fab to 200-millimetre wafers between 2009 and 2014."
+
+  And the group, for scale:
+
+  > "Mit 4200 Beschäftigten und 740 Millionen Millionen Dollar Jahresumsatz gehört die Gruppe im
+  > internationalen Maßstab zwar zu den eher kleinen Foundries. Die X-Fab ist aber das einzige
+  > europäische Unternehmen in der Top 20 der größten Chip-Auftragsfertiger weltweit."
+
+  **English translation (ours):**
+
+  > "With 4,200 employees and US$740 million of annual revenue the group is, on an international
+  > scale, one of the rather small foundries. X-Fab is however the only European company in the top
+  > 20 of the world's largest chip contract manufacturers."
+
+  (The duplicated word "Millionen Millionen" is in the original.)
+
+- **DERIVED (arithmetic written out):**
+  - **Capacity added:** the article gives +10% to "around 11,500" wspm. 11,500 ÷ 1.10 = **10,454 wspm
+    before**, so the increment is 11,500 − 10,454 = **1,046 wafer starts per month**. (The article
+    separately describes the pre-existing fab as "a good 10,000" wspm, consistent.)
+  - **Capital per monthly wafer start, at the margin:** US$43,500,000 ÷ 1,046 = **US$41,587 per
+    wafer start per month**. In euro on the article's own conversion, €40,300,000 ÷ 1,046 =
+    **€38,528 per wspm**.
+  - **Implied replacement cost of the whole fab:** 10,454 wspm × US$41,587 = **US$435 million** for a
+    3,400 m², 200 mm specialty fab — if marginal cost equals average cost, which it will not exactly,
+    but the order of magnitude is the point.
+  - **Equipment share:** US$40m ÷ US$43.5m = **92.0% equipment, 8.0% building shell.**
+  - **Shell cost per square metre:** US$3,500,000 ÷ 280 m² = **US$12,500/m²**.
+  - **All-in cost per square metre of cleanroom:** US$43,500,000 ÷ 280 m² = **US$155,357/m²**.
+  - **Cleanroom productivity:** 10,454 wspm ÷ 3,400 m² = **3.07 wafer starts per month per square
+    metre of cleanroom**; after the work, 11,500 ÷ 3,680 = 3.13.
+  - **Group revenue per employee:** US$740m ÷ 4,200 = **US$176,190**.
+- **Why this matters, and how it corrects `LNI-3`.** The 92/8 split is the number that makes the rest
+  of this file legible. IHP's €30,000 per square metre (`LNI-3`) and Silex's €29,592 (`LNI-1`) are not
+  measuring the same thing as X-FAB's US$155,357; IHP's figure is a *building* handed over "ready for
+  equipment", and per square metre of that building's **gross floor area** it is €15m ÷ 3,800 m² =
+  **€3,947/m²**, which is an ordinary industrial construction number. **The cleanroom shell is the
+  cheap part. The tools are the expensive part, by an order of magnitude**, and no amount of clever
+  scheduling or open tooling changes what a deposition tool costs.
+- **Caveats.** The US$/€ conversion is the article's own (43.5/40.3 = 1.0794 USD per EUR, consistent
+  with December 2023); no conversion of ours is involved. "Capacity" here is wafer starts, undefined
+  as to mask layers or process. The 280 m² is described as a *bridge* connecting the existing fab to
+  the test centre, so part of the spend buys logistics rather than capacity; that would make the
+  per-wafer-start figure conservative in one direction and the per-square-metre figure misleading in
+  the other.
+
+### LNI-7. Teledyne DALSA, Bromont, Québec: C$42m and eight federal millions for 40 jobs — and an explicit statement that Canadian SMEs use the fab for prototyping
+
+- **Sources:**
+  - Innovation, Sciences et Développement économique Canada, "Le Canada investit dans Teledyne pour
+    poursuivre les avancées dans l'industrie des semi-conducteurs", 2025-03-21. Live URL:
+    <https://www.canada.ca/fr/innovation-sciences-developpement-economique/nouvelles/2025/03/le-canada-investit-dans-teledyne-pour-poursuivre-les-avancees-dans-lindustrie-des-semi-conducteurs.html>
+    Read via the Internet Archive capture of 2026-08-29:
+    <http://web.archive.org/web/20260829131305/https://www.canada.ca/fr/innovation-sciences-developpement-economique/nouvelles/2025/03/le-canada-investit-dans-teledyne-pour-poursuivre-les-avancees-dans-lindustrie-des-semi-conducteurs.html>
+  - Jean-François Guillet, "Semi-conducteurs: Teledyne Dalsa investit 42 millions dans son usine de
+    Bromont", *La Voix de l'Est* (Granby, Québec), 2025-03-24 17:56, updated 18:03.
+    <https://www.lavoixdelest.ca/affaires/2025/03/24/semi-conducteurs-teledyne-dalsa-investit-42-millions-dans-son-usine-de-bromont-CQOLUY3AS5E7TPI6LAAHLPQF5U/>
+- **Verification:** Verified for the federal release (read in full from the Wayback capture; the live
+  canada.ca URL would not complete a fetch, see "What could not be got"). Partial for *La Voix de
+  l'Est*, which is behind a soft wall and was read through a summarising fetch rather than as raw
+  text; its distinctive contribution — that the 40 jobs arrive "sur 3 à 5 ans" and that the line being
+  replaced is about 30 years old — is recorded as reported, not as a checked quote.
+- **Date checked:** 2026-09-25
+- **Bearing:** **Mixed** on H5. The capital-per-job ratio is poor (challenges), but the release states
+  in terms that small firms and research centres get design and prototyping access to the fab
+  (supports).
+- **What it says.** Original French:
+
+  > "Aujourd'hui, la ministre de l'Innovation, des Sciences et de l'Industrie, l'honorable Anita
+  > Anand, a annoncé l'octroi d'un financement de 8 millions de dollars par l'entremise du Fonds
+  > stratégique pour l'innovation en appui à un projet de 42 millions de dollars visant à moderniser
+  > de l'équipement."
+
+  **English translation (ours):**
+
+  > "Today, the Minister of Innovation, Science and Industry, the Honourable Anita Anand, announced
+  > the granting of 8 million dollars of funding through the Strategic Innovation Fund in support of
+  > a 42 million dollar project to modernise equipment."
+
+  > "Le projet contribuera de façon marquée à la prospérité par la création de 40 emplois et le
+  > maintien au pays de 560 emplois hautement spécialisés."
+
+  **English translation (ours):**
+
+  > "The project will contribute markedly to prosperity through the creation of 40 jobs and the
+  > retention in the country of 560 highly specialised jobs."
+
+  **The sentence that matters for H5** — twice, in slightly different words:
+
+  > "En outre, des entreprises et des centres de recherche canadiens bénéficieront d'un accès à
+  > l'infrastructure unique de Teledyne pour la conception et le prototypage de produits novateurs."
+
+  **English translation (ours):**
+
+  > "In addition, Canadian companies and research centres will benefit from access to Teledyne's
+  > unique infrastructure for the design and prototyping of innovative products."
+
+  > "Teledyne exploite deux usines de production de semi-conducteurs, à Bromont et à Edmonton, qui
+  > s'appuient sur plus de 40 ans d'expertise. Des centres de recherche et des PME du Canada
+  > bénéficient d'un accès à leur infrastructure pour la conception, le prototypage et la production
+  > en grande quantité de produits novateurs."
+
+  **English translation (ours):**
+
+  > "Teledyne operates two semiconductor production plants, in Bromont and in Edmonton, drawing on
+  > more than 40 years of expertise. Canadian research centres and SMEs benefit from access to their
+  > infrastructure for the design, prototyping and high-volume production of innovative products."
+
+  The technical content of the project:
+
+  > "L'investissement annoncé aujourd'hui soutiendra la conversion de la chaîne de production de
+  > dispositifs à couplage de charge (DCC) afin de faire passer la taille des tranches de 150 mm à 200
+  > mm, ce qui permettra d'accroître l'efficacité et le rendement. … L'installation de Teledyne à
+  > Bromont est l'une des rares usines de production de DCC encore en activité dans le monde."
+
+  **English translation (ours):**
+
+  > "The investment announced today will support the conversion of the charge-coupled device (CCD)
+  > production line to move the wafer size from 150 mm to 200 mm, which will allow efficiency and
+  > yield to be increased. … Teledyne's Bromont facility is one of the few CCD production plants still
+  > operating in the world."
+
+  > "Les tranches de 200 mm permettront de produire 1,8 fois plus de puces par rapport aux tranches de
+  > 150 mm, ce qui se traduira par une augmentation de 40 % de l'efficacité et du rendement."
+
+  **English translation (ours):**
+
+  > "200 mm wafers will make it possible to produce 1.8 times more chips compared with 150 mm wafers,
+  > which will translate into a 40% increase in efficiency and yield."
+
+  And the programme total:
+
+  > "Depuis 2023, le gouvernement a annoncé des investissements totalisant plus de 215 millions de
+  > dollars pour des projets liés aux semi-conducteurs par l'entremise du Fonds stratégique pour
+  > l'innovation."
+
+  **English translation (ours):**
+
+  > "Since 2023 the government has announced investments totalling more than 215 million dollars for
+  > semiconductor-related projects through the Strategic Innovation Fund."
+
+- **DERIVED (arithmetic written out):**
+  - **Capital per new job:** C$42,000,000 ÷ 40 = **C$1,050,000 per job**. At the ECB reference rate
+    of 2026-09-24, EUR/CAD 1.6047: C$1,050,000 ÷ 1.6047 = **€654,328 per job**.
+  - **Public share:** C$8m ÷ C$42m = **19.0%**.
+  - **Public money per job created:** C$8,000,000 ÷ 40 = **C$200,000 per job** of federal money alone.
+  - **Capital per job if the 560 retained jobs are counted too:** C$42,000,000 ÷ 600 = **C$70,000**.
+    Which of these two is the honest number is a matter of what the counterfactual is; both are
+    printed here because announcements routinely quote the second and mean the first.
+  - **Geometric check on the wafer-size claim:** (200/150)² = 1.78, against the release's "1.8 times
+    more chips". The claim is simply the area ratio, and it is arithmetically right.
+- **Caveats.** Canadian dollars; no conversion is applied to the source figures. The 560 "maintained"
+  jobs are a claim about a counterfactual, not a measurement. The *La Voix de l'Est* report says the
+  40 jobs arrive over three to five years, which the federal release does not say.
+
+### LNI-8. Teledyne MEMS, Edmonton: C$20 million for 16 permanent jobs at a pure-play MEMS foundry, with C$620,000 of provincial money
+
+- **Sources:**
+  - Edmonton Global, "Teledyne Expands MEMS Manufacturing Operations in Edmonton", 2026-06-25.
+    <https://edmontonglobal.ca/news/teledyne-expands-mems-manufacturing-operations-in-edmonton/>
+  - Teledyne Technologies, "Teledyne MEMS Expands Edmonton Operations with Support from Government of
+    Alberta", Business Wire, June 2026, as carried by StockTitan.
+    <https://www.stocktitan.net/news/TDY/teledyne-mems-expands-edmonton-operations-with-support-from-f6q27uv3j579.html>
+- **Verification:** Verified
+- **Date checked:** 2026-09-25
+- **Bearing:** **Challenges** H5 and H6. This is a small MEMS foundry — the closest analogue in
+  business model to what the project describes — and its published capital-per-job is over a million
+  Canadian dollars.
+- **What it says.** From Edmonton Global, the regional economic development agency:
+
+  > "Teledyne Technologies Incorporated, a global industrial technology company, is expanding its
+  > microelectromechanical systems (MEMS) manufacturing operations in Edmonton. The $20 million
+  > investment will support increased production capacity at Teledyne's Alberta MEMS Foundry, creating
+  > 16 high-quality jobs, and strengthening the region's advanced manufacturing and semiconductor
+  > ecosystem."
+
+  > "Supported by a $620,000 grant from the Alberta government's Investment and Growth Fund (IGF), the
+  > planned expansion includes targeted upgrades to Teledyne's existing facility in Edmonton and is
+  > intended to unlock additional productivity and capacity to meet growing global demand."
+
+  From Teledyne's own release, on what the site does and who it serves:
+
+  > "Teledyne MEMS is one of the world's foremost pure-play MEMS foundries, offering design,
+  > prototyping, and high-volume manufacturing for MEMS sensors, actuators, and microfabricated
+  > semiconductor devices. With advanced 150 mm and 200 mm wafer capabilities and decades of process
+  > expertise, Teledyne MEMS serves customers across automotive, industrial, medical, consumer, and
+  > communications applications."
+
+  > "The expansion, which includes new wafer processing, inspection, and automation equipment
+  > alongside facility upgrades, reaffirms Teledyne's long-term commitment to Alberta…"
+
+  The site is the former Micralyne, an Edmonton MEMS foundry spun out of University of Alberta
+  microfabrication research in the 1990s and acquired by Teledyne in 2019.
+
+- **DERIVED (arithmetic written out):**
+  - **Capital per permanent job:** C$20,000,000 ÷ 16 = **C$1,250,000 per job**. At EUR/CAD 1.6047
+    (ECB, 2026-09-24): C$1,250,000 ÷ 1.6047 = **€778,961 per job**.
+  - **Public share:** C$620,000 ÷ C$20,000,000 = **3.1%** — much the smallest subsidy fraction in this
+    file. Alberta paid **C$38,750 per permanent job** (C$620,000 ÷ 16).
+  - **Cross-check against Clas-SiC:** €778,961 per job here against **€903,003** of equity raised per
+    job at Clas-SiC (`LNI-5`) and **€654,328** per job at Bromont (`LNI-7`). Three independent
+    small-fab numbers, in three countries, land between **€650,000 and €900,000 per job.**
+- **Caveats.** The C$20m is a company announcement of planned spend. "16 high-quality jobs" is the
+  permanent figure; there are 20 further temporary construction jobs which are not counted here. No
+  capacity figure in wafers is given.
+
+### LNI-9. Fraunhofer ISIT, Itzehoe, 2008: €45 million to add 2,000 m² and, eventually, 200 jobs — and a customer base of "over 350 companies"
+
+- **Source:** "Austermann: '55-Millionen-Investitionen in Leuchtturm der Spitzentechnologie' —
+  Fraunhofer-ISIT in Itzehoe wächst um 2000 Quadratmeter und 200 neue Jobs", *bildungsklick.de*,
+  press release of the Schleswig-Holstein Ministry for Science, Economy and Transport, 2008-06-26.
+  <https://bildungsklick.de/hochschule-und-forschung/detail/fraunhofer-isit-in-itzehoe-waechst-um-2000-quadratmeter-und-200-neue-jobs>
+- **Verification:** Verified
+- **Date checked:** 2026-09-25
+- **Bearing:** **Supports** H5 on the *number* of customers a small institute fab can hold;
+  **Challenges** H6 on cost. ISIT is the institute from which X-FAB's Itzehoe MEMS fab (`MEMS Foundry
+  Itzehoe`, spun out 2009) was born, so this is the capital behind one of Europe's MEMS prototyping
+  routes.
+- **What it says.** Original German:
+
+  > "…soll das 150 Mitarbeiter starke Institut mit einer 45-Millionen-Euro-Investition um 2000
+  > Quadratmeter und langfristig um 200 zusätzliche Arbeitsplätze erweitert werden."
+
+  **English translation (ours):**
+
+  > "…the 150-employee institute is to be expanded with a 45-million-euro investment by 2,000 square
+  > metres and, in the long term, by 200 additional jobs."
+
+  > "Neben dem Bau eines neuen Reinraums für die Mikrochip-Entwicklung und -Produktion erhält das
+  > Institut in den kommenden zwei Jahren für rund zehn Millionen Euro auch neue Fertigungsanlagen,
+  > mit denen Siliziumscheiben (so genannte Wafer) der modernsten Generation bearbeitet werden können.
+  > Austermann stellte eine Landesförderung in Höhe von 7,5 Millionen Euro für die beabsichtigte
+  > Modernisierung der Halbleiteranlage in Aussicht."
+
+  **English translation (ours):**
+
+  > "Besides the construction of a new cleanroom for microchip development and production, the
+  > institute will also receive, over the coming two years and for around ten million euros, new
+  > production equipment with which silicon discs (so-called wafers) of the most modern generation can
+  > be processed. Austermann held out the prospect of state funding of 7.5 million euros for the
+  > intended modernisation of the semiconductor plant."
+
+  **The customer count, which is the reason this entry exists:**
+
+  > "Das ISIT besitzt in Deutschland die größte Kapazität und Kompetenz in der Forschung und
+  > Entwicklung der Mikrosystemtechnik und Leistungselektronik. Im Rahmen seiner industriellen
+  > Auftragsforschung hat das Institut einen stabilen Kundenstamm von über 350 Unternehmen, davon etwa
+  > 50 aus Schleswig-Holstein."
+
+  **English translation (ours):**
+
+  > "ISIT possesses the largest capacity and competence in Germany in the research and development of
+  > microsystems technology and power electronics. In the framework of its industrial contract
+  > research the institute has a stable customer base of over 350 companies, of which about 50 are
+  > from Schleswig-Holstein."
+
+  and, on how full the existing cleanroom was:
+
+  > "Schon jetzt aber sei der bestehende Reinraum bis an die Grenzen ausgelastet."
+
+  **English translation (ours):**
+
+  > "Already now, however, the existing cleanroom is utilised to its limits."
+
+  The new build:
+
+  > "…ist der Bau eines separaten Gebäudes neben dem bestehenden Reinraum mit 1000 Quadratmetern
+  > nutzbarer Reinraumfläche sowie Büro- und Messlaborflächen geplant."
+
+  **English translation (ours):**
+
+  > "…the construction of a separate building next to the existing cleanroom is planned, with 1,000
+  > square metres of usable cleanroom area as well as office and measurement-laboratory space."
+
+- **DERIVED (arithmetic written out):**
+  - **Capital per job (long term):** €45,000,000 ÷ 200 = **€225,000 per job** — by far the lowest in
+    this file, and a reminder that a *research institute's* jobs are cheaper per euro of capital than
+    a production fab's, because the institute is buying people as well as tools.
+  - **Capital per square metre of usable cleanroom:** €45,000,000 ÷ 1,000 m² = **€45,000/m²**
+    (the 2,000 m² figure includes office and laboratory space).
+  - **Equipment share:** €10m of tools ÷ €45m = **22%**, against X-FAB Dresden's 92% (`LNI-6`). The
+    difference is that ISIT is building a whole new building with offices and labs, X-FAB is bolting
+    a bridge onto an existing fab. Both numbers are right; they are answers to different questions.
+  - **Land subsidy share of the tool spend:** €7.5m ÷ €10m = **75%** of the equipment modernisation
+    offered by the Land of Schleswig-Holstein, with the rest from the Fraunhofer-Gesellschaft and EU
+    funds.
+  - **Customers per employee, before the expansion:** 350 customers ÷ 150 staff = **2.3 customers per
+    member of staff.** Compare the count a long-tail fab would need. `analyses/customers-needed-to-fill-a-fab.md`
+    puts 7,000 customers of 100 wafers a year at GlobalFoundries Fab 8 scale; ISIT holds 350 customers
+    with 150 people. If customer-handling scales with head count at ISIT's ratio, 7,000 customers is
+    **3,000 people** — which is the automation problem this project exists to solve, stated as a
+    number.
+- **Caveats.** 2008 euros, not adjusted. "200 additional jobs" is explicitly "langfristig" ("in the
+  long term") and was a political announcement; whether it happened is not established here. The €45m
+  headline sits under a headline quoting the minister at "55-Millionen-Investitionen", which the body
+  text does not reconcile — the body text's €45m is used. "Over 350 companies" is a claim by the
+  funding minister about the institute's contract-research book, not an audited customer list, and
+  contract research is not the same as wafer purchase.
+
+### LNI-10. ams OSRAM, Premstätten, Styria: €588 million for 250 jobs, with up to €200 million asked of the Chips Act
+
+- **Source:** "Premstätten – ams Osram: 588 Millionen Euro für 250 neue Arbeitsplätze",
+  *MeinBezirk.at* (Graz-Umgebung regional edition, Regionalmedien Austria), 2024-05-13 13:22.
+  <https://www.meinbezirk.at/graz-umgebung/c-wirtschaft/588-millionen-euro-fuer-250-neue-arbeitsplaetze_a6689462>
+- **Verification:** Verified
+- **Date checked:** 2026-09-25
+- **Bearing:** **Challenges** H5 and H6. The headline of a regional Austrian paper is literally the
+  shape this file was set up to find, and the ratio is bad.
+- **What it says.** Original German:
+
+  > "Gemeinsam stellten Aldo Kamper, Vorstandsvorsitzender der ams-Osram AG, Bundesminister Martin
+  > Kocher und LH Christopher Drexler die Pläne für Investitionen in Höhe von 588 Millionen Euro bis
+  > 2030 vor."
+
+  **English translation (ours):**
+
+  > "Together, Aldo Kamper, chairman of the executive board of ams-Osram AG, federal minister Martin
+  > Kocher and state governor Christopher Drexler presented the plans for investments amounting to 588
+  > million euros up to 2030."
+
+  > "Im Rahmen des European Chips Act wurde eine Förderung von bis zu 200 Millionen Euro beantragt.
+  > Der Förderantrag von ams Osram wurde an die EU-Kommission zur Genehmigung übermittelt. … Dabei
+  > werden in den kommenden Jahren insgesamt 250 neue Arbeitsplätze geschaffen."
+
+  **English translation (ours):**
+
+  > "Within the framework of the European Chips Act, funding of up to 200 million euros was applied
+  > for. ams Osram's funding application was submitted to the EU Commission for approval. … In the
+  > coming years a total of 250 new jobs will be created."
+
+  The CEO on why:
+
+  > "Mit der neuen Fabrik an unserem Stammsitz können wir mehr Raum für Innovationen schaffen, den
+  > steigenden Bedarf unserer Kunden bedienen und Produkte vermehrt in Europa fertigen."
+
+  **English translation (ours):**
+
+  > "With the new factory at our headquarters we can create more room for innovation, serve the
+  > growing demand of our customers and manufacture products increasingly in Europe."
+
+- **DERIVED (arithmetic written out):**
+  - **Capital per new job:** €588,000,000 ÷ 250 = **€2,352,000 per job**.
+  - **Public share, if the application succeeds in full:** €200m ÷ €588m = **34.0%**, or **€800,000 of
+    public money per job created** (€200,000,000 ÷ 250).
+- **Caveats.** The €200m is *applied for*, not granted, as of the article's date. Other reporting puts
+  the programme at "knapp 600 Millionen" ("just under 600 million") and mentions Austrian federal
+  funding of €227m; those figures were not verified here and are not used. No cleanroom area or wafer
+  capacity is given.
+
+### LNI-11. Bosch Dresden, for contrast: €1 billion, 700 jobs, 300 mm
+
+- **Source:** Wirtschaftsförderung Sachsen, "Bosch errichtet Halbleiterwerk in Dresden".
+  <https://standort-sachsen.de/de/aktuelles/news/detail/n216-bosch-errichtet-halbleiterwerk-in-dresden>
+- **Verification:** Partial. The €1bn and 700-jobs figures are read verbatim from the Saxon economic
+  development agency's own page; the page carries no visible date and the federal-support figure
+  quoted elsewhere (€140m–€200m) was **not** verified and is not used.
+- **Date checked:** 2026-09-25
+- **Bearing:** Context on H1 and H5 — the top of the range against which the small fabs above should
+  be read.
+- **What it says.** Original German:
+
+  > "Insgesamt beläuft sich das Investitionsvolumen für den Standort auf rund eine Milliarde Euro."
+
+  **English translation (ours):**
+
+  > "In total the investment volume for the site amounts to around one billion euros."
+
+  > "'Die neue Fertigung für Halbleiter ist die größte Einzelinvestition in der mehr als 130-jährigen
+  > Geschichte von Bosch', sagte Dr. Volkmar Denner … In Dresden sollen bis zu 700 neue Arbeitsplätze
+  > entstehen."
+
+  **English translation (ours):**
+
+  > "'The new semiconductor production is the largest single investment in Bosch's more than 130-year
+  > history,' said Dr Volkmar Denner … In Dresden up to 700 new jobs are to be created."
+
+- **DERIVED (arithmetic written out):**
+  - **Capital per job:** €1,000,000,000 ÷ 700 = **€1,428,571 per job**.
+  - This is *less* per job than ams OSRAM's €2.35m (`LNI-10`) and only about twice Teledyne
+    Edmonton's €779k (`LNI-8`). **Capital per job does not fall as the fab gets bigger; if anything
+    it is flat.** Whatever the case for a small fab is, "cheaper per job" is not it.
+- **Caveats.** A 300 mm automotive fab is not comparable in product or process to anything else in
+  this file. Included only to bound the range.
