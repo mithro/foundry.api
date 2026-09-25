@@ -2206,3 +2206,246 @@ recipe already recorded in [`search-log.md`](search-log.md).
     public, free and load instantly in an ordinary browser. It is a `curl` problem.
   - The 2002 and 2003 top-ten concentration figures are given in the FY2003 10-K as "approximately
     42%" and "approximately 64%" and are reproduced with that qualifier.
+
+### PCB-13. Zhongfu Circuit is the test this file was missing: a **large-batch** house that also runs small-batch work, ordered by the exchange to split its margin by order batch — and small batch beats large batch in **all eight** cells, across two product types and four periods
+
+- **Source:** 深圳中富电路股份有限公司 (Shenzhen Zhongfu Circuit Co., Ltd., SZSE ChiNext
+  **300814**), 关于申请向不特定对象发行可转换公司债券的审核问询函的回复（修订稿）
+  ("Reply to the review enquiry letter on the application to issue convertible corporate bonds to
+  unspecified objects (revised draft)"), filed 2023-07-18, via cninfo:
+  <http://static.cninfo.com.cn/finalpage/2023-07-18/1217324419.PDF>
+  The table below is on PDF p.15 (doc p.1-15); the surrounding analysis runs to p.17, and the peer
+  classification is on p.22. The Shenzhen exchange's enquiry letter itself was announced on
+  2023-04-17 (`finalpage/2023-04-17/1216434443.PDF`, not read).
+- **Verification:** Verified 2026-09-25. Downloaded from cninfo (HTTP 200, 3,739,272 bytes,
+  166 pages), text extracted with `pypdf`. **All eight of the filing's printed blended margins
+  reproduce from the segment margins and revenue shares**, and the filing's own summary statistics
+  (34.24%, 23.87%, 44.44%, 36.16%, 10.37 pp, 8.28 pp) all reproduce as unweighted four-period
+  means — see DERIVED. Reporting period FY2020, FY2021, FY2022 and 2023 Q1. Auditor for the
+  accompanying special note: 大华会计师事务所（特殊普通合伙）(Da Hua Certified Public Accountants
+  LLP).
+- **Why this entry matters more than its size suggests.** PCB-7's caveats said: "The unbiased test
+  would be a big-batch house that also runs a sample line." **Zhongfu is that house.** Qiangda's
+  peer table (PCB-10) records Zhongfu's own order-area revenue split as 样板 1.50% / 小批量 36.71% /
+  大批量 61.79% — the *least* tail-weighted mix of the nine companies there, and the mirror image
+  of Jinbaize's 48.91% / 26.09% / 25.00%. Zhongfu is not a sample-board specialist telling a
+  flattering story about its own niche. It is predominantly a volume producer, and its numbers say
+  the same thing.
+- **What it says:**
+  - **The table** (PDF p.15), under the heading "②按订单批量分析" — "(2) Analysis by order batch" —
+    introduced by "报告期内，单双面板和多层板按订单批量的销售占比和毛利率情况如下：" — "During the
+    reporting period the share of sales and the gross margin of single/double-sided boards and
+    multilayer boards, by order batch, are as follows" (our translation). Unit: 单位：% ("unit: %").
+    Columns are 毛利率 / 占比 — "gross margin / share".
+
+    | 产品类别 (product type) | 批量 (batch) | 2023年1-3月 GM (2023 Q1) | 占比 (share) | 2022年度 GM | 占比 | 2021年度 GM | 占比 | 2020年度 GM | 占比 |
+    |---|---|---|---|---|---|---|---|---|---|
+    | 单双面板 (single/double-sided) | 大批量 (large batch) | **26.35** | 43.63 | **23.66** | 59.22 | **19.58** | 53.91 | **23.16** | 65.49 |
+    | 单双面板 | 小批量 (small batch) | **38.63** | 56.37 | **34.89** | 40.78 | **36.86** | 46.09 | **26.58** | 34.51 |
+    | 单双面板 | 合计 (total) | 33.27 | 100.00 | 28.24 | 100.00 | 27.54 | 100.00 | 24.34 | 100.00 |
+    | 多层板 (multilayer) | 大批量 (large batch) | **8.18** | 64.55 | **9.40** | 71.41 | **12.13** | 58.74 | **17.54** | 60.65 |
+    | 多层板 | 小批量 (small batch) | **21.74** | 35.45 | **22.81** | 28.59 | **23.45** | 41.26 | **27.49** | 39.35 |
+    | 多层板 | 合计 (total) | 12.99 | 100.00 | 13.24 | 100.00 | 16.80 | 100.00 | 21.46 | 100.00 |
+
+  - **The threshold, immediately under the table** (PDF pp.15–16):
+    "公司将订单面积小于 50 平方米的产品认定为小批量产品，订单面积在 50 平方米以上的产品认定为大批量产品。"
+    — "The Company treats products with an order area of less than 50 square metres as small-batch
+    products, and products with an order area above 50 square metres as large-batch products." (Our
+    translation.) Same 50 m² line as Qiangda, Chongda and Mingyang use.
+  - **The explanation, in the same bargaining-power language as every other issuer here** (PDF
+    p.16): "报告期内，公司单双面板和多层板的小批量订单平均毛利率分别为 34.24%和 23.87%，前者比后者高出 10.37 个百分点。主要原因系：A.小批量产品的下游应用领域广泛、定制化程度高、附加值较高，且通常客户要求的交货期限较短，因此公司小批量产品生产企业对客户的议价能力较强，毛利率相对较高"
+    — "During the reporting period the average gross margin of the Company's small-batch orders was
+    34.24% for single/double-sided boards and 23.87% for multilayer boards, the former 10.37
+    percentage points above the latter. The main reasons are: A. small-batch products have a wide
+    range of downstream application fields, a high degree of customisation and high added value,
+    and customers usually require a short delivery time, so **a maker of small-batch products has
+    relatively strong bargaining power over its customers and a relatively high gross margin**."
+    (Our translation; emphasis ours.)
+  - **And the reason the blended margin fell — stated as a mix shift towards large batch** (PDF
+    p.14): "板大批量订单销售占比较 2020 年提高了 10.76 个百分点，上升幅度较大，由于**大批量订单的毛利率整体上显著低于小批量订单**，导致公司多层板整体毛利率出现下降。"
+    — "…board large-batch orders' share of sales rose 10.76 percentage points against 2020, a large
+    increase; **because the gross margin of large-batch orders is on the whole significantly lower
+    than that of small-batch orders**, the Company's overall multilayer-board gross margin fell."
+    (Our translation; emphasis ours. The sentence begins mid-phrase across a page break in the
+    extracted text; the leading character 板 is the tail of 多层板, "multilayer board".)
+  - **Named buyer power, with the margin it produced** (PDF p.15). On thick-copper multilayer
+    boards, whose margin fell 18.69% → 12.41% → 6.96% → 8.71% across the four periods:
+    "公司该类产品下游客户集中度较高，大客户中客户 X、中兴通讯合计销售占比均值为 60.89%，下游客户议价能力较强,导致产品毛利率较低"
+    — "The Company's downstream customer concentration for this product type is high; among the
+    large customers, **客户 X (Customer X) and 中兴通讯 (ZTE Corporation) together average 60.89%**
+    of sales; the downstream customers' bargaining power is strong, which makes the product's gross
+    margin low." (Our translation; emphasis ours.)
+  - **New capacity for large batch made the large-batch margin worse.** PDF p.16:
+    "发行人前次募投项目的部分产能于 2021 年末建成达产，该部分产能主要位于承接大批量订单的鹤山工厂…导致 2022 年及 2023 年一季度公司鹤山工厂的生产成本分别增加 1,782.89 万元、693.38 万元，该部分成本费用主要计入大批量订单产品中，进而导致大批量订单产品出现毛利率下滑的情况。"
+    — "Part of the capacity from the issuer's previous fundraising project was completed and reached
+    production at the end of 2021; that capacity is mainly at the Heshan plant, which takes
+    large-batch orders… which raised the Heshan plant's production cost by 17,828,900 yuan in 2022
+    and 6,933,800 yuan in 2023 Q1; that cost is charged mainly to large-batch order products, and so
+    produced the fall in the large-batch products' gross margin." (Our translation.) The same story
+    as JLC's impairment (PCB-2) and Xunjiexing's Zhuhai plant (PCB-11): capacity built for volume
+    work, and the volume work does not pay for it.
+  - **Fifteen listed peers, all classified large batch.** PDF p.22 lists the comparable companies
+    with a one-line product description; among them 科翔股份 (Kexiang), 博敏电子 (Bomin),
+    依顿电子 (Ellington), 世运电路 (Suntak), 东山精密 (Dongshan/DSBJ), 胜宏科技 (Victory Giant),
+    满坤科技 (Mankun), 骏亚科技 (Junya), 景旺电子 (Kinwong), 奥士康 (Aoshikang), 沪电股份 (WUS)
+    and 深南电路 (Shennan) are each described as "大批量…为主" — "mainly large batch" (our
+    translation). That is the whole of the large-cap Chinese PCB sector, characterised by a peer as
+    a volume business.
+- **DERIVED (arithmetic written out):** computed by `tmp/zhongfu_check.py` (throwaway, not
+  committed).
+  - **Check A — every printed blended margin reproduces.** Single/double-sided 2023 Q1:
+    (26.35 × 43.63 + 38.63 × 56.37) ÷ 100 = 33.27% against printed **33.27%**. Multilayer 2020:
+    (17.54 × 60.65 + 27.49 × 39.35) ÷ 100 = 21.46% against printed **21.46%**. All eight
+    reproduce within 0.006 pp, and every share pair sums to exactly 100.00.
+  - **Check B — the filing's own summary statistics reproduce as unweighted four-period means.**
+    Small-batch margins: single/double-sided (26.58 + 36.86 + 34.89 + 38.63) ÷ 4 = **34.24%**,
+    the printed figure exactly; multilayer (27.49 + 23.45 + 22.81 + 21.74) ÷ 4 = **23.87%**,
+    exactly. Small-batch revenue shares: (34.51 + 46.09 + 40.78 + 56.37) ÷ 4 = **44.44%** and
+    (39.35 + 41.26 + 28.59 + 35.45) ÷ 4 = **36.16%**, both exactly. Gaps: 34.24 − 23.87 =
+    **10.37 pp** (printed 10.37) and 44.44 − 36.16 = 8.28 pp (printed 8.28; our figure is 8.27
+    before rounding the means). **This tells us the filing's "average" is an unweighted mean of
+    period margins, not a revenue-weighted one — a small but real methodological caution.**
+  - **Small batch is above large batch in 8 of 8 cells.** Gaps and ratios:
+
+    | | 2020 | 2021 | 2022 | 2023 Q1 |
+    |---|---|---|---|---|
+    | 单双面板 gap (small − large) | +3.42 pp | +17.28 pp | +11.23 pp | +12.28 pp |
+    | 单双面板 ratio | 1.15× | 1.88× | 1.47× | 1.47× |
+    | 多层板 gap | +9.95 pp | +11.32 pp | +13.41 pp | +13.56 pp |
+    | 多层板 ratio | 1.57× | 1.93× | 2.43× | **2.66×** |
+
+    The multilayer gap widens monotonically across all four periods.
+  - **Share of gross profit taken by the small-batch tier**, computed as
+    (GM_small × share_small) ÷ (GM_small × share_small + GM_large × share_large):
+
+    | | 2020 | 2021 | 2022 | 2023 Q1 |
+    |---|---|---|---|---|
+    | 单双面板: small batch % of revenue | 34.51% | 46.09% | 40.78% | 56.37% |
+    | 单双面板: small batch % of gross profit | **37.69%** | 61.68% | 50.38% | 65.45% |
+    | 多层板: small batch % of revenue | 39.35% | 41.26% | 28.59% | 35.45% |
+    | 多层板: small batch % of gross profit | **50.42%** | 57.59% | **49.28%** | **59.34%** |
+
+    In 2022 the multilayer small-batch tier was 28.59% of revenue and 49.28% of gross profit — it
+    earned 1.72× its weight. Worked: 22.81 × 28.59 = 652.14; 9.40 × 71.41 = 671.25;
+    652.14 ÷ 1,323.39 = 49.28%.
+- **Bears on:**
+  - **H6 (supports, and this is the cleanest test in the file).** Every other margin-by-order-size
+    table here comes from a company that has *chosen* the tail and is explaining why that was a good
+    choice. Zhongfu is 61.79% large batch by revenue and was made to answer an exchange asking why
+    its margin was *falling*. Its answer is that its mix moved towards large batch and large batch
+    earns significantly less. Eight cells, two product families, four periods, one direction.
+  - **H6 (supports, and it addresses the layer-count confound head-on).** The table cuts by order
+    batch *within* each product type, so the comparison is small-batch multilayer against
+    large-batch multilayer, and small-batch single/double-sided against large-batch
+    single/double-sided. **Layer count is held roughly constant and the order-size effect survives
+    at 1.15× to 2.66×.** That is the control PCB-7 and PCB-11 could not apply, and it is the single
+    strongest reason to believe the effect is real rather than a product-mix artefact. It is not
+    perfect — "multilayer" spans 4 to 16 layers here — but it is a far tighter control than any
+    other entry offers.
+  - **H7 (supports).** Two customers, one of them ZTE, average 60.89% of one product line's sales,
+    and the filing attributes that line's 8.71% margin to their bargaining power.
+  - **The capital argument (supports).** Capacity built at Heshan to take large-batch orders added
+    CNY 17.8m of cost in one year and made the large-batch margin worse, not better. Three
+    companies in this file now report the same sequence: build volume capacity, fill it with volume
+    work, watch the margin fall (JLC's impairment in PCB-2, Xunjiexing's Zhuhai plant in PCB-11,
+    Zhongfu's Heshan plant here).
+- **Used in:** not yet.
+- **Caveats:**
+  - **Two tiers, not three.** Zhongfu's cut is at 50 m² only; there is no sample-board tier
+    (its sample-board revenue is 1.50%, PCB-10), so this table says nothing about the very smallest
+    orders, which is where JLC, Qiangda and Xunjiexing find the big margins. The gaps here (1.15× to
+    2.66×) are far smaller than Qiangda's 14.06× or Xunjiexing's 30.4×, and that is consistent with
+    the missing tier rather than with a contradiction.
+  - **Revenue and cost amounts are not printed**, only percentages, so gross profit shares are
+    reconstructed from margin × share and cannot be checked against a printed currency total the way
+    Xunjiexing's can. The only validation is that the blended margins reproduce, which they do.
+  - **2023 Q1 is a single quarter** and PCB margins are seasonal; it should not be weighted equally
+    with the three full years, though the filing's own averages do exactly that (see Check B).
+  - **The margin ranking here is between small batch and large batch at one company with a falling
+    margin overall.** Zhongfu's blended PCB margin was 13.13% in FY2023 (PCB-7's peer table), the
+    lowest of the nine. The tail is relatively better inside a business that is absolutely poor.
+  - All translations are ours; the Chinese is quoted exactly so a reader can check them.
+
+### PCB-14. Benchuan, a declared small-batch specialist, does *not* split its margin by order size — it splits by product family and by layer count, and the boards it says are "mainly small-batch or sample" carry a 53.98% margin against 18.26% for the rest
+
+- **Source:** 致同会计师事务所（特殊普通合伙）关于江苏本川智能电路科技股份有限公司申请向不特定对象发行可转换公司债券审核问询函中有关财务会计问题的专项说明
+  ("Special note of Grant Thornton Certified Public Accountants LLP on the financial and accounting
+  questions in the review enquiry letter concerning Jiangsu Benchuan Intelligent Circuit Technology
+  Co., Ltd.'s application to issue convertible corporate bonds to unspecified objects"), filed
+  2026-02-26, 江苏本川智能电路科技股份有限公司 (SZSE ChiNext **300964**), via cninfo:
+  <http://static.cninfo.com.cn/finalpage/2026-02-26/1224985712.PDF>
+  Passages on PDF pp.12, 52, 98 and 100.
+- **Verification:** Verified 2026-09-25. Downloaded from cninfo (HTTP 200, 6,465,409 bytes,
+  122 pages), text extracted with `pypdf`. **This is a negative result on the question this file
+  asks, plus two adjacent figures.** Benchuan's own description in Qiangda's peer table (PCB-10) is
+  "小批量印制电路板产品及解决方案" — "small-batch printed circuit board products and solutions" —
+  and Qiangda records Benchuan's 2020 order-area revenue split as 样板 21.62% / 小批量 38.55% /
+  大/中批量 39.83%. That 2020 split has **not** been located in Benchuan's own filings, and the
+  2026 enquiry reply does not renew it.
+- **What it says:**
+  - **The cuts Benchuan does publish are product family and layer count, not order size.**
+    PDF p.98, reconstructing a projected margin: "按 2025 年 1-9 月实际毛利率水平计算：多层板 18.26%*67.74%+HDI 板 53.98%*11.73%+软硬结合板 18.59%*11.73%+软板 14.74%*8.80%+外协加工减少提升 2.64%=24.81%"
+    — "Calculated at the actual gross margin levels of January–September 2025: multilayer boards
+    18.26% × 67.74% + HDI boards 53.98% × 11.73% + rigid-flex boards 18.59% × 11.73% + flexible
+    boards 14.74% × 8.80% + an uplift of 2.64% from reduced subcontracting = 24.81%." (Our
+    translation.) The FY2024 equivalents given alongside are multilayer 15.23%, HDI 44.49%,
+    rigid-flex 23.40%, flexible 15.70%.
+  - **But it links its highest-margin product family to order size, in one sentence.** Same page:
+    "此外，报告期内公司 HDI 板以小批量板或样板为主，产量较小、实际毛利率水平相对较高。同时，'珠海硕鸿年产 30 万平米智能电路产品生产建设项目'投产后，公司将具备一定程度的 HDI 板批量生产能力，未来阶段 HDI 板毛利率水平将可能有所回归。"
+    — "In addition, during the reporting period **the Company's HDI boards are mainly small-batch
+    boards or sample boards, output is small and the actual gross-margin level is relatively high**.
+    At the same time, once the 'Zhuhai Shuohong 300,000 m²/year intelligent circuit product
+    production construction project' is commissioned, the Company will have a degree of HDI batch
+    production capability, and **the HDI gross-margin level may revert somewhat in future
+    periods**." (Our translation; emphasis ours.) The issuer is telling the exchange that its 53.98%
+    margin is partly a small-batch margin and that it expects it to fall when the boards are made in
+    volume.
+  - **Layer count on its own also raises margin**, which is the confound stated plainly (PDF p.100):
+    multilayer boards 18.26%, boards above 6 layers 24.42%, above 8 layers 27.02%, above 10 layers
+    **38.69%**, all at 2025 Jan–Sep actuals.
+  - **Two planned projects with different projected margins** (PDF p.52). Project one, at Zhuhai,
+    "通过配置新产品试制线，具备面向 AI 服务器电源、低空经济、机器人等新兴领域的样板、小批量订单生产能力，项目达产后毛利率预计为 24.70%-24.81%，预计项目税后内部收益率为 14.07%"
+    — "by fitting a new-product trial-production line, it will have the capability to produce
+    **sample and small-batch orders** for emerging fields such as AI server power supplies, the
+    low-altitude economy and robotics; the projected gross margin once the project reaches full
+    production is 24.70%–24.81%, and the projected after-tax internal rate of return is 14.07%"
+    (our translation). Project two, in Thailand, "主要生产双层、多层印刷电路板与高密度互连型印制电路板，产能预计为 25 万平米，项目达产后毛利率预计为 18.73%-18.82%，预计项目税后内部收益率为 13.80%"
+    — "mainly producing double-layer and multilayer PCBs and high-density interconnect PCBs, with
+    projected capacity of 250,000 m²; the projected gross margin once the project reaches full
+    production is 18.73%–18.82%, and the projected after-tax internal rate of return is 13.80%"
+    (our translation).
+  - **Order area as a demand statistic** (PDF p.12): "截至 2025 年 9 月 30 日，公司最近 12 个月内承接订单面积合计达到 114.01 万平方米，同比增长 39.39%。"
+    — "As at 30 September 2025 the Company's order area taken in over the most recent 12 months
+    totalled 1,140,100 square metres, up 39.39% year on year." (Our translation.)
+- **DERIVED (arithmetic written out):**
+  - **The projected-margin gap between the two projects** is 24.70–24.81% against 18.73–18.82%, a
+    difference of **5.97 to 5.99 percentage points**, with the higher-margin project also carrying
+    the higher IRR (14.07% against 13.80%). **This is an estimate the issuer made about the future,
+    not a measurement, and the two projects differ in country, product and scale as well as in batch
+    size, so it cannot be attributed to order size.** It is recorded because it is the only
+    forward-looking, segment-labelled margin estimate found in this pass.
+  - **Reproducing the filing's own weighted sum**, as a transcription check: 18.26 × 0.6774 +
+    53.98 × 0.1173 + 18.59 × 0.1173 + 14.74 × 0.0880 = 12.370 + 6.332 + 2.181 + 1.297 = 22.18;
+    plus the stated 2.64 uplift = **24.82** against the printed 24.81. Reproduces to 0.01.
+- **Bears on:**
+  - **H6 (context, weakly supporting).** A declared small-batch specialist tells its exchange that
+    its best product family earns 53.98% *because* it is made in small batches and samples, and that
+    the margin will fall when it is made in volume. That is the mechanism, asserted, without a
+    table.
+  - **H6 (challenges, on the confound).** The same document shows margin rising steeply with layer
+    count alone — 18.26% → 24.42% → 27.02% → 38.69% from multilayer to 10+ layers. Benchuan's HDI
+    boards are both small-batch *and* high-layer-count, and nothing here separates them. PCB-11 is
+    still the only entry with evidence that the two cuts are not the same thing.
+  - **The census (context).** Benchuan is a "no" for the order-size margin split. Counted with
+    Fastprint (PCB-4), Sihui Fushi and Mingyang, that is four declared small-batch or sample
+    specialists that publish other cuts and not this one.
+- **Used in:** not yet.
+- **Caveats:**
+  - **This is an accountant's special note on an in-flight fundraising, not an audited annual
+    report**, and the project margins are forecasts in a document whose purpose is to justify
+    raising money for those projects. Treat the 24.70–24.81% and 18.73–18.82% as the issuer's
+    projections and nothing more.
+  - Benchuan's 2020 order-area revenue split, which Qiangda's table attributes to it, remains
+    **unverified against Benchuan's own filings**; its IPO prospectus was not retrieved (see the
+    blocked list).
+  - All translations are ours; the Chinese is quoted exactly so a reader can check them.
