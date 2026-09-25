@@ -1160,3 +1160,170 @@ conversion.
 - **Caveats.** "Over €100 million" and "almost double the footprint" are the only quantities; no
   cleanroom area, no head count target, no date on the page as fetched. This entry is a marker, not a
   measurement.
+
+### LNI-16. Pragmatic Semiconductor, Sedgefield: £287 million of equity, 357 people, **£901,000 of revenue**, a £64.9m annual loss and a material uncertainty over going concern
+
+- **Sources:**
+  - Pragmatic Semiconductor Limited (company number **07423954**), *Financial statements for the year
+    ended 31 December 2025*, audited by Deloitte LLP (Cambridge), signed 2026-07-08, filed at
+    Companies House 2026-07-23.
+    <https://find-and-update.company-information.service.gov.uk/company/07423954/filing-history>
+    (document:
+    <https://find-and-update.company-information.service.gov.uk/company/07423954/filing-history/MzUzMjkwODMyNmFkaXF6a2N4/document?format=pdf&download=1>)
+  - UK Infrastructure Bank (now the National Wealth Fund), "Bank announces £60 million direct equity
+    investment to boost UK supply chain of semiconductors in the North-East".
+    <https://www.nationalwealthfund.org.uk/news-and-publications/news/bank-announces-60-million-direct-equity-investment-to-boost-uk-supply-chain-of-semiconductors-in-the-north-east/>
+- **Verification:** Verified. The accounts are a scanned PDF with no text layer — `pdftotext`
+  extracts 42 bytes from 42 pages — so every figure below was read off the page images directly.
+  The pages used are numbered 15–30 of the document (PDF pages 16–31).
+- **Date checked:** 2026-09-25
+- **Bearing:** **Challenges** H5, H6 and H7, more sharply than anything else in this directory. It also
+  **Supports** H7's mechanism in the negative: with almost no revenue, the customer book is
+  concentrated.
+- **What the public story says.** The UK Infrastructure Bank, a state-owned development bank:
+
+  > "The UK Infrastructure Bank has today announced a £60 million direct equity investment into
+  > Pragmatic Semiconductor, a world leader in manufacturing flexible integrated circuits, to scale up
+  > the domestic supply chain of semiconductors in North-East England."
+
+  > "The Bank's financing is part of a £162 million funding round, alongside co-investor M&G's
+  > Catalyst, to accelerate the production of Pragmatic's new flexible integrated circuits, creating
+  > new manufacturing lines at its Pragmatic Park facility in Durham."
+
+  > "The expansion of Pragmatic's North-East facility will support or create 500 highly skilled jobs
+  > and contribute to the development of the North-East Advanced Material Electronics (NEAME) cluster
+  > as an area for world-class innovation and quality."
+
+  Pragmatic Park at Sedgefield was opened by HRH The Princess Royal in March 2024 as the UK's first
+  300 mm wafer fab.
+
+- **What the audited accounts say.** Statement of Comprehensive Income, year ended 31 December 2025
+  (comparatives 2024), all figures £'000 as printed:
+
+  | | 2025 | 2024 |
+  |---|---:|---:|
+  | **Revenue** | **901** | **1,693** |
+  | Cost of sales | (1,986) | (1,851) |
+  | **Gross loss** | **(1,085)** | (158) |
+  | Administrative expenses | (64,574) | (55,858) |
+  | Other operating income | 479 | 523 |
+  | R&D Expenditure Credit | 23 | 355 |
+  | **Operating loss** | **(65,157)** | (55,138) |
+  | Finance income receivable | 2,240 | 5,644 |
+  | Finance costs payable | (1,955) | (932) |
+  | **Loss before taxation** | **(64,872)** | (50,425) |
+  | Tax income | 8,173 | 7,199 |
+  | **Net loss for the year** | **(56,699)** | (43,227) |
+
+  Statement of Financial Position at 31 December 2025:
+
+  | | 2025 | 2024 |
+  |---|---:|---:|
+  | Property, plant & equipment | **94,999** | 57,695 |
+  | Right-of-use assets | 11,296 | 11,942 |
+  | Cash and cash equivalents | 24,963 | 84,520 |
+  | Treasury deposits | – | 25,921 |
+  | Total assets | 153,259 | 207,088 |
+  | Total liabilities | (28,771) | (30,757) |
+  | **Net assets** | **124,488** | 176,331 |
+  | Share capital | 2 | 2 |
+  | **Share premium account** | **287,025** | 287,088 |
+  | Share based payment reserve | 14,566 | 9,647 |
+  | **Retained earnings** | **(177,348)** | (120,649) |
+
+  Note 6, Employee remuneration — the average number of employees, including executive directors:
+
+  | | 2025 | 2024 |
+  |---|---:|---:|
+  | Research and development | 119 | 95 |
+  | Operations | 158 | 139 |
+  | Sales and Marketing | 20 | 19 |
+  | General and Administrative | 60 | 54 |
+  | **Total** | **357** | **307** |
+
+  with staff costs of **£36,951** thousand (2024: £29,260), of which wages and salaries £26,794.
+
+  Note 4, on the customer book — **this is the H7 datum**:
+
+  > "In 2025, 50% of revenue was generated from customers located in the UK (2024: 10%) and there were
+  > 3 customers who each accounted for more than 10% of revenue in the year (2024: 3)."
+
+  Revenue by location of customer, £'000: UK 451; Europe (excl. UK) 416; Americas 10; Rest of the
+  World 24; total 901.
+
+  Note 11, on the accumulated position:
+
+  > "Subject to the UK tax authority's agreement, the Company has tax losses of approximately
+  > £153,000,000 (2024: £112,350,000) available for carry forward and offset against future taxable
+  > profits arising from the same trade."
+
+  The going-concern note, in full where it matters:
+
+  > "The Company incurred a loss after tax of £56,699,000 for the year ended 31 December 2025 (2024:
+  > £43,226,883). The Company is capital intensive and has historically been primarily funded by
+  > periodic equity raises as it scales to mass production. The Company will continue to incur losses
+  > until it reaches sufficient scale in production and sales and the directors therefore have
+  > commenced the next equity funding round taking place during 2026, having secured £36,000,000 of
+  > bridge financing from existing investors in the form of convertible loan notes."
+
+  > "The Company has a strong record of success in raising the financing required to support the
+  > investment needed to bring the business to mass production. In 2023 to 2026 the Company raised
+  > £179 million in its Series D fundraise…"
+
+  > "The directors acknowledge that there can be no certainty that the funding required by the Company
+  > will be received, although at the date of approval of these financial statements they have no
+  > reasonable expectation that it will not be able to do so."
+
+  and the conclusion the directors draw:
+
+  > "Based on the above, the directors believe it remains appropriate to prepare the financial
+  > statements on a going concern basis. However, the circumstances described indicate that there is a
+  > material uncertainty that may cast significant doubt on the entity's ability to continue as a going
+  > concern and, therefore, that it may be unable to realise its assets and discharge its liabilities
+  > in the normal course of business."
+
+  Cash flow, 2025: purchases of property, plant and equipment **£32,372** thousand; cash outflow from
+  operating activities £(48,791); net change in cash £(59,557), from £84,520 to £24,963.
+
+- **DERIVED (arithmetic written out):**
+  - **Revenue per employee:** £901,000 ÷ 357 = **£2,524 per employee per year.** Clas-SiC, the other
+    small UK fab in this file, does £109,884 (`LNI-5`); Silex does about €559,000 (`LNI-2`).
+  - **Staff cost per employee:** £36,951,000 ÷ 357 = **£103,504.** Revenue covers **2.4%** of the
+    payroll (£901,000 ÷ £36,951,000).
+  - **Cumulative equity raised per job:** share premium £287,025,000 + share capital £2,000 =
+    **£287,027,000**, ÷ 357 = **£803,997 per job.** At EUR/GBP 0.85986 (ECB, 2026-09-24) that is
+    **€934,947 per job** — and it lands inside the €650,000–€900,000 band that `LNI-5`, `LNI-7` and
+    `LNI-8` independently produced, slightly above the top of it.
+  - **Against the promise:** the state development bank's release says the expansion "will support or
+    create 500 highly skilled jobs". The average head count in the accounts two years later is
+    **357** (2024: 307). 357 ÷ 500 = **71.4%**, and the accounts do not say how many of those are at
+    Sedgefield rather than Cambridge.
+  - **Net fixed assets per employee:** £94,999,000 ÷ 357 = **£266,104.** Adding right-of-use assets,
+    £106,295,000 ÷ 357 = **£297,745.**
+  - **Asset turnover:** £901,000 of revenue on £94,999,000 of net property, plant and equipment =
+    **0.0095×**, i.e. **0.95%**. Clas-SiC, itself loss-making, manages 0.39× (`LNI-5`) — **41 times
+    better.**
+  - **Gross margin:** £(1,085,000) ÷ £901,000 = **−120.4%.** It costs £2.20 of direct cost to produce
+    £1.00 of revenue.
+  - **Loss per employee:** £56,699,000 ÷ 357 = **£158,820 per employee per year.**
+  - **Cumulative loss against cumulative equity:** retained earnings £(177,348,000) ÷ share premium
+    £287,025,000 = **61.8% of everything ever subscribed has been spent.**
+  - **Capital intensity of the ramp:** 2025 purchases of PP&E £32,372,000 against revenue of £901,000
+    = **35.9× revenue spent on plant in one year.**
+- **Caveats.** These are the *company's* accounts, not a group consolidation; the group exemption is
+  taken because Pragmatic Semiconductor Inc. has not begun trading. Revenue in a pre-mass-production
+  company is not a measure of demand for its product, and the directors' case is precisely that
+  revenue arrives after the capacity does. The "500 jobs" in the bank's release is over five years
+  from 2023, so 2025 is not the terminal year. The £179m Series D and the £162m round described by the
+  bank overlap and must not be added.
+- **Why this is the most important entry in the file, and why it cuts against the thesis.** Pragmatic
+  is the UK's flagship new fab. Its technology is *specifically* designed to be cheap: flexible ICs,
+  no exotic lithography, "breakthrough low cost of customisation and rapid production cycles" in its
+  own CEO's words. It is the closest thing Europe has to a fab built for a long tail of small,
+  fast-turn customers. After £287 million of subscribed equity, £60 million of it from a state
+  development bank, with 357 people and £95 million of plant on the books, it turned over **£901,000**
+  in 2025 — **down** from £1.69 million in 2024 — from a customer book in which three customers are
+  each over 10% of that. **The long tail did not turn up.** Any version of the argument that says
+  small customers will pay for real capital has to say why this is not the counter-example, and
+  "they built the wrong thing" is not available, because what they built is the thing the argument
+  asks for.
