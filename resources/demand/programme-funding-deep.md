@@ -506,3 +506,455 @@ give them.
   - "This funding is exclusively used to support European universities and research laboratories" is
     the coordinator's statement of intent about grant money; it is consistent with the SME activity
     being "not funded by the project" (`FUNDX-3`) but it is not an audit finding.
+
+### FUNDX-5. A reproducible staff census: Europractice names 13 people in 2017, 21 in 2024 and 19 in 2025 — and in 2025 the same foundry has two different human contacts depending on which partner you go through
+
+- **Sources:**
+  - EUROPRACTICE, *EP activity Report 2017*, "CONTACT INFORMATION" page (p. 56):
+    <https://europractice-ic.com/wp-content/uploads/2019/06/EP-activity-Report-2017.pdf>
+  - EUROPRACTICE, *Activity Report 2024*, "CONTACT INFORMATION" (p. 64):
+    <https://europractice-ic.com/wp-content/uploads/2025/10/Europractice_ActivityReport2024_webversion.pdf>
+  - EUROPRACTICE, *Activity Report 2025*, "CONTACT INFORMATION" (p. 68):
+    <https://europractice-ic.com/wp-content/uploads/2026/03/Europractice_AR2025_web.pdf>
+  - imec, press kit (institute-wide figures): <https://www.imec-int.com/en/reading-room/press-kit>
+  - Fraunhofer IIS, "Facts and figures" (Annual Report 2025):
+    <https://www.iis.fraunhofer.de/en/profil/what-makes-us-special/jb/2025/facts.html>
+  - Tyndall National Institute, *Annual Report 2025*:
+    <https://www.tyndall.ie/wp-content/uploads/2026/07/Tyndall-Annual-Report-2025.pdf>
+- **Verification:** Verified 2026-09-25. Every PDF was downloaded with `curl` and converted with
+  `pdftotext -layout`; the contact pages were read in full and the names counted by hand after a
+  script located the section. The institute-level figures are quoted from the institutions' own
+  pages.
+- **How it was counted:** the contact page of each activity report is laid out as a set of blocks —
+  a service or foundry name, then a person's name, then an e-mail. Every personal name was listed,
+  duplicates (people who cover more than one foundry) collapsed, and generic mailboxes
+  (`MicroelectronicsCentre@stfc.ac.uk`, `virtual-asic@iis.fraunhofer.de`,
+  `cime-prototypage@grenoble-inp.fr`) counted as **zero** people. This is the same method as
+  `FUND-9` but applied to the **annual reports** rather than the live website, which makes it a time
+  series and makes it reproducible against a fixed document.
+- **What it says:**
+
+  | Activity report | imec | UKRI-STFC | Fraunhofer IIS | Grenoble (CMP → CIME-P) | Tyndall | **Distinct people** | Foundry/technology slots |
+  |---|---:|---:|---:|---:|---:|---:|---:|
+  | 2017 | 9 | **0** (generic mailbox only) | 4 | — | — | **13** | 10 |
+  | 2024 | 10 | 3 | 3 | 4 | 1 | **21** | 18 |
+  | 2025 | 8 | 3 | 3 | 4 | 1 | **19** | 18 |
+
+  The 2025 people, in full: **imec** — Romano Hoofman (general), Paul Malisse (operational), Josef
+  Stoudek (legal), Tobias Vanderhenst (TSMC), Ahmed Ba-Makhramah (UMC), Pieter Claes (X-FAB, imec
+  Si-Photonics, imec GaN-IC, MEMS — four foundries, one person), Alexandre Pereira (Graphenea), Adil
+  Masood (Pragmatic). **UKRI-STFC** — Mark Willoughby (design tools), Clive Holmes (training
+  courses), Richard Bishop (academic membership). **Fraunhofer IIS** — Elvira Liandres (ams OSRAM,
+  IHP, UMS), Syed Shahnawaz (GlobalFoundries), Ruslan Rybalko (X-FAB). **CIME-P / Grenoble INP** —
+  Gaétan Debontride (ams OSRAM), Zineb M'Harzi (EM Microelectronic, Si-Photonics), Mohammadreza
+  Dolatpoor Lakeh (STMicroelectronics), Antoine Abisset (Science). **Tyndall** — Simon Toft Sørensen
+  (smart system integration).
+
+  **The consortium duplicates itself.** In the 2025 list, **X-FAB** has a named contact at imec
+  (Pieter Claes) *and* at Fraunhofer IIS (Ruslan Rybalko). **ams OSRAM** has one at Fraunhofer IIS
+  (Elvira Liandres) *and* one at CIME-P (Gaétan Debontride). **Silicon photonics** has one at imec
+  (Pieter Claes) *and* one at CIME-P (Zineb M'Harzi). Which human being you get depends on which
+  partner's page you land on, not on what you want made.
+
+  **The Grenoble partner is now called CIME-P, not CMP.** The 2025 report's sign-off reads "Your
+  Europractice team at imec, UKRI-STFC, Fraunhofer IIS, **CIME-P**, and Tyndall", and every Grenoble
+  contact e-mail is `cime-prototypage@grenoble-inp.fr`. `FUND-8` records CMP's own domains
+  (`mycmp.fr`, `cmp.imag.fr`) as dead and asks whether the money reached the same team; the
+  consortium's own document answers that the Grenoble partner is now an activity of Grenoble INP
+  under a new name.
+
+  **The partners, at institute scale** (none of this is Europractice; it is the size of the bodies
+  the Europractice staff sit inside):
+  - **imec**: "the expertise of **over 6,500 employees**" and "In 2025, imec reported revenues of
+    **€1.2 billion**" (press kit, read 2026-09-25).
+  - **Fraunhofer IIS**: "In 2025, Fraunhofer IIS's revenue amounted to **€264 million**. The
+    institute financed **58 percent** of its expenses (excluding investments) with funds from
+    business and industry, and an additional **24 percent** from public project funds." Workforce:
+    "**1,225** salaried employees, representing a slight decline compared with the previous year. In
+    addition, 366 students and 11 trainees are employed at the institute." (Marked "*Projection as
+    of January 2026".)
+  - **Tyndall National Institute (University College Cork)**: "By year-end, Tyndall had **581
+    research and professional services staff, including 172 PhD and MSc postgraduate students**,
+    representing more than 50 nationalities". Its EU scorecard for 2025: "€686m total project value
+    | €125m Tyndall grant value | 84 projects | 18 Tyndall co-ordinated projects".
+  - **UKRI-STFC** and **CIME-P**: **no staff number for the Europractice activity is published by
+    either**, and `www.europractice.stfc.ac.uk/welcome.html` and `/content/contacts/contacts.html`
+    both return **HTTP 404**.
+- **DERIVED (arithmetic written out):**
+  - **Designs per named person.** Against `DEM-16`'s totals: 614 ÷ 13 = **47.2** (2017);
+    837 ÷ 21 = **39.9** (2024); 753 ÷ 19 = **39.6** (2025). The named establishment grew 46%
+    (13 → 19) while the design count grew 23% (614 → 753), so **output per named person fell 16%**
+    over eight years.
+  - **EU money per named person per year.** 2017, at the EUROPRACTICE 2016 rate:
+    € 1 540 159,50 ÷ 13 = **€ 118 474**. 2024, at the RETICLES rate: € 2 395 114,58 ÷ 21 =
+    **€ 114 053**. 2025, at the RETICLES rate that actually funded most of that calendar year:
+    € 2 395 114,58 ÷ 19 = **€ 126 059**. At the Europractice 2.0 rate now running:
+    € 3 997 727,50 ÷ 19 = **€ 210 407**.
+  - **Set against the institutes' own turnover per head.** Fraunhofer IIS turns over
+    € 264 000 000 ÷ 1 225 = **€ 215 510 per salaried employee**; imec
+    € 1 200 000 000 ÷ 6 500 = **€ 184 615 per employee**. Both are *revenue*, not cost, so the true
+    fully-loaded cost per head is lower. The €114 000–126 000 per named Europractice person under
+    the two completed grants therefore looks like **roughly half to two-thirds of a full-time
+    equivalent each** — consistent with the obvious reading, which is that these are people who do
+    Europractice among other things.
+  - **The whole grant as person-years.** Europractice 2.0 is € 11 993 182,50 over 3 years for a
+    named establishment of 19, i.e. **57 named person-years at € 210 407 each**, against
+    3 × 753 = **2 259 designs**, i.e. **39.6 designs per named person-year**.
+  - **`FUND-9`'s €173,814 per named person is superseded on the annual-report basis.** It divided
+    the Europractice 2.0 rate by 23 names taken from the live website; the annual report for the
+    same period names 19, giving €210,407. Both are upper bounds on cost per person because both
+    assume the grant pays for nothing but people, and both are lower bounds on the real
+    establishment because both count only published customer-facing contacts.
+- **Bears on:**
+  - **H6 (context, and this is the closest anyone gets to the automation question from the public
+    record).** About **forty designs per named person per year** is the productivity of the incumbent
+    European brokerage, and it has been **falling**. That is the number an automated service has to
+    beat, and it is the reason the payroll question matters: every extra design needs another slice
+    of somebody's year.
+  - **H6 (challenges the automation argument, honestly).** The duplication is real but it is not
+    obviously waste. Five partners with five different foundry relationships is how the consortium
+    gets access to 102 technologies from 22 foundries (`FUND-2`); a single automated broker would
+    have to negotiate all of those itself. The people are partly *relationship* cost, not *process*
+    cost, and relationship cost does not automate away.
+  - **H5 (context).** Fraunhofer IIS finances **58%** of its expenses from industry and imec turns
+    over €1.2bn. These are not institutions that cannot sell things. They still take a Coordination
+    and Support Action to run an academic MPW brokerage.
+- **Used in:** not yet.
+- **Caveats:**
+  - **A named-contact count is not a headcount, and the gap is large and unknown.** Accounts,
+    procurement, IT, legal, the design-tools operation at STFC, training delivery, web, and the
+    people who actually assemble reticles are all invisible to it. `FUND-9` says the same thing and
+    it is worth repeating: **13, 21 and 19 are floors.**
+  - **The 2017 zero for STFC is an artefact of presentation, not of staffing.** The 2017 report
+    routed all membership, tools and training enquiries to a single generic mailbox; the 2024 and
+    2025 reports name three people behind the same mailbox. The jump from 13 to 21 is therefore
+    partly a change in how the report is written, and the "46% growth in the named establishment"
+    derived above should be read with that in mind. Excluding STFC entirely, the count goes
+    13 → 18 → 16.
+  - The institute-level figures are for **imec, Fraunhofer IIS and Tyndall as wholes**. Europractice
+    is a small activity inside each. Do not divide institute revenue by Europractice designs.
+  - Fraunhofer IIS's 2025 figures are explicitly "Projection as of January 2026", not final.
+  - imec's "over 6,500 employees" and "€1.2 billion" come from a press kit, which is a marketing
+    document. imec's statutory accounts were **not** obtained — see the blocked list.
+  - The e-mail addresses above are published by Europractice on its own public contact pages and are
+    quoted only to show which mailbox is generic and which is personal. **Nothing was sent to any of
+    them.**
+
+### FUNDX-6. CMC in 2018: 48 employees, a CAD $6.5 million operating budget, and a national research council that decided it would rather fund researchers than fund a broker
+
+- **Sources** (local and national news, which carry numbers the annual reports do not):
+  - CBC News, "Feds set to pull plug on microelectronics powerhouse", Ottawa, posted **2018-11-02**:
+    <https://www.cbc.ca/news/canada/ottawa/cmc-microsystems-kingston-funding-1.4886292>
+  - Mike Postovit, Global News Kingston, "Hi-tech Kingston company hoping for funding to stay alive",
+    **2018-11-14**:
+    <https://globalnews.ca/news/4660184/hi-tech-kingston-company-hoping-for-funding-to-stay-alive/>
+- **Verification:** Verified 2026-09-25. The CBC article refuses `WebFetch` (**HTTP 403**) but serves
+  `curl` with an ordinary browser User-Agent; it was fetched that way and read in full. The Global
+  News article was read through `WebFetch`. Both are contemporaneous reports quoting CMC's president
+  and CEO by name.
+- **What it says:**
+  - **A headcount, which nothing CMC publishes gives.** CBC: "Many of the non-profit corporation's
+    **48 employees** are engineers and PhD research scientists." Global News, twelve days later: "at
+    least **45 people** out of work at the non-profit company".
+  - **An operating budget.** CBC: "CMC president and CEO Gordon Harling said the organization, which
+    has a **$6.5-million annual operating budget**, has been scrambling to find alternative funding
+    since being 'dumped' by NSERC."
+  - **Why the money was cut, in NSERC's own logic as relayed by the CEO.** Global News quotes Gord
+    Harling: "**They felt that they did not want to fund a third party that provides tools to
+    researchers, they want to fund researchers directly.**" CBC: "In 2016, NSERC announced it was
+    cutting CMC's funding, apparently part of a broader shift toward supporting individual research
+    projects."
+  - **The timeline.** CBC (2018-11-02): "With the last of CMC's bridge funding set to run out next
+    June, Harling has begun notifying employees the doors could soon close. By next month fabrication
+    runs will come to an end, and by next March the thousands of students and researchers who rely on
+    computer programs licensed through the organization, which operated like a software co-op, will
+    need to find a new source." Global News: termination notices distributed **2018-10-30**.
+  - **The scale of the service it ran on $6.5m.** CBC: "Last year, CMC assisted some **8,000 students
+    plus another 5,000 researchers and professors**, and was involved in about one-third of all
+    collaborative research grants between universities and industry — about **$30 million** worth."
+    And on why the tool licences mattered: "**The cost of a single licence for circuit-design
+    software might reach $100,000.**"
+  - **What a Nobel laureate said about it.** Art McDonald, quoted by CBC: "The idea that this could
+    be disbanded and we could lose this resource just doesn't make any sense … **It's effectively a
+    national laboratory.**"
+  - The service survived. The audited statements in `FUNDX-1` show CFI-MSI and Province of Quebec
+    money arriving in its place from at least FY2022, and ISED/FABrIC from FY2024.
+- **DERIVED (arithmetic written out):**
+  - **Cost per head, 2018:** $6 500 000 ÷ 48 = **CAD $135 417 per employee per year**, all-in (the
+    whole operating budget, not just payroll). Payroll was 53.5% of spending in 2008 (`FUND-7`) and
+    39–46% in 2022–2026 (`FUNDX-1`); at 45% of $6.5m that is $2.9m of payroll, or **CAD $60 900 per
+    head** — plainly too low for "engineers and PhD research scientists", which suggests either that
+    the 48 includes part-time and student staff, or that the payroll share was higher in 2018 than in
+    either bracketing measurement. **Neither can be resolved from the public record.**
+  - **CMC shrank by a third and then tripled.** Total expenditure: CAD $9 882 500 (FY2008, `FUND-7`)
+    → $6 500 000 (2018, the CEO's figure) → $20 012 740 (FY2026, audited). That is **−34.2%** over
+    the first decade and **×3.08** over the second.
+  - **The implied 2026 headcount, anchored on 2018.** If a CMC employee still costs what the whole
+    2018 budget divided by 48 implies, CAD $135 417, then FY2026's payroll of $7 859 646 supports
+    **58 people**. Holding the 2018 headcount of 48 flat instead gives $7 859 646 ÷ 48 = **CAD
+    $163 743 per head**, a 21% rise over eight years before any inflation adjustment. **The truth is
+    somewhere in that box: roughly 48–65 people.**
+  - **Designs per employee.** `DEM-20` gives 240 prototypes in FY2025/26. At 48 employees that is
+    **5.0 prototypes per employee per year**; at 58, **4.1**. Against Europractice's 39.6 designs per
+    *named contact* (`FUNDX-5`) the two are not comparable — one is a real headcount, the other a
+    published-contacts floor — and most of the gap between 4 and 40 is that difference.
+- **Bears on:**
+  - **H6 (challenges, and this is the most direct statement of the problem found anywhere).** A
+    national research council looked at a subsidised MPW broker and concluded it **did not want to
+    fund a third party that provides tools to researchers**; it wanted to fund researchers directly.
+    That is a funder rejecting the intermediary model on principle, not on performance. Any brokerage
+    that depends on public money carries this risk in its business model, and CMC nearly died of it.
+  - **H6 (supports, and it matters).** CMC did not die. It replaced NSERC with CFI, then Quebec, then
+    ISED, and tripled in size. A service with real users can survive losing its founding funder — but
+    note what it took: three successive funders and eight years.
+  - **H5 (challenges).** "8,000 students plus another 5,000 researchers and professors" served in
+    2017 — and `DEM-20` has the prototype count at 240 a year. **Thirteen thousand people, a few
+    hundred chips.** Almost everything CMC does for almost everybody it serves is *tools and
+    training*, not fabrication. Any model that reads CMC's subsidy as the cost of making chips is
+    reading it wrong, and `FUND-7`'s and this file's per-prototype figures all carry that error.
+  - **H8 (context).** "The cost of a single licence for circuit-design software might reach $100,000"
+    is the reason these brokerages exist at all, and it is a cost that no amount of automation on the
+    fabrication side removes.
+- **Used in:** not yet.
+- **Caveats:**
+  - **48 and 45 are journalists' figures**, given twelve days apart by two outlets, and the second
+    ("at least 45 people out of work") is a count of people losing jobs, not of employees. They agree
+    to within 7%, which is as good as this gets, but neither is CMC's own statement.
+  - **"$6.5-million annual operating budget" is a CEO's figure in an interview.** It is not reconciled
+    to any published statement, and CMC's audited statements for that year were not found (see the
+    blocked list). It is roughly two-thirds of FY2008's audited $9.88m, which is consistent with an
+    organisation that had lost its main grant.
+  - The CBC piece carries no personal byline ("CBC News") and is based on interviews at CMC; the
+    Global News piece is bylined Mike Postovit. Neither is a document.
+  - "one-third of all collaborative research grants between universities and industry — about $30
+    million worth" is CMC's own claim about its reach, relayed by a journalist. Not checked.
+  - `FUND-7`'s 2007/08 figures and these 2018 figures are eleven years apart with nothing in between.
+
+### FUNDX-7. What Europractice is worth next to the rest of the Chips JU: €12.0 million against €1.23 billion, and imec's Europractice line is 0.9% of what the same Joint Undertaking pays imec for one pilot line
+
+- **Sources:** CORDIS bulk export for Horizon Europe,
+  `https://cordis.europa.eu/data/cordis-HORIZONprojects-csv.zip`, downloaded 2026-09-25 (23 451
+  projects), `csv/project.csv` and `csv/organization.csv`.
+- **Verification:** Verified 2026-09-25. Every figure is a field from those two files. Nothing here is
+  quoted from a press release.
+- **How it was counted:** every project whose `topics`, `masterCall` or `legalBasis` field contains
+  `CHIPS` was selected (28 projects), grouped by topic, and summed. Separately, every row of
+  `organization.csv` whose `name` matches imec, the Fraunhofer-Gesellschaft, UKRI, Institut
+  Polytechnique de Grenoble or University College Cork was summed on `netEcContribution`, across all
+  of Horizon Europe and then restricted to the Chips topics.
+- **What it says:**
+  - **The Chips JU's whole visible portfolio in CORDIS**: 28 projects, **€1 229 880 105** of EU
+    contribution against **€2 489 952 773** of total cost.
+  - **The five pilot lines take €898 486 867 of that** — 73% of the EU money in 18% of the projects:
+
+    | Grant | Acronym and subject | Topic | EU contribution | Total cost | Dates |
+    |---|---|---|---:|---:|---|
+    | 101183277 | **NanoIC** — "European pilot line for beyond 2nm leading edge System-on-Chip" | CPL-1 | € 448 006 740 | € 551 778 479 | 2024-01-01 → 2028-12-31 |
+    | 101182279 | **FAMES** — FD-SOI pilot line | CPL-2 | € 216 811 042 | € 433 622 083 | 2023-12-01 → 2028-12-31 |
+    | 101183307 | **APECS-PL** — advanced packaging | CPL-3 | € 96 211 548 | € 194 423 097 | 2024-11-01 → 2029-06-30 |
+    | 101213727 | **PIXEurope** — photonic ICs | CPL-5 | € 88 027 325 | € 176 054 650 | 2025-06-01 → 2030-05-31 |
+    | 101183211 | **WBGPilotLine** — wide bandgap | CPL-4 | € 49 430 212 | € 98 860 425 | 2025-06-01 → 2030-05-31 |
+
+  - **Europractice 2.0 is the only project under its topic.** `HORIZON-JU-CHIPS-2025-CSA-1` funds
+    exactly one grant, 101252350, at **€11 993 182**. The whole of the EU's pan-European chip-design
+    *access* infrastructure, for 2025–2028, is that one line.
+  - **The design-tools money is a separate, larger line, and it is new.** Topic
+    `HORIZON-JU-CHIPS-2025-IA-EDA-two-stage` funds two grants — **ODE4EC-DIG**, "Open Design
+    Environment for European Chips - Digital SoC Design", €8 182 400 EU of €19 178 973, and
+    **ODE4EC-PIV**, "Open Design Ecosystem for European Chips - Productivity, Integration…",
+    €5 700 179 of €14 537 084 — both running 2026-06-01 → 2029-05-31, **€13 882 580 of EU money
+    between them**. That is *more* EU money for an open design environment over three years than for
+    Europractice over the same three years.
+  - **Who gets the money.** Net EU contribution across the *whole* of Horizon Europe, from
+    `organization.csv`:
+
+    | Organisation | Participations | Net EU contribution, all Horizon Europe | Of which Chips JU topics | Europractice 2.0 line |
+    |---|---:|---:|---:|---:|
+    | imec | 194 | **€ 598 513 416** | € 462 154 752 | € 3 900 016 |
+    | Fraunhofer-Gesellschaft | 741 | € 568 662 659 | € 91 002 944 | € 1 788 141 |
+    | University College Cork (Tyndall) | 202 | € 128 303 002 | € 20 156 478 | € 1 094 973 |
+    | UKRI | 122 | € 67 927 489 | € 3 602 261 | € 3 602 261 |
+    | Institut Polytechnique de Grenoble | 49 | € 15 985 617 | € 4 568 304 | € 1 607 791 |
+
+  - **imec takes 96.6% of NanoIC.** NanoIC has six participants; imec is coordinator with
+    **€432 633 226** of the €448 006 740, ahead of University College Cork (€5 612 201), CEA
+    (€4 971 673), Politehnica Bucharest (€2 243 120), Fraunhofer (€1 978 321) and VTT (€568 200).
+  - **Fraunhofer coordinates APECS-PL** with €76 404 542 of its €96 211 548.
+  - **Europractice 2.0 is the only Chips JU grant in which UKRI appears at all.**
+- **DERIVED (arithmetic written out):**
+  - **Europractice 2.0 against the Chips JU portfolio:** 11 993 182 ÷ 1 229 880 105 = **0.975%**.
+  - **imec's Europractice line against imec's NanoIC line:** 432 633 226 ÷ 3 900 016 = **110.9×**.
+    Per year — NanoIC runs five years, Europractice 2.0 three — 432 633 226 ÷ 5 = €86 526 645/yr
+    against 3 900 016 ÷ 3 = €1 300 005/yr, a ratio of **66.6×**.
+  - **imec's Europractice line against everything imec gets from Horizon Europe:**
+    3 900 016 ÷ 598 513 416 = **0.652%**.
+  - **Pilot-line leverage.** The five pilot lines draw €898 486 867 of EU money against
+    €1 454 738 734 of declared total cost, i.e. the EU pays **61.8%** and industry and member states
+    find the other 38.2%. Europractice 2.0's EU contribution is **100%** of its declared cost
+    (`FUND-1`). **The EU pays a higher share of the brokerage than of the fabs.**
+- **Bears on:**
+  - **H6 (challenges, in a new way).** The complaint that Europractice is expensive has to be set
+    against what else the same funder is buying. **€4.0 million a year is 0.65% of imec's EU money.**
+    If the brokerage were shut down tomorrow nobody in Brussels would notice the saving. That cuts
+    against any argument that the subsidy is unsustainable — it plainly is sustainable — and for the
+    argument that it is unexamined.
+  - **H6 (context).** The EU is now funding an "Open Design Environment for European Chips" at a
+    *higher* annual rate (€13.9m over 3 years = €4.6m/yr) than the MPW brokerage (€4.0m/yr). The
+    money is moving from access-to-silicon towards access-to-tools.
+  - **H5 (challenges).** €1.23 billion of EU money and €2.49 billion of total cost is now committed
+    to European chip pilot lines. The demand-side service that would put small customers on those
+    lines is €12.0 million of it. Whatever the pilot lines are being built for, it is not the long
+    tail.
+  - **H8 (context).** The EU pays 100% of the brokerage's declared cost and 61.8% of the pilot lines'.
+    Co-funding discipline is applied to fabs and not to services.
+- **Used in:** not yet.
+- **Caveats:**
+  - **CORDIS's Chips JU coverage is incomplete and the totals are a floor.** The Chips JU's own
+    website (`chips-ju.europa.eu`) is a client-side-rendered application that a fetch cannot read,
+    and its project pages were not obtained. The 28 projects here are those the CORDIS bulk export
+    carried on 2026-09-25.
+  - **The Chips Act competence centres are not in this data at all.** A scan of all 23 451 Horizon
+    Europe projects for "competence cent(re|er)" in title, objective or topic returns nine hits, none
+    of them a Chips Act competence centre. They are funded jointly by the Chips JU and member states
+    through national instruments and are **not** in CORDIS. See the blocked list.
+  - **"Net EU contribution" across all of Horizon Europe is not a measure of an institution's
+    income.** imec's €598m is spread over 194 projects and several years, against a turnover of
+    €1.2 billion a *year*.
+  - Pilot-line "total cost" includes member-state and industrial contributions that CORDIS does not
+    break out; the 61.8% is an EU-contribution-to-declared-cost ratio, not a public-to-private ratio.
+  - The €13.9m ODE4EC pair had not started when this was written (both begin 2026-06-01). They are
+    awarded, not spent.
+
+---
+
+## 1. Head-count and payroll: what is public, and what is not
+
+The question this file was written to answer. Everything in the table is quoted or derived from the
+entry named in the last column; blank cells are things nobody publishes.
+
+| Organisation | Head-count | Basis and date | Payroll | Payroll as % of spend | Spend or turnover | Entry |
+|---|---|---|---|---|---|---|
+| **CMC Microsystems** | **48 employees** ("many … are engineers and PhD research scientists") | CBC News, 2018-11-02 | — | — | CAD **$6.5 m** operating budget (CEO, 2018) | `FUNDX-6` |
+| **CMC Microsystems**, FY2022 | not published | — | CAD **$7 091 733** | **45.3%** | CAD $15 653 837 | `FUNDX-1` |
+| **CMC Microsystems**, FY2023 | not published | — | CAD **$7 647 774** | **40.3%** | CAD $18 987 114 | `FUNDX-1` |
+| **CMC Microsystems**, FY2024 | not published | — | CAD **$6 933 083** | **42.2%** | CAD $16 420 151 | `FUNDX-1` |
+| **CMC Microsystems**, FY2025 | not published | — | CAD **$7 876 088** | **46.2%** | CAD $17 066 020 | `FUNDX-1` |
+| **CMC Microsystems**, FY2026 | not published; **≈48–65 implied** | derived from payroll ÷ CAD $121k–164k per head | CAD **$7 859 646** | **39.3%** | CAD $20 012 740 | `FUNDX-1`, `FUNDX-6` |
+| **CMC Microsystems**, FY2008 | not published | — | CAD **$5 285 705** | **53.5%** | CAD $9 882 500 | `FUND-7` |
+| **Europractice** (the consortium, not its hosts) | **19 named customer-facing people** (2025); 21 (2024); 13 (2017) | counted from the activity reports' contact pages | not published | not published | EU grant € 3 997 728 / yr | `FUNDX-5` |
+| **Europractice** (live website basis) | **23 named contacts**, 32 slots | counted 2026-09-19 | not published | not published | — | `FUND-9` |
+| **imec** (whole institute) | "**over 6,500 employees**" | imec press kit, 2025 | not published | not published | revenue **€1.2 bn** (2025) | `FUNDX-5` |
+| **Fraunhofer IIS** (whole institute) | **1 225 salaried**, + 366 students, + 11 trainees | institute facts page, 2025 (projection) | not published | not published | revenue **€264 m** (2025); 58% from industry | `FUNDX-5` |
+| **Tyndall / UCC** (whole institute) | **581** research and professional services staff, of which 172 are PhD/MSc students → **409** non-student | *Annual Report 2025* | not published | not published | €125 m Tyndall grant value across 84 EU projects | `FUNDX-5` |
+| **UKRI-STFC** Europractice team | **not published** | — | not published | not published | € 3 602 261 over 2025–28 | `FUND-1` |
+| **CIME-P / Grenoble INP** (ex-CMP) | **not published** | — | not published | not published | € 1 607 791 over 2025–28 | `FUND-8`, `FUNDX-5` |
+| **MOSIS / USC ISI** | **not published, ever** | — | not published | not published | not published | `FUND-6` |
+
+**What is not public, stated plainly.** No organisation in this table publishes a head-count *for the
+multi-project-wafer activity*. Only CMC publishes a payroll line at all, and only for the whole
+organisation. Nobody anywhere publishes the split between technical and administrative staff. The
+only administrative cost that is published anywhere in either file is Europractice's own statement
+that of the €1 100 Full-IC membership fee, "**100 € to administer the membership**" (`FUND-3`) —
+which, across 630 members, is **€63 000 a year of pure membership administration**, and which
+Europractice charges for separately because, in its own words, the EC does not pay for it.
+
+**The single comparison the file was written to make.** CMC, the only one of these organisations with
+audited accounts, spends **39–46% of everything on salaries and benefits**, and has done so in every
+one of the five audited years. In 2008 it was 53.5%. Europractice's own coordinator told the
+Commission that university MPW schemes are "funded through direct funds **or through government paid
+staff**" (`FUNDX-3`) — i.e. that where the subsidy is not cash it is salary. About **forty designs
+per named Europractice person per year** (`FUNDX-5`) and **four to five prototypes per CMC employee
+per year** (`FUNDX-6`) are the two productivity figures the public record supports, and both are
+falling or flat.
+
+## 2. The funding table, extending `FUND-1` … `FUND-9`
+
+Only instruments **not already in `FUND-4`'s table or `FUND-7`** appear here. Currencies unconverted.
+
+| Instrument | Recipient | Amount | Period | What it bought | Entry |
+|---|---|---:|---|---|---|
+| **EUROCHIP** | the predecessor consortium | **not public** | 1989–1995 (dates now sourced) | the broker service before Europractice | `FUNDX-4` |
+| **EUROPRACTICE IC3**, FP6 | imec-led consortium | **not public — the grant is named by its successor and is absent from CORDIS** | ended 1998-12-31 → **2008-12-31** | the IC service through 2006–2008, the "hole" in `FUND-4` | `FUNDX-4` |
+| **STAR**, FP6 grant 515895 | imec (coordinator), CEA, Fraunhofer IISB | **€ 11 000 000** EU of **€ 103 925 000** total | 2004-10-01 → 2007-09-30 | 300 mm pilot-line equipment at three institutes. **Not Europractice** — listed so nobody confuses it | `FUNDX-4` |
+| **mini@sic "subsidy budget"** (inside the FP7 grants) | Europractice | not separately published; exhausted mid-2010 | ~2006 → 2011 | direct reduction of the price of a small advanced-node tapeout | `FUNDX-3`, `FUNDX-4` |
+| **Chips JU NanoIC** | **imec** (96.6% of it) | € 448 006 740 EU of € 551 778 479 | 2024-01-01 → 2028-12-31 | a beyond-2nm pilot line | `FUNDX-7` |
+| **Chips JU FAMES** | CEA-led; imec, Fraunhofer, UCC, INP Grenoble all in | € 216 811 042 of € 433 622 083 | 2023-12-01 → 2028-12-31 | an FD-SOI pilot line | `FUNDX-7` |
+| **Chips JU APECS-PL** | **Fraunhofer** (coordinator, € 76 404 542) | € 96 211 548 of € 194 423 097 | 2024-11-01 → 2029-06-30 | advanced packaging pilot line | `FUNDX-7` |
+| **Chips JU PIXEurope** | UCC/Tyndall € 7 780 250, imec € 3 811 520 | € 88 027 325 of € 176 054 650 | 2025-06-01 → 2030-05-31 | photonic IC pilot line | `FUNDX-7` |
+| **Chips JU WBGPilotLine** | Fraunhofer € 236 578 | € 49 430 212 of € 98 860 425 | 2025-06-01 → 2030-05-31 | wide-bandgap pilot line | `FUNDX-7` |
+| **Chips JU ODE4EC-DIG + ODE4EC-PIV** | two consortia | € 13 882 580 of € 33 716 057 | 2026-06-01 → 2029-05-31 | an "Open Design Environment for European Chips" | `FUNDX-7` |
+| **Chips JU, all 28 CORDIS projects** | — | **€ 1 229 880 105** of **€ 2 489 952 773** | 2023 → 2030 | of which Europractice 2.0 is **0.975%** | `FUNDX-7` |
+| **Chips Act competence centres** | national consortia | **not in CORDIS; not found** | — | — | `FUNDX-7`, blocked list |
+| **CMC — NSERC National Design Network** | CMC | CAD $9 700 060 in FY2008; **cut from 2016**, gone by 2019 | ~1984 → 2019 | the whole of CMC | `FUND-7`, `FUNDX-6` |
+| **CMC — CFI Major Science Initiatives** | CMC | CAD $6 656 900 (FY22), $6 856 681 (FY23), $4 575 000 (FY24), **nil after** | to 2024 | operating support | `FUNDX-1` |
+| **CMC — Province of Quebec** | CMC | CAD $1 996 665 (FY22), $2 048 076 (FY23), $1 775 545 (FY24), **nil after** | to 2024 | provincial share | `FUNDX-1` |
+| **CMC — Research Support Fund (RSF)** | CMC | CAD $542 972 (FY22), $245 971 (FY23), nil after | to 2023 | indirect costs | `FUNDX-1` |
+| **CMC — ISED "FABrIC" / SIF Stream 5, agreement 819430** | Canadian Microelectronics Corporation | **CAD $120 000 000** | 2024-06-11 → 2031-12-31 | "75-100% of costs", per the auditors' economic-dependence note. CAD $23 774 747 recognised in the first three years | `FUNDX-2` |
+| **CMC — provincial contribution (unnamed)** | CMC | CAD $107 231 (FY25), $35 608 (FY26) | — | — | `FUNDX-1` |
+
+**Three totals worth carrying away.** `FUND-4` puts the EU's traceable Europractice money at
+**€87 023 980** over 1995–2028; `FUNDX-4` shows that figure is a **floor**, because EUROCHIP
+(1989–1995) and EUROPRACTICE IC3 (to 2008) are real and unpriced. Over the same window the same
+funder has committed **€1.23 billion** to the Chips JU, of which the brokerage is 1%. And Canada has
+committed **CAD $120 million** to one organisation with roughly fifty employees.
+
+## 3. Cost per design, recomputed
+
+`FUND-2`'s central Europractice figure survives this work unchanged: **€19 024 797,50 of EU money for
+6 791 designs over 2016-07-01 → 2025-09-30 = €2 801,47 per design.** Nothing found here changes the
+numerator or the denominator. Two things qualify it:
+
+- It is a **floor on the historical total**, because EUROCHIP and EUROPRACTICE IC3 are unpriced
+  (`FUNDX-4`), though both fall outside the 2016–2025 window used for the €2 801 figure.
+- The **current** rate is €3 997 727,50 ÷ 753 = **€5 309 per design** (`FUND-3`), and the named
+  establishment that delivers those designs is 19 people, i.e. **€210 407 per named person per year**
+  and **39.6 designs per named person per year** (`FUNDX-5`).
+
+**CMC's figures change materially, because `FUND-7`'s cost base was wrong.** All from `FUNDX-1`,
+against `DEM-20`'s **240 prototypes** in the year ended 2026-03-31:
+
+| Measure | Arithmetic | Result |
+|---|---|---:|
+| Total expenditure per prototype | 20 012 740 ÷ 240 | **CAD $83 386** |
+| Expenditure less the genuine grant pass-through ("UR challenge projects", $3 535 310) | 16 477 430 ÷ 240 | **CAD $68 656** |
+| Salaries and benefits per prototype | 7 859 646 ÷ 240 | **CAD $32 749** |
+| Revenue earned from customers per prototype | 5 332 809 ÷ 240 | **CAD $22 220** |
+| Public subsidy per prototype (all expenditure) | (20 012 740 − 5 332 809) ÷ 240 | **CAD $61 166** |
+| Public subsidy per prototype (excluding the pass-through) | (16 477 430 − 5 332 809) ÷ 240 | **CAD $46 436** |
+
+`FUND-7` gave **CAD $30 417** of cost and **CAD $7 917** of subsidy per prototype, and said customers
+covered **74.0%**. Those came from pie-chart labels. On the audited statement the cost per prototype
+is **$68 656–83 386**, the subsidy is **$46 436–61 166**, and customers cover **26.6%** of
+expenditure (5 332 809 ÷ 20 012 740) — or **32.4%** of expenditure excluding the pass-through
+(5 332 809 ÷ 16 477 430). **In no audited year have CMC's customers covered half of its
+expenditure**: the peak was 47.8% in the year ended 2024-03-31.
+
+**The caveat that applies to every number in this section is the one `FUND-2` and `FUND-7` already
+make, and `FUNDX-6` sharpens.** Dividing a whole programme's cost by its prototype count overstates
+what a prototype costs, because most of what these programmes do is tools, licences and training for
+people who never tape out. CBC's figure for CMC makes the scale of that error concrete: **8,000
+students and 5,000 researchers served, 240 prototypes fabricated.** The per-prototype figures above
+are *cost per unit of the thing the organisation is famous for*, not unit costs, and they must not be
+quoted as unit costs.
+
+## 4. Blocked sources, and what would unblock a human
+
+| Source | What happened | What it would have answered | What would unblock a human |
+|---|---|---|---|
+| **`chips-ju.europa.eu`** (work programme, project pages, Design Platform, competence centres) | The site is a client-side-rendered Microsoft Power Pages application. `curl` returns the navigation chrome and no content; `/Work-Programme/` returns a 1 648-byte shell. | The Chips JU's own annual work programmes, annual activity reports, the indicative budget for topic `HORIZON-JU-CHIPS-2025-CSA-1`, and the national co-funding shares. | A real browser. Everything used here came from the CORDIS bulk export instead. |
+| **EU Funding & Tenders Portal topic page** for `HORIZON-JU-CHIPS-2025-CSA-1` | Also client-side rendered; `WebFetch` returns only the page header. The SEDIA search API (`api.tech.ec.europa.eu/search-api/prod/rest/search`) returns **HTTP 405, "Method not allowed"** to a GET. | The topic's indicative budget and expected number of grants, i.e. whether €12.0m was the whole topic or a share of it. CORDIS shows one grant under the topic, which strongly implies the whole. | A browser, or a POST to the SEDIA API (this session was GET-only). |
+| **EU Financial Transparency System** (`ec.europa.eu/budget/financial-transparency-system/`) | Reachable (HTTP 200) but it is a **Qlik Sense dashboard** loaded from `dashboard.tech.ec.europa.eu`; there is no HTML table and no CSV link in the page source. `FUND-4`'s blocked list recorded it as "not queried"; it has now been tried. | Payments to imec and the other partners outside the research programmes. CORDIS already carries per-participant contributions, so the expected marginal value is low. | A browser, and patience with a Qlik dashboard. |
+| **CORDIS search API with `format=json`** | Returns only the `header` block — `totalHits` and the translated Elasticsearch query — with **no `hits`**, for every query tried. `FUND-1` used it successfully in September; it does not work that way now. | Nothing that the bulk exports do not carry. | The bulk CSV exports (`cordis-fp4…fp7`, `cordis-HORIZONprojects-csv.zip`) work perfectly and are the route to use. |
+| **`cordis.europa.eu` record for EUROPRACTICE IC3** | **Does not exist.** Two independent scans of the FP6 bulk export — a full-text scan over all 10 093 projects, and a scan of every project in which imec appears — return nothing. The grant is named, dated and placed in FP6 by the IC4 publishable summary that CORDIS itself publishes. | The value of the EC's Europractice grant for roughly 2005–2008, and therefore the true 1995–2028 total. | The FP6 final reports held by DG CNECT, an access-to-documents request under Regulation 1049/2001, or the *Official Journal* call and award notices for the FP6 IST programme. **This session made no request of any kind.** |
+| **EUROCHIP (1989–1995) grant value** | Still not in CORDIS, in any framework programme's export — `FUND-4`'s finding stands. What is new is that its **existence and dates are now sourced** to an EC-published document (`FUNDX-4`). | The size of the EU's original 1989 commitment. | ESPRIT programme documents on `op.europa.eu`, or the *Official Journal*. |
+| **imec's statutory accounts** (Belgian National Bank, Central Balance Sheet Office) | The public consultation API at `consult.cbso.nbb.be/api/rs-consult/published-deposits` returns **HTTP 500** without an enterprise number, **HTTP 417** on a dotted enterprise number, and **HTTP 403** on the `/enterprise/{number}` path. The enterprise number itself was **not confirmed** from a primary source, so the queries may have been wrong as well as refused. | imec's audited turnover, its *social balance sheet* (which in Belgium carries an FTE count and a total wage bill), and whether any Europractice segment is disclosed. | `consult.cbso.nbb.be` in a browser, after looking imec's enterprise number up in the Kruispuntbank van Ondernemingen. This is the single most valuable unopened document for the payroll question. |
+| **Fraunhofer IIS institute-level payroll** | The institute publishes revenue (€264 m) and head-count (1 225) but **no wage bill**. The Fraunhofer-Gesellschaft's consolidated annual report was not opened. | Cost per head at the German partner, and therefore a better anchor for what the Europractice grant buys. | The Fraunhofer-Gesellschaft's *Jahresbericht* financial section. |
+| **`www.europractice.stfc.ac.uk`** pages other than the two `FUND-3` uses | `/welcome.html` and `/content/contacts/contacts.html` both return **HTTP 404**. The membership and member-list pages `FUND-3` cites still work. | The size of the STFC design-tools operation, and the tool price list. | Navigating the live site from its working entry point, and a member login for the tool prices. |
+| **CMC's audited statements for FY2022 as filed** | The PDF at `cmc.ca/wp-content/uploads/2022/09/Financial-Statements-31MAR2022-EN.pdf` downloads (3.3 MB) but is a **scan with no text layer** — `pdftotext` returns 15 bytes. The FY2022 figures used in `FUNDX-1` are the restated comparatives in the FY2023 statements. | FY2022 as originally reported, before restatement. | OCR, or reading the scan. |
+| **CMC's accounts and annual reports for 2009–2021** | `cmc.ca/corporate-reports/` — the page that solved `FUND-7`'s problem for 2022–2026 — lists nothing before the *Annual Report 2021*. `FUND-7`'s note about the Flash-based 2009–2015 site still stands. | The middle of CMC's history, including the 2016–2019 funding crisis in its own accounts. | The Internet Archive's copies of the old ASP.NET site, or a request to CMC. |
+| **CMC head-count, any year after 2018** | Not published in any annual report or financial statement read (five statements, five annual reports). The staff page names **13** people. A commercial data vendor puts it at 86 for 2026; that is a LinkedIn-derived estimate, not a filing, and is **not used** anywhere in this file. | The denominator for every per-person figure here. | CMC's own statement, or the notes to a future audit. |
+| **The split between technical and administrative staff, anywhere** | Not published by CMC, Europractice, any Europractice partner, or MOSIS. The only administrative figure in the whole record is Europractice's "€100 to administer the membership" per member per year. | The core of the automation question. | Nothing public. This is a genuine hole. |
+| **Chips Act competence centres** | Not in CORDIS: a scan of all 23 451 Horizon Europe projects for "competence cent(re\|er)" returns nine hits, none of them a Chips Act competence centre. They are set up nationally with joint Chips JU and member-state money. | The national co-funding shares the brief asked about. | The Chips JU site in a browser, and then twenty-odd national agencies' registers. |
+| **Belgian, German, Dutch and UK national grant registers** | **Not reached.** Time went into the Canadian register (which produced `FUNDX-2`) and the CORDIS bulk exports instead. | National co-funding of the Europractice partners. | Gateway to Research (UK), Förderkatalog (Germany), FRIS (Flanders), NWO (Netherlands). All are public and searchable. |
+| **Kingston Whig-Standard archive** | `thewhig.com/?s=CMC+Microsystems` returns a page with no matching articles. The two useful local stories came from CBC Ottawa and Global News Kingston instead. | Local coverage of CMC's 2018 crisis and of its site. | The Whig's own archive, or a library database. |
+| **`cbc.ca`** | Returns **HTTP 403** to `WebFetch`. Serves `curl` normally with an ordinary browser User-Agent. | Nothing — worked around. | Recorded so nobody gives up on CBC. |

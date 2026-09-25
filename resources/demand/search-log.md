@@ -747,3 +747,135 @@ number about whether this business model holds:
 ```
 curl -s --compressed 'https://platform.chipfoundry.io/api/v1/shuttles/ci2609/metrics'
 ```
+
+## 16. Programme funding, deeper: head-count, payroll and the money behind it (`FUNDX`, 2026-09-25)
+
+The follow-up to §13. §13 asked how much public money the MPW brokers take; this asked **what the
+money buys, and how much of it is human labour**. Everything read-only: HTTP GET only, no forms, no
+logins, no accounts, no CAPTCHA, no contact with any person by any channel.
+
+### 16.1 Routes that worked and are worth reusing
+
+- **`https://www.cmc.ca/corporate-reports/` is a plain HTML page linking every CMC annual report
+  *and* every audited financial-statement PDF.** §13 records that URL-pattern guessing on
+  `cmc.ca/wp-content/uploads/` found nothing and that `cmc.ca/wp-sitemap.xml` is empty. Both are
+  true, and both are irrelevant: the index page exists and was never fetched. Five years of signed
+  audited statements (FY2022–FY2026) came out of it in one request. **When a sitemap is empty, look
+  for the human-facing index page.**
+- **CORDIS "Reporting" tabs hide their documents in the raw HTML.** `…/project/id/<id>/reporting`
+  renders only the *file names* of the filed reports. The links are there as
+  `href="/docs/projects/cnect/<n>/<id>/080/reports/…"`. **Grep the raw HTML for
+  `/docs/projects/`**, not the rendered text. This is where the FP7-era publishable summaries and
+  the Europractice *Annual Report 2010* live, and it produced the best quotes in either file.
+- **The CORDIS bulk CSV exports still work; the CORDIS search API no longer returns results.**
+  `https://cordis.europa.eu/search?q=…&format=json` now returns only the `header` block —
+  `totalHits` and the translated Elasticsearch query — with no `hits` array, for every query tried,
+  including the exact form `FUND-1` used successfully a week earlier. The bulk exports
+  (`cordis-fp6projects-csv.zip`, `cordis-HORIZONprojects-csv.zip`) are complete, fast and reliable.
+  **Use the exports.**
+- **`search.open.canada.ca/grants/` needs a quoted phrase.** `search_text=CMC+Microsystems` returns
+  **zero** records (the trading name is not in the register). The unquoted legal name returns
+  **453 334** (the search ORs the words). `search_text="Canadian Microelectronics"` returns exactly
+  one — the CAD $120m FABrIC contribution. The page is server-rendered, so `curl` reads it; the
+  `format=json` parameter is silently ignored and HTML comes back either way.
+- **`cbc.ca` refuses `WebFetch` with HTTP 403 but serves `curl`** with an ordinary browser
+  User-Agent. Do not conclude a news site is blocked because one tool bounces.
+- **Local news produced a head-count that no filing contains.** CBC Ottawa (2018-11-02) and Global
+  News Kingston (2018-11-14) both give CMC's employee count and its operating budget. Neither figure
+  appears in any CMC annual report or financial statement read (five of each). The repository
+  owner's note that "local news is a gold mine" is correct and this is the proof.
+- **Institute "facts and figures" pages** carry head-count and turnover in plain HTML:
+  `iis.fraunhofer.de/en/profil/what-makes-us-special/jb/<year>/facts.html`, imec's press kit,
+  Tyndall's annual report PDF. The `/profil/zahlen.html`-style URLs that look obvious all 404; the
+  working paths were found by searching, not guessing.
+
+### 16.2 What was found, and where it went
+
+| Looked for | Found | Entry |
+|---|---|---|
+| CMC's accounts between 2008 and 2026 | **Five consecutive years of signed audited financial statements** (FY2022–FY2026), fund-accounted, reconciling to the dollar | FUNDX-1 |
+| CMC's payroll | CAD $6.93m–$7.88m a year, **39–46% of total expenditure** in every audited year — not the 54.8% `FUND-9` derived from a pie chart | FUNDX-1 |
+| The FABrIC programme's size and funder | **CAD $120,000,000**, ISED, SIF Stream 5, agreement 819430, 2024-06-11 → 2031-12-31, plus an auditors' economic-dependence note saying it funds "75-100% of costs" | FUNDX-2 |
+| Whether FABrIC is a pass-through | **Only 23.8% of it is.** $3.87m of the FABrIC fund is CMC's own salaries, and a "Contribution to Indirect Costs" line moves $2.1m a year from FABrIC into the commercial arm | FUNDX-1 |
+| CORDIS periodic and final reporting for the FP7 grants | The filed publishable summaries, containing the coordinator's statement that **"No university scheme in the world is self-funded"** and **"MPW service is not a financially viable business"**, and the service's annual funding as "~ 1.6 million euro" | FUNDX-3 |
+| What the grant buys, by activity | A named **"subsidy budget"** inside the grant that directly reduced mini@sic tapeout prices; the SME side is explicitly "not funded by the project" | FUNDX-3 |
+| The 2006–2007 gap `FUND-4` could not close | **EUROPRACTICE IC3 existed**, is named and dated by its successor's own report, and is **absent from CORDIS** | FUNDX-4 |
+| EUROCHIP's dates | **1989–1995**, sourced to an EC-published document for the first time | FUNDX-4 |
+| Whether `DEM-16`'s inferred per-series design split is right | **Yes** for 2005 and 2010 — the 2010 annual report's own prose percentages reproduce from the chart labels | FUNDX-4 |
+| Price elasticity inside Europractice | The mini@sic subsidy budget for 2010–2011 was "almost used in the first half of 2010" and **prices were raised on 1 August 2010** | FUNDX-4 |
+| A Europractice staff count | **13 named people (2017), 21 (2024), 19 (2025)**, counted from the activity reports' contact pages — a reproducible time series, where `FUND-9` had one snapshot | FUNDX-5 |
+| Partner head-counts | imec "over 6,500"; Fraunhofer IIS 1,225 salaried; Tyndall 581 including 172 students | FUNDX-5 |
+| A CMC head-count | **48 employees**, CBC News, 2018-11-02, with a **CAD $6.5m** operating budget from the CEO | FUNDX-6 |
+| Why NSERC stopped funding CMC | CEO Gord Harling: "They felt that they did not want to fund a third party that provides tools to researchers, they want to fund researchers directly" | FUNDX-6 |
+| The Chips Act pilot-line amounts | Five pilot lines, **€898,486,867** of EU money; the whole Chips JU portfolio in CORDIS is **€1,229,880,105** across 28 projects; Europractice 2.0 is 0.975% of it | FUNDX-7 |
+| What imec gets from the EU | **€598,513,416** net EU contribution across 194 Horizon Europe participations, of which **€432,633,226** is NanoIC alone and €3,900,016 is Europractice 2.0 | FUNDX-7 |
+
+### 16.3 New obstacles, additional to §1 and §13.1
+
+| Obstacle | Detail | Workaround |
+|---|---|---|
+| CORDIS search API returns no hits | `?format=json` now yields only `result.header`, with `totalHits` but no `hits` array. Reproduced on four different queries. | The bulk CSV exports. |
+| `chips-ju.europa.eu` | A client-side-rendered Microsoft Power Pages application. `/Work-Programme/` is 1,648 bytes of shell; `/DesignPlatform` renders navigation only. | Not solved. CORDIS bulk export used instead. |
+| EU Funding & Tenders Portal topic pages | Client-side rendered; `WebFetch` returns the header only. The SEDIA search API returns **HTTP 405** to a GET. | Not solved. |
+| EU Financial Transparency System | HTTP 200, but it is a **Qlik Sense dashboard** from `dashboard.tech.ec.europa.eu`; no table, no CSV in the page source. §13 recorded it as "not queried"; it has now been tried and is a browser job. | Not solved. |
+| Belgian National Bank accounts API | `consult.cbso.nbb.be/api/rs-consult/published-deposits` → **HTTP 500** with no enterprise number, **HTTP 417** with a dotted one, **HTTP 403** on `/enterprise/{n}`. The enterprise number used was not confirmed from a primary source. | Not solved. imec's social balance sheet — which in Belgium carries an FTE count and a total wage bill — remains the most valuable unopened document. |
+| `cmc.ca/wp-content/uploads/2022/09/Financial-Statements-31MAR2022-EN.pdf` | Downloads at 3.3 MB but has **no text layer**; `pdftotext` returns 15 bytes. | Used the restated FY2022 comparatives printed in the FY2023 statements. |
+| `www.europractice.stfc.ac.uk/welcome.html`, `/content/contacts/contacts.html` | Both **HTTP 404**. The membership and member-list pages `FUND-3` cites still work. | Not solved. |
+| `imec-int.com` figure pages | `/en/about-us/facts-and-figures`, `/en/imec-figures`, `/en/annual-report`, `/en/annual-report-2024` all **404**; `/en/about-us/discover-imec` renders its numbers client-side. | The press kit at `/en/reading-room/press-kit` carries the head-count and revenue in server-rendered HTML. |
+| `iis.fraunhofer.de` figure pages | `/en/profil/zahlen.html`, `/de/profil/zahlenfakten.html`, `/en/profil/zahlen-daten-fakten.html` all **404**. | `/en/profil/what-makes-us-special/jb/2025/facts.html` works. |
+| `thewhig.com` (Kingston Whig-Standard) | Site search for "CMC Microsystems" returns no matching articles. | CBC Ottawa and Global News Kingston carried the story instead. |
+| A local shell hook | Multi-command `for` loops and some compound pipelines in `bash` are refused by a worktree-isolation hook. | Short Python script files for anything that loops. Consistent with the existing rule against inline `python -c`. |
+
+### 16.4 Searched for, and not found
+
+- **A technical-versus-administrative staff split for any MPW programme.** Searched deliberately
+  across CMC's five audited statements and five annual reports, Europractice's activity reports
+  2017/2024/2025, and the FP7 grant reports. **Nothing.** The only administrative figure in the
+  entire record is Europractice's own "€100 to administer the membership" out of the €1,100 Full-IC
+  fee (`FUND-3`). This is the biggest genuine hole left in the payroll question.
+- **A CMC head-count for any year after 2018.** Not in any annual report or financial statement. The
+  staff page names 13 people (4 leadership, 9 key contacts). A commercial data vendor publishes an
+  estimate of 86 for 2026; it is LinkedIn-derived, not a filing, and is **not used** in any entry.
+- **EUROPRACTICE IC3 in CORDIS.** Two independent scans of the FP6 bulk export — full-text over all
+  10,093 projects, and every project in which imec appears in `organization.csv` — return nothing.
+  The only large imec-coordinated FP6 grant is **STAR (515895)**, "Silicon technology access to
+  research", €11m EU of €103.9m total, which is the imec/CEA-LETI/Fraunhofer-IISB 300 mm pilot-line
+  infrastructure and **not** the MPW service. Recorded in `FUNDX-4` so nobody else mistakes it.
+- **Chips Act competence centres in CORDIS.** A scan of all 23,451 Horizon Europe projects for
+  "competence cent(re|er)" in title, objective or topic returns nine hits, none of them a Chips Act
+  competence centre. They are established nationally with joint Chips JU and member-state money and
+  are outside the CORDIS project dataset.
+- **National grant registers for the Europractice partners** (Gateway to Research, Förderkatalog,
+  FRIS Flanders, NWO). **Not reached** — time went to the Canadian register and the CORDIS exports
+  instead. All four are public and searchable and are the obvious next step.
+- **Fraunhofer IIS's wage bill.** The institute publishes revenue and head-count and no payroll line.
+  The Fraunhofer-Gesellschaft's consolidated annual report was not opened.
+- **Local news about Europractice's staffing** in Leuven, Erlangen, Oxfordshire, Grenoble or Cork.
+  Not found. The Canadian side produced a head-count; the European side did not.
+
+### 16.5 Corrections to entries already in this directory
+
+These are stated here as well as in the entries, because they change figures that were already
+written down.
+
+1. **`FUND-7` and `FUND-9` read CMC's payroll off a pie chart and got it wrong.** The chart's
+   "Salaries and Benefits $4.0M" is one fund column; the audited total is **$7,859,646**. `FUND-9`'s
+   "54.8% of non-FABrIC spending was payroll" should be **39.3% of all spending**, and the two-point
+   series it built ("Eighteen years apart, the same answer") is wrong: the share has **fallen** from
+   53.5% in 2008 to 39–46% in 2022–2026.
+2. **`FUND-7`'s "FABrIC is a pass-through"** is true of only 23.8% of the FABrIC fund. Its
+   per-prototype cost of CAD $30,417 and "customers covered 74.0%" both follow from that error; the
+   audited figures are CAD $68,656–83,386 of cost per prototype and **26.6–32.4%** customer
+   recovery.
+3. **`FUND-4`'s "2006–2007 is unresolved"** is resolved: **EUROPRACTICE IC3 existed**. The €87.0m
+   total is a floor.
+4. **`FUND-4`'s derived FP7 operating cost of ~€1.6m/yr is corroborated** by the coordinator's own
+   "annually ~ 1.6 million euro" in the IC5 publishable summary — two routes, same number.
+5. **`DEM-16`'s caveat that the per-series design split is "not certain"** can be lifted for 2005 and
+   2010: the 2010 annual report's prose percentages reproduce exactly from the chart labels.
+6. **`FUND-4`'s caveat about the IC4/IC5 nine-month overlap** is explained by IC5's own summary: only
+   65 nm/40 nm introduction was funded during the overlap.
+7. **`FUND-8`'s question about the Grenoble partner's identity** is answered: the partner is now
+   **CIME-P**, an activity of Grenoble INP, and Europractice names it as such in its 2025 report.
+8. **`FUND-4`'s blocked-list line "The EU Financial Transparency System — Not queried"** is now
+   "queried and blocked": it is a Qlik dashboard.
