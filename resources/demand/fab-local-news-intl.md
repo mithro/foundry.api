@@ -1388,9 +1388,14 @@ conversion.
     **This is the benchmark the rest of the file should be read against.** Clas-SiC, loss-making, runs
     at 45.3% (`LNI-5`); CMC Microsystems, subsidised, runs at 39–46% (`FUNDX-1`); Silex, profitable,
     runs at 27.9%.
-  - **Operating margin, 2025:** SEK 314,000,000 ÷ SEK 1,385,000,000 = **22.7%.** (The company's own
-    IPO release quotes EBIT of SEK 368m on the same revenue, a 26.6% margin; the difference is
-    presumably the group-versus-company boundary, and both are quoted rather than reconciled here.)
+  - **Operating margin, 2025:** SEK 314,000,000 ÷ SEK 1,385,000,000 = **22.67%**, the
+    **operating-company** figure (Silex Microsystems AB, filed Swedish accounts).
+    **RECONCILED 2026-09-25 by `SEM-1`.** The prospectus's **consolidated group** operating profit
+    for the same year is **SEK 368,000,000 = 26.57%**. The SEK 54m difference is the group's
+    real-estate company, **Silex Properties AB**, whose rental income sits in Other operating
+    income. Both figures are correct for what they measure; neither is an error. **Quote which one
+    you mean.** The repo's convention from here: **22.67% (operating company) / 26.57% (group)**,
+    and return-on-assets work uses the group figure because the balance sheet is consolidated.
   - **Head count growth:** 301 → 412 over 2021–2024 is **+36.9%**, a CAGR of **+11.0%/yr**, against
     revenue growth of SEK 1,020m → 1,226m = +20.2%, a CAGR of **+6.3%/yr**. **Silex has been adding
     people faster than revenue**, which is the opposite of the automation story, at the most
@@ -1906,12 +1911,24 @@ Blocked items with the blocker named, so nobody repeats the work.
    → `GetFile?id=<diary number>` with the detail page as referer. Silex is diary number **25-37533**,
    approved 2026-04-27, 230 pages, 11.7 MB, with a proper text layer. It carried the customer
    concentration table, the development-versus-production revenue split, the head count, the staffing
-   of the expansion and a correction to the capex figure in `LNI-1`. **It did not carry wafer starts
-   or cleanroom utilisation** — those two are still missing and appear nowhere in 230 pages.
+   of the expansion and a correction to the capex figure in `LNI-1`.
 
-   The remaining gap, restated: **no wafer-start, wafer-price or cleanroom-utilisation figure has been
-   found for any pure-play specialty fab.** `LNI-6` (X-FAB Dresden, 11,500 wspm on 3,680 m²) is the
-   only wafer-start number in this file, and it comes from a local news report, not a filing.
+   **CORRECTED 2026-09-25 by `SEM-1`, which re-read the same document.** The sentence that stood here
+   — "It did not carry wafer starts or cleanroom utilisation… those two appear nowhere in 230 pages"
+   — was **half wrong, and it was the half that mattered**. The prospectus **does** state cleanroom
+   utilisation: **"approximately 60 percent"**, printed on pp. 25, 86 and 119, alongside the company's
+   own claim of **"approximately 100 percent additional revenue"** available from the existing plant,
+   fixed costs at **54% of total expenses**, and cumulative capital expenditure since founding of
+   **SEK 1.9 billion**. That materially changes the reading of `LNI-17`: Silex earns its margin at
+   **60% utilisation**, not at capacity.
+
+   **Wafer starts and average selling price genuinely are absent**, and that negative has now been
+   verified rather than repeated — the word "wafer" appears **89 times** in the prospectus and never
+   next to a volume or a price.
+
+   The remaining gap, restated: **no wafer-start or wafer-price figure has been found for any
+   pure-play specialty fab.** `LNI-6` (X-FAB Dresden, 11,500 wspm on 3,680 m²) is the only wafer-start
+   number in this file, and it comes from a local news report, not a filing.
 3. **Pragmatic Semiconductor's accounts are a scanned PDF.** Companies House serves
    `format=pdf` only (no iXBRL) for company 07423954, and the file has no text layer:
    `pdftotext -layout` returns 42 bytes from 42 pages, and `gs` rewriting does not help. No
