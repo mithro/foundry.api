@@ -37,7 +37,13 @@ REV_TAGS = [
     "RevenueFromContractWithCustomerExcludingAssessedTax",
     "RevenueFromContractWithCustomerIncludingAssessedTax",
 ]
-INSTANT_TAGS = ["Assets", "StockholdersEquity", "PropertyPlantAndEquipmentNet"]
+INSTANT_TAGS = [
+    "Assets",
+    "StockholdersEquity",
+    "PropertyPlantAndEquipmentNet",
+    "CashAndCashEquivalentsAtCarryingValue",
+    "Goodwill",
+]
 INSTANT_PERIODS = [f"CY{y}Q{q}I" for y in (2022, 2023, 2024, 2025, 2026) for q in (1, 2, 3, 4)]
 
 # The SIC groups the write-up reports.  "Software and computer services" is the
@@ -63,6 +69,8 @@ METRICS = [
     ("operating_margin", "Operating margin = OperatingIncomeLoss / Revenues"),
     ("asset_turnover", "Asset turnover = Revenues / Assets"),
     ("roa", "Return on assets = OperatingIncomeLoss / Assets"),
+    ("op_asset_turnover", "Revenues / (Assets - cash - goodwill)"),
+    ("op_roa", "OperatingIncomeLoss / (Assets - cash - goodwill)"),
     ("gross_margin", "Gross margin = GrossProfit / Revenues"),
     ("rnd_pct", "R&D / Revenues"),
     ("sgna_pct", "SG&A / Revenues"),
@@ -178,6 +186,8 @@ def build(period: str, instants: dict[str, dict]) -> tuple[list[dict], dict[str,
             rec[k] = r["val"] if (r and r["end"] == end) else None
         rec["ppe"] = instants["PropertyPlantAndEquipmentNet"].get((cik, end))
         rec["equity"] = instants["StockholdersEquity"].get((cik, end))
+        rec["cash"] = instants["CashAndCashEquivalentsAtCarryingValue"].get((cik, end))
+        rec["goodwill"] = instants["Goodwill"].get((cik, end))
 
         rv_v = rec["revenue"]
         # Fallbacks.  Most software filers tag neither GrossProfit (they print
@@ -198,6 +208,15 @@ def build(period: str, instants: dict[str, dict]) -> tuple[list[dict], dict[str,
         rec["operating_margin"] = rec["operating_income"] / rv_v
         rec["asset_turnover"] = rv_v / assets
         rec["roa"] = rec["operating_income"] / assets
+        # Assets less cash and goodwill: a rough "operating assets" base.  Cash is
+        # not productive capital and goodwill is the price of past acquisitions,
+        # and both are a far larger share of a software balance sheet than of a
+        # fab's.  Untagged cash or goodwill is treated as zero, which is the
+        # conservative direction (it leaves the denominator larger).
+        oa = assets - (rec["cash"] or 0) - (rec["goodwill"] or 0)
+        rec["operating_assets"] = oa
+        rec["op_asset_turnover"] = (rv_v / oa) if oa > 0 else None
+        rec["op_roa"] = (rec["operating_income"] / oa) if oa > 0 else None
         for key, src in [
             ("gross_margin", "gross_profit"),
             ("rnd_pct", "rnd"),

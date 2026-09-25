@@ -61,7 +61,16 @@ DURATION_PERIODS = ["CY2023", "CY2024", "CY2025"]
 # Balance-sheet tags: instantaneous frames.  A filer's balance-sheet date is its
 # own fiscal year end, which for software is often 31 January or 30 June, so we
 # pull a wide band of quarters and later join on the exact date.
-INSTANT_TAGS = ["Assets", "StockholdersEquity", "PropertyPlantAndEquipmentNet"]
+INSTANT_TAGS = [
+    "Assets",
+    "StockholdersEquity",
+    "PropertyPlantAndEquipmentNet",
+    # Total assets flatter a software company: most of the balance sheet is cash
+    # and goodwill, not productive capital.  These two let the write-up also
+    # report turnover on the assets that actually do the work.
+    "CashAndCashEquivalentsAtCarryingValue",
+    "Goodwill",
+]
 INSTANT_PERIODS = [f"CY{y}Q{q}I" for y in (2022, 2023, 2024, 2025, 2026) for q in (1, 2, 3, 4)]
 
 # The named comparators of §2.  CIKs confirmed from data.sec.gov/submissions.
@@ -83,6 +92,13 @@ COMPARATORS = {
     "Intuit": 896878,
     "SAP": 1000184,
     "Amazon": 1018724,
+    # Wafer foundries, for the other side of the DuPont comparison.  TSMC, UMC and
+    # Tower file 20-F; GlobalFoundries and SkyWater file 10-K.
+    "GlobalFoundries": 1709048,
+    "SkyWater": 1819974,
+    "Tower": 928876,
+    "TSMC": 1046179,
+    "UMC": 1033767,
 }
 
 
