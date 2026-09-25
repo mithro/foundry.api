@@ -53,6 +53,7 @@ ID prefixes:
 | [`demand/in-house-fabrication.md`](demand/in-house-fabrication.md) | `IHF` | Companies that built or bought their own fab, and what it cost |
 | [`demand/pcb-industry-comparables.md`](demand/pcb-industry-comparables.md) | `PCB` | Audited PCB makers' margin by order size |
 | [`analyses/industry-parallels.md`](analyses/industry-parallels.md) | `PAR` | Parallels from cloud, machine learning, open source and the internet |
+| [`analyses/designs-per-head.md`](analyses/designs-per-head.md) | — | Designs shipped per staff-member per year: MOSIS, Europractice and CMC against ChipFoundry, Tiny Tapeout and wafer.space — and what the comparison does not establish |
 | [`demand/programme-funding.md`](demand/programme-funding.md) | `FUND` | What a multi-project-wafer service costs to run: the EU grants behind Europractice, the federal money behind MOSIS, CMC's published accounts, and the subsidy per design |
 | [`demand/shuttle-programmes.md`](demand/shuttle-programmes.md) | `DEM` | Multi-project wafer and shuttle programmes: designs submitted, accepted, and how full the runs were |
 | [`demand/latent-demand-challenges.md`](demand/latent-demand-challenges.md) | `DEM` | Evidence that the latent demand for chips is not there, or that cost is not the binding constraint |
