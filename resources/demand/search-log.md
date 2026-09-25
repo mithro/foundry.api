@@ -828,3 +828,39 @@ session was GET-only, so the assistance (grant) side of the federal record was n
 **That is a description of a tool limitation, not of the site.** `curl -X POST` reaches it, and
 doing so found an $18 million DARPA award that FPDS-NG cannot see because FPDS carries procurement
 only. `FUND-6`'s blocked-sources note carries the same claim and should be corrected the same way.
+
+### 16.6 The route that broke it open, added after the first commit
+
+The `dticarchive` mirror on archive.org is not just a copy of DTIC — **it is searchable by full
+text through archive.org's Solr index**, which no search engine blocks:
+
+```
+https://archive.org/advancedsearch.php?q=collection:dticarchive+AND+<term>&fl[]=identifier&fl[]=title&fl[]=year&rows=80&output=json
+```
+
+`collection:dticarchive AND MOSIS` returns 48 items. `collection:dticarchive AND
+title:("Research Program in Computer Technology")` returns the fourteen USC/ISI Annual Technical
+Reports to DARPA, 1975–1987, which carry the contract number, the project rosters and the run
+counts.
+
+The single most valuable document was found by **following a citation, not by searching**. The
+National Academies' *Funding a Revolution* (1999) — whose full text `nap.nationalacademies.org`
+serves openly, while the Internet Archive's copy is lending-restricted and 403s — cites
+"Van Atta et al. (1991a)" for its MOSIS numbers. That is IDA Paper P-2429, *DARPA Technical
+Accomplishments Volume 2*, whose **Chapter XVIII is a thirty-one-page case study of MOSIS written
+for DARPA**, with the expenditure estimate, the project series, the price table and the Synmos
+story. It is DTIC AD-A241725, and it is the answer to the question `FUND-6` could not answer.
+
+**The lesson is the general one: when the primary source is missing, read the footnotes of the
+secondary source that had access to it.**
+
+Two more access notes:
+
+- **`https://www.govinfo.gov/content/pkg/<packageId>/pdf/<packageId>.pdf` needs no API key and does
+  not rate-limit.** Use `api.govinfo.gov/search` (with `DEMO_KEY`) to find package IDs, then the
+  public content URL to fetch them. The API's own `/packages/<id>/pdf` endpoint counts against the
+  `DEMO_KEY` limit and stalls; the content URL does not.
+- **`archive.org/download/<id>/<id>_djvu.txt` intermittently returns HTTP 302 with an empty body**
+  for items that plainly have the file (it is listed in `archive.org/metadata/<id>`). Seven of
+  nineteen requested texts came down; retrying with backoff recovered some but not all. There is no
+  error message and the failure is silent unless you check the status code and the size.
