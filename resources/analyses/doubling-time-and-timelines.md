@@ -73,19 +73,40 @@ claim is the *range*: **10,000 customers a year is 4–8 years away if growth me
 
 ## What those numbers would require in silicon
 
-This is where the projection stops being arithmetic and starts being a manufacturing problem. Using
-2025's own ratios — 1.62 designs per customer, 1.76 tiles per design, 512 tiles per shuttle:
+*(**Corrected 2026-09-25.** The first version of this section used "1.76 tiles per design". That
+was an error: **1.76 is `PAY-6`'s 2025→2026 *revenue* growth ratio**, 341,710 ÷ 194,670, not a tile
+count. Caught by `LN-18`'s author. The corrected figures are below, and they move the headline from
+555 shuttles to a range.)*
 
-| Customers/yr | Designs/yr | Tiles/yr | 512-tile shuttles/yr |
-|---|---|---|---|
-| 923 (2025 actual) | 1,492 | 2,624 | **5.1** |
-| 10,000 | 16,165 | 28,433 | **55.5** |
-| 100,000 | 161,647 | 284,334 | **555.3** |
+This is where the projection stops being arithmetic and starts being a manufacturing problem. Two
+of the three ratios are stable; **the tiles-per-design ratio is not**, and the projection is
+directly proportional to it:
 
-Tiny Tapeout ran **12 chips in 2025**, on its own figure. Ten thousand customers a year means
-roughly **one shuttle a week, every week**; a hundred thousand means **more than ten a week**. Tile
-capacity per shuttle could rise, which changes the shuttle count but not the wafer area. The
-constraint at 100k is not demand — it is whether anyone will run you 555 shuttles a year.
+| Tiles per design, from `PAY-6` | Value |
+|---|---:|
+| 2025 (1,352 tiles ÷ 1,455 designs) | **0.93** |
+| Lifetime (6,218 ÷ 4,258) | **1.46** |
+| 2026 to date (2,553 ÷ 1,358) | **1.88** |
+
+A 2× spread across three overlapping windows, so the honest output is a band, not a number. Holding
+1.62 designs per customer and 512 tiles per shuttle:
+
+| Customers/yr | Designs/yr | Shuttles/yr at 0.93 | at 1.46 | at 1.88 |
+|---|---:|---:|---:|---:|
+| 923 (2025 actual) | 1,492 | 2.7 | 4.3 | 5.5 |
+| 10,000 | 16,165 | **29.3** | **46.1** | **59.4** |
+| 100,000 | 161,647 | **293** | **461** | **594** |
+
+**And the 512-tile assumption is the optimistic bound, by 4.5×.** The 2025 row predicts 2.7 to 5.5
+shuttles; Tiny Tapeout actually ran **12**. Realised density was **1,352 ÷ 12 = 112.7 tiles per
+shuttle**, not 512 — shuttles do not fill. Re-running the table at realised density gives **133–270
+shuttles a year for 10,000 customers** and **1,333–2,697 for 100,000**.
+
+So the conclusion survives the correction and hardens: ten thousand customers a year is **between
+half a shuttle and five shuttles a week**, and a hundred thousand is **between six and fifty a
+week**, against the 12 a year Tiny Tapeout ran in 2025. Tile capacity per shuttle could rise, which
+changes the shuttle count but not the wafer area. **The constraint at 100k is not demand — it is
+whether anyone will run you hundreds to thousands of shuttles a year.**
 
 ## wafer.space: two and a half data points
 

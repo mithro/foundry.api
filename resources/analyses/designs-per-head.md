@@ -89,7 +89,7 @@ offset; the real difference is portfolio fragmentation — ~90 technologies from
 | ChipFoundry | 17.8 (89 ÷ 5 shuttles) | `CF-6`, `CF-11` |
 | **Europractice 2026** | **3.04** | `PRD-8` |
 
-**Tiny Tapeout's batch is 40.9× Europractice's and 3.8× MOSIS's best.** *This* is the real and
+**Tiny Tapeout's batch is 40.9× Europractice's and 3.8× MOSIS's best.** *(On `PAY-6`'s narrower count of 1,455 designs on revenue-bearing shuttles rather than the 1,492 in the index data, it is 121.3 per shuttle and 39.9× — the conclusion does not turn on which count is used.)* *This* is the real and
 defensible version of the claim, and it is a much better one for this project than the
 productivity claim was, because **batch size is the thing an auction-scheduled foundry directly
 controls.** Aggregating demand onto fewer, fuller reticles is not a side effect of the design; it
