@@ -157,7 +157,25 @@ The honest reading is that a long tail of *experiments* certainly exists and gro
 
 **Claim.** If the fab does no per-customer engineering and sells machine time at published prices, each small customer is profitable.
 
-**Status: Contested, and the strongest evidence on each side is now a real fab.** There is an audited example on each side, and the variable that separates them is not customer size.
+**Status: Contested — and the condition that decides it has now been identified.**
+
+Across seven companies in five industries that print a margin split by order size
+([`demand/other-industry-margins.md`](demand/other-industry-margins.md)), the small end wins in
+five cases and loses in two, and **what sorts them is not customer size but whether a small order
+repeats a frozen process or is a first-of-a-kind that consumes its own process development.**
+
+| Small order is… | Cases | Small end |
+|---|---|---|
+| a **repetition of a frozen process** | JLC (PCB), Cimpress (print), Knight-Swift (freight), Catalent (CDMO clinical supply) | **wins** |
+| a **first-of-a-kind consuming process development** | Asymchem, Porton (CDMO) | **loses** |
+| both, sold separately | Silex (MEMS) — bespoke development priced as its own service | **wins** |
+
+**This is the sharpest open question the project has.** A shuttle on which every design is novel
+looks structurally like a CDMO's clinical line, not like JLC. Porton 2023 is JLC 2025 exactly
+mirrored: its small-batch line was 17.39% of revenue and **2.62% of gross profit**, against JLC's
+75.57% and 97.60%. Which of the two foundry.api resembles is **a design decision in `PRINCIPLES.md`
+and `DESIGN.md`, not an empirical fact** — it turns on whether the fab sells a frozen, published
+process that customers target, or bespoke process work per customer. There is an audited example on each side, and the variable that separates them is not customer size.
 
 The decisive new evidence is IHF-8: MEMSCAP's North Carolina MEMS foundry — a merchant wafer fab selling to many small customers through MUMPs multi-project runs, 475 m² of ISO 4 cleanroom, 6-inch wafers, fourteen people — **lost EUR 805k then EUR 857k, being 28.2% then 44.3% of its own revenue**, in the two years visible before it was sold. Unlike Xometry or Shapeways it *is* a wafer fab, which makes it the closest analogue this directory holds, and it lands against H6. The counter-argument is recorded with it: the loss is a divisional IFRS 5 figure with an undisclosed group-overhead allocation, in a business being wound down for sale, and a buyer that is its own anchor customer faces different economics.
 
@@ -178,6 +196,7 @@ The cost-to-serve data asked for here turns out to be published, in the one plac
   - PCB-1: JLC's PCB gross margin beats the mean of the five peers its own prospectus names by **+8.56 pp** in 2025 (corrected from the printed +10.00 pp, which omitted Fastprint's later-published 25.26%), and the prospectus attributes the gap to "销售模式和客户结构差异" — "differences in sales model and customer structure"
   - PCB-2: JLC **owns its plants** — net fixed assets CNY 3,257,464,600 including CNY 952,981,900 of buildings, CNY 1.395bn of capex in 2025, registered land titles. It also took a **CNY 131,365,100 fixed-asset impairment** because "PCB 中大批量订单相对不饱和" ("medium- and large-batch PCB orders are relatively under-full") left big-batch equipment idle, while the long-tail plant ran at 76.78% utilisation
   - PCB-3: a second audited company, 迅捷兴 (Xunjiexing), attributes a 5.62-point margin fall to a shift toward batch work — volume **+30.02%**, margin down
+  - **OIM-5: a real MEMS wafer foundry prints the split, and the small-batch side wins every year.** 赛微电子, owner of Sweden's Silex, published gross margin separately for bespoke MEMS process development and volume wafer manufacturing for four years. The bespoke half won by +53.5, +31.0, +4.6 and +6.7 pp; in 2022 it was 46.6% of revenue and **70.3% of gross profit**. The company describes Swedish FAB1&2 as "a pilot line plus small-batch production line" and Beijing FAB3 as "a scale volume-production line" — two fabs, two strategies, and the small-batch one is the better business. **Its new volume fab ran at −50.00% gross margin while ramping**, which independently corroborates the idle-plant test in [`analyses/long-tail-pays-for-the-capital.md`](analyses/long-tail-pays-for-the-capital.md)
   - IHF-11 (**🚩 DISPUTED 2026-09-25 — do not cite, see the banner in [`demand/in-house-fabrication.md`](demand/in-house-fabrication.md)**): the **tool set** of a working 150 mm MEMS fab is claimed to be a **one-to-two-million-dollar** asset — US$1.0 million contracted and US$2,124,650 independently appraised in the Akoustis deal, EUR 498 thousand of net book value at MEMSCAP — against "well over $50 million" to build a facility new. **The tools are not the obstacle.** *(Corrected 2026-09-19: this line previously read "a complete working small MEMS fab is a ~US$3M asset at roughly 1× trailing revenue". Both headline prices turned out to describe different things — Akoustis' was 63.6% real estate plus a $1.73M clawback, GAAP consideration $4.58M, and was set "without significant price negotiation" by a public-sector seller; MEMSCAP's carried no building and no liabilities but came with EUR 655 thousand a year of rent. See IHF-3 and IHF-9.)*
 - **Challenges:**
   - SMB-3: Xometry, no operating profit in any filed year, 34.7% marketplace gross margin, and an explicit pivot to "large enterprise customers"
@@ -198,6 +217,9 @@ The cost-to-serve data asked for here turns out to be published, in the one plac
   - PCB-5: 强达电路 (Qiangda) has about 3,000 customers, sells 100% direct on negotiated terms, and earns **26.10%** — within two points of JLC. 迅捷兴 (Xunjiexing) has "over ten thousand" customers, calls itself a sample-board specialist, and earns **8.52% with a net loss**. Customer count predicts neither margin nor concentration
   - ACC-4: Europractice's mini@sic surcharge — **3,080 ÷ 1,760 = 1.75, a 75% premium for being small**
   - ACC-12: CMP's itemised per-project fixed fees, published
+  - **OIM-3, OIM-4: two independent audited CDMOs print JLC's table upside down, across seven company-years.** 博腾股份 (Porton): small-batch/clinical at **6.84%** gross margin against **53.48%** for commercial volume in 2023 — 17.39% of revenue and **2.62% of gross profit**. 凯莱英 (Asymchem) 2024: **39.42%** small against **53.32%** bulk. This is the strongest challenge to H6 in the directory and belongs beside SMB-1 with equal prominence
+  - **OIM-6: the gross-margin advantage may not survive customer acquisition.** Cimpress is the only company found that publishes both segment gross margin and a measure below it, and the long tail's **23-point gross-margin lead becomes 0.26 points at segment EBITDA** — advertising costs 15% of revenue to acquire micro-businesses against 5% for the wholesale channel, eating **98.9%** of the advantage. **Nothing in SMB-1 says what it costs JLC to acquire 1.36 million users**
+  - **OIM-7: where a time series exists, the long-tail premium is narrowing** — Cimpress 29.6 → 22.9 pp over six years, Silex 53.5 → 6.7 pp — and two of the five companies stopped publishing the split in their latest annual report
   - **FUND-7: CMC Microsystems is the only multi-project-wafer broker anywhere with audited accounts, and customers cover a minority of its cost.** In the year to 2008-03-31 customers paid **9.15%** of revenue (CAD 989,771 of 10,822,211) against an 89.63% government grant. In the year to 2026-03-31, stripping the FABrIC pass-through, it earned CAD 5.4m against CAD 7.3m of cost — **74.0% recovery**, i.e. **CAD 30,417 of cost per prototype and a CAD 7,917 subsidy per prototype** on 240 prototypes. This is a measurement, not an analogue
   - FUND-9: both organisations in this directory that publish a cost breakdown spend **more than 53% on payroll** (CMC 53.5% in FY2008, 54.8% in FY2026). H6 assumes per-customer engineering away; it does not assume away the payroll that a service of this kind actually runs on
   - FUND-2: Europractice's EU subsidy is **EUR 2,801 per design** over 2016-07 → 2025-09 (EUR 19,024,797.50 for 6,791 designs, stable at EUR 2,840 / 2,663 / 2,951 across three separate competitive grants), rising to **EUR 5,309 per design** at the grant rate now running — against SMB-7's EUR 5,478 cheapest commercial ticket
@@ -246,6 +268,7 @@ Where it has been measured directly, though, it holds well.
   - FIN-1 (Porter: buyers are powerful when few, or when large relative to the seller)
   - **Effective number of participants** (reciprocal Herfindahl, as a share of nominal count), computed for the first time: **14.4% for Tiny Tapeout designers against 2.3% for TSMC customers** — 1.3% on the correlated-tail variant. Bootstrap CI [8.4%, 36.2%], robust to dropping the largest participant ([`analyses/data-cuts-and-statistics.md`](analyses/data-cuts-and-statistics.md))
   - SMB-1: JLC's top five customers are **1.16%** of revenue, and its largest is 0.28%
+  - OIM-2: Reliance — 125,000 customers, 4.6 million orders, a **$3,120** average order, and a largest customer at **0.6% of sales**. A second audited data point for extreme dispersion beside JLC's 0.28%
 - **Leads:** FIN-7 (countervailing-power theory), FIN-9 (diversification theory).
 - **Challenges:**
   - PCB-5, PCB-3: customer count does not predict concentration below ~1M customers (above)

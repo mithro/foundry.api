@@ -1099,7 +1099,11 @@ listing rules force it: five PCB companies' margins printed in one table, each t
 audited annual report on a public document server, and three of those fifteen company-years now
 verified directly against the company's own filing (Xunjiexing 2023–2025, Fastprint 2023–2024,
 plus Fastprint 2025 which the prospectus could not yet have). But **only JLC publishes a margin
-split by batch size, and we now have direct evidence that the best-placed peer chooses not to.**
+split by batch size *in the PCB industry*, and we now have direct evidence that the best-placed peer
+chooses not to.** (Qualified 2026-09-25: outside PCBs, four companies do print such a split —
+see [`other-industry-margins.md`](other-industry-margins.md). Three of those four are also Chinese,
+and **no Western filing found anywhere printed a number for both sides**, which strengthens rather
+than weakens the point below about why this evidence exists at all.)
 Fastprint calls itself a leader in sample and small-batch PCB, runs volume production alongside it,
 and splits its segment disclosure four different ways — by industry, product, region and sales
 channel — and never by order size (PCB-4). Chinese listing rules require those four cuts; they do

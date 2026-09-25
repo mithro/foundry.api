@@ -104,6 +104,24 @@ to slightly up over the same three years, and the long tail's *share* of gross p
 
 **Does not establish:**
 
+- **That the pattern is general.** Tested across seven companies in five industries
+  ([`../demand/other-industry-margins.md`](../demand/other-industry-margins.md)), the small end wins
+  in five cases and **loses in two**: two independent Chinese CDMOs, 凯莱英 Asymchem and 博腾股份
+  Porton, print this table upside down across seven company-years. Porton 2023 is JLC 2025 exactly
+  mirrored — small-batch at 17.39% of revenue and **2.62% of gross profit**. What separates the
+  cases is whether a small order **repeats a frozen process** (small end wins) or is a
+  **first-of-a-kind that consumes its own process development** (small end loses). A shuttle on
+  which every design is novel resembles the CDMO case.
+- **That the gross-profit share survives the cost of getting the customers.** Cimpress is the only
+  company found publishing both segment gross margin and a measure below it, and its long tail's
+  **23-point gross-margin advantage collapses to 0.26 points at segment EBITDA**, because acquiring
+  micro-businesses costs 15% of revenue in advertising against 5% for its wholesale channel. **The
+  97.6% figure above is a gross-profit share and nothing in SMB-1 says what JLC spends to acquire
+  1.36 million paying users.** Treat 97.6% as an upper bound on the long tail's contribution.
+- **That the advantage is stable.** Where a time series exists the premium narrows — Cimpress
+  29.6 → 22.9 pp over six years, Silex 53.5 → 6.7 pp — and two of the five companies stopped
+  publishing the split in their most recent annual report.
+
 - **PCBs are not chips.** A bare board is orders of magnitude cheaper, faster and less risky than an
   integrated circuit, and a PCB line's capex is nothing like a fab's. This is an analogy about the
   *shape* of the margin curve, not a measurement of a foundry.
