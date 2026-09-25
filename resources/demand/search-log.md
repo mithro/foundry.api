@@ -1256,3 +1256,57 @@ a 302 whose `Location:` header names a storage node — `ia801009.us.archive.org
 `Location:` header and fetching that URL directly works.** That recovered the 1985 ISI Annual
 Technical Report (AD-A178085) after four failed `-L` attempts, and it added the fourth point to
 `MOS-3`'s headcount series. Five of the twelve requested reports still failed even this way.
+
+---
+
+## 20. Software margins, measured as a distribution (`SWM`, 2026-09-25)
+
+The question `LNI-17` invites — how does Silex's 22.7% operating margin compare with software? — was
+first answered from recollection. This pass replaced the recollection with the SEC's own XBRL data.
+Everything was read-only GET; no forms, no accounts, no logins, and **no e-mail address of any kind
+in a User-Agent, header, URL or payload.** The User-Agent used throughout was `foundry-api-research/1.0`.
+
+### Access notes, which is the useful part
+
+| Host / route | Result | Note |
+|---|---|---|
+| `data.sec.gov/api/xbrl/frames/us-gaap/<tag>/USD/<period>.json` | **HTTP 200** to `curl` with a generic non-personal User-Agent | Every filer's value for one concept in one period, in a single response. 4,643 filers reported `OperatingIncomeLoss` for CY2025. This is the whole method. |
+| `data.sec.gov/api/xbrl/companyfacts/CIK##########.json` | **HTTP 200** | 1–5 MB per filer. Used for the named comparators only. |
+| `data.sec.gov/submissions/CIK##########.json` | **HTTP 200** | The only source of the SIC code. Reading the first 4 kB is enough; the rest of the file is the filing index. |
+| `efts.sec.gov/LATEST/search-index?q=...&forms=8-K&ciks=...` | **HTTP 200** to `curl` | EDGAR full-text search, undocumented but stable. `dateRange=custom&startdt=&enddt=` works. This is how the eight full-year earnings releases in `SWM-5` were located. A query with no `ciks` and a bare `dateRange=custom` returns `{"message": "Internal server error"}`. |
+| `www.sec.gov/files/company_tickers.json` | **HTTP 403** | Confirms §1. Not needed: the frames carry CIK and entity name. |
+| `www.sec.gov/files/dera/data/financial-statement-data-sets/<q>.zip` | **HTTP 403** | The DERA quarterly data sets would have given SIC and every tag in one download. Unreachable by script. The frames-plus-submissions route above is the workaround and costs about 7,000 requests. |
+| `www.sec.gov/Archives/edgar/data/.../R##.htm` | **HTTP 403** to `curl`, **HTTP 200** to `WebFetch` | **The find worth reusing.** A filing's `FilingSummary.xml` lists its XBRL "Financial Report" renderings, one `R##.htm` per table. For Amazon's segment note that is R87 (segments), R90 (assets), R91 (PP&E) and R92 (PP&E additions). Fetching the 10-K itself returns only the cover pages and risk factors before truncation; fetching one `R##.htm` returns exactly one clean table. |
+| `ir.aboutamazon.com` | HTTP 200 but client-side rendered; no release links in the HTML | Not used. The 10-K `R##.htm` route above is better anyway. |
+| `s2.q4cdn.com/299287126/files/doc_financials/...` (Amazon's CDN) | **HTTP 404** on every filename pattern tried | Not solved, not needed. |
+| `fi.se/sv/vara-register/prospektregistret/GetFile?id=25-37533` | **HTTP 200**, 11.7 MB | Silex's prospectus, re-downloaded to read the consolidated balance sheet and cash-flow statement that `LNI-17`/`LNI-18` did not need. The referer trick recorded in `LNI-18` still works. |
+
+### Two things about the frames API that are not obvious and will bite anyone who repeats this
+
+1. **A `CY2025` duration frame is not "the year ended 31 December 2025".** It is each filer's own
+   annual period that best aligns with calendar 2025. Microsoft appears in `CY2025` with
+   2024-07-01 → 2025-06-30; Salesforce with 2025-02-01 → 2026-01-31. This is a feature — it means
+   non-calendar filers are **not** silently dropped, which was the thing most likely to bias a
+   software sample — but it means the frame's `end` field must be read, never assumed.
+2. **Balance-sheet items therefore cannot be joined from `CY2025Q4I`.** Salesforce's balance sheet
+   is dated 2026-01-31 and Microsoft's 2025-06-30. The join here indexes every instantaneous frame
+   from `CY2022Q1I` to `CY2026Q4I` by `(cik, end)` and looks up the income statement's own end date.
+   Joining on `CY2025Q4I` alone would have silently dropped most large SaaS companies and left a
+   sample of December filers.
+
+### Dead ends and things deliberately not attempted
+
+- **No non-GAAP figure exists in XBRL.** Non-GAAP operating margin is not a tagged concept, so the
+  population-level version of `SWM-5` cannot be built. The eight companies there were read by hand
+  and are a spread, not a sample. The nearest population-level proxy is `ShareBasedCompensation` ÷
+  revenue, which `SWM-2` reports for every filer that tags it.
+- **Private software companies are absent entirely**, as are non-SEC-registered foreign ones. SAP is
+  in because it files a 20-F; Sage, Dassault, Xero and Constellation Software are not.
+- **Short-term investments were not removed** from the "assets less cash and goodwill" measure. No
+  element for them is tagged consistently across filers, so a company holding $90bn of Treasuries
+  outside `CashAndCashEquivalentsAtCarryingValue` still carries them in the denominator. The
+  correction is therefore a partial one and **understates** software's operating-asset turnover.
+- **TSMC's and UMC's FY2025 Form 20-F facts were not in `companyfacts`** on 2026-09-25, so `SWM-9`
+  reports FY2024 for both. Not solved; nothing is asserted about their FY2025 in either direction.
+- **No attempt was made to reach any person.** No investor-relations contact form, no e-mail, no
+  account. The whole of this section is GET requests to public JSON and HTML.
