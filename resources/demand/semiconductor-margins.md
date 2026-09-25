@@ -405,9 +405,14 @@ this subset on the 22.67% figure and the **90.5th** on 26.57%.
     this repo that reasons from PCB margins to fab margins has to carry that 2.4× difference in
     asset turnover with it.
 - **Caveats, at full strength.**
-  - **This is SEC filers only.** TSMC, UMC and Tower file 20-Fs and are tagged in the `ifrs-full`
-    taxonomy, so they are *not* in these `us-gaap` frames. Neither are Silex, X-FAB, Vanguard or
-    Powerchip. `SEM-4` handles them one by one.
+  - **This is `us-gaap` filers only.** TSMC, UMC and GlobalFoundries all file Form 20-F and tag
+    under the **`ifrs-full`** taxonomy, so they are *not* in these `us-gaap` frames — checked:
+    CIK 1709048 does not appear in `OperatingIncomeLoss` CY2025. Tower Semiconductor also files a
+    20-F but tags under `us-gaap` and **is** in them (CIK 928876), as is SkyWater (CIK 1819974).
+    Silex, X-FAB, Vanguard and Powerchip file nothing with the SEC at all. `SEM-4` handles all of
+    them one by one, from their own filings. **Note also that GlobalFoundries files a 20-F, not a
+    10-K** — its first 20-F is for FY2023, filed 2024-04-29, and there is no 10-K in its filing
+    history.
   - **SIC codes are the filer's own self-classification** and are coarse. NVIDIA, Broadcom, Intel,
     Micron, Applied Materials, Texas Instruments, NXP, STMicroelectronics, AMD and Analog Devices
     are all SIC 3674, which mixes fabless designers, IDMs and equipment makers into one code. That
@@ -846,6 +851,11 @@ The semiconductor side of the join, cleanly:
 | All SEC filers, any SIC, ≥ $10m revenue (n = 2,845) | 0.654× | 4.35% | 3.25% |
 | Named pure-play foundries, FY2025 (n = 10) | 0.433× | 12.07% | 4.29% |
 | **Silex, FY2025** | **0.617×** | **26.57% / 22.67%** | **16.38% / 13.98%** |
+
+Each column is a median taken separately, so the three do not multiply: the median of a product is
+not the product of the medians. For the foundry peer group, 0.1207 × 0.433 = 5.23% against a median
+return on assets of 4.29%; for SIC 3674, 0.0148 × 0.519 = 0.77% against 0.71%. Only the Silex row,
+which is one company, multiplies exactly (0.265704 × 0.616652 = 16.38%).
 
 **The margin a fab needs, to reach a given return on assets, at the plant-owning median turnover of
 0.476×** (`tools/semiconductor_margins.py`):
