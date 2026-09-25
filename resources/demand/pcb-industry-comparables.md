@@ -1372,3 +1372,462 @@ recipe already recorded in [`search-log.md`](search-log.md).
     directly, and the reconstruction's only validation is that it reproduces the printed blended
     margin (Check B). It does, in all four periods.
   - All translations are ours; the Chinese is quoted exactly so a reader can check them.
+
+### PCB-8. Jinbaize's IPO prospectus does the same thing three years earlier — margin by order area for 2018–2020, plus the one disclosure nobody else makes: **customer concentration by order size, inside one company**, rising from 28.50% to 52.25% as orders get bigger
+
+- **Source:** 深圳市金百泽电子科技股份有限公司 (Shenzhen Jinbaize Electronic Technology Co., Ltd.,
+  SZSE ChiNext **301041**), 首次公开发行股票并在创业板上市招股说明书 ("Prospectus for the initial
+  public offering of shares and listing on the ChiNext board"), filed 2021-08-04, via cninfo:
+  <http://static.cninfo.com.cn/finalpage/2021-08-04/1210652347.PDF>
+  Passages below are on PDF p.121 (doc p.1-1-120, the segment definition), pp.181–182
+  (1-1-180/181, revenue and concentration by segment), pp.418–420 (1-1-417/419, revenue, area,
+  price and margin by order area for 2018–2019, and the abandoned orders) and **p.482 (1-1-481,
+  the gross-margin table)**.
+- **Verification:** Verified 2026-09-25. Downloaded from cninfo (HTTP 200, 8,254,605 bytes,
+  654 pages), text extracted with `pypdf`, every figure read in place. Three independent
+  transcription checks all reproduce the filing's own printed totals — see DERIVED. Reporting
+  period is FY2018, FY2019, FY2020.
+- **What it says:**
+  - **Same definition, three tiers, different thresholds from Qiangda's.** PDF p.121, in a table
+    headed 区别 / PCB 样板 / 小批量板 / 中、大批量板 ("difference / PCB sample boards / small-batch
+    boards / medium- and large-batch boards"), the row reads:
+    "订单规模 每单 5 平方米以下 5-20 平方米 20 平方米以上"
+    — "**order size**: under 5 m² per order / 5–20 m² / over 20 m²." (Our translation. Note the
+    row label is 订单规模, literally "order size", not "order area".) The same table's customer row
+    reads "客户需求 研究开发阶段 需求：快速、便捷 | 批量生产阶段 需求：成本优先"
+    — "customer requirement: research and development stage, needs fast and convenient | volume
+    production stage, needs cost first" (our translation), and its customer-management row:
+    "客户数量较多、行业跨度大、要求复杂…需要高效的客户管理制度 | 客户集中度高，销售服务较为单纯"
+    — "customers are numerous, span a wide range of industries, and their requirements are complex…
+    an efficient customer-management system is needed | customer concentration is high, sales
+    service is comparatively simple" (our translation).
+  - **The gross-margin table** (PDF p.482), under the heading
+    "（1）PCB 制造业务毛利率分析 / 1）订单面积维度的分析" — "(1) Analysis of the PCB manufacturing
+    business's gross margin / 1) **Analysis on the order-area dimension**" (our translation).
+    Column headers 收入占比 / 毛利率 — "share of revenue / gross margin":
+
+    | 产品结构 (product structure) | 2020 年 share | 2020 GM | 2019 年度 share | 2019 GM | 2018 年度 share | 2018 GM |
+    |---|---|---|---|---|---|---|
+    | 样板 (sample boards, <5 m²/order) | 53.30% | **39.60%** | 55.60% | **36.06%** | 49.52% | **34.33%** |
+    | 小批量 (small batch, 5–20 m²) | 27.14% | **20.96%** | 27.72% | **25.55%** | 25.63% | **25.01%** |
+    | 中批量 (medium batch, >20 m²) | 19.57% | **18.21%** | 16.69% | **20.37%** | 24.85% | **18.42%** |
+    | 总计 (total) | 100.00% | **30.35%** | 100.00% | **30.53%** | 100.00% | **27.99%** |
+
+  - **The issuer's explanation, again in bargaining-power terms.** PDF p.483:
+    "报告期内公司的 PCB 订单在 10 万笔左右，90%以上的订单都是样板订单，但样板订单的面积较小，故整体收入占比仍在 50%-60%左右。由于 PCB 样板的小批量、多订单、多品种的特点，制造难度较批量板显著提高，公司议价能力较高，故毛利率显著高于小批量板和中批量板。"
+    — "During the reporting period the Company's PCB orders numbered around 100,000 a year, and over
+    90% of the orders were sample-board orders, but because sample-board orders are small in area,
+    their share of total revenue is still only about 50–60%. Because of the small-batch,
+    many-order, many-variety characteristics of PCB sample boards, the manufacturing difficulty is
+    significantly higher than for batch boards and **the Company's bargaining power is relatively
+    high, so the gross margin is significantly higher than that of small-batch boards and
+    medium-batch boards**." (Our translation; emphasis ours.)
+  - **Revenue, area, price and margin by order area, 2018 and 2019** (PDF p.418), under the heading
+    "①发行人放弃批量板订单的具体情况" — "(1) The specifics of the issuer giving up batch-board
+    orders". Units as printed: 万元 / 平方米 / 元每平方米.
+
+    | 分类 (class) | 销售收入 (revenue, 万元) | 总面积 (total area, m²) | 平均单价 (average unit price, CNY/m²) | 毛利率 (gross margin) |
+    |---|---|---|---|---|
+    | 中批量板 (medium batch) 2019 | 6,222.86 | 58,097.04 | 1,071.12 | 20.37% |
+    | 中批量板 2018 | 10,502.18 | 101,858.00 | 1,031.06 | 18.42% |
+    | 小批量板 (small batch) 2019 | 10,336.81 | 70,119.75 | 1,474.17 | 25.55% |
+    | 小批量板 2018 | 10,829.19 | 75,428.68 | 1,435.69 | 25.01% |
+    | 样板 (sample) 2019 | 20,735.29 | 65,045.43 | 3,187.82 | 36.06% |
+    | 样板 2018 | 20,926.46 | 66,592.88 | 3,142.45 | 34.33% |
+
+  - **Named customers dropped, with each one's gross margin printed.** This is the most concrete
+    thing in any of these filings. PDF pp.418–419, introduced by
+    "PCB 批量生产是一种更成熟传统的制造服务，成本竞争剧烈。发行人放弃的批量板订单，主要因为客户采用价格竞争的采购策略，并无法充分体现发行人竞争优势，且毛利率低呈逐渐下降趋势。发行人在履行以上订单过程中，要承担较大的管理成本、资金成本、回款风险及质量风险，但是这类订单无法给发行人带来盈利。"
+    — "PCB volume production is a more mature, traditional manufacturing service, and cost
+    competition in it is fierce. The batch-board orders the issuer gave up were given up mainly
+    because the customers used a price-competition purchasing strategy, which cannot properly
+    express the issuer's competitive advantages, and because the gross margin is low and trending
+    gradually down. In performing those orders the issuer had to bear considerable management cost,
+    capital cost, collection risk and quality risk, but **orders of this kind cannot bring the
+    issuer any profit**." (Our translation; emphasis ours.) The table (万元):
+
+    | 客户 (customer) | 批量板收入 2019 (batch-board revenue) | 2018 | 减少额 (decrease) | 毛利率 2019 (GM) | 2018 |
+    |---|---|---|---|---|---|
+    | 深圳市世纪云芯科技有限公司 (Shenzhen Century Yunxin Technology) | – | 1,360.86 | 1,360.86 | – | **2.94%** |
+    | 浙江亿邦通信科技有限公司 (Zhejiang Ebang Communication Technology) | – | 692.48 | 692.48 | – | **11.75%** |
+    | 山东新北洋信息技术股份有限公司及其关联公司 (Shandong New Beiyang Information Technology and its affiliates) | 326.28 | 953.32 | 627.04 | 21.04% | 11.19% |
+    | 合计 (total) | 326.28 | 3,006.65 | 2,680.38 | | |
+
+    And the explanation: "发行人放弃了世纪云芯和亿邦通信两家比特币领域的订单和山东新北洋部分低毛利订单。世纪云芯和亿邦通信主要从事比特币行业，所需的 PCB 为比特币矿机所需的哈希板，产品单一且技术溢价较低，世纪云芯的毛利率仅 2.94%，亿邦通信的毛利率也仅有 11.75%，均明显低于其他订单。"
+    — "The issuer gave up the orders of Century Yunxin and Ebang Communication, two companies in the
+    bitcoin field, and part of Shandong New Beiyang's low-margin orders. Century Yunxin and Ebang
+    Communication are mainly in the bitcoin industry; the PCBs they need are the hash boards
+    required by bitcoin mining machines, a single product type with a low technology premium.
+    **Century Yunxin's gross margin was only 2.94% and Ebang Communication's only 11.75%**, both
+    clearly lower than other orders." (Our translation; emphasis ours.)
+  - **Customer concentration by order size, within one company.** PDF p.182, introduced by
+    "报告期内样板、小批量、中批量业务收入中各前 20 大客户及其收入占比情况如下"
+    — "the share of revenue held by the top 20 customers within each of the sample-board,
+    small-batch and medium-batch businesses during the reporting period is as follows" (our
+    translation):
+
+    | 类别 (class) | 2020 年 | 2019 年 | 2018 年 |
+    |---|---|---|---|
+    | 样板 (sample) | **28.50%** | 28.59% | 31.14% |
+    | 小批量 (small batch) | 37.56% | 41.45% | 39.51% |
+    | 中批量 (medium batch) | **52.25%** | 56.64% | 67.11% |
+
+    followed by "体现了相比样板业务上的客户分散，在中小批量业务上大客户集中的趋势。"
+    — "This reflects the trend that, compared with the dispersion of customers in the sample-board
+    business, large customers are concentrated in the small- and medium-batch businesses." (Our
+    translation.) **Nothing else in this file measures concentration and order size on the same
+    customers, in the same company, in the same year.**
+  - **Small-batch customers come from sample customers.** PDF p.181: 91.24% / 90.20% / 92.57% of
+    small-batch *customers* and 98.01% / 98.23% / 98.76% of small-batch *revenue* came from
+    sample-board customers in 2020 / 2019 / 2018; for medium batch, 88.12% / 87.29% / 93.75% of
+    customers and 95.93% / 92.93% / 82.81% of revenue. The filing calls sample customers a
+    "流量入口" — a "**traffic entrance**", the Chinese internet term for a funnel top (our
+    translation).
+  - **Segment-level capacity constraint.** PDF p.483: "公司服务 PCB 批量板的产能不足，往往选择委外加工的方式处理，整体毛利率较低且易受大客户影响。"
+    — "The Company's capacity for serving PCB batch boards is insufficient, so it often chooses to
+    subcontract them, which gives a lower overall gross margin and leaves it easily affected by
+    large customers." (Our translation.) Self-produced margin was 30.90% / 31.50% / 31.84% against
+    subcontracted 21.41% / 26.54% / 24.87% across 2018–2020 (PDF p.418).
+- **DERIVED (arithmetic written out):** computed by `tmp/jinbaize_check.py` (throwaway, not
+  committed); reproduced here.
+  - **Check A — revenue shares reproduce.** FY2020: 21,823.44 + 11,112.80 + 8,012.01 =
+    40,948.25万元 against the printed 40,948.26 (one 万元-cent of rounding); 21,823.44 ÷ 40,948.26 =
+    53.295% against printed **53.30%**. All nine share cells reproduce to within 0.005 pp.
+  - **Check B — segment margins reproduce the blended PCB margin.** FY2020: 21,823.44 × 39.60% =
+    8,642.08; 11,112.80 × 20.96% = 2,329.24; 8,012.01 × 18.21% = 1,458.99; total 12,430.31万元;
+    ÷ 40,948.26 = **30.36%** against printed **30.35%**. FY2019 gives 30.53% against 30.53%; FY2018
+    gives 27.99% against 27.99%. The tables on pages 182 and 482 are mutually consistent.
+  - **Check C — the printed unit prices are revenue ÷ area exactly.** FY2019 sample:
+    20,735.29万元 × 10,000 ÷ 65,045.43 m² = CNY 3,187.82/m², the printed figure to the cent. All
+    six price cells reproduce.
+  - **Share of gross profit by segment:**
+
+    | Year | 样板 (sample) | 小批量 (small) | 中批量 (medium) | **样板 + 小批量** |
+    |---|---|---|---|---|
+    | FY2018 | 60.74% | 22.90% | 16.36% | **83.64%** |
+    | FY2019 | 65.67% | 23.20% | 11.13% | **88.87%** |
+    | FY2020 | 69.52% | 18.74% | 11.74% | **88.26%** |
+
+    FY2020 worked: 8,642.08 ÷ 12,430.31 = 69.52%.
+  - **Price premium on a small order.** FY2019: 3,187.82 ÷ 1,071.12 = **2.98×**; FY2018:
+    3,142.45 ÷ 1,031.06 = **3.05×**.
+  - **Margin ratio, sample to medium batch.** FY2018 34.33 ÷ 18.42 = 1.86×; FY2019 1.77×; FY2020
+    39.60 ÷ 18.21 = **2.17×**.
+  - **Concentration rises monotonically with order size in all three years**, verified by script:
+    28.50 < 37.56 < 52.25 (2020), 28.59 < 41.45 < 56.64 (2019), 31.14 < 39.51 < 67.11 (2018).
+    Medium-batch top-20 concentration is 1.83× / 1.98× / 2.16× the sample-board figure.
+  - **The dropped orders, in context.** The three named customers gave up 2,680.38万元 of
+    batch-board revenue, which the filing itself puts at 62.64% of the fall in medium-batch revenue
+    from 2018 to 2019. Medium-batch revenue fell 10,502.18 → 6,222.86 = 4,279.32万元;
+    2,680.38 ÷ 4,279.32 = **62.63%**, reproducing the filing's 62.64%.
+- **Bears on:**
+  - **H6 (supports).** A third company, a third independent filing, the same direction. Sample
+    boards out-earn medium batch by 1.77× to 2.17× on gross margin in every year disclosed, and
+    the tail carries 83.64% to 88.87% of PCB gross profit.
+  - **H6 (supports, and it is the weakest of the three magnitudes).** Jinbaize's gap is much
+    smaller than JLC's (13.13×) or Qiangda's (14.06×). Its bottom tier is 中批量 (over 20 m²), not
+    a true large-batch tier, and a lot of its batch work is subcontracted rather than run on its own
+    plant. **This is a real instance of the pattern at a much more modest magnitude, and the file
+    should not average the three as if they measured the same thing.**
+  - **H7 (supports, and this is the strongest single piece of concentration evidence in the file).**
+    Everything else here compares concentration *between* companies, where a hundred things differ.
+    Jinbaize splits one company's own customer base by order size and finds the top-20 share
+    roughly doubling from the small-order tier to the large-order tier, in all three years. That is
+    a within-company measurement of exactly the claim H7 makes.
+  - **H6 (supports, on the mechanism, with a named counter-example).** Century Yunxin, a bitcoin
+    hash-board buyer, bought 1,360.86万元 of boards at **2.94% gross margin** and was dropped. A
+    large, concentrated, price-competing customer is not merely less profitable here; the issuer
+    states that such orders "cannot bring the issuer any profit" once management cost, capital cost,
+    collection risk and quality risk are counted.
+  - **H5 (context).** "Over 90% of orders were sample-board orders" but only 50–60% of revenue.
+    The tail is overwhelming in *count* and merely dominant in *value* — the same shape as
+    Qiangda's 88%/52.54% and JLC's 21 million orders at 75.57% of revenue.
+- **Used in:** not yet.
+- **Caveats:**
+  - **This is 2018–2020 data, published in 2021.** It is the oldest of the three margin tables and
+    predates the current PCB downturn. Jinbaize's blended PCB margin has since fallen from 30.35%
+    (2020) to 21.17% (2025) (PCB-1), and nothing tells us how that fall is distributed across the
+    tiers.
+  - **The tiers are not the same tiers as Qiangda's or JLC's.** Jinbaize cuts at 5 and 20 m²,
+    Qiangda at 5 and 50 m², JLC does not publish a threshold at all. Cross-company comparison of
+    the *levels* is therefore unsafe; only the *direction* compares.
+  - **Subcontracting confounds the bottom tier.** Jinbaize buys in a fifth to a third of its PCB
+    output, concentrated in batch work, so its medium-batch margin is partly a trading margin and
+    not a manufacturing one. Qiangda's and JLC's tiers are made in their own plants.
+  - The concentration table is **top-20 share within each segment**, not a top-5 or an HHI, and the
+    segments have very different customer counts (650 small-batch customers against 261 medium in
+    2020), which mechanically pushes the smaller segment's top-20 share up. That effect is real and
+    unquantified; it does not explain the whole 28.50% → 52.25% gap, but it is part of it.
+  - All translations are ours; the Chinese is quoted exactly so a reader can check them.
+
+### PCB-9. Chongda, then the sixth-largest domestic PCB maker, told the exchange in 2016 that the margin ranking sample > small batch > large batch is a *property of the industry* — and gave the mechanism: a sample house has to leave equipment idle, and charges for it
+
+- **Source:** 深圳市崇达电路技术股份有限公司 (Shenzhen Chongda Circuit Technology Co., Ltd., now
+  崇达技术股份有限公司, SZSE **002815**), 首次公开发行股票招股说明书 ("Prospectus for the initial
+  public offering of shares"), filed 2016-09-21, via cninfo:
+  <http://static.cninfo.com.cn/finalpage/2016-09-21/1202711273.PDF>
+  Passages below are on PDF pp.31–32 (doc pp.30–31, the operating statistics), p.102 (101, the
+  segment definitions), p.112 (111, price transmission), p.140 (139, order-count distribution),
+  p.291 (290, revenue by order area), **pp.305–306 (304–305, the margin ranking and the peer
+  classification)** and p.312 (311, selling expense).
+- **Verification:** Verified 2026-09-25. Downloaded from cninfo (HTTP 200, 2,657,900 bytes,
+  385 pages), text extracted with `pypdf`, figures read in place. Reporting period FY2013, FY2014,
+  FY2015 and 2016 Q1.
+- **What it says:**
+  - **The ranking, stated as an industry property.** PDF p.305, under the heading
+    "6、公司毛利率、净利率高于大批量板企业的原因 /（1）小批量板毛利率一般高于大批量板、低于样板"
+    — "6. Why the Company's gross margin and net margin are higher than those of large-batch board
+    companies / (1) A small-batch board's gross margin is generally higher than a large-batch
+    board's and lower than a sample board's" (our translation):
+    "PCB 企业按照客户订单面积和应用领域划分，可细分为样板企业、小批量板企业、大批量板企业，一般来说，样板毛利率最高、小批量板毛利率次之、大批量板毛利率稍低。"
+    — "PCB companies, divided **by customer order area** and application field, can be subdivided
+    into sample-board companies, small-batch-board companies and large-batch-board companies.
+    Generally speaking, **the sample board's gross margin is the highest, the small-batch board's
+    gross margin comes next, and the large-batch board's gross margin is somewhat lower**." (Our
+    translation; emphasis ours.)
+  - **The mechanism, and it is the capital argument in one sentence.** Same page:
+    "由于样板要求的交货期限最短，一般为 10 天以内，样板企业需要空置部分设备满足客户交货要求，因此样板企业在报价时会额外加收制板费、工程费等费用，样板的议价能力较强，报价远高于批量板，因此毛利率最高。"
+    — "Because the delivery time a sample board demands is the shortest, generally within 10 days,
+    **a sample-board company needs to leave part of its equipment idle in order to meet customers'
+    delivery requirements**, and therefore a sample-board company adds board-making fees,
+    engineering fees and other charges when it quotes; the sample board's bargaining power is
+    strong and its quoted price is far above a batch board's, so its gross margin is the highest."
+    (Our translation; emphasis ours.)
+  - **And the other side of it, on why large batch is the lowest.** Same page:
+    "在与客户的议价过程中，大批量 PCB 生产企业出于整单利润总额的考虑，一般会适当降低部分毛利率。目前，国内大批量 PCB 生产企业数量较多，竞争最为激烈，也是影响大批量毛利率的重要因素。因此，大批量 PCB 行业毛利率在 PCB 细分行业最低。"
+    — "In bargaining with customers, large-batch PCB producers, thinking about the total profit of
+    the whole order, generally reduce part of the gross margin appropriately. At present there are
+    many large-batch PCB producers domestically and competition among them is the fiercest, which is
+    also an important factor affecting large-batch gross margin. Therefore **the large-batch PCB
+    sub-industry's gross margin is the lowest of the PCB sub-industries**." (Our translation;
+    emphasis ours.)
+  - **A between-company version of the JLC table, for FY2013 and FY2014.** PDF p.306:
+    "2013 年，同行业上市公司中的大批量板企业的 PCB 产品毛利率最低值为-0.02%（天津普林），最高值为 26.60%（伊顿电子），平均值为 18.04%；2014 年，同行业上市公司中的大批量板企业的 PCB 产品毛利率最低值为 5.02%（天津普林），最高值为 26.03%（伊顿电子），平均值为 17.35%。报告期内，PCB 细分行业的差异使公司 PCB 产品毛利率高于大批量板企业（较平均水平高 10 个百分点以上）"
+    — "In 2013 the lowest PCB gross margin among the large-batch board companies in the listed peer
+    group was −0.02% (天津普林 Tianjin Printronics), the highest 26.60% (依顿电子 Ellington
+    Electronics), the mean **18.04%**; in 2014 the lowest was 5.02% (Tianjin Printronics), the
+    highest 26.03% (Ellington), the mean **17.35%**. During the reporting period the differences
+    between PCB sub-industries made the Company's PCB gross margin higher than the large-batch
+    board companies' (**more than 10 percentage points above the average level**)." (Our
+    translation; emphasis ours.) Chongda's own main-business gross margin over the same years is
+    given on PDF p.307 as 36.08% (2014) and 34.93% (2015).
+  - **The peer classification table** (PDF p.306), headed 公司名称 / 产品特点 — "company name /
+    product characteristics", with the source note "数据来源：上市公司公开披露的财务报告及招股说明书"
+    — "source: listed companies' publicly disclosed financial reports and prospectuses". Our
+    translation of the classification in full:
+
+    | 公司名称 (company) | Segment, as Chongda classifies it | Average order area, where given |
+    |---|---|---|
+    | 兴森科技 (Fastprint) | 样板 — sample boards | 均单面积 1-2 m² ("average order area 1–2 m²") |
+    | 依顿电子 (Ellington) | 大批量板 — large batch | — |
+    | 胜宏科技 (Victory Giant) | 大批量板 — large batch | — |
+    | 博敏电子 (Bomin) | 大批量板 — large batch | — |
+    | 天津普林 (Tianjin Printronics) | 样板、小批量、大批量均能生产 — "can produce sample, small-batch and large-batch alike" | — |
+    | 沪电股份 (WUS) | 大批量板 — large batch; 客户较集中 ("customers fairly concentrated") | — |
+    | 超声电子 (Ultrasonic Electronics, PCB business) | 大批量为主，兼顾小批量、样板 — "mainly large batch, also small batch and sample"; 客户较集中 | — |
+    | 超华科技 (Chaohua, PCB business) | 大批量 — large batch | — |
+    | 中京电子 (Zhongjing) | 大批量 — large batch | — |
+    | 崇达技术 (Chongda, the issuer) | 小批量 — small batch; 国际高端市场为主，客户较分散 ("mainly the international high-end market, customers fairly dispersed") | 均单面积为 8 m² ("average order area 8 m²") |
+
+  - **Chongda's own revenue split by order area** (PDF p.291), with the note
+    "注：本公司大批量板指面积在 50m² 以上的订单。" — "Note: the Company's large-batch boards means
+    orders of area above 50 m²." (Our translation.) Amounts 万元:
+
+    | 订单面积 (order area) | 2016 Q1 | share | 2015 | share | 2014 | share | 2013 | share |
+    |---|---|---|---|---|---|---|---|---|
+    | 小批量板 (small batch, ≤50 m²) | 33,148.29 | 70.69% | 121,943.83 | 71.25% | 116,784.44 | 75.60% | 96,439.97 | 80.13% |
+    | 大批量板 (large batch, >50 m²) | 13,744.46 | 29.31% | 49,201.01 | 28.75% | 37,692.89 | 24.40% | 23,911.66 | 19.87% |
+    | 合计 (total) | 46,892.75 | 100.00% | 171,144.85 | 100.00% | 154,477.33 | 100.00% | 120,351.62 | 100.00% |
+
+    **No margin split accompanies it.** Chongda discloses revenue by order area and stops there.
+  - **Order-size statistics, and the order count by area band.** PDF pp.31–32:
+
+    | 项目 (item) | 2016 Q1 | 2015 | 2014 | 2013 |
+    |---|---|---|---|---|
+    | 订单数量（个）(order count) | 39,656 | 143,681 | 129,853 | 117,041 |
+    | 均单面积（平方米）(average order area, m²) | 8.14 | 7.81 | 7.56 | 6.68 |
+    | 交货期（天）(delivery time, days) | 13 | 13 | 13 | 14 |
+    | 平均日处理订单数（个）(average orders processed per day) | 436 | 394 | 356 | 321 |
+    | 平均单个订单金额（万元）(average order value, 万元) | 1.18 | 1.19 | 1.19 | 1.03 |
+    | 客户数量（个）(customer count) | 800 | 938 | 768 | 632 |
+
+    and (PDF p.140) "报告期内，本公司单个订单面积在 50 平方米以下的订单数量分别为 114,938 个、126,975 个、139,989 个和 38,539 个，分别占公司订单总数的 98.20%、97.78%、97.43%和 97.18%。"
+    — "During the reporting period the number of the Company's orders with a single-order area under
+    50 square metres was 114,938, 126,975, 139,989 and 38,539, being 98.20%, 97.78%, 97.43% and
+    97.18% of total orders respectively." (Our translation.)
+  - **The honest counterweight, which this file needs and did not have: small orders cost more to
+    sell.** PDF p.312, on selling expense as a share of revenue:
+    "本公司小批量板每个订单的均单面积较小、订单数量较多，物流以快递为主，物流费用较高；同时，本公司销售人员也相应较多，销售人员工资薪酬占比高于同行业水平。与小批量板相比，大批量板销售费用相对较低，样板销售费用相对较高。"
+    — "The Company's small-batch boards have a small average area per order and a large number of
+    orders; logistics is mainly by courier, so logistics cost is high; at the same time the Company
+    has correspondingly more sales staff, and sales-staff pay is a higher share than the industry
+    level. **Compared with small-batch boards, large-batch boards' selling expense is relatively
+    low and sample boards' selling expense is relatively high.**" (Our translation; emphasis ours.)
+    The printed ratios of selling expense to revenue over 2013–2016 Q1: 兴森科技 Fastprint (sample)
+    7.09% / 6.62% / 6.99% / 7.25%; 崇达技术 Chongda (small batch) 4.09% / 3.99% / 4.18% / 4.20%;
+    the peer mean (mostly large batch) 3.07% / 3.07% / 3.20% / 3.37%.
+  - **Price transmission.** PDF p.112: "小批量板厂商由于客户数量多，均单面积小，客户对交期要求严格，因此卖方具有一定议价能力，通常可以将部分原材料价格上涨等因素向下游传导。与大批量板厂商相比，小批量板厂商受宏观经济周期波动以及原材料价格波动等因素影响相对较小。"
+    — "Because small-batch board makers have many customers, a small average order area and
+    customers with strict delivery requirements, the seller has a degree of bargaining power and can
+    usually pass part of raw-material price rises and similar factors downstream. Compared with
+    large-batch board makers, small-batch board makers are relatively less affected by macroeconomic
+    cycles and raw-material price swings." (Our translation.)
+- **DERIVED (arithmetic written out):**
+  - **Average order value from the filing's own two figures.** FY2015: 171,144.85万元 ÷ 143,681
+    orders = CNY 11,912 per order against the printed 平均单个订单金额 of 1.19万元 = CNY 11,900.
+    Reproduces. FY2013: 120,351.62万元 ÷ 117,041 = CNY 10,283 against printed 1.03万元 = CNY 10,300.
+  - **The "10 percentage points" claim checks out.** FY2014: Chongda's main-business margin 36.08%
+    minus the large-batch peer mean 17.35% = **18.73 pp**, comfortably over the "10 个百分点以上"
+    the filing claims. FY2013: the filing gives the 2013 peer mean as 18.04%; Chongda's 2013
+    main-business margin is not quoted on that page, and we have not read it, so this year is
+    **not** cross-checked.
+  - **Selling-expense penalty for small orders.** Fastprint (sample) 7.09% against the large-batch
+    peer mean 3.07% in FY2013 = **4.02 pp** of extra selling expense; Chongda (small batch) 4.09%
+    − 3.07% = 1.02 pp. Against a gross-margin advantage the filing puts at over 10 pp, the selling
+    expense penalty is real but does not come close to cancelling it — on these figures the sample
+    house keeps roughly 6 pp of the 10 pp advantage after selling expense, and that is before
+    engineering, planning and customer-service headcount that sits in administrative expense rather
+    than selling expense. **This calculation is ours, it mixes two companies' figures with a peer
+    mean, and it should be treated as an order-of-magnitude sanity check, not a result.**
+- **Bears on:**
+  - **H6 (supports, at the level of an industry claim rather than a company's own numbers).** An
+    issuer with 143,681 orders a year and CNY 1.7bn of revenue told a listing regulator, in a
+    document carrying prospectus liability, that the margin ordering sample > small batch > large
+    batch is a general property of the PCB industry, and gave a causal mechanism for it.
+  - **The capital argument (supports, and this is the most useful sentence found in this pass).**
+    "样板企业需要空置部分设备满足客户交货要求" — a sample-board company **must keep part of its
+    equipment idle** to hold the delivery promise, and charges for it. That is precisely the
+    trade foundry.api proposes: idle capacity is not waste in a quick-turn business, it is the
+    product, and the price recovers it. It is also the reason the margin is high rather than a
+    reason it should not be.
+  - **H7 (supports).** Chongda's classification table puts "客户较集中" (customers fairly
+    concentrated) beside every large-batch peer and "客户较分散" (customers fairly dispersed)
+    beside itself, and the price-transmission passage says the dispersed seller can pass on input
+    costs. Both are the issuer's own characterisation.
+  - **H6 (challenges — the cost-to-serve counterweight).** Chongda states plainly that small orders
+    cost more to sell, and that sample boards cost the most of all, and the printed expense ratios
+    bear it out: 7.09–7.25% of revenue at the sample house against 3.07–3.37% at the large-batch
+    peers. **Any use of the 97.6% or 98.4% gross-profit figures elsewhere in this repository must
+    carry this alongside it.** The tail's advantage at the gross line is partly spent below it.
+- **Used in:** not yet.
+- **Caveats:**
+  - **Chongda does not publish its own margin by order area** — only revenue. The margin ranking is
+    an industry statement plus a between-company comparison, not a within-company table. It is
+    weaker evidence than PCB-7 or PCB-8 and is recorded as a different *kind* of evidence.
+  - **The data are from 2013–2016.** The Chinese PCB industry has changed a great deal since, and
+    Chongda's own strategy changed with it: PCB-10 records Mingyang's 2018 prospectus noting that
+    Chongda had by 2017 adopted a strategy of "守住小批量市场，开拓中大批量市场" — "hold the
+    small-batch market, open up the medium- and large-batch market" (our translation), which is the
+    opposite direction of travel from the one this file's thesis would predict, and which ended
+    with Chongda at a 20.24% blended margin in 2023 (PCB-7's peer table).
+  - The 2013 peer mean of 18.04% and the 2014 mean of 17.35% are **Chongda's** computations from
+    other companies' reports, not ours, and we have not re-derived them from the underlying
+    filings.
+  - The selling-expense arithmetic under DERIVED is ours and is a rough comparison across
+    companies. It is not a segment-level cost allocation and must not be quoted as one.
+  - All translations are ours; the Chinese is quoted exactly so a reader can check them.
+
+### PCB-10. A census of who actually discloses the order-size cut: seven listed Chinese PCB makers have printed revenue by order area, but only three have ever printed *margin* by order area — and one of the three is JLC
+
+- **Sources:**
+  - 强达电路 IPO prospectus (PCB-7), PDF pp.157–159 (doc pp.1-1-156/158): the table
+    "（1）公司与同行业可比公司基本经营情况对比" — "(1) Comparison of the Company's and comparable
+    companies' basic operating situation", which has a column headed
+    "最近一年已披露的按订单面积分类收入占比" — "**the most recent year's disclosed share of revenue
+    classified by order area**", with a per-company source note.
+  - 深圳明阳电路科技股份有限公司 (Shenzhen Mingyang Circuit Technology Co., Ltd., SZSE **300739**),
+    首次公开发行股票并在创业板上市招股说明书（更新后）("IPO prospectus, updated"), 2018-01-25:
+    <http://static.cninfo.com.cn/finalpage/2018-01-25/1204362738.PDF> — PDF pp.115–116, 122, 146,
+    316–317.
+  - 崇达技术 IPO prospectus (PCB-9), PDF p.291.
+  - 金百泽 IPO prospectus (PCB-8), PDF p.482.
+- **Verification:** Verified 2026-09-25. The Qiangda and Chongda and Jinbaize documents are those
+  verified in PCB-7, PCB-9 and PCB-8. The Mingyang prospectus was downloaded from cninfo
+  (HTTP 200, 10,005,613 bytes, 379 pages) and read the same way. **This entry reports what each
+  filing does and does not contain; where a company's disclosure is asserted only by Qiangda's
+  table and has not been read in that company's own filing, the row says so and the status for that
+  row is Partial.**
+- **What it says:**
+  - **Qiangda's peer table names seven companies' order-area revenue splits.** Transcribed from
+    PDF pp.157–158, with the two relevant columns only (the full table also carries main business,
+    application field, CPCA rank, PCB revenue, region split, margin and R&D intensity):
+
+    | 公司简称 (company) | 样板 (sample) | 小批量板 (small batch) | 大/中批量板 (large/medium batch) | 2023 主营业务毛利率 (FY2023 main-business GM) |
+    |---|---|---|---|---|
+    | 中富电路 (Zhongfu Circuit) | 1.50% | 36.71% | 61.79% | 13.13% |
+    | 金百泽 (Jinbaize) | 48.91% | 26.09% | 25.00% | 27.19% |
+    | 本川智能 (Benchuan Intelligent) | 21.62% | 38.55% | 39.83% | 11.60% |
+    | 迅捷兴 (Xunjiexing) | 30.13% | 36.82% | 33.05% | 15.14% |
+    | 四会富仕 (Sihui Fushi) | 未披露 (not disclosed) | 未披露 | 未披露 | 24.55% |
+    | 明阳电路 (Mingyang) | 未披露 | 未披露 | 未披露 | 21.70% |
+    | 崇达技术 (Chongda) | 未披露 | 未披露 | 52.83% | 20.24% |
+    | 兴森科技 (Fastprint) | 46.96% | 48.94% | – | 28.72% |
+    | 公司 (Qiangda, the issuer) | 42.87% | 35.12% | 22.01% | 28.74% |
+
+    with the crucial note 2: "最近一年已披露的按订单面积分类收入占比，公司、崇达技术和金百泽为 2021 年数据，中富电路、本川智能、迅捷兴为 2020 年数据，兴森科技为 2015 年数据，四会富仕、明阳电路未披露，同行业可比公司未披露 2022 年按订单面积分类的收入占比。"
+    — "For the most recent year's disclosed share of revenue classified by order area: the Company,
+    Chongda and Jinbaize are 2021 data; Zhongfu, Benchuan and Xunjiexing are 2020 data; Fastprint is
+    **2015** data; Sihui Fushi and Mingyang have not disclosed it; **the comparable companies in the
+    same industry did not disclose the order-area revenue split for 2022**." (Our translation;
+    emphasis ours.) And note 5: "金百泽按订单面积分类为样板、小批量板、中批量板，订单面积分别为 5 平方米以下、5-20 平方米、20-50 平方米等。"
+    — "Jinbaize classifies by order area into sample boards, small-batch boards and medium-batch
+    boards, with order areas of under 5 m², 5–20 m² and 20–50 m² respectively." (Our translation.)
+  - **So the practice is dying, not spreading.** Read as a time series, the note says the most
+    recent order-area disclosure available in 2024 was 2021 for three companies, 2020 for three
+    more, and **2015 for Fastprint**; and that *nobody* in the peer set published it for 2022. The
+    order-size cut is a thing companies print **while they are being reviewed for a listing or a
+    fundraising, and stop printing once they are listed.**
+  - **Mingyang: the definition and the price-sensitivity claim, without the margin split.** Mingyang
+    defines the same tiers (PDF p.115): "（4）按均单面积可分为样板、小批量板、大批量板" — "(4) By
+    average order area, divided into sample boards, small-batch boards and large-batch boards";
+    sample "订单面积一般不超过 5 平方米，平均在 1 平方米左右" — "order area generally not over 5 m²,
+    averaging around 1 m²"; large batch "订单面积一般在 50 平方米以上" — "order area generally above
+    50 m²". It discloses the revenue share of orders under 50 m² — 73.10% / 69.55% / 65.77% /
+    60.21% across FY2014–2017 H1 — and average order area of 11.75 / 14.07 / 13.96 / 12.20 m², and
+    **no margin split**. Its comparison table (PDF p.122) prints a row the others do not:
+
+    | 项目 (item) | 小批量板 (small batch) | 大批量板 (large batch) |
+    |---|---|---|
+    | 客户价格敏感度 (customer price sensitivity) | 小批量产品数量多，均单面积小，且对产品特性要求高，客户更看重产品品质、交期、服务，**对价格较为不敏感** — "small-batch products are many in number with a small average order area and demand high product characteristics; customers care more about product quality, delivery time and service, and are **comparatively insensitive to price**" | 大批量板的订单数量少，均单面积大，客户看重采购成本，**对价格更为敏感** — "large-batch boards have few orders with a large average order area; customers care about procurement cost and are **more sensitive to price**" |
+
+    (Our translations.) And on capacity, PDF p.146:
+    "作为小批量板制造企业，保持适当的产能冗余有利于加快交货速度。"
+    — "As a small-batch board manufacturer, **maintaining an appropriate degree of capacity
+    redundancy is advantageous for speeding up delivery**." (Our translation.) That is Chongda's
+    "leave equipment idle" point, from a different issuer two years later.
+  - **Mingyang also records Chongda changing direction.** PDF p.317: "根据崇达技术 2017 年半年报，其'守住小批量市场，开拓中大批量市场'的发展战略"
+    — "according to Chongda's 2017 half-year report, its development strategy of 'hold the
+    small-batch market, open up the medium- and large-batch market'". (Our translation.)
+- **DERIVED:** none beyond counting. **Of the nine companies in Qiangda's table, seven have at some
+  point published revenue by order area (Zhongfu, Jinbaize, Benchuan, Xunjiexing, Chongda,
+  Fastprint, Qiangda) and two have not (Sihui Fushi, Mingyang — though Mingyang publishes a
+  ≤50 m² revenue share, which is the same cut at one threshold, so "two" is arguably one).
+  Of those seven, exactly two have been found to publish *gross margin* by order area: Qiangda
+  (PCB-7) and Jinbaize (PCB-8). Adding JLC, which is not in this table and which splits by batch
+  size rather than by area, gives three.**
+- **Bears on:**
+  - **H6 (context, and it reframes the whole file).** The earlier verdict above treated JLC's table
+    as near-unique. It is not: the *definition* by order area is an industry-standard classification
+    used by at least nine listed Chinese PCB makers, printed with identical thresholds (5 m², 50 m²)
+    in filings from 2016, 2018, 2021 and 2024 by four different issuers with four different
+    sponsors. What is rare is the **margin** cut, not the **order-size** cut.
+  - **H6 (challenges, on renewability).** Nobody published the order-area split for FY2022. The
+    evidence base is a set of listing documents, not a running series, and it is not being renewed.
+  - **The capital argument (supports).** Two separate issuers, eight years apart, independently
+    state that a small-order business must hold spare capacity: Chongda's "需要空置部分设备"
+    ("needs to leave part of its equipment idle") and Mingyang's "保持适当的产能冗余有利于加快交货速度"
+    ("maintaining an appropriate degree of capacity redundancy is advantageous for speeding up
+    delivery").
+- **Used in:** not yet.
+- **Caveats:**
+  - **The rows for 中富电路 (Zhongfu), 本川智能 (Benchuan) and 兴森科技 (Fastprint) in the table
+    above are Qiangda's rendering of those companies' disclosures and have NOT been read in the
+    companies' own filings.** Those three rows are **Partial**. Zhongfu's and Benchuan's IPO
+    prospectuses were not retrieved in this pass and Fastprint's 2015 disclosure was not located;
+    see the blocked list.
+  - Qiangda selected this comparable set and had an interest in a comparison that makes a
+    sample/small-batch specialist look good, exactly as PCB-1 noted of JLC's set. The overlap
+    between the two chosen sets is itself informative: both issuers picked small-to-mid specialists
+    and neither picked 深南电路 Shennan, 沪电股份 WUS, 景旺电子 Kinwong or 胜宏科技 Victory Giant.
+  - Mingyang's figures are FY2014–2017 H1 and Chongda's FY2013–2016 Q1. Neither is current.
+  - All translations are ours; the Chinese is quoted exactly so a reader can check them.
