@@ -5,6 +5,36 @@ fabrication capability instead of buying wafers from a merchant foundry — and,
 that capability cost. It starts from one company the repository owner asked about by name,
 `science.xyz`, and works outwards to comparable cases.
 
+> ## 🚩 DISPUTED BY THE REPOSITORY OWNER — 2026-09-25
+>
+> **The cost figures in this file do not pass the owner's sniff test and must be treated as highly
+> suspect. Do not cite them anywhere — not in `WHY.md`, not in `PRINCIPLES.md`, not in any
+> analysis — until someone with domain knowledge has confirmed them.**
+>
+> The disputed claims are:
+> - **IHF-3**: US$3.0 million for MEMSCAP's complete operating 150 mm MEMS foundry.
+> - **IHF-9**: US$2.75 million for Akoustis' 120,000 sq ft fab on 57 acres, split $1.0m tools /
+>   $1.75m real estate.
+> - **IHF-11**: a working 150 mm MEMS tool set as a **one-to-two-million-dollar** asset.
+>
+> **What is not in dispute** is that the numbers appear in the documents cited — the MEMSCAP
+> regulatory PDF, its audited 2022 annual report, and Akoustis' audited Exhibit 99.1. Those were
+> read and quoted. **What is in dispute is whether they mean what this file says they mean.**
+>
+> Reasons for doubt already recorded here, which the owner's instinct may be tracking:
+> - Neither transaction was arm's length. MEMSCAP was executing a planned exit; Akoustis' seller was
+>   a public body that approved the deal "without significant price negotiation" to save jobs.
+> - Both prices excluded the liabilities. MEMSCAP kept ~EUR 5.3m of subsidiary debt; the plant was
+>   **leased**, at EUR 655k/yr, so no building was sold at all.
+> - Akoustis then spent **US$49,972,186** on plant to make its purchase useful — within $28k of its
+>   own "well over $50 million" estimate of building new. That is the strongest internal signal that
+>   the headline acquisition prices do not represent the cost of a working fab.
+> - **No public price index for used 150 mm tools exists** (IHF-11's own finding), so the "tool set
+>   is cheap" conclusion rests on two non-comparable transactions and nothing else.
+>
+> **What would settle it:** a quote or an auction result for a comparable 150 mm tool set, or an
+> equipment schedule from a fab sale that was genuinely competitive.
+
 **Why it is evidence.** A company that spends its own money on a fab has, by revealed preference,
 been told "no" by the merchant foundry market — or has been quoted a price, a minimum volume or a
 lead time it could not live with. That is the cleanest available measurement of demand the existing
