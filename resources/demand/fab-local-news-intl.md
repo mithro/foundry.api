@@ -1681,6 +1681,70 @@ conversion.
   production revenue is the pattern H5 predicts. What it is *not* is a long tail — these are 15 to 24
   programmes a year with companies that can pay six figures up front.
 
+### LNI-20. Kohesio, the EU's structural-fund beneficiary register, on the specialty fabs: IHP €22.4m across 9 projects, LFoundry €24.1m at a flat 50% co-financing rate — and no entry at all for X-FAB, Fraunhofer ISIT or Silex
+
+- **Source:** European Commission, **Kohesio** — the public register of European Regional Development
+  Fund, Cohesion Fund and ESF beneficiaries. <https://kohesio.ec.europa.eu/>
+  Queried through the public JSON API on 2026-09-25:
+  `https://kohesio.ec.europa.eu/api/beneficiaries?name=<name>&language=EN&page=0`
+- **Verification:** Verified for the figures returned. **Partial as a statement about total EU
+  funding**, because Kohesio's coverage is demonstrably incomplete — see the caveats, which are the
+  most important part of this entry.
+- **Date checked:** 2026-09-25
+- **Bearing:** Context on H5 and H8, and a correction to how `LNI-3`, `LNI-4` and `LNI-6` should be
+  read.
+- **How it was counted:** The parameter that filters is **`name=`**. `keywords=`, `search=`,
+  `beneficiary=` and `q=` are all silently ignored and return the whole register sorted by budget
+  descending (709,684 beneficiaries), which is a trap: a query that looks like it worked returns
+  Poland's national roads agency at the top. There is **no working per-project drill-down by
+  beneficiary** on this API surface — `/api/projects?beneficiary=<entity>` also ignores the filter and
+  returns all 2,269,971 projects — so only the beneficiary-level aggregates below could be obtained.
+- **What it says.** Every row exactly as returned:
+
+  | Beneficiary | Country | Projects | Total budget | EU budget | Co-financing rate |
+  |---|---|---:|---:|---:|---:|
+  | IHP GmbH – Leibniz-Institut für innovative Mikroelektronik | DE | **9** | **€22,393,213.29** | not returned | not returned |
+  | IHP GmbH – Innovations for High Performance Microelectronics/Leibniz-Institut für innovative Mikroelektronik | DE | 1 | €145,100.00 | €87,060.00 | 60.0% |
+  | IHP Solutions GmbH – Gesellschaft für technologiebasierten Innovationstransfer | DE | 3 | €21,125.50 | not returned | not returned |
+  | **LFOUNDRY SRL** | IT | **3** | **€24,138,334.64** | **€12,069,167.32** | **50.0%** |
+  | SOITEC LAB | FR | 1 | €6,525,000.00 | €3,100,000.00 | 47.51% |
+  | Melexis GmbH | DE | 1 | €278,075.00 | not returned | not returned |
+
+  Searches returning **nothing relevant**: `X-FAB` / `X-Fab` / `XFAB` (293 fuzzy hits, none of them
+  the foundry — the top hits are the city of Warsaw and an Austrian employment charity called FAB);
+  `Fraunhofer-Institut fur Siliziumtechnologie`, `Siliziumtechnologie`, `ISIT` and `Itzehoe` (0
+  relevant); `Elmos` (0); `Silex` (4 hits, none of them the MEMS foundry — a Hungarian water-treatment
+  company, a Hungarian automation company, a German lift servicer and a German English school).
+  Searching `Fraunhofer` alone returns 40 beneficiaries with a combined budget of
+  **€2,296,681,833.31**, none of which is identifiable as ISIT.
+
+- **DERIVED (arithmetic written out):**
+  - **IHP's three Kohesio identities together:** €22,393,213.29 + €145,100.00 + €21,125.50 =
+    **€22,559,438.79** across **13 projects**, i.e. **€1,735,341 per project**.
+  - **The €11.7m ERDF cleanroom grant in `LNI-3` is 52.2% of IHP's whole Kohesio total**
+    (€11,700,000 ÷ €22,393,213.29). Either the cleanroom is the single dominant ERDF item in IHP's
+    history, or — more likely, given the coverage gaps below — Kohesio does not hold all of it. The
+    figures in `LNI-3` come from the Brandenburg ministry and the Brandenburg ERDF managing authority
+    directly and should be preferred.
+  - **LFoundry's EU money against its announced capex.** €12,069,167.32 of EU money against the €40m
+    expansion in `LNI-4` is **30.2%** — though the Kohesio projects are not necessarily the same
+    programme, and the *contratto di espansione* is a national labour instrument, not an ERDF one. The
+    flat **50.0%** co-financing rate across all three LFoundry projects is the standard
+    more-developed-region ERDF rate; Abruzzo is a transition region, so this is the rule, not a
+    favour.
+  - **EU money per job at LFoundry, on the `LNI-4` arithmetic:** €12,069,167.32 ÷ 13 new permanent
+    jobs = **€928,397 of EU money per job**, if the two are connected — which is not established, and
+    is recorded here as a bound rather than a claim.
+- **Caveats, and they dominate this entry.** **Kohesio is not a complete record of EU money to these
+  companies.** X-FAB — six fabs, four of them in the EU, including two in ERDF-eligible eastern
+  Germany — has no entry at all. Fraunhofer ISIT, whose 2008 expansion the Schleswig-Holstein minister
+  explicitly said would draw on "EU-Fördermittel" (`LNI-9`), has no entry. Silex, in Sweden, has no
+  entry. Absence in Kohesio is evidence about Kohesio's coverage, not about the beneficiary. Coverage
+  varies by member state, by programming period and by managing authority, and the pre-2014 periods
+  are thin. Do not write "X-FAB received no EU structural funds"; write "Kohesio has no entry for
+  X-FAB". The `euBudget` and `cofinancingRate` fields come back empty for several German
+  beneficiaries, so the German totals are total project cost, not EU contribution.
+
 ---
 
 ## What the numbers add up to
@@ -1844,10 +1908,15 @@ Blocked items with the blocker named, so nobody repeats the work.
    entry is **Partial**. No account was created, because this task is read-only.
 9. **La Voix de l'Est** is behind a soft paywall; the article was read through a summarising fetch,
    not as raw text, so `LNI-7` marks its distinctive claims as reported rather than quoted.
-10. **No CORDIS or Kohesio pull was completed.** The structured EU sources were planned first and
-    displaced by richer primary material (filed accounts, ministerial releases, the GtR API). A
-    Kohesio query by beneficiary for IHP, Fraunhofer ISIT, LFoundry and X-FAB would probably add
-    ERDF grant lines to `LNI-3`, `LNI-4`, `LNI-6` and `LNI-9`, and is the obvious next step.
+10. **Kohesio — ✅ done 2026-09-25, see `LNI-20`, but it under-delivered.** The beneficiary-level
+    aggregates came back cleanly for IHP, LFoundry, Soitec and Melexis. Two things did not work.
+    First, **there is no per-project drill-down by beneficiary** on the public API:
+    `/api/projects?beneficiary=<entity>` silently ignores the filter and returns all 2,269,971
+    projects, as do `keywords=`, `search=` and `q=` on `/api/beneficiaries` (only `name=` filters).
+    Second, **Kohesio simply has no entry for X-FAB, Fraunhofer ISIT or Silex**, so `LNI-6` and
+    `LNI-9` gained nothing. **No CORDIS bulk CSV pull was attempted** — CORDIS covers Framework
+    Programme research grants rather than structural funds, and would be the right source for IHP's
+    and Tyndall's Horizon money, which is still unmeasured here.
 11. **No wafer-price or customer-count disclosure was found for any of the pure-play fabs.** Silex,
     X-FAB and Teledyne MEMS all decline to publish wafer starts by customer, price per wafer, or the
     number of customers. Only CORNERSTONE (`LNI-13`) and Fraunhofer ISIT (`LNI-9`) put a customer
