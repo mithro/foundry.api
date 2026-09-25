@@ -24,7 +24,9 @@ own history of federal computing research, and MOSIS's own site as archived by t
    procurement.
 4. **A continuous throughput series, 258 projects in 1981 to 1,880 in 1989** (`MOS-8`, `MOS-9`),
    and a **price list from 1984 to 1989** (`MOS-8`).
-5. **Headcount: 12 people in 1983, 11 in 1984, 27 in 1987** (`MOS-3`).
+5. **Headcount: 12 people in 1983, 11 in 1984, 20 in 1985, 27 in 1987 — and four today** (`MOS-3`,
+   `MOS-12`). `mosis.com` and `mosis.org` now 301 to `mosis2.com`, which lists four staff and one
+   upcoming MPW date.
 6. **A commercial silicon broker tried the same business in 1981 and was out of orders by 1984**,
    and DARPA's own programme manager said the reason was that there was not enough demand for one
    (`MOS-10`).
@@ -153,19 +155,20 @@ Format and conventions: [`../README.md`](../README.md). Searches and dead ends:
     dated July 1990. It does not establish what replaced it. `MOS-1` puts the end of DARPA money at
     1994, five years later, so at least one further instrument existed and was not found.
 
-### MOS-3. How many people ran MOSIS: 12 named staff in 1983, 11 in 1984, 27 in 1987 — from ISI's own reports to DARPA
+### MOS-3. How many people ran MOSIS: 12 named staff in 1983, 11 in 1984, 20 in 1985, 27 in 1987 — from ISI's own reports to DARPA
 
-- **Sources:** the 1983, 1984 and 1987 ISI Annual Technical Reports (DTIC AD-A145776, AD-A157991 and
-  AD-A224924), cited in `MOS-2`. The 1983 report is
-  *1983 Annual Technical Report: A Research Program in Computer Technology*, ISI/SR-84-138, covering
-  July 1982 → June 1983, <https://archive.org/details/DTIC_ADA145776>.
+- **Sources:** the 1983, 1984, 1985 and 1987 ISI Annual Technical Reports (DTIC AD-A145776,
+  AD-A157991, AD-A178085 and AD-A224924), cited in `MOS-2`.
+  - 1983: ISI/SR-84-138, July 1982 → June 1983, <https://archive.org/details/DTIC_ADA145776>
+  - 1985: ISI/SR-86-170, July 1984 → June 1985, <https://archive.org/details/DTIC_ADA178085>
 - **Verification:** Verified 2026-09-25, counted by hand from the OCR text of each report's project
   chapter. Each chapter of an ISI annual report opens with a roster under the headings "Research
   Staff", "Research Assistants" and "Support Staff".
 - **How it was counted:** For 1983 and 1984, chapter 8 and chapter 5 respectively, both titled
-  "VLSI", are the MOSIS chapter; both rosters were counted. For 1987, MOSIS occupies chapters 4
-  "Advanced VLSI" and 5 "VLSI"; **the two chapters print the identical roster**, so the names were
-  counted once, not twice.
+  "VLSI", are the MOSIS chapter; both rosters were counted. For 1985, MOSIS occupies chapter 10
+  "VLSI" and chapter 11 "Advanced VLSI", whose rosters **overlap heavily**, so the count is the
+  **union of unique names**. For 1987, MOSIS occupies chapters 4 "Advanced VLSI" and 5 "VLSI";
+  **the two chapters print the identical roster**, so the names were counted once, not twice.
 - **What it says:**
   - **1983 report** (period July 1982 → June 1983), chapter 8 "VLSI".
     Research Staff (**8**): George Lewicki, Danny Cohen, Vance Tyree, Joel Goldberg, Ron Ayres,
@@ -175,6 +178,15 @@ Format and conventions: [`../README.md`](../README.md). Searches and dead ends:
     Research Staff (**8**): George Lewicki, Ron Ayres, Danny Cohen, Joel Goldberg, Lee Richardson,
     Barden Smith, Victoria Svoboda, Vance Tyree.
     Support Staff (**3**): Kathie Fry, Terri Lewis, Jasmin Witthoft.
+  - **1985 report** (period July 1984 → June 1985), chapter 10 "VLSI" and chapter 11
+    "Advanced VLSI", union of unique names.
+    Research Staff, chapter 10 (**12**): George Lewicki, Ron Ayres, David Booth, Jeff Diefik
+    [spelled "Deifik" in chapter 11 and in 1987], Joel Goldberg, Wes Hansford, David Hollenberg,
+    Shih-Lien Lu, Lee Richardson, Craig Rogers, Barden Smith, Vance Tyree. Chapter 11's research
+    staff is the same list minus Hollenberg and Lu, who appear there as Research Assistants.
+    Support Staff, chapter 10 (**8**): Barbara Brockschmidt, Kathie Fry, Terri Lewis, Lee Magnone,
+    Desaree Scott, Victoria Svoboda, Janna Tuckett, Jasmin Witthoft. Chapter 11's support list is a
+    subset.
   - **1987 report** (period 1986-07-01 → 1987-11-30), chapters 4 and 5, identical roster.
     Research Staff (**12**): George Lewicki, Ron Ayres, Jeff Deifik, Joel Goldberg, Wes Hansford,
     Lee Richardson, Craig Rogers, Carl Service, Bing Sheu, Barden Smith, Jeff Sondeen, Vance Tyree.
@@ -184,16 +196,18 @@ Format and conventions: [`../README.md`](../README.md). Searches and dead ends:
     Terri Lewis, Christine Tomovich.
 - **DERIVED (arithmetic written out):**
   - **1983: 8 + 4 = 12 named people.** **1984: 8 + 3 = 11 named people.**
-    **1987: 12 + 8 + 7 = 27 named people.**
-  - Against `MOS-8`'s project series — 1,532 projects in 1983, 1,634 in 1984, and a 1986/87 level
-    of about 1,683: **1,532 ÷ 12 = 128 designs per person in 1983**, **1,634 ÷ 11 = 149 in 1984**,
-    and **1,683 ÷ 27 = 62 in 1987** (or **1,683 ÷ 19 = 89** counting only employees, not the eight
-    graduate research assistants).
+    **1985: 12 + 8 = 20 named people.** **1987: 12 + 8 + 7 = 27 named people.**
+  - Against `MOS-8`'s project series — 1,532 in 1983, 1,634 in 1984, 1,790 in 1985 and about 1,683
+    in 1986/87: **1,532 ÷ 12 = 128 designs per person in 1983**, **1,634 ÷ 11 = 149 in 1984**,
+    **1,790 ÷ 20 = 90 in 1985**, and **1,683 ÷ 27 = 62 in 1987** (or **1,683 ÷ 19 = 89** counting
+    only employees, not the eight graduate research assistants).
   - **Productivity per head fell by more than half between 1984 and 1987 while throughput was flat.**
-    Headcount went 11 → 27 (2.5×) for a project count that went 1,634 → 1,683 (1.03×). What the
-    extra sixteen people bought was **not volume — it was technology**: the 1987 roster is split
-    across "VLSI" and a new "Advanced VLSI" chapter opened to chase CMOS, 1.2 µm and quality
-    assurance (`MOS-2`, `MOS-4`).
+    Headcount went 11 → 20 → 27 (2.5×) for a project count that went 1,634 → 1,790 → 1,683 (1.03×).
+    What the extra sixteen people bought was **not volume — it was technology**: from 1985 the
+    roster is split across "VLSI" and a new "Advanced VLSI" chapter opened to chase CMOS, 1.2 µm,
+    printed circuit boards and quality assurance (`MOS-2`, `MOS-4`).
+  - **And today: four.** MOSIS 2.0's entire public team is four people (`MOS-12`), **15% of the 1987
+    headcount**, against one advertised MPW date a year rather than one a week.
   - Against `MOS-8`'s $30 m of "facility and staff costs" over roughly a decade — about **$3.0 m a
     year** — a 27-person team is **$111,111 per head per year** fully loaded, including facilities,
     in late-1980s dollars. **This is derived from two independent sources and they agree**: the
@@ -702,6 +716,63 @@ Format and conventions: [`../README.md`](../README.md). Searches and dead ends:
     reading is at least as consistent with the facts as the "no demand" reading, and IDA does not
     consider it.**
 
+### MOS-12. What MOSIS is today: `mosis.com` 301s to `mosis2.com`, and the whole named team is four people
+
+- **Sources:**
+  - `https://mosis.com/` and `https://mosis.org/`, both returning **HTTP 301 to
+    `https://mosis2.com:443/`**
+  - <https://mosis2.com/> and <https://mosis2.com/team>
+- **Verification:** **Verified 2026-09-25** — this is a claim about live web state and will go stale;
+  re-check it before citing (checker rule C6). Both redirects and both pages were fetched with
+  `curl` on that date.
+- **What it says:**
+  - **The MOSIS name and both of its historic domains now resolve to MOSIS 2.0.** `mosis.com` and
+    `mosis.org` each return `HTTP/2 301, location: https://mosis2.com:443/`. The old
+    `mosis.com` service site, whose archived pages are the source for `MOS-1` and much of `FUND-5`,
+    **no longer exists at its own address.**
+  - The site is branded "**MOSIS 2.0**" and carries three logos: **USC Viterbi Information Sciences
+    Institute**, **CA DREAMS**, and MOSIS. The footer reads "©2026 University of Southern
+    California". Careers link out to `ca-dreams.org/open-positions/`.
+  - **"Meet the Team" names exactly four people:** **Rehan Kapadia**, Director MOSIS 2.0 (a USC
+    professor of electrical engineering, at USC since 2014); **Christine Lee**, Fab Prototyping
+    Services Manager; **Damon McCaskill**, Senior Project Manager; **Jeung Hun Park**,
+    Microelectronics Fabrication Engineering Manager.
+  - Four service lines are offered: **Nanofab Prototyping** ("access to seven university
+    nanofabrication facilities … within the Southern California area and throughout the nation"),
+    **MPW Services** ("seamless access to a wide array of commercial silicon MPW services from
+    leading large, medium, and small-volume foundries"), **IC Design**, and **Test and Modeling**
+    (through "the SWAP Hub").
+  - The front page advertises exactly **one** upcoming tapeout: "**TSMC, 0.18 µm, 10/28/2026**"
+    *(i.e. 2026-10-28)*.
+- **DERIVED (arithmetic written out):**
+  - **Headcount, then and now.** MOSIS 1.0: **12** named people in 1983, **11** in 1984, **20** in
+    1985, **27** in 1987 (`MOS-3`). MOSIS 2.0: **4**. That is **15% of the 1987 team**.
+  - **One advertised MPW date** against MOSIS's 1990 rate of "almost one run per week" (`MOS-8`),
+    i.e. roughly 50 a year.
+- **Bears on:**
+  - **H6 (context, and it reframes the successor).** `SMB-5` records MOSIS 2.0's goal: "$20 million
+    in annual revenue" and self-sustainability by 2028. The public team is four people and the
+    published pipeline is one TSMC 0.18 µm shuttle. **Either most of the organisation is not
+    public, or the $20 m target is being pursued by a very small team**, and either way the
+    "self-sustaining business" that `SMB-5` describes in the past tense is not the thing currently
+    operating under the name.
+  - **H5 (context).** The single advertised node is **0.18 µm** — the same generation `SMB-8` and
+    `FUND-5` price for the 1990s MOSIS, and two decades behind the 16 nm that Berkeley's Dean told
+    Congress her students now tape out at through Intel (`MOS-11`).
+  - **H6 (supports, weakly).** The service lines have broadened well beyond brokerage — nanofab
+    access, IC design services, test and modelling. That is the direction a brokerage has to move
+    to answer Losleben's objection in `MOS-10` ("not adding enough value to the process").
+- **Used in:** not yet.
+- **Caveats:**
+  - **This is live web state and it is volatile.** Re-check before citing.
+  - "Meet the Team" is a marketing page, not an org chart. There is no reason to think it lists
+    every employee, and MOSIS 2.0 sits inside USC ISI and the CA DREAMS hub, which have their own
+    staff. **The four-person count is a floor and a public-facing one**, and the comparison with
+    `MOS-3`'s rosters — which were internal project rosters in a report to a funder — is not
+    like-for-like. It is recorded because it is the only current headcount that exists.
+  - The tapeout schedule shown on the front page is a highlight, not the full schedule; the site
+    links to a fuller one that was not fetched.
+
 ### MOS-11. Congress was told in 2022 that MOSIS "has kind of disappeared", by a member who used it
 
 - **Source:** *Strengthening the U.S. Microelectronics Workforce*, Hearing before the Subcommittee
@@ -820,7 +891,9 @@ charged in aggregate, in any year, ever.
 | Turnaround | 4–6 weeks (1983/84) → 7–9 weeks (1990) → 8–10 weeks (1987 report) | 1983–1990 | `MOS-4`, `MOS-8` |
 | Named staff | **12** (8 research + 4 support) | Jul 1982 → Jun 1983 | `MOS-3` |
 | Named staff | **11** (8 research + 3 support) | Jul 1983 → Jun 1984 | `MOS-3` |
+| Named staff | **20** (12 research + 8 support) | Jul 1984 → Jun 1985 | `MOS-3` |
 | Named staff | **27** (12 research + 8 research assistants + 7 support) | Jul 1986 → Nov 1987 | `MOS-3` |
+| Named staff, MOSIS 2.0 | **4** | 2026 | `MOS-12` |
 | **DARPA facility and staff cost** | **~$30 m over the decade ≈ $3.0 m a year** | 1981 → ~1990 | `MOS-8` |
 | **DARPA project support cost** | **~$14 m over the decade ≈ $1.4 m a year** | 1981 → ~1990 | `MOS-8` |
 | **DERIVED** cost per head, fully loaded | $3.0 m ÷ 27 = **$111,111** | 1987 | `MOS-3`, `MOS-8` |
@@ -905,20 +978,22 @@ broker that tried it without the subsidy in the same years, and was out of order
 
 ## 4. Head count — how many people ran MOSIS
 
-**Twelve named people in 1982/83. Eleven in 1983/84. Twenty-seven in 1986/87.** All three counts are
-from ISI's own annual technical reports to DARPA, which print a roster at the head of each project
-chapter (`MOS-3`).
+**Twelve named people in 1982/83, eleven in 1983/84, twenty in 1984/85, twenty-seven in 1986/87 —
+and four today.** The four historic counts are from ISI's own annual technical reports to DARPA,
+which print a roster at the head of each project chapter (`MOS-3`); the current one is MOSIS 2.0's
+public "Meet the Team" page (`MOS-12`).
 
-| Reporting period | Research staff | Research assistants | Support staff | Total | Projects that year |
-|---|---|---|---|---|---|
-| Jul 1982 → Jun 1983 | 8 | — | 4 | **12** | 1,532 |
-| Jul 1983 → Jun 1984 | 8 | — | 3 | **11** | 1,634 |
-| Jul 1986 → Nov 1987 | 12 | 8 | 7 | **27** | ~1,683 |
+| Reporting period | Research staff | Research assistants | Support staff | Total | Projects that year | Designs per head |
+|---|---|---|---|---|---|---|
+| Jul 1982 → Jun 1983 | 8 | — | 4 | **12** | 1,532 | **128** |
+| Jul 1983 → Jun 1984 | 8 | — | 3 | **11** | 1,634 | **149** |
+| Jul 1984 → Jun 1985 | 12 | (2, also counted as research staff) | 8 | **20** | 1,790 | **90** |
+| Jul 1986 → Nov 1987 | 12 | 8 | 7 | **27** | ~1,683 | **62** (89 excluding students) |
+| 2026 (MOSIS 2.0) | — | — | — | **4** named publicly | one advertised MPW date | — |
 
-**Designs per head: 128 in 1983, 149 in 1984, 62 in 1987** (or 89 in 1987 counting only employees,
-not the eight graduate students). Throughput was flat from 1984 to 1987 while headcount rose 2.5×.
-What the extra people bought was not volume but **technology** — the 1987 report splits MOSIS across
-a "VLSI" chapter and a new "Advanced VLSI" chapter chasing CMOS, 1.2 µm and quality assurance
+Throughput was flat from 1984 to 1987 while headcount rose 2.5×. What the extra people bought was
+not volume but **technology** — from 1985 the reports split MOSIS across a "VLSI" chapter and a new
+"Advanced VLSI" chapter chasing CMOS, 1.2 µm, printed circuit boards and quality assurance
 (`MOS-2`, `MOS-4`).
 
 **So: are these services expensive because they are staffed rather than automated?** The answer this
@@ -959,6 +1034,7 @@ same answer: **a multi-project-wafer brokerage is a payroll with a website attac
 | **A year-by-year DARPA figure for MOSIS, 1981–1994** | Only a decade total exists (`MOS-8`), labelled by IDA as an "initial estimate". Nothing for 1990–1994 at all. | The end date of DARPA funding rests on `MOS-1` alone. |
 | **The IDA study's underlying data** | IDA Paper P-2429 says its project counts came from ISI; those submissions are not published, and IDA's own two series disagree (`MOS-8`). | The 258 → 1,880 series is as good as it gets. |
 | **Volumes 1 and 3 of the IDA study, and *IEEE Spectrum*, September 1984** | Volume 3 (DTIC AD-A241680) was not downloaded; Volume 1 (AD-A239925) failed with repeated HTTP 302s. IEEE Xplore was not attempted. | `MOS-10`'s Synmos quotes are **Partial** — quoted through IDA, not read in the original. |
-| **Seven of twelve ISI Annual Technical Reports** (AD-A178085, AD-A221184, AD-A231025, AD-A127288, AD-A115915, AD-A121182) | `archive.org/download/.../<id>_djvu.txt` returned HTTP 302 with an empty body on repeated attempts, although the files are listed in each item's metadata. | **`MOS-3`'s headcount series has three points instead of ten.** Each additional report is one `curl` away when the redirects clear, and would turn it into a full 1975–1987 series. |
+| **Five of twelve ISI Annual Technical Reports** (AD-A231025, AD-A127288, AD-A221184, AD-A115915, AD-A121182) | `archive.org/download/.../<id>_djvu.txt` 302s to a storage node; following the redirect with `curl -L` sometimes yields an empty body. **Resolving the `Location:` header and fetching the node URL directly works** — that is how AD-A178085 (the 1985 report) was recovered. The remaining five still failed. | **`MOS-3`'s headcount series has four points instead of nine.** Each additional report is one `curl` away and would turn it into a near-continuous 1975–1987 series — the cheapest remaining improvement to this file. |
+| **MOSIS 2.0's actual headcount, revenue or order book** | The site publishes four named staff and one upcoming tapeout date (`MOS-12`) and nothing financial. `ca-dreams.org` was not crawled. | The successor's scale is known only from its own marketing. |
 | **What share of MOSIS's revenue came from federal customers** | Not published anywhere found. | Without it, "self-sustaining" cannot be distinguished from "sustained by government purchasing". |
 | **How much of the $17.96 m ATMI award USC kept** | Not published. | `MOS-5`'s bearing on H6 is weaker than it looks if most of it passed to Intel. |

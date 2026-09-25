@@ -864,3 +864,17 @@ Two more access notes:
   for items that plainly have the file (it is listed in `archive.org/metadata/<id>`). Seven of
   nineteen requested texts came down; retrying with backoff recovered some but not all. There is no
   error message and the failure is silent unless you check the status code and the size.
+
+### 16.7 What MOSIS is today, and one route worth keeping
+
+`mosis.com` and `mosis.org` both return `HTTP/2 301` to `https://mosis2.com:443/` (checked
+2026-09-25). MOSIS 2.0 is a USC Viterbi ISI / CA DREAMS site, its public "Meet the Team" page names
+**four** people, and its front page advertises one upcoming tapeout — TSMC 0.18 µm, 2026-10-28
+(`MOS-12`). `ca-dreams.org` was not crawled and is the obvious next step for the successor's scale.
+
+**The archive.org 302 has a workaround.** `https://archive.org/download/<id>/<id>_djvu.txt` returns
+a 302 whose `Location:` header names a storage node — `ia801009.us.archive.org`,
+`dn760103.eu.archive.org` and so on. `curl -L` sometimes follows it to an empty body; **reading the
+`Location:` header and fetching that URL directly works.** That recovered the 1985 ISI Annual
+Technical Report (AD-A178085) after four failed `-L` attempts, and it added the fourth point to
+`MOS-3`'s headcount series. Five of the twelve requested reports still failed even this way.
