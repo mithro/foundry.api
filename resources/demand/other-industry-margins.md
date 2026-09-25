@@ -1,0 +1,275 @@
+# Margin split by order size, outside PCBs (`OIM`)
+
+## What this file is for
+
+[`long-tail-businesses.md`](long-tail-businesses.md) `SMB-1` and
+[`../analyses/long-tail-pays-for-the-capital.md`](../analyses/long-tail-pays-for-the-capital.md)
+rest on **one table in one filing**. JLC's IPO prospectus splits the same PCB factories by order
+area and prints the gross margin of each half: 36.24% on sample and small-batch work against 2.76%
+on medium and large batch, which decomposes to **97.60% of gross profit coming from the long tail**.
+[`pcb-industry-comparables.md`](pcb-industry-comparables.md) then searched the PCB industry for a
+second such table and found none — the best-placed peer, Fastprint, splits its margin four ways and
+never by batch size.
+
+This file searches **outside PCBs** for the same shape of disclosure: a capital-owning manufacturer
+or process business that reports margin, or revenue and cost, **broken down by order size, batch
+size, customer size or channel**, in a way that lets the small end be compared with the bulk end.
+
+It is deliberately not a hunt for long-tail analogies in general. That work is
+[`../analyses/industry-parallels.md`](../analyses/industry-parallels.md) (`PAR-1`…`PAR-39`).
+A business that merely has many customers is not evidence here. The entry has to show the split.
+
+Entries are graded by what they actually contain:
+
+| Grade | What it means |
+|---|---|
+| **1. Printed table** | Margin by order or batch size, from the same plant, printed by the issuer. The JLC shape. |
+| **2. Stated comparison** | "Our short-run work earns X% against Y% on volume", in a filing, prospectus or transcript. |
+| **3. Segment reporting** | Segments that happen to correspond to long tail versus bulk, with margins, even if not labelled that way. |
+| **4. Reverse finding** | The small end is *less* profitable. Recorded with equal care and no softening. |
+
+---
+
+### OIM-1. Cimpress publishes gross margin by reportable segment for seven years, and its
+micro-business segment earns 55% against 32% in its wholesale segment — grade 3, and the closest
+thing to JLC found outside PCBs
+
+- **Sources:**
+  - Cimpress plc (Nasdaq: CMPR), CIK 0001262976, Annual Report on Form 10-K for the fiscal year
+    ended 2025-06-30, filed 2025-08-08, accession 0001628280-25-039200:
+    <https://www.sec.gov/Archives/edgar/data/1262976/000162828025039200/cmpr-20250630.htm>
+  - Cimpress plc, Form 8-K exhibit 99.1, "Q4 FY2025 Quarterly Earnings" investor letter, furnished
+    2025-07-29, accession 0001262976-25-000084:
+    <https://www.sec.gov/Archives/edgar/data/1262976/000126297625000084/q4_fy25quarterlyearnings.htm>
+  - Cimpress plc, Form 10-K for the fiscal year ended 2024-06-30, filed 2024-08-09, accession
+    0001262976-24-000064:
+    <https://www.sec.gov/Archives/edgar/data/1262976/000126297624000064/cmpr-20240630.htm>
+- **Verification:** Verified 2026-09-25. `www.sec.gov/Archives/...` returns **HTTP 403** to `curl`
+  under every User-Agent tried, including a declared non-browser one — the body is SEC's "Your
+  Request Originates from an Undeclared Automated Tool" page. The FY2025 10-K and the Q4 FY2025
+  earnings exhibit were therefore opened in an ordinary browser and their text read directly; every
+  quote below was copied from that text. The FY2024 figures were read through `WebFetch`, which
+  does reach `www.sec.gov`, and are marked where they appear.
+- **What it says:**
+  - **Cimpress is a print business built on small orders and says so in its first sentence.**
+    "Cimpress is a strategically focused collection of businesses that specialize in print mass
+    customization, through which we deliver large volumes of individually small-sized customized
+    orders of printed materials and promotional products."
+  - **It names the long tail.** Among its scale advantages it lists "the ability to systematically
+    and automatically sort through the voluminous "long tail" of diverse and uncommon orders in
+    order to group them into more homogeneous categories, and to route them to production nodes
+    that are specialized for that category of operations".
+  - **It states the cost-versus-volume trade-off the whole project is about.** "Traditionally, the
+    only way to manufacture at a low unit cost was to produce a large volume of that product …
+    Custom-made products (i.e., those produced in small volumes for a very specific purpose)
+    historically incurred very high unit costs … Mass customization breaks this trade off, enabling
+    low-volume, low-cost production of individually unique products."
+  - **The long-tail segment, Vista.** "Our Vista business helps about 11 million small businesses
+    annually to create attractive, professional-quality marketing and branding products at
+    affordable prices and low volumes." And: "VistaPrint represents the vast majority of the
+    revenue in this segment where, during fiscal year 2025, average order value (AOV) was more than
+    $90 and customers spent, on average, a bit more than $150 for the year; **gross margins were
+    about 55%** and advertising spend as a percent of revenue was about 15%."
+  - **The bulk/wholesale segments, Upload & Print.** "Our Upload & Print businesses are organized in
+    two reportable segments: PrintBrothers and The Print Group, both of which focus on serving
+    graphic professionals such as local printers, print resellers, graphic artists, advertising
+    agencies, and other customers with professional desktop publishing skill sets. Average order
+    values and annual spend per customer vary by business, with AOVs, on average, of about €100 -
+    €175 and annual spend per customer of about €300 - €900 in fiscal year 2025. **Gross margins
+    vary by business but averaged about 32% in fiscal year 2025 due to wholesale-like pricing** and
+    the wide variety of products produced both in owned facilities as well as via third-party
+    fulfillers. Advertising spend as a percent of external revenue was about 5% in fiscal year
+    2025, although it also varies by business."
+  - **The third segment, National Pen**, sits between them: "National Pen serves more than a
+    million small businesses annually … During fiscal year 2025, National Pen's average order value
+    was about $300 - $350, and annual spend per customer was about $470. Gross margins were about
+    51% in fiscal year 2025 with highly seasonal profits driven in the December quarter.
+    Advertising spend as a percent of revenue (excluding inter-segment revenue) was about 20% in
+    fiscal year 2025."
+  - **It owns plant.** "Our businesses operate production facilities throughout the geographies
+    listed above, with approximately 3 million square feet of production space in the aggregate
+    across our owned and operated facilities." Property, plant and equipment, net, was
+    **$302,494 thousand** at 2025-06-30 ($265,177 thousand a year earlier); purchases of property,
+    plant and equipment were **$89,024 thousand** in FY2025 and capitalised software a further
+    $64,093 thousand.
+  - **The numbers are printed, per segment, for seven years.** The Q4 FY2025 earnings document
+    prints, for each reportable segment, an annual chart captioned "Gross Profit ($M) & Gross
+    Margin (%) Annual" running FY2019 to FY2025, and a revenue table by segment. Transcribed:
+
+    | Segment | FY2025 revenue ($000) | FY2025 gross profit ($M) | FY2025 gross margin, as printed | FY2025 segment EBITDA ($000) |
+    |---|---|---|---|---|
+    | Vista (≈11m micro-businesses, AOV >$90) | 1,824,271 | 1,006 | **55%** | 347,693 |
+    | PrintBrothers (graphic professionals, resellers) | 669,151 | 193 | **29%** | 83,351 |
+    | The Print Group (graphic professionals, resellers) | 378,075 | 143 | **38%** | 71,071 |
+    | National Pen (>1m small businesses, AOV $300–350) | 406,764 | 207 | **51%** | 31,433 |
+    | All Other Businesses | 227,363 | 96 | **42%** | 21,883 |
+    | Inter-segment eliminations | (102,545) | — | — | (28,857) |
+    | **Total revenue** | **3,403,079** | — | 47.5% consolidated | — |
+
+    And the seven-year series of printed annual segment gross margins:
+
+    | Segment | FY2019 | FY2020 | FY2021 | FY2022 | FY2023 | FY2024 | FY2025 |
+    |---|---|---|---|---|---|---|---|
+    | Vista | 58% | 60% | 58% | 57% | 55% | 57% | **55%** |
+    | PrintBrothers | 24% | 24% | 25% | 26% | 26% | 29% | **29%** |
+    | The Print Group | 34% | 33% | 34% | 35% | 35% | 37% | **38%** |
+    | National Pen | 57% | 53% | 49% | 53% | 52% | 53% | **51%** |
+    | All Other Businesses | 40% | 46% | 50% | 46% | 44% | 44% | **42%** |
+
+  - **The company explains its own consolidated margin decline by order mix, in the same direction.**
+    "Gross margin was impacted by the continued product mix shift to product categories that
+    generally have higher gross profit per order and higher customer lifetime value but lower gross
+    margins than many of our legacy products including business cards". And at segment level:
+    "gross margins contracted (down 160 basis points) this quarter as a result of product mix
+    shifting to lower gross margin but higher gross profit orders".
+  - **FY2024 says the same thing with the same numbers** (read via `WebFetch`, 2026-09-25): Vista
+    "gross margins were about 56%", "average order value was more than $86 and customers spent, on
+    average, a bit more than $145 for the year"; Upload & Print "Gross margins vary by business but
+    averaged about 32% in fiscal year 2024", "AOVs, on average, of about €95 - €160 and annual spend
+    per customer of about €300 - €700 in fiscal year 2024".
+- **DERIVED (arithmetic written out):** script `tmp/cimpress_decomp.py` in the working tree at the
+  time of writing (project-local `tmp/`, deleted after use). Inputs are only the printed figures
+  above.
+  - Segment gross margins recomputed from printed revenue ÷ printed gross profit, which checks the
+    printed percentages: Vista 1,006,000 ÷ 1,824,271 = **55.15%** (printed 55%); PrintBrothers
+    193,000 ÷ 669,151 = **28.84%** (printed 29%); The Print Group 143,000 ÷ 378,075 = **37.82%**
+    (printed 38%); National Pen 207,000 ÷ 406,764 = **50.89%** (printed 51%); All Other 96,000 ÷
+    227,363 = **42.22%** (printed 42%). All five agree to the rounding.
+  - **Upload & Print combined**, FY2025: revenue 669,151 + 378,075 = 1,047,226; gross profit
+    193 + 143 = 336; margin 336,000 ÷ 1,047,226 = **32.08%**, which reproduces the 10-K's "about
+    32%" exactly. This is the check that the two halves of the disclosure are the same numbers.
+  - **The two-way split, Vista against Upload & Print.** Of their combined $2,871,497 thousand of
+    revenue and $1,342M of gross profit: Vista is **63.53% of revenue and 74.96% of gross profit**;
+    Upload & Print is **36.47% of revenue and 25.04% of gross profit**.
+  - **Across all five segments** (revenue $3,505,624 thousand before eliminations, gross profit
+    $1,645M): Vista is **52.04% of revenue and 61.16% of gross profit**; the two Upload & Print
+    segments together are 29.87% of revenue and 20.42% of gross profit.
+  - **Revenue needed per $1 of gross profit:** Vista 1 ÷ 0.5515 = **$1.81**; Upload & Print
+    1 ÷ 0.3208 = **$3.12**. The wholesale business must turn over **1.72×** the revenue of the
+    long-tail business to service the same capital. (JLC's equivalent ratio was 13.1× in 2025 and
+    3.6× in 2023 — see `../analyses/long-tail-pays-for-the-capital.md`.)
+  - **The gap is closing, not widening.** Vista's printed annual margin against Upload & Print's,
+    recomputed from the printed annual revenue and gross-profit series:
+
+    | | FY2019 | FY2020 | FY2021 | FY2022 | FY2023 | FY2024 | FY2025 |
+    |---|---|---|---|---|---|---|---|
+    | Vista | 58% | 60% | 58% | 57% | 55% | 57% | 55% |
+    | Upload & Print (computed) | 28.44% | 27.56% | 28.22% | 29.64% | 29.50% | 32.16% | 32.09% |
+    | **Gap (pp)** | **29.56** | **32.44** | **29.78** | **27.36** | **25.50** | **24.84** | **22.91** |
+
+    Over six years (FY2019 to FY2025) the long-tail premium narrowed by
+    29.56 − 22.91 = **6.65 percentage points**, because the long-tail margin fell 3 points and the
+    wholesale margin rose 3.6 points. This runs **opposite** to JLC, where the two segments diverged.
+  - **The advertising offset, which is the most important number in this entry.** Segment EBITDA
+    margins: Vista 347,693 ÷ 1,824,271 = **19.06%**; PrintBrothers 83,351 ÷ 669,151 = **12.46%**;
+    The Print Group 71,071 ÷ 378,075 = **18.80%**; National Pen 31,433 ÷ 406,764 = **7.73%**; All
+    Other 21,883 ÷ 227,363 = **9.62%**. A 23-point gross-margin advantage becomes a **0.26-point**
+    EBITDA advantage against The Print Group, because Vista spends about 15% of revenue on
+    advertising and Upload & Print about 5%. National Pen, at 51% gross margin and 20% advertising,
+    ends at 7.73% EBITDA — the *worst* of the five.
+- **Bears on:**
+  - **H6 (supports, moderately).** A second capital-owning manufacturer, in a second industry, on a
+    second continent, reports a much higher gross margin on the small-order half of its business
+    than on the bulk half — 55% against 32% — and says in its own words that the bulk half's margin
+    is lower because of "wholesale-like pricing". The mechanism JLC describes is not unique to PCBs
+    or to China.
+  - **H6 (challenges, and this is the honest half).** The gross-margin advantage does not survive
+    to the operating line. Vista's segment EBITDA margin is 19.06% against The Print Group's
+    18.80% — a difference of a quarter of a percentage point. The long tail's margin is bought with
+    advertising: 15% of revenue against 5%. **In Cimpress's accounts, the cost of acquiring a long
+    tail eats almost the whole of the long tail's gross-margin premium.** JLC's disclosure does not
+    let this be tested for JLC; Cimpress's does, and the answer is uncomfortable.
+  - **H6 (challenges).** The gap is *narrowing*, by 6.65 pp in six years, the reverse of JLC's
+    direction of travel.
+  - **H7 (context).** Cimpress gives no customer-concentration figure, but "about 11 million small
+    businesses annually" in one segment and "more than a million" in another is a scale of
+    fragmentation comparable to JLC's 1.36 million paying users.
+- **Used in:** not yet.
+- **Caveats:**
+  - **This is not the same plant.** JLC's table splits one set of factories. Cimpress's segments are
+    separate acquired businesses (Vista is organic; PrintBrothers is druck.at, Printdeal and
+    WIRmachenDRUCK; The Print Group is Easyflyer, Exaprint, Pixartprinting and Tradeprint) with
+    their own plants, their own countries and their own cost structures. Part of the 23-point gap
+    could be German and Italian wage rates rather than order size. That is a real weakening and it
+    is why this is graded 3 and not 1.
+  - **Upload & Print is not "bulk" in the JLC sense.** Its average order is €100–175, not a
+    20 m² production run. The segments differ by *customer type* — micro-business buying for itself
+    versus a print reseller buying wholesale — with "wholesale-like pricing" as the stated cause.
+    The order-size difference shows up in annual spend (€300–900 against ~$150), not in the single
+    order. The split is closer to "retail versus trade" than to "sample versus batch".
+  - **Upload & Print uses third-party fulfillers** for part of its production, so its cost of goods
+    includes bought-in manufacture. Cimpress says the gross margin reflects both "wholesale-like
+    pricing and the wide variety of products produced both in owned facilities as well as via
+    third-party fulfillers", and does not separate the two causes.
+  - **Printing is not chipmaking.** $302m of net PP&E across 3 million square feet is a rounding
+    error next to a fab. The capital-intensity argument that `long-tail-pays-for-the-capital.md`
+    makes for JLC is weaker here, not stronger.
+  - The seven-year gross-margin series is read off charts in an investor letter (an 8-K exhibit,
+    furnished not filed, and not audited), printed to whole percentage points. The FY2025 revenue,
+    segment EBITDA and balance-sheet figures in the same document are to the thousand. The FY2025
+    segment gross margins were independently reproduced from revenue and gross profit, which is why
+    they can be relied on; the FY2019–FY2022 ones cannot be checked the same way beyond the printed
+    revenue and gross-profit dollars, which are themselves chart labels.
+  - Cimpress restated its segment results in Q1 FY2025 for a change in inter-segment transfer
+    pricing, recast back to Q1 FY2023. Figures before FY2023 are on the old basis.
+
+### OIM-2. Reliance: 4.6 million orders a year at an average of $3,120, a largest customer worth
+0.6% of sales, and a printed statement that the small orders are what earns the margin — grade 2
+
+- **Source:** Reliance, Inc. (NYSE: RS), CIK 0000861884, Annual Report on Form 10-K for the year
+  ended 2025-12-31, filed 2026-02-26, accession 0001104659-26-020651:
+  <https://www.sec.gov/Archives/edgar/data/861884/000110465926020651/rs-20251231x10k.htm>
+- **Verification:** Partial, 2026-09-25. The Item 1 quotes below were read through `WebFetch`,
+  which reaches `www.sec.gov` where `curl` gets HTTP 403, and were returned identically on the
+  queries that produced them. **The consolidated gross-profit-margin percentages were not
+  retrieved** — the MD&A sits beyond the point at which the fetch tool truncates the document — so
+  no margin figure is asserted here. That is the missing half of this entry and it is listed in the
+  blocked-sources table.
+- **What it says:**
+  - **The long tail, quantified.** "we service more than 125,000 customers"; the company "wrote and
+    delivered over 4.6 million orders during 2025" at an "average price of approximately $3,120 per
+    order". "In 2025, our average order size was $3,120 and we delivered approximately 40% of orders
+    within 24 hours."
+  - **Who the customers are.** "most of our sales are to small machine shops and fabricators, in
+    small quantities with frequent and often just-in-time deliveries".
+  - **The stated comparison.** "a focus on as-needed inventory management and small orders with
+    quick turnaround and increasing levels and types of value-added processing generates higher
+    gross profit margins".
+  - **Why the bulk channel cannot serve them.** "Many customers deal exclusively with service
+    centers because the quantities of metal products that they purchase are smaller than the
+    minimum order sizes specified by mills."
+  - **Customer concentration.** "customer concentration is not significant"; "Our largest customer
+    represented 0.6% of our net sales in 2025"; "over 90% of the sales orders we serviced were from
+    repeat customers".
+  - 2025 net sales were "$14.29 billion".
+- **DERIVED (arithmetic written out):**
+  - Revenue per customer, 2025: $14,290,000,000 ÷ 125,000 = **$114,320**. Two orders of magnitude
+    above JLC's CNY 7,571 (≈US$1,050) per paying user. These are small *businesses*, not hobbyists.
+  - Orders per customer, 2025: 4,600,000 ÷ 125,000 = **36.8**.
+  - Implied revenue from the order count: 4,600,000 × $3,120 = **$14.352 billion**, against reported
+    net sales of $14.29 billion — a 0.43% overshoot, consistent with "over 4.6 million" being a
+    rounded floor. The two disclosures reconcile, which is a reason to trust both.
+- **Bears on:**
+  - **H6 (supports, weakly).** A capital-owning processor with 125,000 customers and a $3,120
+    average order states in an audited annual report that small orders with quick turnaround are
+    what generate the higher gross profit margin. It is the mechanism JLC's prospectus describes,
+    asserted by a company on another continent in another material.
+  - **H7 (supports).** A largest customer at 0.6% of sales, from 125,000 customers, is the second
+    audited example found of the fragmentation that removes buyer power. JLC's was 0.28%.
+  - It is **grade 2, not grade 1**: the company says small orders earn more, but publishes no
+    margin split by order size. The comparison it invites — service centre against mill — is a
+    comparison between companies, not inside one set of accounts.
+- **Used in:** not yet.
+- **Caveats:**
+  - **Reliance is a distributor with processing, not a manufacturer.** It buys metal from mills and
+    cuts, slits and shapes it. Its capital is inventory and processing equipment across hundreds of
+    sites, not one indivisible plant. The fab analogy is weaker than JLC's.
+  - "Higher gross profit margins" is stated without a counterfactual: higher than what is not
+    defined in the sentence. The surrounding text implies "than mills", but the filing does not say
+    so in those words and does not print a number for either side.
+  - The consolidated gross margin for 2025 is not in this entry. Until it is, the size of the
+    premium is unknown.
+
+---
+
+*(Continued below: further entries, the comparison table, the verdict and the blocked-sources list.)*
