@@ -183,9 +183,10 @@ conversion.
     not credible as a pure capacity ratio; either 220 excludes a large non-technical staff, or 650 is
     an outer bound offered to a planning authority. Treat 650 as the applicant's figure, which is
     what it is.
-  - **Revenue per employee today:** SEK 1,385m (2025 net sales, `LNI-1`) ÷ 220 = **SEK 6.30m per
-    head**; ÷ 11.2645 = **€559,000 per head**. This is the number a would-be small fab has to match
-    to pay a European wage bill.
+  - **Revenue per employee today.** *Do not* divide by 220: 220 is engineers and technicians only.
+    The filed Swedish accounts give a total of 412 employees in 2024 (`LNI-17`), so revenue per head
+    is **€264,000–€286,000**, not the €559,000 that 220 would give. The corrected figure and its
+    working are in `LNI-17`.
 - **Caveats.** The 650 figure is a planning-application claim by the applicant, reported from
   documents obtained under Sweden's public-access rules, not an audited or committed number. *Mitt i*
   gives no krona figure. The project was politically contested on Chinese-ownership grounds at the
@@ -718,8 +719,9 @@ conversion.
   - **Public share:** C$620,000 ÷ C$20,000,000 = **3.1%** — much the smallest subsidy fraction in this
     file. Alberta paid **C$38,750 per permanent job** (C$620,000 ÷ 16).
   - **Cross-check against Clas-SiC:** €778,961 per job here against **€903,003** of equity raised per
-    job at Clas-SiC (`LNI-5`) and **€654,328** per job at Bromont (`LNI-7`). Three independent
-    small-fab numbers, in three countries, land between **€650,000 and €900,000 per job.**
+    job at Clas-SiC (`LNI-5`), **€654,328** per job at Bromont (`LNI-7`) and **€934,947** of equity
+    per job at Pragmatic (`LNI-16`). Four independent small-fab numbers, in three countries, land
+    between **€650,000 and €935,000 per job.**
 - **Caveats.** The C$20m is a company announcement of planned spend. "16 high-quality jobs" is the
   permanent figure; there are 20 further temporary construction jobs which are not counted here. No
   capacity figure in wafers is given.
@@ -1327,3 +1329,220 @@ conversion.
   small customers will pay for real capital has to say why this is not the counter-example, and
   "they built the wrong thing" is not available, because what they built is the thing the argument
   asks for.
+
+### LNI-17. Silex's filed Swedish accounts: 301 → 412 employees in three years, and a *profitable* MEMS foundry runs payroll at about 28% of revenue
+
+- **Source:** allabolag.se (UC Affärsinformation), company record for **Silex Microsystems AB**,
+  org. nr **556591-5385**, Järfälla — key figures and accounts summary drawn from the company's filed
+  annual reports.
+  - Accounts: <https://www.allabolag.se/5565915385/bokslut>
+  - Key figures: <https://www.allabolag.se/nyckeltal/silex-microsystems-ab/j%C3%A4rf%C3%A4lla/datorer-och-kringutrustningar-tillverkning/2K1SVSPI63ILT>
+- **Verification:** Partial. The figures are read directly off allabolag's rendering of the filed
+  accounts, not off the signed annual reports themselves (allabolag links the PDFs behind a
+  registration wall; see "What could not be got"). The 2025 revenue of SEK 1,385,000 thousand
+  reconciles exactly with the company's own IPO announcement (`LNI-1`), which is a strong check on the
+  series. The 2025 employee count is shown as 0, i.e. not yet populated.
+- **Date checked:** 2026-09-25
+- **Bearing:** **Supports** H6, and is the single most encouraging number in this file. A pure-play
+  MEMS foundry serving many customers can be solidly profitable.
+- **What it says.** As printed (thousands of SEK, calendar years):
+
+  | Year to 31 December | 2021 | 2022 | 2023 | 2024 | 2025 |
+  |---|---:|---:|---:|---:|---:|
+  | Nettoomsättning (net sales) | 1,020,125 | 980,557 | 1,095,243 | 1,226,000 | **1,385,000** |
+  | Rörelseresultat efter avskrivningar (operating profit after depreciation) | 329,753 | 94,538 | 212,228 | 265,000 | **314,000** |
+  | Anställda (employees) | 301 | 358 | 407 | **412** | not yet filed |
+  | Personalkostnader per anställd, kSEK (staff cost per employee) | 679 | 725 | 732 | **830** | — |
+
+  Swedish terms, translated: *nettoomsättning* = net turnover; *rörelseresultat efter avskrivningar* =
+  operating result after depreciation; *anställda* = employees; *personalkostnader per anställd* =
+  staff costs per employee.
+
+- **DERIVED (arithmetic written out):**
+  - **Revenue per employee, 2024:** SEK 1,226,000,000 ÷ 412 = **SEK 2,975,728**. At EUR/SEK 11.2645
+    (ECB, 2026-09-24): **€264,169 per employee.**
+  - **Revenue per employee, 2025**, using the 430 figure reported by the aggregator krafman.se for
+    2025 (not verified here): SEK 1,385,000,000 ÷ 430 = SEK 3,220,930 = **€285,940.** Using 412
+    instead gives SEK 3,361,650 = €298,430. Either way the range is **€264,000–€300,000 per head.**
+  - **Payroll as a share of revenue, 2024:** SEK 830,000 per employee × 412 employees =
+    SEK 341,960,000 of staff cost, ÷ SEK 1,226,000,000 of revenue = **27.9%.**
+    **This is the benchmark the rest of the file should be read against.** Clas-SiC, loss-making, runs
+    at 45.3% (`LNI-5`); CMC Microsystems, subsidised, runs at 39–46% (`FUNDX-1`); Silex, profitable,
+    runs at 27.9%.
+  - **Operating margin, 2025:** SEK 314,000,000 ÷ SEK 1,385,000,000 = **22.7%.** (The company's own
+    IPO release quotes EBIT of SEK 368m on the same revenue, a 26.6% margin; the difference is
+    presumably the group-versus-company boundary, and both are quoted rather than reconciled here.)
+  - **Head count growth:** 301 → 412 over 2021–2024 is **+36.9%**, a CAGR of **+11.0%/yr**, against
+    revenue growth of SEK 1,020m → 1,226m = +20.2%, a CAGR of **+6.3%/yr**. **Silex has been adding
+    people faster than revenue**, which is the opposite of the automation story, at the most
+    successful small MEMS foundry in Europe.
+  - **Revenue per employee against staff cost per employee, 2024:** SEK 2,975,728 ÷ SEK 830,000 =
+    **3.59×.** A small fab needs roughly three and a half times payroll in revenue to be comfortably
+    profitable. Clas-SiC turns over 2.21× its staff cost (£8,351,170 ÷ £3,782,638) and loses money;
+    Pragmatic turns over 0.024× (`LNI-16`).
+- **Caveats.** allabolag is a commercial re-publisher of Swedish filings, not the registry; the figures
+  should be re-checked against Bolagsverket's own copies before being cited in `WHY.md`. Silex
+  Microsystems AB is one company in a group that also includes Silex Properties AB; the group
+  boundary is not established here. The 2025 employee count is not in the filed data yet.
+
+---
+
+## What the numbers add up to
+
+Every figure below is derived in the entry named, with its arithmetic written out there.
+
+### Capital cost per job
+
+| Site | What was announced | Jobs | Capital per job | Entry |
+|---|---|---:|---:|---|
+| Fraunhofer ISIT, Itzehoe (2008) | €45m expansion | 200 (long term) | **€225,000** | `LNI-9` |
+| Tyndall, Cork | >€100m | 580 existing | €172,000 per existing head | `LNI-15` |
+| KLA, Newport (HQ + innovation centre) | US$100m | 750 | US$133,000 | `LNI-14` |
+| Teledyne DALSA, Bromont | C$42m | 40 new | **C$1,050,000 / €654,000** | `LNI-7` |
+| Teledyne MEMS, Edmonton | C$20m | 16 new | **C$1,250,000 / €779,000** | `LNI-8` |
+| Clas-SiC, Lochgelly | £59.0m of equity raised since 2017 | 76 employed | **£776,000 / €903,000** | `LNI-5` |
+| Pragmatic, Sedgefield | £287.0m of equity raised | 357 employed | **£804,000 / €935,000** | `LNI-16` |
+| Bosch, Dresden | €1bn | 700 | **€1,429,000** | `LNI-11` |
+| ams OSRAM, Premstätten | €588m | 250 | **€2,352,000** | `LNI-10` |
+| LFoundry, Avezzano | €40m | 13 new (net −17) | **€3,077,000** | `LNI-4` |
+
+**Two findings.** First, **capital per job does not fall as the fab gets smaller.** The
+smallest MEMS foundry in the table (Edmonton, 16 jobs) costs more per job than the billion-euro
+Bosch fab. Second, the cluster is tight: four independent small-fab figures — Bromont, Edmonton,
+Clas-SiC and Pragmatic, across Canada and the UK, announcements and audited accounts alike — land
+between **€650,000 and €935,000 of capital per job.** Institute and office jobs, by contrast, cost
+**€130,000–€230,000**. The gap is process equipment.
+
+### Capital cost per unit of capacity
+
+| Measure | Figure | Entry |
+|---|---:|---|
+| Cleanroom shell only, per m² (IHP, gross floor area) | **€3,947/m²** | `LNI-3` |
+| Cleanroom shell only, per m² of cleanroom (X-FAB Dresden) | **US$12,500/m²** | `LNI-6` |
+| Cleanroom shell only, per m² of cleanroom (IHP) | **€30,000/m²** | `LNI-3` |
+| Cleanroom expansion incl. tools, per m² (Silex, planned) | **€29,592/m²** | `LNI-1` |
+| Cleanroom expansion incl. tools, per m² (Fraunhofer ISIT) | **€45,000/m²** | `LNI-9` |
+| Cleanroom expansion incl. tools, per m² (X-FAB Dresden) | **US$155,357/m²** | `LNI-6` |
+| **Per wafer start per month, at the margin (X-FAB Dresden)** | **US$41,587** | `LNI-6` |
+| Capex ÷ one year's incremental revenue (Silex) | **1.03×** | `LNI-1` |
+| Wafer starts per month per m² of cleanroom (X-FAB Dresden) | 3.07 | `LNI-6` |
+
+**The finding:** X-FAB Dresden puts **92% of a brownfield fab expansion into equipment and 8% into
+the building**. Cleanroom floor is an ordinary industrial construction cost. The tools are not, and
+nothing in the open-source, open-PDK, automated-flow argument touches the price of a deposition tool.
+
+### Does the money come back?
+
+| Company | Revenue per employee | Payroll as % of revenue | Result |
+|---|---:|---:|---|
+| Silex Microsystems (2024, filed) | €264,169 | **27.9%** | operating profit, 22.7% margin (2025) |
+| X-FAB group (2023, reported) | US$176,190 | not disclosed | — |
+| Clas-SiC Wafer Fab (FY2025, audited) | £109,884 | **45.3%** | gross **loss**, −8.6% |
+| CMC Microsystems (`FUNDX-1`) | — | 39–46% | deficit in 4 of 5 years |
+| Pragmatic Semiconductor (2025, audited) | **£2,524** | **4,101%** | £64.9m loss, going-concern uncertainty |
+
+### The honest summary, including what cuts against the thesis
+
+**Against.** The thesis is that a large number of very small customers can pay for real capital.
+Three things in this file argue they cannot, and they should be read before anything else.
+
+1. **Pragmatic** (`LNI-16`). A fab built deliberately for cheap, fast, small-batch, highly
+   customisable chips — the exact product the thesis calls for — has raised £287 million, employs 357
+   people, and turned over **£901,000** in 2025, down from £1.69 million, with three customers each
+   over 10% of that. This is the strongest single counter-example in the directory.
+2. **Capital per job is flat across two orders of magnitude of fab size** (table above), and it sits
+   at €650,000–€935,000 for small Western fabs. At Silex's revenue of €264,000 per head, a small fab
+   must sell roughly **2.5 to 3.5 years of revenue per employee** just to return the capital that
+   employee sits on, before wages.
+3. **LFoundry** (`LNI-4`): €40 million of capacity expansion, 13 new permanent jobs and a net head
+   count *fall* of 17. Capacity at a mature-node fab is bought with equipment, and equipment is what
+   a tail of €10,000 customers would have to fund.
+
+**And a fourth, about the brokers rather than the fabs.** CORNERSTONE told EPSRC in 2020 that its MPW
+capability "will be self-sustaining, with users paying for the service" from December 2019, and has
+taken **£14.8 million** of further EPSRC money since (`LNI-12`). The public subsidy works out at
+£5,900–£19,000 per design fabricated (`LNI-13`), against a list price of £12,790 for a passive SOI
+cell. This is the MOSIS pattern (`MOS-*`) repeating in the UK, in the 2020s, with the receipts in the
+funder's own database.
+
+**For.** Three things genuinely support the thesis, and they are not small.
+
+1. **Silex** (`LNI-17`, `LNI-1`). A pure-play MEMS foundry with 412 people, 22.7% operating margins,
+   payroll at 27.9% of revenue, and a capacity expansion that pays back in about one year of
+   incremental revenue. **Small, specialty, many-customer fabs can be very profitable.** Silex went
+   from a 100 m² room in 2002 to a Nasdaq Stockholm listing at SEK 8.9 billion.
+2. **The customers exist and they are numerous.** Fraunhofer ISIT had "over 350 companies" in its
+   contract-research book with 150 staff in 2008 (`LNI-9`). CORNERSTONE has fabricated "over 900
+   unique SiPh designs for over 130 organisations in 26 countries" since 2017 — 6.9 designs per
+   organisation, which is repeat business, not tourism (`LNI-13`). Canada's federal government states
+   flatly that "Canadian research centres and SMEs benefit from access to their infrastructure for the
+   design, prototyping and high-volume production of innovative products" at Bromont and Edmonton
+   (`LNI-7`). Clas-SiC's audited strategic report says it is deliberately "reprioritising customers to
+   those needing rapid prototyping" (`LNI-5`).
+3. **The fixed cost of serving one customer is visible and it is not enormous.** CORNERSTONE's own
+   price list charges 60.1% of the large-cell price for a cell 48.0% of the size (`LNI-13`), which
+   implies roughly 20–40% of a small order's price is the cost of having a customer at all. That is
+   the number automation has to attack, and it is a fraction, not a multiple.
+
+**The balance.** The capital numbers are worse than the project's framing assumes and the demand
+numbers are better. A small fab costs about three quarters of a million euros per job wherever you
+look, and 92% of that is tools. But a small fab that is *full* — Silex — is a 23%-operating-margin
+business with hundreds of customers. The binding question this file cannot answer is the one
+`hypotheses.md` already names as the most valuable evidence outstanding: **the distribution of annual
+wafer volume across a real small fab's customer book.** Silex is full; Pragmatic is empty; nothing
+here says which a new entrant would be.
+
+---
+
+## What I could not get, and why
+
+Blocked items with the blocker named, so nobody repeats the work.
+
+1. **Affärsvärlden, "Järfälla vill stoppa miljardinvestering – kopplas till Kinas militär"**
+   (<https://www.affarsvarlden.se/artikel/jarfalla-vill-stoppa-miljardinvestering-kopplas-till-kinas-militar>).
+   This is the source of the widely repeated **SEK ~3 billion** figure for the Silex 300 mm plan in
+   Veddesta, and of the 37,000 m² plot. `curl` with a normal desktop user agent hits an infinite
+   redirect loop (`curl: (47) Maximum (50) redirects followed`, HTTP 302) — a consent/paywall
+   redirect cycle. **The SEK 3bn figure is therefore recorded nowhere in this file as a fact**, only
+   as something that could not be verified. `LNI-2` uses only what *Mitt i*, *SE Nytt*, *Evertiq* and
+   Järfälla kommun say.
+2. **The Silex IPO prospectus itself** (`silexmicrosystems.com`, `abgsc.com`, `seb.se`,
+   `nordea.se/prospekt`, `avanza.se`). The MFN announcement summarising it was read in full and is
+   the source for `LNI-1`, but the prospectus PDF — which would carry wafer starts, cleanroom
+   utilisation, customer concentration and a proper head count — was not located at a stable URL.
+   Not blocked, just not found in the time available. **This is the single biggest gap**: a listed
+   pure-play MEMS foundry's prospectus is exactly the document that would answer the wafer-volume
+   distribution question `hypotheses.md` calls the most valuable evidence outstanding.
+3. **Pragmatic Semiconductor's accounts are a scanned PDF.** Companies House serves
+   `format=pdf` only (no iXBRL) for company 07423954, and the file has no text layer:
+   `pdftotext -layout` returns 42 bytes from 42 pages, and `gs` rewriting does not help. No
+   `tesseract` or `ocrmypdf` is installed on this machine. The figures in `LNI-16` were read off the
+   page images instead, which worked but is slow; anyone re-checking should do the same rather than
+   trust a text extraction.
+4. **Clas-SiC's PDF accounts are likewise unreadable** by `pdftotext` (`Illegal character in hex
+   string`, 0 bytes out). The route that worked is the **iXBRL** version:
+   `.../document?format=xhtml&download=1`. Use that for any Companies House filing that offers it.
+5. **canada.ca will not complete a fetch from here.** Both the French and English ISED releases
+   return `curl: (92) HTTP/2 stream 1 was not closed cleanly: INTERNAL_ERROR` on HTTP/2 and time out
+   on `--http1.1`. The Internet Archive capture of 2026-08-29 served the full page and is what
+   `LNI-7` quotes.
+6. **elektroniknet.de** (the fullest German trade report on Bosch Dresden) returns an empty body to
+   a scripted fetch. The Saxon state economic development agency's page was used instead, which is why
+   `LNI-11` is **Partial** and does not carry the federal subsidy figure.
+7. **Investissement Québec's press-release archive** renders its release bodies client-side; the 2014
+   release announcing C$13m against a C$67.3m Teledyne project creating 300 jobs and maintaining 425
+   could not be read, only its URL slug. That would have given a second Bromont capital-per-job point
+   a decade earlier. Not used.
+8. **allabolag.se puts the actual filed Swedish annual reports behind a registration wall.** The key
+   figures in `LNI-17` are allabolag's rendering, not Bolagsverket's own documents, which is why that
+   entry is **Partial**. No account was created, because this task is read-only.
+9. **La Voix de l'Est** is behind a soft paywall; the article was read through a summarising fetch,
+   not as raw text, so `LNI-7` marks its distinctive claims as reported rather than quoted.
+10. **No CORDIS or Kohesio pull was completed.** The structured EU sources were planned first and
+    displaced by richer primary material (filed accounts, ministerial releases, the GtR API). A
+    Kohesio query by beneficiary for IHP, Fraunhofer ISIT, LFoundry and X-FAB would probably add
+    ERDF grant lines to `LNI-3`, `LNI-4`, `LNI-6` and `LNI-9`, and is the obvious next step.
+11. **No wafer-price or customer-count disclosure was found for any of the pure-play fabs.** Silex,
+    X-FAB and Teledyne MEMS all decline to publish wafer starts by customer, price per wafer, or the
+    number of customers. Only CORNERSTONE (`LNI-13`) and Fraunhofer ISIT (`LNI-9`) put a customer
+    count in public, and neither publishes the distribution of spend across it.
