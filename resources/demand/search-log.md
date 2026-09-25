@@ -747,3 +747,84 @@ number about whether this business model holds:
 ```
 curl -s --compressed 'https://platform.chipfoundry.io/api/v1/shuttles/ci2609/metrics'
 ```
+
+---
+
+## 16. MOSIS funding, the second pass (`MOS`, 2026-09-25)
+
+`FUND-5` and `FUND-6` left MOSIS as the largest uncomputable object in this directory. This pass
+went after the primary federal record instead of the web. Five routes were tried; three worked.
+
+### 16.1 What worked, and the exact incantations
+
+| Route | Why it worked | What it produced |
+|---|---|---|
+| **The Internet Archive's `dticarchive` collection is a complete, OCR'd, fully fetchable mirror of DTIC** | `apps.dtic.mil` blocks automated fetching outright, but every report is mirrored on archive.org as `DTIC_AD<number>`, with searchable OCR. `https://archive.org/advancedsearch.php?q=collection:dticarchive+AND+<term>&fl[]=identifier&fl[]=title&fl[]=year&rows=80&output=json` is a full-text search over it; `https://archive.org/download/<id>/<id>_djvu.txt` returns the whole text. | USC/ISI's Annual Technical Reports to DARPA — **the contract number, the founding date, the staff rosters and the 1985 throughput figure** (`MOS-2`, `MOS-3`, `MOS-4`) |
+| **DoD Comptroller J-books are plain PDFs at predictable URLs** | `https://comptroller.defense.gov/BudgetMaterials/fy<YEAR>budgetjustification.aspx` lists every justification PDF for that year; the DARPA RDT&E book is the one matching `*darpa*.pdf` under `03_RDT_and_E`. Fourteen books, FY2000–FY2012, downloaded in one script. | A **clean, thirteen-year negative**: no MOSIS budget line, ever (`MOS-7`) |
+| **USAspending's POST API is not blocked** | §13 recorded it as unreachable because that session was GET-only. `curl -X POST https://api.usaspending.gov/api/v2/search/spending_by_award/` works with no key. | The **$17,958,805 DARPA/AFRL cooperative agreement of January 2021** (`MOS-5`) and four NASA MPW purchase orders (`MOS-6`) — none of which FPDS-NG could see |
+| **The Wayback CDX index, again** | `https://web.archive.org/cdx/search/cdx?url=mosis.com&matchType=domain&output=text&fl=original&collapse=urlkey&limit=5000` listed 5,000 archived MOSIS URLs. Filtering that list for `about|history|staff|employ|fund` found `products/mep/mep-history.html`. | **MOSIS's own statement of when its DARPA funding ended, and that it took no government funding after 2000** (`MOS-1`) — the single most important find of the pass |
+| **`api.govinfo.gov` with `DEMO_KEY`** | No registration needed for a low rate. POST to `https://api.govinfo.gov/search?api_key=DEMO_KEY` with `{"query":"collection:(CHRG) AND \"MOSIS\"","pageSize":25,"offsetMark":"*"}`. | Four congressional hearings that mention MOSIS were identified (1991 High Definition Information Systems; 1996 High Performance Computing and Communications; 1996 New Attack Submarine; 2022 *Strengthening the U.S. Microelectronics Workforce*; 2022 *Building a Resilient Economy*) |
+
+### 16.2 Traps that cost time
+
+- **`grep -i MOSIS` matches "reverse os*mosis*.** Three of the fourteen DARPA J-books appeared to
+  mention MOSIS and did not: the hits were the Biological Warfare Defense programme element's
+  desalination narrative. **Always search for `MOSIS` case-sensitively.**
+- **USAspending's `award_type_codes` must come from exactly one group** (contracts, IDVs, grants,
+  loans, other) or the request 422s with a helpful listing of the groups. And
+  **`time_period.start_date` cannot be earlier than `2007-10-01`** — the API rejects anything
+  earlier rather than clamping.
+- **`api.govinfo.gov` with `DEMO_KEY` rate-limits after four or five requests** and then returns
+  HTTP 429 for an extended period. Batch queries, sleep between them, and expect to lose the tail
+  of a run. A registered key would fix this; registration needs a form, which the rules forbid.
+- **Some archive.org `_djvu.txt` downloads simply fail** with no error, on items that plainly have
+  text. Retrying later worked for some. Seven of twelve requested ISI reports came down on the
+  first attempt.
+- **One archived "PDF" was an HTML 404.** `mosis.org/research/05-06finalreport.pdf` has Wayback
+  captures, but both fetched captures are the site's error page with a `.pdf` name. Check
+  `pdftotext`'s exit status, not just the file size.
+
+### 16.3 Blocked
+
+| Source | How it blocks | Attempted workaround |
+|---|---|---|
+| **`apps.dtic.mil`** (all paths, including the search API) | Azure WAF: HTTP 200 with a page reading "**The request is blocked.**" A browser-like User-Agent, `Accept` and `Accept-Language` headers made no difference. | **Fully worked around** via the `dticarchive` mirror on archive.org. No content was lost. |
+| **`crsreports.congress.gov`** | HTTP **403** | Not worked around. Some CRS material is in govinfo's GOVPUB collection. |
+| **`www.osti.gov/api/v1/records`** | Connection fails before any HTTP response | Not worked around. |
+| **`ntrl.ntis.gov`** | Front page 200, search is a JavaScript application with no public endpoint found | Not worked around. |
+| **DARPA budget justification for FY1981–FY1999** | Does not exist online. `comptroller.defense.gov/budgetmaterials/budget1998.aspx` and `budget1999.aspx` carry no justification PDFs, and there is no `fy1998budgetjustification.aspx` or `fy1999budgetjustification.aspx`. | **Not worked around, and this is the gap that matters** — MOSIS's DARPA funding ran 1981→1994, entirely before the earliest available book. |
+| **Every general web search engine** | Unchanged from §12.1 and §13 — CAPTCHAs, 403s and bot checks everywhere. **None was solved and none was attempted.** | Everything in `mosis-funding.md` was found without a search engine, by walking the Wayback CDX index, archive.org's Solr index, the govinfo search API, the USAspending API and the DoD Comptroller's own directory listings. |
+
+### 16.4 Searched for, and not found
+
+- **Any dollar figure for DARPA's funding of MOSIS in any year, 1981–1994.** `MOS-2` explains why:
+  MOSIS was a chapter inside USC/ISI's umbrella DARPA contract **MDA903-81-C-0335**, which in 1987
+  covered nineteen unrelated projects. It never had a programme element or a public budget line. The
+  ISI annual reports print the contract number on every report-documentation page and **no dollar
+  amount anywhere**.
+- **MOSIS's revenue, operating cost, surplus or headcount in any year after 1987.** Nothing. The two
+  staff rosters in `MOS-3` are the only headcounts that exist, and both are from the 1980s.
+- **What share of MOSIS's revenue came from federal customers**, in any year. This is the number
+  that would decide whether "self-sustaining" means "a business" or "sustained by government
+  purchasing", and it is not published.
+- **How much of the $17,958,805 ATMI cooperative agreement USC retained** as against passing to
+  Intel. Not published.
+- **Local and trade press.** The owner's lead — Los Angeles and Marina del Rey outlets, USC student
+  and alumni press, *Electronic News* and *EE Times* archives, anniversary retrospectives — is
+  **entirely unworked**, because reaching it needs a search engine and every search engine is
+  blocked. This is the largest unexplored surface left on MOSIS.
+- **Oral histories.** Computer History Museum and IEEE History Center interviews with MOSIS and
+  DARPA figures were not located, for the same reason. Their sitemaps were not tried and should be.
+- **What MOSIS is today, in operational detail.** `SMB-5` and `DEM-22` remain the whole of it:
+  reconstituted as MOSIS 2.0 under the USC-led CA DREAMS Microelectronics Commons hub, taking
+  external customers from summer 2024, targeting $20 m of annual revenue and self-sustainability by
+  the end of the programme in 2028. **Whether MOSIS 1.0 ever formally stopped taking orders is still
+  unresolved**, as §12 recorded.
+
+### 16.5 A correction owed to §13
+
+§13's blocked-sources table says USAspending's award-search endpoints "are POST-only and this
+session was GET-only, so the assistance (grant) side of the federal record was not queried at all."
+**That is a description of a tool limitation, not of the site.** `curl -X POST` reaches it, and
+doing so found an $18 million DARPA award that FPDS-NG cannot see because FPDS carries procurement
+only. `FUND-6`'s blocked-sources note carries the same claim and should be corrected the same way.
