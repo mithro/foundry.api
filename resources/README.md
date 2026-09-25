@@ -59,6 +59,7 @@ ID prefixes:
 | [`demand/pcb-industry-comparables.md`](demand/pcb-industry-comparables.md) | `PCB` | Audited PCB makers' margin by order size |
 | [`analyses/industry-parallels.md`](analyses/industry-parallels.md) | `PAR` | Parallels from cloud, machine learning, open source and the internet |
 | [`analyses/designs-per-head.md`](analyses/designs-per-head.md) | — | Why the per-head productivity claim was withdrawn, and the batch-size finding that replaced it: MOSIS 32.8 designs per run, Europractice 3.04, Tiny Tapeout 124.3 |
+| [`analyses/margins-across-industries.md`](analyses/margins-across-industries.md) | — | What Silex's 22.7% is worth against 3,598 SEC filers: the software distribution, the DuPont join, and why "software is a better business than a fab" was withdrawn |
 | [`demand/programme-funding.md`](demand/programme-funding.md) | `FUND` | What a multi-project-wafer service costs to run: the EU grants behind Europractice, the federal money behind MOSIS, CMC's published accounts, and the subsidy per design |
 | [`demand/shuttle-programmes.md`](demand/shuttle-programmes.md) | `DEM` | Multi-project wafer and shuttle programmes: designs submitted, accepted, and how full the runs were |
 | [`demand/latent-demand-challenges.md`](demand/latent-demand-challenges.md) | `DEM` | Evidence that the latent demand for chips is not there, or that cost is not the binding constraint |
