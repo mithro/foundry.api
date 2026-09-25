@@ -45,6 +45,7 @@ ID prefixes:
 | [`demand/other-industry-margins.md`](demand/other-industry-margins.md) | `OIM` | The same disclosure hunted outside PCBs: margin split by order size, batch size or channel in printing, pharmaceutical contract manufacturing, a MEMS wafer foundry, metals processing and freight — including the cases where the *bulk* end carries the margin |
 | [`demand/in-house-fabrication.md`](demand/in-house-fabrication.md) | `IHF` | Companies that built or bought their own fab, and what it cost |
 | [`demand/access-terms.md`](demand/access-terms.md) | `ACC` | What a programme requires before it will make your chip, and who pays |
+| [`demand/fab-local-news.md`](demand/fab-local-news.md) | `LN` | What a small US fab costs to stand up and staff: capital cost per job and per unit of capacity, the CHIPS/state/county subsidy attached, head count, cleanroom area and node — from SEC filings, county agreements, state economic-development records and local news |
 | [`demand/chipfoundry.md`](demand/chipfoundry.md) | `CF` | ChipFoundry: corporate history, shuttle commitment curves, prices and terms |
 | [`demand/mosis-funding.md`](demand/mosis-funding.md) | `MOS` | MOSIS: DARPA's actual spend, the funding timeline, price and throughput series, head count, and the verdict on "self-sustaining for 40 years" |
 | [`demand/programme-funding.md`](demand/programme-funding.md) | `FUND` | What a multi-project-wafer service costs to run, against what it charges |
