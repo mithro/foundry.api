@@ -1820,7 +1820,18 @@ Three things in this file argue they cannot, and they should be read before anyt
    count *fall* of 17. Capacity at a mature-node fab is bought with equipment, and equipment is what
    a tail of €10,000 customers would have to fund.
 
-**And a fourth, about the brokers rather than the fabs.** CORNERSTONE told EPSRC in 2020 that its MPW
+**And a fourth, which is the one that moves a hypothesis.** `LNI-18` is the first time anyone in this
+directory has seen the revenue distribution across a real specialty fab's customer book, and **H7
+loses.** Silex — profitable, growing, four end industries, twenty-year relationships, exactly the
+"many small customers" foundry the hypothesis imagines — has **approximately 85 customers**, a **top
+ten at 77% of net sales** and a **largest customer at 25%**. TSMC's top ten are 76–78%. Silex's
+**effective number of customers is 8.6–9.0, fewer than TSMC's 11.8**, and the concentration has been
+*rising*: the 2025 top ten grew ×3.76 since 2019 while total net sales grew ×1.36. Its "tail" —
+customers 11 through 85 — averages about **€344,000 of spend a year each**, against **US$67 an order**
+for a JLC long-tail customer. Being specialised did not buy dispersion. Only counts in the thousands
+ever have.
+
+**And a fifth, about the brokers rather than the fabs.** CORNERSTONE told EPSRC in 2020 that its MPW
 capability "will be self-sustaining, with users paying for the service" from December 2019, and has
 taken **£14.8 million** of further EPSRC money since (`LNI-12`). The public subsidy works out at
 £5,900–£19,000 per design fabricated (`LNI-13`), against a list price of £12,790 for a passive SOI
@@ -1833,7 +1844,16 @@ funder's own database.
    payroll at 27.9% of revenue, and a capacity expansion that pays back in about one year of
    incremental revenue. **Small, specialty, many-customer fabs can be very profitable.** Silex went
    from a 100 m² room in 2002 to a Nasdaq Stockholm listing at SEK 8.9 billion.
-2. **The customers exist and they are numerous.** Fraunhofer ISIT had "over 350 companies" in its
+2. **Prototyping is not a loss-leader, and it is where the growth is (`LNI-19`).** Silex's
+   prospectus splits net sales between customers in the development phase and customers in volume
+   production: SEK 404m/691m (2023), 422m/804m (2024), 614m/771m (2025) and **SEK 191m against
+   SEK 185m in Q1 2026 — the first quarter in which the prototyping half was the larger one.**
+   Development grew **+23.3%/yr** against volume production's **+5.6%/yr** and accounts for **72.4% of
+   all growth 2023–2025**. The company says its "profitability is fairly stable throughout the
+   engagement phases" and that it often maintains "comparable margins across both phases". Every other
+   small-batch-margin data point in this directory comes from PCBs or from a segment note; this is the
+   fab itself saying it in a regulator-approved document.
+3. **The customers exist and they are numerous.** Fraunhofer ISIT had "over 350 companies" in its
    contract-research book with 150 staff in 2008 (`LNI-9`). CORNERSTONE has fabricated "over 900
    unique SiPh designs for over 130 organisations in 26 countries" since 2017 — 6.9 designs per
    organisation, which is repeat business, not tourism (`LNI-13`). Canada's federal government states
@@ -1841,18 +1861,27 @@ funder's own database.
    design, prototyping and high-volume production of innovative products" at Bromont and Edmonton
    (`LNI-7`). Clas-SiC's audited strategic report says it is deliberately "reprioritising customers to
    those needing rapid prototyping" (`LNI-5`).
-3. **The fixed cost of serving one customer is visible and it is not enormous.** CORNERSTONE's own
+4. **The fixed cost of serving one customer is visible and it is not enormous.** CORNERSTONE's own
    price list charges 60.1% of the large-cell price for a cell 48.0% of the size (`LNI-13`), which
    implies roughly 20–40% of a small order's price is the cost of having a customer at all. That is
    the number automation has to attack, and it is a fraction, not a multiple.
 
-**The balance.** The capital numbers are worse than the project's framing assumes and the demand
-numbers are better. A small fab costs about three quarters of a million euros per job wherever you
-look, and 92% of that is tools. But a small fab that is *full* — Silex — is a 23%-operating-margin
-business with hundreds of customers. The binding question this file cannot answer is the one
-`hypotheses.md` already names as the most valuable evidence outstanding: **the distribution of annual
-wafer volume across a real small fab's customer book.** Silex is full; Pragmatic is empty; nothing
-here says which a new entrant would be.
+**The balance, restated after the prospectus (2026-09-25).** The capital numbers are worse than the
+project's framing assumes, the *margin* numbers are better, and the *customer-count* numbers are much
+worse. A small fab costs about three quarters of a million euros per job wherever you look — five
+independent sites now agree — and 92% of that is tools. A small fab that is *full* is a
+23%-operating-margin business, and its prototyping work earns comparable margins to its production
+work and grows four times faster. But **it is full with 85 customers, not with thousands**, its
+largest customer is a quarter of its revenue, and its typical tail customer spends €344,000 a year.
+
+So the shape of the answer has changed. It is no longer "does a long tail of small customers exist
+and can it pay?" It is: **the economics of serving prototype and low-volume work at a fab are
+genuinely good — Silex proves that — but every fab that has succeeded at it has done so with a few
+dozen mid-sized corporate customers, and every attempt to do it with a genuinely large number of very
+small ones (Pragmatic, and the subsidised MPWs in `LNI-12`) is either loss-making or publicly
+funded.** The open question is no longer whether the margin is there. It is whether the customer
+count can be got to the thousands without the average customer shrinking by the 5,000× that separates
+a Silex tail customer from a JLC one — and nothing found here says it can.
 
 ---
 
