@@ -21,6 +21,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import collections
 import gzip
 import json
 import math
@@ -459,10 +460,50 @@ def rule40(rows_now: list[dict], rows_prior: list[dict], codes=("7372",), label=
     print(f"  share of filers clearing 40%: {100*sum(1 for s in scores if s >= 0.40)/n:.1f}%")
 
 
+def lowmargin(rows_now: list[dict], rows_prior: list[dict], sic: str = "7372") -> None:
+    """Is the low-margin end of software the fast-growing end?  (SWM-8)"""
+    prior = {r["cik"]: r for r in rows_prior}
+    pts = []
+    for r in rows_now:
+        if r["sic"] != sic:
+            continue
+        p = prior.get(r["cik"])
+        if not p or p["revenue"] <= 0:
+            continue
+        g = r["revenue"] / p["revenue"] - 1.0
+        if -0.9 < g < 5.0:
+            pts.append((g, r["operating_margin"]))
+    n = len(pts)
+    q = n // 5
+    gs = sorted(g for g, _ in pts)
+
+    def gq(g):
+        for i in range(4):
+            if g <= gs[(i + 1) * q - 1]:
+                return i + 1
+        return 5
+
+    bottom = sorted(pts, key=lambda x: x[1])[:q]
+    counts = collections.Counter(gq(g) for g, _ in bottom)
+    print(f"SIC {sic}: n = {n}; bottom margin quintile = {len(bottom)} filers")
+    print(f"  their growth quintiles: {dict(sorted(counts.items()))}")
+    print(f"  in growth Q1+Q2: {counts[1]+counts[2]} "
+          f"({100*(counts[1]+counts[2])/len(bottom):.0f}%);  in growth Q5: {counts[5]} "
+          f"({100*counts[5]/len(bottom):.0f}%)")
+    neg = [x for x in pts if x[1] < 0]
+    shrink = sum(1 for g, _ in neg if g < 0)
+    fast = sum(1 for g, _ in neg if g >= 0.20)
+    print(f"  filers with a negative operating margin: {len(neg)}; "
+          f"shrinking {shrink} ({100*shrink/len(neg):.0f}%); "
+          f"growing >= 20% {fast} ({100*fast/len(neg):.0f}%)")
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--rule40", action="store_true")
     ap.add_argument("--dupont", action="store_true")
+    ap.add_argument("--lowmargin", action="store_true",
+                    help="cross-tabulate the bottom margin quintile against growth (SWM-8)")
     ap.add_argument("--dump", metavar="SIC", help="print every filer in one SIC group")
     a = ap.parse_args()
 
@@ -492,6 +533,9 @@ def main() -> None:
             )
         return
 
+    if a.lowmargin:
+        lowmargin(rows25, rows24)
+        return
     if a.rule40:
         rule40(rows25, rows24)
         rule40(rows25, rows24,
