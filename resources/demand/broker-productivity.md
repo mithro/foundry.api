@@ -42,6 +42,12 @@ customers' designs and Europractice checks every one** (`PRD-7`), and **advancin
 MOSIS's own projects-per-run by 1.9–3.0× and nearly doubled its turnaround, in period, measured by MOSIS**
 (`PRD-9`). The "it is all mature nodes anyway" counter is only about one-third true (`PRD-10`).
 
+**The fundraising-overhead hypothesis is measurable and it is small.** MOSIS ran on one DARPA
+contract for nine years; CMC has had six named public funding instruments in five years and its
+funding base turned over completely between FY2023 and FY2026. Its professional fees rose 79.6% and
+its outreach 59.8% in the year that happened — and together they are **6.7% of spending** (`PRD-13`).
+Real, visible, and nowhere near large enough to explain the gap.
+
 The legal/NDA hypothesis (H8) is **supported but thinly evidenced**: MOSIS distributed *published,
 non-proprietary* design rules and libraries and had no legal function on its roster in any of the
 six years recovered; Europractice names a **legal** contact among nineteen (`PRD-11`). No broker
@@ -762,6 +768,74 @@ the final report to the owner of those files, not applied here.
     (process offerings against schedule rows including variants and packaging options).
   - CMC was not counted: its annual report says "100+ Global supply chain vendors; includes 50+
     located in Canada", which is a supply-chain count, not a foundry count.
+
+### PRD-13. The number of funders each broker has to service: MOSIS had one instrument for a decade; CMC's public funding turned over completely in three years, from CFI-MSI and Quebec to ISED
+
+- **Sources:**
+  - CMC audited financial statements, Statement of Revenue and Expenditures, years ended
+    2023-03-31, 2025-03-31 and 2026-03-31 (URLs in `PRD-6`, plus
+    <https://www.cmc.ca/wp-content/uploads/2024/04/2025-03-31-Financial-Statements-796634.pdf>).
+  - MOSIS: USC/ISI annual technical reports 1982–1987, report-documentation pages (`MOS-2`), and
+    `MOS-1` on the NSF share of the educational programme.
+  - Europractice: `FUNDX-3`, `FUNDX-4`, `FUNDX-7`, `FUNDX-8` on the succession of EU framework
+    instruments and the five partner institutions.
+- **Verification:** Verified 2026-09-25. The CMC statements were downloaded with `curl` and converted
+  with `pdftotext -layout`; the fund columns and revenue lines were read from the printed statements.
+- **What it says.**
+  - **MOSIS, 1981 → 1989: one instrument.** Every ISI annual report's report-documentation page
+    carries the same line — "9. PROCUREMENT INSTRUMENT IDENTIFICATION NUMBER: **MDA903 81 C 0335**",
+    sponsor DARPA — for the whole period, with "Contract expiration date 30 November 1989". NSF
+    joined for the educational programme only, and only from 1986 (`MOS-1`).
+  - **CMC: a different set of public funders every two or three years, each with its own fund column
+    in the audited statements.** The statements are fund-accounted and the columns themselves change:
+    - FY2023 columns: "**NSERC Funded Portion of the National Design Network**", "Other", "**RSF**",
+      "**MSI**", "**Quebec**" — five.
+    - FY2025 columns: "NSERC Funded Portion of the National Design Network", "Other", "RSF",
+      "**FABrIC**" — four, with MSI and Quebec gone.
+    - FY2026 columns: "National Design Network", "Other", "RSF", "FABrIC" — four.
+  - **Named public revenue sources appearing across FY2022–FY2026**, from the revenue lines:
+    **CFI-MSI, Province of Quebec, RSF/NSERC, ISED, NanoCanada, "Provincial Contribution",
+    SponsorChip** — plus the fee lines (non-subscriber fabrication, subscriber fabrication,
+    subscriptions, training, R&D consulting, other industrial, sponsorship, interest, other academic).
+  - **And the mix turned over completely in three years.** CFI-MSI: 6,856,681 (FY2023) →
+    4,575,000 (FY2024) → **0** (FY2025) → **0** (FY2026). Province of Quebec: 2,048,076 (FY2023) →
+    1,775,545 (FY2024) → **0** → **0**. ISED: 1,285,719 (FY2024) → 6,388,416 (FY2025) →
+    **16,100,612** (FY2026).
+  - **Europractice**: EUROCHIP (1989–1995), EUROPRACTICE, IC1, IC2, **IC3** (which `FUNDX-4` shows is
+    absent from CORDIS altogether), EUROPRACTICE 2016, RETICLES, and now Europractice 2.0 under the
+    Chips JU — a succession of distinct grant agreements, each assembled across **five partner
+    institutions** in four countries, each of which has its own finance, audit and reporting
+    obligations (`FUNDX-3`, `FUNDX-7`).
+- **DERIVED (arithmetic written out):**
+  - **Distinct named public funding instruments visible in the accounts, per decade:** MOSIS
+    1981–1989, **one** (two counting NSF's educational share from 1986). CMC FY2022–FY2026, **six**
+    in five years (CFI-MSI, Quebec, RSF/NSERC, ISED, NanoCanada, an unnamed "Provincial
+    Contribution"). Europractice 1989–2026, **eight** named framework instruments across **five**
+    partners.
+  - **CMC's professional fees nearly doubled** as the funding turned over: 492,296 (FY2025) →
+    883,951 (FY2026), a rise of **79.6%** in one year, against total expenditure that rose
+    17,066,020 → 20,012,740, i.e. **17.3%**. Professional fees went from 2.9% to 4.4% of spending.
+  - **Outreach rose too:** 289,274 → 462,278, **+59.8%**.
+- **Bearing: Supports H6 (the fundraising-overhead hypothesis), but only as a direction.** A single
+  cost-reimbursement contract with one sponsor for nine years is a fundamentally cheaper thing to
+  administer than six public instruments in five years across three levels of government, or eight
+  EU framework agreements across five institutions. The audited professional-fee and outreach lines
+  rose 80% and 60% in the year CMC's funding base changed hands. **That is consistent with the
+  hypothesis and it is the only quantitative trace of it in the record.**
+- **Bearing: Challenges H6 (honestly).** Professional fees of CAD $883,951 are **4.4%** of CMC's
+  spending, and outreach **2.3%**. Even if every dollar of both were pure fundraising overhead — and
+  they are not; professional fees include audit and legal — the combined 6.7% cannot explain a gap of
+  two to ten times in designs per head. **Fundraising overhead is real, visible and small.** It is
+  not the cause of the productivity difference; `PRD-8` is.
+- **Used in:** not yet.
+- **Caveats:**
+  - Counting "instruments" is not counting effort. A single instrument can be more onerous than six.
+  - Professional fees are not a fundraising line. They cover audit, legal and consultancy, and CMC
+    does not break them down.
+  - MOSIS's contract count is the *reporting* instrument (`MOS-2`'s caveat). Separate DARPA task
+    orders may have existed and none was found. And the whole of USC's research-administration
+    apparatus sat behind it, uncounted (`PRD-3`).
+  - Europractice's eight instruments are spread over thirty-seven years, not five.
 
 ---
 
