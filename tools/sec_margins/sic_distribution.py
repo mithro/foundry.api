@@ -65,6 +65,15 @@ GROUPS: dict[str, list[str]] = {
     "ALL filers with the tags": ["*"],
 }
 
+# Size bands within SIC 7372.  "The median listed software company" is a
+# micro-cap, and Silex's SEK 1,385m of 2025 net sales is roughly US$145m at the
+# 2025 average rate, so the $100m-$1bn band is its size peer group.
+SIZE_BANDS = [
+    ("7372, revenue < $100m", 0, 100e6),
+    ("7372, revenue $100m-$1bn", 100e6, 1e9),
+    ("7372, revenue > $1bn", 1e9, float("inf")),
+]
+
 METRICS = [
     ("operating_margin", "Operating margin = OperatingIncomeLoss / Revenues"),
     ("asset_turnover", "Asset turnover = Revenues / Assets"),
@@ -444,22 +453,55 @@ def main() -> None:
         print(f"\n\n# {yr}")
         for label, codes in GROUPS.items():
             summarise(rows, label, codes)
+        for label, lo, hi in SIZE_BANDS:
+            band = [r for r in rows if r["sic"] == "7372" and lo <= r["revenue"] < hi]
+            print(f"\n### {label}   (n = {len(band)})")
+            if not band:
+                continue
+            for key, _d in METRICS:
+                xs = [r[key] for r in band if r[key] is not None]
+                if not xs:
+                    continue
+                v = [min(xs)] + [pctile(xs, q) for q in (.1, .25, .5, .75, .9)] + [max(xs)]
+                print(f"{key:18s} {len(xs):5d} " + " ".join(f"{100*x:8.1f}%" for x in v))
+        # Aggregate (sum of revenue, sum of operating income) for the software
+        # groups, as a counterweight to the median: the median filer is tiny.
+        print("\n### Aggregates (sum of operating income / sum of revenue), not medians")
+        for label, codes in GROUPS.items():
+            sel = rows if codes == ["*"] else [r for r in rows if r["sic"] in codes]
+            if not sel:
+                continue
+            tr = sum(r["revenue"] for r in sel)
+            to = sum(r["operating_income"] for r in sel)
+            ta = sum(r["assets"] for r in sel)
+            toa = sum(r["operating_assets"] for r in sel if r["operating_assets"] > 0)
+            tr2 = sum(r["revenue"] for r in sel if r["operating_assets"] > 0)
+            to2 = sum(r["operating_income"] for r in sel if r["operating_assets"] > 0)
+            print(f"  {label:45s} n={len(sel):5d}  revenue-weighted margin {100*to/tr:7.2f}%"
+                  f"  turnover {tr/ta:5.3f}  ROA {100*to/ta:7.2f}%"
+                  f"   | ex cash+goodwill: turnover {tr2/toa:5.3f}  ROA {100*to2/toa:7.2f}%")
 
     # Where Silex lands.
     print("\n\n## Silex Microsystems' 2025 operating margin as a percentile")
     for m, nm in ((0.2267, "22.67% (parent-company EBIT, LNI-17)"),
                   (0.2657, "26.57% (group EBIT, prospectus)")):
         print(f"\n  {nm}")
-        for label, codes in GROUPS.items():
-            sel = rows25 if codes == ["*"] else [r for r in rows25 if r["sic"] in codes]
+        groups = [(lb, [r for r in rows25 if codes == ["*"] or r["sic"] in codes])
+                  for lb, codes in GROUPS.items()]
+        groups += [(lb, [r for r in rows25 if r["sic"] == "7372" and lo <= r["revenue"] < hi])
+                   for lb, lo, hi in SIZE_BANDS]
+        for label, sel in groups:
             if len(sel) < 5:
                 continue
             xs = [r["operating_margin"] for r in sel]
             roas = [r["roa"] for r in sel]
+            oroas = [r["op_roa"] for r in sel if r["op_roa"] is not None]
             sx_roa = m * (1385.0 / 2246.0)
+            sx_oroa = m * (1385.0 / 1980.0)   # assets less SEK 266m cash, no goodwill
             print(
                 f"    {label:45s} margin pctile {rank_of(xs, m):5.1f}   "
-                f"ROA {100*sx_roa:5.2f}% -> pctile {rank_of(roas, sx_roa):5.1f}"
+                f"ROA {100*sx_roa:5.2f}% -> pctile {rank_of(roas, sx_roa):5.1f}   "
+                f"ROA-ex-cash {100*sx_oroa:5.2f}% -> pctile {rank_of(oroas, sx_oroa):5.1f}"
             )
 
     out = CACHE.parent / "distribution_CY2025.json"
