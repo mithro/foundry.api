@@ -38,6 +38,18 @@ is six months, its revenue contains amortisation of a $120,000,000 off-market su
 corporate SG&A sits entirely in the Legacy column — but they do not make a −12.93% operating margin
 into a positive one.
 
+**And the second-strongest finding, `LN-9`, points the same way.** Osceola County, Florida built a
+$75,000,000, 109,000 sq ft fab at Kissimmee in the mid-2010s on exactly this project's thesis —
+shared cleanroom access sold to many companies on a membership model. Florida Trend's account of
+what happened is one sentence long:
+
+> "The project’s creators expected the fab to draw interest from private companies who’d pay membership fees to use its clean room and share in intellectual property developed there. But that interest never materialized"
+
+Nine years later the whole 500-acre NeoCity campus employed "roughly 90 people" against about
+$200,000,000 of county and local money — **$2,222,222 of county capital per realised job**. That is
+a third independent instance of the failure mode already recorded at MEMSCAP (`IHF-8`) and Efabless
+(`OPEN-7`).
+
 **The three most useful capital numbers:**
 
 1. **$86,500,000 of net cash bought a working 200 mm fab with about 849 employees, 1,223,000 sq ft
@@ -46,10 +58,19 @@ into a positive one.
    The fab existed already; someone else paid for it.
 2. **$56,000,000 of capex was expected to "increase overall output by at least 40%"** at a 200 mm
    fab (`LN-2`). A capital cost per unit of incremental capacity, stated by the operator.
-3. **The public subsidy is small next to the private capital**: up to $16,000,000 of CHIPS plus
-   $19,000,000 from Minnesota's Forward Fund (`LN-4`), against $206,466,000 of consideration for one
-   fab and a $10,230,000 county match obligation in Florida (`LN-5`). The CHIPS money is a rounding
-   error on the transaction that actually added the capacity.
+3. **Capital cost per job splits by verb, not by company size** (`LN-14`). Across ten US sites the
+   range is **54.5×**, from $98,214 to $5,357,143 a job. The two cheapest are both *purchases of an
+   operating fab from a seller who wanted out* — Canandaigua at $98,214 a job in 2017 and Fab 25 at
+   $101,884 a job in 2025, **agreeing to within 4% across eight years and two wafer sizes**.
+   Everything that *builds or tools new capacity* averages **$1,300,816 a job**, 13.0× as much.
+
+And on the public money: it is a third to a half of a small fab's capital, not a rounding error.
+Rogue Valley Palm Bay took $6,700,000 of CHIPS against $25,000,000 of project (26.8%, or 39.6%
+counting other grants, `LN-12`); Polar took $198,000,000 of federal and state money against
+$525,000,000 (37.71%, `LN-11`); X-FAB took up to $50,000,000 against $200,000,000 (25.0%, `LN-8`).
+SkyWater is the outlier at the low end: up to $16,000,000 of CHIPS plus $19,000,000 from Minnesota's
+Forward Fund (`LN-4`), against $206,466,000 of consideration for one fab and a $10,230,000 county
+match obligation in Florida (`LN-5`).
 
 And the structural fact behind all of it: **SkyWater no longer exists as an independent company**
 (`LN-6`). It was bought by IonQ on 2026-07-31 for $15.00 cash plus 0.4883 IonQ shares per share. The
@@ -458,8 +479,539 @@ quantum-computing company.
     adjustments, and the direction of the comparison — high-mix loses, anchor-customer wins — is
     the same one `PCB-11` and `IHF-8` found elsewhere in this directory.
 
+### LN-8. X-FAB Lubbock: $200 million and "up to 250 additional jobs" — $800,000 of capital per job
+
+- **Sources:**
+  - Joshua Ramirez, "X-Fab announces $200 million expansion, creates 250 new jobs", KCBD NewsChannel
+    11 (Lubbock, Texas), 2023-05-11.
+    <https://www.kcbd.com/2023/05/12/x-fab-announces-200-million-expansion-creates-250-new-jobs/>
+  - "X-FAB Texas Unveils Expansion in Lubbock, TX", Lubbock Economic Development Alliance, May 2023.
+    <https://lubbockeda.org/x-fab-texas-announces-expansion-in-lubbock-tx/>
+  - "X-Fab (Texas)", NIST CHIPS Program Office project page (preliminary memorandum of terms dated
+    2024-12-06). <https://www.nist.gov/chips/x-fab-texas-lubbock>
+- **Verification:** Verified
+- **Date checked:** 2026-09-25
+- **Bearing:** **Challenges** H5 and H6 on the capital side. $800,000 of capital per job is the cost
+  of a job at a modern specialty fab, and no plausible number of $300 tape-outs pays for it.
+- **What it says:**
+
+  KCBD (the Lubbock CBS affiliate — this is the local-news version of the story):
+
+  > "The $200 million expansion will help X-Fab keep pace with the demand for these lucrative semiconductors."
+
+  > "This expansion will create up to 250 new jobs in Lubbock."
+
+  > "The silicon-carbide market right now is forecasted to grow by roughly 35% per year over the next decade."
+
+  The Lubbock Economic Development Alliance release:
+
+  > "Phase one amounts to $200 million and is expected to create up to 250 additional jobs."
+
+  > "X-FAB employs approx. 4,200 people worldwide."
+
+  And, for scale on what a regional development body actually delivers:
+
+  > "Since its inception in 2004, LEDA has assisted 249 companies with their expansion or relocation to Lubbock. These companies committed to creating 12,388 jobs and investing more than $2.2 billion in new capital improvements that have resulted in $2.0 billion in value-added impact to the Lubbock area."
+
+  NIST, on the federal share:
+
+  > "up to $50 million in proposed direct funding under the CHIPS and Science Act"
+
+  > "The proposed CHIPS investment would create an estimated 150 jobs"
+
+  NIST also describes the site as "the only high-volume SiC foundry in the U.S."
+
+- **DERIVED (arithmetic written out):**
+  - **Capital cost per job.** $200,000,000 ÷ 250 = **$800,000 per job**.
+  - **Federal money per job.** $50,000,000 ÷ 150 = **$333,333 per job**, and the CHIPS share of the
+    announced private investment is 50 ÷ 200 = **25.0%**.
+  - **LEDA's whole twenty-year book, as a benchmark.** $2,200,000,000 ÷ 12,388 =
+    **$177,591 of committed capital per committed job** across 249 companies in every industry. A
+    semiconductor fab job costs **4.5×** the Lubbock average (800,000 ÷ 177,591).
+- **Caveats:** "Up to 250" is a commitment, not a delivery, and KCBD's 250 and NIST's 150 are
+  different counts on different bases (total expansion versus CHIPS-attributable). $200,000,000 is
+  "phase one"; the company said further phases would follow "based on market demands". SiC is a
+  capital-heavy specialty, not a general mature-node line.
+
+### LN-9. NeoCity, Kissimmee: a $75 million purpose-built fab, ~$200 million of county money, and about 90 jobs — and the shared-access business model that "never materialized"
+
+- **Sources:**
+  - "Osceola County lands promising new business partner at high-tech hub NeoCity", Florida Trend,
+    2022-03-09 (no byline shown).
+    <https://www.floridatrend.com/article/33244/osceola-county-lands-promising-new-business-partner-at-high-tech-hub-neocity/>
+  - Natalia Jaramillo, "NeoCity nabbed a half-billion in federal funds. But its impact on Osceola
+    County is years away.", Orlando Sentinel, 2024-02-19 (read via the Yahoo Finance syndication).
+    <https://finance.yahoo.com/news/neocity-nabbed-half-billion-federal-120000216.html>
+  - "Soto Applauds U.S. Department of Defense 'Cornerstone' Award of $289 Million to Osceola
+    County", Office of Rep. Darren Soto, 2023-11-21.
+    <https://soto.house.gov/media/press-releases/soto-applauds-us-department-defense-cornerstone-award-289-million-osceola>
+- **Verification:** Verified for the quoted text of all three; **Partial** for the "over $500
+  million" total, which the Orlando Sentinel attributes to an interviewee rather than a document.
+- **Date checked:** 2026-09-25
+- **Bearing:** **Challenges** H5 directly. This is the closest thing in the record to somebody
+  building a shared-access fab on the long-tail thesis and finding no tail.
+- **What it says:**
+
+  Florida Trend, on the original design of the thing — **this is the single most on-point sentence
+  found in this whole pass**:
+
+  > "Imec was to provide circuit design work and consult on the project’s centerpiece, a $75-million, 109,000-sq.-ft. wafer fabrication facility — a “fab” in industry parlance — on 20 acres. The plan called for UCF to run the clean-room facility and fund its operations."
+
+  > "The project’s creators expected the fab to draw interest from private companies who’d pay membership fees to use its clean room and share in intellectual property developed there. But that interest never materialized, and by the time the chip-making facility opened in early 2017, the effort was rebranded as BRIDG (Bridging the Innovation Development Gap) — and had a new strategy based on securing military contracts."
+
+  What the pivot to defence work then delivered, against the running cost:
+
+  > "BRIDG succeeded in snagging a $20-million contract from the U.S. Department of Defense and a $7.5-million contract from the Air Force Research Laboratory. But the government work didn’t generate enough revenue to cover the facility’s $25-million annual operating costs. Meanwhile, state financial backing — $22.5 million as of 2020 — never reached the $25 million a year the initiative’s organizers had anticipated."
+
+  > "BRIDG’s woes deepened during the pandemic. In 2020, Gov. Ron DeSantis vetoed $10 million in appropriations BRIDG had hoped to get. Shortly thereafter, UCF ended its contract with the organization and laid off more than two dozen BRIDG employees who’d been on its payroll"
+
+  The county's own investment and the physical plant, from Florida Trend's fact box:
+
+  > "Investment: $200 million from the county and local groups"
+
+  > "Location: The master-planned district is on 500 acres near downtown Kissimmee."
+
+  > "The Center for NeoVation — A 109,000-sq.-ft. semiconductor manufacturing facility operated by SkyWater Florida. The two-story building has 35,000 square feet of clean room space with additional laboratory/manufacturing space and has ultra-purified water and air systems as well as anti-vibration technology to guard against contamination and defects that could hamper wafer production."
+
+  SkyWater's early spend and hiring at the site:
+
+  > "Since inheriting the facility, SkyWater has spent nearly $1 million installing equipment and hiring employees, according to the public company’s financial reports. As of January, it had more than 30 employees at the site and was looking to hire nine more. It expects to create 220 jobs in Florida by 2026."
+
+  And the precedent the same region set twenty years earlier:
+
+  > "Between 1996 and 2003, Central Florida and state officials gave Agere Systems and its predecessors more than $40 million in incentives to expand a microchip plant in south Orange County, hoping to create an industry cluster with high-paying jobs. By 2002, however, Agere had followed industry trends and moved most of its chip production overseas."
+
+  Two years later, the Orlando Sentinel counted the federal money and the people:
+
+  > "Since late 2022, NeoCity — a collection of multiple, fledgling tech firms — has laid claim to an impressive half-billion dollars in federal funding."
+
+  > "Beginning in mid-2022, NeoCity has received $50.8 million from the Biden administration’s American Rescue Plan, $120 million from the Department of Defense, $15 million from the National Science Foundation and more."
+
+  > "Today, NeoCity overall employs roughly 90 people across its nearly 500-acre campus, Miller said."
+
+  > "It’s created nearly 100 jobs and is on pace for 200+ within its first five years of operation."
+
+  > "Osceola County residents can apply for the roughly 20 new positions SkyWater is hiring for this year, Miller said."
+
+  > "In Osceola County, where the median household income is roughly $64,000, one of the lowest in Central Florida, work at NeoCity will be among the highest paying jobs you can get, Rasgon noted."
+
+  The DoD award, from the congressional office:
+
+  > "The county was awarded a five-year Cornerstone award with an initial funding allocation of $3.65 million and a spending ceiling of $120 million."
+
+  > "Notably, the contract offers options for an additional $169 million, potentially resulting in a total award of $289 million."
+
+  > "SkyWater will enter into an agreement for SkyWater to execute all aspects of the initial award of up to $120 million."
+
+- **DERIVED (arithmetic written out):**
+  - **What a purpose-built small fab costs per square foot, and how far that is from a used one.**
+    $75,000,000 ÷ 109,000 sq ft = **$688.07 per square foot of building**;
+    $75,000,000 ÷ 35,000 sq ft = **$2,142.86 per square foot of cleanroom**. Against `LN-3`'s
+    distressed purchase of Fab 25 at $70.73 and $230.67 respectively, **building new cost 9.7× and
+    9.3× as much per square foot as buying used** (688.07 ÷ 70.73 = 9.73;
+    2,142.86 ÷ 230.67 = 9.29). Two ratios, computed independently, agreeing within 5%.
+  - **County capital per job realised.** $200,000,000 ÷ ~90 people on the campus at 2024-02-19 =
+    **about $2,222,222 of county and local money per job**, nine years after ICAMR was launched in
+    2014. Against the 220 Florida jobs SkyWater said it expected by 2026:
+    200,000,000 ÷ 220 = **$909,091 per planned job**.
+  - **The shortfall that killed the original model.** BRIDG needed $25,000,000 a year. Its two
+    named contracts, $20,000,000 and $7,500,000, total $27,500,000 — **but those are contract
+    values, not annual revenue**, and the article says explicitly they "didn't generate enough
+    revenue to cover" one year of operating cost. State backing was $22,500,000 *cumulative* to
+    2020 against $25,000,000 *a year* hoped for: over the six years 2015–2020 that is a shortfall of
+    about 6 × 25,000,000 − 22,500,000 = **$127,500,000**.
+  - **Federal money per job at the campus.** $50,800,000 + $120,000,000 + $15,000,000 =
+    $185,800,000 of named awards, against ~90 jobs = **$2,064,444 per job**; on the Sentinel's "over
+    $500 million", 500,000,000 ÷ 90 = **$5,555,556 per job**. These are programme spends, much of
+    it multi-year R&D rather than capital, and should be read as an upper bound on cost per job,
+    not as capital intensity.
+- **Caveats, and they matter:**
+  - The $500,000,000 is *committed federal funding* across a 500-acre campus with several
+    organisations on it, most of it R&D programme money and award *ceilings* (the DoD Cornerstone
+    award had an "initial funding allocation of $3.65 million" against a "$120 million" ceiling and
+    a $289,000,000 theoretical maximum). Dividing it by a head count is a rhetorical calculation,
+    not a capital-intensity measurement, and is labelled as such above.
+  - Florida Trend prints 35,000 sq ft of cleanroom; SkyWater's own 10-K (`LN-1`) prints
+    "approximately 36,000 square feet". Use the filing.
+  - The "$75-million" fab cost is Florida Trend's figure for the original ICAMR build and was not
+    traced to a county document (see "What I could not get").
+  - **The strongest part of this entry is the qualitative finding, not the arithmetic.** A
+    public-private consortium built a small fab explicitly to sell shared cleanroom access to many
+    companies on a membership model — precisely the demand this project assumes — and the interest
+    "never materialized". That is the same failure mode as `IHF-8` (MEMSCAP) and `OPEN-7`
+    (Efabless), at a third site, with a third funding model.
+
+### LN-10. An operating 150 mm MEMS wafer fab, 120,000 sq ft on 57 acres, changed hands for $2.75 million
+
+- **Sources:**
+  - "Akoustis Receives Incentive Package Providing Up to $8 Million in Tax Credits Related to Its
+    Planned Expansion into Upstate New York", Akoustis Technologies, Inc., 2017-03-31.
+    <https://www.globenewswire.com/news-release/2017/03/31/947547/0/en/Akoustis-Receives-Incentive-Package-Providing-Up-to-8-Million-in-Tax-Credits-Related-to-Its-Planned-Expansion-into-Upstate-New-York.html>
+  - "Akoustis Technologies Completes Strategic Acquisition of New York Wafer Manufacturing Facility
+    and Operation", Akoustis Technologies, Inc., 2017-06-27.
+    <https://www.globenewswire.com/news-release/2017/06/27/1029440/0/en/Akoustis-Technologies-Completes-Strategic-Acquisition-of-New-York-Wafer-Manufacturing-Facility-and-Operation.html>
+  - "Akoustis Successfully Completes Sale of Assets to SpaceX", press release of 2025-05-15 filed as
+    Exhibit 99.1 to the Form 8-K of ATECH (Parent) Resolution Corp. (formerly Akoustis
+    Technologies, Inc.), CIK 0001584754.
+    <https://www.sec.gov/Archives/edgar/data/1584754/000121390025044032/ea024225601ex99-1_atech.htm>
+- **Verification:** Verified
+- **Date checked:** 2026-09-25
+- **Bearing:** **Supports** the project's premise on capital cost — this is the cheapest real fab in
+  the record. **Challenges** it on viability: the buyer went bankrupt seven years later and the fab
+  is now captive inside SpaceX.
+- **What it says:**
+
+  From the March 2017 incentive release:
+
+  > "up to $8 million in performance-based incentives under the Excelsior Jobs Program"
+
+  > "acquire a 120,000 Sq. Ft. Wafer Manufacturing Facility"
+
+  > "57-acres of real estate associated with the facility"
+
+  > "create 214 new jobs in Canandaigua, N.Y."
+
+  > "retaining the 31 existing employees currently working in the STC-MEMS facility"
+
+  > "invest up to $20 million in the project over the next 5 years"
+
+  From the June 2017 closing release:
+
+  > "Akoustis paid $2.75 million in cash at closing, plus conventional closing costs"
+
+  > "Successfully Transitions 28 Employees - Expanding the Akoustis Team to 55 Employees"
+
+  > "150-mm wafer fab business, including all semiconductor manufacturing tools"
+
+  > "Class 100/Class 1000 cleanroom space"
+
+  And how it ended, from the 8-K exhibit of 2025-05-15:
+
+  > "Tune Holdings has acquired substantially all of Akoustis’s assets, with the exception of those owned by debtor Grinding and Dicing Services, Inc. (“GDSI”), for approximately $30.2 million in cash and the assumption of certain liabilities."
+
+  > "Following completion of the Court-approved auction process on April 25, 2025, the Company selected Tune Holdings as the winning bidder for substantially all of its assets, except those owned by GDSI."
+
+  > "We are pleased to close this strategic transaction, which will maximize value for our creditors and preserve the vast majority of our employees’ jobs,"
+
+  Tune Holdings Corp. is described in the same release as "a wholly owned subsidiary of Space
+  Exploration Technologies Corp. (“SpaceX”)".
+
+- **DERIVED (arithmetic written out):**
+  - **Purchase price per square foot.** $2,750,000 ÷ 120,000 sq ft = **$22.92 per square foot** of
+    wafer-manufacturing building, tools included, on 57 acres. Against `LN-9`'s purpose-built
+    $688.07/sq ft, that is **1/30th of the cost** (22.92 ÷ 688.07 = 3.3%).
+  - **Purchase price per existing job.** $2,750,000 ÷ 28 transitioned employees = **$98,214**;
+    ÷ 31 existing employees = **$88,710**.
+  - **Planned capital per new job.** $20,000,000 ÷ 214 = **$93,458 per new job** — which includes
+    "the initial real estate acquisition, construction and renovations, plant infrastructure
+    enhancements, semiconductor manufacturing equipment purchases, employee training and software".
+  - **Public money per new job.** $8,000,000 ÷ 214 = **$37,383**, and the state's incentive is
+    8 ÷ 20 = **40.0%** of the private plan.
+  - **What the same assets fetched eight years later.** $30,200,000 for substantially all assets
+    against $2,750,000 for the fab in 2017 — but the 2025 figure includes eight years of tool
+    investment, the BAW patent estate (reported as 40 US patents) and the RFMi subsidiary, so the
+    two are not comparable as a return. What *is* comparable: a distressed, court-supervised
+    auction of a US specialty fab business cleared at **$30.2 million**.
+- **Caveats:** The March release says 31 existing employees and the June release says 28
+  transitioned; both are quoted. Akoustis was an IDM building its own product, not a merchant
+  foundry selling to a long tail, so the fab's *use* is not the project's model even though its
+  *price* is the most relevant one here. The company filed Chapter 11 on 2024-12-16 following a
+  circa-$59,000,000 trade-secret judgment in favour of Qorvo — the bankruptcy was caused by
+  litigation, not by the fab economics, which is an important distinction and is why this entry does
+  not treat the Chapter 11 as evidence against small-fab viability. The **pattern** it completes,
+  though, is the same as `LN-6`: **two US specialty fabs in two years both ended up owned by a large
+  customer** (IonQ; SpaceX).
+
+### LN-11. Polar Semiconductor, Bloomington MN: $525 million for +20,000 wafer starts per month and 98 manufacturing jobs
+
+- **Sources:**
+  - Estelle Timar-Wilcox, "Minnesota semiconductor manufacturer awarded nearly $200 million in
+    state, federal funding for expansion", MPR News, 2024-05-13.
+    <https://www.mprnews.org/story/2024/05/13/minnesota-polar-semiconductor-manufacturer-millions-funding-expansion>
+  - "Polar Semiconductor (Minnesota)", NIST CHIPS Program Office project page.
+    <https://www.nist.gov/chips/polar-semiconductor-minnesota-bloomington>
+- **Verification:** Verified
+- **Date checked:** 2026-09-25
+- **Bearing:** **Challenges** H5/H6 on capital cost per job — this is the most expensive job in the
+  file. **Context** for capital cost per unit of capacity, where it gives the cleanest number
+  anywhere in this directory.
+- **What it says:**
+
+  MPR News (Minnesota Public Radio — the local outlet):
+
+  > "Polar Semiconductor in Bloomington plans to use $120 million in federal funding announced Monday to expand its facility, creating 160 new jobs and doubling its output of semiconductor chips."
+
+  > "Bloomington’s Polar Semiconductor is beginning a $525 million expansion that it says will double its output and create 160 new jobs."
+
+  > "Polar is getting another $75 million in state funding for the project, and has secured private funding as well."
+
+  > "In Minnesota, semiconductor production is a fast-growing industry; the state’s more than 150 semiconductor manufacturers added nearly 2,000 jobs over the last two years."
+
+  NIST, with the capacity and the job split:
+
+  > "Up to $123 million in total direct funding under the CHIPS and Science Act"
+
+  > "Investment of more than $525 million from private, state, and federal sources"
+
+  > "from roughly 20,000 to roughly 40,000 wafer starts per month"
+
+  > "Over 160 manufacturing and construction jobs in Minnesota"
+
+  with "98 manufacturing jobs and 68 construction jobs", and an R&D condition:
+
+  > "Committed to use commercially reasonable efforts to allocate 7% of its total U.S.-based revenue each year to R&D that is conducted in the United States for a period of 5 years"
+
+- **DERIVED (arithmetic written out):**
+  - **Capital cost per unit of capacity — the cleanest such figure found.** The expansion adds
+    40,000 − 20,000 = 20,000 wafer starts per month.
+    $525,000,000 ÷ 20,000 wspm = **$26,250 of capital per wafer-start-per-month**.
+    Annualised: 20,000 × 12 = 240,000 added wafers a year, so
+    $525,000,000 ÷ 240,000 = **$2,187.50 of capital per wafer of annual capacity**. Over a
+    ten-year asset life that is **$218.75 of capital per wafer produced**, before any operating
+    cost.
+  - **Capital cost per job.** $525,000,000 ÷ 98 permanent manufacturing jobs = **$5,357,143 per
+    job** — the highest in this file. Counting construction jobs too:
+    $525,000,000 ÷ 160 = **$3,281,250**. Counting the 166 that 98 + 68 actually sums to:
+    $525,000,000 ÷ 166 = **$3,162,651**.
+  - **Public share.** $123,000,000 + $75,000,000 = $198,000,000, which is
+    198 ÷ 525 = **37.71%** of the project. Per permanent job:
+    $198,000,000 ÷ 98 = **$2,020,408 of public money per manufacturing job**.
+  - **Against SkyWater next door.** Polar is expanding a 200 mm fab in the same town as SkyWater's
+    Bloomington fab. SkyWater's entire five-year organic capex was $104,900,000 (`LN-1`); Polar's
+    single expansion is **5.0×** that (525 ÷ 104.9).
+- **Caveats:** MPR reports "up to $120 million" federal (the preliminary announcement); NIST's page
+  says "up to $123 million" (the final award). Both are quoted. "160 new jobs" in the MPR headline
+  conflates 98 permanent with 68 construction. The $525,000,000 is "from private, state, and
+  federal sources", so it is a project total, not private capex. The capital-per-wspm figure is for
+  *doubling an existing fab*, which is cheaper per unit than greenfield and more expensive than the
+  debottlenecking in `LN-2`.
+
+### LN-12. Rogue Valley Microdevices, Palm Bay FL: a pure-play MEMS foundry for $25 million and 75 jobs — and the public purse covers 40% of it
+
+- **Sources:**
+  - "EDC announces Oregon-based Rogue Valley Microdevices, Inc. to open microfabrication facility in
+    Palm Bay", Economic Development Commission of Florida's Space Coast, 2023-06-28.
+    <https://spacecoastedc.org/roguevalley/>
+  - "Rogue Valley Microdevices (Florida)", NIST CHIPS Program Office project page (preliminary
+    memorandum of terms dated 2024-07-01).
+    <https://www.nist.gov/chips/rogue-valley-microdevices-florida-palm-bay>
+- **Verification:** Verified for the two sources quoted; **Partial** for the $5,000,000 Florida
+  Department of Commerce loan and $3,200,000 of "other incentives", which came from a search summary
+  and were not read in a primary document.
+- **Date checked:** 2026-09-25
+- **Bearing:** **Mixed** on H6. This is the closest company in the file to foundry.api's own model —
+  a pure-play MEMS foundry whose customers are small — and the numbers are within reach. But 40%
+  of the capital is public.
+- **What it says:**
+
+  The Space Coast EDC (the local development commission):
+
+  > "The company’s acquisition of a 50,000-square-foot commercial building at 2301 Commerce Drive in Palm Bay will result in a capital investment of $25 million."
+
+  > "adding 30 jobs over 3 years with an average wage of $59,900, with anticipation of hiring 75 new employees over 5 years with an average wage of $65,267."
+
+  > "The space will be reconfigured for a state-of-the-art cleanroom and office space, with initial production of its first MEMS devices slated for 2024."
+
+  NIST:
+
+  > "up to $6.7 million in proposed direct funding under the CHIPS and Science Act"
+
+  > "creating over 75 jobs in the state of Florida"
+
+  > "reliable, domestic supply of MEMS devices manufactured on 300mm wafers"
+
+  and the investment is "estimated to nearly triple RVM's manufacturing capacity".
+
+- **DERIVED (arithmetic written out):**
+  - **Capital cost per job.** $25,000,000 ÷ 75 = **$333,333 per job** on the five-year plan;
+    $25,000,000 ÷ 30 = **$833,333 per job** on the three-year plan.
+  - **Capital cost per square foot.** $25,000,000 ÷ 50,000 sq ft = **$500 per square foot** of
+    building, retrofitting an existing commercial shell. That sits between the used-fab prices
+    ($22.92 and $70.73 per sq ft, `LN-10` and `LN-3`) and the purpose-built fab ($688.07,
+    `LN-9`) — which is where a retrofit should sit, and is a useful confirmation that the three
+    figures are measuring the same thing.
+  - **Capital against payroll.** 75 jobs × $65,267 = **$4,895,025 of annual payroll**. The
+    $25,000,000 of capital is therefore **5.11 years of the payroll it supports**
+    (25,000,000 ÷ 4,895,025).
+  - **Public share.** CHIPS $6,700,000 alone is 6.7 ÷ 25 = **26.8%** of the project. Adding the
+    reported $3,200,000 of other grants: 9,900,000 ÷ 25,000,000 = **39.6%**. The reported
+    $5,000,000 state loan is debt, not a grant, and is excluded from that fraction; including it,
+    14,900,000 ÷ 25,000,000 = **59.6%** of the capital comes from the public sector in some form.
+  - **Federal money per job.** $6,700,000 ÷ 75 = **$89,333**.
+- **Caveats:** The wage figures are the EDC's incentive-application numbers, which are targets. A
+  "capital investment of $25 million" in an EDC release usually means the total announced project
+  value including the building purchase, not cleanroom tooling alone. "300 mm capable" for a MEMS
+  foundry is a marketing claim about the largest wafer the tools can accept, not a statement of
+  300 mm volume production. Rogue Valley's original fab is in Medford, Oregon; no comparable
+  capital figure for the Medford site was found (see "What I could not get").
+
+### LN-13. WestGate@Crane, Odon, Indiana: four small semiconductor companies, $277–300 million, and a capital-per-job spread of 7×
+
+- **Sources:**
+  - Alex Brown, "Ground broken on $84M semiconductor campus at WestGate", Inside INdiana Business,
+    2022-11-21.
+    <https://www.insideindianabusiness.com/articles/ground-broken-on-84m-semiconductor-campus-at-westgate>
+  - "WestGate@Crane welcomes new $84 million collaborative microelectronics campus", Regional
+    Opportunity Initiatives, 2022-11-21.
+    <https://regionalopportunityinc.org/2022/11/21/microelectronics-campus/>
+- **Verification:** Verified for the Inside INdiana Business figures; **Partial** for the Regional
+  Opportunity Initiatives figures, which were read only through a search summary.
+- **Date checked:** 2026-09-25
+- **Bearing:** **Context** for H1 and H6. It is the only place found where four *different* small
+  semiconductor companies announce capital and jobs on the same day at the same site, so the
+  capital-per-job spread between them is measured under near-identical conditions.
+- **What it says:**
+
+  > "$84 million microelectronics campus at WestGate@Crane Technology Park"
+
+  > "create nearly 550 jobs"
+
+  > "invest more than $236 million to build and equip a 100,000-square-foot fabrication facility"
+
+  > "create up to 413 jobs by the end of 2028"
+
+  > "average salaries higher than 250% of the Daviess County average"
+
+  The other three tenants:
+
+  > "10,000-square-foot fabrication and R&D facility" and "create up to 35 high-wage jobs by the end of 2027" (Everspin Technologies)
+
+  > "invest more than $34 million to lease and equip a 10,000-square-foot space" and "create up to 40 jobs by the end of 2027" (Trusted Semiconductor Solutions)
+
+  > "invest $7.3 million to expand to Indiana" and "plans to add 61 jobs" (Reliable MicroSystems)
+
+  The incentives:
+
+  > "up to $11 million in conditional tax credits and training grants for NHanced Semiconductors"
+
+  > "up to $10 million in redevelopment tax credits"
+
+  > "up to $10 million in matching funds from the Indiana Regional Economic Acceleration and Development Initiative"
+
+- **DERIVED (arithmetic written out):**
+  - **Capital per job, four companies, one site, one day:**
+
+    | Company | Announced capital | Jobs | Capital per job |
+    |---|---:|---:|---:|
+    | Reliable MicroSystems | $7,300,000 | 61 | **$119,672** |
+    | NHanced Semiconductors | $236,000,000 | 413 | **$571,429** |
+    | Trusted Semiconductor Solutions | $34,000,000 | 40 | **$850,000** |
+    | Everspin Technologies | not stated | 35 | — |
+
+    The spread between the cheapest and dearest is 850,000 ÷ 119,672 = **7.1×**, at the same site
+    in the same week. **Capital cost per job is not a property of "a fab"** — it is a property of
+    what the company is doing, and it varies by an order of magnitude.
+  - **Capital per square foot.** NHanced: $236,000,000 ÷ 100,000 sq ft = **$2,360 per square
+    foot** — the highest in this file, and 3.4× the purpose-built fab in `LN-9` ($688.07), because
+    the money is advanced-packaging tooling rather than building. Trusted Semiconductor:
+    $34,000,000 ÷ 10,000 = **$3,400 per square foot**, higher still, for a leased space.
+  - **Public share of NHanced.** $11,000,000 + $10,000,000 = $21,000,000 of state tax credits
+    against $236,000,000 = **8.9%** — much the lowest public share in this file. Per job:
+    $21,000,000 ÷ 413 = **$50,847**.
+  - **The campus shell.** $84,000,000 of campus against ~550 jobs = **$152,727 per job** for the
+    buildings alone, before any tenant's tooling.
+- **Caveats:** Every figure is an announcement with a target date (2027, 2028), not a delivery.
+  "Up to" appears on every job number. Tax credits described as "conditional" and "performance-
+  based" are only earned if the jobs appear. Advanced packaging is not wafer fabrication; NHanced's
+  $2,360/sq ft should not be compared to a front-end fab's cost per square foot without that
+  caveat. No follow-up reporting on whether these targets were met was found (see "What I could not
+  get").
+
+### LN-14. The capital-cost-per-job table, assembled
+
+- **Sources:** every entry above; no new source.
+- **Verification:** Verified — each row is arithmetic on figures verified in the entry cited.
+- **Date checked:** 2026-09-25
+- **Bearing:** **Mixed** on H5 and H6, and the most useful single thing in this file after `LN-7`.
+- **How it was counted:** Each row divides the announced or paid capital by the announced or
+  actual job count, exactly as computed in the cited entry. Rows are not adjusted to a common year;
+  they span 2017 to 2025 in nominal dollars.
+- **What it says:**
+
+  | Site | What happened | Capital | Jobs | **Capital per job** | Entry |
+  |---|---|---:|---:|---:|---|
+  | Canandaigua NY | **bought** an operating 150 mm MEMS fab | $2,750,000 | 28 | **$98,214** | `LN-10` |
+  | Austin TX (Fab 25) | **bought** an operating 200 mm fab, net cash | $86,500,000 | ~849 | **$101,884** | `LN-3` |
+  | Odon IN (Reliable) | small expansion into a shared campus | $7,300,000 | 61 | **$119,672** | `LN-13` |
+  | Odon IN (campus shell) | buildings only, four tenants | $84,000,000 | ~550 | **$152,727** | `LN-13` |
+  | Palm Bay FL | **retrofitted** a commercial shell into a MEMS fab | $25,000,000 | 75 | **$333,333** | `LN-12` |
+  | Odon IN (NHanced) | built out and tooled advanced packaging | $236,000,000 | 413 | **$571,429** | `LN-13` |
+  | Lubbock TX | **expanded** an operating SiC fab | $200,000,000 | 250 | **$800,000** | `LN-8` |
+  | Odon IN (Trusted) | leased and tooled a small space | $34,000,000 | 40 | **$850,000** | `LN-13` |
+  | Kissimmee FL | **built** a new fab + campus (county money only) | $200,000,000 | ~90 realised | **$2,222,222** | `LN-9` |
+  | Bloomington MN | **doubled** an operating 200 mm fab | $525,000,000 | 98 permanent | **$5,357,143** | `LN-11` |
+
+- **DERIVED (arithmetic written out):**
+  - **The range is 55-fold**: 5,357,143 ÷ 98,214 = **54.5×** between the cheapest and dearest job
+    in the table.
+  - **The split is not by company size or by state. It is by verb.** The two rows under $110,000 a
+    job are both *purchases of an existing fab from a seller who wanted out*. Everything that
+    involves *building or tooling new capacity* is $333,000 a job or more, and the two rows over
+    $2,000,000 a job are both *new capacity at a fab that was already running*.
+  - **Mean of the eight "build/expand" rows** (119,672 + 152,727 + 333,333 + 571,429 + 800,000 +
+    850,000 + 2,222,222 + 5,357,143) ÷ 8 = 10,406,526 ÷ 8 = **$1,300,816 per job**. **Mean of the
+    two "buy" rows** = (98,214 + 101,884) ÷ 2 = **$100,049 per job**. The ratio is **13.0×**.
+  - **What this means for the project, stated plainly.** If foundry.api intends to *build*
+    capacity, the planning number is on the order of **$0.3m–$5m of capital per job**, and the long
+    tail has to pay for that. If it intends to *buy* a fab somebody else is exiting, the planning
+    number is on the order of **$100,000 per job** — and the two independent observations of that,
+    eight years and two wafer sizes apart, agree to within 4% (98,214 against 101,884). **That
+    agreement is the most useful number in this file.**
+- **Caveats:** Nominal dollars across 2017–2025; no inflation adjustment. Job counts mix realised
+  head count (Canandaigua, Fab 25, Kissimmee) with announced targets (everywhere else), and targets
+  are systematically optimistic, which pushes the announced rows' cost per job *down* relative to
+  what will be realised. "Capital" mixes purchase price, capex commitments and project totals
+  including public money. The two "buy" rows are both distressed or strategic exits and are not a
+  market price for a fab; there is no liquid market for fabs.
+
 ---
 
 ## What I could not get, and why
 
-(to be completed)
+Blocked items with the blocker named are recorded here on purpose. None of these was abandoned for
+lack of trying, and none was worked around by defeating a bot check.
+
+1. **`fltimes.com` (Finger Lakes Times) — HTTP 429, no Wayback snapshot.** The Ontario County deed
+   transactions column for May 2025 carries the exact recorded price at which the Canandaigua fab's
+   land and buildings transferred from Akoustis to Tune Holdings (SpaceX) — reportedly
+   **$8,965,720** for 5450 and 5440 Campus Drive, Town of Canandaigua. This is the single best
+   available split of the $30.2m total sale into real property versus everything else, and it is
+   exactly the county-record-in-the-local-paper datum this task was looking for. The article URL
+   returned HTTP 429 on three attempts with a browser user-agent, and
+   `archive.org/wayback/available` reports **no archived snapshot** of it. The figure is therefore
+   recorded in `LN-10` only as reported, not as verified, and the underlying Ontario County deed
+   record was not retrieved.
+2. **`eda.gov` — HTTP 403.** The Economic Development Administration's own Build Back Better
+   Regional Challenge finalist page for the Osceola County Board of County Commissioners
+   (<https://www.eda.gov/funding/programs/american-rescue-plan/build-back-better/finalists/osceola-county-board-of-county-commissioners>)
+   returns 403 to an automated fetch. That page has the component-project breakdown of the
+   $50,800,000 award, which would have converted `LN-9`'s single federal number into a
+   capital-versus-programme split.
+3. **Osceola County's own capital outlay on ICAMR/BRIDG was never traced to a county document.**
+   The `$200 million from the county and local groups` in `LN-9` is Florida Trend's figure and
+   `$273 million` appears in the Orlando Economic Partnership's material. Neither was matched to a
+   Board of County Commissioners agenda item, a bond issue or a CAFR line. The county's
+   **revenue-bond issues** for NeoCity, which would give the exact principal, par value and pledged
+   revenue, were not located.
+4. **No wafer-start capacity (wspm) is published anywhere in SkyWater's five 10-Ks.** `LN-2`'s "at
+   least 40%" output increase therefore cannot be converted into a dollars-per-wspm figure
+   comparable to Polar's $26,250 in `LN-11`. This is the biggest single gap in the file: two of the
+   ten sites give a capacity number and eight do not.
+5. **The Lubbock tax-abatement file could not be opened.** The City of Lubbock's Laserfiche
+   WebLink instance has a "Notice Of Intent To Enter Tax Abatement Agreement - X-Fab TX"
+   (<https://weblink.ci.lubbock.tx.us/WebLink/DocView.aspx?id=226922&dbid=5&repo=Lubbock&cr=1>) but
+   serves only a JavaScript viewer shell to `curl`; the document pages are not exposed at a plain
+   URL and the WebLink REST endpoints return 404. So the *abated* value, the term and the clawback
+   terms behind `LN-8`'s $200,000,000 are not in this file. A Texas Tax Code Chapter 313 value
+   limitation agreement for X-FAB Texas was searched for and **not found** — the company may simply
+   not have one.
+6. **No follow-up on whether any of the announced job targets were met.** Every row in `LN-14`
+   except Canandaigua, Fab 25 and Kissimmee is an announcement. Nothing was found that reports
+   actual head count against target for X-FAB Lubbock, Rogue Valley Palm Bay, or any of the four
+   Odon tenants. Targets are systematically optimistic and this is a known weakness of the table.
+7. **Rogue Valley Microdevices' Medford, Oregon fab.** No capital figure, head count, cleanroom
+   area or wafer-start figure was found for the original site, so the Palm Bay numbers in `LN-12`
+   cannot be checked against the company's existing operation.
+8. **The Florida Department of Commerce loan and the "other incentives" in `LN-12`** ($5,000,000
+   and $3,200,000) were not read in a primary document and are marked Partial in that entry.
+
