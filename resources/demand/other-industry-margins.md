@@ -496,6 +496,139 @@ early-clinical 19.69% against 44.70% for late-clinical and commercial — grade 
   - Two Chinese CDMOs are not the world CDMO industry. Lonza, Siegfried, Recipharm and Catalent
     were not read for a comparable split; see the blocked-sources list.
 
+### OIM-5. A MEMS pure-play wafer foundry prints the split, and the bespoke low-volume half wins
+every year: process development 39.90% against volume wafer manufacturing 33.19% — grade 1, and
+the only find that is an actual semiconductor foundry
+
+- **Sources:** 北京赛微电子股份有限公司 (Beijing SWAYSURE / Saiwei Electronics Co., Ltd., SZSE:
+  300456 — the owner of Sweden's Silex Microsystems, the world's largest MEMS pure-play foundry),
+  annual reports from `static.cninfo.com.cn`:
+  - 2025 年年度报告, published 2026-03-27: <http://static.cninfo.com.cn/finalpage/2026-03-27/1225036416.PDF>
+  - 2024 年年度报告, published 2025-03-20: <http://static.cninfo.com.cn/finalpage/2025-03-20/1222847674.PDF>
+  - 2023 年年度报告, published 2024-03-27: <http://static.cninfo.com.cn/finalpage/2024-03-27/1219412142.PDF>
+  - 2022 年年度报告, published 2023-03-29: <http://static.cninfo.com.cn/finalpage/2023-03-29/1216246151.PDF>
+- **Verification:** Verified 2026-09-25, same method as `OIM-3`. The figures sit in the MD&A prose
+  rather than in the standard 分产品 ("by product") table, so each was read in its own sentence.
+  The two printed segment margins were then **recombined** against the printed blended MEMS margin
+  in all three years and reproduce it exactly (see DERIVED), which is the same internal-consistency
+  test `../analyses/long-tail-pays-for-the-capital.md` applies to JLC's table.
+- **Note on language:** Chinese-language filings; the English renderings are ours.
+- **What it says:**
+  - **The company defines its two business lines, and they are the bespoke end and the volume end
+    of a wafer fab.** "公司现有 MEMS 业务包括工艺开发和晶圆制造两大类：公司 MEMS 工艺开发业务是指
+    根据客户提供的芯片设计方案，以满足产品性能、实现产品"可生产性"以及平衡经济效益为目标，利用工艺
+    技术储备及项目开发经验，进行产品制造工艺流程的开发，为客户提供定制的产品制造流程。公司 MEMS 晶圆
+    制造业务是指在完成 MEMS 芯片的工艺开发，实现产品设计固化、生产流程固化后，为客户提供批量晶圆制造
+    服务。"
+    — "The Company's existing MEMS business comprises two categories, process development and wafer
+    manufacturing. The Company's **MEMS process development** business means developing the
+    product's manufacturing process flow, on the basis of the chip design scheme provided by the
+    customer, with the goals of meeting product performance, achieving product 'manufacturability'
+    and balancing economic returns, using its process-technology reserves and project development
+    experience — **providing the customer with a customised production process**. The Company's
+    **MEMS wafer manufacturing** business means, after the MEMS chip's process development is
+    complete and the product design and production flow are frozen, **providing the customer with
+    batch wafer manufacturing services**."
+  - **It says outright that it runs a small-batch line and volume lines.** "瑞典 FAB1＆FAB2 属于
+    中试线+小批量生产线，北京 FAB3 和德国 FAB5（该收购最终遗憾失败）均属于规模量产线"
+    — "the Swedish FAB1 & FAB2 are a **pilot line plus small-batch production line**, while Beijing
+    FAB3 and Germany FAB5 (an acquisition that regrettably failed in the end) are both **scale
+    volume-production lines**."
+  - **The revenue and margin, year by year**, from the MD&A. 万元 is *wàn yuán*, units of CNY 10,000;
+    the CNY column is ours:
+
+    | Year | Line | Revenue as printed (万元) | Revenue (CNY) | Gross margin as printed |
+    |---|---|---|---|---|
+    | 2022 | MEMS 工艺开发 (process development) | 33,056.00 | 330,560,000 | **49.19%** |
+    | 2022 | MEMS 晶圆制造 (wafer manufacturing) | 37,832.62 | 378,326,200 | **18.18%** |
+    | 2023 | MEMS 工艺开发 (process development) | 35,693.79 | 356,937,900 | **38.67%** |
+    | 2023 | MEMS 晶圆制造 (wafer manufacturing) | 49,881.78 | 498,817,800 | **34.07%** |
+    | 2024 | MEMS 工艺开发 (process development) | 34,198.02 | 341,980,200 | **39.90%** |
+    | 2024 | MEMS 晶圆制造 (wafer manufacturing) | 65,606.56 | 656,065,600 | **33.19%** |
+
+    The FY2024 sentence in full: "报告期内，公司 MEMS 业务的综合毛利率为 35.49%，较上年基本持平；其中
+    MEMS 晶圆制造毛利率为 33.19%，较上年基本持平，MEMS 工艺开发毛利率为 39.90%，较上年上升 1.23%（绝对
+    数值变动）" — "During the reporting period the Company's blended gross margin on the MEMS
+    business was 35.49%, broadly flat against the previous year; of which the **MEMS wafer
+    manufacturing gross margin was 33.19%**, broadly flat against the previous year, and the
+    **MEMS process development gross margin was 39.90%**, up 1.23% against the previous year (change
+    in absolute value)."
+  - **The 2022 report gives the previous year's changes too**, which yields 2021 (see DERIVED):
+    "其中 MEMS 工艺开发毛利率为 49.19%，较上年下降 31.34%（绝对数值变动），MEMS 晶圆制造毛利率为
+    18.18%，较上年下降 8.85%（绝对数值变动）".
+  - **The new volume fab was deeply loss-making while ramping.** In 2022, "源自中国境内 MEMS 收入在
+    本报告期的毛利率为-50.00%" — "the gross margin on MEMS revenue originating inside China was
+    **−50.00%** in this reporting period" — China being where the volume line, Beijing FAB3, is;
+    "北京 FAB3 仍处于产能爬坡阶段" — "Beijing FAB3 is still in its capacity ramp-up phase."
+  - **Low-volume, high-price wafers move utilisation about.** FY2024: "瑞典 FAB1＆FAB2 业务结构发生
+    变化，MEMS-OCS 等高单价、低产量晶圆产品的收入占比提高，综合导致其产能利用率出现较为明显的阶段性波动"
+    — "the business mix of the Swedish FAB1 & FAB2 changed, the revenue share of **high-unit-price,
+    low-output wafer products** such as MEMS-OCS increased, and together this caused a fairly
+    pronounced phase-wise fluctuation in their capacity utilisation."
+  - **The split has now stopped.** The FY2025 report merges the two into one line, "MEMS 纯代工"
+    ("MEMS pure foundry"), revenue 684,099,670.59, cost 425,116,982.78, margin **37.86%**, and notes
+    "分产品中的 MEMS 纯代工即为公司往期报告中的 MEMS 工艺开发及 MEMS 晶圆制造" — "the MEMS pure
+    foundry line under 'by product' is what previous reports called MEMS process development and
+    MEMS wafer manufacturing." No 2025 split exists.
+- **DERIVED (arithmetic written out):** script `tmp/silex_decomp.py`.
+  - **The two printed margins recombine to the printed blended margin in all three years**, which
+    is the check that the disclosure is internally consistent:
+    2022 (330,560,000 × 0.4919 + 378,326,200 × 0.1818) ÷ 708,886,200 = **32.64%** against the
+    printed 32.64%; 2023 = **35.99%** against printed 35.99%; 2024 = **35.49%** against printed
+    35.49%. The printed revenue figures also sum to the printed MEMS totals (2022: 33,056.00 +
+    37,832.62 = 70,888.62 万元, printed 70,888.62; 2023 sums to 85,575.57 against a printed
+    85,575.56, a CNY 100 rounding; 2024: 99,804.58 = printed 99,804.58).
+  - **The gap, in favour of the bespoke low-volume line, every year:** 2021 **+53.50 pp**, 2022
+    **+31.01 pp**, 2023 **+4.60 pp**, 2024 **+6.71 pp**.
+  - **2021, from the FY2022 report's printed changes:** process development 49.19 + 31.34 =
+    **80.53%**; wafer manufacturing 18.18 + 8.85 = **27.03%**. The FY2023 report's changes
+    independently reproduce 2022 (38.67 + 10.53 = 49.20% against the printed 49.19%; 34.07 − 15.89 =
+    18.18% against the printed 18.18%), which cross-checks the method.
+  - **Gross-profit decomposition** (bespoke share of revenue → bespoke share of gross profit):
+    2022 46.63% → **70.27%**; 2023 41.71% → **44.82%**; 2024 34.26% → **38.52%**. In every year the
+    low-volume line takes a larger share of gross profit than of revenue. In 2022 it was under half
+    the revenue and **over seventy per cent of the gross profit**.
+  - **Revenue needed per CNY 1 of gross profit, 2024:** process development 1 ÷ 0.3990 = **CNY
+    2.51**; wafer manufacturing 1 ÷ 0.3319 = **CNY 3.01**. The volume line must turn over **1.20×**
+    the revenue to service the same capital. In 2022 the same ratio was 2.71×.
+- **Bears on:**
+  - **H6 (supports).** This is the only find in this file that is a **semiconductor wafer foundry**,
+    and it points the same way as JLC. In a real fab, with real fab capital, the bespoke
+    low-volume work carried a higher gross margin than volume wafer production in every one of the
+    four years the company disclosed it, and in 2022 carried 70% of the gross profit on 47% of the
+    revenue.
+  - **H6 (supports, on the capital question specifically).** The company states that its Swedish
+    site is "a pilot line plus small-batch production line" and its Beijing site a "scale
+    volume-production line" — so the two margins are not just two products, they are two *fabs*
+    with two *strategies*, and the small-batch one is the better business. That is the
+    foundry.api thesis stated by a foundry in an audited annual report.
+  - **H6 (challenges, and it must be said).** The gap collapsed: +53.50 pp in 2021, +31.01 in 2022,
+    then +4.60 and +6.71. On the 2023 and 2024 numbers the two halves are nearly equal. Whatever
+    the premium was in 2021–22, it is now small, and the company then stopped disclosing it.
+  - **H2 / the idle-plant question (context).** The Beijing volume fab ran at **−50.00%** gross
+    margin in 2022 while ramping. A new fab built for volume, before it has volume, destroys gross
+    profit. That is the same result as JLC's audited impairment against its medium/large-batch
+    plant, from a completely different company and country.
+- **Used in:** not yet.
+- **Caveats:**
+  - **"Process development" is not the same thing as "a small order".** It is an engineering
+    service sold per project, and it is the *precondition* for volume manufacturing at the same
+    customer, not a standing alternative to it. A long-tail chip customer at foundry.api would buy
+    both. The read-across is to the NRE half of a shuttle, not to a small wafer order.
+  - **The split is by activity, not by order size**, and the company publishes no order count,
+    customer count, average order value or wafer volume per customer anywhere in these reports. The
+    long-tail *fragmentation* question (H7) gets no answer here at all.
+  - **These are the group's figures, spanning two countries.** The Swedish line is old and
+    depreciated and the Beijing line is new and ramping, so part of the gap between the two margins
+    is asset age and utilisation rather than order size. The company says as much.
+  - **MEMS is not CMOS.** A MEMS pure-play foundry's economics — hundreds of bespoke processes,
+    no standard PDK, low volumes by the standards of a logic fab — are unusually favourable to
+    the bespoke end, and unusually unlike TSMC's.
+  - The figures are read out of MD&A prose, not from the audited 分产品 table, and the revenue
+    figures are rounded to 万元. The blended-margin reconciliation is what makes them trustworthy.
+  - The disclosure has stopped. As with `OIM-3`, a reader looking at only the latest annual report
+    would not find this split.
+
 ---
 
 *(Continued below: further entries, the comparison table, the verdict and the blocked-sources list.)*
