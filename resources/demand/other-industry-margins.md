@@ -270,6 +270,232 @@ thing to JLC found outside PCBs
   - The consolidated gross margin for 2025 is not in this entry. Until it is, the size of the
     premium is unknown.
 
+### OIM-3. Asymchem prints exactly the JLC table for pharmaceutical contract manufacturing — and
+it points the other way: small clinical batches 39.42%, large commercial batches 53.32% — grade 1,
+grade 4
+
+- **Sources:** 凯莱英医药集团（天津）股份有限公司 (Asymchem Laboratories (Tianjin) Co., Ltd.,
+  SZSE: 002821), annual reports, all fetched from the exchange's own document server at
+  `static.cninfo.com.cn`:
+  - 2025 年年度报告 (FY2025 annual report), published 2026-03-31:
+    <http://static.cninfo.com.cn/finalpage/2026-03-31/1225053960.PDF>
+  - 2024 年年度报告 (FY2024 annual report), published 2025-03-29:
+    <http://static.cninfo.com.cn/finalpage/2025-03-29/1222941173.PDF>
+  - 2023 年年度报告 (FY2023 annual report), published 2024-03-29:
+    <http://static.cninfo.com.cn/finalpage/2024-03-29/1219441324.PDF>
+  - 2022 年年度报告 (FY2022 annual report), published 2023-03-31:
+    <http://static.cninfo.com.cn/finalpage/2023-03-31/1216273048.PDF>
+- **Verification:** Verified 2026-09-25. Each PDF was downloaded (a browser User-Agent plus
+  `-H "Referer: http://www.cninfo.com.cn/"` is required, per the note already in
+  [`search-log.md`](search-log.md) §8), its text extracted with `pdftotext -layout`, and every
+  figure below located and read in place. Both printed margins in every year were **independently
+  recomputed** from the printed revenue and printed cost in the same row; all six reproduce to the
+  second decimal.
+- **Note on language:** these are Chinese-language filings. Chinese is quoted in the original so a
+  reader can check it; **the English renderings are ours**, not the source's, including the table
+  headings and row labels.
+- **How it was counted:** the table is §三、"主营业务分析" / "2、收入与成本" / "（2）占公司营业收入或
+  营业利润 10%以上的行业、产品、地区、销售模式的情况" — "(2) Industries, products, regions and sales
+  models accounting for more than 10% of the Company's operating revenue or operating profit" — whose
+  columns are 营业收入 / 营业成本 / 毛利率 ("operating revenue / operating cost / gross margin"),
+  broken down 分产品 ("by product").
+- **What it says:**
+  - **The company defines the two halves in its own glossary** (释义, "definitions"):
+    "临床阶段 指 与商业化阶段相对应，新药获批前的研究开发阶段" and
+    "商业化阶段 指 与新药临床阶段相对应的，药物正式获批上市后的阶段"
+    — "**clinical stage**: corresponding to the commercial stage, the research-and-development stage
+    before a new drug is approved"; "**commercial stage**: corresponding to the clinical stage of a
+    new drug, the stage after the drug is formally approved for marketing." In a CDMO this is a
+    batch-size distinction: clinical-stage work is kilograms for trials, commercial-stage work is
+    repeat production runs of an approved medicine.
+  - **The table, transcribed in full** (CNY; 毛利率 = gross margin):
+
+    | Year | Product line (分产品) | Operating revenue (营业收入) | Operating cost (营业成本) | Gross margin (毛利率) |
+    |---|---|---|---|---|
+    | 2022 | 临床阶段 CDMO 解决方案 (clinical-stage CDMO solutions) | 1,666,325,421.25 | 978,386,888.02 | **41.28%** |
+    | 2022 | 商业化阶段 CDMO 解决方案 (commercial-stage CDMO solutions) | 7,586,807,240.02 | 3,752,539,786.68 | **50.54%** |
+    | 2023 | 临床阶段 CDMO 解决方案 (clinical-stage) | 1,507,098,338.18 | 893,098,773.91 | **40.74%** |
+    | 2023 | 商业化阶段 CDMO 解决方案 (commercial-stage) | 5,112,480,745.14 | 2,041,367,918.54 | **60.07%** |
+    | 2024 | 临床阶段 CDMO 解决方案 (clinical-stage) | 1,766,779,126.83 | 1,070,280,234.84 | **39.42%** |
+    | 2024 | 商业化阶段 CDMO 解决方案 (commercial-stage) | 2,803,949,393.96 | 1,308,953,865.20 | **53.32%** |
+
+    The FY2022 report also prints the year-on-year change in each margin — clinical
+    "0.53%", commercial "2.95%" — which gives 2021 as well (see DERIVED).
+  - **The disclosure stopped in 2025.** The FY2025 report collapses the two rows into one,
+    "小分子 CDMO 解决方案" ("small-molecule CDMO solutions"), revenue 4,734,651,275.52, cost
+    2,517,242,168.72, margin **46.83%**. There is no clinical/commercial split anywhere in the
+    FY2025 report. The four-year series is therefore closed, and a reader in 2027 would not find
+    this table at all.
+  - **It is a physical-goods business sold by weight.** The FY2025 report's 实物销售 ("physical
+    sales") table gives 销售量 ("sales volume") of **250,603.66 Kg** in 2025 and 286,469.58 Kg in
+    2024, 生产量 ("production volume") 273,066.38 Kg and 288,105.65 Kg.
+  - **It owns and is building plant.** "2024 年末多肽固相合成产能约 21,000L，预计 2025 下半年多肽固相
+    合成总产能将达 30,000L" — "at the end of 2024 solid-phase peptide synthesis capacity was about
+    21,000 L, and total solid-phase peptide synthesis capacity is expected to reach 30,000 L in the
+    second half of 2025"; "500L GMP 发酵车间和 5,000L GMP 车间已于 2025 年第一季度正式投入使用" —
+    "a 500 L GMP fermentation workshop and a 5,000 L GMP workshop were formally brought into use in
+    the first quarter of 2025."
+  - **The company states the utilisation mechanism itself**, about its newer lines: "业务处于爬坡期，
+    产能利用率相对较低……导致新兴业务毛利率较低" — "the business is in a ramp-up period and capacity
+    utilisation is relatively low … which causes the gross margin of the emerging businesses to be
+    low."
+- **DERIVED (arithmetic written out):** script `tmp/cdmo_decomp.py` in the working tree at the time
+  of writing (project-local `tmp/`, deleted after use).
+  - **Every printed margin reproduces.** 2024 clinical: (1,766,779,126.83 − 1,070,280,234.84) ÷
+    1,766,779,126.83 = 696,498,891.99 ÷ 1,766,779,126.83 = **39.42%**. 2024 commercial:
+    (2,803,949,393.96 − 1,308,953,865.20) ÷ 2,803,949,393.96 = 1,494,995,528.76 ÷
+    2,803,949,393.96 = **53.32%**. The same check passes for 2022 (41.28% / 50.54%) and 2023
+    (40.74% / 60.07%).
+  - **2021, from the FY2022 report's own year-on-year changes:** clinical 41.28 − 0.53 =
+    **40.75%**; commercial 50.54 − 2.95 = **47.59%**. Commercial was already ahead.
+  - **The gap, every year:** 2021 **+6.84 pp**, 2022 **+9.25 pp**, 2023 **+19.33 pp**, 2024
+    **+13.90 pp** — in favour of the *large* batches, in all four years the company disclosed.
+  - **The gross-profit decomposition, the JLC calculation run on this table:**
+
+    | Year | Clinical (small batch) share of revenue | Clinical share of gross profit |
+    |---|---|---|
+    | 2022 | 18.01% | **15.21%** |
+    | 2023 | 22.77% | **16.66%** |
+    | 2024 | 38.65% | **31.78%** |
+
+    In every year the small-batch half takes a *smaller* share of gross profit than of revenue —
+    the mirror image of JLC, where the long tail was 75.57% of revenue and 97.60% of gross profit.
+  - **Revenue needed per CNY 1 of gross profit, 2024:** clinical 1 ÷ 0.3942 = **CNY 2.54**;
+    commercial 1 ÷ 0.5332 = **CNY 1.88**. The *large-batch* business services capital more
+    efficiently, by a factor of 1.35×. At JLC the same calculation gives CNY 2.76 against CNY 36.23
+    the other way.
+- **Bears on:**
+  - **H6 (challenges, strongly).** This is the reverse finding, and it is the single most important
+    entry in this file. It is the same disclosure shape as JLC's — one company, one set of GMP
+    plants, revenue and cost printed side by side for a small-batch line and a large-batch line,
+    audited, four consecutive years — and it says the opposite. In pharmaceutical contract
+    manufacturing the **large** batches carry the margin, by 6.8 to 19.3 percentage points, every
+    year. Any argument that "small orders are where the gross profit is" has to be stated as a
+    claim about *particular* industries, not about small orders in general. `SMB-1`'s finding is
+    not a law.
+  - **H6 (context).** The likely mechanism is not mysterious and it matters for a fab. A
+    clinical-stage batch is a first-of-a-kind process run once: process development, analytical
+    method development, technology transfer and regulatory documentation are consumed by a few
+    kilograms of output. A commercial batch runs a validated process repeatedly. That is the
+    **learning-curve and NRE argument**, and it is exactly the structure a chip shuttle has —
+    every long-tail chip is a first-of-a-kind. Where the long tail is *repetitive* (JLC: a
+    five-board order runs the same panelised process as every other order) the long tail wins; where
+    the long tail is *novel* (a clinical molecule; arguably a one-off chip design) it loses. This
+    is the sharpest fault line the search found, and PCB-versus-CDMO is the natural experiment for
+    it.
+- **Used in:** not yet.
+- **Caveats:**
+  - **The clinical/commercial split is a batch-size proxy, not a batch-size measurement.** Asymchem
+    does not print batch sizes or an order-size band the way JLC prints 1 m² and 20 m². The
+    inference that clinical means small batches rests on the glossary and on how CDMOs work, not on
+    a disclosed threshold.
+  - **Clinical work is partly sold by the hour, not by the kilogram.** The FY2024 report says
+    "临床前及临床阶段新药化合物的发现及合成一般以 FTE 方式进行收费(Full Time Equivalent 按工时计费模式)"
+    — "the discovery and synthesis of pre-clinical and clinical-stage new-drug compounds is
+    generally charged on an FTE basis (Full Time Equivalent, a model charged by working hours)".
+    Part of the clinical line is therefore a labour-services margin, not a manufacturing margin, so
+    the two rows are not purely like for like.
+  - **2023 was distorted by one enormous order.** Commercial revenue fell from CNY 7.59bn (2022) to
+    5.11bn (2023) to 2.80bn (2024), and the FY2025 report refers to "2023 年大订单已全部执行完毕" —
+    "the 2023 large order has been fully executed". The company's COVID-era antiviral contract sits
+    inside the commercial line and inflates both its scale and, probably, its 60.07% margin in 2023.
+    The 2024 figure (53.32%) is the cleanest of the four.
+  - The 2021 figures are derived from printed percentage-point changes, not read from the FY2021
+    report. They are one decimal place of precision and should be re-read before being cited.
+  - The disclosure no longer exists. See the FY2025 note above.
+
+### OIM-4. Porton, a second and independent CDMO, prints the same split and the same direction —
+early-clinical 19.69% against 44.70% for late-clinical and commercial — grade 1, grade 4
+
+- **Sources:** 重庆博腾制药科技股份有限公司 (Porton Pharma Solutions Ltd., SZSE: 300363), annual
+  reports from `static.cninfo.com.cn`:
+  - 2025 年年度报告 (FY2025 annual report), published 2026-04-04:
+    <http://static.cninfo.com.cn/finalpage/2026-04-04/1225080083.PDF>
+  - 2024 年年度报告 (FY2024 annual report), published 2025-03-29:
+    <http://static.cninfo.com.cn/finalpage/2025-03-29/1222950027.PDF>
+- **Verification:** Verified 2026-09-25, by the same method as `OIM-3`. All six printed margins
+  were recomputed from the printed revenue and cost in the same row and reproduce to the second
+  decimal.
+- **Note on language:** Chinese-language filings; the English renderings are ours.
+- **What it says:**
+  - **The company defines the bands by trial phase** (释义, "definitions"):
+    "临床早期 指 临床二期及以前阶段" — "**early clinical**: phase II and earlier stages";
+    "临床后期 指 临床三期至新药申请阶段" — "**late clinical**: phase III through to the new-drug
+    application stage."
+  - **The table, transcribed** (CNY). The FY2024 report changed the reporting basis and restates
+    2023 on the new basis; both versions of 2023 are given by the company, and the restated one is
+    used here because it is the comparable basis:
+
+    | Year | Product line (分产品) | Operating revenue (营业收入) | Operating cost (营业成本) | Gross margin (毛利率) |
+    |---|---|---|---|---|
+    | 2023 (restated) | 临床早期业务 (early-clinical business) | 602,913,229.03 | 561,651,031.61 | **6.84%** |
+    | 2023 (restated) | 临床后期及商业化业务 (late-clinical and commercial business) | 2,863,763,715.36 | 1,332,307,247.80 | **53.48%** |
+    | 2024 | 临床早期业务 (early-clinical) | 729,544,523.70 | 624,782,629.95 | **14.36%** |
+    | 2024 | 临床后期及商业化业务 (late-clinical and commercial) | 2,010,067,122.51 | 1,217,914,335.26 | **39.41%** |
+    | 2025 | 临床早期业务 (early-clinical) | 779,947,429.45 | 626,391,396.21 | **19.69%** |
+    | 2025 | 临床后期及商业化业务 (late-clinical and commercial) | 2,311,946,059.16 | 1,278,553,253.36 | **44.70%** |
+
+  - **The company names the idle-plant mechanism explicitly**, explaining its 2024 loss:
+    "1、随着前期收到的重大订单于 2023 年陆续完成交付，公司营业收入同比减少约 18%；2、公司产能利用率不足，
+    单位固定成本分摊增加，导致整体毛利率下降；3、随着公司前期运营规模扩大，公司相关的运营费用及固定资产折旧
+    持续保持在高位水平，对净利润产生负面影响"
+    — "1. as the major orders received earlier were delivered in turn during 2023, the Company's
+    operating revenue fell about 18% year on year; 2. **the Company's capacity utilisation was
+    insufficient, the unit fixed-cost allocation increased, and the overall gross margin therefore
+    fell**; 3. as the Company's operating scale had previously expanded, its related operating
+    expenses and fixed-asset depreciation have stayed at a high level, which has had a negative
+    effect on net profit." It also reports 销售量 ("sales volume") of **889,154.36 KG** of
+    self-produced product in 2024 (796,741.12 KG in 2023).
+- **DERIVED (arithmetic written out):** same script as `OIM-3`.
+  - **Every printed margin reproduces.** 2025 early-clinical: (779,947,429.45 − 626,391,396.21) ÷
+    779,947,429.45 = 153,556,033.24 ÷ 779,947,429.45 = **19.69%**. 2025 late+commercial:
+    (2,311,946,059.16 − 1,278,553,253.36) ÷ 2,311,946,059.16 = 1,033,392,805.80 ÷
+    2,311,946,059.16 = **44.70%**. Same check passes for 2023 restated (6.84% / 53.48%) and 2024
+    (14.36% / 39.41%).
+  - **The gap:** 2023 **+46.63 pp**, 2024 **+25.05 pp**, 2025 **+25.01 pp**, all in favour of the
+    larger batches.
+  - **The gross-profit decomposition:**
+
+    | Year | Early-clinical share of revenue | Early-clinical share of gross profit |
+    |---|---|---|
+    | 2023 (restated) | 17.39% | **2.62%** |
+    | 2024 | 26.63% | **11.68%** |
+    | 2025 | 25.23% | **12.94%** |
+
+    **In 2023 the small-batch line was 17.39% of revenue and 2.62% of gross profit.** That is
+    almost precisely JLC's 2025 picture with the two segments exchanged: at JLC the bulk line was
+    24.43% of revenue and 2.40% of gross profit.
+  - **Revenue needed per CNY 1 of gross profit, 2025:** early-clinical 1 ÷ 0.1969 = **CNY 5.08**;
+    late+commercial 1 ÷ 0.4470 = **CNY 2.24**. The small-batch business must turn over **2.27×** the
+    revenue to service the same capital — the opposite sign to JLC's 13.1×.
+- **Bears on:**
+  - **H6 (challenges, strongly).** A second company, independently owned, on a different exchange
+    board, with a different product mix and a different reporting basis, publishes the same kind of
+    table and the same direction over three years. `OIM-3` is not a one-company artefact. In
+    small-molecule pharmaceutical manufacturing the small-batch end is reliably and substantially
+    the worse business.
+  - **H6 (context, and this is the part that bears most directly on a fab).** Porton's own
+    explanation for why its margins move is capacity utilisation and fixed-cost absorption — the
+    same argument `../analyses/long-tail-pays-for-the-capital.md` tests as the "idle-plant"
+    objection. At JLC the test came out for the long tail (the *big-batch* plant was written down
+    for idleness). At Porton it comes out the other way. Whether a long tail fills a plant is an
+    empirical question per industry, and it has now been answered both ways.
+- **Used in:** not yet.
+- **Caveats:**
+  - **The split is by trial phase, not by batch size**, exactly as in `OIM-3`, and the same
+    FTE-versus-product caveat applies: early-clinical CDMO work is partly charged by the hour.
+  - **Porton was loss-making in 2024** (net loss attributable to shareholders of CNY 288 million on
+    the company's own statement) and its new businesses ran at a **−71.87%** gross margin. It is
+    not a healthy company in these years, and a distressed company's segment margins should be read
+    with that in mind. The direction of the early-versus-late gap is nevertheless stable across all
+    three years and across the restatement.
+  - The 2023 row used here is the FY2024 report's **restated** figure. On the original basis the
+    FY2023 report gave different product categories; the restatement is the company's own and its
+    reason is printed ("为更为科学、准确地反映公司的当前实际业务情况" — "in order to reflect the
+    Company's current actual business situation more scientifically and accurately").
+  - Two Chinese CDMOs are not the world CDMO industry. Lonza, Siegfried, Recipharm and Catalent
+    were not read for a comparable split; see the blocked-sources list.
+
 ---
 
 *(Continued below: further entries, the comparison table, the verdict and the blocked-sources list.)*
