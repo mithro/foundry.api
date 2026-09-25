@@ -50,6 +50,14 @@ $200,000,000 of county and local money — **$2,222,222 of county capital per re
 a third independent instance of the failure mode already recorded at MEMSCAP (`IHF-8`) and Efabless
 (`OPEN-7`).
 
+**The cleanest single comparison in the file is `LN-15`, and it is the same company doing both
+things.** In July 2022 SkyWater announced a $1,800,000,000, 600,000 sq ft fab at Purdue with 750
+jobs and $71,500,000 of Indiana state incentives — **$2,400,000 of capital per job**. It cancelled
+it in April 2024. In June 2025 it spent **$86,500,000 of net cash** buying an operating 200 mm fab
+in Austin and got **about 849 employees** — **$101,884 of capital per job**. More jobs, for **4.81%
+of the announced capital**; the state incentive per job on the plan that failed ($95,333) is about
+the same size as the whole capital cost per job of the deal that worked.
+
 **The three most useful capital numbers:**
 
 1. **$86,500,000 of net cash bought a working 200 mm fab with about 849 employees, 1,223,000 sq ft
@@ -964,6 +972,192 @@ quantum-computing company.
   including public money. The two "buy" rows are both distressed or strategic exits and are not a
   market price for a fab; there is no liquid market for fabs.
 
+### LN-15. The same company, two routes: $1.8 billion and 750 jobs announced in Indiana and cancelled, then $86.5 million and 849 jobs bought in Texas
+
+- **Sources:**
+  - "Indiana's Economic Development Momentum Continues with State's First Microelectronics Fab,
+    $1.8B Planned Investment from SkyWater Technology", Indiana Economic Development Corporation,
+    2022-07-22.
+    <https://www.iedc.in.gov/events/news/details/2022/07/22/indiana-s-economic-development-momentum-continues-with-state-s-first-microelectronics-fab-1.8b-planned-investment-from-skywater-technology>
+  - Alex Brown, "Chip maker SkyWater cancels plans for Indiana plant—at least for now", Inside
+    INdiana Business, 2024-04-05.
+    <https://www.insideindianabusiness.com/articles/skywater-semiconductor-plant-no-longer-planned-for-west-lafayette>
+  - SkyWater Technology, Inc., Forms 10-K for FY2023, FY2024 and FY2025 (`LN-1` for URLs).
+- **Verification:** Verified
+- **Date checked:** 2026-09-25
+- **Bearing:** **Supports** the project's premise on how to get capacity cheaply, and
+  **Challenges** the assumption that CHIPS-scale public money makes a greenfield small fab viable.
+  It is the cleanest natural experiment in this file: one company, two routes, three years apart.
+- **What it says:**
+
+  The announcement, from the state's own development corporation:
+
+  > "$1.8 billion state-of-the-art semiconductor R&D and production facility"
+
+  > "750 new high-wage jobs in Tippecanoe County"
+
+  > "600,000-square-foot semiconductor research and development and production facility in partnership with Purdue University in West Lafayette"
+
+  > "Founded in 2017, Skywater employs 600 associates in Minnesota and Florida."
+
+  The incentive package, itemised:
+
+  > "up to $29 million in the form of conditional tax credits and $1 million in training grants"
+
+  > "$20 million in redevelopment tax credits"
+
+  > "up to $20 million in conditional structured performance payments"
+
+  > "up to $500,000 in innovation vouchers"
+
+  > "$1 million in Manufacturing Readiness Grants"
+
+  Twenty-one months later, Inside INdiana Business reported the cancellation. SkyWater:
+
+  > "While we don't have a definitive plan targeting new fab construction in Indiana, we remain committed to growing the microelectronics ecosystem in the U.S."
+
+  Purdue University:
+
+  > "SkyWater has released its option on the land but remain a valued partner with research opportunities in the works."
+
+  The Indiana Economic Development Corporation:
+
+  > "While we understand that businesses' plans and timelines can change for a variety of reasons, Indiana's microelectronics industry continues to grow at a rapid pace."
+
+  The filings track the same arc. The FY2023 10-K still says:
+
+  > "In addition, in 2022, we announced our plans to build a production and research and development facility in West Lafayette, Indiana through a public-private partnership with the State of Indiana and Purdue University."
+
+  The FY2024 10-K repeats it. **The FY2025 10-K does not mention Indiana or Purdue anywhere.**
+
+- **DERIVED (arithmetic written out):**
+  - **Announced Indiana capital per job.** $1,800,000,000 ÷ 750 = **$2,400,000 per job**.
+  - **Announced Indiana capital per square foot.** $1,800,000,000 ÷ 600,000 sq ft = **$3,000 per
+    square foot** — 4.4× the purpose-built Kissimmee fab's $688.07 (`LN-9`) and 42× the used Fab 25
+    at $70.73 (`LN-3`).
+  - **The state's share.** 29,000,000 + 1,000,000 + 20,000,000 + 20,000,000 + 500,000 + 1,000,000 =
+    **$71,500,000** of state incentives, which is 71.5 ÷ 1,800 = **3.97%** of the project and
+    $71,500,000 ÷ 750 = **$95,333 per job**. **The state incentive per job is about the same size as
+    the entire capital cost per job of buying a fab** ($98,214 and $101,884 in `LN-14`).
+  - **How far beyond the company the plan was.** SkyWater's FY2022 revenue was $212,941,000
+    (`LN-1`), so the Indiana plan was 1,800 ÷ 212.941 = **8.45× one year's revenue**. Its whole
+    five-year organic capex was $104,900,000, so the plan was 1,800 ÷ 104.9 = **17.2× everything it
+    actually spent on capital in five years**. It had 600 associates and proposed to add 750.
+  - **What it did instead.** In June 2025 it bought an operating 200 mm fab for **$86,500,000 of
+    net cash** and got **about 849 employees** (`LN-3`). Against the Indiana plan:
+    - Cash: 86.5 ÷ 1,800 = **4.81%** of the announced capital.
+    - Jobs: 849 ÷ 750 = **113%** of the announced jobs.
+    - Capital per job: $101,884 against $2,400,000 = **23.6× cheaper**
+      (2,400,000 ÷ 101,884 = 23.56).
+  - **The whole finding in one line:** the same company got **more jobs for one twenty-third of the
+    capital** by buying an existing fab instead of building one, and the difference was not
+    marginal — it was the difference between a project that happened and a project that did not.
+- **Caveats:** The Indiana facility and Fab 25 are not the same thing: Indiana was to be a new R&D
+  and production facility with unspecified technology, Fab 25 is an existing 65 nm-support 200 mm
+  line with a four-year take-or-pay to its former owner. A greenfield fab buys capability the
+  buyer chooses; a used fab buys the capability that is there. The $1,800,000,000 was contingent on
+  CHIPS funding that SkyWater never received for Indiana — the company's own statement blames "the
+  details of the CHIPS initiative" unfolding. The IEDC incentives were performance-based and, as
+  far as could be determined, none was paid. Neither the SkyWater cancellation statement nor the
+  Purdue statement was read on a page that loaded for an automated fetch; both are quoted from
+  Inside INdiana Business, which is a trade outlet, not the local Lafayette paper (`wlfi.com`,
+  `jconline.com` and `wthr.com` all refused — see "What I could not get").
+
+### LN-16. MOSIS 2.0 and CA DREAMS: $85.8 million of Department of Defense money against a $20 million-a-year revenue target
+
+- **Sources:**
+  - Stephanie Lee, "The vision of MOSIS 2.0", USC Information Sciences Institute / USC Viterbi,
+    2024-06-05. <https://www.isi.edu/news/68892/the-vision-of-mosis-2-0/>
+  - "MOSIS 2.0's First Year: Bridging Research and Production", USC Information Sciences Institute,
+    2025-02-21. <https://www.isi.edu/news/972800/mosis-2-0s-first-year-bridging-research-and-production/>
+  - "USC's CA DREAMS Hub secures additional $27 million in DoD funding", USC Viterbi School of
+    Engineering, 2024-12-10.
+    <https://viterbischool.usc.edu/news/2024/12/uscs-ca-dreams-hub-secures-additional-27-million-in-dod-funding-from-chips-science-act/>
+  - "MOSIS 2.0", CA DREAMS. <https://ca-dreams.org/mosis-2-0/>
+- **Verification:** Verified for every quote below.
+- **Date checked:** 2026-09-25
+- **Bearing:** **Context** for H5 and **Challenges** the "self-sustaining" reading of `SMB-5`. It
+  also fills two of the gaps `mosis-funding.md` records as unfilled: `ca-dreams.org` had not been
+  crawled, and MOSIS 2.0's scale was known only from marketing.
+- **What it says:**
+
+  The size of the public programme behind MOSIS 2.0, from USC Viterbi:
+
+  > "The Department of Defense has awarded an additional $27 million from the CHIPS & Science Act to the California Defense Ready Electronics"
+
+  > "a $16.2 million project to advance gallium nitride (GaN) technology and a $15.7 million project to develop 5G/6G-relevant prototypes"
+
+  > "The CA DREAMS workforce development initiative will receive $1.5 million to lead the development of nationally recognized microcredentials"
+
+  > "these awards bring CA DREAMS' total 2024 Department of Defense investment to $58.9 million"
+
+  > "The total funding since the launch of the project, in 2023, is $85.8 million"
+
+  > "another portion of the funding will be devoted specifically to the CA DREAMS Hub and its 16 partners from industry"
+
+  What MOSIS 2.0 is trying to become, from ISI's own first-year piece:
+
+  > "Over four decades, MOSIS delivered more than 60,000 integrated circuit designs and generated up to $10 million annually at its peak."
+
+  > "MOSIS 2.0 began accepting external customers in summer 2024 and launched its storefront in October."
+
+  > "The goal is ambitious: achieve self-sustainability within the next few years and generate $20 million in annual revenue."
+
+  > "What would normally require months of legal agreements and process setup was completed in two weeks."
+
+  From the 2024 piece:
+
+  > "At its peak, MOSIS fulfilled around 3,000 orders per year, generating up to $10 million in sales."
+
+  > "MOSIS has been extremely successful. Even though it was run by a university, it was a self-sustaining business for 40 years."
+  > — Mike Haney, Deputy Director
+
+  > "The ultimate goal is to transform MOSIS 2.0 into a self-sustaining platform by the end of the five-year Microelectronics Commons program in 2028."
+
+  > "The 16 funded partners work like one organization"
+
+  And **the customer-count breakdown, which is new to this directory**, from `ca-dreams.org`:
+
+  > "MOSIS has supported 50+ US government laboratories and agencies, 800+ colleges and universities, and 100+ companies."
+
+  > "been financially self-sustaining for over 35 years."
+
+  The named manufacturing partners on that page are **Northrop Grumman, Teledyne and HRL**, and the
+  service covers "compound semiconductors and Si".
+
+- **DERIVED (arithmetic written out):**
+  - **Average order value at MOSIS's peak.** $10,000,000 ÷ 3,000 orders = **$3,333 per order**.
+    That is the realised average ticket of the longest-running multi-project-wafer service there
+    has ever been, and it sits between Tiny Tapeout's $100–$300 and ChipFoundry's $14,950.
+  - **The subsidy is about the size of the target revenue.** $85,800,000 since 2023, spread over
+    the five-year Microelectronics Commons programme to 2028, is 85.8 ÷ 5 = **$17,160,000 a year of
+    public money** — **85.8%** of the $20,000,000 annual revenue MOSIS 2.0 hopes to earn
+    (17.16 ÷ 20). Against the historical peak of $10,000,000 a year, the current public funding rate
+    is **1.72×** the best year the service ever had.
+  - **The tail MOSIS actually served was academic, 8 to 1.** 800+ colleges and universities against
+    100+ companies is a ratio of **8:1**, with 50+ government laboratories on top. Adding them,
+    **at least 950 institutional customers over 44 years** — about **21.6 new institutions a year**
+    (950 ÷ 44). That is the realised, all-time institutional customer count of the service most
+    often cited as proof that a long tail exists, and 84% of it is universities.
+  - **Designs per customer.** 60,000 designs ÷ 950 institutions = **63 designs per institution**
+    over 44 years, or **1.4 designs per institution per year**.
+- **Caveats and one discrepancy that must be flagged:**
+  - **The $27,000,000 does not reconcile with its own itemisation.** $16,200,000 + $15,700,000 +
+    $1,500,000 = **$33,400,000**, against a headline of "an additional $27 million". The most
+    likely explanation is that the GaN and 5G/6G projects are shared with other hubs and only part
+    of each lands at CA DREAMS, but the article does not say so. **Do not quote the $27,000,000 and
+    the itemisation together as if they add up.** The $58,900,000 and $85,800,000 totals are stated
+    directly and are the safer figures.
+  - "Financially self-sustaining for over 35 years" on `ca-dreams.org` conflicts with the
+    finding already in this directory (`MOS-1`, `MOS-8`) that DARPA funded MOSIS through 1994 and
+    that it took $17,958,805 of DARPA money again in January 2021. `mosis-funding.md` should be
+    read before either claim is used; **this entry does not endorse the "self-sustaining"
+    framing**, it records that CA DREAMS still publishes it.
+  - "$20 million in annual revenue" is a goal stated in a university news item, not a plan filed
+    anywhere. The 2028 date is the end of the funding programme, not a commitment.
+  - The customer counts ("50+", "800+", "100+") are cumulative over MOSIS's whole history and are
+    the service's own marketing figures; no register of them was found.
+
 ---
 
 ## What I could not get, and why
@@ -1014,4 +1208,22 @@ lack of trying, and none was worked around by defeating a bot check.
    cannot be checked against the company's existing operation.
 8. **The Florida Department of Commerce loan and the "other incentives" in `LN-12`** ($5,000,000
    and $3,200,000) were not read in a primary document and are marked Partial in that entry.
+9. **Three of the four Indiana local outlets refused an automated fetch.** `wthr.com` (Indianapolis
+   NBC), `fox59.com` (Indianapolis Fox) and `wlfi.com` (Lafayette CBS — the actual local station
+   for West Lafayette) all returned **HTTP 403**. The SkyWater and Purdue statements in `LN-15` are
+   therefore quoted from Inside INdiana Business, a trade outlet, and the genuinely local
+   Lafayette coverage (`wlfi.com`, `jconline.com` — the Journal & Courier) was not read. Nothing
+   was found on what the *county* had committed, as opposed to the state.
+10. **No count of MOSIS 2.0's actual customers, tape-outs, prices or staff.** `ca-dreams.org` and
+    `isi.edu` publish a $20,000,000 revenue *goal* and the historical MOSIS customer breakdown, and
+    nothing about the present. The gap `mosis-funding.md` records ("MOSIS 2.0's actual headcount,
+    revenue or order book") is still open; `LN-16` narrows it only on the public-funding side.
+11. **The $27,000,000 CA DREAMS award does not reconcile with its own published itemisation**
+    ($33,400,000 of named projects). No reconciling document was found, and the discrepancy is
+    flagged in `LN-16` rather than resolved.
+12. **Nothing was found for several named targets.** No capital-cost-per-job or capacity figure was
+    located for Tower Semiconductor's San Antonio fab, Micross, Teledyne's Thousand Oaks operation,
+    Global Circuit Innovations, Silicon Valley Microelectronics, Norcada, MEMSIC, Qorvo Richardson
+    or Coherent/II-VI within the time available. These are absences of searching, not verified
+    absences of data.
 
