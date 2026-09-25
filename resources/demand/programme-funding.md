@@ -561,8 +561,13 @@ programmes the arithmetic can be done to the euro. For the other it cannot be do
 - **Bears on:**
   - **H6 (mixed, and this is the honest answer).** The "self-sustaining" claim is *not* refuted:
     `FUND-5` shows a real mechanism by which MOSIS could cover its costs from sales while much of
-    its sales came from federal agencies. But it is also **not corroborated**: no budget, no accounts,
-    no revenue line, no staff count, and no year for the peak exists in any public source found. It
+    its sales came from federal agencies. But it is also **not corroborated**: no accounts,
+    no revenue line and no year for the peak exists in any public source found.
+    **⚠ Corrected 2026-09-25: a budget and a staff count DO now exist** — see `MOS-8` (IDA Paper
+    P-2429 Vol. II gives DARPA's first-decade spend as ~$44m) and `MOS-3` (head count 12/11/20/27
+    across 1983–87) in [`mosis-funding.md`](mosis-funding.md). `MOS-1` also refutes the "40 years"
+    arithmetic: DARPA funded it 1981–1994, it was self-funded ~1994–2020, and it has been federally
+    funded again since 2021. It
     rests on one sentence, spoken by a deputy director of the successor programme, in a promotional
     news item written by the host institution.
   - **H5 (challenges, hard).** MOSIS's own counter says the service ran at roughly 2,400 designs a
@@ -841,7 +846,8 @@ there was by **building a commercial arm selling abroad at about CAD $32,600 a t
 charging its domestic academic users more.
 
 **For MOSIS it cannot be computed at all, and the reason is worth stating plainly.** There is no
-budget, no revenue line, no cost line, no staff count and no year for the peak in any public source
+revenue line, no cost line and no year for the peak in any public source (**corrected 2026-09-25 —
+a budget and a staff count now exist; see `MOS-8` and `MOS-3`**)
 this search could reach. "Up to $10 million annually at its peak" and "a self-sustaining business for
 40 years" rest on a single institutional news article (`SMB-5`), re-read on 2026-09-19 and still
 unsupported. What *was* established is the mechanism that makes both halves of the story compatible:
