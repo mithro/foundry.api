@@ -208,7 +208,9 @@ def build(period: str, instants: dict[str, dict]) -> tuple[list[dict], dict[str,
         # gross-margin and SG&A rows would be built from a handful of filers.
         if rec["gross_profit"] is None:
             for src in ("cost_of_revenue", "cogs"):
-                if rec[src] is not None:
+                # A negative cost element is a tagging error (it would give a
+                # gross margin above 100%), so the fallback refuses it.
+                if rec[src] is not None and rec[src] > 0:
                     rec["gross_profit"] = rv_v - rec[src]
                     rec["gross_profit_derived"] = f"Revenues - {src}"
                     break
@@ -299,24 +301,52 @@ def dupont(rows: list[dict]) -> None:
             f"  {label:45s} median margin {100*m:7.2f}%  median turnover {t:5.3f} "
             f" product {100*m*t:7.2f}%   median ROA {100*roa:7.2f}%"
         )
-    # The two questions the write-up has to answer.
+    # The two questions the write-up has to answer.  The median of the whole
+    # SIC 7372 population is a loss-making micro-cap, so the same two questions
+    # are also answered against the big filers, against the revenue-weighted
+    # aggregate and against the upper quartile and decile.  Reporting only the
+    # median here would flatter the fab as much as reporting only Microsoft
+    # would flatter software.
+    fab_t = 1385e6 / 2246e6          # SEK 1,385m net sales / SEK 2,246m total assets
+    fab_ot = 1385e6 / 1980e6         # ... / assets less SEK 266m of cash (no goodwill)
     sw = [r for r in rows if r["sic"] == "7372"]
-    sw_roa = pctile([r["roa"] for r in sw], 0.5)
-    sw_m = pctile([r["operating_margin"] for r in sw], 0.5)
-    sw_t = pctile([r["asset_turnover"] for r in sw], 0.5)
-    fab_t = 1385e6 / 2246e6
+    big = [r for r in sw if r["revenue"] >= 1e9]
+    mid = [r for r in sw if 100e6 <= r["revenue"] < 1e9]
+    agg_r, agg_o, agg_a = (sum(r["revenue"] for r in sw), sum(r["operating_income"] for r in sw),
+                           sum(r["assets"] for r in sw))
+    sw2 = [r for r in sw if r["operating_assets"] > 0]
+    agg_oa = sum(r["operating_assets"] for r in sw2)
+    agg_r2 = sum(r["revenue"] for r in sw2)
+    agg_o2 = sum(r["operating_income"] for r in sw2)
+
+    benches = [
+        ("7372 median", pctile([r["asset_turnover"] for r in sw], .5),
+         pctile([r["roa"] for r in sw], .5), pctile([r["operating_margin"] for r in sw], .5)),
+        ("7372 upper quartile (p75)", pctile([r["asset_turnover"] for r in sw], .75),
+         pctile([r["roa"] for r in sw], .75), pctile([r["operating_margin"] for r in sw], .75)),
+        ("7372 top decile (p90)", pctile([r["asset_turnover"] for r in sw], .9),
+         pctile([r["roa"] for r in sw], .9), pctile([r["operating_margin"] for r in sw], .9)),
+        ("7372 median, revenue > $1bn", pctile([r["asset_turnover"] for r in big], .5),
+         pctile([r["roa"] for r in big], .5), pctile([r["operating_margin"] for r in big], .5)),
+        ("7372 median, revenue $100m-$1bn", pctile([r["asset_turnover"] for r in mid], .5),
+         pctile([r["roa"] for r in mid], .5), pctile([r["operating_margin"] for r in mid], .5)),
+        ("7372 revenue-weighted aggregate", agg_r / agg_a, agg_o / agg_a, agg_o / agg_r),
+    ]
     print("\nQ1. At equal operating margin, how much better is software than the fab?")
-    print(
-        f"  SIC 7372 median asset turnover {sw_t:.3f} / Silex turnover {fab_t:.3f} = "
-        f"{sw_t/fab_t:.3f}x  -> at the SAME operating margin the software firm earns "
-        f"{sw_t/fab_t:.3f}x the return on assets."
-    )
-    print("\nQ2. What operating margin would the fab need to match SIC 7372's median ROA?")
-    print(
-        f"  required margin = median ROA {100*sw_roa:.3f}% / fab turnover {fab_t:.4f} = "
-        f"{100*sw_roa/fab_t:.2f}%   (against Silex's actual 22.67% parent / 26.57% group)"
-    )
-    print(f"  (SIC 7372 median operating margin is {100*sw_m:.2f}%.)")
+    print("    (the answer is the ratio of asset turnovers, and nothing else)")
+    for nm, t, _roa, _m in benches:
+        print(f"  {nm:34s} turnover {t:5.3f} / Silex 0.617 = **{t/fab_t:5.3f}x**")
+    print(f"  Silex turnover on assets less cash: {fab_ot:.3f}; SIC 7372 median on the same basis "
+          f"{pctile([r['op_asset_turnover'] for r in sw if r['op_asset_turnover']], .5):.3f} = "
+          f"{pctile([r['op_asset_turnover'] for r in sw if r['op_asset_turnover']], .5)/fab_ot:.3f}x; "
+          f"7372 aggregate {agg_r2/agg_oa:.3f} = {(agg_r2/agg_oa)/fab_ot:.3f}x")
+
+    print("\nQ2. What operating margin would the fab need to match software's return on assets?")
+    print("    (required margin = software's ROA / the fab's asset turnover of 0.6167)")
+    for nm, _t, roa, m in benches:
+        print(f"  {nm:34s} ROA {100*roa:7.2f}%  ->  fab needs **{100*roa/fab_t:7.2f}%**"
+              f"   (that group's own margin: {100*m:6.2f}%)")
+    print("  Silex actually earns 22.67% (parent, LNI-17) and 26.57% (group, prospectus).")
 
 
 def rule40(rows_now: list[dict], rows_prior: list[dict], codes=("7372",), label="SIC 7372") -> None:
