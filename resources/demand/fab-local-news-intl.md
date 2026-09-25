@@ -22,7 +22,15 @@ conversion.
 
 ---
 
-### LNI-1. Silex Microsystems, Järfälla: SEK 500 million buys 1,500 m² of extra cleanroom and 35% more capacity at an existing 200 mm MEMS fab
+### LNI-1. Silex Microsystems, Järfälla: SEK 650 million buys 1,500 m² of extra cleanroom, 35% more capacity and 70–80 jobs at an existing 200 mm MEMS fab
+
+> **Corrected 2026-09-25, after the prospectus itself was obtained (`LNI-18`).** This entry first
+> read "SEK 500 million", which is what the press release says. The press release quotes only the
+> 2027–2029 tranche. The prospectus states the figure in two parts: **"approximately SEK 150 million,
+> expected to be incurred in 2026, followed by approximately SEK 500 million expected to be phased
+> over the period from 2027 to 2029"** — **SEK 650 million in total** for the same +1,500 m² and the
+> same +35%. Every derived figure below has been recomputed at SEK 650m. The prospectus also gives
+> the staffing of the expansion, which the press release does not.
 
 - **Source:** Silex Microsystems AB, "Silex offentliggör prospekt och pris inför det publika
   erbjudandet och noteringen av dess stamaktier på Nasdaq Stockholm", press release via MFN,
@@ -82,24 +90,30 @@ conversion.
   The offering itself: 81 SEK per share, valuing Silex at about SEK 8,896 million, raising about
   SEK 1,000 million of new money before about SEK 65 million of transaction costs.
 
-- **DERIVED (arithmetic written out):**
-  - **Capital per square metre of cleanroom added:** SEK 500,000,000 ÷ 1,500 m² = **SEK 333,333/m²**.
-    At the ECB reference rate of 2026-09-24, EUR/SEK 11.2645: SEK 333,333 ÷ 11.2645 = **€29,592/m²**.
+- **DERIVED (arithmetic written out)** — all at the corrected SEK 650m:
+  - **Capital per square metre of cleanroom added:** SEK 650,000,000 ÷ 1,500 m² = **SEK 433,333/m²**.
+    At the ECB reference rate of 2026-09-24, EUR/SEK 11.2645: SEK 433,333 ÷ 11.2645 = **€38,469/m²**.
   - **Cleanroom area check:** 5,500 m² − 4,000 m² = 1,500 m², i.e. **+37.5% of area for +35% of
     capacity**. The expansion is close to linear in floor area; there is no area economy of scale
     visible here.
   - **Capital per unit of annual revenue capacity:** 2025 net sales SEK 1,385m × 35% = **SEK 485m** of
-    additional annual revenue at the same utilisation and price. SEK 500m of capex ÷ SEK 485m =
-    **1.03× one year's incremental revenue**. A small MEMS fab's brownfield capacity therefore costs
-    roughly one year of the revenue it will produce.
+    additional annual revenue at the same utilisation and price. SEK 650m of capex ÷ SEK 485m =
+    **1.34× one year's incremental revenue**.
+  - **Capital per job created by the expansion.** The prospectus states the staffing:
+    "Approximately 50 operators and 20 to 30 engineers will be needed to support operations following
+    the expansion of the production area" — **70 to 80 people**. SEK 650,000,000 ÷ 80 =
+    **SEK 8,125,000 per job**; ÷ 70 = **SEK 9,285,714 per job**. In euro at EUR/SEK 11.2645:
+    **€721,290 to €824,290 per job.** This is a *regulator-approved prospectus* figure rather than a
+    press release, and it lands inside the €650,000–€935,000 band that `LNI-5`, `LNI-7`, `LNI-8` and
+    `LNI-16` produced independently. **Five sites, four countries, two continents, the same answer.**
   - **US fab, for comparison:** SEK 1,400m ÷ 11.2645 = **€124.3m** for acquiring and converting an
-    existing 200 mm IC fab with 3,000 m² of cleanroom — **€41,433/m²**, i.e. 1.4× the Järfälla
-    brownfield rate, for a fab bought rather than built.
-- **Caveats.** SEK 500m is the *company's estimate* of a 2027–2029 programme, not spend already
-  incurred. It is unclear from the announcement how much of it is shell and how much is tools;
-  `LNI-3` suggests the shell alone can absorb most of a number of this size. "Capacity" is not
-  defined in wafer starts. The 1.03× revenue ratio assumes the added capacity sells at 2025 prices
-  and 2025 utilisation, which is an assumption, not a disclosure.
+    existing 200 mm IC fab with 3,000 m² of cleanroom — **€41,433/m²**, in the same range as the
+    Järfälla brownfield rate of €38,469/m², for a fab bought rather than built.
+- **Caveats.** SEK 650m is the *company's estimate*, not spend already incurred. It is unclear how
+  much of it is shell and how much is tools; `LNI-6`'s 92/8 split says to assume mostly tools.
+  "Capacity" is not defined in wafer starts anywhere in the prospectus. The 1.34× revenue ratio
+  assumes the added capacity sells at 2025 prices and 2025 utilisation, which is an assumption, not a
+  disclosure.
 
 ### LNI-2. The 300 mm fab Silex wants to build next door: 650 new jobs and 37,000 m², first reported out of a municipal planning file
 
@@ -184,9 +198,9 @@ conversion.
     an outer bound offered to a planning authority. Treat 650 as the applicant's figure, which is
     what it is.
   - **Revenue per employee today.** *Do not* divide by 220: 220 is engineers and technicians only.
-    The filed Swedish accounts give a total of 412 employees in 2024 (`LNI-17`), so revenue per head
-    is **€264,000–€286,000**, not the €559,000 that 220 would give. The corrected figure and its
-    working are in `LNI-17`.
+    The prospectus gives **484 employees as of 31 March 2026** (`LNI-18`) and the filed accounts give
+    412 in 2024 (`LNI-17`), so revenue per head is **€254,000–€275,000**, not the €559,000 that 220
+    would give. The working is in `LNI-18`.
 - **Caveats.** The 650 figure is a planning-application claim by the applicant, reported from
   documents obtained under Sweden's public-access rules, not an audited or committed number. *Mitt i*
   gives no krona figure. The project was politically contested on Chinese-ownership grounds at the
@@ -1365,9 +1379,10 @@ conversion.
 - **DERIVED (arithmetic written out):**
   - **Revenue per employee, 2024:** SEK 1,226,000,000 ÷ 412 = **SEK 2,975,728**. At EUR/SEK 11.2645
     (ECB, 2026-09-24): **€264,169 per employee.**
-  - **Revenue per employee, 2025**, using the 430 figure reported by the aggregator krafman.se for
-    2025 (not verified here): SEK 1,385,000,000 ÷ 430 = SEK 3,220,930 = **€285,940.** Using 412
-    instead gives SEK 3,361,650 = €298,430. Either way the range is **€264,000–€300,000 per head.**
+  - **Revenue per employee, 2025.** Use the prospectus head count, not an aggregator's: Silex had
+    **484 employees as of 31 March 2026** (`LNI-18`). SEK 1,385,000,000 ÷ 484 = SEK 2,861,570 =
+    **€254,035**; annualising Q1 2026 (SEK 375m × 4) gives SEK 3,099,174 = **€275,131.** The range is
+    **€254,000–€275,000 per head.**
   - **Payroll as a share of revenue, 2024:** SEK 830,000 per employee × 412 employees =
     SEK 341,960,000 of staff cost, ÷ SEK 1,226,000,000 of revenue = **27.9%.**
     **This is the benchmark the rest of the file should be read against.** Clas-SiC, loss-making, runs
@@ -1385,9 +1400,286 @@ conversion.
     profitable. Clas-SiC turns over 2.21× its staff cost (£8,351,170 ÷ £3,782,638) and loses money;
     Pragmatic turns over 0.024× (`LNI-16`).
 - **Caveats.** allabolag is a commercial re-publisher of Swedish filings, not the registry; the figures
-  should be re-checked against Bolagsverket's own copies before being cited in `WHY.md`. Silex
+  should be re-checked against Bolagsverket's own copies before being cited in `WHY.md`. **The
+  prospectus (`LNI-18`) is the better source for anything it covers** — it is a regulator-approved
+  document and it reconciles with this series on net sales for 2023, 2024 and 2025 to the million. Silex
   Microsystems AB is one company in a group that also includes Silex Properties AB; the group
   boundary is not established here. The 2025 employee count is not in the filed data yet.
+
+### LNI-18. **The customer book of the world's leading pure-play MEMS foundry: about 85 customers, top ten = 77% of net sales, largest = 25%.** This is the H7 evidence, and it goes the wrong way
+
+- **Source:** Silex Microsystems AB (publ), *Invitation to acquire ordinary shares in Silex
+  Microsystems AB (publ)* — the IPO prospectus, 230 pages, approved and published by
+  **Finansinspektionen** (the Swedish Financial Supervisory Authority) on **2026-04-27**, diary
+  number **25-37533**, passported to Finland.
+  - Register entry: <https://www.fi.se/sv/vara-register/prospektregistret/details?id=25-37533>
+  - Document (11,451 kB PDF): <https://www.fi.se/sv/vara-register/prospektregistret/GetFile?id=25-37533>
+- **Verification:** Verified
+- **Date checked:** 2026-09-25
+- **How it was counted:** The company's own site and the four bank sites named in the press release
+  were dead ends. The route that works, and that should be used for any Swedish issuer, is the
+  statutory register: search `https://www.fi.se/sv/vara-register/prospektregistret/?query=<name>`,
+  follow the `details?id=<diary number>` link, and download `GetFile?id=<diary number>` with the
+  detail page as the referer. The PDF has a proper text layer; `pdftotext -layout` gives 14,475 lines.
+  Quotes below are copied from that extraction; the prospectus is in English, so no translation is
+  needed except where noted.
+- **Bearing:** **Challenges H7**, hard, and it is the first direct measurement of the thing
+  `hypotheses.md` names as "the single most valuable piece of evidence this project could obtain".
+  Mixed on H2.
+- **What it says.** The risk factor, in full:
+
+  > "**Silex has a high degree of customer concentration annually, which presents risks due to the
+  > potential loss of or significant curtailment of purchases by such key customers.**
+  > While Silex generates revenue from approximately 85 customers worldwide, Silex's ten largest
+  > customers accounted for approximately 75 percent of Silex's net sales, and the largest customer
+  > accounted for 23 percent of Silex's net sales for three months ended 31 March 2026, and Silex's
+  > ten largest customers accounted for approximately 77 percent of Silex's net sales, and the largest
+  > customer accounted for 25 percent of Silex's net sales for the year ended 31 December 2025."
+
+  And the chart on p. 77, **"Top 10 customers: Share of net sales and years with Silex"**, whose
+  printed share-of-net-sales-2025 column is:
+
+  | Customer | Share of net sales, 2025 |
+  |---|---:|
+  | Customer #1 | **25%** |
+  | Customer #2 | **19%** |
+  | Customer #3 | 7% |
+  | Customer #4 | 5% |
+  | Customer #5 | 5% |
+  | Customer #6 | 4% |
+  | Customer #7 | 4% |
+  | Customer #8 | 4% |
+  | Customer #9 | 3% |
+  | Customer #10 | 3% |
+  | **Top 10** | **79% as printed; "approximately 77 percent" in the text** |
+
+  The same chart plots relationship duration on a 2003–2025 axis, and the text gives the reading:
+
+  > "As of 31 March 2026, eight out of Silex's ten largest customers have been Silex's customers since
+  > 2017 or earlier, and Silex currently still retains its first customer and continues to manufacture
+  > for it, both of which evidence the deep and longstanding relationships that Silex maintains with
+  > its customers."
+
+  The top ten's absolute net sales, year by year, as printed:
+
+  | | 2019 | 2020 | 2021 | 2022 | 2023 | 2024 | 2025 | Q1 2025 | Q1 2026 |
+  |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+  | Net sales of the 2025 top-ten customers (SEK m) | 285 | 382 | 558 | 604 | 838 | 940 | **1,073** | 274 | 277 |
+
+  Why the concentration exists, in the company's own words:
+
+  > "Silex believes that the development of complex MEMS ­products creates significant long-term
+  > stickiness, as customers invest considerable time and resources over multi-year development cycles
+  > to co-develop highly specialised solutions together with the Company. This results in substantial
+  > switching costs, deep integration into customers' product architectures and a strong reliance on
+  > Silex's proven quality and reliability, particularly in performance-critical industries."
+
+  The customer taxonomy, which is worth recording because it is the vocabulary of the market this
+  project wants to enter:
+
+  > "Silex's customers can be divided into Fabless customers that do not have their own MEMS or chip
+  > production, Fab-light customers that make their basic chips in-house and IDMs who develop and
+  > produce their own chips."
+
+  Net sales by geography and by industry, 2025 (and Q1 2026 in brackets):
+
+  - North America **54%** (58%), Europe 32% (31%), Asia 12% (9%), other 2% (2%).
+  - Telecommunication **31%** (28%), consumer **30%** (29%), industrial and automotive 27% (25%), life
+    science and medical 13% (18%).
+
+  Head count:
+
+  > "As of 31 March 2026, Silex had 484 employees, the majority of whom were in Sweden."
+
+  And, on the definition that makes the headline margin readable — "Gross profit: Net sales less raw
+  materials and consumables"; gross margin was **79% (2023), 82% (2024), 86% (2025)**.
+
+- **DERIVED (arithmetic written out):**
+  - **Top-ten share, checked against the absolute series:** SEK 1,073m ÷ SEK 1,385m = **77.47%** in
+    2025; SEK 940m ÷ SEK 1,226m = **76.67%** in 2024; SEK 838m ÷ SEK 1,095m = **76.53%** in 2023;
+    SEK 277m ÷ SEK 375m = **73.87%** in Q1 2026. **This is not a one-year artefact.**
+  - **The comparison that matters.** TSMC's top ten customers were **76%** of revenue (`CONC-1`) and
+    **78%** in 2025 (`CONC-11`). Silex's are **77%**. **The world's leading pure-play MEMS foundry,
+    serving four separate end industries from a single 200 mm fab, has the same revenue concentration
+    as the largest foundry on earth.** Specialty, diversity of application and twenty-year
+    relationships did not produce dispersion.
+  - **Effective number of customers (reciprocal Herfindahl, the measure
+    [`analyses/data-cuts-and-statistics.md`](../analyses/data-cuts-and-statistics.md) introduced).**
+    Using the printed chart and assuming the 75 customers outside the top ten split the remaining 21%
+    **equally** — the assumption most favourable to dispersion, so this is an *upper bound*:
+    - Top ten: 0.25² + 0.19² + 0.07² + 0.05² + 0.05² + 0.04² + 0.04² + 0.04² + 0.03² + 0.03²
+      = 0.0625 + 0.0361 + 0.0049 + 0.0025 + 0.0025 + 0.0016 + 0.0016 + 0.0016 + 0.0009 + 0.0009
+      = **0.1151**
+    - Tail: 75 × (0.21 ÷ 75)² = 0.21² ÷ 75 = 0.0441 ÷ 75 = **0.000588**
+    - H = 0.1151 + 0.000588 = **0.115688**; **1/H = 8.64 effective customers.**
+    - As a share of the nominal count: 8.64 ÷ 85 = **10.2%.**
+    - Rescaling the chart to the reported 77.47% top-ten share instead of the printed 79% gives
+      H = 0.111347, 1/H = **8.98**, and 8.98 ÷ 85 = **10.6%**. The honest range is
+      **8.6–9.0 effective customers, 10.2–10.6% of the nominal count.**
+  - **Read that against the directory's existing numbers, because it cuts two ways.** In *ratio*
+    terms Silex (10.2–10.6%) is far closer to Tiny Tapeout's designers (**14.4%**) than to TSMC
+    (**2.3%**). In *absolute* terms Silex has **8.6–9.0 effective customers against TSMC's 11.8** —
+    **the specialty MEMS foundry is more dependent on a handful of customers than TSMC is.** The
+    ratio flatters Silex only because it has 85 customers rather than 522. For H7, which is about
+    whether losing any one customer is noise, the absolute number is the one that decides it, and
+    losing Customer #1 would remove **a quarter of net sales**.
+  - **What a Silex customer is worth.** SEK 1,385m ÷ 85 = **SEK 16.3m per customer per year**, or
+    **€1,447,000** at EUR/SEK 11.2645. Compare `DEM-15`: TSMC's customers average about
+    **US$41 million** a year each. Silex's average customer is roughly **28× smaller than TSMC's** —
+    and still a **€1.4 million-a-year company**.
+  - **And what Silex's *tail* customer is worth.** Customers 11 to 85 — 75 of them — share
+    21% of SEK 1,385m = **SEK 290.85m**, i.e. **SEK 3.878m each**, or **€344,250 per year each**
+    (equal-split assumption again, so this is the *central* figure of a distribution that is certainly
+    skewed). **The "tail" of the world's leading MEMS foundry is customers paying about a third of a
+    million euros a year.** A JLC long-tail customer places orders averaging **US$67** (`SMB-1`).
+    That is a factor of about **5,000×**. This is the number
+    [`analyses/customers-needed-to-fill-a-fab.md`](../analyses/customers-needed-to-fill-a-fab.md)
+    needs: the empirical tail of a real specialty fab is not small customers, it is mid-sized
+    companies.
+  - **Revenue per employee:** SEK 1,385,000,000 ÷ 484 = **SEK 2,861,570 = €254,035.** Annualising Q1
+    2026 instead (SEK 375m × 4 = SEK 1,500m): SEK 3,099,174 = **€275,131.** Both supersede the
+    €559,000 that dividing by the municipality's "220 engineers and technicians" produced in the first
+    version of `LNI-2`.
+  - **Materials are 14% of the price of a MEMS wafer.** Gross margin, defined by the prospectus as
+    "net sales less raw materials and consumables", was **86%** in 2025. So **86 pence in every pound
+    a MEMS customer pays is labour, depreciation, overhead and margin — not silicon.** This is
+    `SMB-11` ("almost none of what a small customer pays is silicon") measured at a real fab, and it
+    is the reason "silicon is cheap" does not imply the price can fall.
+  - **Top-ten growth against total growth, 2019–2025:** the 2025 top ten grew SEK 285m → 1,073m,
+    **×3.76**. Total net sales over 2021–2025 grew SEK 1,020m → 1,385m, **×1.36**. **The
+    concentration has been getting worse, not better, while the company grew.**
+- **Caveats.** The per-customer chart percentages are printed to whole numbers and sum to 79 against
+  a stated "approximately 77 percent", so the Herfindahl is computed twice and given as a range. The
+  85-customer count is "approximately". The equal-split tail assumption is stated at each use and is
+  the most favourable one available; a skewed tail would make the effective number *lower* and the
+  average tail customer *smaller than* €344,250 for most of them and much larger for a few. "Gross
+  margin" here is materials-only and is **not** comparable to the gross margins quoted for Clas-SiC
+  (`LNI-5`) or Pragmatic (`LNI-16`), which are after full cost of sales.
+- **Why it matters and what it does to H7.** H7 says that with thousands of small customers none has
+  leverage and losing any one is noise. The best specialty foundry in Europe — profitable, growing,
+  serving four industries, twenty-year relationships — has **85** customers, a **25%** largest
+  customer and **8.6–9.0** effective ones. It did not escape concentration by being specialised; it is
+  as concentrated as TSMC. **H7's mechanism therefore requires the customer count to be genuinely
+  enormous, in the thousands, not merely "many".** The PCB evidence already said the threshold was
+  about a million customers before concentration collapsed (`PCB-5`, `SMB-1`); this says the same
+  thing inside a wafer fab. The counter-reading, and it is a real one, is that Silex is highly
+  profitable *with* that concentration — 22.7% operating margin, 86% materials margin, organic growth
+  in 11 of the last 12 years — which is evidence against **H2**, not for it.
+
+### LNI-19. Silex's prospectus splits revenue between customers in **development** and customers in **volume production** — and in Q1 2026 development overtook production
+
+- **Source:** as `LNI-18` — Silex Microsystems AB (publ), IPO prospectus, Finansinspektionen diary
+  number 25-37533, 2026-04-27, pp. 44–45 and 90–91.
+  <https://www.fi.se/sv/vara-register/prospektregistret/GetFile?id=25-37533>
+- **Verification:** Verified
+- **Date checked:** 2026-09-25
+- **Bearing:** **Supports H5 and H6.** This is the closest thing found to the JLC-style
+  margin-by-order-size disclosure this directory has hunted across five industries, translated into
+  the language of a fab: revenue from customers who are still prototyping, against revenue from
+  customers in mass production.
+- **What it says.** The split, as printed:
+
+  | | 2023 | 2024 | 2025 | Q1 2025 | Q1 2026 |
+  |---|---:|---:|---:|---:|---:|
+  | Net sales from customers in the **development** phase (SEK m) | 404 | 422 | **614** | 134 | **191** |
+  | Net sales from customers in the **volume production** phase (SEK m) | 691 | 804 | **771** | 200 | **185** |
+  | Total net sales (SEK m) | 1,095 | 1,226 | 1,385 | 334 | 375 |
+
+  > "Between 2023 and 2025, Silex's net sales ­generated from customers in the development phase grew
+  > at a CAGR of 23 percent and Silex's net sales from customers in the volume production phase grew
+  > at a CAGR of 6 percent. Silex estimates that in any given year, approximately 60 percent of
+  > Silex's net sales is generated from customers that are in the volume production phase during the
+  > relevant period. Correspondingly, approximately 40 percent of Silex's net sales is generated from
+  > customers that are in the development phase during the relevant period."
+
+  **On profitability across the two phases — the answer to the question `PCB-13` and `OIM-5` were
+  asking:**
+
+  > "Due to the payment mechanisms included in Silex's customer contracts, Silex's profit­ability is
+  > fairly stable throughout the engagement phases, with payment received across various milestones of
+  > the development and production qualification process. However, high volume orders for MEMS in the
+  > volume production phase usually have a higher order value, which enables higher profits in
+  > absolute terms for Silex."
+
+  and, elsewhere in the same document:
+
+  > "Another example of how Silex creates long-term value for its customers is its ability to support
+  > them from early development through to full-scale production, **often maintaining comparable
+  > margins across both phases**." *(emphasis ours)*
+
+  **The funnel, stated as a number:**
+
+  > "Silex undertakes on average approximately 15 new customer development programmes each year,
+  > however, according to the Company's assessment, customer confidence was strengthened following the
+  > new Swedish ownership, resulting in 24 new programmes in 2025."
+
+  > "Based on Silex's experience, out of the approximately 15 customers that enter the development
+  > phase, typically one or two ultimately progress to high-volume, high-revenue production. As Silex
+  > generates revenue throughout the MEMS production process, from the development phase to the
+  > production phase, customers' that do not reach the volume production phase still generate revenue
+  > for Silex."
+
+  > "Across Silex's portfolio, programmes that successfully transition to production typically
+  > generate initial annual revenues of approximately SEK 10 to 20 million in their first year of
+  > volume manufacturing. Over a period of two to four years, these programmes generally ramp up to
+  > achieve peak annual revenues in the range of SEK 50 to 100 million…"
+
+  > "As of 31 March 2026, approximately 20 customer programmes were in the production phase…"
+
+  The shape of a development engagement:
+
+  > "The MEMS development phase typically spans two to five years, with each development cycle lasting
+  > around six months and involving between 200 and 700 process steps."
+
+  And the commercial terms, which answer "who pays and when":
+
+  > "…Silex generally requires an upfront initial instalment of at least 15 percent to support the
+  > additional capacity-related investments. Allocation of resources for early development programmes
+  > is determined through agreements with the customer. Customers have the option to increase resource
+  > allocation and accelerate development timelines by committing additional funding to the
+  > programme."
+
+- **DERIVED (arithmetic written out):**
+  - **Development overtook production in Q1 2026:** SEK 191m against SEK 185m, i.e. **50.8% of net
+    sales came from customers who are still prototyping.** A year earlier it was 134 ÷ 334 = **40.1%**.
+  - **Development-phase share by year:** 404 ÷ 1,095 = **36.9%** (2023); 422 ÷ 1,226 = **34.4%**
+    (2024); 614 ÷ 1,385 = **44.3%** (2025).
+  - **The growth is entirely on the prototyping side.** Development SEK 404m → 614m over two years is
+    a CAGR of √(614/404) − 1 = **+23.3%/yr**; volume production SEK 691m → 771m is
+    √(771/691) − 1 = **+5.6%/yr**. Of the SEK 290m of net-sales growth from 2023 to 2025,
+    **SEK 210m (72.4%)** came from customers in development and SEK 80m (27.6%) from customers in
+    volume production.
+  - **Conversion rate:** 1 to 2 out of approximately 15 = **6.7% to 13.3%.** With 24 new programmes in
+    2025 and the same rate, that is 1.6 to 3.2 programmes a year reaching volume.
+  - **The lifetime value of a converted programme:** SEK 10–20m in year one, ramping over two to four
+    years to SEK 50–100m a year at peak. At the midpoints — SEK 15m rising to SEK 75m — one converted
+    programme is worth about **€6.66 million a year at peak** (SEK 75m ÷ 11.2645).
+  - **What the 13 or 14 that do *not* convert are worth.** 2025 development-phase net sales were
+    SEK 614m. If roughly 40–65 programmes are live in development at any time (2–5 year phase ×
+    15–24 new a year), that is of order **SEK 9m–15m per development programme per year**, or
+    **€800,000–€1,330,000** — and the prospectus says explicitly that these "still generate revenue
+    for Silex" and that margins are "comparable across both phases".
+  - **Programmes in production:** approximately 20 as of 31 March 2026, against SEK 771m of
+    volume-production net sales in 2025 = **SEK 38.6m per production programme**, which sits neatly
+    between the stated SEK 10–20m first year and SEK 50–100m peak.
+  - **Cash terms:** a 15% minimum upfront instalment on a development programme worth SEK 9–15m a year
+    is **SEK 1.35m–2.25m (€120,000–€200,000) paid before work starts.**
+- **Caveats.** "Development phase" at Silex means a two-to-five-year, 200-to-700-process-step,
+  co-developed custom MEMS programme with a company large enough to fund it. **It does not mean a
+  hobbyist shuttle slot**, and the entry should not be read as though it did. The per-programme
+  figures in the last three bullets divide a disclosed total by an *estimated* programme count and are
+  order-of-magnitude only; the prospectus does not give the number of live development programmes.
+  "Comparable margins across both phases" is a company statement, not a disclosed margin split.
+- **Why this supports the thesis.** Two things here are genuinely strong evidence for H5 and H6, and
+  they are the best in this file. **First, prototyping is not a loss-leader at a real fab** — Silex
+  says its profitability is "fairly stable throughout the engagement phases" and that it often
+  maintains "comparable margins across both phases". Every other data point in this directory on
+  small-batch margin comes from PCBs (`PCB-7`, `PCB-13`) or from a MEMS owner's segment disclosure
+  (`OIM-5`); this is the fab itself saying it in a prospectus. **Second, the prototyping side is where
+  the growth is**: +23.3%/yr against +5.6%/yr, 72% of all growth, and in Q1 2026 it became the larger
+  half of the business. A foundry whose development-phase revenue is growing four times as fast as its
+  production revenue is the pattern H5 predicts. What it is *not* is a long tail — these are 15 to 24
+  programmes a year with companies that can pay six figures up front.
 
 ---
 
@@ -1403,6 +1695,7 @@ Every figure below is derived in the entry named, with its arithmetic written ou
 | Tyndall, Cork | >€100m | 580 existing | €172,000 per existing head | `LNI-15` |
 | KLA, Newport (HQ + innovation centre) | US$100m | 750 | US$133,000 | `LNI-14` |
 | Teledyne DALSA, Bromont | C$42m | 40 new | **C$1,050,000 / €654,000** | `LNI-7` |
+| **Silex, Järfälla cleanroom expansion** | **SEK 650m (prospectus)** | **70–80 new** | **SEK 8.1–9.3m / €721,000–€824,000** | `LNI-1` |
 | Teledyne MEMS, Edmonton | C$20m | 16 new | **C$1,250,000 / €779,000** | `LNI-8` |
 | Clas-SiC, Lochgelly | £59.0m of equity raised since 2017 | 76 employed | **£776,000 / €903,000** | `LNI-5` |
 | Pragmatic, Sedgefield | £287.0m of equity raised | 357 employed | **£804,000 / €935,000** | `LNI-16` |
@@ -1412,9 +1705,10 @@ Every figure below is derived in the entry named, with its arithmetic written ou
 
 **Two findings.** First, **capital per job does not fall as the fab gets smaller.** The
 smallest MEMS foundry in the table (Edmonton, 16 jobs) costs more per job than the billion-euro
-Bosch fab. Second, the cluster is tight: four independent small-fab figures — Bromont, Edmonton,
-Clas-SiC and Pragmatic, across Canada and the UK, announcements and audited accounts alike — land
-between **€650,000 and €935,000 of capital per job.** Institute and office jobs, by contrast, cost
+Bosch fab. Second, the cluster is tight: **five** independent small-fab figures — Bromont, Edmonton,
+Clas-SiC, Pragmatic and Silex's own prospectus, across Canada, the UK and Sweden, in announcements,
+audited accounts and a regulator-approved prospectus alike — land between **€650,000 and €935,000 of
+capital per job.** Institute and office jobs, by contrast, cost
 **€130,000–€230,000**. The gap is process equipment.
 
 ### Capital cost per unit of capacity
@@ -1424,11 +1718,11 @@ between **€650,000 and €935,000 of capital per job.** Institute and office j
 | Cleanroom shell only, per m² (IHP, gross floor area) | **€3,947/m²** | `LNI-3` |
 | Cleanroom shell only, per m² of cleanroom (X-FAB Dresden) | **US$12,500/m²** | `LNI-6` |
 | Cleanroom shell only, per m² of cleanroom (IHP) | **€30,000/m²** | `LNI-3` |
-| Cleanroom expansion incl. tools, per m² (Silex, planned) | **€29,592/m²** | `LNI-1` |
+| Cleanroom expansion incl. tools, per m² (Silex, planned, corrected to SEK 650m) | **€38,469/m²** | `LNI-1` |
 | Cleanroom expansion incl. tools, per m² (Fraunhofer ISIT) | **€45,000/m²** | `LNI-9` |
 | Cleanroom expansion incl. tools, per m² (X-FAB Dresden) | **US$155,357/m²** | `LNI-6` |
 | **Per wafer start per month, at the margin (X-FAB Dresden)** | **US$41,587** | `LNI-6` |
-| Capex ÷ one year's incremental revenue (Silex) | **1.03×** | `LNI-1` |
+| Capex ÷ one year's incremental revenue (Silex, corrected) | **1.34×** | `LNI-1` |
 | Wafer starts per month per m² of cleanroom (X-FAB Dresden) | 3.07 | `LNI-6` |
 
 **The finding:** X-FAB Dresden puts **92% of a brownfield fab expansion into equipment and 8% into
@@ -1439,7 +1733,7 @@ nothing in the open-source, open-PDK, automated-flow argument touches the price 
 
 | Company | Revenue per employee | Payroll as % of revenue | Result |
 |---|---:|---:|---|
-| Silex Microsystems (2024, filed) | €264,169 | **27.9%** | operating profit, 22.7% margin (2025) |
+| Silex Microsystems (484 staff, prospectus) | **€254,035** | **27.9%** | operating profit, 22.7% margin (2025); 86% materials margin |
 | X-FAB group (2023, reported) | US$176,190 | not disclosed | — |
 | Clas-SiC Wafer Fab (FY2025, audited) | £109,884 | **45.3%** | gross **loss**, −8.6% |
 | CMC Microsystems (`FUNDX-1`) | — | 39–46% | deficit in 4 of 5 years |
@@ -1510,13 +1804,21 @@ Blocked items with the blocker named, so nobody repeats the work.
    redirect cycle. **The SEK 3bn figure is therefore recorded nowhere in this file as a fact**, only
    as something that could not be verified. `LNI-2` uses only what *Mitt i*, *SE Nytt*, *Evertiq* and
    Järfälla kommun say.
-2. **The Silex IPO prospectus itself** (`silexmicrosystems.com`, `abgsc.com`, `seb.se`,
-   `nordea.se/prospekt`, `avanza.se`). The MFN announcement summarising it was read in full and is
-   the source for `LNI-1`, but the prospectus PDF — which would carry wafer starts, cleanroom
-   utilisation, customer concentration and a proper head count — was not located at a stable URL.
-   Not blocked, just not found in the time available. **This is the single biggest gap**: a listed
-   pure-play MEMS foundry's prospectus is exactly the document that would answer the wafer-volume
-   distribution question `hypotheses.md` calls the most valuable evidence outstanding.
+2. **The Silex IPO prospectus — ✅ RESOLVED 2026-09-25, see `LNI-18` and `LNI-19`.** It was
+   never on the company site or on any of the four bank sites the press release names
+   (`silexmicrosystems.com`, `abgsc.com`, `seb.se`, `nordea.se/prospekt`, `avanza.se`), which is why
+   the first pass missed it. It is in the **statutory register**, and that is where to look for any
+   Swedish issuer: Finansinspektionen's Prospektregistret,
+   `https://www.fi.se/sv/vara-register/prospektregistret/?query=<name>` → `details?id=<diary number>`
+   → `GetFile?id=<diary number>` with the detail page as referer. Silex is diary number **25-37533**,
+   approved 2026-04-27, 230 pages, 11.7 MB, with a proper text layer. It carried the customer
+   concentration table, the development-versus-production revenue split, the head count, the staffing
+   of the expansion and a correction to the capex figure in `LNI-1`. **It did not carry wafer starts
+   or cleanroom utilisation** — those two are still missing and appear nowhere in 230 pages.
+
+   The remaining gap, restated: **no wafer-start, wafer-price or cleanroom-utilisation figure has been
+   found for any pure-play specialty fab.** `LNI-6` (X-FAB Dresden, 11,500 wspm on 3,680 m²) is the
+   only wafer-start number in this file, and it comes from a local news report, not a filing.
 3. **Pragmatic Semiconductor's accounts are a scanned PDF.** Companies House serves
    `format=pdf` only (no iXBRL) for company 07423954, and the file has no text layer:
    `pdftotext -layout` returns 42 bytes from 42 pages, and `gs` rewriting does not help. No

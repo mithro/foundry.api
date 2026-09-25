@@ -115,6 +115,7 @@ The honest reading is that a long tail of *experiments* certainly exists and gro
   - DEM-18: "Several TSMC shuttles are extremely loaded … If required, a waiting list will be created."
   - DEM-21: the NSF workshop report — shuttle programmes "can be overbooked", a lottery picked 40 projects per Open MPW shuttle, and "There is also the third option where a design is not taped-out at all"
   - SMB-1: JLC has 1,358,700 paying users placing 21.3 million orders a year, which is a long tail of hardware demand that unambiguously exists, though for printed circuit boards rather than chips
+  - **LNI-19: a real fab publishes the prototyping-versus-production split, and prototyping is where the growth is.** Silex's prospectus gives net sales from customers in the **development** phase against customers in the **volume production** phase: SEK 404m / 691m (2023), 422m / 804m (2024), **614m / 771m** (2025), and **SEK 191m / 185m for Q1 2026 — the first quarter in which development-phase revenue was the larger half.** Development grew at **+23.3%/yr** against volume production's **+5.6%/yr**, and **72.4% of all net-sales growth 2023–2025 came from customers still in development.** The company also states that its "profitability is fairly stable throughout the engagement phases" and that it often maintains "comparable margins across both phases". The funnel: ~15 new development programmes a year (24 in 2025), of which "typically one or two ultimately progress to high-volume, high-revenue production" — and those that do not "still generate revenue for Silex"
   - **LNI-13, LNI-9, LNI-7: the small customers exist in the specialty and prototyping fabs, and they come back.** CORNERSTONE has "fabricated over 900 unique SiPh designs for over 130 organisations in 26 countries" since 2017 — **6.9 designs per organisation**, i.e. repeat business. Fraunhofer ISIT had "a stable customer base of over 350 companies" with 150 staff in 2008. Canada's federal government states that "Canadian research centres and SMEs benefit from access to their infrastructure for the design, prototyping and high-volume production of innovative products" at Teledyne's Bromont and Edmonton fabs
   - TAIL-1: Anderson's long tail
   - TAIL-2: the value of wider choice in books
@@ -204,6 +205,7 @@ The cost-to-serve data asked for here turns out to be published, in the one plac
   - **PCB-13: the controlled test.** 中富电路 (Zhongfu) is a *large-batch* house — 61.79% of revenue is orders over 50 m² — answering an exchange asking why its margin was falling, so it had no incentive to flatter small batch. It splits margin by order batch **inside each product family**, which holds layer count roughly constant, and **small batch wins 8 of 8 cells** (1.15×–2.66×). This is the best evidence in the directory that the order-size effect is not a product-mix artefact
   - **Eighteen company-periods across five companies, and in not one does a larger-order tier out-earn a smaller-order tier.** All five decompositions reconcile to within 0.01 pp of the filings' own printed figures
   - **OIM-5: a real MEMS wafer foundry prints the split, and the small-batch side wins every year.** 赛微电子, owner of Sweden's Silex, published gross margin separately for bespoke MEMS process development and volume wafer manufacturing for four years. The bespoke half won by +53.5, +31.0, +4.6 and +6.7 pp; in 2022 it was 46.6% of revenue and **70.3% of gross profit**. The company describes Swedish FAB1&2 as "a pilot line plus small-batch production line" and Beijing FAB3 as "a scale volume-production line" — two fabs, two strategies, and the small-batch one is the better business. **Its new volume fab ran at −50.00% gross margin while ramping**, which independently corroborates the idle-plant test in [`analyses/long-tail-pays-for-the-capital.md`](analyses/long-tail-pays-for-the-capital.md)
+  - **LNI-18, LNI-19: prototyping is not a loss-leader at a real fab, and materials are 14% of the price.** Silex's prospectus says profitability is "fairly stable throughout the engagement phases" and that it often maintains "comparable margins across both phases", with a 15% minimum upfront instalment on development programmes. Its gross margin — defined in the prospectus as "net sales less raw materials and consumables" — was **86% in 2025**, i.e. **86 pence in every pound a MEMS customer pays is labour, depreciation, overhead and margin, not silicon.** That is `SMB-11` measured at a working fab
   - **LNI-17, LNI-1: a pure-play MEMS foundry serving many customers is a very good business when it is full.** Silex Microsystems' filed Swedish accounts show 412 employees, net sales rising SEK 1,020m → 1,385m over 2021–2025, operating profit of SEK 314m (a **22.7% margin**), and **payroll at 27.9% of revenue** — against 45.3% at loss-making Clas-SiC and 39–46% at subsidised CMC. Its planned Järfälla cleanroom expansion costs about **one year of the incremental revenue** it will produce (SEK 500m of capex for +35% on SEK 1,385m)
   - IHF-11 (**🚩 DISPUTED 2026-09-25 — do not cite, see the banner in [`demand/in-house-fabrication.md`](demand/in-house-fabrication.md)**): the **tool set** of a working 150 mm MEMS fab is claimed to be a **one-to-two-million-dollar** asset — US$1.0 million contracted and US$2,124,650 independently appraised in the Akoustis deal, EUR 498 thousand of net book value at MEMSCAP — against "well over $50 million" to build a facility new. **The tools are not the obstacle.** *(Corrected 2026-09-19: this line previously read "a complete working small MEMS fab is a ~US$3M asset at roughly 1× trailing revenue". Both headline prices turned out to describe different things — Akoustis' was 63.6% real estate plus a $1.73M clawback, GAAP consideration $4.58M, and was set "without significant price negotiation" by a public-sector seller; MEMSCAP's carried no building and no liabilities but came with EUR 655 thousand a year of rent. See IHF-3 and IHF-9.)*
 - **Challenges:**
@@ -254,7 +256,8 @@ The cost-to-serve data asked for here turns out to be published, in the one plac
 
 **Claim.** With thousands of small customers, none has leverage, and losing any one of them is noise.
 
-**Status: Supported where it has been measured, but it needs far more customers than assumed.**
+**Status: Contested. Supported in the open programmes; contradicted inside the one real specialty
+fab whose customer book is now public. It needs far more customers than assumed.**
 The previous status line — "well supported as the reverse of H2" — was wrong, and the PCB evidence
 is what corrected it. A long customer *list* does not produce a long-tailed *revenue* distribution.
 
@@ -275,13 +278,26 @@ threshold is *inequality of order size*, not customer count.
 
 **The real open question is therefore whether a fab's customers would be similarly sized.** If
 annual wafer demand is itself long-tailed, concentration returns at once and H7 is back in
-difficulty. The distribution of annual wafer volume across a real mature-node fab's customer book
-is now the single most valuable piece of evidence this project could obtain.
+difficulty.
+
+**That question now has its first answer from inside a real specialty fab, and the answer is bad for
+H7 (`LNI-18`, added 2026-09-25).** Silex Microsystems' IPO prospectus — a document approved and
+published by the Swedish financial regulator — prints the revenue share of each of its ten largest
+customers. The world's leading pure-play MEMS foundry, profitable, growing, serving four separate end
+industries with relationships going back twenty years, has **approximately 85 customers**, a **top
+ten at 77% of net sales** and a **largest customer at 25%**. TSMC's top ten are 76–78%. Its
+**effective number of customers is 8.6–9.0, fewer than TSMC's 11.8**, and its concentration has been
+*rising* as it grew. Its "tail" — customers 11 through 85 — averages about **€344,000 of spend per
+customer per year**, against **US$67 an order** for a JLC long-tail customer. Being specialised, and
+serving many industries, did not deliver dispersion; **only customer counts in the thousands have
+ever been observed to do that.**
+
+The wafer-volume version of the question is still open: no fab found publishes wafer starts by
+customer, and the Silex prospectus does not either.
 
 Where it has been measured directly, though, it holds well.
 
 - **Supports:**
-  - **LNI-16, as a negative case:** Pragmatic, pre-scale, discloses "3 customers who each accounted for more than 10% of revenue in the year (2024: 3)" on £901,000 of revenue. A fab that has not yet found its tail is as concentrated as any other supplier, which is what H7 predicts in reverse
   - FIN-1 (Porter: buyers are powerful when few, or when large relative to the seller)
   - **Effective number of participants** (reciprocal Herfindahl, as a share of nominal count), computed for the first time: **14.4% for Tiny Tapeout designers against 2.3% for TSMC customers** — 1.3% on the correlated-tail variant. Bootstrap CI [8.4%, 36.2%], robust to dropping the largest participant ([`analyses/data-cuts-and-statistics.md`](analyses/data-cuts-and-statistics.md))
   - SMB-1: JLC's top five customers are **1.16%** of revenue, and its largest is 0.28%
@@ -289,6 +305,9 @@ Where it has been measured directly, though, it holds well.
   - **PCB-8: concentration rises with order size inside a single company.** 金百泽 (Jinbaize) prints top-20 customer concentration separately for each order-size tier: **28.50%** (sample) → **37.56%** (small batch) → **52.25%** (medium batch), monotonic in all three years. Nothing else in the directory measures concentration and order size on the same customers in the same firm — this is H7's mechanism observed directly rather than inferred across companies
 - **Leads:** FIN-7 (countervailing-power theory), FIN-9 (diversification theory).
 - **Challenges:**
+  - **LNI-18: the direct measurement this hypothesis was waiting for, and it goes the wrong way.** Silex Microsystems' IPO prospectus — approved by Finansinspektionen, diary number 25-37533, 2026-04-27 — states that the world's leading pure-play MEMS foundry "generates revenue from approximately **85 customers** worldwide", that its "ten largest customers accounted for approximately **77 percent** of Silex's net sales, and the largest customer accounted for **25 percent**" in 2025, and prints the per-customer shares: 25, 19, 7, 5, 5, 4, 4, 4, 3, 3. **TSMC's top ten are 76–78% (`CONC-1`, `CONC-11`). Silex's are 77%.** Specialty, four end industries and twenty-year relationships did not buy dispersion. The **effective number of customers (1/H) is 8.6–9.0** on the assumption most favourable to dispersion — **fewer than TSMC's 11.8** — although as a *share of the nominal count* it is 10.2–10.6% against TSMC's 2.3% and Tiny Tapeout's 14.4%. And the concentration is worsening: the 2025 top ten grew SEK 285m → 1,073m (×3.76) while total net sales grew ×1.36. **H7's mechanism needs the customer count to be genuinely enormous, not merely "many".**
+  - **LNI-18: the empirical "tail" of a real specialty fab is not small customers.** Silex's customers 11–85 share 21% of SEK 1,385m, i.e. about **€344,000 per customer per year**, and the average across all 85 is **€1.45m**. A JLC long-tail customer places orders averaging **US$67** (`SMB-1`) — a factor of roughly **5,000×**. This is the distribution [`analyses/customers-needed-to-fill-a-fab.md`](analyses/customers-needed-to-fill-a-fab.md) had to assume
+  - **LNI-16, as a negative case:** Pragmatic, pre-scale, discloses "3 customers who each accounted for more than 10% of revenue in the year (2024: 3)" on £901,000 of revenue. A fab that has not yet found its tail is as concentrated as any other supplier
   - PCB-5, PCB-3: customer count does not predict concentration below ~1M customers (above)
   - FIN-5 (Partial): enterprise concentration can bring efficiencies and stickiness
 
