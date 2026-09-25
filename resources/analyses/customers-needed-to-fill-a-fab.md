@@ -107,3 +107,59 @@ from the ~2,600 people who have ever submitted a Tiny Tapeout tile.
   rarer kind of customer.
 - **H6 (context).** At US$3,000/wafer and 100 wafers, a "small" customer is a US$300,000-a-year
   account — not small in any sense that makes per-customer cost-to-serve a problem.
+
+---
+
+## The assumed customer size has now been checked against a real fab — and it was right
+
+*Added 2026-09-25, from `LNI-18`.*
+
+Everything above rests on one assumption made without evidence: that a chip customer buys **100
+wafers a year, ~US$300,000**. Silex Microsystems' IPO prospectus — approved by Finansinspektionen,
+diary number 25-37533, 2026-04-27 — is the first document that lets it be tested against a real
+specialty foundry's customer book.
+
+**Silex's customers 11 through 85** share 21% of SEK 1,385m of net sales, i.e.
+SEK 1,385m × 0.21 ÷ 75 = **SEK 3.878m ≈ €344,000 per customer per year**. The average across all 85
+is SEK 1,385m ÷ 85 = **€1.45m**.
+
+| | Annual spend |
+|---|---|
+| **Assumed** here, 100 wafers at US$3,000 | **~US$300,000** |
+| **Measured** at Silex, tail customers 11–85 | **~€344,000 (~US$395,000)** |
+
+**The assumption was right, within about 30%.** That is a genuine validation, and it is the first
+one this file has had.
+
+### But it breaks the other half of the argument
+
+The size was right; **the count was not.** This file assumes **7,000** such customers. Silex, the
+world's leading pure-play MEMS foundry, profitable and growing for twenty years, has
+**approximately 85** — and about **75** in the tail band.
+
+| | Assumed here | Measured at Silex |
+|---|---:|---:|
+| Tail customer's annual spend | ~US$300,000 | ~€344,000 ✅ |
+| Number of such customers | **7,000** | **~75** ❌ |
+
+**Two orders of magnitude.** And §"Why the million-customer threshold does not apply" above argued
+that in wafer customers the dispersion H7 needs "arrives three orders of magnitude sooner" than the
+million PCB customers. `LNI-18` contradicts that directly: at 85 customers Silex's top ten take
+**77%** of net sales — the same as TSMC's 76–78% — and its effective number of customers (1/H) is
+**8.6–9.0, fewer in absolute terms than TSMC's 11.8**. Its concentration has *risen* as it grew.
+
+### What this actually leaves standing
+
+- **The unit economics of the target customer are confirmed.** A €344,000-a-year customer exists in
+  quantity at a real specialty fab, and `LN-18`'s arithmetic says 1,560 of them at 100 wafers/yr
+  fill a 156,000-wafer/yr fab with capital of only **$19,231 per customer if the fab is bought**.
+- **The population size is the whole problem, and it is unmeasured at the top end.** Nobody has
+  shown that 1,560 — let alone 7,000 — such customers exist and are reachable. Silex found 85 in
+  twenty years.
+- **The customer this project is designed for is not the customer that fills a fab.** A Tiny Tapeout
+  participant pays ~€70; a Silex tail customer pays ~€344,000. That is a factor of **4,900**. The
+  bridge between the two populations — whether tape-out customers *become* wafer customers — is
+  the load-bearing unknown, and nothing in this directory measures it.
+
+**Do not cite the 7,000-customer figure as though the population were established.** It is an
+arithmetic requirement, not an observation.
