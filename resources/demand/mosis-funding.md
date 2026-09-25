@@ -716,6 +716,56 @@ Format and conventions: [`../README.md`](../README.md). Searches and dead ends:
     reading is at least as consistent with the facts as the "no demand" reading, and IDA does not
     consider it.**
 
+### MOS-11. Congress was told in 2022 that MOSIS "has kind of disappeared", by a member who used it
+
+- **Source:** *Strengthening the U.S. Microelectronics Workforce*, Hearing before the Subcommittee
+  on Research and Technology, Committee on Science, Space, and Technology, U.S. House of
+  Representatives, 117th Congress, 2022-02-15. Serial No. 117-46, pp. 68–69.
+  <https://www.govinfo.gov/content/pkg/CHRG-117hhrg46798/pdf/CHRG-117hhrg46798.pdf>
+- **Verification:** Verified 2026-09-25. The 26 MB PDF was downloaded from govinfo's public content
+  URL (**no API key needed** — `https://www.govinfo.gov/content/pkg/<packageId>/pdf/<packageId>.pdf`)
+  and converted with `pdftotext -layout`.
+- **What it says:**
+  - **Rep. Bill Foster** (D-IL, a physicist who designed chips at Fermilab), verbatim: "we at that
+    time had access to something called **MOSIS, which I take it has kind of disappeared**, which is
+    a way that they—you know, you used to be able to get for not very much money a small number of a
+    new chip design, you know. And **the fact that that, too, has disappeared I think really takes
+    the wind out of getting young engineers excited about this.** So I was wondering, you know, what
+    are the things that have been tried to **keep multi-project wafers going** that would let, you
+    know, graduate students or even undergrads have access and actually build their own chip".
+  - **Dr. Tsu-Jae King Liu** (Dean of Engineering, UC Berkeley) in reply: "it turns out that **Intel
+    is in the process of—actually offers a multi-project wafer kind of service. They call it the
+    University Shuttle.** And—but part of the challenge is that even though they offer space on
+    chips so students can design and see their chips fabricated … **the sophistication of the chips
+    has grown exponentially** … And that's where accessibility is a challenge because, you know, if
+    the computing systems you need, **the cloud computing credits you need to even design a chip**
+    because it's so complex, it poses a barrier."
+  - She adds: "At Berkeley we actually have designed a course where students within one semester can
+    tape out a chip … and send it to Intel to have it fabricated in the **16-nanometer** generation
+    technology".
+  - Foster closes: "we ought to find a way that we can make the—**a better economic model** for
+    getting kids, young kids access to be able to build their own chip."
+- **Bears on:**
+  - **H5 (mixed, and precise).** The Dean of Engineering at Berkeley, asked directly what the
+    barrier is, **does not say fabrication cost**. She says design complexity and **EDA tool and
+    cloud access**. That is a direct, on-the-record challenge to the premise that price of silicon
+    is the binding constraint — and it comes from the person best placed to know. It supports
+    `DEM-21`'s reading and it is the same answer `DEM-22` records the NSF workshop giving.
+  - **H6 (context).** Two years after the free academic programme ended (`DEM-22`), a member of
+    Congress who had personally used MOSIS believed the whole service had disappeared. **Nobody in
+    the room corrected him.** For a service that MOSIS's successor describes as "extremely
+    successful" and "self-sustaining for 40 years" (`SMB-5`), that is a striking piece of negative
+    evidence about its visibility in 2022.
+  - **H5 (challenges).** "the fact that that, too, has disappeared … really takes the wind out of
+    getting young engineers excited" is the demand-side consequence stated by a user.
+- **Used in:** not yet.
+- **Caveats:**
+  - Foster's "has kind of disappeared" is **wrong as a matter of fact** — MOSIS was still trading in
+    2022 and was reconstituted as MOSIS 2.0 in 2023 (`SMB-5`, `DEM-22`). The entry records what was
+    said in Congress, and what it implies about how well known the service still was, not a fact
+    about MOSIS's existence.
+  - Transcribed spoken testimony, with the disfluencies of speech.
+
 ### MOS-12. What MOSIS is today: `mosis.com` 301s to `mosis2.com`, and the whole named team is four people
 
 - **Sources:**
@@ -772,57 +822,6 @@ Format and conventions: [`../README.md`](../README.md). Searches and dead ends:
     like-for-like. It is recorded because it is the only current headcount that exists.
   - The tapeout schedule shown on the front page is a highlight, not the full schedule; the site
     links to a fuller one that was not fetched.
-
-### MOS-11. Congress was told in 2022 that MOSIS "has kind of disappeared", by a member who used it
-
-- **Source:** *Strengthening the U.S. Microelectronics Workforce*, Hearing before the Subcommittee
-  on Research and Technology, Committee on Science, Space, and Technology, U.S. House of
-  Representatives, 117th Congress, 2022-02-15. Serial No. 117-46, pp. 68–69.
-  <https://www.govinfo.gov/content/pkg/CHRG-117hhrg46798/pdf/CHRG-117hhrg46798.pdf>
-- **Verification:** Verified 2026-09-25. The 26 MB PDF was downloaded from govinfo's public content
-  URL (**no API key needed** — `https://www.govinfo.gov/content/pkg/<packageId>/pdf/<packageId>.pdf`)
-  and converted with `pdftotext -layout`.
-- **What it says:**
-  - **Rep. Bill Foster** (D-IL, a physicist who designed chips at Fermilab), verbatim: "we at that
-    time had access to something called **MOSIS, which I take it has kind of disappeared**, which is
-    a way that they—you know, you used to be able to get for not very much money a small number of a
-    new chip design, you know. And **the fact that that, too, has disappeared I think really takes
-    the wind out of getting young engineers excited about this.** So I was wondering, you know, what
-    are the things that have been tried to **keep multi-project wafers going** that would let, you
-    know, graduate students or even undergrads have access and actually build their own chip".
-  - **Dr. Tsu-Jae King Liu** (Dean of Engineering, UC Berkeley) in reply: "it turns out that **Intel
-    is in the process of—actually offers a multi-project wafer kind of service. They call it the
-    University Shuttle.** And—but part of the challenge is that even though they offer space on
-    chips so students can design and see their chips fabricated … **the sophistication of the chips
-    has grown exponentially** … And that's where accessibility is a challenge because, you know, if
-    the computing systems you need, **the cloud computing credits you need to even design a chip**
-    because it's so complex, it poses a barrier."
-  - She adds: "At Berkeley we actually have designed a course where students within one semester can
-    tape out a chip … and send it to Intel to have it fabricated in the **16-nanometer** generation
-    technology".
-  - Foster closes: "we ought to find a way that we can make the—**a better economic model** for
-    getting kids, young kids access to be able to build their own chip."
-- **Bears on:**
-  - **H5 (mixed, and precise).** The Dean of Engineering at Berkeley, asked directly what the
-    barrier is, **does not say fabrication cost**. She says design complexity and **EDA tool and
-    cloud access**. That is a direct, on-the-record challenge to the premise that price of silicon
-    is the binding constraint — and it comes from the person best placed to know. It supports
-    `DEM-21`'s reading and it is the same answer `DEM-22` records the NSF workshop giving.
-  - **H6 (context).** Two years after the free academic programme ended (`DEM-22`), a member of
-    Congress who had personally used MOSIS believed the whole service had disappeared. **Nobody in
-    the room corrected him.** For a service that MOSIS's successor describes as "extremely
-    successful" and "self-sustaining for 40 years" (`SMB-5`), that is a striking piece of negative
-    evidence about its visibility in 2022.
-  - **H5 (challenges).** "the fact that that, too, has disappeared … really takes the wind out of
-    getting young engineers excited" is the demand-side consequence stated by a user.
-- **Used in:** not yet.
-- **Caveats:**
-  - Foster's "has kind of disappeared" is **wrong as a matter of fact** — MOSIS was still trading in
-    2022 and was reconstituted as MOSIS 2.0 in 2023 (`SMB-5`, `DEM-22`). The entry records what was
-    said in Congress, and what it implies about how well known the service still was, not a fact
-    about MOSIS's existence.
-  - Transcribed spoken testimony, with the disfluencies of speech.
-
 ---
 
 ## 1. Funding timeline — every instrument found, with the gaps named
