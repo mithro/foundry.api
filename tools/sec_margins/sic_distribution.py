@@ -319,12 +319,12 @@ def dupont(rows: list[dict]) -> None:
     print(f"  (SIC 7372 median operating margin is {100*sw_m:.2f}%.)")
 
 
-def rule40(rows_now: list[dict], rows_prior: list[dict]) -> None:
-    print("\n\n## Rule of 40: is a low software margin a growth choice?")
+def rule40(rows_now: list[dict], rows_prior: list[dict], codes=("7372",), label="SIC 7372") -> None:
+    print(f"\n\n## Rule of 40 [{label}]: is a low software margin a growth choice?")
     prior = {r["cik"]: r for r in rows_prior}
     pts = []
     for r in rows_now:
-        if r["sic"] != "7372":
+        if r["sic"] not in codes:
             continue
         p = prior.get(r["cik"])
         if not p or p["revenue"] <= 0:
@@ -333,7 +333,7 @@ def rule40(rows_now: list[dict], rows_prior: list[dict]) -> None:
         if not -0.9 < g < 5.0:  # drop reverse mergers and restatement artefacts
             continue
         pts.append((g, r["operating_margin"], r))
-    print(f"  n = {len(pts)} SIC 7372 filers with both years of revenue and a sane growth rate")
+    print(f"  n = {len(pts)} {label} filers with both years of revenue and a sane growth rate")
     if len(pts) < 10:
         return
     gs = [p[0] for p in pts]
@@ -400,6 +400,24 @@ def rule40(rows_now: list[dict], rows_prior: list[dict]) -> None:
             f" {100*pctile(sb,0.5) if sb else float('nan'):14.1f}%"
         )
 
+    # The pooled correlation is dominated by the shrinking filers, whose margins
+    # are terrible for a reason that has nothing to do with buying growth.  Split
+    # the population at zero growth and test each half separately.
+    print("\n  Split at zero growth, because the two halves are different stories:")
+    for nm, sub in (("shrinking (growth < 0)", [p for p in pts if p[0] < 0]),
+                    ("growing (growth >= 0)", [p for p in pts if p[0] >= 0]),
+                    ("growing fast (growth >= 20%)", [p for p in pts if p[0] >= 0.20])):
+        if len(sub) < 10:
+            continue
+        g = [x[0] for x in sub]
+        mm_ = [x[1] for x in sub]
+        rs = pearson(ranks(g), ranks(mm_))
+        k = len(sub)
+        tt = rs * math.sqrt((k - 2) / (1 - rs**2)) if abs(rs) < 1 else float("inf")
+        print(f"    {nm:30s} n={k:4d}  median growth {100*pctile(g,.5):6.1f}%"
+              f"  median margin {100*pctile(mm_,.5):7.1f}%"
+              f"  Spearman {rs:+.3f} (t = {tt:+.2f})")
+
     print("\n  'Rule of 40' score = revenue growth + operating margin (GAAP):")
     scores = [g + m for g, m, _ in pts]
     print(
@@ -446,6 +464,9 @@ def main() -> None:
 
     if a.rule40:
         rule40(rows25, rows24)
+        rule40(rows25, rows24,
+               ("7370", "7371", "7372", "7373", "7374", "7375", "7377", "7379"),
+               "all 737x")
         return
     if a.dupont:
         dupont(rows25)
