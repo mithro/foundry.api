@@ -2057,3 +2057,152 @@ recipe already recorded in [`search-log.md`](search-log.md).
     margins is partly a start-up cost and not a steady-state price. The FY2024 column is the
     cleaner one, and it still shows 37.10% against 3.20%.
   - All translations are ours; the Chinese is quoted exactly so a reader can check them.
+
+### PCB-12. TTM Technologies, the non-Chinese lead: twenty-five years of SEC filings say quick-turn earns a price premium and that quick-turn plants are deliberately run below capacity — but TTM has never published a margin split, and it stopped publishing even the quick-turn revenue share
+
+- **Sources:** TTM Technologies, Inc. (Nasdaq **TTMI**, SEC CIK 0001116942), annual reports on
+  Form 10-K:
+  - FY2000 10-K, filed 2001-03-30:
+    <https://www.sec.gov/Archives/edgar/data/1116942/000095015301500187/p64848e10-k.txt>
+  - FY2003 10-K, filed 2004-02-27:
+    <https://www.sec.gov/Archives/edgar/data/1116942/000110465904005855/a04-2883_110k.htm>
+  - FY2025 10-K, filed 2026-02-17:
+    <https://www.sec.gov/Archives/edgar/data/1116942/000119312526051976/ttmi-20251229.htm>
+  - The set of filings was established from EDGAR full-text search, which returns **29 TTM
+    filings under root form 10-K containing the phrase "quick-turn"**
+    (`https://efts.sec.gov/LATEST/search-index?q=%22quick-turn%22&forms=10-K&ciks=0001116942`,
+    `"total":{"value":29,"relation":"eq"}`). EDGAR full-text search covers 2001 onwards.
+- **Verification:** Verified 2026-09-25. **`www.sec.gov` returns HTTP 403 to `curl` with every
+  User-Agent tried** (a plain browser UA, a plain browser UA plus `Referer: https://www.sec.gov/`,
+  and a bare tool name); `data.sec.gov` serves the submissions JSON to `curl` normally. The three
+  10-Ks were therefore read in a real browser, read-only, no login and no form. Quotations below
+  were copied from the rendered documents. The FY2000 and FY2003 quotations are complete sentences
+  read in full; the FY2025 risk-factor sentence was located by an in-page search and **only its
+  opening clause was captured**, which is flagged where it appears.
+- **What it says:**
+  - **The premium, stated as a fact about pricing, in TTM's own words in 2003:**
+    "We refer to our rapid turnaround services as 'quick-turn' because we provide custom-designed
+    printed circuit boards to our customers within as little as 24 hours to 10 days. **As a result
+    of our ability to rapidly and reliably respond to the critical time requirements of our
+    customers, we generally receive a premium for our quick-turn services as compared to standard
+    lead time prices.**" (FY2003 10-K, Item 1, "Our Manufacturing Services — Quick-turn"; emphasis
+    ours.)
+  - **The same claim, still there twenty-two years later, and now with the lead time stretched:**
+    "Quick turnaround services. We provide custom-fabricated PCBs within 24 hours to 15 days and
+    **receive premium pricing for our ability to meet critical time requirements for our
+    customers**. We manufacture prototype PCBs in small quantities and deliver within 24 hours to
+    ten days. Our ramp-to-volume services typically include manufacturing up to several hundred
+    PCBs per order with delivery times ranging from five to 15 days." (FY2025 10-K, Item 1,
+    "Products and Services"; emphasis ours.)
+  - **Order size, defined by board count rather than by area** (FY2000 and FY2003 10-Ks):
+    prototype production is "up to 50 boards per order with delivery times ranging from as little
+    as 24 hours to 10 days"; ramp-to-volume is "up to several hundred printed circuit boards per
+    order with delivery times ranging from two to 10 days"; volume production is "up to several
+    thousand printed circuit boards per order with delivery times typically ranging from three to
+    eight weeks" (FY2000) / "three to five weeks" (FY2003, where the tier is called "standard
+    delivery time").
+  - **The idle-capacity statement — the American counterpart of Chongda's (PCB-9) and Mingyang's
+    (PCB-10).** FY2000 10-K, under the risk-factor heading "IF WE EXPERIENCE EXCESS CAPACITY DUE TO
+    VARIABILITY IN CUSTOMER DEMAND, OUR GROSS MARGINS MAY FALL":
+    "**We generally schedule our quick-turn production facilities at less than full capacity to
+    retain our ability to respond to unexpected additional quick-turn orders.** However, if these
+    orders are not made, we may forego some production and could experience excess capacity. When
+    we experience excess capacity, our sales revenues may be insufficient to fully cover our fixed
+    overhead expenses and our gross margins will fall. Conversely, we may not be able to capture
+    all potential revenue in a given period if our customers' demands for quick-turn services
+    exceed our capacity during that period." (Emphasis ours.)
+    The FY2003 10-K repeats it almost verbatim: "In addition, we generally schedule our quick-turn
+    production facilities at less than full capacity to retain our ability to respond to unexpected
+    additional quick-turn orders. However, if these orders are not received, we may forego some
+    production and could experience continued excess capacity."
+    The **FY2025** 10-K still carries the sentence; the fragment captured reads "In addition, we
+    generally schedule our quick turnaround production facilities at less than full capacity…"
+    (spelling modernised to "quick turnaround"). **Only that clause was captured, not the whole
+    sentence.**
+  - **Quick-turn as a share of sales, while TTM still disclosed it:**
+
+    | Year | Orders with delivery requirements of 10 days or less, as % of gross sales | Where |
+    |---|---|---|
+    | 2000 | **35%** | FY2000 10-K |
+    | 2002 | **45%** | FY2003 10-K |
+    | 2003 | **27%** | FY2003 10-K |
+
+    with the reason given: "Quick-turn orders decreased as a percentage of our gross sales in 2003
+    primarily due to the change in sales mix resulting from our December 2002 acquisition of
+    Advanced Circuits, which focuses primarily on manufacturing technologically complex printed
+    circuit boards with **standard delivery times**." (FY2003 10-K; emphasis ours.)
+    **The FY2025 10-K prints no such percentage.** TTM's business description still names quick
+    turnaround as a service and still claims premium pricing for it, but no longer says how much of
+    the company it is.
+  - **Mix is a named driver of results.** FY2000 10-K risk factors list, among the reasons results
+    vary: "changes in our mix of revenues generated from **quick-turn versus standard lead time
+    production**" (emphasis ours). TTM tells investors the quick-turn/standard mix moves the
+    numbers, and does not tell them by how much.
+  - **Concentration moved with order size, in the one year we can watch it move.** TTM acquired
+    Advanced Circuits — a standard-lead-time business — in December 2002. Over that boundary:
+
+    | | 2000 | 2002 | 2003 |
+    |---|---|---|---|
+    | Customers (companies placing ≥2 orders in 12 months) | "more than 550" | ~565 | ~600 |
+    | Five largest OEM customers, % of net sales | — | **25.9%** | **51.6%** |
+    | Ten largest customers, % of net sales | 50.8% | ~42% | ~64% |
+    | Quick-turn (≤10 days), % of gross sales | 35% | 45% | 27% |
+
+    The FY2003 10-K states the cause plainly: "Our 2003 increase in customer concentration was due
+    primarily to our acquisition of Advanced Circuits, which has a small number of large customers."
+  - **TTM today.** FY2025: "approximately $2.9 billion in net sales", "approximately 18,200
+    employees worldwide", "24 specialized facilities in North America and Asia", "approximately
+    1,300 customers", and "long-term relationships exceeding ten years with our ten largest
+    customers". Reportable segments are A&D, Commercial and RF&S Components — **by end market and
+    product, never by lead time or order size.**
+- **DERIVED (arithmetic written out):**
+  - **The one inference available.** Between 2002 and 2003 TTM's quick-turn share of gross sales
+    fell 45% → 27%, a fall of 18 pp, while its top-five OEM concentration rose 25.9% → 51.6%, a
+    rise of 25.7 pp and a ratio of 1.99×, and its customer count *rose* from about 565 to about
+    600. **Customer count and customer concentration moved in opposite directions**, exactly as
+    PCB-5 found in the Chinese peer set: a longer customer list does not mean less buyer power.
+  - Nothing else can be derived. **TTM has never published revenue, cost, gross profit or gross
+    margin split by lead time or by order size in any of the 29 10-Ks that mention quick-turn**, so
+    no decomposition of the kind done for JLC, Qiangda, Jinbaize or Xunjiexing is possible.
+- **Bears on:**
+  - **H6 (supports, qualitatively, and this is the only non-Chinese company in the file that says
+    anything at all).** A US-listed manufacturer with $2.9bn of sales has told the SEC for
+    twenty-five consecutive years that it charges a premium for short lead times. It is an
+    assertion about price, not a measured margin, and it is made by a company with an interest in
+    sounding differentiated — but it has survived a quarter-century of auditors, lawyers and
+    securities-fraud exposure, and it matches what the Chinese filings measure.
+  - **The capital argument (supports, and this is the single most transferable sentence in the
+    file).** Three companies on two continents, filing under two different disclosure regimes,
+    independently say the same thing: a quick-turn business deliberately holds spare capacity, and
+    that is what the premium pays for. TTM's version is the most explicit about the cost —
+    "if these orders are not made, we may forego some production and could experience excess
+    capacity… our gross margins will fall." **The idle capacity is the product and it is also the
+    risk.** That is the trade foundry.api is proposing, written as a risk factor by a company that
+    has lived it since 1999.
+  - **H7 (supports, weakly).** One event, one company: buying a standard-lead-time business doubled
+    top-five concentration while adding customers.
+  - **H6 (challenges, on the evidence base).** **TTM does not publish the number.** It has the data
+    — it schedules by lead time, prices by lead time and used to report the revenue share by lead
+    time — and it discloses none of the margin. Worse, the revenue share it did once disclose has
+    disappeared from the filings. Outside China, the cut this file is built on is not published at
+    all, by anybody found so far.
+  - **The comparison that matters (context).** Chinese listing review produced four margin tables
+    (PCB-7, PCB-8, PCB-11 and SMB-1/JLC). Twenty-five years of US disclosure produced a sentence.
+    That is not because the American business is different; it is because the American disclosure
+    regime does not ask.
+- **Used in:** not yet.
+- **Caveats:**
+  - **A price premium is not a margin.** TTM says it charges more for speed; it does not say the
+    quick-turn work is more profitable, and a 24-hour turnaround plainly costs more to run. Nothing
+    here quantifies the gap. PCB-6 recorded the same limitation for OSH Park's price list.
+  - **TTM in 2025 is not TTM in 2000.** It is now mostly an aerospace-and-defence systems business;
+    PCB fabrication is one part of it and quick-turn PCB a part of that. The 2000 and 2003
+    statements describe a company whose whole strategy was time-to-market. They should not be read
+    as describing today's TTM.
+  - **The "at less than full capacity" sentence in the FY2025 10-K was only partially captured**,
+    and this entry quotes it as a fragment for that reason. Anyone citing it should re-read the
+    full sentence in the filing.
+  - **The 403 on `www.sec.gov` is recorded as an access note, not a block:** the documents are
+    public, free and load instantly in an ordinary browser. It is a `curl` problem.
+  - The 2002 and 2003 top-ten concentration figures are given in the FY2003 10-K as "approximately
+    42%" and "approximately 64%" and are reproduced with that qualifier.
