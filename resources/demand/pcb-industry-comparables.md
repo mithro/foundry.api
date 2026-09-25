@@ -1831,3 +1831,229 @@ recipe already recorded in [`search-log.md`](search-log.md).
     and neither picked 深南电路 Shennan, 沪电股份 WUS, 景旺电子 Kinwong or 胜宏科技 Victory Giant.
   - Mingyang's figures are FY2014–2017 H1 and Chongda's FY2013–2016 Q1. Neither is current.
   - All translations are ours; the Chinese is quoted exactly so a reader can check them.
+
+### PCB-11. The Shanghai exchange ordered Xunjiexing to break out margin by order size for FY2025, and it did — sample boards are 23.37% of revenue and **83.50% of gross profit**; revenue grew 42.47% while gross profit fell 15.37%, because the growth was all large batch
+
+- **Source:** 深圳市迅捷兴科技股份有限公司 (Shenzhen Xunjiexing Technology Co., Ltd., SSE STAR
+  Market **688655**), 关于对上海证券交易所 2025 年年度报告的信息披露监管问询函回复的公告
+  ("Announcement on the reply to the Shanghai Stock Exchange's regulatory enquiry letter on the
+  disclosure in the 2025 annual report"), 公告编号 2026-032, dated 2026-05-12, via cninfo:
+  <http://static.cninfo.com.cn/finalpage/2026-05-12/1225292252.PDF>
+  The enquiry letter it answers is 《关于深圳市迅捷兴科技股份有限公司 2025 年年度报告的信息披露监管问询函》（上证科创公函【2026】0114 号）
+  — "Regulatory enquiry letter on the disclosure in the 2025 annual report of Shenzhen Xunjiexing
+  Technology Co., Ltd." (document number left as printed). A separate 立信会计师事务所（特殊普通合伙）
+  (BDO China Shu Lun Pan Certified Public Accountants LLP) verification opinion was filed the same
+  day at `finalpage/2026-05-12/1225292253.PDF`; it was **not** downloaded (37 MB) and nothing here
+  depends on it.
+- **Verification:** Verified 2026-09-25. Downloaded from cninfo (HTTP 200, 407,033 bytes,
+  50 pages), text extracted with `pypdf`. **This document gives revenue *and cost* per segment, so
+  the gross-profit decomposition is read directly rather than reconstructed** — and every printed
+  margin, share and total reproduces from the revenue and cost figures exactly, to the last printed
+  digit, in both years (see DERIVED).
+- **What it says:**
+  - **This is the review-enquiry mechanism working exactly as the earlier verdict in this file
+    guessed it might.** The exchange's question, quoted from PDF p.1:
+    "（2）**区分样板、小批量板和大批量板，补充说明相关收入、成本、毛利率、营收占比及变动情况**，结合不同业务模式，分析公司营业收入增长与技术人员变动趋势不一致的原因；"
+    — "(2) **Distinguishing sample boards, small-batch boards and large-batch boards,
+    supplementarily explain the relevant revenue, cost, gross margin, share of revenue, and their
+    changes**; and, in the light of the different business models, analyse why the Company's revenue
+    growth and the trend in its technical headcount are inconsistent." (Our translation; emphasis
+    ours.) A stock exchange asked a listed PCB company to print the margin split by order size, and
+    it printed it. That is the same causal route that produced JLC's p.245 table and Qiangda's
+    p.289 table, but here it happened to a company that was **already listed**, against an annual
+    report, which the earlier verdict in this file did not think was available.
+  - **The table** (PDF p.7), headed "(一) 区分样板、小批量板和大批量板，补充说明相关收入、成本、毛利率、营收占比及变动情况" —
+    "(1) Distinguishing sample boards, small-batch boards and large-batch boards, supplementary
+    explanation of the relevant revenue, cost, gross margin, share of revenue and their changes".
+    Amounts 万元:
+
+    | 项目 (item) | 2025 收入 (revenue) | 收入占比 (share) | 成本 (cost) | 毛利率 (GM) | 2024 收入 | 收入占比 | 成本 | 毛利率 | 收入变动 (rev. change) | 毛利率变动 (GM change) |
+    |---|---|---|---|---|---|---|---|---|---|---|
+    | 样板 (sample boards) | 15,065.76 | 23.37% | 10,482.37 | **30.42%** | 12,994.88 | 28.72% | 8,173.85 | **37.10%** | +15.94% | −6.68 pp |
+    | 小批量板 (small-batch boards) | 25,043.60 | 38.85% | 24,382.09 | **2.64%** | 18,565.71 | 41.03% | 17,339.27 | **6.61%** | +34.89% | −3.97 pp |
+    | 大批量板 (large-batch boards) | 24,351.51 | 37.78% | 24,107.28 | **1.00%** | 13,685.70 | 30.25% | 13,247.30 | **3.20%** | +77.93% | −2.20 pp |
+    | 合计 (total) | 64,460.87 | 100.00% | 58,971.74 | **8.52%** | 45,246.29 | 100.00% | 38,760.42 | **14.33%** | +42.47% | −5.81 pp |
+
+    with the company's explanation: "报告期公司主营业务收入增长 42.47%，主要源自大批量板收入增加，增幅达 77.93%。大批量板销售增加主要系公司提供从样板向批量板生产一站式服务模式延伸，样板及小批量板客户产品定型后的批量生产需求增加，同时信丰厂大批量板产能顺利爬升，扩大市场接单能力"
+    — "In the reporting period the Company's main-business revenue grew 42.47%, mainly from the
+    increase in large-batch board revenue, which rose 77.93%. The increase in large-batch board
+    sales was mainly because the Company extended its one-stop service model from sample boards
+    through to batch production; demand for volume production rose after sample-board and
+    small-batch-board customers' products were settled; and at the same time the Xinfeng plant's
+    large-batch capacity ramped up smoothly, widening its capacity to take market orders." (Our
+    translation.)
+  - **Average selling price and unit cost, by segment** (PDF pp.7–9), in 元/㎡ (CNY per square
+    metre). Each segment gets its own table with the cost broken into 直接材料 / 直接人工 /
+    制造费用 / 其他 — "direct materials / direct labour / manufacturing overhead / other (processing
+    and freight)":
+
+    | | 样板 (sample) 2025 | 2024 | 小批量板 (small) 2025 | 2024 | 大批量板 (large) 2025 | 2024 |
+    |---|---|---|---|---|---|---|
+    | 销售均价 (average selling price, CNY/m²) | **1,619.17** | 1,808.96 | 890.63 | 903.05 | **658.86** | 651.32 |
+    | 单位成本 (unit cost, CNY/m²) | 1,126.58 | 1,137.85 | 867.11 | 843.39 | 652.25 | 630.46 |
+    | 其中 直接材料 (of which direct materials) | 560.06 | 560.93 | 485.77 | 431.50 | 381.41 | 346.17 |
+    | 直接人工 (direct labour) | 195.90 | 193.76 | 99.60 | 106.06 | 74.41 | 70.13 |
+    | 制造费用 (manufacturing overhead) | 301.34 | 302.11 | 246.67 | 271.29 | 174.46 | 195.04 |
+    | 其他 (other: processing and freight) | 69.28 | 81.05 | 35.07 | 34.54 | 21.97 | 19.12 |
+    | 毛利率 (gross margin) | 30.42% | 37.10% | 2.64% | 6.61% | 1.00% | 3.20% |
+
+  - **"增收不增利"** (PDF p.2) — the company's own four-character summary, "revenue up but profit
+    not up". The full sentence: "2025 年公司主营业务收入同比增长 42.47%，但整体毛利率由 14.33%下滑至 8.52%，呈现'增收不增利'特征。"
+    — "In 2025 the Company's main-business revenue grew 42.47% year on year, but the overall gross
+    margin slid from 14.33% to 8.52%, showing the characteristic of 'revenue up, profit not up'."
+    (Our translation.) And the cause, same page: "①公司收入增长主要来源于**传统中低端市场批量订单**，使得公司销售价格较上年下降 6.62%"
+    — "(1) The Company's revenue growth came mainly from **batch orders in the traditional
+    mid- and low-end market**, so the Company's selling price fell 6.62% against the previous year."
+    (Our translation; emphasis ours.) Reported net loss attributable to the parent for FY2025 is
+    亏损 2,237.90万元 — a loss of CNY 22.379 million, "较去年同期增亏" ("a wider loss than the same
+    period last year").
+  - **Four named-but-anonymised customers, a third of revenue, at a negative gross margin**
+    (PDF p.6). Introduced by "2025 年公司平均售价为 866.60 元，低于平均售价的订单主要客户情况如下"
+    — "The Company's average selling price in 2025 was CNY 866.60 [per m²]; the main customers whose
+    orders were below the average price are as follows" (our translation). Amounts 万元:
+
+    | 序号 | 客户名称 (customer) | 2025 收入 | 2025 成本 | 2025 毛利率 | 2024 收入 | 2024 成本 | 2024 毛利率 |
+    |---|---|---|---|---|---|---|---|
+    | 1 | 客户C (Customer C) | 8,111.57 | 9,477.24 | **−16.84%** | 4,226.89 | 4,487.05 | −6.15% |
+    | 2 | 客户A (Customer A) | 6,799.46 | 7,861.54 | **−15.62%** | 4,801.74 | 5,489.95 | −14.33% |
+    | 3 | 客户F (Customer F) | 3,283.55 | 3,220.57 | 1.92% | 2,122.39 | 1,878.16 | 11.51% |
+    | 4 | 客户J (Customer J) | 2,449.96 | 2,410.54 | 1.61% | 1,538.68 | 1,580.84 | −2.74% |
+    | | 合计 (total) | 20,644.54 | 22,969.89 | **−11.26%** | 12,689.70 | 13,436.00 | −5.88% |
+
+    "公司主要低价订单客户集中在安防领域。" — "The Company's main low-price-order customers are
+    concentrated in the security/surveillance field." (Our translation.) The 安防 (security)
+    application area is 24.76% of FY2025 revenue at a gross margin of **−14.33%** (PDF p.2), the
+    worst of the eight application areas disclosed, and it grew 61.16%.
+  - **Top-5 customer concentration, computed separately inside each order-size segment**
+    (PDF pp.10–11). The reply lists each segment's five largest customers with the year the
+    relationship started, registered capital and amount; the subtotals are:
+
+    | | 样板 (sample) | 小批量板 (small batch) | 大批量板 (large batch) |
+    |---|---|---|---|
+    | 2025 top-5 share of that segment | **37.88%** | 42.22% | **45.54%** |
+    | 2024 top-5 share of that segment | 40.97% | 40.36% | **51.75%** |
+
+    The same three customers — 客户A, 客户B, 客户C — appear in the top five of all three segments,
+    and 客户C alone is 16.53% of large-batch revenue in 2025.
+  - **The layer-count cut, printed in the same document, for the same two years** (PDF p.5), which
+    matters because it is the confound PCB-7's caveats flagged:
+
+    | 项目 | 2025 收入 (万元) | 占比 | 毛利率 | 2024 收入 | 占比 | 毛利率 |
+    |---|---|---|---|---|---|---|
+    | 八层以上 (more than eight layers) | 13,447.93 | 20.86% | **29.86%** | 8,228.93 | 18.19% | **35.66%** |
+    | 八层以下 (fewer than eight layers) | 51,012.94 | 79.14% | **2.89%** | 37,017.36 | 81.81% | **9.59%** |
+    | 合计 | 64,460.87 | 100.00% | 8.52% | 45,246.29 | 100.00% | 14.33% |
+
+  - **Capacity and the new plant** (PDF p.3): overall capacity utilisation **41.55%**; the Zhuhai
+    plant, commissioned in 2025, earned a gross margin of **−44.45%** on revenue of 4,121.55万元
+    against cost of 5,953.76万元; excluding Zhuhai the company's margin would have been 12.13%
+    rather than 8.52%. New fixed cost at Zhuhai in 2025: 固定资产折旧 933.89万元 (fixed-asset
+    depreciation) plus 间接生产人员薪酬 364.37万元 (indirect production staff pay) = 1,298.26万元.
+  - **And it is opening an online shop** (PDF p.6): "为助力更多个性化样板订单导入，发挥样板批量化模式优势，公司 PCB 网上商城已于 2026 年 1 月上线，开启线上销售模式，尚处于推广阶段。"
+    — "To help bring in more individual sample-board orders and bring out the advantage of the
+    sample-board batching model, the Company's PCB online shop went live in January 2026, opening an
+    online sales model; it is still at the promotion stage." (Our translation.) That updates PCB-3,
+    which recorded the launch date.
+- **DERIVED (arithmetic written out):** computed by `tmp/xjx_check.py` (throwaway, not committed).
+  - **Check A — the printed table reproduces from revenue and cost, exactly.** FY2025:
+    15,065.76 + 25,043.60 + 24,351.51 = 64,460.87万元, the printed total; 10,482.37 + 24,382.09 +
+    24,107.28 = 58,971.74万元, the printed total cost; (15,065.76 − 10,482.37) ÷ 15,065.76 =
+    **30.42%**, the printed sample margin; (24,351.51 − 24,107.28) ÷ 24,351.51 = **1.00%**, the
+    printed large-batch margin; (64,460.87 − 58,971.74) ÷ 64,460.87 = **8.52%**, the printed
+    blended margin. Every cell in both years reproduces. **Unlike PCB-7 and PCB-8, no
+    reconstruction is needed: the cost column is printed.**
+  - **Gross profit by segment, read directly:**
+
+    | | 样板 (sample) | 小批量板 (small) | 大批量板 (large) | total |
+    |---|---|---|---|---|
+    | FY2025 gross profit (万元) | 4,583.39 | 661.51 | 244.23 | 5,489.13 |
+    | FY2025 share of gross profit | **83.50%** | 12.05% | 4.45% | 100% |
+    | FY2025 share of revenue | 23.37% | 38.85% | 37.78% | 100% |
+    | FY2024 gross profit (万元) | 4,821.03 | 1,226.44 | 438.40 | 6,485.87 |
+    | FY2024 share of gross profit | **74.33%** | 18.91% | 6.76% | 100% |
+    | FY2024 share of revenue | 28.72% | 41.03% | 30.25% | 100% |
+
+    样板 + 小批量板 = **95.55%** of gross profit in FY2025 and 93.24% in FY2024. Worked for 2025:
+    4,583.39 ÷ 5,489.13 = 83.50%.
+  - **The single most striking number in this pass.** Revenue 45,246.29 → 64,460.87万元 =
+    **+42.47%**. Gross profit 6,485.87 → 5,489.13万元 = **−15.37%**. Growing revenue by 42% by
+    selling large batch destroyed a sixth of the company's gross profit. Broken out:
+
+    | Segment | revenue change | gross profit change |
+    |---|---|---|
+    | 样板 (sample) | +15.94% | −4.93% |
+    | 小批量板 (small batch) | +34.89% | **−46.06%** |
+    | 大批量板 (large batch) | **+77.93%** | **−44.29%** |
+
+    Nearly doubling large-batch revenue *reduced* large-batch gross profit by 44%.
+  - **Price and margin ratios.** FY2025: 1,619.17 ÷ 658.86 = **2.46×** on price per m²; 30.42 ÷
+    1.00 = **30.4×** on margin. FY2024: 2.78× and 11.6×.
+  - **Concentration by segment.** Rising strictly with order size in 2025 (37.88 < 42.22 < 45.54);
+    in 2024 sample and small batch are within 0.61 pp of each other (40.97 and 40.36) so the
+    ordering is **not** strictly monotonic, but large batch is 10.78 pp above sample in 2024 and
+    7.66 pp above in 2025. **Reported honestly: the pattern holds at the ends, not at every step.**
+  - **Order size is not the same cut as layer count, and this document proves it.** Reconstructing
+    gross profit from the layer table: FY2024, 8+ layers is 18.19% of revenue at 35.66% =
+    **45.25%** of gross profit, against the order-size table's 74.33% for sample boards. The two
+    cuts give very different answers in 2024 and similar ones in 2025 (73.15% against 83.50%).
+    Reconstructed totals: 6,484.40万元 and 5,489.83万元 against the order-size table's 6,485.87
+    and 5,489.13 — agreement to within 0.02%, so both tables describe the same gross profit.
+    **This is the first direct evidence in this file that the order-size effect is not simply the
+    layer-count effect wearing a different label.** It does not disentangle them — there is no
+    cross-tabulation — but it rules out their being identical.
+  - **The loss-making customers in context.** 20,644.54万元 ÷ 64,460.87万元 = **32.03%** of
+    main-business revenue was sold at a combined gross margin of −11.26%, a gross loss of
+    2,325.35万元 — against total company gross profit of 5,489.13万元. Take those four customers
+    away and the remaining 67.97% of revenue would have produced 7,814.48万元 of gross profit at a
+    17.86% margin. (That is a counterfactual and a crude one — those customers absorb fixed cost —
+    but the arithmetic is: 5,489.13 + 2,325.35 = 7,814.48; 7,814.48 ÷ (64,460.87 − 20,644.54) =
+    17.83%, and the 0.03 pp difference from 17.86% is rounding in the printed inputs.)
+  - **The Zhuhai plant reconciles.** 4,121.55 + 60,339.32 = 64,460.87万元 and 5,953.76 + 53,017.98
+    = 58,971.74万元, both the printed totals; (4,121.55 − 5,953.76) ÷ 4,121.55 = −44.45%, printed.
+- **Bears on:**
+  - **H6 (supports, and this is now the single best entry in the file).** A fourth company, a
+    fourth independent document, the same direction — and the only one where the exchange itself
+    demanded the cut, the cost column is printed so nothing has to be reconstructed, and the data
+    are FY2025. Sample boards are 23.37% of revenue and 83.50% of gross profit.
+  - **H6 (supports, in the most direct form available anywhere in this repository).** Xunjiexing
+    ran the experiment the other way round. It grew, it grew by selling large batch, and its gross
+    profit fell 15.37% and its net result went further into loss. This is not a cross-section
+    comparing a tail seller with a volume seller; it is one company moving from the tail towards
+    volume and being made worse off, in consecutive audited years, with the arithmetic printed at
+    the exchange's insistence.
+  - **H7 (supports).** Top-5 concentration inside the large-batch segment is 45.54% against 37.88%
+    inside the sample segment (FY2025), and 51.75% against 40.97% (FY2024). Two named customers
+    together took 14,911.03万元 of revenue at roughly −16% gross margin. That is buyer power with
+    a number on it.
+  - **H6 (challenges, and this is the important one).** **A long tail is not sufficient.**
+    Xunjiexing has served "over ten thousand enterprises" (PCB-1), is a declared sample-board
+    specialist, has the second-highest sample-board margin in this file at 30.42% — and is losing
+    money, because 76.63% of its revenue sits in two tiers earning 2.64% and 1.00%. Having a
+    profitable tail does not save a company that funds a big-batch business out of it. Anyone
+    reading the 83.50% figure as good news should read the 8.52% blended margin and the CNY 22.4m
+    net loss beside it.
+  - **The capital argument (mixed, and instructive).** The company's 41.55% utilisation and its
+    new plant's −44.45% margin show what an unfilled fab costs. But the plant was built for, and
+    filled with, low-margin security-market batch work, which is precisely the choice the
+    repository's thesis argues against. The filing describes the ramp as the cause of the loss;
+    the mix is at least as much of it.
+- **Used in:** not yet.
+- **Caveats:**
+  - **Xunjiexing does not print its order-area thresholds in this document.** Qiangda's peer table
+    (PCB-10) records Xunjiexing's order-area split for 2020, so a definition exists somewhere in
+    its IPO prospectus, which was **not** retrieved (the STAR-market IPO filings did not come back
+    under a cninfo `column=sse` category search; see the blocked list). Without the thresholds,
+    this table's tiers cannot be assumed identical to Qiangda's 5/50 m² or Jinbaize's 5/20 m².
+  - **This is a reply to an enquiry letter, not an audited financial statement.** The board
+    certifies it, and the auditor filed a verification opinion the same day which we did not read.
+    The figures tie exactly to the FY2025 annual report's headline revenue (68,913.22万元 total,
+    64,460.87万元 main business) and margin (8.52%), both of which PCB-3 already verified
+    independently from the annual report.
+  - **The customers are anonymised** as 客户A through 客户P. Registered capital is given for most
+    of them, which would identify several to a determined reader, but we have not attempted it and
+    no name should be inferred.
+  - **The segment margins are heavily contaminated by the Zhuhai ramp in 2025.** Zhuhai made mostly
+    security-market product, which is batch work, so the collapse in the small- and large-batch
+    margins is partly a start-up cost and not a steady-state price. The FY2024 column is the
+    cleaner one, and it still shows 37.10% against 3.20%.
+  - All translations are ours; the Chinese is quoted exactly so a reader can check them.
