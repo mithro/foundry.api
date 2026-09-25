@@ -879,3 +879,32 @@ written down.
    **CIME-P**, an activity of Grenoble INP, and Europractice names it as such in its 2025 report.
 8. **`FUND-4`'s blocked-list line "The EU Financial Transparency System — Not queried"** is now
    "queried and blocked": it is a Qlik dashboard.
+
+### 16.6 Gateway to Research, added after the rest of §16 was written
+
+`gtr.ukri.org/api/` is UKRI's public register of every grant it funds, and it answers in clean JSON
+to `curl` with an `Accept: application/json` header. Two searches produced `FUNDX-8`:
+
+- `…/api/search/project?term=Europractice&page=1&fetchSize=25` → **2 hits**, one of them the UK's
+  share of RETICLES: **£2,406,051** from the **Horizon Europe Guarantee** to STFC Laboratories,
+  2022-09-30 → 2025-09-29. **This closes `FUND-1`'s open question**, which reads "the UK's own
+  spending on its share of Europractice in 2022–2025 is not in CORDIS at all … not established
+  here."
+- `…/api/search/project?term=CORNERSTONE` and `…?term="multi-project wafer"` → the four EPSRC grants
+  behind **CORNERSTONE**, the UK's silicon-photonics MPW foundry at Southampton and Glasgow:
+  **£17,096,839** in total, 2014–2029, with the current grant (C-PIC, EP/Z531066/1, £11,782,397)
+  running at **6.02×** the annual rate of the first. An entire national MPW programme that is absent
+  from this directory.
+
+**The lesson, and it is the most useful thing in §16.** `FUND-4`'s "€87.0 million" counts *EU
+contributions*. It is not the public money behind Europractice. The UK's £2.4m was one HTTP request
+away in a national register and does not appear in CORDIS at all. **Belgium (FRIS), Germany
+(Förderkatalog), France (ANR, CNRS, Grenoble INP) and Ireland (Research Ireland) have equivalent
+registers and none of them has been searched.** That is the single highest-value piece of
+unfinished work left by this task.
+
+Also noted and not pursued: `nserc-crsng.gc.ca/ase-oro/` now redirects to
+`nserc-crsng.canada.ca/en/awards-database`, a form-driven search over every NSERC award since 1991.
+It was not queried — the site's search is a form, and this session submitted no forms anywhere. A
+human could pull CMC's whole NSERC grant history out of it in a few minutes, which would fill the
+1991–2019 gap between `FUND-7`'s 2007/08 snapshot and `FUNDX-1`'s audited series.

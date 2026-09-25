@@ -825,6 +825,133 @@ give them.
   - The €13.9m ODE4EC pair had not started when this was written (both begin 2026-06-01). They are
     awarded, not spent.
 
+### FUNDX-8. The UK's national money, from a register `FUND-1` did not use: £2,406,051 of British public money paid for the UK's share of RETICLES, and a second UK MPW service has taken £17.1 million
+
+- **Sources:** UK Research and Innovation, *Gateway to Research* — the public register of every UKRI
+  grant, read through its JSON API (`gtr.ukri.org/api/…`), data last refreshed 2026-07-06 per the
+  API's own `lastRefreshDate`:
+  - RETICLES (UK share), GtR project 10065357:
+    <https://gtr.ukri.org/api/projects?ref=10065357>
+  - CORNERSTONE, EPSRC EP/L021129/1: <https://gtr.ukri.org/api/projects?ref=EP%2FL021129%2F1>
+  - CORNERSTONE 2, EPSRC EP/T019697/1: <https://gtr.ukri.org/api/projects?ref=EP%2FT019697%2F1>
+  - CORNERSTONE 2.5, EPSRC EP/W035995/1: <https://gtr.ukri.org/api/projects?ref=EP%2FW035995%2F1>
+  - CORNERSTONE Photonics Innovation Centre (C-PIC), EPSRC EP/Z531066/1:
+    <https://gtr.ukri.org/api/projects?ref=EP%2FZ531066%2F1>
+- **Verification:** Verified 2026-09-25. Every figure is a field from the GtR API's JSON
+  (`fund.valuePounds`, `fund.start`, `fund.end`, `fund.funder.name`, `leadResearchOrganisation`),
+  fetched with `curl` and an `Accept: application/json` header. Quotes are from the records'
+  `abstractText`.
+- **How it was counted:** `https://gtr.ukri.org/api/search/project?term=<term>&page=1&fetchSize=40`
+  with `Accept: application/json` returns a clean JSON result set. Three searches were run:
+  `Europractice` (2 hits), `"multi-project wafer"` (6 hits) and `CORNERSTONE` (415 hits, of which 4
+  are the silicon-photonics programme; the rest match the ordinary English word). Each hit's project
+  record was then fetched by its `ref`.
+- **What it says:**
+  - **`FUND-1`'s open question is closed.** `FUND-1` records that under RETICLES, UKRI appears with
+    a Net EU contribution of **€0,00** and a Total cost of "No data", and concludes: "the UK's own
+    spending on its share of Europractice in 2022–2025 is not in CORDIS at all. It was funded
+    nationally and is **not established here**." It is established now. Gateway to Research carries
+    the project, with STFC - Laboratories as lead organisation, under the title "Research,
+    Entrepreneurship, Training, IP-exchange & Chip pLatform of EUROPRACTICE Services (RETICLES)",
+    grant category **"EU-Funded"**, status Closed, with:
+    - **£ 2 406 051**, funder **"Horizon Europe Guarantee"**, type `INCOME_ACTUAL`,
+      **2022-09-30 → 2025-09-29**.
+
+    The Horizon Europe Guarantee is the UK Treasury's domestic underwrite for UK participants in
+    Horizon Europe during the period when the UK was not associated. So the Brexit gap `FUND-1`
+    spotted in CORDIS ("The UK is in, out, and back in") did not mean the UK stopped paying; it
+    meant the UK paid itself, out of its own budget, and the payment is in a British register rather
+    than a European one.
+  - **A second, entirely separate UK national MPW service exists, and is not in this directory.**
+    CORNERSTONE, at the University of Southampton with the University of Glasgow, is a silicon
+    photonics rapid-prototyping foundry offering access by multi-project wafer. From CORNERSTONE
+    2.5's abstract, verbatim: "the fabrication of silicon photonics devices, circuits and systems
+    requires large scale investments and capital equipment such as cleanrooms, lithography, etching
+    equipment etc. Based at the Universities of Southampton and Glasgow, CORNERSTONE 2.5 will
+    provide world-leading fabrication capability to silicon photonics researchers and the wider
+    science community. … **Access will be facilitated via a multi-project-wafer (MPW) mechanism
+    whereby multiple users' designs will be fabricat[ed]**". Its four grants:
+
+    | Grant reference | Title | Funder | Amount | Period |
+    |---|---|---|---:|---|
+    | EP/L021129/1 | CORNERSTONE: Capability for OptoelectRoNics, mEtamateRialS, nanoTechnOlogy aNd sEnsing | EPSRC | £ 2 267 121 | 2014-09-14 → 2020-06-29 |
+    | EP/T019697/1 | CORNERSTONE 2 | EPSRC | £ 1 494 157 | 2020-03-01 → 2023-02-28 |
+    | EP/W035995/1 | CORNERSTONE 2.5 | EPSRC | £ 1 553 164 | 2022-12-02 → 2025-06-01 |
+    | EP/Z531066/1 | **CORNERSTONE Photonics Innovation Centre (C-PIC)** | EPSRC | **£ 11 782 397** | 2024-05-31 → 2029-05-30 |
+
+    C-PIC's abstract states the problem in the same terms every other programme in this directory
+    does: "**access to silicon prototyping facilities remains a challenge in the UK due to the high
+    cost of both equipment and the cleanroom facilities that are required to house the equipment**".
+    Its hosts are "University of Southampton, University of Glasgow and the Science and Technologies
+    Facilities Council (STFC), together with **105 partners at proposal stage**", and it is
+    "underpinned by the C-PIC silicon photonics prototyping foundry".
+  - **STFC is in both.** The same research council laboratory that runs the Europractice
+    design-tools and membership office at Rutherford Appleton is a named host of C-PIC.
+  - The only other UK grants matching "multi-project wafer" are a £4 574 888 EPSRC Quantum
+    Technology Capital award to Bristol (2016–2019), a £1 999 999 compound-semiconductor equipment
+    award to Cardiff (2017–2018), and an £89 912 Innovate UK feasibility study to **Pragmatic
+    Semiconductor**, "FlexiFab - an Open Foundry for Flexible Electronics Ecosystem"
+    (2023-06-30 → 2023-11-30) — Pragmatic being one of the foundries in Europractice's own 2025
+    portfolio (`FUNDX-5`).
+- **DERIVED (arithmetic written out):**
+  - **The UK's rate on RETICLES:** £ 2 406 051 ÷ 3.0 years = **£ 802 017 a year**. For comparison,
+    under the preceding grant NEXTS, CORDIS gives UKRI **€ 2 090 000** over 3.75 years =
+    € 557 333 a year of EU money, and under Europractice 2.0 it gives UKRI **€ 3 602 261,25** over
+    3 years = € 1 200 754 a year. **Currencies are not converted here** — the point is that the UK
+    line did not lapse, it changed currency and payer.
+  - **`FUND-4`'s €87.0 million is missing this.** The eleven-grant total in `FUND-4` counts only EU
+    contributions. Adding the UK's own RETICLES contribution gives **€ 87 023 980 + £ 2 406 051**,
+    which cannot be stated as one number without inventing an exchange rate and is therefore left as
+    two. What can be said is that the public money behind Europractice is **larger than `FUND-4`
+    records**, by at least this amount, and by whatever EUROCHIP and EUROPRACTICE IC3 were worth
+    (`FUNDX-4`).
+  - **CORNERSTONE's total and its acceleration.** 2 267 121 + 1 494 157 + 1 553 164 + 11 782 397 =
+    **£ 17 096 839** across 2014-09-14 → 2029-05-30. By annual rate:
+    - CORNERSTONE: £ 2 267 121 ÷ 5.79 yr = **£ 391 559 / yr**
+    - CORNERSTONE 2: £ 1 494 157 ÷ 3.00 yr = **£ 498 052 / yr**
+    - CORNERSTONE 2.5: £ 1 553 164 ÷ 2.50 yr = **£ 621 266 / yr**
+    - C-PIC: £ 11 782 397 ÷ 5.00 yr = **£ 2 356 479 / yr**
+
+    The current rate is **6.02×** the first grant's (2 356 479 ÷ 391 559).
+  - **The same shape as everywhere else in this file.** Europractice's EU rate rose 2.60× from
+    2016–18 to 2025–28 (`FUND-1`). CMC's expenditure rose 3.08× from 2018 to FY2026 (`FUNDX-6`). The
+    Chips JU has committed €1.23bn where the KDT JU committed a fraction of it (`FUNDX-7`). And the
+    UK's silicon-photonics MPW service has gone up 6.02×. **Public money for prototyping access is
+    rising steeply everywhere, on every continent checked, at the same time as Europractice's design
+    count falls from 985 (2021) to 753 (2025) (`DEM-16`).**
+- **Bears on:**
+  - **H6 (challenges).** A second national MPW service, in a country that already pays into
+    Europractice, is taking **£2.36 million a year** and rising, with no published price list, no
+    published design count and no published revenue found. The subsidised-MPW population is larger
+    than `FUND-1` … `FUND-9` counted, and every member of it is growing.
+  - **H5 (challenges).** £17.1 million over fifteen years for UK silicon-photonics prototyping, and
+    the C-PIC bid needed "105 partners at proposal stage" to justify it. That is a lot of
+    institutional machinery around an access problem, and it is the same access problem Europractice
+    was set up to solve in 1989.
+  - **H6 (context, and a caution about `FUND-4`).** Counting EU contributions is not counting public
+    money. The UK's £2.4m was invisible to CORDIS and visible in a British register that takes one
+    HTTP request. **Every other member state has an equivalent register and none of them has been
+    searched** — see the blocked list. `FUND-4`'s €87.0 million should be read as "the EU
+    contribution", never as "what Europractice cost the public".
+- **Used in:** not yet.
+- **Caveats:**
+  - **Gateway to Research reports awarded value, not spend.** `fund.type` is `INCOME_ACTUAL`, which
+    is UKRI's term for the award as recorded, not an outturn.
+  - **C-PIC is not only a foundry.** £11.78m buys an innovation centre — a knowledge hub, funded
+    innovation projects, commercialisation support — "underpinned by" a prototyping foundry.
+    Treating all of it as MPW money would be wrong, exactly as treating all of Europractice's grant
+    as fabrication money would be (`FUND-2`).
+  - **No design count, price list or revenue figure for CORNERSTONE was looked for or found.** It is
+    recorded here as a funding line only. Somebody should write it up properly; it is the nearest
+    UK analogue to Europractice's prototyping half and it is entirely absent from this directory.
+  - The Horizon Europe Guarantee record gives no breakdown by work package or partner, and no cost
+    statement. It is one number.
+  - GtR's `lastRefreshDate` was 2026-07-06, so grants awarded in the last three months may be
+    missing.
+  - The `CORNERSTONE` search returns 415 hits because the word is ordinary English. Only the four
+    Southampton grants above are the programme; the rest were read and discarded.
+
+
 ---
 
 ## 1. Head-count and payroll: what is public, and what is not
@@ -891,12 +1018,23 @@ Only instruments **not already in `FUND-4`'s table or `FUND-7`** appear here. Cu
 | **CMC — Research Support Fund (RSF)** | CMC | CAD $542 972 (FY22), $245 971 (FY23), nil after | to 2023 | indirect costs | `FUNDX-1` |
 | **CMC — ISED "FABrIC" / SIF Stream 5, agreement 819430** | Canadian Microelectronics Corporation | **CAD $120 000 000** | 2024-06-11 → 2031-12-31 | "75-100% of costs", per the auditors' economic-dependence note. CAD $23 774 747 recognised in the first three years | `FUNDX-2` |
 | **CMC — provincial contribution (unnamed)** | CMC | CAD $107 231 (FY25), $35 608 (FY26) | — | — | `FUNDX-1` |
+| **RETICLES, UK share — Horizon Europe Guarantee** | STFC Laboratories | **£ 2 406 051** | 2022-09-30 → 2025-09-29 | the UK's part of Europractice while the UK was unassociated. **Invisible to CORDIS**, which shows UKRI at € 0,00 | `FUNDX-8` |
+| **CORNERSTONE + CORNERSTONE 2 + 2.5 + C-PIC** (EPSRC) | Universities of Southampton and Glasgow, with STFC | **£ 17 096 839** | 2014-09-14 → 2029-05-30 | a second, separate UK national silicon-photonics MPW foundry and innovation centre | `FUNDX-8` |
 
-**Three totals worth carrying away.** `FUND-4` puts the EU's traceable Europractice money at
-**€87 023 980** over 1995–2028; `FUNDX-4` shows that figure is a **floor**, because EUROCHIP
-(1989–1995) and EUROPRACTICE IC3 (to 2008) are real and unpriced. Over the same window the same
-funder has committed **€1.23 billion** to the Chips JU, of which the brokerage is 1%. And Canada has
-committed **CAD $120 million** to one organisation with roughly fifty employees.
+**Four totals worth carrying away.** `FUND-4` puts the EU's traceable Europractice money at
+**€87 023 980** over 1995–2028; `FUNDX-4` and `FUNDX-8` show that figure is a **floor** three times
+over, because EUROCHIP (1989–1995) and EUROPRACTICE IC3 (to 2008) are real and unpriced, and because
+the UK's own **£2 406 051** for RETICLES never touched the EU budget. Over the same window the same
+funder has committed **€1.23 billion** to the Chips JU, of which the brokerage is 1%. Canada has
+committed **CAD $120 million** to one organisation with roughly fifty employees. And the UK, which
+already pays into Europractice, has separately put **£17 096 839** into a second national MPW
+foundry.
+
+**A methodological warning that follows from `FUNDX-8`.** Counting EU contributions is not counting
+public money. The UK's RETICLES money took one HTTP request to a British register and is invisible
+in CORDIS. Belgium, Germany, France and Ireland all have equivalent registers and **none of them has
+been searched**. Every figure in this file and in `programme-funding.md` that is described as a
+total should be read as *the part of the total that the European Commission paid*.
 
 ## 3. Cost per design, recomputed
 
@@ -955,6 +1093,7 @@ quoted as unit costs.
 | **CMC head-count, any year after 2018** | Not published in any annual report or financial statement read (five statements, five annual reports). The staff page names **13** people. A commercial data vendor puts it at 86 for 2026; that is a LinkedIn-derived estimate, not a filing, and is **not used** anywhere in this file. | The denominator for every per-person figure here. | CMC's own statement, or the notes to a future audit. |
 | **The split between technical and administrative staff, anywhere** | Not published by CMC, Europractice, any Europractice partner, or MOSIS. The only administrative figure in the whole record is Europractice's "€100 to administer the membership" per member per year. | The core of the automation question. | Nothing public. This is a genuine hole. |
 | **Chips Act competence centres** | Not in CORDIS: a scan of all 23 451 Horizon Europe projects for "competence cent(re\|er)" returns nine hits, none of them a Chips Act competence centre. They are set up nationally with joint Chips JU and member-state money. | The national co-funding shares the brief asked about. | The Chips JU site in a browser, and then twenty-odd national agencies' registers. |
-| **Belgian, German, Dutch and UK national grant registers** | **Not reached.** Time went into the Canadian register (which produced `FUNDX-2`) and the CORDIS bulk exports instead. | National co-funding of the Europractice partners. | Gateway to Research (UK), Förderkatalog (Germany), FRIS (Flanders), NWO (Netherlands). All are public and searchable. |
+| **Belgian, German, French, Irish and Dutch national grant registers** | **Not reached.** The **UK** register *was* reached and produced `FUNDX-8` — £2.4m of UK money for RETICLES that CORDIS does not show, and £17.1m for a second UK MPW service. The others were not searched; time went to the Canadian register and the CORDIS bulk exports. | National co-funding of the Europractice partners, which `FUNDX-8` shows can be a material fraction of a grant and completely absent from CORDIS. | Förderkatalog (Germany), FRIS (Flanders), ANR and the Grenoble INP/CNRS accounts (France), Research Ireland (Ireland), NWO (Netherlands). All are public and searchable, and **Gateway to Research's JSON API took one request** — this is the highest-value unfinished work in the file. |
+| **CORNERSTONE's design counts, prices and revenue** | **Not looked for.** `FUNDX-8` establishes the funding only. | Whether the UK's second MPW service has the same economics as Europractice's. | `cornerstone.sotonfab.co.uk` and the grants' own final reports. |
 | **Kingston Whig-Standard archive** | `thewhig.com/?s=CMC+Microsystems` returns a page with no matching articles. The two useful local stories came from CBC Ottawa and Global News Kingston instead. | Local coverage of CMC's 2018 crisis and of its site. | The Whig's own archive, or a library database. |
 | **`cbc.ca`** | Returns **HTTP 403** to `WebFetch`. Serves `curl` normally with an ordinary browser User-Agent. | Nothing — worked around. | Recorded so nobody gives up on CBC. |
